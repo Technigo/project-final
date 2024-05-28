@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Anti-polution Lipbalm",
+    "brand": "Elisa Vazoccini",
+    "category": "face",
+    "subcategory": "lips",
+    "description": "Nourishing lip balm that moisturizes your lips and protects them from pollution.",
+    "price": "59kr",
+    "allergies": {
+      "lanolin": true,
+      "paraben": false,
+      "phthalate": false,
+      "sulphate": false
+    },
+    "pros": {
+      "organic": true,
+      "vegan": true,
+      "cruelty-free": true
+    },
+    "recommended-for": {
+      "hair": {
+        "frizzy": false,
+        "oily": false,
+        "dry": false,
+        "straight": false,
+        "curly": false
+      },
+      "skin": {
+        "dry": false,
+        "oily": false,
+        "combination": false,
+        "sensitive": false,
+        "acne": false
+      }
+    },
+    "instructions": "Apply a small amount to your lips as needed.",
+    "review": "4.0",
+    "size": "20g",
+    "image": "we'll add a url later"
+  }
+]
