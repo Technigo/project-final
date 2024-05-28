@@ -1,8 +1,13 @@
 import express from "express";
 import cors from "cors";
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
+import dotenv from "dotenv"
+import expressListEndpoints from "express-list-endpoints"
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/flowershop"
+//.env
+dotenv.config()
+
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-solar-system"
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
 
