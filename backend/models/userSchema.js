@@ -4,25 +4,6 @@ import mongoose from "../config/glimdatabase";
 
 const { Schema, model } = mongoose;
 
-const adressSchema = new Schema({
-  street: {
-    type: String,
-    required: true,
-  },
-  streetnumber: {
-    type: Number,
-    required: false,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  postalCode: {
-    type: String,
-    required: true,
-  },
-});
-
 const userSchema = new Schema({
   firstname: {
     type: String,
@@ -45,7 +26,24 @@ const userSchema = new Schema({
       "Please provide a valid email address",
     ],
   },
-  adress: adressSchema,
+  adress: {
+    street: {
+      type: String,
+      required: true,
+    },
+    streetnumber: {
+      type: Number,
+      required: false,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    postalCode: {
+      type: String,
+      required: true,
+    },
+  },
   password: {
     type: String,
     required: true,
@@ -64,6 +62,36 @@ const userSchema = new Schema({
   accessToken: {
     type: String,
     default: () => bcrypt.genSaltSync(),
+  },
+  //Stuff the user can choose in the profile and will get recommendations for
+  allergies: {
+    fragrances: Boolean,
+    preservatives: Boolean,
+    dyes: Boolean,
+    metals: Boolean,
+    latex: Boolean,
+    parabens: Boolean,
+  },
+  pros: {
+    organic: Boolean,
+    vegan: Boolean,
+    crueltyfree: Boolean,
+  },
+  recommendedfor: {
+    hair: {
+      frizzy: Boolean,
+      oily: Boolean,
+      dry: Boolean,
+      straight: Boolean,
+      curly: Boolean,
+    },
+    skin: {
+      dry: Boolean,
+      oily: Boolean,
+      combination: Boolean,
+      sensitive: Boolean,
+      acne: Boolean,
+    },
   },
 });
 
