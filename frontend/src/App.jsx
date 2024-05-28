@@ -4,6 +4,7 @@ import { SignUpPage } from "./components/SignUpPage";
 import { EventsPage } from "./components/EventsPage";
 import { AboutUsPage } from "./components/AboutUsPage";
 import { CommunityGuidelines } from "./components/CommunityGuidelines";
+import { SupportWall } from "./components/SupportWall";
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
         <Route path="/signup-seeker" element={<SignUpPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/about" element={<SupportWall />} />
         <Route path="/community-guidelines" element={<CommunityGuidelines />} />
       </Routes>
     </Router>
