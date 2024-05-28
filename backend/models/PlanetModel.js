@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import planetsData from "../data/planets.json";
+
 
 const { Schema } = mongoose;
 
