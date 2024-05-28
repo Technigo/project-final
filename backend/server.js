@@ -6,8 +6,6 @@ const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/flowershop"
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
 
-
-
 // Defines the port the app will run on.
 const port = process.env.PORT || 8080;
 const app = express();
