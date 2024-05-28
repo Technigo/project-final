@@ -1,0 +1,133 @@
+{
+    "Mercury": {
+      "Moons": 0,
+      "Asteroids": "None known in its orbit",
+      "Material": "Rock and metal",
+      "SurfaceTemperature": {
+        "Night": "-173°C",
+        "Day": "427°C"
+      },
+      "WeatherClimate": "No atmosphere, extreme temperature fluctuations",
+      "TravelTime": "Approximately 39-48 million miles from Earth; about 3 months with current technology",
+      "Curiosa": [
+        "Mercury is the closest planet to the Sun, with an average distance of about 58 million kilometers (36 million miles).",
+        "It experiences the most extreme temperature fluctuations in the solar system, ranging from -173°C (-280°F) at night to 427°C (800°F) during the day.",
+        "It has the shortest orbit around the Sun, taking only 88 Earth days to complete one revolution.",
+        "Mercury has a very thin atmosphere, known as an exosphere, made up of atoms blasted off its surface by solar wind and meteoroid impacts."
+      ]
+    },
+    "Venus": {
+      "Moons": 0,
+      "Asteroids": "None known in its orbit",
+      "Material": "Silicate rock and metals",
+      "SurfaceTemperature": "467°C",
+      "WeatherClimate": "Thick clouds of sulfuric acid, surface pressure 92 times that of Earth, frequent lightning and acid rain",
+      "TravelTime": "Approximately 38-261 million miles from Earth; about 3-4 months with current technology",
+      "Curiosa": [
+        "Venus is the hottest planet in our solar system, with surface temperatures averaging around 462°C (864°F) due to its thick, toxic atmosphere.",
+        "It is often called Earth's twin because it is similar in size, density, and composition.",
+        "Venus rotates very slowly and in the opposite direction to most planets, meaning the Sun rises in the west and sets in the east, indicating a retrograde rotation."
+      ]
+    },
+    "Earth": {
+      "Moons": 1,
+      "Asteroids": "No known asteroids in stable orbit around Earth",
+      "Material": "Rock and metal",
+      "SurfaceTemperature": "15°C",
+      "WeatherClimate": "Diverse climates ranging from polar to tropical",
+      "TravelTime": "N/A (we live here!)",
+      "Curiosa": [
+        "Earth is the only planet known to support life and has liquid water on its surface.",
+        "About 71% of Earth's surface is covered with water.",
+        "Earth's atmosphere is composed of five main layers, which protect us from space debris and harmful solar radiation."
+      ]
+    },
+    "Mars": {
+      "Moons": 2,
+      "Asteroids": "Some captured Trojan asteroids",
+      "Material": "Iron oxide (rust) and silicate rock",
+      "SurfaceTemperature": {
+        "Winter": "-125°C",
+        "Summer": "20°C"
+      },
+      "WeatherClimate": "Thin atmosphere, frequent dust storms, cold desert-like climate",
+      "TravelTime": "Approximately 55-400 million miles from Earth; about 6-9 months with current technology",
+      "Curiosa": [
+        "Mars is often called the Red Planet because of its reddish appearance, which is due to iron oxide (rust) on its surface.",
+        "It is home to the largest volcano in the solar system, Olympus Mons, which is about 13.6 miles (22 kilometers) high.",
+        "Mars has two small moons, Phobos and Deimos, which are thought to be captured asteroids.",
+        "It has a canyon system, Valles Marineris, that is over 4,000 km long."
+      ]
+    },
+    "Jupiter": {
+      "Moons": 92,
+      "Asteroids": "Numerous Trojan asteroids sharing its orbit",
+      "Material": "Hydrogen and helium, with a possible rocky core",
+      "SurfaceTemperature": "-145°C at cloud tops",
+      "WeatherClimate": "Great Red Spot (a giant storm), bands of clouds, strong winds",
+      "TravelTime": "Approximately 365-601 million miles from Earth; about 1-2 years with current technology",
+      "Curiosa": [
+        "Jupiter is the largest planet in our solar system, with a diameter of about 143,000 kilometers (89,000 miles).",
+        "It has a giant storm called the Great Red Spot, which is larger than Earth and has been raging for at least 400 years.",
+        "Jupiter has at least 79 moons, including the four largest called the Galilean moons: Io, Europa, Ganymede, and Callisto.",
+        "It has the strongest magnetic field in the solar system."
+      ]
+    },
+    "Saturn": {
+      "Moons": 83,
+      "Asteroids": "Some Trojan asteroids",
+      "Material": "Hydrogen and helium",
+      "SurfaceTemperature": "-178°C at cloud tops",
+      "WeatherClimate": "Extensive ring system, strong winds and storms",
+      "TravelTime": "Approximately 746-1.6 billion miles from Earth; about 3-6 years with current technology",
+      "Curiosa": [
+        "Saturn is famous for its stunning ring system, which is made up of ice and rock particles.",
+        "It is the least dense planet; it could float in water if there were a body of water large enough.",
+        "Saturn's largest moon, Titan, has a thick atmosphere and lakes of liquid methane and ethane.",
+        "Saturn's rings are made mostly of ice particles, rocky debris, and dust."
+      ]
+    },
+    "Uranus": {
+      "Moons": 27,
+      "Asteroids": "None known in its orbit",
+      "Material": "Hydrogen, helium, and ices (water, ammonia, methane)",
+      "SurfaceTemperature": "-224°C",
+      "WeatherClimate": "Very cold, thick atmosphere, rotates at a tilted axis, extreme seasonal variations",
+      "TravelTime": "Approximately 1.6-3.2 billion miles from Earth; about 8.5 years with current technology",
+      "Curiosa": [
+        "Uranus rotates on its side, making its rotation axis nearly parallel to its orbit.",
+        "It has the coldest atmosphere of any planet, with temperatures dropping as low as -224°C (-371°F).",
+        "Its blue-green color is due to methane in its atmosphere, which absorbs red light."
+      ]
+    },
+    "Neptune": {
+      "Moons": 14,
+      "Asteroids": "Some known Neptune Trojans",
+      "Material": "Hydrogen, helium, and ices (water, ammonia, methane)",
+      "SurfaceTemperature": "-214°C",
+      "WeatherClimate": "Strong winds, storms, Great Dark Spot",
+      "TravelTime": "Approximately 2.7-4.3 billion miles from Earth; about 12 years with current technology",
+      "Curiosa": [
+        "Neptune has the strongest winds in the solar system, with speeds reaching up to 2,100 kilometers per hour (1,300 miles per hour).",
+        "Similar to Jupiter's Great Red Spot, Neptune has a giant storm called the Great Dark Spot.",
+        "Neptune's largest moon, Triton, has geysers that spew nitrogen gas and is one of the coldest places in the solar system.",
+        "Neptune emits more heat than it receives from the Sun."
+      ]
+    },
+    "Pluto": {
+      "Moons": 5,
+      "Asteroids": "None known in its orbit",
+      "Material": "Rock and ice",
+      "SurfaceTemperature": {
+        "Range": "-240°C to -218°C"
+      },
+      "WeatherClimate": "Very thin atmosphere, surface made of nitrogen ice with possible seasonal nitrogen snow",
+      "TravelTime": "Approximately 2.7-4.7 billion miles from Earth; about 9-12 years with current technology",
+      "Curiosa": [
+        "Pluto has a heart-shaped glacier named Tombaugh Regio and is part of the Kuiper Belt.",
+        "It is classified as a dwarf planet in the Kuiper Belt.",
+        "Pluto has an elliptical orbit that takes it closer to the Sun than Neptune at times.",
+        "NASA's New Horizons mission provided the first close-up images of Pluto in 2015."
+      ]
+    }
+  }
