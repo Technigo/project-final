@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
+
 const { Schema } = mongoose;
 
 const planetSchema = new Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  nickname: {
     type: String,
     required: true,
   },
@@ -41,5 +46,17 @@ const planetSchema = new Schema({
 
 //The model (based entirely on all entries in the planetSchema)
 const PlanetModel = mongoose.model("PlanetModel", planetSchema);
+
+//Seed the database
+if (process.env.RESET_DATABASE) {
+  const seedDatabase = async () => {
+    await PlanetModel.deleteMany();
+
+    planetsData.forEach((planet) => {
+      new PlanetModel(planet).save();
+    });
+  };
+  seedDatabase();
+}
 
 export default PlanetModel;
