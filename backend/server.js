@@ -6,7 +6,7 @@ import expressListEndpoints from "express-list-endpoints"
 import PlanetModel from "./models/PlanetModel"
 import SpaceFeed from "./models/SpaceFeedModel"
 import SpaceFeedModel from "./models/SpaceFeedModel"
-import SpaceData from "./data/SpaceFeed.json"
+import spaceData from "./data/SpaceFeed.json"
 import PlanetModel from "./models/PlanetModel"
 import planetsData from "./data/Planets.json"
 
@@ -18,28 +18,25 @@ const mongoUrl =
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
 
-//Seed the SpaceFeed database
-if (process.env.RESET_DATABASE) {
-  const seedDatabase = async () => {
-    await SpaceFeedModel.deleteMany()
+//Seed database
+const seedDatabase = async () => {
+  await SpaceFeedModel.deleteMany();
+  await PlanetModel.deleteMany();
 
-    SpaceData.forEach((feed) => {
-      new SpaceFeedModel(feed).save()
-    })
-  }
-  seedDatabase()
-}
+  spaceData.forEach(async (feed) => {
+    await new SpaceFeedModel(feed).save();
+  });
 
-//Seed the Planets database
-if (process.env.RESET_DATABASE) {
-  const seedDatabase = async () => {
-    await PlanetModel.deleteMany();
+  planetsData.forEach(async (planet) => {
+    await new PlanetModel(planet).save();
+  });
+};
 
-    planetsData.forEach((planet) => {
-      new PlanetModel(planet).save();
-    });
-  };
-  seedDatabase();
+if (process.env.RESET_DATABASE === "true") {
+  seedDatabase().then(() => {
+  }).catch((error) => {
+    console.error("Error seeding the database:", error)
+  });
 }
 
 // Defines the port the app will run on.
