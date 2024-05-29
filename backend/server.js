@@ -7,6 +7,8 @@ import PlanetModel from "./models/PlanetModel"
 import SpaceFeed from "./models/SpaceFeedModel"
 import SpaceFeedModel from "./models/SpaceFeedModel"
 import SpaceData from "./data/SpaceFeed.json"
+import PlanetModel from "./models/PlanetModel"
+import planetsData from "./data/Planets.json"
 
 //Load environment variables
 dotenv.config()
@@ -26,6 +28,18 @@ if (process.env.RESET_DATABASE) {
     })
   }
   seedDatabase()
+}
+
+//Seed the Planets database
+if (process.env.RESET_DATABASE) {
+  const seedDatabase = async () => {
+    await PlanetModel.deleteMany();
+
+    planetsData.forEach((planet) => {
+      new PlanetModel(planet).save();
+    });
+  };
+  seedDatabase();
 }
 
 // Defines the port the app will run on.
