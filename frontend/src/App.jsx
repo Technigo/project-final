@@ -1,19 +1,12 @@
-import Navbar from "./components/Navbar";
-import Header from "./sections/homePage/Header";
-import IntroSection from "./sections/homePage/IntroSection";
-import AccountSection from "./sections/homePage/AccountSection";
-import SeeRentalsButton from "./sections/homePage/SeeRentalsButton";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
 
 export const App = () => {
   return (
-    <div className="app">
-      <Navbar />
-      <Header />
-      <IntroSection />
-      <AccountSection />
-      <SeeRentalsButton />
-      <Footer />
-    </div>
+    <Router>
+      <div className="app">
+        <AppRoutes />
+      </div>
+    </Router>
   );
 };
