@@ -21,6 +21,10 @@
 
 .navListItems {
   margin: 5px;
+}
+
+.navLink {
+  text-decoration: none;
   color: var(--light-color);
 }
 
