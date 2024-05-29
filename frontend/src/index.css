@@ -1,15 +1,15 @@
 :root {
   font-family: "Montserrat";
-  ---big-font: "Bebas Neue";
+  --big-font: "Bebas Neue";
 
-  ---dark-color: #001c13;
-  ---dark-button-color: #2c463e;
-  ---dark-button-hover-color: #859995;
-  ---profile-color: #6f847f;
+  --dark-color: #001c13;
+  --dark-button-color: #2c463e;
+  --dark-button-hover-color: #859995;
+  --profile-color: #6f847f;
 
-  ---light-color: #fffaf6;
-  ---light-button-color: #dde7e6;
-  ---light-button-color-hover: #c7d7d6;
+  --light-color: #fffaf6;
+  --light-button-color: #dde7e6;
+  --light-button-color-hover: #c7d7d6;
 }
 
 body {

@@ -1,10 +1,13 @@
 .navbar {
   display: flex;
   padding: 26px;
-  background-color: var(---dark-color);
-  opacity: 40%;
+  background-color: var(--dark-color);
+  opacity: 0.4;
   width: 100%;
   align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1000;
 }
 
 .navList {
@@ -17,8 +20,8 @@
 }
 
 .navListItems {
-  margin: 10px;
-  color: var(---light-color);
+  margin: 5px;
+  color: var(--light-color);
 }
 
 @media (min-width: 745px) {
