@@ -3,6 +3,7 @@ import Header from "./sections/homePage/Header";
 import IntroSection from "./sections/homePage/IntroSection";
 import AccountSection from "./sections/homePage/AccountSection";
 import SeeRentalsButton from "./sections/homePage/SeeRentalsButton";
+import Footer from "./components/Footer";
 
 export const App = () => {
   return (
@@ -12,6 +13,7 @@ export const App = () => {
       <IntroSection />
       <AccountSection />
       <SeeRentalsButton />
+      <Footer />
     </div>
   );
 };

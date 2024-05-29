@@ -25,8 +25,8 @@
 }
 
 @media (min-width: 745px) {
-  .logoImage {
-    width: 70px;
+  .logoIcon {
+    height: 70px;
   }
 
   .navbar {
@@ -38,7 +38,7 @@
   }
 
   .navListItems {
-    margin: 0 32px;
+    margin: 0 24px;
   }
 }
 
