@@ -4,10 +4,8 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import expressListEndpoints from "express-list-endpoints"
 import PlanetModel from "./models/PlanetModel"
-import SpaceFeed from "./models/SpaceFeedModel"
 import SpaceFeedModel from "./models/SpaceFeedModel"
 import spaceData from "./data/SpaceFeed.json"
-import PlanetModel from "./models/PlanetModel"
 import planetsData from "./data/Planets.json"
 
 //Load environment variables
