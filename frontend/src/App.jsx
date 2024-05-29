@@ -5,12 +5,14 @@ import { EventsPage } from "./components/EventsPage";
 import { AboutUsPage } from "./components/AboutUsPage";
 import { CommunityGuidelines } from "./components/CommunityGuidelines";
 import { SupportWall } from "./components/SupportWall";
+import { FindOutMorePage } from "./components/FindOutMorePage";
 
 export const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/find-out-more" element={<FindOutMorePage />} />
         <Route path="/signup-listener" element={<SignUpPage />} />
         <Route path="/signup-seeker" element={<SignUpPage />} />
         <Route path="/events" element={<EventsPage />} />
