@@ -1,5 +1,10 @@
-import React from "react"
+import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
 export const NotFound = () => {
-  return <div>NotFound</div>
+  return (
+    <div>
+      <ToHomepageBtn />
+<h4>404 not found</h4>
+    </div>
+  )
 }
