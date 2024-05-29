@@ -15,6 +15,4 @@ const userSchema = new Schema({
   accessToken: { type: String, default: () => bcrypt.genSaltSync() },
 });
 
-const User = model("User", userSchema);
-
-export default User;
+export const User = model("User", userSchema);
