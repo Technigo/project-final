@@ -1,7 +1,7 @@
-import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
+import express from "express";
 import expressListEndpoints from "express-list-endpoints";
+import mongoose from "mongoose";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Cones&Stones";
 mongoose.connect(mongoUrl);
@@ -106,15 +106,17 @@ app.get("/products", async (req, res) => {
     } else {
       res.status(404).json({
         success: false,
-        response: error,
-        message: "No products found",
+        error: {
+          message: "No products found",
+        },
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      response: error,
-      message: "Internal server error",
+      error: {
+        message: "Internal server error",
+      },
     });
   }
 });
@@ -134,15 +136,17 @@ app.get("/products/:productId", async (req, res) => {
     } else {
       res.status(404).json({
         success: false,
-        response: error,
-        message: "Product not found",
+        error: {
+          message: "Product not found",
+        },
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      response: error,
-      message: "Internal server error",
+      error: {
+        message: "Internal server error",
+      },
     });
   }
 });
@@ -156,8 +160,9 @@ app.get("/products/category/:category", async (req, res) => {
   if (!validCategories.includes(category)) {
     return res.status(400).json({
       success: false,
-      response: error,
-      message: "Invalid category",
+      error: {
+        message: "Invalid category",
+      },
     });
   }
 
@@ -172,30 +177,33 @@ app.get("/products/category/:category", async (req, res) => {
     } else {
       res.status(404).json({
         success: false,
-        response: error,
-        message: "No products found in this category",
+        error: {
+          message: "No products found in this category",
+        },
       });
     }
   } catch (error) {
     res.status(500).json({
       success: false,
-      response: error,
-      message: "Internal server error",
+      error: {
+        message: "Internal server error",
+      },
     });
   }
 });
 
 // GET a single product within a category by id
 // http://localhost:8080/products/category/:category/productId
-app.get("products/category/:category/:productId", async (req, res) => {
+app.get("/products/category/:category/:productId", async (req, res) => {
   const { category, productId } = req.params;
   const validCategories = ["bottoms", "tops", "dresses", "accessories"];
 
   if (!validCategories.includes(category)) {
     return res.status(400).json({
       success: false,
-      response: error,
-      message: "Invalid category",
+      error: {
+        message: "Invalid category",
+      },
     });
   }
 
@@ -204,8 +212,9 @@ app.get("products/category/:category/:productId", async (req, res) => {
     if (!product || product.category !== category) {
       return res.status(404).json({
         success: false,
-        response: error,
-        message: "Product not found in specified category",
+        error: {
+          message: "Product not found in specified category",
+        },
       });
     }
     return res.status(200).json({
@@ -216,8 +225,9 @@ app.get("products/category/:category/:productId", async (req, res) => {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      response: error,
-      message: "Internal server error",
+      error: {
+        message: "Internal server error",
+      },
     });
   }
 });
