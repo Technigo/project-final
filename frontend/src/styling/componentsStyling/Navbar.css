@@ -1,1 +1,49 @@
+.navbar {
+  display: flex;
+  padding: 26px;
+  background-color: var(---dark-color);
+  opacity: 40%;
+  width: 100%;
+  align-items: center;
+}
 
+.navList {
+  font-size: 18px;
+  font-weight: bold;
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navListItems {
+  margin: 10px;
+  color: var(---light-color);
+}
+
+@media (min-width: 745px) {
+  .logoImage {
+    width: 70px;
+  }
+
+  .navbar {
+    padding: 51px;
+  }
+
+  .navList {
+    font-size: 32px;
+  }
+
+  .navListItems {
+    margin: 0 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 51px 62px;
+  }
+  .navListItems {
+    margin: 0 52px;
+  }
+}

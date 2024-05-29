@@ -11,3 +11,7 @@
   ---light-button-color: #dde7e6;
   ---light-button-color-hover: #c7d7d6;
 }
+
+body {
+  margin: 0;
+}

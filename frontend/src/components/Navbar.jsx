@@ -10,11 +10,6 @@ const Navbar = () => {
         <li className="navListItems">FAQ</li>
         <li className="navListItems">Profile</li>
       </ul>
-      <img
-        className="AccountIcon"
-        src="/icons/AccountIcon.png"
-        alt="Account Icon"
-      />
     </nav>
   );
 };
