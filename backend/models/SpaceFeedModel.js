@@ -23,5 +23,4 @@ const spaceFeedSchema = new Schema({
 //Model
 const SpaceFeed = model("SpaceFeed", spaceFeedSchema)
 
-
 export default SpaceFeed
