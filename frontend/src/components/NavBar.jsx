@@ -3,8 +3,8 @@ export const NavBar = () => {
     <>
       <nav>
         <ul>
-          <button>Register</button>
-          <button>Login</button>
+          <a>Register</a>
+          <a>Login</a>
         </ul>
       </nav>
     </>

@@ -3,9 +3,9 @@ export const Footer = () => {
     <>
       <div>
         <ul>
-          <il>About MuSeek</il>
+          <a>About MuSeek</a>
 
-          <il>Contact us</il>
+          <a>Contact us</a>
         </ul>
       </div>
       <div>

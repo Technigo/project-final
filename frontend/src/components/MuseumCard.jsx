@@ -1,6 +1,3 @@
-export const MuseumCard = () => {
-  const showMuseums = () => {
-    return museumList.map((name, location, website) => {});
-  };
-  return <div>{showMuseums}</div>;
+export const MuseumCard = ({ museum }) => {
+  return <div>{museum.name}</div>;
 };
