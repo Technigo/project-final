@@ -26,7 +26,7 @@ const userSchema = new Schema({
       "Please provide a valid email address",
     ],
   },
-  adress: {
+  address: {
     street: {
       type: String,
       required: true,
