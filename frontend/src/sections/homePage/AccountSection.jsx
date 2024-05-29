@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../../styling/sectionsStyling/homePage/AccountSection.css";
 
 const AccountSection = () => {
@@ -19,9 +20,13 @@ const AccountSection = () => {
           />
           <div className="loginWrapper">
             <p className="accountText">Have an account already?</p>
-            <button className="loginButton">Log in</button>
+            <Link to="/login">
+              <button className="loginButton">Log in</button>
+            </Link>
             <p className="accountText">Or you can create one here:</p>
-            <button className="createAccountButton">Create Account</button>
+            <Link to="/register">
+              <button className="createAccountButton">Create Account</button>
+            </Link>
           </div>
         </div>
       </div>

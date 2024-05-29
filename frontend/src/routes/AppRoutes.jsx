@@ -5,6 +5,8 @@ import HomePage from "../sections/homePage/HomePage";
 import RentalPage from "../sections/rentalPage/RentalPage";
 import FaqPage from "../sections/faqPage/FaqPage";
 import ProfilePage from "../sections/profilePage/ProfilePage";
+import LoginPage from "../sections/loginPage/LoginPage";
+import RegisterPage from "../sections/registerPage/RegisterPage";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +17,9 @@ const AppRoutes = () => {
         <Route path="/rentals" element={<RentalPage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </>
