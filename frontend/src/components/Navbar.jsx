@@ -1,8 +1,9 @@
+import "../styling/componentsStyling/Navbar.css";
+
 const Navbar = () => {
   return (
     <nav className="navbar">
       <img className="logoImage" src="/icons/LogoIcon.png" alt="Logo Icon" />
-      <div className="logo">Palma Renting</div>
       <ul className="navList">
         <li className="navListItems">Home</li>
         <li className="navListItems">Rentals</li>
