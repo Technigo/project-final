@@ -1,15 +1,20 @@
-import { BrowserRouter } from "react-router-dom";
-import { PlanetRoutes } from "./routes/PlanetRoutes";
-import { Calculator } from "./components/Calculator";
+// import { BrowserRouter } from "react-router-dom";
+// import { PlanetRoutes } from "./routes/PlanetRoutes";
+// import { Calculator } from "./components/Calculator";
+
+import { PlanetCards } from "./components/PlanetCards";
 
 
 export const App = () => {
   return (
     <>
-      <Calculator/>
-      <BrowserRouter>
-      <PlanetRoutes />
-      </BrowserRouter>
+    <PlanetCards/>
+
     </>
   );
 };
+
+{/* <Calculator/>
+<BrowserRouter>
+<PlanetRoutes />
+</BrowserRouter> */}
