@@ -24,6 +24,10 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  details: {
+    type: String,
+    required: true,
+  },
   image_url: {
     type: String,
     required: true,
@@ -79,6 +83,18 @@ app.get("/", (req, res) => {
 // http://localhost:8080/products
 app.get("/products", async (req, res) => {
   try {
+    // Possibility to filter on color and/or size
+    const { color, size } = req.query;
+    let filter = {};
+
+    if (color) {
+      filter.color = color;
+    }
+
+    if (size) {
+      filter["stock.size"] = size;
+    }
+
     const products = await Product.find();
 
     if (products.length > 0) {
