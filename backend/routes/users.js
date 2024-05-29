@@ -1,6 +1,7 @@
 import express from "express";
 
-import User from "../models/userSchema";
+import { User } from "../models/userSchema";
+import { authenticateUser } from "../middlewares/authenticateUser";
 
 const router = express.Router();
 
@@ -87,4 +88,40 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email: email });
+
+    if (user) {
+      const isPasswordCorrect = await bcrypt.compare(password, user.password);
+      if (isPasswordCorrect) {
+        res.status(202).json({
+          message: `You are logged in ${user.firstname}.`,
+          id: user._id,
+          accessToken: user.accessToken,
+        });
+      } else {
+        res.status(401).json({ message: "This password is incorrect." });
+      }
+    } else {
+      res.status(404).json({
+        message:
+          "We didn't find an account with that email. Please check your spelling.",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "Somethings wrong with the sign in. Please try again later.",
+    });
+  }
+});
+
+router.get("/profile", authenticateUser);
+router.get("/profile", (req, res) => {
+  res
+    .status(200)
+    .json({ message: "This is a test. We have to put the user profile here." });
+});
 export default router;
