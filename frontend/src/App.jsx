@@ -13,8 +13,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/find-out-more" element={<FindOutMorePage />} />
-        <Route path="/signup-listener" element={<SignUpPage />} />
-        <Route path="/signup-seeker" element={<SignUpPage />} />
+        <Route
+          path="/signup-listener"
+          element={<SignUpPage type="Listener" />}
+        />
+        <Route path="/signup-seeker" element={<SignUpPage type="Seeker" />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/about" element={<SupportWall />} />

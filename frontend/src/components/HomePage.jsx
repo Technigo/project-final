@@ -1,4 +1,4 @@
-import heroImage from "/hero-image.jpg";
+import heroImage from "/images/hero-image.jpg";
 import Menu from "../utilities/Menu";
 
 export const HomePage = () => {
