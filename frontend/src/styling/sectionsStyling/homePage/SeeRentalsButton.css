@@ -1,0 +1,32 @@
+.seeRentalsContainer {
+  width: 305px;
+  margin: 100px auto;
+}
+
+.seeRentalsButton {
+  width: 305px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--light-color);
+  background-color: var(--dark-button-color);
+  border-radius: 10px;
+  border: none;
+}
+
+@media (min-width: 745px) {
+  .seeRentalsContainer {
+    margin: 150px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .seeRentalsContainer {
+    margin: 200px auto;
+  }
+
+  .seeRentalsButton {
+    height: 60px;
+    font-size: 20px;
+  }
+}
