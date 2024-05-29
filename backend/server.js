@@ -5,6 +5,8 @@ import dotenv from "dotenv"
 import expressListEndpoints from "express-list-endpoints"
 import PlanetModel from "./models/PlanetModel"
 import SpaceFeed from "./models/SpaceFeedModel"
+import SpaceFeedModel from "./models/SpaceFeedModel"
+import SpaceData from "./data/SpaceFeed.json"
 
 //Load environment variables
 dotenv.config()
@@ -13,6 +15,18 @@ const mongoUrl =
   process.env.MONGO_URL || "mongodb://localhost/project-solar-system"
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
+
+//Seed the SpaceFeed database
+if (process.env.RESET_DATABASE) {
+  const seedDatabase = async () => {
+    await SpaceFeedModel.deleteMany()
+
+    SpaceData.forEach((feed) => {
+      new SpaceFeedModel(feed).save()
+    })
+  }
+  seedDatabase()
+}
 
 // Defines the port the app will run on.
 const port = process.env.PORT || 8080
