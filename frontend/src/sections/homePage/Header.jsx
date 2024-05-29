@@ -1,4 +1,4 @@
-import "../../styling/sectionsStyling/Header.css";
+import "../../styling/sectionsStyling/homePage/Header.css";
 
 const Header = () => {
   return (
