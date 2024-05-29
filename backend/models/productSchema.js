@@ -9,6 +9,7 @@ const productSchema = new Schema({
   subcategory: String,
   description: String,
   price: String,
+  //Talk about if we want boolean or an array and decide before we do the remote database
   allergies: {
     fragrances: Boolean,
     preservatives: Boolean,
