@@ -1,14 +1,12 @@
-
-
 export const NavBar = () => {
   return (
     <>
-    <nav>
+      <nav>
         <ul>
-            <li>Register</li>
-            <li>Login</li>
+          <button>Register</button>
+          <button>Login</button>
         </ul>
-    </nav>
+      </nav>
     </>
-  )
-}
+  );
+};
