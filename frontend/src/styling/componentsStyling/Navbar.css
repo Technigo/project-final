@@ -6,7 +6,7 @@
   width: 100%;
   align-items: center;
   box-sizing: border-box;
-  position: fixed;
+  position: sticky;
   z-index: 1000;
 }
 

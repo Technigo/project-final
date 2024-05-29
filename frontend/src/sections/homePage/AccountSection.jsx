@@ -17,7 +17,7 @@ const AccountSection = () => {
             className="accountImage"
             alt="Beach in Palma"
           />
-          <div className="loginContainer">
+          <div className="loginWrapper">
             <p className="accountText">Have an account already?</p>
             <button className="loginButton">Log in</button>
             <p className="accountText">Or you can create one here:</p>
