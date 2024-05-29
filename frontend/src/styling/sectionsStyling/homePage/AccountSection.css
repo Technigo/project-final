@@ -73,12 +73,13 @@
   }
 
   .contentWrapper {
-    display: flex;
     width: 520px;
+    flex-direction: row;
   }
 
   .accountImage {
     order: 1;
+    margin-top: 10px;
   }
 
   .accountText {
