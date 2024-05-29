@@ -47,16 +47,4 @@ const planetSchema = new Schema({
 //The model (based entirely on all entries in the planetSchema)
 const PlanetModel = mongoose.model("PlanetModel", planetSchema);
 
-//Seed the database
-if (process.env.RESET_DATABASE) {
-  const seedDatabase = async () => {
-    await PlanetModel.deleteMany();
-
-    planetsData.forEach((planet) => {
-      new PlanetModel(planet).save();
-    });
-  };
-  seedDatabase();
-}
-
 export default PlanetModel;
