@@ -24,14 +24,17 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
+  image_url: {
     type: String,
     required: true,
   },
-  sizes: {
-    type: [String], // Array of strings to handle sizes like "80/86", "90/96"
-    required: true,
-  },
+  stock: [
+    {
+      // ex. { "size": "80/86", "quantity": 10 }, { "size": "90/96", "quantity": 15 }
+      size: { type: String, required: true },
+      quantity: { type: Number, required: true },
+    },
+  ],
   color: {
     type: String,
     required: true,
@@ -39,10 +42,6 @@ const productSchema = new Schema({
   category: {
     type: String,
     enum: ["bottoms", "tops", "dresses", "accessories"], // Only allow specific categories
-    required: true,
-  },
-  quantity: {
-    type: Number,
     required: true,
   },
 });
@@ -134,42 +133,78 @@ app.get("/products/:productId", async (req, res) => {
 
 // GET products by category
 // http://localhost:8080/products/category/:category
-app.get("/products/category/:category"),
-  async (req, res) => {
-    const { category } = req.params;
-    const validCategories = ["bottoms", "tops", "dresses", "accessories"];
+app.get("/products/category/:category", async (req, res) => {
+  const { category } = req.params;
+  const validCategories = ["bottoms", "tops", "dresses", "accessories"];
 
-    if (!validCategories.includes(category)) {
-      return res.status(400).json({
+  if (!validCategories.includes(category)) {
+    return res.status(400).json({
+      success: false,
+      response: error,
+      message: "Invalid category",
+    });
+  }
+
+  try {
+    const productsByCategory = await Product.find({ category });
+    if (productsByCategory.length > 0) {
+      res.status(200).json({
+        success: true,
+        response: productsByCategory,
+        message: "Products retrieved successfully",
+      });
+    } else {
+      res.status(404).json({
         success: false,
         response: error,
-        message: "Invalid category",
+        message: "No products found in this category",
       });
     }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      response: error,
+      message: "Internal server error",
+    });
+  }
+});
 
-    try {
-      const productsByCategory = await Product.find({ category });
-      if (productsByCategory.length > 0) {
-        res.status(200).json({
-          success: true,
-          response: productsByCategory,
-          message: "Products retrieved successfully",
-        });
-      } else {
-        res.status(404).json({
-          success: false,
-          response: error,
-          message: "No products found in this category",
-        });
-      }
-    } catch (error) {
-      res.status(500).json({
+// GET a single product within a category by id
+// http://localhost:8080/products/category/:category/productId
+app.get("products/category/:category/:productId", async (req, res) => {
+  const { category, productId } = req.params;
+  const validCategories = ["bottoms", "tops", "dresses", "accessories"];
+
+  if (!validCategories.includes(category)) {
+    return res.status(400).json({
+      success: false,
+      response: error,
+      message: "Invalid category",
+    });
+  }
+
+  try {
+    const product = await Product.findById(productId);
+    if (!product || product.category !== category) {
+      return res.status(404).json({
         success: false,
         response: error,
-        message: "Internal server error",
+        message: "Product not found in specified category",
       });
     }
-  };
+    return res.status(200).json({
+      success: true,
+      response: product,
+      message: "Product retrieved successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      response: error,
+      message: "Internal server error",
+    });
+  }
+});
 
 // Start the server
 app.listen(port, () => {
