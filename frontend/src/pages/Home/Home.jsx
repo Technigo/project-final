@@ -1,20 +1,20 @@
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { Banner } from "../../sections/Banner/Banner";
-import { Categories } from "../../sections/Categories/Categories";
-import { CategoryIcons } from "../../sections/CategoryIcons/CategoryIcons";
+import { ProductCategories } from "../../sections/ProductCategories/ProductCategories";
+import { CategoryIcons } from "../../components/CategoryIcons/CategoryIcons";
 import { Hero } from "../../sections/Hero/Hero";
 import { ProductShowcase } from "../../sections/ProductShowcase/ProductShowcase";
-import "./HomePage.css";
+import "./Home.css";
 
-export const HomePage = () => {
+export const Home = () => {
   return (
     <div className="homepage">
       <Header />
       <Hero />
       <ProductShowcase />
       <CategoryIcons />
-      <Categories />
+      <ProductCategories />
       <Banner />
       <Footer />
     </div>
