@@ -2,19 +2,21 @@
 // import { PlanetRoutes } from "./routes/PlanetRoutes";
 // import { Calculator } from "./components/Calculator";
 
-import { PlanetCards } from "./components/PlanetCards";
-
+import { PlanetCards } from "./components/PlanetCards"
+import { SpaceFeed } from "./components/SpaceFeed"
 
 export const App = () => {
   return (
     <>
-    <PlanetCards/>
-
+      <PlanetCards />
+      <SpaceFeed />
     </>
-  );
-};
+  )
+}
 
-{/* <Calculator/>
+{
+  /* <Calculator/>
 <BrowserRouter>
 <PlanetRoutes />
-</BrowserRouter> */}
+</BrowserRouter> */
+}

@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import expressListEndpoints from "express-list-endpoints"
 import PlanetModel from "./models/PlanetModel"
-import SpaceFeedModel from "./models/SpaceFeedModel"
+import SpaceFeed from "./models/SpaceFeed"
 import spaceData from "./data/SpaceFeed.json"
 import planetsData from "./data/Planets.json"
 
@@ -18,11 +18,11 @@ mongoose.Promise = Promise
 
 //Seed database
 const seedDatabase = async () => {
-  await SpaceFeedModel.deleteMany();
+  await SpaceFeed.deleteMany();
   await PlanetModel.deleteMany();
 
   spaceData.forEach(async (feed) => {
-    await new SpaceFeedModel(feed).save();
+    await new SpaceFeed(feed).save();
   });
 
   planetsData.forEach(async (planet) => {
@@ -42,7 +42,12 @@ const port = process.env.PORT || 8080
 const app = express()
 
 // Middlewares to enable cors and json body parsing
-app.use(cors())
+app.use(cors({
+  origin: "https://project-final-45vw.onrender.com/space-feed", // Specify your frontend domain
+  methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+  credentials: true, // Allow sending cookies from the frontend
+}))
 app.use(express.json())
 
 // Route handler for the root

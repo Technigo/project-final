@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { useSpaceFeedStore } from "./stores/useSpaceFeedStore"
+import { useSpaceFeedStore } from "../stores/useSpaceFeedStore"
 
 export const SpaceFeed = () => {
   const {
-    SpaceFeed,
+    spaceFeed,
     fetchSpaceFeed,
     postSpaceMessage,
     likeSpaceMessage,
@@ -55,17 +55,21 @@ export const SpaceFeed = () => {
         </button>
       </form>
       {error && <p>{error.message}</p>}
-      <ul>
-        {SpaceFeed.map((message) => (
-          <li key={message._id}>
-            <p>{message.message}</p>
-            <button onClick={() => handleLike(message._id)}>
-              Like ({message.likes})
-            </button>
-          </li>
-        ))}
-      </ul>
       {loading && <p>Loading...</p>}
+      <ul>
+        {spaceFeed && spaceFeed.length > 0 ? (
+          spaceFeed.map((message) => (
+            <li key={message._id}>
+              <p>{message.message}</p>
+              <button onClick={() => handleLike(message._id)}>
+                Like ({message.likes})
+              </button>
+            </li>
+          ))
+        ) : (
+          <p>No messages to display</p>
+        )}
+      </ul>
     </div>
   )
 }
