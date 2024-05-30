@@ -8,9 +8,9 @@ export const MuseumCardContainer = () => {
   const showMore = () => setAmountToShow(amountToShow + 4)
 
   const showMuseums = () =>
-    museumList.slice(0, amountToShow).map((museum, index) => (
-      <Link to={`/${museum.id}`}>
-        <div key={index}>{museum.name}</div>
+    museumList.slice(0, amountToShow).map((museum) => (
+      <Link to={`/${museum.id}`} key={museum.id}>
+        <div>{museum.name}</div>
       </Link>
     ))
   return (

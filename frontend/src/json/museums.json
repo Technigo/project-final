@@ -7,7 +7,7 @@
     "lat": "48.880900",
     "lon": "2.333280",
     "ticket_price": "Free",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://museevieromantique.paris.fr/fr",
     "opening_hours": [
       {
@@ -22,12 +22,12 @@
   {
     "name": "Musée Marmottan Monet",
     "theme": "Impressionism",
-    "description": "Musée Marmottan Monet is dedicated to Impressionism. Housing a remarkable collection of Monet's works and other Impressionist masterpieces, the museum offers a profound artistic experience. Though lacking a café, it enchants visitors with its vibrant displays.",
+    "description": "Musée Marmottan Monet is a haven for lovers of Impressionism, featuring an extraordinary collection of Monet's masterpieces alongside works by other renowned Impressionist artists. The museum offers a captivating artistic journey through vibrant displays that highlight the beauty and innovation of this influential art movement.",
     "location": "2 Rue Louis Boilly, 75016 Paris, France",
     "lat": "48.862520",
     "lon": "2.267200",
     "ticket_price": "12€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.marmottan.fr/",
     "opening_hours": [
       {
@@ -50,7 +50,7 @@
     "lat": "41.031400",
     "lon": "28.976800",
     "ticket_price": "25₺",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://en.masumiyetmuzesi.org/",
     "opening_hours": [
       {
@@ -70,7 +70,7 @@
     "lat": "51.057000",
     "lon": "3.723500",
     "ticket_price": "8€",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.huisvanalijn.be/en",
     "opening_hours": [
       {
@@ -93,7 +93,7 @@
     "lat": "48.850800",
     "lon": "2.341400",
     "ticket_price": "3€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.biusante.parisdescartes.fr/musee/",
     "opening_hours": [
       {
@@ -113,7 +113,7 @@
     "lat": "53.347200",
     "lon": "-6.267400",
     "ticket_price": "15€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.leprechaunmuseum.ie/",
     "opening_hours": [
       {
@@ -130,7 +130,7 @@
     "lat": "52.364200",
     "lon": "4.893600",
     "ticket_price": "7€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.kattenkabinet.nl/",
     "opening_hours": [
       {
@@ -150,7 +150,7 @@
     "lat": "59.911491",
     "lon": "10.745117",
     "ticket_price": "90 NOK",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.minibottlegallery.com/",
     "opening_hours": [
       {
@@ -173,7 +173,7 @@
     "lat": "19.345000",
     "lon": "-99.189900",
     "ticket_price": "70 MXN",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.mnh.inah.gob.mx/museos/caracol.html",
     "opening_hours": [
       {
@@ -193,7 +193,7 @@
     "lat": "-13.516700",
     "lon": "-71.978800",
     "ticket_price": "20 PEN",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.mapcusco.com/",
     "opening_hours": [
       {
@@ -210,7 +210,7 @@
     "lat": "36.178330",
     "lon": "-115.134180",
     "ticket_price": "$20",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.neonmuseum.org/",
     "opening_hours": [
       {
@@ -227,7 +227,7 @@
     "lat": "51.478800",
     "lon": "-0.009000",
     "ticket_price": "5£",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "http://www.thefanmuseum.org.uk/",
     "opening_hours": [
       {
@@ -250,7 +250,7 @@
     "lat": "48.878700",
     "lon": "2.416900",
     "ticket_price": "8€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.museeduvampire.com/",
     "opening_hours": [
       {
@@ -267,7 +267,7 @@
     "lat": "54.326400",
     "lon": "10.140900",
     "ticket_price": "5€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.clownmuseum.at/",
     "opening_hours": [
       {
@@ -284,7 +284,7 @@
     "lat": "51.517700",
     "lon": "-0.205200",
     "ticket_price": "9£",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.museumofbrands.com/",
     "opening_hours": [
       {
@@ -301,7 +301,7 @@
     "lat": "38.884600",
     "lon": "-77.025900",
     "ticket_price": "$24",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.spymuseum.org/",
     "opening_hours": [
       {
@@ -318,7 +318,7 @@
     "lat": "44.905800",
     "lon": "-93.281500",
     "ticket_price": "$12",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://tmora.org/",
     "opening_hours": [
       {
@@ -338,7 +338,7 @@
     "lat": "34.101300",
     "lon": "-118.320200",
     "ticket_price": "$15",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.museumofdeath.net/",
     "opening_hours": [
       {
@@ -355,7 +355,7 @@
     "lat": "42.396200",
     "lon": "-71.122400",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://museumofbadart.org/",
     "opening_hours": [
       {
@@ -372,7 +372,7 @@
     "lat": "51.523100",
     "lon": "-0.092600",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.batashoemuseum.ca/",
     "opening_hours": [
       {
@@ -392,7 +392,7 @@
     "lat": "38.715800",
     "lon": "34.846300",
     "ticket_price": "Free",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.hairmuseum.com/",
     "opening_hours": [
       {
@@ -409,7 +409,7 @@
     "lat": "35.455000",
     "lon": "139.638000",
     "ticket_price": "500¥",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.cupnoodles-museum.jp/",
     "opening_hours": [
       {
@@ -429,7 +429,7 @@
     "lat": "35.712300",
     "lon": "-83.519600",
     "ticket_price": "$3",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://thesaltandpeppershakermuseum.com/",
     "opening_hours": [
       {
@@ -446,7 +446,7 @@
     "lat": "28.588600",
     "lon": "77.071600",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.sulabhtoiletmuseum.org/",
     "opening_hours": [
       {
@@ -463,7 +463,7 @@
     "lat": "51.247500",
     "lon": "0.630100",
     "ticket_price": "24.90£",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.leeds-castle.com/",
     "opening_hours": [
       {
@@ -480,7 +480,7 @@
     "lat": "65.704450",
     "lon": "-21.686810",
     "ticket_price": "950 ISK",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "http://www.galdrasyning.is/",
     "opening_hours": [
       {
@@ -497,7 +497,7 @@
     "lat": "54.601300",
     "lon": "-3.138500",
     "ticket_price": "4.95£",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.pencilmuseum.co.uk/",
     "opening_hours": [
       {
@@ -514,7 +514,7 @@
     "lat": "45.813000",
     "lon": "15.976900",
     "ticket_price": "€7",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://brokenships.com/",
     "opening_hours": [
       {
@@ -531,7 +531,7 @@
     "lat": "50.434600",
     "lon": "30.555000",
     "ticket_price": "200₴",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.spymuseum.com.ua/",
     "opening_hours": [
       {
@@ -548,7 +548,7 @@
     "lat": "37.032000",
     "lon": "27.429700",
     "ticket_price": "20₺",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.bodrum-museum.com/",
     "opening_hours": [
       {
@@ -565,7 +565,7 @@
     "lat": "49.292000",
     "lon": "1.146200",
     "ticket_price": "6€",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.museeabsinthe.com/",
     "opening_hours": [
       {
@@ -585,7 +585,7 @@
     "lat": "4.601000",
     "lon": "-74.071700",
     "ticket_price": "4000 COP",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.banrepcultural.org/museo-del-oro",
     "opening_hours": [
       {
@@ -608,7 +608,7 @@
     "lat": "29.943600",
     "lon": "-90.071500",
     "ticket_price": "$10",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.southernfood.org/",
     "opening_hours": [
       {
@@ -625,7 +625,7 @@
     "lat": "59.325900",
     "lon": "18.070700",
     "ticket_price": "130 SEK",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://nobelprizemuseum.se/en/",
     "opening_hours": [
       {
@@ -645,7 +645,7 @@
     "lat": "59.327500",
     "lon": "18.096300",
     "ticket_price": "140 SEK",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.spritmuseum.se/en/",
     "opening_hours": [
       {
@@ -665,7 +665,7 @@
     "lat": "52.522600",
     "lon": "13.395000",
     "ticket_price": "12€",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.smb.museum/en/museums-institutions/bode-museum/home.html",
     "opening_hours": [
       {
@@ -682,7 +682,7 @@
     "lat": "52.501500",
     "lon": "13.327900",
     "ticket_price": "8€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.kaethe-kollwitz.de/en/",
     "opening_hours": [
       {
@@ -699,7 +699,7 @@
     "lat": "52.505300",
     "lon": "13.328800",
     "ticket_price": "12€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://museumofillusions.de/",
     "opening_hours": [
       {
@@ -716,7 +716,7 @@
     "lat": "39.953400",
     "lon": "-75.174300",
     "ticket_price": "$20",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://muttermuseum.org/",
     "opening_hours": [
       {
@@ -733,7 +733,7 @@
     "lat": "35.724200",
     "lon": "139.793900",
     "ticket_price": "500 JPY",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://tanabatamuseum.info/",
     "opening_hours": [
       {
@@ -753,7 +753,7 @@
     "lat": "37.561100",
     "lon": "126.997800",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.ntok.go.kr/",
     "opening_hours": [
       {
@@ -773,7 +773,7 @@
     "lat": "35.633500",
     "lon": "139.715600",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.kiseichu.org/",
     "opening_hours": [
       {
@@ -793,7 +793,7 @@
     "lat": "-3.368500",
     "lon": "36.688100",
     "ticket_price": "10 USD",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://tanzaniteexperience.com/",
     "opening_hours": [
       {
@@ -810,7 +810,7 @@
     "lat": "9.116000",
     "lon": "7.375000",
     "ticket_price": "300 NGN",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://sewaramuseum.org.ng/",
     "opening_hours": [
       {
@@ -827,7 +827,7 @@
     "lat": "23.243000",
     "lon": "69.664000",
     "ticket_price": "5 INR",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.kutchmuseum.org/",
     "opening_hours": [
       {
@@ -847,7 +847,7 @@
     "lat": "-15.036200",
     "lon": "40.735500",
     "ticket_price": "100 MZN",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.museuislandofmozambique.gov.mz/",
     "opening_hours": [
       {
@@ -867,7 +867,7 @@
     "lat": "30.044400",
     "lon": "31.242200",
     "ticket_price": "100 EGP",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.miaegypt.org/",
     "opening_hours": [
       {
@@ -884,7 +884,7 @@
     "lat": "1.256500",
     "lon": "103.820500",
     "ticket_price": "25 SGD",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://trickeye.com/singapore/",
     "opening_hours": [
       {
@@ -901,7 +901,7 @@
     "lat": "-4.619200",
     "lon": "55.452400",
     "ticket_price": "50 SCR",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.seychellesnaturalhistorymuseum.org/",
     "opening_hours": [
       {
@@ -924,7 +924,7 @@
     "lat": "51.454300",
     "lon": "-0.074400",
     "ticket_price": "10 GBP",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.stephenwrightartist.com/houseofdreams/",
     "opening_hours": [
       {
@@ -941,7 +941,7 @@
     "lat": "52.364300",
     "lon": "4.893400",
     "ticket_price": "12.50€",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://tassenmuseum.nl/",
     "opening_hours": [
       {
@@ -958,7 +958,7 @@
     "lat": "43.768700",
     "lon": "11.262600",
     "ticket_price": "8€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.uffizi.it/en/the-museum-of-musical-instruments",
     "opening_hours": [
       {
@@ -975,7 +975,7 @@
     "lat": "50.087500",
     "lon": "14.422800",
     "ticket_price": "160 CZK",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.tortureum.com/",
     "opening_hours": [
       {
@@ -992,7 +992,7 @@
     "lat": "28.851100",
     "lon": "-13.828500",
     "ticket_price": "12€",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.cactlanzarote.com/en/cact/museo-atlantico/",
     "opening_hours": [
       {
@@ -1009,7 +1009,7 @@
     "lat": "13.759400",
     "lon": "100.485000",
     "ticket_price": "200 THB",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.sirirajmuseum.com/",
     "opening_hours": [
       {
@@ -1026,7 +1026,7 @@
     "lat": "59.939000",
     "lon": "30.321300",
     "ticket_price": "450 RUB",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.15kop.ru/en/",
     "opening_hours": [
       {
@@ -1043,7 +1043,7 @@
     "lat": "44.7086",
     "lon": "-72.2264",
     "ticket_price": "donations",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://museumofeverydaylife.org",
     "opening_hours": [
       {
@@ -1060,7 +1060,7 @@
     "lat": "51.5353",
     "lon": "-0.1072",
     "ticket_price": "5£",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.thebuttonmuseum.com",
     "opening_hours": [
       {
@@ -1083,7 +1083,7 @@
     "lat": "38.7150",
     "lon": "34.8467",
     "ticket_price": "5₺",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.hairmuseum.com",
     "opening_hours": [
       {
@@ -1100,7 +1100,7 @@
     "lat": "48.4011",
     "lon": "9.9965",
     "ticket_price": "7€",
-    "hasCafe": "yes",
+    "has_cafe": true,
     "website": "https://www.brotmuseum.de",
     "opening_hours": [
       {
@@ -1120,7 +1120,7 @@
     "lat": "50.6843",
     "lon": "-4.6934",
     "ticket_price": "7.5£",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.museumofwitchcraftandmagic.co.uk",
     "opening_hours": [
       {
@@ -1137,7 +1137,7 @@
     "lat": "-34.9801",
     "lon": "138.5105",
     "ticket_price": "10AUD",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.museumofshadow.com",
     "opening_hours": [
       {
@@ -1154,7 +1154,7 @@
     "lat": "41.9062",
     "lon": "12.4700",
     "ticket_price": "free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.museumofpurgatory.com",
     "opening_hours": [
       {
@@ -1171,7 +1171,7 @@
     "lat": "21.0154",
     "lon": "-101.2561",
     "ticket_price": "85MXN",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.mummymuseum.com",
     "opening_hours": [
       {
@@ -1188,7 +1188,7 @@
     "lat": "30.2678",
     "lon": "-97.7394",
     "ticket_price": "12USD",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.museumoftheweird.com",
     "opening_hours": [
       {
@@ -1205,7 +1205,7 @@
     "lat": "55.791600",
     "lon": "13.886580",
     "ticket_price": "free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.kannibalmuseum.se/",
     "opening_hours": [
       {
@@ -1222,7 +1222,7 @@
     "lat": "59.3947",
     "lon": "15.8359",
     "ticket_price": "donations",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://arbogamuseum.se/bryggerimuseet.html",
     "opening_hours": [
       {
@@ -1239,7 +1239,7 @@
     "lat": "55.3773",
     "lon": "13.1564",
     "ticket_price": "donations",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://gamlatrelleborg.se/borgquitska/",
     "opening_hours": [
       {
@@ -1256,7 +1256,7 @@
     "lat": "56.730230",
     "lon": "15.677240",
     "ticket_price": "80 SEK",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://luffarmuseum.se/",
     "opening_hours": [
       {
@@ -1273,7 +1273,7 @@
     "lat": "58.719400",
     "lon": "12.358310",
     "ticket_price": "donations",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.textilmuseum.se/",
     "opening_hours": [
       {
@@ -1290,7 +1290,7 @@
     "lat": "56.268520",
     "lon": "14.523320",
     "ticket_price": "free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.visitblekinge.se/kamera-och-galgmuseum",
     "opening_hours": [
       {
@@ -1307,7 +1307,7 @@
     "lat": "-20.132556",
     "lon": "-44.197224",
     "ticket_price": "Varies",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.inhotim.org.br",
     "opening_hours": [
       {
@@ -1330,7 +1330,7 @@
     "lat": "19.4404",
     "lon": "-99.2043",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "http://www.museosoumaya.org/",
     "opening_hours": [
       {
@@ -1347,7 +1347,7 @@
     "lat": "-33.3911",
     "lon": "-70.5779",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.rallimuseums.com",
     "opening_hours": [
       {
@@ -1370,7 +1370,7 @@
     "lat": "18.0115",
     "lon": "-66.6141",
     "ticket_price": "$6",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://museoarteponce.org",
     "opening_hours": [
       {
@@ -1390,7 +1390,7 @@
     "lat": "34.4562",
     "lon": "133.9954",
     "ticket_price": "¥2,100",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://benesse-artsite.jp/en/art/chichu.html",
     "opening_hours": [
       {
@@ -1410,7 +1410,7 @@
     "lat": "38.9151",
     "lon": "-6.3432",
     "ticket_price": "€3",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://museoarteromano.mcu.es",
     "opening_hours": [
       {
@@ -1433,7 +1433,7 @@
     "lat": "41.0321",
     "lon": "28.9734",
     "ticket_price": "₺40",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://en.masumiyetmuzesi.org",
     "opening_hours": [
       {
@@ -1453,7 +1453,7 @@
     "lat": "-33.9078",
     "lon": "18.4206",
     "ticket_price": "R200",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.zeitzmocaa.museum",
     "opening_hours": [
       {
@@ -1473,7 +1473,7 @@
     "lat": "29.7375",
     "lon": "-95.3972",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.menil.org",
     "opening_hours": [
       {
@@ -1493,7 +1493,7 @@
     "lat": "13.8466",
     "lon": "100.5654",
     "ticket_price": "฿250",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.mocabangkok.com",
     "opening_hours": [
       {
@@ -1513,7 +1513,7 @@
     "lat": "55.6849",
     "lon": "12.5817",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.davidmus.dk",
     "opening_hours": [
       {
@@ -1533,7 +1533,7 @@
     "lat": "-34.6348",
     "lon": "-58.3627",
     "ticket_price": "ARS 300",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://proa.org",
     "opening_hours": [
       {
@@ -1553,7 +1553,7 @@
     "lat": "39.0539",
     "lon": "-77.2456",
     "ticket_price": "Free (Reservation Required)",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.glenstone.org",
     "opening_hours": [
       {
@@ -1573,7 +1573,7 @@
     "lat": "52.5244",
     "lon": "13.3839",
     "ticket_price": "€15",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.sammlung-boros.de",
     "opening_hours": [
       {
@@ -1593,7 +1593,7 @@
     "lat": "59.4370",
     "lon": "24.7947",
     "ticket_price": "€8",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://kunstimuuseum.ekm.ee/en/kumu-art-museum",
     "opening_hours": [
       {
@@ -1619,7 +1619,7 @@
     "lat": "25.6657",
     "lon": "-100.3106",
     "ticket_price": "MXN 90",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.marco.org.mx",
     "opening_hours": [
       {
@@ -1639,7 +1639,7 @@
     "lat": "19.4256",
     "lon": "-99.1911",
     "ticket_price": "MXN 70",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://museotamayo.org",
     "opening_hours": [
       {
@@ -1659,7 +1659,7 @@
     "lat": "37.5796",
     "lon": "126.9814",
     "ticket_price": "₩4,000",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.mmca.go.kr/eng/",
     "opening_hours": [
       {
@@ -1685,7 +1685,7 @@
     "lat": "25.7858",
     "lon": "-80.1874",
     "ticket_price": "$16",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.pamm.org",
     "opening_hours": [
       {
@@ -1711,7 +1711,7 @@
     "lat": "22.1896",
     "lon": "113.5538",
     "ticket_price": "MOP 5",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://www.mam.gov.mo",
     "opening_hours": [
       {
@@ -1731,7 +1731,7 @@
     "lat": "-34.5836",
     "lon": "-58.4036",
     "ticket_price": "ARS 250",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.malba.org.ar",
     "opening_hours": [
       {
@@ -1751,7 +1751,7 @@
     "lat": "38.9117",
     "lon": "-77.0466",
     "ticket_price": "$12",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.phillipscollection.org",
     "opening_hours": [
       {
@@ -1774,7 +1774,7 @@
     "lat": "38.6979",
     "lon": "-9.2077",
     "ticket_price": "€5",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.museuberardo.pt",
     "opening_hours": [
       {
@@ -1794,7 +1794,7 @@
     "lat": "50.2156",
     "lon": "-5.4819",
     "ticket_price": "£10.50",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.tate.org.uk/visit/tate-st-ives",
     "opening_hours": [
       {
@@ -1811,7 +1811,7 @@
     "lat": "35.6218",
     "lon": "139.7389",
     "ticket_price": "JPY 1100",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.haramuseum.or.jp",
     "opening_hours": [
       {
@@ -1831,7 +1831,7 @@
     "lat": "48.1417",
     "lon": "11.5984",
     "ticket_price": "€9",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.villastuck.de",
     "opening_hours": [
       {
@@ -1851,7 +1851,7 @@
     "lat": "32.8440",
     "lon": "-117.2781",
     "ticket_price": "$10",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.mcasd.org",
     "opening_hours": [
       {
@@ -1871,7 +1871,7 @@
     "lat": "59.9074",
     "lon": "10.7213",
     "ticket_price": "NOK 130",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.afmuseet.no",
     "opening_hours": [
       {
@@ -1891,7 +1891,7 @@
     "lat": "36.7196",
     "lon": "-4.4261",
     "ticket_price": "Free",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://cacmalaga.eu",
     "opening_hours": [
       {
@@ -1908,7 +1908,7 @@
     "lat": "55.7284",
     "lon": "37.6019",
     "ticket_price": "RUB 500",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://garagemca.org",
     "opening_hours": [
       {
@@ -1925,7 +1925,7 @@
     "lat": "38.8880",
     "lon": "-77.0230",
     "ticket_price": "Free",
-    "hasCafe": "No",
+    "has_cafe": false,
     "website": "https://hirshhorn.si.edu",
     "opening_hours": [
       {
@@ -1942,7 +1942,7 @@
     "lat": "41.5064",
     "lon": "-73.9823",
     "ticket_price": "$20",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.diaart.org/visit/visit/diabeacon-beacon-united-states",
     "opening_hours": [
       {
@@ -1962,7 +1962,7 @@
     "lat": "-33.8599",
     "lon": "151.2094",
     "ticket_price": "Free",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.mca.com.au",
     "opening_hours": [
       {
@@ -1985,7 +1985,7 @@
     "lat": "50.8210",
     "lon": "4.3339",
     "ticket_price": "€10",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.wiels.org",
     "opening_hours": [
       {
@@ -2005,7 +2005,7 @@
     "lat": "19.3206",
     "lon": "-99.1893",
     "ticket_price": "MXN 40",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://muac.unam.mx",
     "opening_hours": [
       {
@@ -2025,7 +2025,7 @@
     "lat": "39.9607",
     "lon": "-75.1720",
     "ticket_price": "$25",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.barnesfoundation.org",
     "opening_hours": [
       {
@@ -2045,7 +2045,7 @@
     "lat": "-42.8299",
     "lon": "147.2820",
     "ticket_price": "AUD 30",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://mona.net.au",
     "opening_hours": [
       {
@@ -2065,7 +2065,7 @@
     "lat": "43.6947",
     "lon": "7.1202",
     "ticket_price": "€15",
-    "hasCafe": "Yes",
+    "has_cafe": true,
     "website": "https://www.fondation-maeght.com",
     "opening_hours": [
       {

@@ -8,7 +8,7 @@ import image1 from "../assets/image1.png"
 
 export const DetailPage = () => {
   const params = useParams()
-  const museumId = params.slug
+  const museumId = Number(params.slug)
   const museum = museumList.find((museum) => museum.id === museumId)
 
   if (!museum) {
@@ -21,19 +21,25 @@ export const DetailPage = () => {
       <img src={image1} alt="Description of image" />
       <h3>{museum.name}</h3>
       <FavoriteFunction />
-      <p>16 Rue Chaptal, 75009 Paris, France</p>
-      <p>
-        Located in the heart of Paris, the Museum of Romantic Life is dedicated
-        to the Romanticism movement, showcasing the works and memorabilia of
-        notable Romantic artists. Housed in a charming 19th-century mansion, the
-        museum offers a serene escape with its beautiful garden and café.
-      </p>
+      <p>{museum.location}</p>
+      <p>{museum.description} </p>
       <h4>Opening hours</h4>
-      <p>Mon: Closed</p>
-      <p>Tue-Sun: 10:00-18:00</p>
+      {museum.opening_hours.map((hours, index) => {
+        const day = Object.keys(hours)[0]
+        const time = hours[day]
+        return (
+          <p key={index}>
+            {day}: {time}
+          </p>
+        )
+      })}
 
-      <p>Ticket price: Free</p>
-      <p>Buy a ticket</p>
+      <p>Ticket price: {museum.ticket_price}</p>
+      <button>Buy a ticket</button>
+
+      <p>
+        Visit the official website <a href={museum.website}>here</a>
+      </p>
 
       <h4>Reviews</h4>
       <div className="comment">
