@@ -1,3 +1,5 @@
+import "../../styling/sectionsStyling/faqPage/RequestSection.css";
+
 const RequestSection = () => {
   return (
     <div className="requestContainer">
@@ -24,7 +26,9 @@ const RequestSection = () => {
           What would you like to rent?
           <input type="text" className="requestInputBig" required />
         </label>
-        <button className="sendFormButton">Send Form</button>
+        <div className="sendFormButtonWrapper">
+          <button className="sendFormButton">Send Form</button>
+        </div>
       </form>
     </div>
   );
