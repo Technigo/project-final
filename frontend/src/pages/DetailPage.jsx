@@ -42,13 +42,15 @@ export const DetailPage = () => {
       </p>
 
       <h4>Reviews</h4>
+      <p>Log in to see the reviews</p>
+
       <div className="comment">
         <p>
           The Museum of Romantic Life is a hidden gem in Paris, offering a
           tranquil escape into the world of Romanticism. The charming garden and
           cozy café made it a perfect afternoon retreat.
         </p>
-        <p>Written by Alma</p>
+        <p>Written by Etna</p>
       </div>
       <div className="comment">
         <p>
@@ -57,7 +59,7 @@ export const DetailPage = () => {
           the 19th century. The beautiful exhibits and serene atmosphere left me
           feeling inspired and relaxed.
         </p>
-        <p>Written by Etna</p>
+        <p>Written by Alma</p>
       </div>
     </div>
   )
