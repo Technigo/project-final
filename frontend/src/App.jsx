@@ -1,8 +1,9 @@
-export const App = () => {
+import { HomePage } from "./pages/HomePage/HomePage";
 
+export const App = () => {
   return (
     <>
-      <h1>Welcome to Final Project!</h1>
+      <HomePage />
     </>
   );
 };
