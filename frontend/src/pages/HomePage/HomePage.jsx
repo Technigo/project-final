@@ -1,5 +1,5 @@
 import { Footer } from "../../components/Footer/Footer";
-import { Nav } from "../../components/Header/Nav";
+import { Header } from "../../components/Header/Header";
 import { Banner } from "../../sections/Banner/Banner";
 import { Categories } from "../../sections/Categories/Categories";
 import { CategoryIcons } from "../../sections/CategoryIcons/CategoryIcons";
@@ -10,7 +10,7 @@ import "./HomePage.css";
 export const HomePage = () => {
   return (
     <div className="homepage">
-      <Nav />
+      <Header />
       <Hero />
       <ProductShowcase />
       <CategoryIcons />
