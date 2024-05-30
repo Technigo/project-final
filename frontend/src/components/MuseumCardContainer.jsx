@@ -3,9 +3,9 @@ import { MuseumCard } from "./MuseumCard";
 import { useState } from "react";
 
 export const MuseumCardContainer = () => {
-  const [amountToShow, setAmountToShow] = useState(2);
+  const [amountToShow, setAmountToShow] = useState(4);
 
-  const showMore = () => setAmountToShow(amountToShow + 2);
+  const showMore = () => setAmountToShow(amountToShow + 4);
 
   const showMuseums = () =>
     museumList
