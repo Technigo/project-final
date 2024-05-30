@@ -27,6 +27,7 @@ app.use(express.json());
 app.use(passport.initialize());
 
 app.use("/api", authProfileRoutes);
+
 // Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
