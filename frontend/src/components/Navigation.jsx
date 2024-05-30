@@ -18,9 +18,19 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="grid grid-cols-3 bg-main-red justify-between">
+    <nav className="grid grid-cols-3 bg-main-red sticky justify-between">
       <div className="left-nav flex">
-        <NavLink to="/profile" className="text-white m-2">
+        <NavLink to="/products" className="text-white m-4 hidden laptop:block">
+          <p className="font-body text-white font-extralight text-lg hidden tablet:block">
+            Products
+          </p>
+        </NavLink>
+        <NavLink to="/about" className="text-white m-4 hidden laptop:block">
+          <p className="font-body text-white font-extralight text-lg hidden tablet:block">
+            About Us
+          </p>
+        </NavLink>
+        <NavLink to="/profile" className="text-white m-2 laptop:hidden">
           <img src={userIcon} alt="Profile" className="h-4 tablet:hidden" />
           <p className="font-body text-white font-extrabold text-lg hidden tablet:block">
             Sign In
@@ -40,11 +50,16 @@ export const Navigation = () => {
         </NavLink>
       </div>
       <div className="right-nav flex flex-row justify-end">
+        <NavLink to="/profile" className="text-white my-4">
+          <p className="font-body text-white font-extralight text-lg hidden laptop:block">
+            Sign In
+          </p>
+        </NavLink>
         <NavLink to="/cart" className="text-white">
           <img
             src={shoppingCart}
             alt="Shopping cart"
-            className="h-6 m-2 hidden tablet:block"
+            className="h-6 m-2 hidden tablet:block laptop:h-8 laptop:m-4"
           />
         </NavLink>
 
@@ -72,7 +87,7 @@ export const Navigation = () => {
           <img
             src={burgerMenu}
             alt="Menu"
-            className="h-4 m-2 justify-start tablet:h-6"
+            className="h-4 m-2 justify-start tablet:h-6 laptop:hidden"
           />
         </button>
       </div>
