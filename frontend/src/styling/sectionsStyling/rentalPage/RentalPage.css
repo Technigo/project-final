@@ -1,0 +1,136 @@
+.rentalListContainer {
+  width: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px auto;
+}
+
+.rentalListTitle {
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+
+.rentalListItem {
+}
+
+.rentalItemContainer {
+}
+
+.rentalItem {
+  width: 305px;
+  background-color: var(--light-button-color);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  align-items: center;
+  padding: 40px 0;
+  border-radius: 10px;
+}
+
+.rentalItemImage {
+  width: 225px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.rentalItemDetails {
+  width: 195px;
+  height: 132px;
+  background-color: var(--light-color);
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  padding: 15px;
+  position: relative;
+}
+
+.rentalItemDescription {
+  line-height: 1.5;
+}
+
+.rentalItemPrice {
+  font-weight: 600;
+  position: absolute;
+  bottom: 10px;
+}
+
+@media (min-width: 745px) {
+  .rentalListContainer {
+    width: 600px;
+    margin: 150px auto;
+  }
+
+  .rentalListTitle {
+    margin-bottom: 100px;
+    font-size: 32px;
+  }
+
+  .rentalItem {
+    width: 600px;
+    padding: 70px 0;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .rentalItemImage {
+  }
+
+  .rentalItemDetails {
+    height: 185px;
+    padding: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+  }
+
+  .rentalItemDescription {
+  }
+
+  .rentalItemPrice {
+  }
+}
+
+@media (min-width: 1024px) {
+  .rentalListContainer {
+    width: 840px;
+    margin: 200px auto;
+  }
+
+  .rentalListTitle {
+    font-size: 42px;
+  }
+
+  .rentalItem {
+    width: 410px;
+    flex-direction: column;
+    padding: 55px 0;
+    margin-bottom: 0;
+  }
+
+  .rentalItemContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .rentalItemImage {
+    width: 300px;
+    height: 300px;
+  }
+
+  .rentalItemDetails {
+    width: 260px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+  }
+
+  .rentalItemDescription {
+    font-size: 20px;
+  }
+
+  .rentalItemPrice {
+    font-size: 20px;
+  }
+}

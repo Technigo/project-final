@@ -11,9 +11,9 @@ const RentalItem = () => {
   return (
     <div className="rentalItemContainer">
       {rentals.map((item, index) => (
-        <div key={index} className="rentalListItem">
+        <div key={index} className="rentalItem">
           <img src={item.image} alt={item.name} className="rentalItemImage" />
-          <div className="rentalListItemDetails">
+          <div className="rentalItemDetails">
             <p className="rentalItemDescription">{item.description}</p>
             <h3 className="rentalItemPrice">{item.price}</h3>
           </div>
