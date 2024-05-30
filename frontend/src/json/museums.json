@@ -486,7 +486,7 @@
     "location": "Ćirilometodska ul. 2, 10000, Zagreb, Croatia",
     "lat": "45.813000",
     "lon": "15.976900",
-    "ticket_price": "40kn",
+    "ticket_price": "€7",
     "hasCafe": "Yes",
     "website": "https://brokenships.com/",
     "opening_hours": [
@@ -524,22 +524,6 @@
     "opening_hours": [
       {
         "Mon-Sun": "09:00-19:00"
-      }
-    ]
-  },
-  {
-    "name": "Museum of the Weird",
-    "theme": "Weird and Unusual",
-    "description": "Embrace the strange and unusual at the Museum of the Weird in Austin. This eclectic museum features a bizarre collection of oddities and curiosities, from cryptozoological creatures to paranormal artifacts. Located on East 6th Street, it's a haven for those with a taste for the extraordinary.",
-    "location": "412 E 6th St, Austin, TX 78701, USA",
-    "lat": "30.267200",
-    "lon": "-97.739300",
-    "ticket_price": "$12",
-    "hasCafe": "No",
-    "website": "https://www.museumoftheweird.com/",
-    "opening_hours": [
-      {
-        "Mon-Sun": "10:00-22:00"
       }
     ]
   },
@@ -635,22 +619,6 @@
       },
       {
         "Tue-Sun": "10:00-17:00"
-      }
-    ]
-  },
-  {
-    "name": "Museo Soumaya",
-    "theme": "Art and Sculpture",
-    "description": "Experience art in all its forms at Museo Soumaya in Mexico City. This expansive museum houses a diverse collection of artworks spanning centuries and continents, from classic masterpieces to contemporary creations. Located in the upscale district of Granada, it's a cultural oasis for art lovers.",
-    "location": "Blvd. Miguel de Cervantes Saavedra 303, Granada, Miguel Hidalgo, 11529 Ciudad de México, CDMX, Mexico",
-    "lat": "19.440400",
-    "lon": "-99.204300",
-    "ticket_price": "Free",
-    "hasCafe": "Yes",
-    "website": "https://www.soumaya.com.mx/",
-    "opening_hours": [
-      {
-        "Mon-Sun": "10:30-18:30"
       }
     ]
   },
@@ -864,6 +832,7 @@
   {
     "name": "Trick Eye Museum",
     "theme": "Optical Illusions",
+    "description": "Step into a world of wonder and illusion at the Trick Eye Museum. This immersive attraction invites visitors to explore a series of optical illusions and interactive exhibits that will challenge your perception of reality. From mind-bending artworks to gravity-defying installations, it offers a fun and engaging experience for all ages. Whether you're snapping photos with larger-than-life sculptures or testing your wits with cleverly crafted illusions, it's sure to leave you amazed and entertained. It's a must-visit destination for those seeking a unique and memorable adventure.",
     "location": "26 Sentosa Gateway #01-43/44, Singapore 098138",
     "lat": "1.256500",
     "lon": "103.820500",
@@ -1187,6 +1156,7 @@
   {
     "name": "Hanger Museum",
     "theme": "Hangers",
+    "location": "Pukaviksvägen 187, 293 42 Olofström, Sweden",
     "description": "Uncover the history of hangers at the Hanger Museum. This quirky museum pays homage to the humble hanger, showcasing a fascinating collection of hangers from different eras and cultures. From vintage wooden hangers to modern plastic designs, it offers a unique perspective on an everyday object. It's a lighthearted destination for those with a curiosity for the overlooked and unexpected.",
     "lat": "56.268520",
     "lon": "14.523320",
@@ -1221,12 +1191,12 @@
     "name": "Museo Soumaya",
     "theme": "Latin American Art",
     "description": "Located in Mexico City, Museo Soumaya is known for its striking modern architecture and extensive collection of over 66,000 pieces, including works by Rodin, Dalí, and Mexican artists.",
-    "location": "Plaza Carso, Mexico City, Mexico",
+    "location": "Blvd. Miguel de Cervantes Saavedra, Granada, Miguel Hidalgo, 11529 Mexico City, CDMX, Mexico",
     "lat": "19.4404",
     "lon": "-99.2043",
     "ticket_price": "Free",
     "hasCafe": "No",
-    "website": "https://www.museosoumaya.org",
+    "website": "http://www.museosoumaya.org/",
     "opening_hours": [
       {
         "Mon-Sun": "10:30-18:30"
@@ -1252,22 +1222,6 @@
       },
       {
         "Sat-Sun": "10:30-18:00"
-      }
-    ]
-  },
-  {
-    "name": "Museum of Broken Relationships",
-    "theme": "Contemporary Art",
-    "description": "The Museum of Broken Relationships in Zagreb, Croatia, is dedicated to failed love relationships. Its exhibits include personal objects left over from former lovers, along with brief descriptions.",
-    "location": "Ćirilometodska 2, 10000, Zagreb, Croatia",
-    "lat": "45.815",
-    "lon": "15.9785",
-    "ticket_price": "€7",
-    "hasCafe": "Yes",
-    "website": "https://brokenships.com",
-    "opening_hours": [
-      {
-        "Mon-Sun": "9:00-21:00"
       }
     ]
   },
