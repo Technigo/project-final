@@ -1,5 +1,7 @@
+import RequestSection from "./RequestSection";
+
 const FaqPage = () => {
-  return;
+  return <RequestSection />;
 };
 
 export default FaqPage;
