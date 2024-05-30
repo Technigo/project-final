@@ -48,6 +48,10 @@ const productSchema = new Schema({
     enum: ["bottoms", "tops", "dresses", "accessories"], // Only allow specific categories
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);
@@ -83,9 +87,14 @@ app.get("/", (req, res) => {
 // http://localhost:8080/products
 app.get("/products", async (req, res) => {
   try {
-    // Possibility to filter on color and/or size
-    const { color, size } = req.query;
+    // Possibility to filter on category, color and/or size
+    // http://localhost:8080/products?color=red&size=M <-- for example
+    const { category, color, size, sort } = req.query;
     let filter = {};
+
+    if (category) {
+      filter.category = category;
+    }
 
     if (color) {
       filter.color = color;
@@ -95,7 +104,23 @@ app.get("/products", async (req, res) => {
       filter["stock.size"] = size;
     }
 
-    const products = await Product.find();
+    // Possibility to sort on price/date in ascending or descending order
+    // Examples:
+    // http://localhost:8080/products?sort=price_desc
+    // http://localhost:8080/products?color=red&size=M&sort=price_asc
+    // http://localhost:8080/products?sort=date_desc
+    let sortOptions = {};
+    if (sort) {
+      const [field, order] = sort.split("_");
+      if (
+        (field === "price" || field === "date") &&
+        (order === "asc" || order === "desc")
+      ) {
+        sortOptions[field] = order === "asc" ? 1 : -1;
+      }
+    }
+
+    const products = await Product.find(filter).sort(sortOptions);
 
     if (products.length > 0) {
       res.status(200).json({
