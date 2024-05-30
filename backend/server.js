@@ -180,6 +180,7 @@ app.get("/products/:productId", async (req, res) => {
 // http://localhost:8080/products/category/:category
 app.get("/products/category/:category", async (req, res) => {
   const { category } = req.params;
+  const { color, size, sort } = req.query;
   const validCategories = ["bottoms", "tops", "dresses", "accessories"];
 
   if (!validCategories.includes(category)) {
@@ -192,7 +193,30 @@ app.get("/products/category/:category", async (req, res) => {
   }
 
   try {
-    const productsByCategory = await Product.find({ category });
+    // Possibilities to filter and sort in the category endpoint
+    let filter = { category };
+
+    if (color) {
+      filter.color = color;
+    }
+
+    if (size) {
+      filter["stock.size"] = size;
+    }
+
+    let sortOptions = {};
+    if (sort) {
+      const [field, order] = sort.split("_");
+      if (
+        (field === "price" || field === "date") &&
+        (order === "asc" || order === "desc")
+      ) {
+        sortOptions[field === "date" ? "createdAt" : field] =
+          order === "asc" ? 1 : -1;
+      }
+    }
+
+    const productsByCategory = await Product.find(filter).sort(sortOptions);
     if (productsByCategory.length > 0) {
       res.status(200).json({
         success: true,
