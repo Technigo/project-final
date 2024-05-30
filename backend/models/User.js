@@ -1,10 +1,15 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
 
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, minlength: 3 },
   password: { type: String, required: true, minlength: 6 },
   role: { type: String, enum: ["Listener", "Seeker"], required: true },
+  accessToken: {
+    type: String,
+    default: () => crypto.randomBytes(16).toString("hex"),
+  },
   name: { type: String },
   bio: { type: String },
   profilePicture: { type: String },
