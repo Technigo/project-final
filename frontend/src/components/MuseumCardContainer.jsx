@@ -1,16 +1,18 @@
-import museumList from "../json/museums.json";
-import { MuseumCard } from "./MuseumCard";
-import { useState } from "react";
+import { Link } from "react-router-dom"
+import museumList from "../json/museums.json"
+import { useState } from "react"
 
 export const MuseumCardContainer = () => {
-  const [amountToShow, setAmountToShow] = useState(4);
+  const [amountToShow, setAmountToShow] = useState(4)
 
-  const showMore = () => setAmountToShow(amountToShow + 4);
+  const showMore = () => setAmountToShow(amountToShow + 4)
 
   const showMuseums = () =>
-    museumList
-      .slice(0, amountToShow)
-      .map((museum, index) => <MuseumCard museum={museum} key={index} />);
+    museumList.slice(0, amountToShow).map((museum, index) => (
+      <Link to={`/${museum.id}`}>
+        <div key={index}>{museum.name}</div>
+      </Link>
+    ))
   return (
     <>
       <div>{showMuseums()}</div>
@@ -18,5 +20,5 @@ export const MuseumCardContainer = () => {
         <button onClick={showMore}> Show more...</button>
       )}
     </>
-  );
-};
+  )
+}

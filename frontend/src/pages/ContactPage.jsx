@@ -1,5 +1,10 @@
+import { ToHomepageBtn } from "../components/ToHomepageBtn"
+
 export const ContactPage = () => {
   return (
-    <div>ContactPage</div>
+    <div>
+      <ToHomepageBtn />
+      ContactPage
+    </div>
   )
 }

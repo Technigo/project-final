@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom"
+
 export const Footer = () => {
   return (
     <>
       <div>
         <ul>
-          <a>About MuSeek</a>
-
-          <a>Contact us</a>
+          <Link to={"/about"}>About MuSeek</Link>
+          <Link to={"/contact"}>Contact us</Link>
         </ul>
       </div>
       <div>
         <p> © 2024 MuSeek. All rights reserved.</p>
       </div>
     </>
-  );
-};
+  )
+}

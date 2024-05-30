@@ -1,15 +1,25 @@
+import { useParams, Navigate } from "react-router-dom"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import { FavoriteFunction } from "../components/FavoriteFunction"
+import museumList from "../json/museums.json"
 import "./TemporaryStyle.css"
 
 import image1 from "../assets/image1.png"
 
 export const DetailPage = () => {
+  const params = useParams()
+  const museumId = params.slug
+  const museum = museumList.find((museum) => museum.id === museumId)
+
+  if (!museum) {
+    return <Navigate to="/not-found" />
+  }
+
   return (
     <div>
       <ToHomepageBtn />
       <img src={image1} alt="Description of image" />
-      <h3>Museum of Romantic Life</h3>
+      <h3>{museum.name}</h3>
       <FavoriteFunction />
       <p>16 Rue Chaptal, 75009 Paris, France</p>
       <p>
