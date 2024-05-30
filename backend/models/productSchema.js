@@ -2,8 +2,24 @@ import mongoose from "../config/glimdatabase";
 
 const { Schema, model } = mongoose;
 
+const allergyEnum = [
+  "fragrances",
+  "preservatives",
+  "dyes",
+  "metals",
+  "latex",
+  "parabens",
+];
+
+const prosEnum = ["organic", "vegan", "crueltyfree"];
+
+const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"];
+
 const productSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+  },
   brand: String,
   category: String,
   subcategory: String,
@@ -11,61 +27,20 @@ const productSchema = new Schema({
   price: String,
   //Talk about if we want boolean or an array and decide before we do the remote database
   allergies: {
-    /*  const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const allergyEnum = [
-  'fragrances',
-  'preservatives',
-  'dyes',
-  'metals',
-  'latex',
-  'parabens',
-];
-
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  allergies: {
     type: [{ type: String, enum: allergyEnum }],
     default: [], // Default to an empty array for users with no allergies
   },
-});
-
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
-    [{type: String, enum [addthearray]}]
-    default: [] */
-    fragrances: Boolean,
-    preservatives: Boolean,
-    dyes: Boolean,
-    metals: Boolean,
-    latex: Boolean,
-    parabens: Boolean,
-  },
   pros: {
-    organic: Boolean,
-    vegan: Boolean,
-    crueltyfree: Boolean,
+    type: [{ type: String, enum: prosEnum }],
+    default: [], // Default to an empty array for users with no allergies
   },
-  recommendedfor: {
-    hair: {
-      frizzy: Boolean,
-      oily: Boolean,
-      dry: Boolean,
-      straight: Boolean,
-      curly: Boolean,
-    },
-    skin: {
-      dry: Boolean,
-      oily: Boolean,
-      combination: Boolean,
-      sensitive: Boolean,
-      acne: Boolean,
-    },
+  hair: {
+    moisture: String,
+    shape: String,
+  },
+  skin: {
+    type: [{ type: String, enum: skinEnum }],
+    default: [], // Default to an empty array for users with no allergies},
   },
   instructions: String,
   review: Number,
