@@ -1,5 +1,7 @@
+import RentalList from "./RentalList";
+
 const RentalPage = () => {
-  return;
+  return <RentalList />;
 };
 
 export default RentalPage;
