@@ -78,6 +78,382 @@
     ]
   },
   {
+    "name": "Museum of the History of Medicine",
+    "theme": "Medical History",
+    "location": "12 Rue de l'École de Médecine, 75006 Paris, France",
+    "lat": "48.850800",
+    "lon": "2.341400",
+    "ticket_price": "3€",
+    "hasCafe": "No",
+    "website": "https://www.biusante.parisdescartes.fr/musee/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "14:00-17:30"
+      }
+    ]
+  },
+  {
+    "name": "National Leprechaun Museum",
+    "theme": "Irish Folklore",
+    "location": "Jervis Street, Dublin, Ireland",
+    "lat": "53.347200",
+    "lon": "-6.267400",
+    "ticket_price": "15€",
+    "hasCafe": "No",
+    "website": "https://www.leprechaunmuseum.ie/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-18:30"
+      }
+    ]
+  },
+  {
+    "name": "The Cat Cabinet",
+    "theme": "Cats in Art",
+    "location": "Herengracht 497, 1017 BT Amsterdam, Netherlands",
+    "lat": "52.364200",
+    "lon": "4.893600",
+    "ticket_price": "7€",
+    "hasCafe": "No",
+    "website": "https://www.kattenkabinet.nl/",
+    "opening_hours": [
+      {
+        "Mon-Fri": "10:00-17:00"
+      },
+      {
+        "Sat-Sun": "12:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Mini Bottle Gallery",
+    "theme": "Miniature Bottles",
+    "location": "Kirkegata 10, 0153 Oslo, Norway",
+    "lat": "59.911491",
+    "lon": "10.745117",
+    "ticket_price": "90 NOK",
+    "hasCafe": "Yes",
+    "website": "https://www.minibottlegallery.com/",
+    "opening_hours": [
+      {
+        "Mon-Fri": "Closed"
+      },
+      {
+        "Sat": "12:00-16:00"
+      },
+      {
+        "Sun": "12:00-16:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo del Caracol",
+    "theme": "Mexican History",
+    "location": "Calle de Luis Cabrera 7, San Ángel, Álvaro Obregón, 01000 Ciudad de México, CDMX, Mexico",
+    "lat": "19.345000",
+    "lon": "-99.189900",
+    "ticket_price": "70 MXN",
+    "hasCafe": "No",
+    "website": "http://www.mnh.inah.gob.mx/museos/caracol.html",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "09:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo de Arte Precolombino",
+    "theme": "Pre-Columbian Art",
+    "location": "Calle San Lorenzo 104, Cusco 08002, Peru",
+    "lat": "-13.516700",
+    "lon": "-71.978800",
+    "ticket_price": "20 PEN",
+    "hasCafe": "Yes",
+    "website": "https://www.mapcusco.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-22:00"
+      }
+    ]
+  },
+  {
+    "name": "The Neon Museum",
+    "theme": "Neon Signs",
+    "location": "770 Las Vegas Blvd N, Las Vegas, NV 89101, USA",
+    "lat": "36.178330",
+    "lon": "-115.134180",
+    "ticket_price": "$20",
+    "hasCafe": "No",
+    "website": "https://www.neonmuseum.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "14:00-22:00"
+      }
+    ]
+  },
+  {
+    "name": "The Fan Museum",
+    "theme": "Hand Fans",
+    "location": "12 Crooms Hill, Greenwich, London SE10 8ER, UK",
+
+    "lat": "51.478800",
+    "lon": "-0.009000",
+    "ticket_price": "5£",
+    "hasCafe": "Yes",
+    "website": "http://www.thefanmuseum.org.uk/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sat": "11:00-17:00"
+      },
+      {
+        "Sun": "12:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Vampires and Legendary Creatures",
+    "theme": "Vampires and Legends",
+    "location": "14 Rue Jules David, 93260 Les Lilas, France",
+    "lat": "48.878700",
+    "lon": "2.416900",
+    "ticket_price": "8€",
+    "hasCafe": "No",
+    "website": "https://www.museeduvampire.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "14:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The Clown Museum",
+    "theme": "Clowns",
+    "location": "Wiener Str. 2, 24103 Kiel, Germany",
+    "lat": "54.326400",
+    "lon": "10.140900",
+    "ticket_price": "5€",
+    "hasCafe": "No",
+    "website": "https://www.clownmuseum.at/",
+    "opening_hours": [
+      {
+        "Mon-Fri": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Brands, Packaging & Advertising",
+    "theme": "Branding and Packaging",
+    "location": "111-117 Lancaster Rd, Notting Hill, London W11 1QT, UK",
+    "lat": "51.517700",
+    "lon": "-0.205200",
+    "ticket_price": "9£",
+    "hasCafe": "Yes",
+    "website": "https://www.museumofbrands.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "International Spy Museum",
+    "theme": "Espionage",
+    "location": "700 L'Enfant Plaza SW, Washington, DC 20024, USA",
+    "lat": "38.884600",
+    "lon": "-77.025900",
+    "ticket_price": "$24",
+    "hasCafe": "Yes",
+    "website": "https://www.spymuseum.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-19:00"
+      }
+    ]
+  },
+  {
+    "name": "The Museum of Russian Art",
+    "theme": "Russian Art",
+    "location": "5500 Stevens Ave, Minneapolis, MN 55419, USA",
+    "lat": "44.905800",
+    "lon": "-93.281500",
+    "ticket_price": "$12",
+    "hasCafe": "No",
+    "website": "https://tmora.org/",
+    "opening_hours": [
+      {
+        "Mon-Fri": "10:00-17:00"
+      },
+      {
+        "Sat-Sun": "10:00-16:00"
+      }
+    ]
+  },
+  {
+    "name": "The Museum of Death",
+    "theme": "Death and Mortality",
+    "location": "6031 Hollywood Blvd, Hollywood, CA 90028, USA",
+    "lat": "34.101300",
+    "lon": "-118.320200",
+    "ticket_price": "$15",
+    "hasCafe": "No",
+    "website": "https://www.museumofdeath.net/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-20:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Bad Art",
+    "theme": "Bad Art",
+    "location": "55 Davis Square, Somerville, MA 02144, USA",
+    "lat": "42.396200",
+    "lon": "-71.122400",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://museumofbadart.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "24 hours"
+      }
+    ]
+  },
+  {
+    "name": "The Shoe Museum",
+    "theme": "Footwear",
+    "location": "Churchill Pl, East, Street, London, UK",
+    "lat": "51.523100",
+    "lon": "-0.092600",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://www.batashoemuseum.ca/",
+    "opening_hours": [
+      {
+        "Mon-Fri": "09:00-17:00"
+      },
+      {
+        "Sat-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The Avanos Hair Museum",
+    "theme": "Human Hair",
+    "location": "Gaferli Mahallesi, 50500 Avanos/Nevşehir, Turkey",
+    "lat": "38.715800",
+    "lon": "34.846300",
+    "ticket_price": "Free",
+    "hasCafe": "Yes",
+    "website": "https://www.hairmuseum.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "08:00-19:00"
+      }
+    ]
+  },
+  {
+    "name": "The Cup Noodles Museum",
+    "theme": "Instant Noodles",
+    "location": "2 Chome-3-4 Shinko, Naka Ward, Yokohama, Kanagawa 231-0001, Japan",
+    "lat": "35.455000",
+    "lon": "139.638000",
+    "ticket_price": "500¥",
+    "hasCafe": "Yes",
+    "website": "https://www.cupnoodles-museum.jp/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The Salt and Pepper Shaker Museum",
+    "theme": "Salt and Pepper Shakers",
+    "location": "Winchester St, Gatlinburg, TN 37738, USA",
+    "lat": "35.712300",
+    "lon": "-83.519600",
+    "ticket_price": "$3",
+    "hasCafe": "No",
+    "website": "https://thesaltandpeppershakermuseum.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Sulabh International Museum of Toilets",
+    "theme": "Toilets and Sanitation",
+    "location": "Sulabh Bhawan, Palam Dabri Marg, New Delhi, Delhi 110045, India",
+    "lat": "28.588600",
+    "lon": "77.071600",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://www.sulabhtoiletmuseum.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "The Dog Collar Museum",
+    "theme": "Dog Collars",
+    "location": "Leeds Castle, Maidstone, ME17 1PL, UK",
+    "lat": "51.247500",
+    "lon": "0.630100",
+    "ticket_price": "24.90£",
+    "hasCafe": "Yes",
+    "website": "https://www.leeds-castle.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:30-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Icelandic Sorcery and Witchcraft",
+    "theme": "Witchcraft",
+    "location": "Höfðagata 8, 510 Hólmavík, Iceland",
+    "lat": "65.704450",
+    "lon": "-21.686810",
+    "ticket_price": "950 ISK",
+    "hasCafe": "Yes",
+    "website": "http://www.galdrasyning.is/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The Pencil Museum",
+    "theme": "Pencils",
+    "location": "Southey Works, Main St, Keswick CA12 5NG, UK",
+    "lat": "54.601300",
+    "lon": "-3.138500",
+    "ticket_price": "4.95£",
+    "hasCafe": "Yes",
+    "website": "https://www.pencilmuseum.co.uk/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:30-17:00"
+      }
+    ]
+  },
+  {
     "name": "The Museum of Broken Relationships",
     "theme": "Human Relationships",
     "location": "Ćirilometodska ul. 2, 10000, Zagreb, Croatia",
@@ -91,5 +467,1262 @@
         "Mon-Sun": "09:00-21:00"
       }
     ]
+  },
+  {
+    "name": "The Spy Museum",
+    "theme": "Espionage",
+    "location": "Lavrska St, 33, Kyiv, Ukraine, 02000",
+    "lat": "50.434600",
+    "lon": "30.555000",
+    "ticket_price": "200₴",
+    "hasCafe": "No",
+    "website": "https://www.spymuseum.com.ua/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-19:00"
+      }
+    ]
+  },
+  {
+    "name": "The Museum of Underwater Archaeology",
+    "theme": "Underwater Archaeology",
+    "location": "Bodrum Castle, Bodrum, Turkey",
+    "lat": "37.032000",
+    "lon": "27.429700",
+    "ticket_price": "20₺",
+    "hasCafe": "Yes",
+    "website": "https://www.bodrum-museum.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-19:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of the Weird",
+    "theme": "Weird and Unusual",
+    "location": "412 E 6th St, Austin, TX 78701, USA",
+    "lat": "30.267200",
+    "lon": "-97.739300",
+    "ticket_price": "$12",
+    "hasCafe": "No",
+    "website": "https://www.museumoftheweird.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-22:00"
+      }
+    ]
+  },
+  {
+    "name": "Musée de l'Absinthe",
+    "theme": "Absinthe",
+    "location": "44 Rue Calle, 27400 Pont-de-l'Arche, France",
+    "lat": "49.292000",
+    "lon": "1.146200",
+    "ticket_price": "6€",
+    "hasCafe": "Yes",
+    "website": "https://www.museeabsinthe.com/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo del Oro",
+    "theme": "Gold",
+    "location": "Cra. 6 #15-88, Bogotá, Colombia",
+    "lat": "4.601000",
+    "lon": "-74.071700",
+    "ticket_price": "4000 COP",
+    "hasCafe": "Yes",
+    "website": "https://www.banrepcultural.org/museo-del-oro",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sat": "09:00-18:00"
+      },
+      {
+        "Sun": "10:00-16:00"
+      }
+    ]
+  },
+  {
+    "name": "The Museum of the American Cocktail",
+    "theme": "Cocktails",
+    "location": "1504 Oretha Castle Haley Blvd, New Orleans, LA 70113, USA",
+    "lat": "29.943600",
+    "lon": "-90.071500",
+    "ticket_price": "$10",
+    "hasCafe": "Yes",
+    "website": "https://www.southernfood.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "11:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "The Nobel Prize Museum",
+    "theme": "Nobel Prize",
+    "location": "Stortorget 2, 103 16 Stockholm, Sweden",
+    "lat": "59.325900",
+    "lon": "18.070700",
+    "ticket_price": "130 SEK",
+    "hasCafe": "Yes",
+    "website": "https://nobelprizemuseum.se/en/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Spirits",
+    "theme": "Alcohol and Spirits",
+    "location": "Djurgårdsvägen 38-40, 115 21 Stockholm, Sweden",
+    "lat": "59.327500",
+    "lon": "18.096300",
+    "ticket_price": "140 SEK",
+    "hasCafe": "Yes",
+    "website": "https://www.spritmuseum.se/en/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo Soumaya",
+    "theme": "Art and Sculpture",
+    "location": "Blvd. Miguel de Cervantes Saavedra 303, Granada, Miguel Hidalgo, 11529 Ciudad de México, CDMX, Mexico",
+    "lat": "19.440400",
+    "lon": "-99.204300",
+    "ticket_price": "Free",
+    "hasCafe": "Yes",
+    "website": "https://www.soumaya.com.mx/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:30-18:30"
+      }
+    ]
+  },
+  {
+    "name": "Bode Museum",
+    "theme": "Sculpture and Byzantine Art",
+    "location": "Am Kupfergraben, 10117 Berlin, Germany",
+    "lat": "52.522600",
+    "lon": "13.395000",
+    "ticket_price": "12€",
+    "hasCafe": "Yes",
+    "website": "https://www.smb.museum/en/museums-institutions/bode-museum/home.html",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The Käthe Kollwitz Museum",
+    "theme": "Käthe Kollwitz Art",
+    "location": "Fasanenstraße 24, 10719 Berlin, Germany",
+    "lat": "52.501500",
+    "lon": "13.327900",
+    "ticket_price": "8€",
+    "hasCafe": "No",
+    "website": "https://www.kaethe-kollwitz.de/en/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "11:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Illusions",
+    "theme": "Optical Illusions",
+    "location": "Kantstraße 6, 10623 Berlin, Germany",
+    "lat": "52.505300",
+    "lon": "13.328800",
+    "ticket_price": "12€",
+    "hasCafe": "No",
+    "website": "https://museumofillusions.de/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-20:00"
+      }
+    ]
+  },
+  {
+    "name": "MUTTER Museum",
+    "theme": "Medical History",
+    "location": "19 S 22nd St, Philadelphia, PA 19103, USA",
+    "lat": "39.953400",
+    "lon": "-75.174300",
+    "ticket_price": "$20",
+    "hasCafe": "No",
+    "website": "https://muttermuseum.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Shitamachi Tanabata Museum",
+    "theme": "Tanabata Festival",
+    "location": "1-5-2 Kiyokawa, Taito City, Tokyo 111-0022, Japan",
+    "lat": "35.724200",
+    "lon": "139.793900",
+    "ticket_price": "500 JPY",
+    "hasCafe": "No",
+    "website": "http://tanabatamuseum.info/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Traditional Korean Music",
+    "theme": "Korean Music",
+    "location": "32-1 Jangchungdan-ro, Jung-gu, Seoul, South Korea",
+    "lat": "37.561100",
+    "lon": "126.997800",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "http://www.ntok.go.kr/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Meguro Parasitological Museum",
+    "theme": "Parasitology",
+    "location": "4-1-1 Shimomeguro, Meguro City, Tokyo 153-0064, Japan",
+    "lat": "35.633500",
+    "lon": "139.715600",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "http://www.kiseichu.org/",
+    "opening_hours": [
+      {
+        "Mon-Tue": "Closed"
+      },
+      {
+        "Wed-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Tanzanite Experience Museum",
+    "theme": "Tanzanite Gemstones",
+    "location": "Blue Plaza, 3rd Floor, India St, Arusha, Tanzania",
+    "lat": "-3.368500",
+    "lon": "36.688100",
+    "ticket_price": "10 USD",
+    "hasCafe": "No",
+    "website": "https://tanzaniteexperience.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Sewara Museum",
+    "theme": "Nigerian Crafts and Artifacts",
+    "location": "Kubwa Expressway, Dutse, Abuja, Nigeria",
+    "lat": "9.116000",
+    "lon": "7.375000",
+    "ticket_price": "300 NGN",
+    "hasCafe": "No",
+    "website": "https://sewaramuseum.org.ng/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Kutch Museum",
+    "theme": "Kutch Tribal Culture",
+    "location": "Ghanshyam Nagar, Bhuj, Gujarat 370001, India",
+    "lat": "23.243000",
+    "lon": "69.664000",
+    "ticket_price": "5 INR",
+    "hasCafe": "No",
+    "website": "https://www.kutchmuseum.org/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of the Island of Mozambique",
+    "theme": "Local History",
+    "location": "Island of Mozambique, Mozambique",
+    "lat": "-15.036200",
+    "lon": "40.735500",
+    "ticket_price": "100 MZN",
+    "hasCafe": "No",
+    "website": "http://www.museuislandofmozambique.gov.mz/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "09:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Islamic Art",
+    "theme": "Islamic Art",
+    "location": "Shar'a Bur Sa'id, Cairo Governorate, Egypt",
+    "lat": "30.044400",
+    "lon": "31.242200",
+    "ticket_price": "100 EGP",
+    "hasCafe": "No",
+    "website": "http://www.miaegypt.org/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-16:00"
+      }
+    ]
+  },
+  {
+    "name": "Trick Eye Museum",
+    "theme": "Optical Illusions",
+    "location": "26 Sentosa Gateway #01-43/44, Singapore 098138",
+    "lat": "1.256500",
+    "lon": "103.820500",
+    "ticket_price": "25 SGD",
+    "hasCafe": "No",
+    "website": "http://trickeye.com/singapore/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-21:00"
+      }
+    ]
+  },
+  {
+    "name": "Seychelles Natural History Museum",
+    "theme": "Natural History",
+    "location": "Independence Ave, Victoria, Seychelles",
+    "lat": "-4.619200",
+    "lon": "55.452400",
+    "ticket_price": "50 SCR",
+    "hasCafe": "No",
+    "website": "http://www.seychellesnaturalhistorymuseum.org/",
+    "opening_hours": [
+      {
+        "Mon-Fri": "08:00-16:00"
+      },
+      {
+        "Sat": "09:00-13:00"
+      },
+      {
+        "Sun": "Closed"
+      }
+    ]
+  },
+  {
+    "name": "House of Dreams Museum",
+    "theme": "Mosaic Art",
+    "location": "45 Melbourne Grove, East Dulwich, London SE22 8RG, United Kingdom",
+    "lat": "51.454300",
+    "lon": "-0.074400",
+    "ticket_price": "10 GBP",
+    "hasCafe": "No",
+    "website": "http://www.stephenwrightartist.com/houseofdreams/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "By appointment only"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Bags and Purses",
+    "theme": "Bags and Purses",
+    "location": "Herengracht 573, 1017 CD Amsterdam, Netherlands",
+    "lat": "52.364300",
+    "lon": "4.893400",
+    "ticket_price": "12.50€",
+    "hasCafe": "Yes",
+    "website": "https://tassenmuseum.nl/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo degli Strumenti Musicali",
+    "theme": "Musical Instruments",
+    "location": "Piazza Santa Croce 14, 50122 Florence, Italy",
+    "lat": "43.768700",
+    "lon": "11.262600",
+    "ticket_price": "8€",
+    "hasCafe": "No",
+    "website": "https://www.uffizi.it/en/the-museum-of-musical-instruments",
+    "opening_hours": [
+      {
+        "Mon-Sun": "08:15-18:50"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Medieval Torture Instruments",
+    "theme": "Medieval Torture",
+    "location": "Celetná 558/12, 110 00 Staré Město, Czech Republic",
+    "lat": "50.087500",
+    "lon": "14.422800",
+    "ticket_price": "160 CZK",
+    "hasCafe": "No",
+    "website": "https://www.tortureum.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-22:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo Atlantico",
+    "theme": "Underwater Sculptures",
+    "location": "Bahía de Las Coloradas, 35580 Playa Blanca, Las Palmas, Spain",
+    "lat": "28.851100",
+    "lon": "-13.828500",
+    "ticket_price": "12€",
+    "hasCafe": "No",
+    "website": "https://www.cactlanzarote.com/en/cact/museo-atlantico/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Siriraj Medical Museum",
+    "theme": "Medical History",
+    "location": "2 Wang Lang Rd, Siriraj, Bangkok Noi, Bangkok 10700, Thailand",
+    "lat": "13.759400",
+    "lon": "100.485000",
+    "ticket_price": "200 THB",
+    "hasCafe": "No",
+    "website": "http://www.sirirajmuseum.com/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Soviet Arcade Machines",
+    "theme": "Soviet Arcade Games",
+    "location": "Koniushennaya Ploshchad', 2B, Saint Petersburg, Russia, 191186",
+    "lat": "59.939000",
+    "lon": "30.321300",
+    "ticket_price": "450 RUB",
+    "hasCafe": "Yes",
+    "website": "https://www.15kop.ru/en/",
+    "opening_hours": [
+      {
+        "Mon-Sun": "11:00-20:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Everyday Life",
+    "theme": "Everyday objects",
+    "location": "3482 Dry Pond Rd, Glover, VT 05839, USA",
+    "lat": "44.7086",
+    "lon": "-72.2264",
+    "ticket_price": "donations",
+    "hasCafe": "No",
+    "website": "https://museumofeverydaylife.org",
+    "opening_hours": [{ "Mon-Sun": "08:00-20:00" }]
+  },
+  {
+    "name": "The Button Museum",
+    "theme": "Buttons",
+    "location": "1 Drummond Pl, London N1 1RL, UK",
+    "lat": "51.5353",
+    "lon": "-0.1072",
+    "ticket_price": "5£",
+    "hasCafe": "No",
+    "website": "http://www.thebuttonmuseum.com",
+    "opening_hours": [
+      { "Mon-Fri": "10:00-17:00" },
+      { "Sat": "10:00-14:00" },
+      {
+        "Sun": "Closed"
+      }
+    ]
+  },
+  {
+    "name": "The Hair Museum of Avanos",
+    "theme": "Hair art",
+    "location": "Kızılırmak, 50500 Avanos/Nevşehir, Turkey",
+    "lat": "38.7150",
+    "lon": "34.8467",
+    "ticket_price": "5₺",
+    "hasCafe": "No",
+    "website": "https://www.hairmuseum.com",
+    "opening_hours": [{ "Mon-Sun": "09:00-18:00" }]
+  },
+  {
+    "name": "Museum of Bread",
+    "theme": "Bread",
+    "location": "Salzstadelgasse 10, 89073 Ulm, Germany",
+    "lat": "48.4011",
+    "lon": "9.9965",
+    "ticket_price": "7€",
+    "hasCafe": "yes",
+    "website": "https://www.brotmuseum.de",
+    "opening_hours": [{ "Tue-Sun": "10:00-17:00" }, { "Mon": "Closed" }]
+  },
+  {
+    "name": "The Museum of Witchcraft and Magic",
+    "theme": "Witchcraft",
+    "location": "The Harbour, Boscastle, Cornwall PL35 0HD, UK",
+    "lat": "50.6843",
+    "lon": "-4.6934",
+    "ticket_price": "7.5£",
+    "hasCafe": "No",
+    "website": "https://www.museumofwitchcraftandmagic.co.uk",
+    "opening_hours": [{ "Mon-Sun": "10:30-18:00" }]
+  },
+  {
+    "name": "Museum of Shadow",
+    "theme": "Shadows",
+    "location": "2 Murrell St, Glenelg, South Australia 5045, Australia",
+    "lat": "-34.9801",
+    "lon": "138.5105",
+    "ticket_price": "10AUD",
+    "hasCafe": "No",
+    "website": "https://www.museumofshadow.com",
+    "opening_hours": [{ "Mon-Sun": "10:00-16:00" }]
+  },
+  {
+    "name": "Museum of the Holy Souls in Purgatory",
+    "theme": "Souls",
+    "location": "Lungotevere Prati, 12, 00193 Roma RM, Italy",
+    "lat": "41.9062",
+    "lon": "12.4700",
+    "ticket_price": "free",
+    "hasCafe": "No",
+    "website": "https://www.museumofpurgatory.com",
+    "opening_hours": [{ "Mon-Sun": "07:00-12:00, 16:00-19:00" }]
+  },
+  {
+    "name": "The Mummy Museum",
+    "theme": "Mummies",
+    "location": "Mina Mexico S/N, Zona Centro, 36000 Guanajuato, Gto., Mexico",
+    "lat": "21.0154",
+    "lon": "-101.2561",
+    "ticket_price": "85MXN",
+    "hasCafe": "No",
+    "website": "https://www.mummymuseum.com",
+    "opening_hours": [{ "Mon-Sun": "09:00-18:00" }]
+  },
+  {
+    "name": "Museum of the Weird",
+    "theme": "Weird artifacts",
+    "location": "412 E 6th St, Austin, TX 78701, USA",
+    "lat": "30.2678",
+    "lon": "-97.7394",
+    "ticket_price": "12USD",
+    "hasCafe": "No",
+    "website": "https://www.museumoftheweird.com",
+    "opening_hours": [{ "Mon-Sun": "10:00-19:00" }]
+  },
+  {
+    "name": "Arnold's Cannibal Museum",
+    "theme": "Cannibalism",
+    "location": "Önneköp 8049, 242 98 Hörby, Sweden",
+    "lat": "55.791600",
+    "lon": "13.886580",
+    "ticket_price": "free",
+    "hasCafe": "No",
+    "website": "https://www.kannibalmuseum.se/",
+    "opening_hours": [{ "Mon-Sun": "By appointment only" }]
+  },
+  {
+    "name": "Brewery Museum",
+    "theme": "Brewery",
+    "location": "Fridnäsvägen 5, 732 30 Arboga, Sweden",
+    "lat": "59.3947",
+    "lon": "15.8359",
+    "ticket_price": "donations",
+    "hasCafe": "No",
+    "website": "https://arbogamuseum.se/bryggerimuseet.html",
+    "opening_hours": [{ "Thu": "10:00-13:00" }]
+  },
+  {
+    "name": "Borgquist's Hat Museum",
+    "theme": "Hats",
+    "location": "Algatan 35, 231 42 Trelleborg, Sweden",
+    "lat": "55.3773",
+    "lon": "13.1564",
+    "ticket_price": "donations",
+    "hasCafe": "No",
+    "website": "https://gamlatrelleborg.se/borgquitska/",
+    "opening_hours": [{ "Mon-Sun": "By appointment only" }]
+  },
+  {
+    "name": "Vagabond Museum",
+    "theme": "Lifestyle",
+    "location": "Storgatan 4, 361 97 Boda Glasbruk, Sweden",
+    "lat": "56.730230",
+    "lon": "15.677240",
+    "ticket_price": "80 SEK",
+    "hasCafe": "No",
+    "website": "https://luffarmuseum.se/",
+    "opening_hours": [{ "Mon-Sun": "11:00-16:00" }]
+  },
+  {
+    "name": "Vanja's Textile Museum",
+    "theme": "Textile",
+    "location": "Brunnsvägen 42, 464 50 Dals Rostock, Sweden",
+    "lat": "58.719400",
+    "lon": "12.358310",
+    "ticket_price": "donations",
+    "hasCafe": "No",
+    "website": "https://www.textilmuseum.se/",
+    "opening_hours": [{ "Mon-Sun": "By appointment only" }]
+  },
+  {
+    "name": "Hanger Museum",
+    "theme": "Hangers",
+    "location": "Pukaviksvägen 187, 293 42 Olofström, Sweden",
+    "lat": "56.268520",
+    "lon": "14.523320",
+    "ticket_price": "free",
+    "hasCafe": "No",
+    "website": "https://www.visitblekinge.se/kamera-och-galgmuseum",
+    "opening_hours": [{ "Mon-Sun": "12:00-16:00" }]
+  },
+  {
+    "name": "Inhotim",
+    "theme": "Contemporary Art",
+    "description": "Inhotim is a contemporary art museum and botanical garden located in Brumadinho, Brazil, featuring a large collection of sculptures, paintings, and installations set within lush tropical gardens.",
+    "location": "Brumadinho, Minas Gerais, Brazil",
+    "lat": "-20.132556",
+    "lon": "-44.197224",
+    "ticket_price": "Varies",
+    "hasCafe": "Yes",
+    "website": "https://www.inhotim.org.br",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Fri": "9:30-16:30"
+      },
+      {
+        "Sat-Sun": "9:30-17:30"
+      }
+    ]
+  },
+  {
+    "name": "Museo Soumaya",
+    "theme": "Latin American Art",
+    "description": "Located in Mexico City, Museo Soumaya is known for its striking modern architecture and extensive collection of over 66,000 pieces, including works by Rodin, Dalí, and Mexican artists.",
+    "location": "Plaza Carso, Mexico City, Mexico",
+    "lat": "19.4404",
+    "lon": "-99.2043",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://www.museosoumaya.org",
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:30-18:30"
+      }
+    ]
+  },
+  {
+    "name": "Ralli Museum",
+    "theme": "Latin American Art",
+    "description": "The Ralli Museum in Santiago, Chile, features contemporary Latin American art with an impressive collection of paintings and sculptures.",
+    "location": "Vitacura, Santiago, Chile",
+    "lat": "-33.3911",
+    "lon": "-70.5779",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://www.rallimuseums.com",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Fri": "10:30-17:00"
+      },
+      {
+        "Sat-Sun": "10:30-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Broken Relationships",
+    "theme": "Contemporary Art",
+    "description": "The Museum of Broken Relationships in Zagreb, Croatia, is dedicated to failed love relationships. Its exhibits include personal objects left over from former lovers, along with brief descriptions.",
+    "location": "Ćirilometodska 2, 10000, Zagreb, Croatia",
+    "lat": "45.815",
+    "lon": "15.9785",
+    "ticket_price": "€7",
+    "hasCafe": "Yes",
+    "website": "https://brokenships.com",
+    "opening_hours": [
+      {
+        "Mon-Sun": "9:00-21:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo de Arte de Ponce",
+    "theme": "European Art",
+    "description": "Located in Ponce, Puerto Rico, this museum features a collection of European art, including works from the Renaissance to the 19th century, with an emphasis on Pre-Raphaelite paintings.",
+    "location": "2325 Ave. Las Américas, Ponce, 00717, Puerto Rico",
+    "lat": "18.0115",
+    "lon": "-66.6141",
+    "ticket_price": "$6",
+    "hasCafe": "Yes",
+    "website": "https://museoarteponce.org",
+    "opening_hours": [
+      {
+        "Mon-Tue": "Closed"
+      },
+      {
+        "Wed-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Chichu Art Museum",
+    "theme": "Contemporary Art",
+    "description": "Located on Naoshima Island, Japan, the Chichu Art Museum is an underground museum designed by Tadao Ando. It features works by Claude Monet, James Turrell, and Walter De Maria.",
+    "location": "Naoshima, Kagawa, Japan",
+    "lat": "34.4562",
+    "lon": "133.9954",
+    "ticket_price": "¥2,100",
+    "hasCafe": "Yes",
+    "website": "https://benesse-artsite.jp/en/art/chichu.html",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Museo Nacional de Arte Romano",
+    "theme": "Roman Art",
+    "description": "Located in Mérida, Spain, this museum showcases a vast collection of Roman artifacts, including mosaics, sculptures, and everyday items from the Roman city of Emerita Augusta.",
+    "location": "Calle José Ramón Mélida, s/n, 06800 Mérida, Badajoz, Spain",
+    "lat": "38.9151",
+    "lon": "-6.3432",
+    "ticket_price": "€3",
+    "hasCafe": "No",
+    "website": "https://museoarteromano.mcu.es",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sat": "9:30-18:30"
+      },
+      {
+        "Sun": "10:00-15:00"
+      }
+    ]
+  },
+  {
+    "name": "The Museum of Innocence",
+    "theme": "Literary Art",
+    "description": "The Museum of Innocence in Istanbul, Turkey, is based on the novel by Orhan Pamuk. It displays items mentioned in the book, creating a narrative between fiction and reality.",
+    "location": "Çukurcuma Caddesi, Dalgıç Çıkmazı, No: 2, 34425 Beyoğlu/Istanbul, Turkey",
+    "lat": "41.0321",
+    "lon": "28.9734",
+    "ticket_price": "₺40",
+    "hasCafe": "No",
+    "website": "https://en.masumiyetmuzesi.org",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Zeitz Museum of Contemporary Art Africa (MOCAA)",
+    "theme": "African Contemporary Art",
+    "description": "Located in Cape Town, South Africa, Zeitz MOCAA is the largest museum of contemporary African art in the world, housed in a converted grain silo.",
+    "location": "Silo District, V&A Waterfront, Cape Town, 8001, South Africa",
+    "lat": "-33.9078",
+    "lon": "18.4206",
+    "ticket_price": "R200",
+    "hasCafe": "Yes",
+    "website": "https://www.zeitzmocaa.museum",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The Menil Collection",
+    "theme": "Diverse Art Collections",
+    "description": "Located in Houston, Texas, USA, the Menil Collection is known for its wide range of art, including Surrealism, Modern, and Tribal art, housed in a serene, Renzo Piano-designed building.",
+    "location": "1533 Sul Ross St, Houston, TX 77006, USA",
+    "lat": "29.7375",
+    "lon": "-95.3972",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://www.menil.org",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-19:00"
+      }
+    ]
+  },
+  {
+    "name": "Museum of Contemporary Art (MOCA)",
+    "theme": "Contemporary Art",
+    "description": "The Museum of Contemporary Art in Bangkok, Thailand, features a collection of contemporary Thai art, including paintings, sculptures, and mixed media works.",
+    "location": "499 Vibhavadi Rangsit Rd, Chatuchak, Bangkok 10900, Thailand",
+    "lat": "13.8466",
+    "lon": "100.5654",
+    "ticket_price": "฿250",
+    "hasCafe": "Yes",
+    "website": "https://www.mocabangkok.com",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "The David Collection",
+    "theme": "Islamic Art",
+    "description": "Located in Copenhagen, Denmark, the David Collection is known for its extensive Islamic art collection, along with European 18th-century art and Danish Golden Age paintings.",
+    "location": "Kronprinsessegade 30-32, 1306 København, Denmark",
+    "lat": "55.6849",
+    "lon": "12.5817",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://www.davidmus.dk",
+    "opening_hours": [
+      {
+        "Mon-Tue": "Closed"
+      },
+      {
+        "Wed-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Fundación Proa",
+    "theme": "Contemporary Art",
+    "description": "Fundación Proa in Buenos Aires, Argentina, is a contemporary art museum located in the historic La Boca neighborhood, featuring temporary exhibitions of international and local artists.",
+    "location": "Av. Pedro de Mendoza 1929, C1169AAD, Buenos Aires, Argentina",
+    "lat": "-34.6348",
+    "lon": "-58.3627",
+    "ticket_price": "ARS 300",
+    "hasCafe": "Yes",
+    "website": "https://proa.org",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "12:00-19:00"
+      }
+    ]
+  },
+  {
+    "name": "Glenstone",
+    "theme": "Contemporary Art",
+    "description": "Glenstone, located in Potomac, Maryland, USA, combines art, architecture, and landscape to create a serene environment for viewing contemporary art.",
+    "location": "12100 Glen Rd, Potomac, MD 20854, USA",
+    "lat": "39.0539",
+    "lon": "-77.2456",
+    "ticket_price": "Free (Reservation Required)",
+    "hasCafe": "Yes",
+    "website": "https://www.glenstone.org",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Thu-Sun": "10:00-17:00"
+      }
+    ]
+  },
+  {
+    "name": "Sammlung Boros",
+    "theme": "Contemporary Art",
+    "description": "Sammlung Boros is a contemporary art collection housed in a former WWII bunker in Berlin, Germany. The museum showcases rotating exhibitions of the Boros Collection.",
+    "location": "Reinhardtstraße 20, 10117 Berlin, Germany",
+    "lat": "52.5244",
+    "lon": "13.3839",
+    "ticket_price": "€15",
+    "hasCafe": "No",
+    "website": "https://www.sammlung-boros.de",
+    "opening_hours": [
+      {
+        "Mon-Wed": "Closed"
+      },
+      {
+        "Thu-Sun": "10:00-18:00"
+      }
+    ]
+  },
+  {
+    "name": "Kumu Art Museum",
+    "theme": "Estonian Art",
+    "description": "Located in Tallinn, Estonia, the Kumu Art Museum is part of the Art Museum of Estonia, showcasing Estonian art from the 18th century to contemporary works.",
+    "location": "Weizenbergi 34 / Valge 1, 10127 Tallinn, Estonia",
+    "lat": "59.4370",
+    "lon": "24.7947",
+    "ticket_price": "€8",
+    "hasCafe": "Yes",
+    "website": "https://kunstimuuseum.ekm.ee/en/kumu-art-museum",
+    "opening_hours": [
+      { "Mon": "Closed" },
+      { "Tue-Wed": "10:00-18:00" },
+      { "Thu": "10:00-20:00" },
+      { "Fri-Sun": "10:00-18:00" }
+    ]
+  },
+  {
+    "name": "Museo de Arte Contemporáneo de Monterrey (MARCO)",
+    "theme": "Contemporary Art",
+    "description": "MARCO, located in Monterrey, Mexico, is one of the leading contemporary art museums in Latin America, featuring works by Mexican and international artists.",
+    "location": "Juan Zuazua y, Padre Raymundo Jardón S/N, Centro, 64000 Monterrey, N.L., Mexico",
+    "lat": "25.6657",
+    "lon": "-100.3106",
+    "ticket_price": "MXN 90",
+    "hasCafe": "Yes",
+    "website": "https://www.marco.org.mx",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-18:00" }]
+  },
+  {
+    "name": "Museo Tamayo",
+    "theme": "Modern Art",
+    "description": "Located in Mexico City, Mexico, Museo Tamayo showcases contemporary and modern art, including works by Rufino Tamayo and other international artists.",
+    "location": "Paseo de la Reforma 51, Bosque de Chapultepec I Secc, 11580 Ciudad de México, CDMX, Mexico",
+    "lat": "19.4256",
+    "lon": "-99.1911",
+    "ticket_price": "MXN 70",
+    "hasCafe": "Yes",
+    "website": "https://museotamayo.org",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-18:00" }]
+  },
+  {
+    "name": "National Museum of Modern and Contemporary Art (MMCA)",
+    "theme": "Contemporary Art",
+    "description": "Located in Seoul, South Korea, MMCA features a wide range of contemporary Korean and international art across multiple branches, with the main museum in Gwacheon.",
+    "location": "30 Samcheong-ro, Sogyeok-dong, Jongno-gu, Seoul, South Korea",
+    "lat": "37.5796",
+    "lon": "126.9814",
+    "ticket_price": "₩4,000",
+    "hasCafe": "Yes",
+    "website": "https://www.mmca.go.kr/eng/",
+    "opening_hours": [
+      { "Mon": "Closed" },
+      { "Tue-Thu": "10:00-18:00" },
+      { "Fri-Sat": "10:00-21:00" },
+      { "Sun": "10:00-18:00" }
+    ]
+  },
+  {
+    "name": "Pérez Art Museum Miami (PAMM)",
+    "theme": "Contemporary Art",
+    "description": "Located in Miami, Florida, USA, PAMM focuses on 20th and 21st-century art from the Americas, reflecting Miami's diverse community and cultural context.",
+    "location": "1103 Biscayne Blvd, Miami, FL 33132, USA",
+    "lat": "25.7858",
+    "lon": "-80.1874",
+    "ticket_price": "$16",
+    "hasCafe": "Yes",
+    "website": "https://www.pamm.org",
+    "opening_hours": [
+      { "Mon": "Closed" },
+      { "Tue-Wed": "11:00-18:00" },
+      { "Thu": "11:00-21:00" },
+      { "Fri-Sun": "11:00-18:00" }
+    ]
+  },
+  {
+    "name": "Macao Museum of Art (MAM)",
+    "theme": "Chinese Art",
+    "description": "Located in Macao, China, the Macao Museum of Art features Chinese art, including calligraphy, paintings, ceramics, and contemporary works.",
+    "location": "Avenida Xian Xing Hai, NAPE, Macao, China",
+    "lat": "22.1896",
+    "lon": "113.5538",
+    "ticket_price": "MOP 5",
+    "hasCafe": "No",
+    "website": "https://www.mam.gov.mo",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-19:00" }]
+  },
+  {
+    "name": "Museo de Arte Latinoamericano de Buenos Aires (MALBA)",
+    "theme": "Latin American Art",
+    "description": "Located in Buenos Aires, Argentina, MALBA is dedicated to Latin American art from the early 20th century to the present, featuring works by Frida Kahlo, Diego Rivera, and other prominent artists.",
+    "location": "Av. Pres. Figueroa Alcorta 3415, Buenos Aires, Argentina",
+    "lat": "-34.5836",
+    "lon": "-58.4036",
+    "ticket_price": "ARS 250",
+    "hasCafe": "Yes",
+    "website": "https://www.malba.org.ar",
+    "opening_hours": [{ "Mon": "Closed" }, { "Wed-Mon": "12:00-20:00" }]
+  },
+  {
+    "name": "The Phillips Collection",
+    "theme": "Modern Art",
+    "description": "Located in Washington, D.C., USA, The Phillips Collection is America's first museum of modern art, housing an impressive collection of works by artists such as Renoir, Rothko, and van Gogh.",
+    "location": "1600 21st St NW, Washington, D.C., USA",
+    "lat": "38.9117",
+    "lon": "-77.0466",
+    "ticket_price": "$12",
+    "hasCafe": "Yes",
+    "website": "https://www.phillipscollection.org",
+    "opening_hours": [
+      { "Mon": "Closed" },
+      { "Tue-Sat": "10:00-17:00" },
+      { "Sun": "12:00-18:30" }
+    ]
+  },
+  {
+    "name": "Museu Coleção Berardo",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in Lisbon, Portugal, Museu Coleção Berardo features a vast collection of modern and contemporary art, including works by Picasso, Duchamp, and Warhol.",
+    "location": "Praça do Império, 1449-003 Lisboa, Portugal",
+    "lat": "38.6979",
+    "lon": "-9.2077",
+    "ticket_price": "€5",
+    "hasCafe": "Yes",
+    "website": "https://www.museuberardo.pt",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-19:00" }]
+  },
+  {
+    "name": "Tate St Ives",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in St Ives, England, Tate St Ives showcases modern and contemporary art, with a special focus on the artists associated with the St Ives School.",
+    "location": "Porthmeor Beach, St Ives, Cornwall, TR26 1TG, England",
+    "lat": "50.2156",
+    "lon": "-5.4819",
+    "ticket_price": "£10.50",
+    "hasCafe": "Yes",
+    "website": "https://www.tate.org.uk/visit/tate-st-ives",
+    "opening_hours": [{ "Mon-Sun": "10:00-17:20" }]
+  },
+  {
+    "name": "Hara Museum of Contemporary Art",
+    "theme": "Contemporary Art",
+    "description": "Located in Tokyo, Japan, the Hara Museum of Contemporary Art features contemporary art exhibitions in a unique setting, a former residence designed by Jin Watanabe.",
+    "location": "4-7-25 Kita-Shinagawa, Shinagawa-ku, Tokyo 140-0001, Japan",
+    "lat": "35.6218",
+    "lon": "139.7389",
+    "ticket_price": "JPY 1100",
+    "hasCafe": "Yes",
+    "website": "https://www.haramuseum.or.jp",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-17:00" }]
+  },
+  {
+    "name": "Villa Stuck",
+    "theme": "Art Nouveau",
+    "description": "Located in Munich, Germany, Villa Stuck is the former residence of artist Franz von Stuck, showcasing his works and featuring temporary exhibitions of contemporary art.",
+    "location": "Prinzregentenstraße 60, 81675 München, Germany",
+    "lat": "48.1417",
+    "lon": "11.5984",
+    "ticket_price": "€9",
+    "hasCafe": "Yes",
+    "website": "https://www.villastuck.de",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-18:00" }]
+  },
+  {
+    "name": "Museum of Contemporary Art San Diego (MCASD)",
+    "theme": "Contemporary Art",
+    "description": "MCASD, located in San Diego, USA, offers contemporary art exhibitions across its two locations in La Jolla and Downtown San Diego.",
+    "location": "700 Prospect St, La Jolla, CA 92037, USA",
+    "lat": "32.8440",
+    "lon": "-117.2781",
+    "ticket_price": "$10",
+    "hasCafe": "Yes",
+    "website": "https://www.mcasd.org",
+    "opening_hours": [{ "Mon-Tue": "Closed" }, { "Wed-Sun": "11:00-17:00" }]
+  },
+  {
+    "name": "Astrup Fearnley Museum of Modern Art",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in Oslo, Norway, the Astrup Fearnley Museum of Modern Art features contemporary international and Norwegian art, housed in a stunning building designed by Renzo Piano.",
+    "location": "Strandpromenaden 2, 0252 Oslo, Norway",
+    "lat": "59.9074",
+    "lon": "10.7213",
+    "ticket_price": "NOK 130",
+    "hasCafe": "Yes",
+    "website": "https://www.afmuseet.no",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-17:00" }]
+  },
+  {
+    "name": "Centro de Arte Contemporáneo (CAC)",
+    "theme": "Contemporary Art",
+    "description": "Located in Málaga, Spain, the Centro de Arte Contemporáneo showcases contemporary art from the 1950s to the present, with a focus on current artistic trends.",
+    "location": "Calle Alemania, S/N, 29001 Málaga, Spain",
+    "lat": "36.7196",
+    "lon": "-4.4261",
+    "ticket_price": "Free",
+    "hasCafe": "Yes",
+    "website": "https://cacmalaga.eu",
+    "opening_hours": [{ "Mon-Sun": "10:00-20:00" }]
+  },
+  {
+    "name": "Garage Museum of Contemporary Art",
+    "theme": "Contemporary Art",
+    "description": "Located in Moscow, Russia, the Garage Museum of Contemporary Art is a major institution dedicated to the development of contemporary art and culture in Russia and worldwide.",
+    "location": "9/32 Krymsky Val St, Moscow, Russia, 119049",
+    "lat": "55.7284",
+    "lon": "37.6019",
+    "ticket_price": "RUB 500",
+    "hasCafe": "Yes",
+    "website": "https://garagemca.org",
+    "opening_hours": [{ "Mon-Sun": "11:00-22:00" }]
+  },
+
+  {
+    "name": "Hirshhorn Museum and Sculpture Garden",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in Washington, D.C., USA, the Hirshhorn Museum and Sculpture Garden is part of the Smithsonian Institution and features an extensive collection of modern and contemporary art, including large-scale sculptures displayed in its garden.",
+    "location": "Independence Ave SW & 7th St SW, Washington, D.C., USA",
+    "lat": "38.8880",
+    "lon": "-77.0230",
+    "ticket_price": "Free",
+    "hasCafe": "No",
+    "website": "https://hirshhorn.si.edu",
+    "opening_hours": [{ "Mon-Sun": "10:00-17:30" }]
+  },
+  {
+    "name": "Dia:Beacon",
+    "theme": "Contemporary Art",
+    "description": "Dia:Beacon, located in Beacon, New York, USA, is housed in a former Nabisco box printing factory and features large-scale installations and works from the 1960s to the present.",
+    "location": "3 Beekman St, Beacon, NY 12508, USA",
+    "lat": "41.5064",
+    "lon": "-73.9823",
+    "ticket_price": "$20",
+    "hasCafe": "Yes",
+    "website": "https://www.diaart.org/visit/visit/diabeacon-beacon-united-states",
+    "opening_hours": [{ "Mon-Tue": "Closed" }, { "Wed-Mon": "10:00-17:00" }]
+  },
+  {
+    "name": "Museum of Contemporary Art (MCA)",
+    "theme": "Contemporary Art",
+    "description": "Located in Sydney, Australia, the Museum of Contemporary Art Australia is dedicated to exhibiting, interpreting, and collecting contemporary art from Australia and around the world.",
+    "location": "140 George St, The Rocks NSW 2000, Australia",
+    "lat": "-33.8599",
+    "lon": "151.2094",
+    "ticket_price": "Free",
+    "hasCafe": "Yes",
+    "website": "https://www.mca.com.au",
+    "opening_hours": [
+      { "Mon-Tue": "10:00-17:00" },
+      { "Wed": "10:00-21:00" },
+      { "Thu-Sun": "10:00-17:00" }
+    ]
+  },
+  {
+    "name": "WIELS Contemporary Art Centre",
+    "theme": "Contemporary Art",
+    "description": "WIELS is a leading institution for contemporary art located in Brussels, Belgium, offering exhibitions, residencies, and educational programs focused on contemporary art practices.",
+    "location": "Avenue Van Volxem 354, 1190 Forest, Brussels, Belgium",
+    "lat": "50.8210",
+    "lon": "4.3339",
+    "ticket_price": "€10",
+    "hasCafe": "Yes",
+    "website": "https://www.wiels.org",
+    "opening_hours": [{ "Mon-Tue": "Closed" }, { "Wed-Sun": "11:00-18:00" }]
+  },
+  {
+    "name": "Museo Universitario Arte Contemporáneo (MUAC)",
+    "theme": "Contemporary Art",
+    "description": "Located in Mexico City, Mexico, MUAC is part of the National Autonomous University of Mexico (UNAM) and is dedicated to contemporary art, featuring works by Mexican and international artists.",
+    "location": "Insurgentes Sur 3000, C.U., Coyoacán, 04510 Ciudad de México, CDMX, Mexico",
+    "lat": "19.3206",
+    "lon": "-99.1893",
+    "ticket_price": "MXN 40",
+    "hasCafe": "Yes",
+    "website": "https://muac.unam.mx",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-18:00" }]
+  },
+  {
+    "name": "The Barnes Foundation",
+    "theme": "Impressionist, Post-Impressionist, and Early Modern Art",
+    "description": "Located in Philadelphia, USA, The Barnes Foundation houses one of the world's largest collections of Impressionist, Post-Impressionist, and early Modern paintings, along with African sculpture, Native American ceramics, and more.",
+    "location": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
+    "lat": "39.9607",
+    "lon": "-75.1720",
+    "ticket_price": "$25",
+    "hasCafe": "Yes",
+    "website": "https://www.barnesfoundation.org",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-17:00" }]
+  },
+  {
+    "name": "Museum of Old and New Art (MONA)",
+    "theme": "Contemporary Art",
+    "description": "Located in Hobart, Tasmania, Australia, MONA is Australia's largest privately funded museum, featuring a diverse collection of contemporary and modern art, antiquities, and unique installations.",
+    "location": "655 Main Rd, Berriedale TAS 7011, Australia",
+    "lat": "-42.8299",
+    "lon": "147.2820",
+    "ticket_price": "AUD 30",
+    "hasCafe": "Yes",
+    "website": "https://mona.net.au",
+    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-17:00" }]
+  },
+  {
+    "name": "Fondation Maeght",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in Saint-Paul-de-Vence, France, the Fondation Maeght is a private foundation that features modern and contemporary art, including works by Miró, Chagall, Giacometti, and others, displayed both indoors and in a sculpture garden.",
+    "location": "623 Chemin des Gardettes, 06570 Saint-Paul-de-Vence, France",
+    "lat": "43.6947",
+    "lon": "7.1202",
+    "ticket_price": "€15",
+    "hasCafe": "Yes",
+    "website": "https://www.fondation-maeght.com",
+    "opening_hours": [{ "Mon-Sun": "10:00-18:00" }]
   }
 ]
