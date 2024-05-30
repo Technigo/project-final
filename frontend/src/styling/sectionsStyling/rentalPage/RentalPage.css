@@ -11,12 +11,6 @@
   font-weight: 600;
 }
 
-.rentalListItem {
-}
-
-.rentalItemContainer {
-}
-
 .rentalItem {
   width: 305px;
   background-color: var(--light-button-color);
@@ -75,20 +69,11 @@
     margin-bottom: 50px;
   }
 
-  .rentalItemImage {
-  }
-
   .rentalItemDetails {
     height: 185px;
     padding: 20px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0;
-  }
-
-  .rentalItemDescription {
-  }
-
-  .rentalItemPrice {
   }
 }
 
