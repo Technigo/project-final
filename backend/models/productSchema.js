@@ -43,7 +43,6 @@ const productSchema = new Schema({
     default: [], // Default to an empty array for users with no allergies},
   },
   instructions: String,
-  review: Number,
   size: String,
   image: {
     //According to online information cloudinary will give us this two things.
