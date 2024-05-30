@@ -9,8 +9,7 @@ import "./HomePage.css";
 
 export const HomePage = () => {
   return (
-    <div>
-      HomePage
+    <div className="homepage">
       <Nav />
       <Hero />
       <ProductShowcase />
