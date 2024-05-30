@@ -16,7 +16,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 1
   },
   {
     "name": "Musée Marmottan Monet",
@@ -38,7 +39,8 @@
       {
         "Wed-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 2
   },
   {
     "name": "The Museum of Innocence",
@@ -57,7 +59,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 3
   },
   {
     "name": "The House of Alijn",
@@ -79,7 +82,8 @@
       {
         "Sat-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 4
   },
   {
     "name": "Museum of the History of Medicine",
@@ -98,7 +102,8 @@
       {
         "Tue-Sun": "14:00-17:30"
       }
-    ]
+    ],
+    "id": 5
   },
   {
     "name": "National Leprechaun Museum",
@@ -114,7 +119,8 @@
       {
         "Mon-Sun": "10:00-18:30"
       }
-    ]
+    ],
+    "id": 6
   },
   {
     "name": "The Cat Cabinet",
@@ -133,7 +139,8 @@
       {
         "Sat-Sun": "12:00-17:00"
       }
-    ]
+    ],
+    "id": 7
   },
   {
     "name": "Mini Bottle Gallery",
@@ -155,7 +162,8 @@
       {
         "Sun": "12:00-16:00"
       }
-    ]
+    ],
+    "id": 8
   },
   {
     "name": "Museo del Caracol",
@@ -174,7 +182,8 @@
       {
         "Tue-Sun": "09:00-17:00"
       }
-    ]
+    ],
+    "id": 9
   },
   {
     "name": "Museo de Arte Precolombino",
@@ -190,7 +199,8 @@
       {
         "Mon-Sun": "09:00-22:00"
       }
-    ]
+    ],
+    "id": 10
   },
   {
     "name": "The Neon Museum",
@@ -206,7 +216,8 @@
       {
         "Mon-Sun": "14:00-22:00"
       }
-    ]
+    ],
+    "id": 11
   },
   {
     "name": "The Fan Museum",
@@ -228,7 +239,8 @@
       {
         "Sun": "12:00-17:00"
       }
-    ]
+    ],
+    "id": 12
   },
   {
     "name": "Museum of Vampires and Legendary Creatures",
@@ -244,7 +256,8 @@
       {
         "Mon-Sun": "14:00-18:00"
       }
-    ]
+    ],
+    "id": 13
   },
   {
     "name": "The Clown Museum",
@@ -260,7 +273,8 @@
       {
         "Mon-Fri": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 14
   },
   {
     "name": "Museum of Brands, Packaging & Advertising",
@@ -276,7 +290,8 @@
       {
         "Mon-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 15
   },
   {
     "name": "International Spy Museum",
@@ -292,7 +307,8 @@
       {
         "Mon-Sun": "09:00-19:00"
       }
-    ]
+    ],
+    "id": 16
   },
   {
     "name": "The Museum of Russian Art",
@@ -311,7 +327,8 @@
       {
         "Sat-Sun": "10:00-16:00"
       }
-    ]
+    ],
+    "id": 17
   },
   {
     "name": "The Museum of Death",
@@ -327,7 +344,8 @@
       {
         "Mon-Sun": "10:00-20:00"
       }
-    ]
+    ],
+    "id": 18
   },
   {
     "name": "Museum of Bad Art",
@@ -343,7 +361,8 @@
       {
         "Mon-Sun": "24 hours"
       }
-    ]
+    ],
+    "id": 19
   },
   {
     "name": "The Shoe Museum",
@@ -362,7 +381,8 @@
       {
         "Sat-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 20
   },
   {
     "name": "The Avanos Hair Museum",
@@ -378,7 +398,8 @@
       {
         "Mon-Sun": "08:00-19:00"
       }
-    ]
+    ],
+    "id": 21
   },
   {
     "name": "The Cup Noodles Museum",
@@ -397,7 +418,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 22
   },
   {
     "name": "The Salt and Pepper Shaker Museum",
@@ -413,7 +435,8 @@
       {
         "Mon-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 23
   },
   {
     "name": "Sulabh International Museum of Toilets",
@@ -429,7 +452,8 @@
       {
         "Mon-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 24
   },
   {
     "name": "The Dog Collar Museum",
@@ -445,7 +469,8 @@
       {
         "Mon-Sun": "10:30-17:00"
       }
-    ]
+    ],
+    "id": 25
   },
   {
     "name": "Museum of Icelandic Sorcery and Witchcraft",
@@ -461,7 +486,8 @@
       {
         "Mon-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 26
   },
   {
     "name": "The Pencil Museum",
@@ -477,7 +503,8 @@
       {
         "Mon-Sun": "09:30-17:00"
       }
-    ]
+    ],
+    "id": 27
   },
   {
     "name": "The Museum of Broken Relationships",
@@ -493,7 +520,8 @@
       {
         "Mon-Sun": "09:00-21:00"
       }
-    ]
+    ],
+    "id": 28
   },
   {
     "name": "The Spy Museum",
@@ -509,7 +537,8 @@
       {
         "Mon-Sun": "10:00-19:00"
       }
-    ]
+    ],
+    "id": 29
   },
   {
     "name": "The Museum of Underwater Archaeology",
@@ -525,7 +554,8 @@
       {
         "Mon-Sun": "09:00-19:00"
       }
-    ]
+    ],
+    "id": 30
   },
   {
     "name": "Musée de l'Absinthe",
@@ -544,7 +574,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 31
   },
   {
     "name": "Museo del Oro",
@@ -566,7 +597,8 @@
       {
         "Sun": "10:00-16:00"
       }
-    ]
+    ],
+    "id": 32
   },
   {
     "name": "The Museum of the American Cocktail",
@@ -582,7 +614,8 @@
       {
         "Mon-Sun": "11:00-17:00"
       }
-    ]
+    ],
+    "id": 33
   },
   {
     "name": "The Nobel Prize Museum",
@@ -601,7 +634,8 @@
       {
         "Tue-Sun": "11:00-17:00"
       }
-    ]
+    ],
+    "id": 34
   },
   {
     "name": "Museum of Spirits",
@@ -620,7 +654,8 @@
       {
         "Tue-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 35
   },
   {
     "name": "Bode Museum",
@@ -636,7 +671,8 @@
       {
         "Mon-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 36
   },
   {
     "name": "The Käthe Kollwitz Museum",
@@ -652,7 +688,8 @@
       {
         "Mon-Sun": "11:00-18:00"
       }
-    ]
+    ],
+    "id": 37
   },
   {
     "name": "Museum of Illusions",
@@ -668,7 +705,8 @@
       {
         "Mon-Sun": "10:00-20:00"
       }
-    ]
+    ],
+    "id": 38
   },
   {
     "name": "MUTTER Museum",
@@ -684,7 +722,8 @@
       {
         "Mon-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 39
   },
   {
     "name": "Shitamachi Tanabata Museum",
@@ -703,7 +742,8 @@
       {
         "Tue-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 40
   },
   {
     "name": "Museum of Traditional Korean Music",
@@ -722,7 +762,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 41
   },
   {
     "name": "Meguro Parasitological Museum",
@@ -741,7 +782,8 @@
       {
         "Wed-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 42
   },
   {
     "name": "Tanzanite Experience Museum",
@@ -757,7 +799,8 @@
       {
         "Mon-Sun": "09:00-17:00"
       }
-    ]
+    ],
+    "id": 43
   },
   {
     "name": "Sewara Museum",
@@ -773,7 +816,8 @@
       {
         "Mon-Sun": "09:00-17:00"
       }
-    ]
+    ],
+    "id": 44
   },
   {
     "name": "Kutch Museum",
@@ -792,7 +836,8 @@
       {
         "Tue-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 45
   },
   {
     "name": "Museum of the Island of Mozambique",
@@ -811,7 +856,8 @@
       {
         "Tue-Sun": "09:00-17:00"
       }
-    ]
+    ],
+    "id": 46
   },
   {
     "name": "Museum of Islamic Art",
@@ -827,7 +873,8 @@
       {
         "Mon-Sun": "09:00-16:00"
       }
-    ]
+    ],
+    "id": 47
   },
   {
     "name": "Trick Eye Museum",
@@ -843,7 +890,8 @@
       {
         "Mon-Sun": "10:00-21:00"
       }
-    ]
+    ],
+    "id": 48
   },
   {
     "name": "Seychelles Natural History Museum",
@@ -865,7 +913,8 @@
       {
         "Sun": "Closed"
       }
-    ]
+    ],
+    "id": 49
   },
   {
     "name": "House of Dreams Museum",
@@ -881,7 +930,8 @@
       {
         "Mon-Sun": "By appointment only"
       }
-    ]
+    ],
+    "id": 50
   },
   {
     "name": "Museum of Bags and Purses",
@@ -897,7 +947,8 @@
       {
         "Mon-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 51
   },
   {
     "name": "Museo degli Strumenti Musicali",
@@ -913,7 +964,8 @@
       {
         "Mon-Sun": "08:15-18:50"
       }
-    ]
+    ],
+    "id": 52
   },
   {
     "name": "Museum of Medieval Torture Instruments",
@@ -929,7 +981,8 @@
       {
         "Mon-Sun": "10:00-22:00"
       }
-    ]
+    ],
+    "id": 53
   },
   {
     "name": "Museo Atlantico",
@@ -945,7 +998,8 @@
       {
         "Mon-Sun": "09:00-18:00"
       }
-    ]
+    ],
+    "id": 54
   },
   {
     "name": "Siriraj Medical Museum",
@@ -961,7 +1015,8 @@
       {
         "Mon-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 55
   },
   {
     "name": "Museum of Soviet Arcade Machines",
@@ -977,7 +1032,8 @@
       {
         "Mon-Sun": "11:00-20:00"
       }
-    ]
+    ],
+    "id": 56
   },
   {
     "name": "Museum of Everyday Life",
@@ -989,7 +1045,12 @@
     "ticket_price": "donations",
     "hasCafe": "No",
     "website": "https://museumofeverydaylife.org",
-    "opening_hours": [{ "Mon-Sun": "08:00-20:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "08:00-20:00"
+      }
+    ],
+    "id": 57
   },
   {
     "name": "The Button Museum",
@@ -1002,12 +1063,17 @@
     "hasCafe": "No",
     "website": "http://www.thebuttonmuseum.com",
     "opening_hours": [
-      { "Mon-Fri": "10:00-17:00" },
-      { "Sat": "10:00-14:00" },
+      {
+        "Mon-Fri": "10:00-17:00"
+      },
+      {
+        "Sat": "10:00-14:00"
+      },
       {
         "Sun": "Closed"
       }
-    ]
+    ],
+    "id": 58
   },
   {
     "name": "The Hair Museum of Avanos",
@@ -1019,7 +1085,12 @@
     "ticket_price": "5₺",
     "hasCafe": "No",
     "website": "https://www.hairmuseum.com",
-    "opening_hours": [{ "Mon-Sun": "09:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-18:00"
+      }
+    ],
+    "id": 59
   },
   {
     "name": "Museum of Bread",
@@ -1031,7 +1102,15 @@
     "ticket_price": "7€",
     "hasCafe": "yes",
     "website": "https://www.brotmuseum.de",
-    "opening_hours": [{ "Tue-Sun": "10:00-17:00" }, { "Mon": "Closed" }]
+    "opening_hours": [
+      {
+        "Tue-Sun": "10:00-17:00"
+      },
+      {
+        "Mon": "Closed"
+      }
+    ],
+    "id": 60
   },
   {
     "name": "The Museum of Witchcraft and Magic",
@@ -1043,7 +1122,12 @@
     "ticket_price": "7.5£",
     "hasCafe": "No",
     "website": "https://www.museumofwitchcraftandmagic.co.uk",
-    "opening_hours": [{ "Mon-Sun": "10:30-18:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:30-18:00"
+      }
+    ],
+    "id": 61
   },
   {
     "name": "Museum of Shadow",
@@ -1055,7 +1139,12 @@
     "ticket_price": "10AUD",
     "hasCafe": "No",
     "website": "https://www.museumofshadow.com",
-    "opening_hours": [{ "Mon-Sun": "10:00-16:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-16:00"
+      }
+    ],
+    "id": 62
   },
   {
     "name": "Museum of the Holy Souls in Purgatory",
@@ -1067,7 +1156,12 @@
     "ticket_price": "free",
     "hasCafe": "No",
     "website": "https://www.museumofpurgatory.com",
-    "opening_hours": [{ "Mon-Sun": "07:00-12:00, 16:00-19:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "07:00-12:00, 16:00-19:00"
+      }
+    ],
+    "id": 63
   },
   {
     "name": "The Mummy Museum",
@@ -1079,7 +1173,12 @@
     "ticket_price": "85MXN",
     "hasCafe": "No",
     "website": "https://www.mummymuseum.com",
-    "opening_hours": [{ "Mon-Sun": "09:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "09:00-18:00"
+      }
+    ],
+    "id": 64
   },
   {
     "name": "Museum of the Weird",
@@ -1091,7 +1190,12 @@
     "ticket_price": "12USD",
     "hasCafe": "No",
     "website": "https://www.museumoftheweird.com",
-    "opening_hours": [{ "Mon-Sun": "10:00-19:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-19:00"
+      }
+    ],
+    "id": 65
   },
   {
     "name": "Arnold's Cannibal Museum",
@@ -1103,7 +1207,12 @@
     "ticket_price": "free",
     "hasCafe": "No",
     "website": "https://www.kannibalmuseum.se/",
-    "opening_hours": [{ "Mon-Sun": "By appointment only" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "By appointment only"
+      }
+    ],
+    "id": 66
   },
   {
     "name": "Brewery Museum",
@@ -1115,7 +1224,12 @@
     "ticket_price": "donations",
     "hasCafe": "No",
     "website": "https://arbogamuseum.se/bryggerimuseet.html",
-    "opening_hours": [{ "Thu": "10:00-13:00" }]
+    "opening_hours": [
+      {
+        "Thu": "10:00-13:00"
+      }
+    ],
+    "id": 67
   },
   {
     "name": "Borgquist's Hat Museum",
@@ -1127,7 +1241,12 @@
     "ticket_price": "donations",
     "hasCafe": "No",
     "website": "https://gamlatrelleborg.se/borgquitska/",
-    "opening_hours": [{ "Mon-Sun": "By appointment only" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "By appointment only"
+      }
+    ],
+    "id": 68
   },
   {
     "name": "Vagabond Museum",
@@ -1139,7 +1258,12 @@
     "ticket_price": "80 SEK",
     "hasCafe": "No",
     "website": "https://luffarmuseum.se/",
-    "opening_hours": [{ "Mon-Sun": "11:00-16:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "11:00-16:00"
+      }
+    ],
+    "id": 69
   },
   {
     "name": "Vanja's Textile Museum",
@@ -1151,7 +1275,12 @@
     "ticket_price": "donations",
     "hasCafe": "No",
     "website": "https://www.textilmuseum.se/",
-    "opening_hours": [{ "Mon-Sun": "By appointment only" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "By appointment only"
+      }
+    ],
+    "id": 70
   },
   {
     "name": "Hanger Museum",
@@ -1163,7 +1292,12 @@
     "ticket_price": "free",
     "hasCafe": "No",
     "website": "https://www.visitblekinge.se/kamera-och-galgmuseum",
-    "opening_hours": [{ "Mon-Sun": "12:00-16:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "12:00-16:00"
+      }
+    ],
+    "id": 71
   },
   {
     "name": "Inhotim",
@@ -1185,7 +1319,8 @@
       {
         "Sat-Sun": "9:30-17:30"
       }
-    ]
+    ],
+    "id": 72
   },
   {
     "name": "Museo Soumaya",
@@ -1201,7 +1336,8 @@
       {
         "Mon-Sun": "10:30-18:30"
       }
-    ]
+    ],
+    "id": 73
   },
   {
     "name": "Ralli Museum",
@@ -1223,7 +1359,8 @@
       {
         "Sat-Sun": "10:30-18:00"
       }
-    ]
+    ],
+    "id": 74
   },
   {
     "name": "Museo de Arte de Ponce",
@@ -1242,7 +1379,8 @@
       {
         "Wed-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 75
   },
   {
     "name": "Chichu Art Museum",
@@ -1261,7 +1399,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 76
   },
   {
     "name": "Museo Nacional de Arte Romano",
@@ -1283,7 +1422,8 @@
       {
         "Sun": "10:00-15:00"
       }
-    ]
+    ],
+    "id": 77
   },
   {
     "name": "The Museum of Innocence",
@@ -1302,7 +1442,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 78
   },
   {
     "name": "Zeitz Museum of Contemporary Art Africa (MOCAA)",
@@ -1321,7 +1462,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 79
   },
   {
     "name": "The Menil Collection",
@@ -1340,7 +1482,8 @@
       {
         "Tue-Sun": "11:00-19:00"
       }
-    ]
+    ],
+    "id": 80
   },
   {
     "name": "Museum of Contemporary Art (MOCA)",
@@ -1359,7 +1502,8 @@
       {
         "Tue-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 81
   },
   {
     "name": "The David Collection",
@@ -1378,7 +1522,8 @@
       {
         "Wed-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 82
   },
   {
     "name": "Fundación Proa",
@@ -1397,7 +1542,8 @@
       {
         "Tue-Sun": "12:00-19:00"
       }
-    ]
+    ],
+    "id": 83
   },
   {
     "name": "Glenstone",
@@ -1416,7 +1562,8 @@
       {
         "Thu-Sun": "10:00-17:00"
       }
-    ]
+    ],
+    "id": 84
   },
   {
     "name": "Sammlung Boros",
@@ -1435,7 +1582,8 @@
       {
         "Thu-Sun": "10:00-18:00"
       }
-    ]
+    ],
+    "id": 85
   },
   {
     "name": "Kumu Art Museum",
@@ -1448,11 +1596,20 @@
     "hasCafe": "Yes",
     "website": "https://kunstimuuseum.ekm.ee/en/kumu-art-museum",
     "opening_hours": [
-      { "Mon": "Closed" },
-      { "Tue-Wed": "10:00-18:00" },
-      { "Thu": "10:00-20:00" },
-      { "Fri-Sun": "10:00-18:00" }
-    ]
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Wed": "10:00-18:00"
+      },
+      {
+        "Thu": "10:00-20:00"
+      },
+      {
+        "Fri-Sun": "10:00-18:00"
+      }
+    ],
+    "id": 86
   },
   {
     "name": "Museo de Arte Contemporáneo de Monterrey (MARCO)",
@@ -1464,7 +1621,15 @@
     "ticket_price": "MXN 90",
     "hasCafe": "Yes",
     "website": "https://www.marco.org.mx",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ],
+    "id": 87
   },
   {
     "name": "Museo Tamayo",
@@ -1476,7 +1641,15 @@
     "ticket_price": "MXN 70",
     "hasCafe": "Yes",
     "website": "https://museotamayo.org",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ],
+    "id": 88
   },
   {
     "name": "National Museum of Modern and Contemporary Art (MMCA)",
@@ -1489,11 +1662,20 @@
     "hasCafe": "Yes",
     "website": "https://www.mmca.go.kr/eng/",
     "opening_hours": [
-      { "Mon": "Closed" },
-      { "Tue-Thu": "10:00-18:00" },
-      { "Fri-Sat": "10:00-21:00" },
-      { "Sun": "10:00-18:00" }
-    ]
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Thu": "10:00-18:00"
+      },
+      {
+        "Fri-Sat": "10:00-21:00"
+      },
+      {
+        "Sun": "10:00-18:00"
+      }
+    ],
+    "id": 89
   },
   {
     "name": "Pérez Art Museum Miami (PAMM)",
@@ -1506,11 +1688,20 @@
     "hasCafe": "Yes",
     "website": "https://www.pamm.org",
     "opening_hours": [
-      { "Mon": "Closed" },
-      { "Tue-Wed": "11:00-18:00" },
-      { "Thu": "11:00-21:00" },
-      { "Fri-Sun": "11:00-18:00" }
-    ]
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Wed": "11:00-18:00"
+      },
+      {
+        "Thu": "11:00-21:00"
+      },
+      {
+        "Fri-Sun": "11:00-18:00"
+      }
+    ],
+    "id": 90
   },
   {
     "name": "Macao Museum of Art (MAM)",
@@ -1522,7 +1713,15 @@
     "ticket_price": "MOP 5",
     "hasCafe": "No",
     "website": "https://www.mam.gov.mo",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-19:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-19:00"
+      }
+    ],
+    "id": 91
   },
   {
     "name": "Museo de Arte Latinoamericano de Buenos Aires (MALBA)",
@@ -1534,7 +1733,15 @@
     "ticket_price": "ARS 250",
     "hasCafe": "Yes",
     "website": "https://www.malba.org.ar",
-    "opening_hours": [{ "Mon": "Closed" }, { "Wed-Mon": "12:00-20:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Wed-Mon": "12:00-20:00"
+      }
+    ],
+    "id": 92
   },
   {
     "name": "The Phillips Collection",
@@ -1547,10 +1754,17 @@
     "hasCafe": "Yes",
     "website": "https://www.phillipscollection.org",
     "opening_hours": [
-      { "Mon": "Closed" },
-      { "Tue-Sat": "10:00-17:00" },
-      { "Sun": "12:00-18:30" }
-    ]
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sat": "10:00-17:00"
+      },
+      {
+        "Sun": "12:00-18:30"
+      }
+    ],
+    "id": 93
   },
   {
     "name": "Museu Coleção Berardo",
@@ -1562,7 +1776,15 @@
     "ticket_price": "€5",
     "hasCafe": "Yes",
     "website": "https://www.museuberardo.pt",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-19:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-19:00"
+      }
+    ],
+    "id": 94
   },
   {
     "name": "Tate St Ives",
@@ -1574,7 +1796,12 @@
     "ticket_price": "£10.50",
     "hasCafe": "Yes",
     "website": "https://www.tate.org.uk/visit/tate-st-ives",
-    "opening_hours": [{ "Mon-Sun": "10:00-17:20" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-17:20"
+      }
+    ],
+    "id": 95
   },
   {
     "name": "Hara Museum of Contemporary Art",
@@ -1586,7 +1813,15 @@
     "ticket_price": "JPY 1100",
     "hasCafe": "Yes",
     "website": "https://www.haramuseum.or.jp",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-17:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-17:00"
+      }
+    ],
+    "id": 96
   },
   {
     "name": "Villa Stuck",
@@ -1598,7 +1833,15 @@
     "ticket_price": "€9",
     "hasCafe": "Yes",
     "website": "https://www.villastuck.de",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-18:00"
+      }
+    ],
+    "id": 97
   },
   {
     "name": "Museum of Contemporary Art San Diego (MCASD)",
@@ -1610,7 +1853,15 @@
     "ticket_price": "$10",
     "hasCafe": "Yes",
     "website": "https://www.mcasd.org",
-    "opening_hours": [{ "Mon-Tue": "Closed" }, { "Wed-Sun": "11:00-17:00" }]
+    "opening_hours": [
+      {
+        "Mon-Tue": "Closed"
+      },
+      {
+        "Wed-Sun": "11:00-17:00"
+      }
+    ],
+    "id": 98
   },
   {
     "name": "Astrup Fearnley Museum of Modern Art",
@@ -1622,7 +1873,15 @@
     "ticket_price": "NOK 130",
     "hasCafe": "Yes",
     "website": "https://www.afmuseet.no",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-17:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-17:00"
+      }
+    ],
+    "id": 99
   },
   {
     "name": "Centro de Arte Contemporáneo (CAC)",
@@ -1634,7 +1893,12 @@
     "ticket_price": "Free",
     "hasCafe": "Yes",
     "website": "https://cacmalaga.eu",
-    "opening_hours": [{ "Mon-Sun": "10:00-20:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-20:00"
+      }
+    ],
+    "id": 100
   },
   {
     "name": "Garage Museum of Contemporary Art",
@@ -1646,9 +1910,13 @@
     "ticket_price": "RUB 500",
     "hasCafe": "Yes",
     "website": "https://garagemca.org",
-    "opening_hours": [{ "Mon-Sun": "11:00-22:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "11:00-22:00"
+      }
+    ],
+    "id": 101
   },
-
   {
     "name": "Hirshhorn Museum and Sculpture Garden",
     "theme": "Modern and Contemporary Art",
@@ -1659,7 +1927,12 @@
     "ticket_price": "Free",
     "hasCafe": "No",
     "website": "https://hirshhorn.si.edu",
-    "opening_hours": [{ "Mon-Sun": "10:00-17:30" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-17:30"
+      }
+    ],
+    "id": 102
   },
   {
     "name": "Dia:Beacon",
@@ -1671,7 +1944,15 @@
     "ticket_price": "$20",
     "hasCafe": "Yes",
     "website": "https://www.diaart.org/visit/visit/diabeacon-beacon-united-states",
-    "opening_hours": [{ "Mon-Tue": "Closed" }, { "Wed-Mon": "10:00-17:00" }]
+    "opening_hours": [
+      {
+        "Mon-Tue": "Closed"
+      },
+      {
+        "Wed-Mon": "10:00-17:00"
+      }
+    ],
+    "id": 103
   },
   {
     "name": "Museum of Contemporary Art (MCA)",
@@ -1684,10 +1965,17 @@
     "hasCafe": "Yes",
     "website": "https://www.mca.com.au",
     "opening_hours": [
-      { "Mon-Tue": "10:00-17:00" },
-      { "Wed": "10:00-21:00" },
-      { "Thu-Sun": "10:00-17:00" }
-    ]
+      {
+        "Mon-Tue": "10:00-17:00"
+      },
+      {
+        "Wed": "10:00-21:00"
+      },
+      {
+        "Thu-Sun": "10:00-17:00"
+      }
+    ],
+    "id": 104
   },
   {
     "name": "WIELS Contemporary Art Centre",
@@ -1699,7 +1987,15 @@
     "ticket_price": "€10",
     "hasCafe": "Yes",
     "website": "https://www.wiels.org",
-    "opening_hours": [{ "Mon-Tue": "Closed" }, { "Wed-Sun": "11:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon-Tue": "Closed"
+      },
+      {
+        "Wed-Sun": "11:00-18:00"
+      }
+    ],
+    "id": 105
   },
   {
     "name": "Museo Universitario Arte Contemporáneo (MUAC)",
@@ -1711,7 +2007,15 @@
     "ticket_price": "MXN 40",
     "hasCafe": "Yes",
     "website": "https://muac.unam.mx",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-18:00"
+      }
+    ],
+    "id": 106
   },
   {
     "name": "The Barnes Foundation",
@@ -1723,7 +2027,15 @@
     "ticket_price": "$25",
     "hasCafe": "Yes",
     "website": "https://www.barnesfoundation.org",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "11:00-17:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-17:00"
+      }
+    ],
+    "id": 107
   },
   {
     "name": "Museum of Old and New Art (MONA)",
@@ -1735,7 +2047,15 @@
     "ticket_price": "AUD 30",
     "hasCafe": "Yes",
     "website": "https://mona.net.au",
-    "opening_hours": [{ "Mon": "Closed" }, { "Tue-Sun": "10:00-17:00" }]
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "10:00-17:00"
+      }
+    ],
+    "id": 108
   },
   {
     "name": "Fondation Maeght",
@@ -1747,6 +2067,11 @@
     "ticket_price": "€15",
     "hasCafe": "Yes",
     "website": "https://www.fondation-maeght.com",
-    "opening_hours": [{ "Mon-Sun": "10:00-18:00" }]
+    "opening_hours": [
+      {
+        "Mon-Sun": "10:00-18:00"
+      }
+    ],
+    "id": 109
   }
 ]
