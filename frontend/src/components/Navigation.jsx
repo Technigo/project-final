@@ -44,24 +44,26 @@ export const Navigation = () => {
           <p>Products</p>
         </NavLink>
 
-        {/* <img src={burgerMenu} alt="Menu" className="h-4 m-2" /> */}
         <div>
-          <div className="hidden" ref={navRef}>
+          <div
+            className="hidden absolute top-0 right-0 flex-col text-right p-4 rounded-bl-lg text-white bg-strong-red"
+            ref={navRef}
+          >
+            <button className="" onClick={showNavbar}>
+              <img src={xMark} alt="Menu" className="h-4" />
+            </button>
             <NavLink className="nav-link" to="/now_playing">
-              Profile
+              <p className="my-4">Profile</p>
             </NavLink>
             <NavLink className="nav-link" to="/products">
-              Products
+              <p>Products</p>
             </NavLink>
             <NavLink className="nav-link" to="/about">
-              About us
+              <p>About us</p>
             </NavLink>
             <NavLink className="nav-link" to="/cart">
-              Your cart
+              <p className="my-4">Your cart</p>
             </NavLink>
-            <button className="" onClick={showNavbar}>
-              <img src={xMark} alt="Menu" className="h-4 m-2" />
-            </button>
           </div>
           <button ref={btnRef} className="" onClick={showNavbar}>
             <img src={burgerMenu} alt="Menu" className="h-4 m-2" />
