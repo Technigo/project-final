@@ -11,6 +11,34 @@ const productSchema = new Schema({
   price: String,
   //Talk about if we want boolean or an array and decide before we do the remote database
   allergies: {
+    /*  const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const allergyEnum = [
+  'fragrances',
+  'preservatives',
+  'dyes',
+  'metals',
+  'latex',
+  'parabens',
+];
+
+const userSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  allergies: {
+    type: [{ type: String, enum: allergyEnum }],
+    default: [], // Default to an empty array for users with no allergies
+  },
+});
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
+    [{type: String, enum [addthearray]}]
+    default: [] */
     fragrances: Boolean,
     preservatives: Boolean,
     dyes: Boolean,
