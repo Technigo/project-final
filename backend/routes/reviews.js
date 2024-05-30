@@ -1,10 +1,34 @@
 import express from "express";
 
+import { authenticateUser } from "../middlewares/authenticateUser";
 import { Review } from "../models/reviewSchema";
 
 const router = express.Router();
 
 //Review Endpoints
+
+//POST a new Review
+router.post("/", authenticateUser);
+router.post("/", async (req, res) => {
+  const { firstname, message, productID, userID, reviewScore } = req.body;
+  try {
+    const review = await new Review({
+      firstname: firstname,
+      message: message,
+      productID: productID,
+      userID: userID,
+      reviewScore: reviewScore,
+    })
+      .save()
+      .exec();
+    res.status(201).json({
+      review: review,
+      message: "A new review was created.",
+    });
+  } catch (error) {
+    res.status(400).json({ message: "Couldn't create a new review." });
+  }
+});
 
 //Endpoint to show the reviews for the products
 router.get("/:reviewedProductId", async (req, res) => {
@@ -33,6 +57,8 @@ router.get("/:reviewedProductId", async (req, res) => {
 });
 
 //Endpoint to show the reviews for the userprofile
+//User has to be logged in to see it
+router.get("/:reviewedUserId", authenticateUser);
 router.get("/:reviewedUserId", async (req, res) => {
   try {
     const { reviewedUserId } = req.params;

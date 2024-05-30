@@ -16,10 +16,12 @@ const reviewSchema = new Schema({
   productID: {
     type: String,
     required: true,
+    immutable: true,
   },
   userID: {
     type: String,
     required: true,
+    immutable: true,
   },
   reviewScore: {
     type: Number,

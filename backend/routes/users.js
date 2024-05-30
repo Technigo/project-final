@@ -1,7 +1,7 @@
 import express from "express";
 
-import { User } from "../models/userSchema";
 import { authenticateUser } from "../middlewares/authenticateUser";
+import { User } from "../models/userSchema";
 
 const router = express.Router();
 
