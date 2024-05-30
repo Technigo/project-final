@@ -3,6 +3,7 @@ import express from "express";
 
 import documentationRoutes from "./routes/documentation";
 import productsRoutes from "./routes/products";
+import reviewRoutes from "./routes/reviews";
 import userRoutes from "./routes/users";
 
 const app = express();
@@ -14,5 +15,6 @@ app.use(express.json());
 app.use("/", documentationRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", userRoutes);
+app.use("/reviews", reviewRoutes);
 
 export default app;
