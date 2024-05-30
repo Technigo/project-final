@@ -4,6 +4,19 @@ import mongoose from "../config/glimdatabase";
 
 const { Schema, model } = mongoose;
 
+const allergyEnum = [
+  "fragrances",
+  "preservatives",
+  "dyes",
+  "metals",
+  "latex",
+  "parabens",
+];
+
+const prosEnum = ["organic", "vegan", "crueltyfree"];
+
+const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"];
+
 const userSchema = new Schema({
   firstname: {
     type: String,
@@ -50,10 +63,8 @@ const userSchema = new Schema({
     minlength: 8,
     validate: [
       {
-        validator: function (value) {
-          // Check for uppercase, lowercase, and a number
-          return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(value);
-        },
+        //Check for one lowercase, uppercase and a number
+        validator: (value) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(value),
         message:
           "Password must contain at least one uppercase letter, one lowercase letter, and a number",
       },
@@ -65,33 +76,20 @@ const userSchema = new Schema({
   },
   //Stuff the user can choose in the profile and will get recommendations for
   allergies: {
-    fragrances: Boolean,
-    preservatives: Boolean,
-    dyes: Boolean,
-    metals: Boolean,
-    latex: Boolean,
-    parabens: Boolean,
+    type: [{ type: String, enum: allergyEnum }],
+    default: [], // Default to an empty array for users with no allergies
   },
   pros: {
-    organic: Boolean,
-    vegan: Boolean,
-    crueltyfree: Boolean,
+    type: [{ type: String, enum: prosEnum }],
+    default: [], // Default to an empty array for users with no allergies
   },
-  recommendedfor: {
-    hair: {
-      frizzy: Boolean,
-      oily: Boolean,
-      dry: Boolean,
-      straight: Boolean,
-      curly: Boolean,
-    },
-    skin: {
-      dry: Boolean,
-      oily: Boolean,
-      combination: Boolean,
-      sensitive: Boolean,
-      acne: Boolean,
-    },
+  hair: {
+    moisture: String,
+    shape: String,
+  },
+  skin: {
+    type: [{ type: String, enum: skinEnum }],
+    default: [], // Default to an empty array for users with no allergies},
   },
 });
 
