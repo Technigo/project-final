@@ -26,7 +26,7 @@
     "location": "2 Rue Louis Boilly, 75016 Paris, France",
     "lat": "48.862520",
     "lon": "2.267200",
-    "ticket_price": "12€",
+    "ticket_price": "€12",
     "has_cafe": false,
     "website": "https://www.marmottan.fr/",
     "opening_hours": [
@@ -49,7 +49,7 @@
     "location": "Çukurcuma Caddesi Dalgıç Çıkmazı, 2, Beyoğlu, Istanbul, Turkey",
     "lat": "41.031400",
     "lon": "28.976800",
-    "ticket_price": "25₺",
+    "ticket_price": "25 TRY",
     "has_cafe": false,
     "website": "http://en.masumiyetmuzesi.org/",
     "opening_hours": [
@@ -69,7 +69,7 @@
     "location": "Kraanlei 65, 9000 Gent, Belgium",
     "lat": "51.057000",
     "lon": "3.723500",
-    "ticket_price": "8€",
+    "ticket_price": "€8",
     "has_cafe": true,
     "website": "https://www.huisvanalijn.be/en",
     "opening_hours": [
@@ -92,7 +92,7 @@
     "location": "12 Rue de l'École de Médecine, 75006 Paris, France",
     "lat": "48.850800",
     "lon": "2.341400",
-    "ticket_price": "3€",
+    "ticket_price": "€3",
     "has_cafe": false,
     "website": "https://www.biusante.parisdescartes.fr/musee/",
     "opening_hours": [
@@ -112,7 +112,7 @@
     "location": "Jervis Street, Dublin, Ireland",
     "lat": "53.347200",
     "lon": "-6.267400",
-    "ticket_price": "15€",
+    "ticket_price": "€15",
     "has_cafe": false,
     "website": "https://www.leprechaunmuseum.ie/",
     "opening_hours": [
@@ -129,7 +129,7 @@
     "location": "Herengracht 497, 1017 BT Amsterdam, Netherlands",
     "lat": "52.364200",
     "lon": "4.893600",
-    "ticket_price": "7€",
+    "ticket_price": "€7",
     "has_cafe": false,
     "website": "https://www.kattenkabinet.nl/",
     "opening_hours": [
@@ -226,7 +226,7 @@
     "description": "Experience the elegance of hand fans at The Fan Museum in Greenwich. This charming museum houses a stunning collection of decorative fans from around the world, offering a glimpse into the artistry and craftsmanship of this timeless accessory. Located in the picturesque neighborhood of Greenwich, it's a hidden gem waiting to be discovered.",
     "lat": "51.478800",
     "lon": "-0.009000",
-    "ticket_price": "5£",
+    "ticket_price": "£5",
     "has_cafe": true,
     "website": "http://www.thefanmuseum.org.uk/",
     "opening_hours": [
@@ -249,7 +249,7 @@
     "location": "14 Rue Jules David, 93260 Les Lilas, France",
     "lat": "48.878700",
     "lon": "2.416900",
-    "ticket_price": "8€",
+    "ticket_price": "€8",
     "has_cafe": false,
     "website": "https://www.museeduvampire.com/",
     "opening_hours": [
@@ -266,7 +266,7 @@
     "location": "Wiener Str. 2, 24103 Kiel, Germany",
     "lat": "54.326400",
     "lon": "10.140900",
-    "ticket_price": "5€",
+    "ticket_price": "€5",
     "has_cafe": false,
     "website": "https://www.clownmuseum.at/",
     "opening_hours": [
@@ -283,7 +283,7 @@
     "location": "111-117 Lancaster Rd, Notting Hill, London W11 1QT, UK",
     "lat": "51.517700",
     "lon": "-0.205200",
-    "ticket_price": "9£",
+    "ticket_price": "£9",
     "has_cafe": true,
     "website": "https://www.museumofbrands.com/",
     "opening_hours": [
@@ -408,7 +408,7 @@
     "location": "2 Chome-3-4 Shinko, Naka Ward, Yokohama, Kanagawa 231-0001, Japan",
     "lat": "35.455000",
     "lon": "139.638000",
-    "ticket_price": "500¥",
+    "ticket_price": "¥500",
     "has_cafe": true,
     "website": "https://www.cupnoodles-museum.jp/",
     "opening_hours": [
@@ -462,7 +462,7 @@
     "location": "Leeds Castle, Maidstone, ME17 1PL, UK",
     "lat": "51.247500",
     "lon": "0.630100",
-    "ticket_price": "24.90£",
+    "ticket_price": "£24.90",
     "has_cafe": true,
     "website": "https://www.leeds-castle.com/",
     "opening_hours": [
@@ -496,7 +496,7 @@
     "location": "Southey Works, Main St, Keswick CA12 5NG, UK",
     "lat": "54.601300",
     "lon": "-3.138500",
-    "ticket_price": "4.95£",
+    "ticket_price": "£4.95",
     "has_cafe": true,
     "website": "https://www.pencilmuseum.co.uk/",
     "opening_hours": [
@@ -530,7 +530,7 @@
     "location": "Lavrska St, 33, Kyiv, Ukraine, 02000",
     "lat": "50.434600",
     "lon": "30.555000",
-    "ticket_price": "200₴",
+    "ticket_price": "UAH 200",
     "has_cafe": false,
     "website": "https://www.spymuseum.com.ua/",
     "opening_hours": [
@@ -547,7 +547,7 @@
     "location": "Bodrum Castle, Bodrum, Turkey",
     "lat": "37.032000",
     "lon": "27.429700",
-    "ticket_price": "20₺",
+    "ticket_price": "20 TRY",
     "has_cafe": true,
     "website": "https://www.bodrum-museum.com/",
     "opening_hours": [
@@ -564,7 +564,7 @@
     "location": "44 Rue Calle, 27400 Pont-de-l'Arche, France",
     "lat": "49.292000",
     "lon": "1.146200",
-    "ticket_price": "6€",
+    "ticket_price": "€6",
     "has_cafe": true,
     "website": "https://www.museeabsinthe.com/",
     "opening_hours": [
@@ -664,7 +664,7 @@
     "location": "Am Kupfergraben, 10117 Berlin, Germany",
     "lat": "52.522600",
     "lon": "13.395000",
-    "ticket_price": "12€",
+    "ticket_price": "€12",
     "has_cafe": true,
     "website": "https://www.smb.museum/en/museums-institutions/bode-museum/home.html",
     "opening_hours": [
@@ -681,7 +681,7 @@
     "location": "Fasanenstraße 24, 10719 Berlin, Germany",
     "lat": "52.501500",
     "lon": "13.327900",
-    "ticket_price": "8€",
+    "ticket_price": "€8",
     "has_cafe": false,
     "website": "https://www.kaethe-kollwitz.de/en/",
     "opening_hours": [
@@ -698,7 +698,7 @@
     "location": "Kantstraße 6, 10623 Berlin, Germany",
     "lat": "52.505300",
     "lon": "13.328800",
-    "ticket_price": "12€",
+    "ticket_price": "€12",
     "has_cafe": false,
     "website": "https://museumofillusions.de/",
     "opening_hours": [
@@ -732,7 +732,7 @@
     "location": "1-5-2 Kiyokawa, Taito City, Tokyo 111-0022, Japan",
     "lat": "35.724200",
     "lon": "139.793900",
-    "ticket_price": "500 JPY",
+    "ticket_price": "¥500",
     "has_cafe": false,
     "website": "http://tanabatamuseum.info/",
     "opening_hours": [
@@ -792,7 +792,7 @@
     "location": "Blue Plaza, 3rd Floor, India St, Arusha, Tanzania",
     "lat": "-3.368500",
     "lon": "36.688100",
-    "ticket_price": "10 USD",
+    "ticket_price": "$10",
     "has_cafe": false,
     "website": "https://tanzaniteexperience.com/",
     "opening_hours": [
@@ -923,7 +923,7 @@
     "location": "45 Melbourne Grove, East Dulwich, London SE22 8RG, United Kingdom",
     "lat": "51.454300",
     "lon": "-0.074400",
-    "ticket_price": "10 GBP",
+    "ticket_price": "£10",
     "has_cafe": false,
     "website": "http://www.stephenwrightartist.com/houseofdreams/",
     "opening_hours": [
@@ -940,7 +940,7 @@
     "location": "Herengracht 573, 1017 CD Amsterdam, Netherlands",
     "lat": "52.364300",
     "lon": "4.893400",
-    "ticket_price": "12.50€",
+    "ticket_price": "€12.50",
     "has_cafe": true,
     "website": "https://tassenmuseum.nl/",
     "opening_hours": [
@@ -957,7 +957,7 @@
     "location": "Piazza Santa Croce 14, 50122 Florence, Italy",
     "lat": "43.768700",
     "lon": "11.262600",
-    "ticket_price": "8€",
+    "ticket_price": "€8",
     "has_cafe": false,
     "website": "https://www.uffizi.it/en/the-museum-of-musical-instruments",
     "opening_hours": [
@@ -991,7 +991,7 @@
     "location": "Bahía de Las Coloradas, 35580 Playa Blanca, Las Palmas, Spain",
     "lat": "28.851100",
     "lon": "-13.828500",
-    "ticket_price": "12€",
+    "ticket_price": "€12",
     "has_cafe": false,
     "website": "https://www.cactlanzarote.com/en/cact/museo-atlantico/",
     "opening_hours": [
@@ -1042,7 +1042,7 @@
     "location": "3482 Dry Pond Rd, Glover, VT 05839, USA",
     "lat": "44.7086",
     "lon": "-72.2264",
-    "ticket_price": "donations",
+    "ticket_price": "Donations",
     "has_cafe": false,
     "website": "https://museumofeverydaylife.org",
     "opening_hours": [
@@ -1059,7 +1059,7 @@
     "location": "1 Drummond Pl, London N1 1RL, UK",
     "lat": "51.5353",
     "lon": "-0.1072",
-    "ticket_price": "5£",
+    "ticket_price": "£5",
     "has_cafe": false,
     "website": "http://www.thebuttonmuseum.com",
     "opening_hours": [
@@ -1082,7 +1082,7 @@
     "location": "Kızılırmak, 50500 Avanos/Nevşehir, Turkey",
     "lat": "38.7150",
     "lon": "34.8467",
-    "ticket_price": "5₺",
+    "ticket_price": "5 TRY",
     "has_cafe": false,
     "website": "https://www.hairmuseum.com",
     "opening_hours": [
@@ -1099,7 +1099,7 @@
     "location": "Salzstadelgasse 10, 89073 Ulm, Germany",
     "lat": "48.4011",
     "lon": "9.9965",
-    "ticket_price": "7€",
+    "ticket_price": "€7",
     "has_cafe": true,
     "website": "https://www.brotmuseum.de",
     "opening_hours": [
@@ -1119,7 +1119,7 @@
     "location": "The Harbour, Boscastle, Cornwall PL35 0HD, UK",
     "lat": "50.6843",
     "lon": "-4.6934",
-    "ticket_price": "7.5£",
+    "ticket_price": "£7.5",
     "has_cafe": false,
     "website": "https://www.museumofwitchcraftandmagic.co.uk",
     "opening_hours": [
@@ -1153,7 +1153,7 @@
     "location": "Lungotevere Prati, 12, 00193 Roma RM, Italy",
     "lat": "41.9062",
     "lon": "12.4700",
-    "ticket_price": "free",
+    "ticket_price": "Free",
     "has_cafe": false,
     "website": "https://www.museumofpurgatory.com",
     "opening_hours": [
@@ -1187,7 +1187,7 @@
     "location": "412 E 6th St, Austin, TX 78701, USA",
     "lat": "30.2678",
     "lon": "-97.7394",
-    "ticket_price": "12USD",
+    "ticket_price": "$12",
     "has_cafe": false,
     "website": "https://www.museumoftheweird.com",
     "opening_hours": [
@@ -1204,7 +1204,7 @@
     "location": "Önneköp 8049, 242 98 Hörby, Sweden",
     "lat": "55.791600",
     "lon": "13.886580",
-    "ticket_price": "free",
+    "ticket_price": "Free",
     "has_cafe": false,
     "website": "https://www.kannibalmuseum.se/",
     "opening_hours": [
@@ -1221,7 +1221,7 @@
     "location": "Fridnäsvägen 5, 732 30 Arboga, Sweden",
     "lat": "59.3947",
     "lon": "15.8359",
-    "ticket_price": "donations",
+    "ticket_price": "Donations",
     "has_cafe": false,
     "website": "https://arbogamuseum.se/bryggerimuseet.html",
     "opening_hours": [
@@ -1238,7 +1238,7 @@
     "location": "Algatan 35, 231 42 Trelleborg, Sweden",
     "lat": "55.3773",
     "lon": "13.1564",
-    "ticket_price": "donations",
+    "ticket_price": "Donations",
     "has_cafe": false,
     "website": "https://gamlatrelleborg.se/borgquitska/",
     "opening_hours": [
@@ -1272,7 +1272,7 @@
     "location": "Brunnsvägen 42, 464 50 Dals Rostock, Sweden",
     "lat": "58.719400",
     "lon": "12.358310",
-    "ticket_price": "donations",
+    "ticket_price": "Donations",
     "has_cafe": false,
     "website": "https://www.textilmuseum.se/",
     "opening_hours": [
@@ -1289,7 +1289,7 @@
     "description": "Uncover the history of hangers at the Hanger Museum. This quirky museum pays homage to the humble hanger, showcasing a fascinating collection of hangers from different eras and cultures. From vintage wooden hangers to modern plastic designs, it offers a unique perspective on an everyday object. It's a lighthearted destination for those with a curiosity for the overlooked and unexpected.",
     "lat": "56.268520",
     "lon": "14.523320",
-    "ticket_price": "free",
+    "ticket_price": "Free",
     "has_cafe": false,
     "website": "https://www.visitblekinge.se/kamera-och-galgmuseum",
     "opening_hours": [
@@ -1432,7 +1432,7 @@
     "location": "Çukurcuma Caddesi, Dalgıç Çıkmazı, No: 2, 34425 Beyoğlu/Istanbul, Turkey",
     "lat": "41.0321",
     "lon": "28.9734",
-    "ticket_price": "₺40",
+    "ticket_price": "40 TRY",
     "has_cafe": false,
     "website": "https://en.masumiyetmuzesi.org",
     "opening_hours": [
@@ -1552,7 +1552,7 @@
     "location": "12100 Glen Rd, Potomac, MD 20854, USA",
     "lat": "39.0539",
     "lon": "-77.2456",
-    "ticket_price": "Free (Reservation Required)",
+    "ticket_price": "Free",
     "has_cafe": true,
     "website": "https://www.glenstone.org",
     "opening_hours": [
@@ -1658,7 +1658,7 @@
     "location": "30 Samcheong-ro, Sogyeok-dong, Jongno-gu, Seoul, South Korea",
     "lat": "37.5796",
     "lon": "126.9814",
-    "ticket_price": "₩4,000",
+    "ticket_price": "₩4.000",
     "has_cafe": true,
     "website": "https://www.mmca.go.kr/eng/",
     "opening_hours": [
@@ -1710,7 +1710,7 @@
     "location": "Avenida Xian Xing Hai, NAPE, Macao, China",
     "lat": "22.1896",
     "lon": "113.5538",
-    "ticket_price": "MOP 5",
+    "ticket_price": "5 MOP",
     "has_cafe": false,
     "website": "https://www.mam.gov.mo",
     "opening_hours": [
@@ -1810,7 +1810,7 @@
     "location": "4-7-25 Kita-Shinagawa, Shinagawa-ku, Tokyo 140-0001, Japan",
     "lat": "35.6218",
     "lon": "139.7389",
-    "ticket_price": "JPY 1100",
+    "ticket_price": "¥1100",
     "has_cafe": true,
     "website": "https://www.haramuseum.or.jp",
     "opening_hours": [
