@@ -1,0 +1,88 @@
+.authContainer {
+  width: 305px;
+  margin: 100px auto;
+}
+
+.authForm {
+  background-color: var(--profile-color);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.authTitle {
+  font-weight: 600;
+  color: var(--light-color);
+}
+
+.authLabel {
+  font-weight: 600;
+  color: var(--light-color);
+  display: block;
+  width: 220px;
+}
+
+.emailInput {
+  margin: 15px 0;
+  width: 220px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid var(--dark-color);
+}
+
+.passwordInput {
+  margin: 15px 0;
+  width: 220px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid var(--dark-color);
+}
+
+.authButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.authButton {
+  width: 130px;
+  height: 40px;
+  background-color: var(--light-button-color);
+  color: var(--dark-color);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+}
+
+@media (min-width: 745px) {
+  .authContainer {
+    margin: 150px auto;
+  }
+  .authTitle {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .authContainer {
+    width: 550px;
+    margin: 200px auto;
+  }
+
+  .authForm {
+    padding: 50px;
+  }
+
+  .authTitle {
+    font-size: 42px;
+  }
+
+  .authLabel {
+    font-size: 20px;
+  }
+
+  .authButton {
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+  }
+}
