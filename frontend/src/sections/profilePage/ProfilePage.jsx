@@ -1,5 +1,7 @@
+import CustomerGreeting from "./CustomerGreeting";
+
 const ProfilePage = () => {
-  return;
+  return <CustomerGreeting />;
 };
 
 export default ProfilePage;
