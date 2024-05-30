@@ -1,7 +1,8 @@
-import "./Category.css"
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import "./Category.css";
 
 export const Category = () => {
-  return (
-    <div>Category</div>
-  )
-}
+  const { category } = useParams();
+  return <div>Category</div>;
+};
