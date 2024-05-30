@@ -1,18 +1,25 @@
 import "../../styling/sectionsStyling/authPages/AuthPages.css";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <div className="authContainer">
       <form className="authForm">
-        <h2 className="authTitle">Sign in</h2>
+        <h2 className="authTitle">Register</h2>
+        <label className="authLabel">
+          Name:
+          <input type="text" required className="authInput" />
+        </label>
+
         <label className="authLabel">
           Email:
-          <input type="email" required className="emailInput" />
+          <input type="email" required className="authInput" />
         </label>
+
         <label className="authLabel">
           Password:
-          <input type="password" required className="passwordInput" />
+          <input type="password" required className="authInput" />
         </label>
+
         <div className="authButtonWrapper">
           <button type="submit" className="authButton">
             Log In
@@ -23,4 +30,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -5,8 +5,8 @@ import HomePage from "../sections/homePage/HomePage";
 import RentalPage from "../sections/rentalPage/RentalPage";
 import FaqPage from "../sections/faqPage/FaqPage";
 import ProfilePage from "../sections/profilePage/ProfilePage";
-import LoginPage from "../sections/loginPage/LoginPage";
-import RegisterPage from "../sections/registerPage/RegisterPage";
+import LoginPage from "../sections/auth/LoginPage";
+import RegisterPage from "../sections/auth/RegisterPage";
 
 const AppRoutes = () => {
   return (

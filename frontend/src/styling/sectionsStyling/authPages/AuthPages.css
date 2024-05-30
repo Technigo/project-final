@@ -21,15 +21,7 @@
   width: 220px;
 }
 
-.emailInput {
-  margin: 15px 0;
-  width: 220px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid var(--dark-color);
-}
-
-.passwordInput {
+.authInput {
   margin: 15px 0;
   width: 220px;
   height: 40px;
@@ -78,6 +70,14 @@
 
   .authLabel {
     font-size: 20px;
+  }
+
+  .emailInput {
+    margin: 7px 0 30px 0;
+  }
+
+  .passwordInput {
+    margin: 7px 0 0 0;
   }
 
   .authButton {
