@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "title": "Organic Lavender Shampoo",
+      "brand": "GreenLeaf Naturals",
+      "category": "Hair Care",
+      "subcategory": "Shampoo",
+      "description": "A soothing and nourishing shampoo infused with organic lavender essential oil. Gently cleanses the hair while promoting relaxation.",
+      "price": 16.99,
+      "allergies": [],
+      "pros": ["organic", "vegan", "cruelty-Free"],
+      "hair": {
+        "moisture": "hydrating",
+        "shape": "curly"
+      },
+      "skin": [],
+      "instructions": "Apply to wet hair, lather, and rinse thoroughly.",
+      "size": "250ml",
+      "image_url": "https://example.com/images/organic-lavender-shampoo.jpg"
+    },
+    {
+      "title": "Sensitive Skin Face Cream",
+      "brand": "Dermacare",
+      "category": "Skincare",
+      "subcategory": "Face Cream",
+      "description": "A gentle face cream formulated for sensitive skin. Fragrance-free and hypoallergenic.",
+      "price": 21.99,
+      "allergies": ["fragrances"],
+      "pros": ["cruelty-Free"],
+      "hair": {
+        "moisture": "hydrating",
+        "shape": "curly"
+      },
+      "skin": ["sensitive"],
+      "instructions": "Apply a small amount to clean face and neck. Use morning and night.",
+      "size": "50ml",
+      "image_url": "https://example.com/images/sensitive-skin-face-cream.jpg"
+    },
+    {
+      "title": "Metal-Free Nail Polish",
+      "brand": "PureColor",
+      "category": "Nail Care",
+      "subcategory": "Nail Polish",
+      "description": "A non-toxic nail polish free from harmful metals like lead and nickel. Available in vibrant shades.",
+      "price": 7.99,
+      "allergies": ["metals"],
+      "pros": ["vegan", "cruelty-Free"],
+      "hair": null,
+      "skin": null,
+      "instructions": "Apply two coats for best results.",
+      "size": "10ml",
+      "image_url": "https://example.com/images/metal-free-nail-polish.jpg"
+    }
+  ]
+}
