@@ -1,0 +1,4 @@
+/* When the navlink is used, it gets an active-class, which we can use to highlight the link that has been pressed */
+a.active {
+  text-decoration: underline;
+}

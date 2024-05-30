@@ -5,7 +5,6 @@ import "./AllProducts.css";
 export const AllProducts = () => {
   return (
     <div className="allproducts-page">
-      <Header />
       <CategoryIcons />
       <h2>All products</h2>
     </div>
