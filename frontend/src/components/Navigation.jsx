@@ -6,6 +6,8 @@ import burgerMenu from "/bars-solid.svg";
 
 //If signed in Sign in should display username/firstname
 
+const iconSize = "h-10";
+
 export const Navigation = () => {
   return (
     <nav className="flex bg-main-red justify-between">
@@ -31,14 +33,14 @@ export const Navigation = () => {
       </div>
       <div className="right-nav flex">
         <NavLink to="/cart" className="text-white">
-          <img src={shoppingCart} alt="Shopping cart" className="w-6" />
+          <img src={shoppingCart} alt="Shopping cart" className="w-6 hidden" />
         </NavLink>
 
-        <NavLink to="/products" className="text-white tablet:hidden">
+        <NavLink to="/products" className="text-white hidden">
           <p>Products</p>
         </NavLink>
 
-        <img src={burgerMenu} alt="Menu" className="h-10" />
+        <img src={burgerMenu} alt="Menu" className="h-10 m-2" />
       </div>
     </nav>
   );
