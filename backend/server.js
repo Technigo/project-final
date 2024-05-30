@@ -15,6 +15,12 @@ mongoose.Promise = global.Promise;
 const port = process.env.PORT || 9000;
 const app = express();
 
+// Middleware to log every incoming request
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());

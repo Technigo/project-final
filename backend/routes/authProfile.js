@@ -33,6 +33,7 @@ const generateAccessToken = (userId) => {
 };
 
 router.post("/users", async (req, res) => {
+  console.log("POST /users called");
   const { username, password, role } = req.body;
   try {
     const newUser = new User({ username, password, role });
@@ -50,6 +51,8 @@ router.post("/users", async (req, res) => {
 });
 
 router.post("/sessions", (req, res, next) => {
+  console.log("Incoming login request:", req.body);
+
   passport.authenticate("local", { session: false }, (err, user, info) => {
     if (err || !user) {
       return res
@@ -58,6 +61,7 @@ router.post("/sessions", (req, res, next) => {
     }
     req.login(user, { session: false }, async (err) => {
       if (err) {
+        console.log("Login error:", err);
         return res.send(err);
       }
       const token = generateAccessToken(user._id);
