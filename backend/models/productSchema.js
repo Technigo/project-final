@@ -2,44 +2,47 @@ import mongoose from "../config/glimdatabase";
 
 const { Schema, model } = mongoose;
 
+const allergyEnum = [
+  "fragrances",
+  "preservatives",
+  "dyes",
+  "metals",
+  "latex",
+  "parabens",
+];
+
+const prosEnum = ["organic", "vegan", "crueltyfree"];
+
+const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"];
+
 const productSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+  },
   brand: String,
   category: String,
   subcategory: String,
   description: String,
   price: String,
+  //Talk about if we want boolean or an array and decide before we do the remote database
   allergies: {
-    fragrances: Boolean,
-    preservatives: Boolean,
-    dyes: Boolean,
-    metals: Boolean,
-    latex: Boolean,
-    parabens: Boolean,
+    type: [{ type: String, enum: allergyEnum }],
+    default: [], // Default to an empty array for users with no allergies
   },
   pros: {
-    organic: Boolean,
-    vegan: Boolean,
-    crueltyfree: Boolean,
+    type: [{ type: String, enum: prosEnum }],
+    default: [], // Default to an empty array for users with no allergies
   },
-  recommendedfor: {
-    hair: {
-      frizzy: Boolean,
-      oily: Boolean,
-      dry: Boolean,
-      straight: Boolean,
-      curly: Boolean,
-    },
-    skin: {
-      dry: Boolean,
-      oily: Boolean,
-      combination: Boolean,
-      sensitive: Boolean,
-      acne: Boolean,
-    },
+  hair: {
+    moisture: String,
+    shape: String,
+  },
+  skin: {
+    type: [{ type: String, enum: skinEnum }],
+    default: [], // Default to an empty array for users with no allergies},
   },
   instructions: String,
-  review: Number,
   size: String,
   image: {
     //According to online information cloudinary will give us this two things.
