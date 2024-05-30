@@ -1,5 +1,5 @@
-import { Footer } from "../../components/Footer/Footer";
-import { Header } from "../../components/Header/Header";
+import { Footer } from "../../sections/Footer/Footer";
+import { Header } from "../../sections/Header/Header";
 import { Banner } from "../../sections/Banner/Banner";
 import { ProductCategories } from "../../sections/ProductCategories/ProductCategories";
 import { CategoryIcons } from "../../components/CategoryIcons/CategoryIcons";
@@ -10,13 +10,11 @@ import "./Home.css";
 export const Home = () => {
   return (
     <div className="homepage">
-      <Header />
       <Hero />
       <ProductShowcase />
       <CategoryIcons />
       <ProductCategories />
       <Banner />
-      <Footer />
     </div>
   );
 };
