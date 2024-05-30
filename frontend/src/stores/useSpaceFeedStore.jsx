@@ -1,58 +1,78 @@
 import { create } from "zustand"
 
-//Initial states
+// Initial states
 export const useSpaceFeedStore = create((set) => ({
   spaceFeed: [],
+  message: "",
+  likes: 0,
+  createdAt: "",
   loading: false,
   error: null,
 
-  //Fetch the Space feed using API
+  // Fetch the Space feed using API
   fetchSpaceFeed: async () => {
-    set({ loading: true })
+    set({ loading: true, error: null })
 
     try {
-      const response = await fetch(process.env.API_KEY_SPACEFEED)
+      const response = await fetch(
+        "https://project-final-45vw.onrender.com/space-feed",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       const data = await response.json()
-
       set({ spaceFeed: data.response, loading: false })
     } catch (error) {
       set({ error, loading: false })
     }
   },
 
+  // Function to POST message
   postSpaceMessage: async (message) => {
-    set({ loading: true })
+    const createdAt = new Date()
 
+    set({ loading: true, error: null })
     try {
-      const response = await fetch(process.env.API_KEY_SPACEFEED, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message }),
-      })
+      const response = await fetch(
+        "https://project-final-45vw.onrender.com/space-feed",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message, createdAt }),
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error(
+          "Failed to show any messages. Please try to reload the page and try again."
+        )
+      }
+
       const newMessage = await response.json()
+
+      //Update state with the new message if needed
       set((state) => ({
         spaceFeed: [newMessage.response, ...state.spaceFeed],
         loading: false,
       }))
     } catch (error) {
-      set({ error, loading: false })
+      console.error("Error posting message", error)
+      set({ error: error.message, loading: false })
     }
   },
 
+  // Function to like a message
   likeSpaceMessage: async (messageId) => {
     set({ loading: true })
 
     try {
       const response = await fetch(
-        `${process.env.API_KEY_SPACEFEED}/${messageId}/like`,
+        `https://project-final-45vw.onrender.com/space-feed${messageId}/like`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
         }
       )
       const likedMessage = await response.json()
@@ -63,6 +83,7 @@ export const useSpaceFeedStore = create((set) => ({
         loading: false,
       }))
     } catch (error) {
+      console.error("Error liking post", error)
       set({ error, loading: false })
     }
   },
