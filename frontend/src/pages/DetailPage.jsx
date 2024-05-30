@@ -1,4 +1,6 @@
 import { useParams, Navigate } from "react-router-dom"
+import { IoRestaurantOutline } from "react-icons/io5"
+
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import { FavoriteFunction } from "../components/FavoriteFunction"
 import museumList from "../json/museums.json"
@@ -23,6 +25,12 @@ export const DetailPage = () => {
       <FavoriteFunction />
       <p>{museum.location}</p>
       <p>{museum.description} </p>
+      {museum.has_cafe ? (
+        <IoRestaurantOutline />
+      ) : (
+        <p>This museum has no cafe or restaurant on their premises</p>
+      )}
+
       <h4>Opening hours</h4>
       {museum.opening_hours.map((hours, index) => {
         const day = Object.keys(hours)[0]

@@ -1,8 +1,8 @@
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { IoRestaurantOutline } from "react-icons/io5"
 
 //In here we should bring in the code from auth project and reuse as much as possible
-//Also need to set up global state and localstorage
-
+//features that should be displayed here: liked museums, written comments, purchased tickets
 export const UserPage = () => {
   return (
     <div>
