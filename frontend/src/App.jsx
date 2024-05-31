@@ -17,6 +17,10 @@ export const App = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/category/:category" element={<Category />} />
           <Route path="/products/:productId" element={<SingleProduct />} />
+          <Route
+            path="/products/category/:category/:productId"
+            element={<SingleProduct />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
