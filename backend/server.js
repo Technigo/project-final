@@ -145,16 +145,23 @@ app.post("/space-feed/:messageId/like", async (req, res) => {
       { $inc: { likes: 1 } },
       { new: true, runValidators: true }
     )
+
+    if (!likeMessage) {
+      return res.status(404).json({
+        success: false,
+        message: "Space message with the specified ID was not found",
+      })
+    }
     res.status(200).json({
       sucess: true,
       response: likeMessage,
       message: "Space message was successfully liked",
     })
   } catch (error) {
-    res.status(400).json({
+    res.status(500).json({
       sucess: false,
       response: error,
-      message: "Could not like space message",
+      message: "Internal server error occurred",
     })
   }
 })
