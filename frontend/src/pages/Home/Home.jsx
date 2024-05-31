@@ -1,16 +1,16 @@
-import { Footer } from "../../sections/Footer/Footer";
-import { Header } from "../../sections/Header/Header";
-import { Banner } from "../../sections/Banner/Banner";
-import { ProductCategories } from "../../sections/ProductCategories/ProductCategories";
-import { CategoryIcons } from "../../components/CategoryIcons/CategoryIcons";
-import { Hero } from "../../sections/Hero/Hero";
-import { ProductShowcase } from "../../sections/ProductShowcase/ProductShowcase";
+import { Banner } from "./components/Banner/Banner";
+import { ProductCategories } from "./components/ProductCategories/ProductCategories";
+import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
+import { Hero } from "./components/Hero/Hero";
+import { ProductShowcase } from "./components/ProductShowcase/ProductShowcase";
 import "./Home.css";
+import { TrustIndicators } from "./components/TrustIndicators/TrustIndicators";
 
 export const Home = () => {
   return (
     <div className="homepage">
       <Hero />
+      <TrustIndicators />
       <ProductShowcase />
       <CategoryIcons />
       <ProductCategories />

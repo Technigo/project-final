@@ -1,5 +1,5 @@
-import { CategoryIcons } from "../../components/CategoryIcons/CategoryIcons";
-import { Header } from "../../sections/Header/Header";
+import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
+import { Header } from "../../common/Header/Header";
 import "./AllProducts.css";
 
 export const AllProducts = () => {
