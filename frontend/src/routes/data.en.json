@@ -1,0 +1,148 @@
+{
+  "navbar": {
+    "burger": [
+      {
+        "text": "Profile",
+        "link": "/profile"
+      },
+
+      {
+        "text": "Products",
+        "link": "/products"
+      },
+      {
+        "text": "Your cart",
+        "link": "/cart"
+      },
+      {
+        "text": "About Us",
+        "link": "/about"
+      }
+    ],
+    "products": "Products",
+    "about": "About Us",
+    "sign-up": "Sign Up",
+    "login": "Sign In"
+  },
+
+  "homepage": {
+    "hero": {
+      "cta-text": "Join us on a skincare journey, uniquely crafted just for you.",
+      "cta-button": "Sign up"
+    },
+    "products": {
+      "title": "Products",
+      "cta-button": "See products"
+    },
+    "at-glim": {
+      "title": "At glim,",
+      "sub-title": "we believe that every individual's skin is unique and deserves personalized care.",
+      "text": "Our mission is to empower you to achieve your healthiest, most radiant skin by offering a curated selection of premium skincare products tailored to you specific skin type and concerns."
+    },
+    "treatments": {
+      "title": "Treatments",
+      "cta-button": "Treatments"
+    },
+    "mission-statement": {
+      "title": "Why choose us?",
+      "perks": [
+        {
+          "perk": "Personalized Recommendations:",
+          "comment": "Our advanced skin analysis tool evaluates you skin type and needs, providing customized product recommendations that work best for you."
+        },
+        {
+          "perk": "Quality and Efficacy:",
+          "comment": "We partner with top-tier skincare brands that prioritize high-quality ingredients and proven results, ensuring you get the best care possible."
+        },
+        {
+          "perk": "Expert Guidance:",
+          "comment": "Our team of skincare experts is here to offer advice and support, helping you make informed decisions about your skincare routine."
+        },
+        {
+          "perk": "Commitment to Your Skin's Health:",
+          "comment": "We are dedicated to helping you achieve long-term skin health, not just temporary solutions. Our personalized approach means you skincare regimen evolves with our skin's changing needs."
+        },
+        {
+          "perk": "Sustainable Choices:",
+          "comment": "We are commited to sustainability and offer products that are not only good for your skin but also kind to the planet."
+        }
+      ]
+    },
+    "contact-info": {
+      "title": "Contact Info"
+    }
+  },
+
+  "products-list-page": {
+    "add-to-cart": "Add to cart",
+    "show-reviews": "Show reviews",
+    "reviews-on": "Reviews on"
+  },
+
+  "single-product-page": {
+    "add-to-cart": "Add to cart",
+    "show-reviews": "Show reviews",
+    "reviews-on": "Reviews on",
+    "similar-products": "Similar products"
+  },
+
+  "profile-page": {
+    "profile": "Profile",
+    "skin-heading": "Skin:",
+    "skin-types": [
+      { "type": "Combination" },
+      { "type": "Dry" },
+      { "type": "Normal" },
+      { "type": "Sensitive" },
+      { "type": "Acne" },
+      { "type": "Oily" }
+    ],
+    "hair-heading": "Hair:",
+
+    "shape-heading": "Shape:",
+    "shape-types": [
+      { "type": "Curly" },
+      { "type": "Wavy" },
+      { "type": "Straight" }
+    ],
+
+    "moisture-heading": "Moisture:",
+    "moisture-types": [
+      { "type": "Dry" },
+      { "type": "Normal" },
+      { "type": "Oily" }
+    ],
+
+    "allergies-heading": "Allergies:",
+    "allergy-types": [
+      { "type": "Fragrance" },
+      { "type": "Preservatives" },
+      { "type": "Dyes" },
+      { "type": "Metals" },
+      { "type": "Latex" },
+      { "type": "Parabens" }
+    ],
+
+    "preference-heading": "Preferences:",
+    "preference-types": [
+      { "type": "Organic" },
+      { "type": "Natural Ingredients" },
+      { "type": "Vegan" }
+    ],
+
+    "recommended-button": "See recommended products",
+    "update-profile-button": "Update Profile",
+
+    "personal-info": {
+      "title": "Personal Info",
+      "name": "Name:",
+      "surname": "Surname:",
+      "adress": "Address:",
+      "email": "Email"
+    },
+    "your-reviews": {
+      "title": "Your reviews",
+      "see-more-button": "See more"
+    }
+  }
+}
