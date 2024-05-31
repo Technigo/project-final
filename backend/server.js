@@ -4,6 +4,7 @@ import mongoose from "mongoose"
 import bcrypt from "bcrypt"
 import expressListEndpoints from "express-list-endpoints"
 import { User } from "./models/User"
+import { Review } from "./models/Review"
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/museums"
 mongoose.connect(mongoUrl)
@@ -44,6 +45,7 @@ app.get("/", (req, res) => {
   res.json(endpoints)
 })
 
+/////////////////ENDPOINTS FOR AUTHENTICATION/////////////////
 // Enpoint to register user
 app.post("/users", async (req, res) => {
   const salt = bcrypt.genSaltSync(10)
@@ -100,6 +102,28 @@ app.post("/sessions", async (req, res) => {
   } else {
     // User does not exist
     res.status(404).json({})
+  }
+})
+
+/////////////////ENDPOINTS FOR USER REVIEWS/////////////////
+//GET reviews
+app.get("/reviews", async (req, res) => {
+  try {
+    const thoughts = await Review.find().sort({ createdAt: -1 })
+    res.json(thoughts)
+  } catch (error) {
+    res.status(500).json({ error: "Something went wrong" })
+  }
+})
+
+//POST reviews
+app.post("/reviews", async (req, res) => {
+  const { message } = req.body
+  try {
+    const thought = await Review.create({ message })
+    res.status(201).json(thought)
+  } catch (error) {
+    res.status(400).json({ error: "Invalid input" })
   }
 })
 
