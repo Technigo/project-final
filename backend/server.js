@@ -43,10 +43,14 @@ const app = express()
 
 // Middlewares to enable cors and json body parsing
 app.use(cors({
-  origin: "https://project-final-45vw.onrender.com/space-feed", // Specify your frontend domain
-  methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
-  credentials: true, // Allow sending cookies from the frontend
+  origin: function (origin, callback) {
+    const allowedOrigins = ['http://localhost:5173', 'https://project-final-45vw.onrender.com'];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }))
 app.use(express.json())
 
@@ -71,7 +75,7 @@ app.get("/planets", async (req, res) => {
 app.get("/planets/:planet", async (req, res) => {
   const planet = req.params.planet
 
-  const onePlanet = await PlanetModel.find({
+  const onePlanet = await PlanetModel.findOne({
     name: { $regex: planet, $options: "i" },
   }).exec()
 

@@ -12,7 +12,6 @@ export const useSpaceFeedStore = create((set) => ({
   // Fetch the Space feed using API
   fetchSpaceFeed: async () => {
     set({ loading: true, error: null })
-
     try {
       const response = await fetch(
         "https://project-final-45vw.onrender.com/space-feed",
@@ -20,10 +19,13 @@ export const useSpaceFeedStore = create((set) => ({
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin":
+              "https://project-final-45vw.onrender.com/space-feed",
           },
         }
       )
       const data = await response.json()
+      console.log(response)
       set({ spaceFeed: data.response, loading: false })
     } catch (error) {
       set({ error, loading: false })
@@ -70,7 +72,7 @@ export const useSpaceFeedStore = create((set) => ({
 
     try {
       const response = await fetch(
-        `https://project-final-45vw.onrender.com/space-feed${messageId}/like`,
+        `https://project-final-45vw.onrender.com/${messageId}/like`,
         {
           method: "POST",
         }
