@@ -15,7 +15,7 @@ router.post("/users/signup", registerUser);
 
 router.post("/users/login", loginUser);
 
-router.post("/users/:userId", authenticateUser, displayUser);
+router.get("/users/:userId", authenticateUser, displayUser);
 
 router.delete("/users/:userId", authenticateUser, deleteUser);
 

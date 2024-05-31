@@ -22,6 +22,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       message: "Login Successful.",
       success: true,
       accessToken: user.accessToken,
+      id: user.id,
     });
   } else if (user) {
     const err = new Error("Incorrect password");
