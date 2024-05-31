@@ -3,20 +3,24 @@
     "burger": [
       {
         "text": "Profile",
-        "link": "/profile"
+        "link": "/profile",
+        "style": "my-4"
       },
 
       {
         "text": "Products",
-        "link": "/products"
-      },
-      {
-        "text": "Your cart",
-        "link": "/cart"
+        "link": "/products",
+        "style": ""
       },
       {
         "text": "About Us",
-        "link": "/about"
+        "link": "/about",
+        "style": ""
+      },
+      {
+        "text": "Your cart",
+        "link": "/cart",
+        "style": "my-4"
       }
     ],
     "products": "Products",

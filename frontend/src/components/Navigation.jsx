@@ -8,7 +8,7 @@ import xMark from "/square-xmark-solid.svg";
 
 //If signed in Sign in should display username/firstname
 
-export const Navigation = () => {
+export const Navigation = ({data}) => {
   const navRef = useRef();
   const btnRef = useRef();
 
@@ -22,18 +22,18 @@ export const Navigation = () => {
       <div className="left-nav flex">
         <NavLink to="/products" className="text-white m-4 hidden laptop:block">
           <p className="font-body text-white font-extralight text-lg hidden tablet:block">
-            Products
+            {data.products}
           </p>
         </NavLink>
         <NavLink to="/about" className="text-white m-4 hidden laptop:block">
           <p className="font-body text-white font-extralight text-lg hidden tablet:block">
-            About Us
+            {data.about}
           </p>
         </NavLink>
         <NavLink to="/profile" className="text-white m-2 laptop:hidden">
           <img src={userIcon} alt="Profile" className="h-4 tablet:hidden" />
-          <p className="font-body text-white font-extrabold text-lg hidden tablet:block">
-            Sign In
+          <p className="font-body text-white font-extralight text-lg hidden tablet:block">
+            {data.login}
           </p>
         </NavLink>
         <NavLink to="/cart" className="text-white tablet:hidden">
@@ -52,7 +52,7 @@ export const Navigation = () => {
       <div className="right-nav flex flex-row justify-end">
         <NavLink to="/profile" className="text-white my-4">
           <p className="font-body text-white font-extralight text-lg hidden laptop:block">
-            Sign In
+            {data.login}
           </p>
         </NavLink>
         <NavLink to="/cart" className="text-white">
@@ -70,7 +70,12 @@ export const Navigation = () => {
           <button className="" onClick={showNavbar}>
             <img src={xMark} alt="Menu" className="h-4" />
           </button>
-          <NavLink className="nav-link" to="/now_playing">
+          {data.burger.map((link, index) => (
+            <NavLink className="nav-link" key={index} to={link.link}>
+              <p className={link.style}>{link.text}</p>
+            </NavLink>
+          ))}
+          {/* <NavLink className="nav-link" to="/now_playing">
             <p className="my-4">Profile</p>
           </NavLink>
           <NavLink className="nav-link" to="/products">
@@ -81,7 +86,7 @@ export const Navigation = () => {
           </NavLink>
           <NavLink className="nav-link" to="/cart">
             <p className="my-4">Your cart</p>
-          </NavLink>
+          </NavLink> */}
         </div>
         <button ref={btnRef} className="flex" onClick={showNavbar}>
           <img
