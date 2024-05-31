@@ -1,30 +1,10 @@
 import cors from "cors";
-import dotenv from "dotenv";
 import express from "express";
-import mongoose from "mongoose";
 import expressListEndpoints from "express-list-endpoints";
 
-import userRoutes from "./routes/userRoutes";
-import productRoutes from "./routes/productRoutes";
-dotenv.config();
-import { Product } from "./models/Product";
-import webTemplates from "./data/webTemplates.json";
+import userRoutes from "./routes/users";
+import productRoutes from "./routes/products";
 import { errorHandler } from "./middleware/handleError";
-
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-final";
-mongoose.connect(mongoUrl);
-mongoose.Promise = Promise;
-
-//Seed data to database
-if (process.env.RESET_DB) {
-  const seedProductDatabase = async () => {
-    await Product.deleteMany();
-    webTemplates.forEach(template => {
-      new Product(template).save();
-    });
-  };
-  seedProductDatabase();
-}
 
 const port = process.env.PORT || 8080;
 const app = express();
