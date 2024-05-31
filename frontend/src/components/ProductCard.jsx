@@ -13,7 +13,7 @@ export const ProductCard = ({ data, langData }) => {
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
 
   return (
-    <div className="bg-strong-red m-auto w-2/3 rounded-xl">
+    <div className="bg-strong-red m-auto min-w-[200px] max-w-3/4 rounded-xl">
       <img className="w-100% rounded-t-xl" src={image} alt="" />
       <div className="m-2 flex flex-col items-center text-white">
         <h3 className="font-heading">{productName}</h3>
