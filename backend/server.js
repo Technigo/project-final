@@ -5,10 +5,23 @@ import mongoose from "mongoose";
 
 import userRoutes from "./routes/userRoutes";
 dotenv.config();
+import { Product } from "./models/Product";
+import webTemplates from "./data/webTemplates.json";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-final";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
+
+//Seed data to database
+if (process.env.RESET_DB) {
+  const seedProductDatabase = async () => {
+    await Product.deleteMany();
+    webTemplates.forEach(template => {
+      new Product(template).save();
+    });
+  };
+  seedProductDatabase();
+}
 
 const port = process.env.PORT || 8080;
 const app = express();
