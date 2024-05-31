@@ -7,6 +7,15 @@ const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Cones&Stones";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
+// Middleware to check if database in a good state, get the next, otherwise error-message
+const checkDatabaseConnection = (req, res, next) => {
+  if (mongoose.connection.readyState === 1) {
+    next();
+  } else {
+    res.status(503).json({ error: "Service unavailable" });
+  }
+};
+
 // Create product mongoose-schema & model
 // Destructure schema & model
 const { Schema, model } = mongoose;
@@ -55,15 +64,6 @@ const productSchema = new Schema({
 });
 
 const Product = mongoose.model("Product", productSchema);
-
-// Middleware to check if database in a good state, get the next, otherwise error-message
-const checkDatabaseConnection = (req, res, next) => {
-  if (mongoose.connection.readyState === 1) {
-    next();
-  } else {
-    res.status(503).json({ error: "Service unavailable" });
-  }
-};
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
