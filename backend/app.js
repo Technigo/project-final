@@ -6,6 +6,8 @@ import productsRoutes from "./routes/products";
 import reviewRoutes from "./routes/reviews";
 import userRoutes from "./routes/users";
 
+/* import seeddatabase from "./config/seeddatabase"; */
+
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
