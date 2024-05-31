@@ -3,7 +3,7 @@ import { GlimRoutes } from "./routes/GlimRoutes";
 import dataEn from "./data.en.json";
 
 export const App = () => {
-  const data = dataEN;
+  const data = dataEn;
 
   // Preparation for translation
   // remove the const data from above
