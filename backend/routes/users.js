@@ -1,4 +1,5 @@
 import express from "express";
+import bcrypt from "bcrypt";
 
 import { authenticateUser } from "../middlewares/authenticateUser";
 import { User } from "../models/userSchema";
@@ -9,17 +10,29 @@ const router = express.Router();
 
 router.post("/register", async (req, res) => {
   try {
+    console.log(firstname);
     const {
       firstname,
       lastname,
       email,
       address,
       password,
-      /* allergies,
+      allergies,
       pros,
       hair,
-      skin, */
+      skin,
     } = req.body;
+    console.log(
+      firstname,
+      lastname,
+      email,
+      address,
+      password,
+      allergies,
+      pros,
+      hair,
+      skin
+    );
 
     if (!firstname) {
       return res.status(400).json({ message: "Firstname is required." });
@@ -64,7 +77,7 @@ router.post("/register", async (req, res) => {
     if (password.length < 8) {
       return res
         .status(400)
-        .json({ message: "Password must be at least 2 characters long." });
+        .json({ message: "Password must be at least 8 characters long." });
     }
 
     //Create a new user
@@ -74,18 +87,19 @@ router.post("/register", async (req, res) => {
       email: email,
       address: address,
       password: bcrypt.hashSync(password, 10),
-      /* allergies: allergies,
+      allergies: allergies,
       pros: pros,
       hair: hair,
-      skin: skin, */
+      skin: skin,
     });
-    await user.save().exec();
+    await user.save();
     res.status(201).json({
       message: `Your Registration was successfull ${user.firstname}. Please log in now.`,
       id: user._id,
       accessToken: user.accessToken,
     });
   } catch (error) {
+    console.error("Register Endpoint", error);
     res.status(400).json({ message: "Could not register user." });
   }
 });
