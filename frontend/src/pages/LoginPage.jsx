@@ -1,8 +1,7 @@
 import { useState, useContext } from "react"
-import { useNavigate, Link } from "react-router-dom"
-import { IoIosArrowBack } from "react-icons/io"
+import { useNavigate } from "react-router-dom"
 import { AlertMessage } from "../components/AlertMessage"
-//import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../contexts/AuthContext"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
 export const LoginPage = () => {
@@ -10,7 +9,7 @@ export const LoginPage = () => {
   const [password, setPassword] = useState("")
   const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
-  //const { login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext)
   const navigate = useNavigate()
 
   //"handlelogin" function where we use login from the global state
@@ -45,7 +44,7 @@ export const LoginPage = () => {
   return (
     <div>
       <ToHomepageBtn />
-      <h2 className="title">User login </h2>
+      <h2 className="title">Log in to your personal page </h2>
       <form className="form-container" onSubmit={handleLogin}>
         <div className="input-wrapper">
           <label htmlFor="user-email"> Email adress: </label>

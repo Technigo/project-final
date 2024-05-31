@@ -4,7 +4,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import { AlertMessage } from "../components/AlertMessage"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
-
 export const RegisterPage = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -33,16 +32,13 @@ export const RegisterPage = () => {
     event.preventDefault()
     setLoading(true)
     try {
-      const response = await fetch(
-        "http://localhost:3000/users",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email, password }),
-        }
-      )
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      })
       const data = await response.json()
       if (response.ok) {
         clearForm()

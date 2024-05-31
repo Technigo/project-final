@@ -10,7 +10,10 @@ export const NavBar = () => {
           <Link to={"/register"}>Register</Link>
           <Link to={"/login"}>Login</Link>
         </ul>
-        <LuUser2 />
+
+        <Link to={"/user-page"}>
+          <LuUser2 />
+        </Link>
         <GrLanguage />
       </nav>
     </>
