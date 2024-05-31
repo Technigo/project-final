@@ -1,14 +1,13 @@
-// import express from 'express'
-// import {
-//   displayProducts,
-//   displayProductById
-// } from '../controllers/productController'
-// import { authenticateUser } from '../middleware/authenticateUser' //Blocker: We don't need the authentication here do we?
+import express from "express";
+import {
+  displayProducts,
+  displayProductById,
+} from "../controllers/productController";
 
-// const router = express.Router()
+const router = express.Router();
 
-// router.get('/products', displayProducts)
+router.get("/products", displayProducts);
 
-// router.get('/products/:productId', displayProductById)
+router.get("/products/:productId", displayProductById);
 
-// export default router
+export default router;

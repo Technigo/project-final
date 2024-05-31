@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 
 import userRoutes from "./routes/userRoutes";
+import productRoutes from "./routes/productRoutes";
 dotenv.config();
 import { Product } from "./models/Product";
 import webTemplates from "./data/webTemplates.json";
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(userRoutes);
+app.use(productRoutes);
 
 // Start the server
 app.listen(port, () => {
