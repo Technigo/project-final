@@ -39,7 +39,7 @@ export const HomePage = () => {
           </p>
           <div className="mt-8">
             <a
-              href="/signup-seeker"
+              href="/signup"
               className="bg-primary text-light px-6 py-3 rounded-full text-lg"
             >
               Get Started
