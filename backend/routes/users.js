@@ -15,10 +15,10 @@ router.post("/register", async (req, res) => {
       email,
       address,
       password,
-      allergies,
+      /* allergies,
       pros,
       hair,
-      skin,
+      skin, */
     } = req.body;
 
     if (!firstname) {
@@ -74,10 +74,10 @@ router.post("/register", async (req, res) => {
       email: email,
       address: address,
       password: bcrypt.hashSync(password, 10),
-      allergies: allergies,
+      /* allergies: allergies,
       pros: pros,
       hair: hair,
-      skin: skin,
+      skin: skin, */
     });
     await user.save().exec();
     res.status(201).json({
