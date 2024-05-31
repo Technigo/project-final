@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-import museumList from "../json/museums.json"
 import { useState } from "react"
+import museumList from "../json/museums.json"
+import { MuseumCard } from "./MuseumCard"
 
 export const MuseumCardContainer = () => {
   const [amountToShow, setAmountToShow] = useState(4)
@@ -8,11 +8,9 @@ export const MuseumCardContainer = () => {
   const showMore = () => setAmountToShow(amountToShow + 4)
 
   const showMuseums = () =>
-    museumList.slice(0, amountToShow).map((museum) => (
-      <Link to={`/${museum.id}`} key={museum.id}>
-        <div>{museum.name}</div>
-      </Link>
-    ))
+    museumList
+      .slice(0, amountToShow)
+      .map((museum, id) => <MuseumCard museum={museum} key={id} />)
   return (
     <>
       <div>{showMuseums()}</div>
