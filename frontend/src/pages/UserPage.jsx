@@ -6,6 +6,7 @@ import { LogoutButton } from "../components/LogoutButton"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
 //features that should be displayed here: liked museums, written comments, purchased tickets...
+
 //Authorize with access token from /user-page
 
 export const UserPage = () => {
@@ -57,6 +58,8 @@ export const UserPage = () => {
   return (
     <div>
       <ToHomepageBtn />
+
+      <h2>Welcome to your personal page</h2>
       <p>Liked museums</p>
       <p>Posted reviews</p>
       <p>Purchased tickets</p>
