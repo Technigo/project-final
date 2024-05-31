@@ -73,6 +73,12 @@
     }
   },
 
+  "products-list-page": {
+    "add-to-cart": "Add to cart",
+    "show-reviews": "Show reviews",
+    "reviews-on": "Reviews on"
+  },
+
   "single-product-page": {
     "add-to-cart": "Add to cart",
     "show-reviews": "Show reviews",
