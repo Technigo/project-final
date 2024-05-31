@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom"
+
 export const SearchResultItem = ({ museum }) => {
   return (
     <>
-      <div>{museum.name}</div>
+      <Link to={`/${museum.id}`} key={museum.id}>
+        <div>{museum.name}</div>
+      </Link>
       <div>{museum.location}</div>
       <div>{museum.website}</div>
     </>
-  );
-};
+  )
+}

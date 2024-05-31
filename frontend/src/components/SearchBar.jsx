@@ -9,7 +9,8 @@ export const SearchBar = ({ setResults }) => {
     setInput(value)
   }
 
-  const search = () => {
+  const search = (e) => {
+    e.preventDefault()
     const results = museumList.filter((museum) => {
       const searchInput = input.toLowerCase()
 
@@ -21,11 +22,13 @@ export const SearchBar = ({ setResults }) => {
     })
     console.log(results)
     setResults(results)
+    setInput("")
   }
 
   return (
-    <>
-      <div>
+    <div>
+      {" "}
+      <form onSubmit={search}>
         <FaSearch />
         <input
           type="text"
@@ -33,10 +36,8 @@ export const SearchBar = ({ setResults }) => {
           value={input}
           onChange={(e) => handleChange(e.target.value)}
         />
-        <button type="submit" onClick={search}>
-          Search
-        </button>
-      </div>
-    </>
+        <button type="submit">Search</button>
+      </form>
+    </div>
   )
 }

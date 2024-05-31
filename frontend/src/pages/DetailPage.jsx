@@ -46,7 +46,10 @@ export const DetailPage = () => {
       <button>Buy a ticket</button>
 
       <p>
-        Visit the official website <a href={museum.website}>here</a>
+        Visit the official website{" "}
+        <a href={museum.website} target="_blank" rel="noopener noreferrer">
+          here
+        </a>
       </p>
 
       <h4>Reviews</h4>
