@@ -24,7 +24,7 @@ const productSchema = new Schema({
   category: String,
   subcategory: String,
   description: String,
-  price: String,
+  price: Number,
   //Talk about if we want boolean or an array and decide before we do the remote database
   allergies: {
     type: [{ type: String, enum: allergyEnum }],
