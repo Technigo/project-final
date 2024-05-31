@@ -11,7 +11,9 @@ export default {
         "strong-red": "rgba(159, 36, 9, 0.41)",
 
         "text-light": "#fff",
-        "text-dark": "#000",
+        "text-dark": "#452626",
+
+        "button-light": "#FFF5F2",
       },
       fontFamily: {
         body: ["Comfortaa", "cursive"],
