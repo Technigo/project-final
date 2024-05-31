@@ -6,7 +6,6 @@ import { upload } from "../config/multer";
 import { authenticate } from "passport";
 
 const router = express.Router();
-/* const upload = multer.single("profilePicture"); */
 
 // Middleware to athenticate the token
 const authenticateToken = async (req, res, next) => {
@@ -28,9 +27,14 @@ const authenticateToken = async (req, res, next) => {
 
 // Function to generate JWT access token
 const generateAccessToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, {
-    expiresIn: "24h",
-  });
+  try {
+    return jwt.sign({ userId }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
+    });
+  } catch (error) {
+    console.error("Error generating token:", error);
+    throw new Error("Token generation failed");
+  }
 };
 
 router.post("/users", async (req, res) => {
@@ -56,6 +60,7 @@ router.post("/sessions", (req, res, next) => {
 
   passport.authenticate("local", { session: false }, (err, user, info) => {
     if (err || !user) {
+      console.log("Error during authentication:", err);
       return res
         .status(400)
         .json({ error: info ? info.message : "Login failed" });
@@ -66,9 +71,25 @@ router.post("/sessions", (req, res, next) => {
         return res.send(err);
       }
       const token = generateAccessToken(user._id);
+      console.log("Login successful:", user.username);
       return res.json({ user, token });
     });
   })(req, res, next);
+});
+
+// Route to fetch profile
+router.get("/profile", authenticateToken, async (req, res) => {
+  console.log("GET /profile called");
+  try {
+    const user = await User.findById(req.user.userId).select("-password");
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error("Error fetching profile:", error);
+    res.status(500).json({ error: "Failed to fetch profile" });
+  }
 });
 
 //Update user profile
@@ -93,21 +114,6 @@ router.put(
     }
   }
 );
-
-// Route to fetch profile
-router.get("/profile", authenticate, async (req, res) => {
-  console.log("GET /profile called");
-  try {
-    const user = await User.findById(req.user.userd).select("-password");
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
-    }
-    res.json(user);
-  } catch (error) {
-    console.error("Error fetching profile:", error);
-    res.status(500).json({ error: "Failed to fetch profile" });
-  }
-});
 
 // Authenticated endpoint
 router.get("/secrets", authenticateToken, (req, res) => {
