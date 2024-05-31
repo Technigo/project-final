@@ -1,16 +1,17 @@
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/logotypes/logo-stamp.svg";
-import cart from "../../assets/icons/cart.svg";
-import search from "../../assets/icons/search.svg";
-import user from "../../assets/icons/user.svg";
+import logo from "/assets/logotypes/logo-stamp.svg";
+import cart from "/assets/icons/cart.svg";
+import search from "/assets/icons/search.svg";
+import user from "/assets/icons/user.svg";
+import { Image } from "../ReusableComponents/Image";
 
 export const Header = () => {
   return (
     <header>
       <nav>
         <Link to="/">
-          <img src={logo} className="logo-stamp" alt="logo"></img>
+          <Image src={logo} alt="logo" className="logo" />
         </Link>
         <ul className="navbar-categories">
           <li>
@@ -34,13 +35,13 @@ export const Header = () => {
         </ul>
         <ul className="navbar-icons">
           <button>
-            <img src={search} alt="search-icon"></img>
+            <Image src={search} alt="search" className="search" />
           </button>
           <Link to="/">
-            <img src={user} alt="my-account"></img>
+            <Image src={user} alt="my-account" className="user" />
           </Link>
           <Link to="/">
-            <img src={cart} alt="shopping-cart"></img>
+            <Image src={cart} alt="shopping-cart" className="cart" />
           </Link>
         </ul>
       </nav>
