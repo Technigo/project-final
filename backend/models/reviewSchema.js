@@ -23,6 +23,12 @@ const reviewSchema = new Schema({
     required: true,
     immutable: true,
   },
+  userSkinType: {
+    type: String,
+  },
+  userHairType: {
+    type: String,
+  },
   reviewScore: {
     type: Number,
     required: true,

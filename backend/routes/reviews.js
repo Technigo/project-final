@@ -10,13 +10,23 @@ const router = express.Router();
 //POST a new Review
 router.post("/", authenticateUser);
 router.post("/", async (req, res) => {
-  const { firstname, message, productID, userID, reviewScore } = req.body;
+  const {
+    firstname,
+    message,
+    productID,
+    userID,
+    userSkinType,
+    userHairType,
+    reviewScore,
+  } = req.body;
   try {
     const review = await new Review({
       firstname: firstname,
       message: message,
       productID: productID,
       userID: userID,
+      userSkinType: userSkinType,
+      userHairType: userHairType,
       reviewScore: reviewScore,
     })
       .save()
