@@ -2,12 +2,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
+import expressListEndpoints from "express-list-endpoints";
 
 import userRoutes from "./routes/userRoutes";
 import productRoutes from "./routes/productRoutes";
 dotenv.config();
 import { Product } from "./models/Product";
 import webTemplates from "./data/webTemplates.json";
+import { errorHandler } from "./middleware/handleError";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-final";
 mongoose.connect(mongoUrl);
@@ -33,11 +35,21 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  res.send(endpoints);
 });
 
+// routes
 app.use(userRoutes);
 app.use(productRoutes);
+
+// gloabl error handling
+app.use((req, res, next) => {
+  const err = new Error(`Cannot find endpoint: ${req.originalUrl}.`);
+  err.statusCode = 404;
+  next(err);
+});
+app.use(errorHandler);
 
 // Start the server
 app.listen(port, () => {
