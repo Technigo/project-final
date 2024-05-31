@@ -2,7 +2,7 @@ import mockup1 from "/mockupimages/mockup1.jpg";
 
 export const ProductCard = ({ data, langData }) => {
   const productData = data;
-  const langData = langData; //Should probably be products-list-page
+  const productLangData = langData; //Should probably be products-list-page
 
   //Change variables to accept incoming data from backend.
   const image = mockup1; //replace mockup1 with productData.image
@@ -10,7 +10,7 @@ export const ProductCard = ({ data, langData }) => {
   const price = `€Price`; //`€${productData.price}`
 
   // Change variable to accept data from translation file.
-  const addToCart = "Add to Cart"; //langData.add-to-cart
+  const addToCart = "Add to Cart"; //productLangData.add-to-cart
 
   return (
     <div className="bg-strong-red m-auto w-2/3 rounded-xl">
