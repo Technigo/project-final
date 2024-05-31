@@ -7,7 +7,9 @@ export const UserPage = () => {
   return (
     <div>
       <ToHomepageBtn />
-      UserPage
+      <p>Liked museums</p>
+      <p>Posted reviews</p>
+      <p>Purchased tickets</p>
     </div>
   )
 }
