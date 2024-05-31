@@ -106,6 +106,8 @@ app.post("/sessions", async (req, res) => {
 })
 
 /////////////////ENDPOINTS FOR USER REVIEWS/////////////////
+//Should be a DELETE endpoint too
+
 //GET reviews
 app.get("/reviews", async (req, res) => {
   try {
