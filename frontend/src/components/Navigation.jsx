@@ -64,7 +64,7 @@ export const Navigation = ({data}) => {
         </NavLink>
 
         <div
-          className="hidden absolute top-0 right-0 flex-col text-right  p-4 rounded-bl-lg text-white bg-strong-red"
+          className="hidden absolute backdrop-blur-sm top-0 right-0 flex-col text-right  p-4 rounded-bl-lg text-white bg-strong-red"
           ref={navRef}
         >
           <button className="" onClick={showNavbar}>
