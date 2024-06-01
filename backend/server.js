@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(passport.initialize());
 
