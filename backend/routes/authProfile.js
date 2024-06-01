@@ -40,6 +40,7 @@ const authenticateToken = async (req, res, next) => {
   });
 };
 
+// Route to register a new user
 router.post("/users", async (req, res) => {
   console.log("POST /users called");
   const { username, password, role } = req.body;
@@ -66,7 +67,7 @@ router.post("/users", async (req, res) => {
   }
 });
 
-router.post("/sessions", (req, res, next) => {
+router.post("/sessions", async (req, res, next) => {
   console.log("Incoming login request:", req.body);
 
   passport.authenticate("local", { session: false }, (err, user, info) => {
@@ -81,11 +82,19 @@ router.post("/sessions", (req, res, next) => {
         console.log("Login error:", err);
         return res.send(err);
       }
+
+      const token = generateAccessToken(user._id); // Generating token here
+
+      // Remove accessToken from user object
+      const userWithoutAccessToken = user.toObject();
+      delete userWithoutAccessToken.accessToken;
+
       console.log("Login successful:", user.username);
-      return res.json({ user, token });
+      return res.json({ user: userWithoutAccessToken, token });  // Sending token in response
     });
   })(req, res, next);
 });
+
 
 // Route for the current session (logged-in user)
 router.get("/session", authenticateToken, async (req, res) => {
