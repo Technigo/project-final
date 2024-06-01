@@ -1,59 +1,50 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export const Login = () => {
-  const usernameInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const username = usernameInputRef.current.value;
-    const password = passwordInputRef.current.value;
-
     try {
-      const response = await axios.post(
-        "https://project-final-rmn2.onrender.com/api/sessions",
-        {
-          username,
-          password,
-        }
-      );
+      const response = await axios.post("http://localhost:9000/api/sessions", {
+        username,
+        password,
+      });
       const { token } = response.data;
-
-      localStorage.setItem("authToken", token);
-
-      // Redirect to profile page
+      localStorage.setItem("token", token);
       navigate("/profile");
-    } catch (error) {
-      console.error("Error logging in:", error);
-      setError(
-        error.response?.data?.error || "An error occurred during login."
-      );
+    } catch (err) {
+      setError("Login failed. Please check your credentials and try again.");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
       <div className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl font-boldmb-4">Log In</h1>
-        {error && <div className="text-red-500 mb-4">{error}</div>}
+        {/*         <h1 className="text-4xl font-boldmb-4">Log In</h1>
+         */}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Username"
-            ref={usernameInputRef}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
           />
           <input
             type="password"
             placeholder="Password"
-            ref={passwordInputRef}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
           />
+          {error && <div className="text-red-500 mb-4">{error}</div>}
           <button
             type="submit"
             className="bg-primary text-light px-4 py-2 rounded hover:bg-secondary"

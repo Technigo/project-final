@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import Menu from "../../utilities/Menu";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  /*   const navigate = useNavigate(); */
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -28,10 +31,13 @@ const Profile = () => {
           }
         );
         setUser(response.data);
+        setName(response.data.name);
+        setBio(response.data.bio);
       } catch (error) {
         console.error("Error fetching profile:", error);
         if (error.response?.status === 401) {
           localStorage.removeItem("authToken");
+          setError("Unauthorized. Please log in again.");
         } else {
           setError(
             error.response?.data?.error ||
@@ -46,12 +52,39 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("authToken");
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("bio", bio);
+    if (profilePicture) {
+      formData.append("profilePicture", profilePicture);
+    }
+
+    try {
+      const response = await axios.put(
+        "https://project-final-rmn2.onrender.com/api/profile",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      setProfile(response.data);
+    } catch (err) {
+      setError("Failed to update profile.");
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <p className="text-red-500">{error}</p>;
   }
 
   if (!user) {
@@ -59,24 +92,45 @@ const Profile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
+    <div className="container mx-auto">
       <Menu />
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl font-bold mb-4">Profile</h1>
-        <p>
-          <strong>Username:</strong> {user.username}
-        </p>
-        <p>
-          <strong>Role:</strong> {user.role}
-        </p>
-        <p>
-          <strong>Name:</strong> {user.name}
-        </p>
-        <p>
-          <strong>Bio:</strong> {user.bio}
-        </p>
-        <img src={user.profilePicture} alt="Profile" />
-      </div>
+      <h1 className="text-2xl font-bold mb-4">Profile</h1>
+      <form onSubmit={handleUpdateProfile}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="block mb-4 px-4 py-2 rounded border border-gray-300"
+        />
+        <input
+          type="text"
+          placeholder="Bio"
+          value={bio}
+          onChange={(e) => setBio(e.target.value)}
+          className="block mb-4 px-4 py-2 rounded border border-gray-300"
+        />
+        <input
+          type="file"
+          onChange={(e) => setProfilePicture(e.target.files[0])}
+          className="block mb-4 px-4 py-2 rounded border border-gray-300"
+        />
+        <button
+          type="submit"
+          className="bg-primary text-light px-4 py-2 rounded hover:bg-secondary"
+        >
+          Update Profile
+        </button>
+      </form>
+      {user.profilePicture && (
+        <div>
+          <strong>Profile Picture:</strong>
+          <img
+            src={`https://project-final-rmn2.onrender.com/${user.profilePicture}`}
+            alt="Profile"
+          />
+        </div>
+      )}
     </div>
   );
 };
