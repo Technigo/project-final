@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../axiosConfig";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import signUpImage from "/images/signUp.jpg";
@@ -26,10 +26,7 @@ export const SignUpPage = () => {
       let response;
       if (isLogin) {
         console.log("Sending login request:", { username, password });
-        response = await axios.post(
-          "https://project-final-rmn2.onrender.com/api/sessions",
-          { username, password }
-        );
+        response = await api.post("/sessions", { username, password });
         console.log("Login response:", response.data);
         /*  const { accessToken } = response.data;
         localStorage.setItem("authToken", accessToken);
@@ -38,10 +35,7 @@ export const SignUpPage = () => {
         ] = `Bearer ${accessToken}`; */
       } else {
         console.log("Sending signup request:", { username, password, role });
-        response = await axios.post(
-          "https://project-final-rmn2.onrender.com/api/users",
-          { username, password, role }
-        );
+        response = await api.post("/users", { username, password, role });
         const { accessToken } = response.data;
         localStorage.setItem("authToken", accessToken);
         console.log("Signup response:", response.data);

@@ -1,26 +1,38 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../axiosConfig";
 
 export const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setError("");
 
     try {
-      const response = await axios.post("http://localhost:9000/api/sessions", {
-        username,
-        password,
-      });
-      const { token } = response.data;
-      localStorage.setItem("token", token);
-      navigate("/profile");
-    } catch (err) {
-      setError("Login failed. Please check your credentials and try again.");
+      const response = await api.post("/sessions", formData);
+      if (response.status === 200) {
+        const token = response.data.token;
+        setFormData({ username: "", password: "" });
+        // Store access token in localStorage
+        localStorage.setItem("token", token);
+        // Navigate to the profile page
+        navigate("/profile");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Sign-in failed
+      setError(error.response?.data?.error || "Something went wrong");
     }
   };
 
@@ -30,20 +42,35 @@ export const Login = () => {
         {/*         <h1 className="text-4xl font-boldmb-4">Log In</h1>
          */}
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
-          />
+          <div className="input-group">
+            <label htmlFor="username" className="label">
+              Username:
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+              className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password" className="label">
+              Password:
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
+              minLength={6}
+              required
+            />
+          </div>
           {error && <div className="text-red-500 mb-4">{error}</div>}
           <button
             type="submit"

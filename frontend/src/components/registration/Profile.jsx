@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../axiosConfig";
 /* import { useNavigate } from "react-router-dom"; */
 import Menu from "../../utilities/Menu";
 
@@ -10,7 +10,6 @@ const Profile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  /*   const navigate = useNavigate(); */
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -22,14 +21,11 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get(
-          "https://project-final-rmn2.onrender.com/api/profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await api.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setUser(response.data);
         setName(response.data.name);
         setBio(response.data.bio);
@@ -38,6 +34,7 @@ const Profile = () => {
         if (error.response?.status === 401) {
           localStorage.removeItem("authToken");
           setError("Unauthorized. Please log in again.");
+          window.location.href = "/login";
         } else {
           setError(
             error.response?.data?.error ||
@@ -63,20 +60,21 @@ const Profile = () => {
     }
 
     try {
-      const response = await axios.put(
-        "https://project-final-rmn2.onrender.com/api/profile",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setProfile(response.data);
+      const response = await api.put("/profile", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      setUser(response.data);
     } catch (err) {
       setError("Failed to update profile.");
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    window.location.href = "/login";
   };
 
   if (loading) {
@@ -92,46 +90,54 @@ const Profile = () => {
   }
 
   return (
-    <div className="container mx-auto">
+    <>
       <Menu />
-      <h1 className="text-2xl font-bold mb-4">Profile</h1>
-      <form onSubmit={handleUpdateProfile}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="block mb-4 px-4 py-2 rounded border border-gray-300"
-        />
-        <input
-          type="text"
-          placeholder="Bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          className="block mb-4 px-4 py-2 rounded border border-gray-300"
-        />
-        <input
-          type="file"
-          onChange={(e) => setProfilePicture(e.target.files[0])}
-          className="block mb-4 px-4 py-2 rounded border border-gray-300"
-        />
-        <button
-          type="submit"
-          className="bg-primary text-light px-4 py-2 rounded hover:bg-secondary"
-        >
-          Update Profile
-        </button>
-      </form>
-      {user.profilePicture && (
-        <div>
-          <strong>Profile Picture:</strong>
-          <img
-            src={`https://project-final-rmn2.onrender.com/${user.profilePicture}`}
-            alt="Profile"
+      <div className="container mx-auto pt-16">
+        <h1 className="text-2xl font-bold mb-4">Profile</h1>
+        <form onSubmit={handleUpdateProfile}>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="block mb-4 px-4 py-2 rounded border border-gray-300"
           />
-        </div>
-      )}
-    </div>
+          <input
+            type="text"
+            placeholder="Bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            className="block mb-4 px-4 py-2 rounded border border-gray-300"
+          />
+          <input
+            type="file"
+            onChange={(e) => setProfilePicture(e.target.files[0])}
+            className="block mb-4 px-4 py-2 rounded border border-gray-300"
+          />
+          <button
+            type="submit"
+            className="bg-primary text-light px-4 py-2 rounded hover:bg-secondary"
+          >
+            Update Profile
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Logout
+          </button>
+        </form>
+        {user.profilePicture && (
+          <div>
+            <strong>Profile Picture:</strong>
+            <img
+              src={`https://project-final-rmn2.onrender.com/api/${user.profilePicture}`}
+              alt="Profile"
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
