@@ -11,6 +11,7 @@ export const SpaceFeed = () => {
     error,
   } = useSpaceFeedStore()
   const [newMessage, setNewMessage] = useState("")
+  const [messageError, setMessageError] = useState("")
 
   useEffect(() => {
     fetchSpaceFeed()
@@ -18,15 +19,19 @@ export const SpaceFeed = () => {
 
   const handleNewMessage = (event) => {
     setNewMessage(event.target.value)
+    setMessageError("")
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
     if (newMessage.length > 5 && newMessage.length < 140) {
-      postSpaceMessage(newMessage)
-      setNewMessage("")
+      setMessageError("Message must be between 5 and 140 characters")
+      return
     }
+
+    postSpaceMessage(newMessage)
+    setNewMessage("")
   }
 
   const handleLike = (messageId) => {
@@ -46,22 +51,26 @@ export const SpaceFeed = () => {
             placeholder=""
             required
             onChange={handleNewMessage}
-            minLength={5}
-            maxLength={140}
           />
         </label>
         <button type="submit" disabled={loading}>
           Post
         </button>
+        {messageError && <p className="message-error">{messageError}</p>}
       </form>
-      {error && <p>{error.message}</p>}
+
+      {error && <p className="error">{error.message}</p>}
       {loading && <p>Loading...</p>}
+
       <ul>
         {spaceFeed && spaceFeed.length > 0 ? (
           spaceFeed.map((message) => (
             <li key={message._id}>
               <p>{message.message}</p>
-              <button onClick={() => handleLike(message._id)}>
+              <button
+                className="like-button"
+                onClick={() => handleLike(message._id)}
+              >
                 Like ({message.likes})
               </button>
             </li>

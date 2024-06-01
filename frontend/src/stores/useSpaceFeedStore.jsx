@@ -72,7 +72,7 @@ export const useSpaceFeedStore = create((set) => ({
 
     try {
       const response = await fetch(
-        `https://project-final-45vw.onrender.com/${messageId}/like`,
+        `https://project-final-45vw.onrender.com/space-feed/${messageId}/like`,
         {
           method: "POST",
         }

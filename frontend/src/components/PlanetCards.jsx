@@ -1,8 +1,12 @@
+import { useParams } from "react-router-dom"
 import { Planet } from "./Planet"
 import { useState, useEffect } from "react"
 
 export const PlanetCards = ({ name }) => {
   const URL = `https://project-final-45vw.onrender.com/planets/${{name}}`
+export const PlanetCards = () => {
+  const { name } = useParams() // Retrieve the name from URL parameters
+  const URL = `https://project-final-45vw.onrender.com/planets/${name}`
   const [planet, setPlanet] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -14,22 +18,30 @@ export const PlanetCards = ({ name }) => {
 
       try {
         const response = await fetch(URL)
+        console.log(response)
         if (!response.ok) {
           throw new Error(
             `Failed to fetch planet ${name}, reload page and try again`
           )
         }
         const data = await response.json()
+        console.log(data)
         setPlanet(data)
         console.log(data)
       } catch (error) {
+        console.error(error)
         setError(error.message)
       } finally {
         setLoading(false)
       }
     }
 
-    fetchPlanet()
+    if (name) {
+      fetchPlanet() // Only fetch if name is defined
+    } else {
+      setError("Planet name is not defined")
+      setLoading(false)
+    }
   }, [URL, name])
 
   if (loading) {
