@@ -7,6 +7,18 @@ import { upload } from "../config/multer";
 
 const router = express.Router();
 
+// Function to generate JWT access token
+const generateAccessToken = (userId) => {
+  try {
+    return jwt.sign({ userId }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
+    });
+  } catch (error) {
+    console.error("Error generating token:", error);
+    throw new Error("Token generation failed");
+  }
+};
+
 // Middleware to athenticate the token
 const authenticateToken = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
@@ -26,18 +38,6 @@ const authenticateToken = async (req, res, next) => {
     req.user = user;
     next();
   });
-};
-
-// Function to generate JWT access token
-const generateAccessToken = (userId) => {
-  try {
-    return jwt.sign({ userId }, process.env.JWT_SECRET, {
-      expiresIn: "24h",
-    });
-  } catch (error) {
-    console.error("Error generating token:", error);
-    throw new Error("Token generation failed");
-  }
 };
 
 router.post("/users", async (req, res) => {
@@ -85,6 +85,28 @@ router.post("/sessions", (req, res, next) => {
       return res.json({ user, token });
     });
   })(req, res, next);
+});
+
+// Route for the current session (logged-in user)
+router.get("/session", authenticateToken, async (req, res) => {
+  try {
+    // Retrieve user information from the request object
+    const user = req.user;
+
+    // Fetch user data from the database
+    const loggedInUser = await User.findById(user.userId).select("-password");
+
+    // Check if the user exists
+    if (!loggedInUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Respond with user data
+    res.json(loggedInUser);
+  } catch (error) {
+    console.error("Error fetching logged-in user:", error);
+    res.status(500).json({ error: "Failed to fetch logged-in user" });
+  }
 });
 
 // Route to fetch profile
