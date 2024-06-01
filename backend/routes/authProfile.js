@@ -40,6 +40,14 @@ const generateAccessToken = (userId) => {
 router.post("/users", async (req, res) => {
   console.log("POST /users called");
   const { username, password, role } = req.body;
+
+  // Check if the password meets the minimum length requirement
+  if (password.length < 6) {
+    return res
+      .status(400)
+      .json({ error: "Password must be at least 6 characters long" });
+  }
+
   try {
     const newUser = new User({ username, password, role });
     await newUser.save();
@@ -70,7 +78,6 @@ router.post("/sessions", (req, res, next) => {
         console.log("Login error:", err);
         return res.send(err);
       }
-      const token = generateAccessToken(user._id);
       console.log("Login successful:", user.username);
       return res.json({ user, token });
     });
