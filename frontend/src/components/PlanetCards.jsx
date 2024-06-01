@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom"
 import { Planet } from "./Planet"
 import { useState, useEffect } from "react"
 
-export const PlanetCards = ({ name }) => {
-  const URL = `https://project-final-45vw.onrender.com/planets/${{name}}`
 export const PlanetCards = () => {
   const { name } = useParams() // Retrieve the name from URL parameters
   const URL = `https://project-final-45vw.onrender.com/planets/${name}`
