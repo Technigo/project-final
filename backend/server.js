@@ -111,8 +111,8 @@ app.post("/sessions", async (req, res) => {
 //GET reviews
 app.get("/reviews", async (req, res) => {
   try {
-    const thoughts = await Review.find().sort({ createdAt: -1 })
-    res.json(thoughts)
+    const review = await Review.find().sort({ createdAt: -1 })
+    res.json(review)
   } catch (error) {
     res.status(500).json({ error: "Something went wrong" })
   }
@@ -120,10 +120,10 @@ app.get("/reviews", async (req, res) => {
 
 //POST reviews
 app.post("/reviews", async (req, res) => {
-  const { message } = req.body
+  const { museumId, message } = req.body
   try {
-    const thought = await Review.create({ message })
-    res.status(201).json(thought)
+    const review = await Review.create({ museumId, message })
+    res.status(201).json(review)
   } catch (error) {
     res.status(400).json({ error: "Invalid input" })
   }
