@@ -125,7 +125,12 @@ app.post("/reviews", async (req, res) => {
     const review = await Review.create({ museumId, message })
     res.status(201).json(review)
   } catch (error) {
-    res.status(400).json({ error: "Invalid input" })
+    res.status(400).json({
+      response: error.message,
+      success: false,
+      message: "Could not create message",
+      errors: error.errors,
+    })
   }
 })
 

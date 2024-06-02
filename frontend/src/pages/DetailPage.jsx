@@ -7,11 +7,12 @@ import museumList from "../json/museums.json"
 import "./TemporaryStyle.css"
 
 import image1 from "../assets/image1.png"
+import { PostComments } from "../components/PostComments"
 
 export const DetailPage = () => {
   const params = useParams()
-  const museumId = Number(params.slug)
-  const museum = museumList.find((museum) => museum.id === museumId)
+  const museumId = params.slug
+  const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
     return <Navigate to="/not-found" />
@@ -53,8 +54,8 @@ export const DetailPage = () => {
       </p>
 
       <h4>Reviews</h4>
-      <p>Log in to see the reviews</p>
 
+      <PostComments museumId={museumId} />
       <div className="comment">
         <p>
           The Museum of Romantic Life is a hidden gem in Paris, offering a
