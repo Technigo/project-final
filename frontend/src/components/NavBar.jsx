@@ -1,21 +1,20 @@
-import { Link } from "react-router-dom"
-import { LuUser2 } from "react-icons/lu"
-import { GrLanguage } from "react-icons/gr"
+import { Link } from "react-router-dom";
+import { LuUser2 } from "react-icons/lu";
+import { GrLanguage } from "react-icons/gr";
+import { StyledNavBar } from "./styled/NavBar.styled";
 
 export const NavBar = () => {
   return (
-    <>
-      <nav>
-        <ul>
-          <Link to={"/register"}>Register</Link>
-          <Link to={"/login"}>Login</Link>
-        </ul>
+    <StyledNavBar>
+      <ul>
+        <Link to={"/register"}>Register</Link>
+        <Link to={"/login"}>Login</Link>
+      </ul>
 
-        <Link to={"/user-page"}>
-          <LuUser2 />
-        </Link>
-        <GrLanguage />
-      </nav>
-    </>
-  )
-}
+      <Link to={"/user-page"}>
+        <LuUser2 />
+      </Link>
+      <GrLanguage />
+    </StyledNavBar>
+  );
+};

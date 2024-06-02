@@ -13,6 +13,7 @@ const HeroContainer = styled.div`
     margin: 0;
     justify-content: center;
     color: white;
+    text-align: center;
   }
 `;
 
