@@ -1,6 +1,7 @@
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 import logo from "/assets/logotypes/logo-stamp.svg";
+import hamburger from "/assets/icons/hamburger.svg";
 import cart from "/assets/icons/cart.svg";
 import search from "/assets/icons/search.svg";
 import user from "/assets/icons/user.svg";
@@ -9,11 +10,15 @@ import { Image } from "../ReusableComponents/Image";
 export const Header = () => {
   return (
     <header>
-      <nav>
-        <Link to="/">
-          <Image src={logo} alt="logo" className="logo" />
-        </Link>
-        <ul className="navbar-categories">
+      <nav className="nav-container">
+        <button className="hamburger-button">
+          <Image
+            src={hamburger}
+            alt="hamburger-menu"
+            className="hamburger-menu"
+          />
+        </button>
+        <ul className="nav-categories">
           <li>
             {/* The end attribute on NavLink makes it so that the link will only be considered active if the location is exactly the same as the to value.  */}
             <NavLink to="/products" end>
@@ -33,8 +38,13 @@ export const Header = () => {
             <NavLink to="/products/category/accessories">Accessories</NavLink>
           </li>
         </ul>
-        <ul className="navbar-icons">
-          <button>
+        <div className="nav-logo">
+          <Link to="/">
+            <Image src={logo} alt="logo" />
+          </Link>
+        </div>
+        <ul className="nav-icons">
+          <button className="search-button">
             <Image src={search} alt="search" className="search" />
           </button>
           <Link to="/">

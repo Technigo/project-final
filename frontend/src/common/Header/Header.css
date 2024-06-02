@@ -2,3 +2,44 @@
 a.active {
   text-decoration: underline;
 }
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.hamburger-button {
+  justify-self: start;
+}
+
+.nav-logo {
+  width: 50px;
+  justify-self: center;
+}
+
+.nav-logo img {
+  width: 100%;
+}
+
+.nav-categories {
+  display: none;
+}
+
+.nav-icons {
+  justify-self: end;
+}
+
+.nav-icons img {
+  width: 15px;
+  height: 15px;
+}
+
+header button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
