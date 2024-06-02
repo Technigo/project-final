@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import StyledHero from "./styled/Hero.styled";
 
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -28,7 +29,7 @@ export const Carousel = () => {
 
   return (
     <>
-      <img src={museumImages[currentSlide]} />
+      <StyledHero src={museumImages[currentSlide]} />
     </>
   );
 };
