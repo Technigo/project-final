@@ -1,4 +1,9 @@
-import { APIProvider, Map as ReactGoogleMap } from "@vis.gl/react-google-maps";
+import {
+  APIProvider,
+  Map as ReactGoogleMap,
+  Marker,
+} from "@vis.gl/react-google-maps";
+import { Note } from "./Note";
 import "./Map.css";
 
 export const Map = () => {
@@ -10,7 +15,14 @@ export const Map = () => {
         defaultZoom={5}
         gestureHandling={"greedy"}
         disableDefaultUI={true}
-      />
+        mapId="happyangrynote"
+      >
+        <Note
+          latitude={55.60587}
+          longitude={13.00073}
+          text="det är för varmt"
+        />
+      </ReactGoogleMap>
     </APIProvider>
   );
 };
