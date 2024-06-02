@@ -28,8 +28,8 @@ export const Carousel = () => {
 
   // Add the event listeners
   useEffect(() => {
-    const slider = sliderRef.current;
-    if (slider) {
+    if (sliderRef && sliderRef.current) {
+      const slider = sliderRef.current;
       slider.addEventListener("mousemove", move, false);
       slider.addEventListener("mousedown", startDragging, false);
       slider.addEventListener("mouseup", stopDragging, false);
@@ -48,24 +48,24 @@ export const Carousel = () => {
     <div>
       <div
         ref={sliderRef}
-        className=" whitespace-nowrap scroll-auto px-[50%] scroll-p-4 snap-x snap-mandatory overflow-auto p-2 flex gap-2"
+        className=" flex whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%]  gap-2 scroll-smooth"
       >
-        <div className="child snap-center ">
+        <div className="flex-shrink-0 snap-center w-52">
           <ProductCard />
         </div>
-        <div className="child snap-center">
+        <div className="flex-shrink-0 snap-center w-52">
           <ProductCard />
         </div>
-        <div className="child snap-center">
+        <div className="flex-shrink-0 snap-center w-52 ">
           <ProductCard />
         </div>
-        <div className="child snap-center">
+        <div className="flex-shrink-0 snap-center w-52 ">
           <ProductCard />
         </div>
-        <div className="child snap-center">
+        <div className="flex-shrink-0 snap-center w-52 ">
           <ProductCard />
         </div>
-        <div className="child snap-center">
+        <div className="flex-shrink-0 snap-center w-52">
           <ProductCard />
         </div>
       </div>
