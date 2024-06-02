@@ -143,14 +143,27 @@ router.put(
       const { name, bio } = req.body;
       const profilePicture = req.file ? req.file.path : null;
       const updatedData = { name, bio };
+
       if (profilePicture) {
         updatedData.profilePicture = profilePicture;
       }
+      // Log the update data to debug
+      console.log("Updating user profile with data:", updatedData);
+
       const user = await User.findByIdAndUpdate(req.user.userId, updatedData, {
         new: true,
       });
+      // Log the updated user to debug
+      console.log("Updated user profile:", user);
+
+
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
       res.json(user);
     } catch (error) {
+      console.error("Error updating profile:", error);
       res.status(500).json({ error: "Failed to update profile" });
     }
   }
