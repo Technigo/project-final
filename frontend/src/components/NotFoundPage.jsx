@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import Lottie from "lottie-react"
 import animationData from "../assets/404NotFound.json"
-import styled from "styled-components"
 
-export const NotFound = () => {
+export const NotFoundPage = () => {
   return (
     <div className="notFound-container">
       <div className="notFound-content">
+        <p>Houston, we have a problem. Error message 404: Space Not Found.</p>
         <Lottie animationData={animationData} />
       </div>
       <Link className="goHome" to="/">
