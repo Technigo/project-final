@@ -8,7 +8,7 @@ import xMark from "/square-xmark-solid.svg";
 
 //If signed in Sign in should display username/firstname
 
-export const Navigation = ({data}) => {
+export const Navigation = ({ data }) => {
   const navRef = useRef();
   const btnRef = useRef();
 
@@ -30,7 +30,7 @@ export const Navigation = ({data}) => {
             {data.about}
           </p>
         </NavLink>
-        <NavLink to="/profile" className="text-white m-2 laptop:hidden">
+        <NavLink to="/login" className="text-white m-2 laptop:hidden">
           <img src={userIcon} alt="Profile" className="h-4 tablet:hidden" />
           <p className="font-body text-white font-extralight text-lg hidden tablet:block">
             {data.login}
@@ -50,7 +50,7 @@ export const Navigation = ({data}) => {
         </NavLink>
       </div>
       <div className="right-nav flex flex-row justify-end">
-        <NavLink to="/profile" className="text-white my-4">
+        <NavLink to="/login" className="text-white my-4">
           <p className="font-body text-white font-extralight text-lg hidden laptop:block">
             {data.login}
           </p>

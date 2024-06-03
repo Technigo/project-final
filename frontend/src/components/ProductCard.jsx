@@ -1,13 +1,11 @@
-import mockup1 from "/mockupimages/mockup1.jpg";
-
-export const ProductCard = ({ data, langData }) => {
+export const ProductCard = ({ data }) => {
   const productData = data;
-  const productLangData = langData; //Should probably be products-list-page
+  //const productLangData = langData; //Should probably be products-list-page
 
   //Change variables to accept incoming data from backend.
-  const image = mockup1; //replace mockup1 with productData.image
-  const productName = "Product name"; //productData.name
-  const price = `€Price`; //`€${productData.price}`
+  const image = productData.image.url;
+  const productName = productData.title;
+  const price = `€${productData.price}`;
 
   // Change variable to accept data from translation file.
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
