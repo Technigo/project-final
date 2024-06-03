@@ -1,17 +1,34 @@
 import { Link } from "react-router-dom"
-import Lottie from "lottie-react"
-import animationData from "../assets/404NotFound.json"
+import styled from "styled-components"
+import backgroundImage from "../assets/images/404background.jpg"
+
+const NotFoundContainer = styled.div`
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Text color for contrast */
+`
+
+const NotFoundContent = styled.div`
+  text-align: center;
+`
 
 export const NotFoundPage = () => {
   return (
-    <div className="notFound-container">
-      <div className="notFound-content">
-        <p>Houston, we have a problem. 404 Space Not Found.</p>
-        <Lottie animationData={animationData} />
-      </div>
+    <NotFoundContainer>
+      <NotFoundContent>
+        <p>404</p>
+        <p>Houston, we have a problem:</p>
+        <p>You are lost in space</p>
+      </NotFoundContent>
       <Link className="goHome" to="/">
         <p>Go back home</p>
       </Link>
-    </div>
+    </NotFoundContainer>
   )
 }
