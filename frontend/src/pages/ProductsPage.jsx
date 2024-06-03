@@ -1,6 +1,7 @@
 import { useProductsStore } from "../store/useProductsStore";
 import { useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
+import { Loading } from "../components/Loading";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
@@ -13,9 +14,9 @@ export const ProductsPage = () => {
   console.log("loading: ", loadingProduct);
 
   return (
-    <section className="bg-main-red">
+    <section className="bg-main-red h-full">
       {loadingProduct ? (
-        <p>Loading.. </p>
+        <Loading />
       ) : (
         <ul>
           {productsData.products &&
