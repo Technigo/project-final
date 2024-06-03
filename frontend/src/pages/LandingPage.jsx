@@ -21,7 +21,7 @@ export const LandingPage = () => {
       <PaddedContent>
         <SearchBar setResults={setResults} />
         <SearchResultList museumList={results} />
-        <MuseumCardContainer />
+        {results.length === 0 && <MuseumCardContainer />}
       </PaddedContent>
       <Footer />
     </>
