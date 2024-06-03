@@ -10,8 +10,8 @@ export const SingleProduct = () => {
       <div className="product-info">
         <h2>Product name</h2>
         <h4>Price</h4>
-        <h5>Description</h5>
-        <h5>Details</h5>
+        <p>Description</p>
+        <p>Details</p>
         <div className="size-buttons">
           <button>80/86</button>
           <button>80/86</button>
