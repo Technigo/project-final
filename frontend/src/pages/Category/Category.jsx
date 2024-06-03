@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProductCard } from "../AllProducts/ProductCard";
-import "./Category.css";
+
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
+import { ProductCard } from "../AllProducts/ProductCard";
+
+import "../AllProducts/ProductCard.css";
+import "./Category.css";
 
 export const Category = () => {
   const { category } = useParams();
@@ -22,6 +25,10 @@ export const Category = () => {
         if (data.success) {
           setProducts(data.response);
           setError(null);
+          // After delay of 500 milliseconds, set setLoading to false
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 3000);
         } else {
           setError(data.error.message);
         }
@@ -40,7 +47,7 @@ export const Category = () => {
       <h2>{category.toUpperCase()}</h2>
       {isLoading && <p>Loading... </p>}
       {error && <p>Error: {error}</p>}
-      <div className="products">
+      <div className="product-list">
         {products.map((product) => (
           <ProductCard
             key={product._id}
