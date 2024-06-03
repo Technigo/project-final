@@ -54,7 +54,7 @@ export const AllProducts = () => {
         {Array.isArray(products) &&
           products.map((product) => (
             <ProductCard
-              key={product._id}
+              id={product._id}
               image_url={product.image_url}
               name={product.name}
               price={product.price}
