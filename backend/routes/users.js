@@ -160,24 +160,14 @@ router.get("/profile/:userId", async (req, res) => {
   }
 });
 
-router.put("/profile/:userId", authenticateUser);
-router.put("/profile/:userId", async (req, res) => {
+router.patch("/profile/:userId", authenticateUser);
+router.patch("/profile/:userId", async (req, res) => {
   try {
-    const { firstname, lastname, email, address, allergies, pros, hair, skin } =
-      req.body;
+    const updatedFields = req.body;
     const { userId } = req.params;
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        address: address,
-        allergies: allergies,
-        pros: pros,
-        hair: hair,
-        skin: skin,
-      },
+      { $set: updatedFields },
       { new: true, runValidators: true }
     );
 
@@ -192,6 +182,25 @@ router.put("/profile/:userId", async (req, res) => {
     console.error("Profile Endpoint Update", error);
     res.status(500).json({
       message: "Failed to update user.",
+    });
+  }
+});
+
+router.delete("/profile/:userId", authenticateUser);
+router.delete("/profile/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (deletedUser) {
+      res.status(200).json({ message: "User was successfully deleted." });
+    } else {
+      res.status(404).json({ message: "There is no user with that ID." });
+    }
+  } catch (error) {
+    console.error("Profile Endpoint Delete", error);
+    res.status(500).json({
+      message: "Failed to delete user.",
     });
   }
 });
