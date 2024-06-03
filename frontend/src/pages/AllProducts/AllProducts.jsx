@@ -25,8 +25,12 @@ export const AllProducts = () => {
       })
       .then((data) => {
         console.log("Fetched data:", data); // Log the fetched data
-        setProducts(data);
-        setError(null); // Clear error if fetch is successful
+        if (data.success && Array.isArray(data.response)) {
+          setProducts(data.response);
+          setError(null); // Clear error if fetch is successful
+        } else {
+          throw new Error("Fetched data is not in the expected format");
+        }
 
         // Introduce a delay before setting loading to false
         setTimeout(() => {
@@ -46,7 +50,17 @@ export const AllProducts = () => {
       <h2>All products</h2>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      <ProductCard />
+      <div className="product-list">
+        {Array.isArray(products) &&
+          products.map((product) => (
+            <ProductCard
+              key={product._id}
+              image_url={product.image_url}
+              name={product.name}
+              price={product.price}
+            />
+          ))}
+      </div>
     </div>
   );
 };
