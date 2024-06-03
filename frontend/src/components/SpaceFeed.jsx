@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useSpaceFeedStore } from "../stores/useSpaceFeedStore"
+import { useEffect, useState } from "react";
+import { useSpaceFeedStore } from "../stores/useSpaceFeedStore";
 
 export const SpaceFeed = () => {
   const {
@@ -9,34 +9,34 @@ export const SpaceFeed = () => {
     likeSpaceMessage,
     loading,
     error,
-  } = useSpaceFeedStore()
-  const [newMessage, setNewMessage] = useState("")
-  const [messageError, setMessageError] = useState("")
+  } = useSpaceFeedStore();
+  const [newMessage, setNewMessage] = useState("");
+  const [messageError, setMessageError] = useState("");
 
   useEffect(() => {
-    fetchSpaceFeed()
-  }, [fetchSpaceFeed])
+    fetchSpaceFeed();
+  }, [fetchSpaceFeed]);
 
   const handleNewMessage = (event) => {
-    setNewMessage(event.target.value)
-    setMessageError("")
-  }
+    setNewMessage(event.target.value);
+    setMessageError("");
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (newMessage.length > 5 && newMessage.length < 140) {
-      setMessageError("Message must be between 5 and 140 characters")
-      return
+      setMessageError("Message must be between 5 and 140 characters");
+      return;
     }
 
-    postSpaceMessage(newMessage)
-    setNewMessage("")
-  }
+    postSpaceMessage(newMessage);
+    setNewMessage("");
+  };
 
   const handleLike = (messageId) => {
-    likeSpaceMessage(messageId)
-  }
+    likeSpaceMessage(messageId);
+  };
 
   return (
     <div>
@@ -69,8 +69,7 @@ export const SpaceFeed = () => {
               <p>{message.message}</p>
               <button
                 className="like-button"
-                onClick={() => handleLike(message._id)}
-              >
+                onClick={() => handleLike(message._id)}>
                 Like ({message.likes})
               </button>
             </li>
@@ -80,5 +79,5 @@ export const SpaceFeed = () => {
         )}
       </ul>
     </div>
-  )
-}
+  );
+};

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { useSwipeable } from "react-swipwable";
-import { planet1image } from "./images/planet1.jpg";
+import { useSwipeable } from "react-swipeable";
+import { planet1image } from "../assets/planet1.jpg";
 
 const PlanetsCarouselContext = createContext();
 
