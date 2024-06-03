@@ -6,7 +6,7 @@
     "likes": 0,
     "tags": "Dreamy, Creative, Color",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Sunny Adventures",
@@ -15,7 +15,7 @@
     "likes": 0,
     "tags": "Travel, Adventure, Bright",
     "image": "",
-    "category": ""
+    "category": "Travel and Adventure"
   },
   {
     "templateName": "Chill Beats",
@@ -24,7 +24,7 @@
     "likes": 0,
     "tags": "Music, Relaxed, Stylish",
     "image": "",
-    "category": ""
+    "category": "Beauty"
   },
   {
     "templateName": "Urban Jungle",
@@ -33,7 +33,7 @@
     "likes": 0,
     "tags": "Urban, Lifestyle, Modern",
     "image": "",
-    "category": ""
+    "category": "Travel and Adventure"
   },
   {
     "templateName": "Ocean Breeze",
@@ -42,7 +42,7 @@
     "likes": 0,
     "tags": "Ocean, Elegant, Refreshing",
     "image": "",
-    "category": ""
+    "category": "Travel and Adventure"
   },
   {
     "templateName": "Wildlife Explorer",
@@ -51,7 +51,7 @@
     "likes": 0,
     "tags": "Wildlife, Adventure, Nature",
     "image": "",
-    "category": ""
+    "category": "Travel and Adventure"
   },
   {
     "templateName": "Magical Forest",
@@ -60,7 +60,7 @@
     "likes": 0,
     "tags": "Forest, Magical, Enchanting",
     "image": "",
-    "category": ""
+    "category": "Travel and Adventure"
   },
   {
     "templateName": "Cosmic Dreams",
@@ -69,7 +69,7 @@
     "likes": 0,
     "tags": "Cosmic, Dreamy, Astronomy",
     "image": "",
-    "category": ""
+    "category": "Health and Wellness"
   },
   {
     "templateName": "Artistic Vision",
@@ -78,17 +78,16 @@
     "likes": 0,
     "tags": "Artistic, Expressive, Creative",
     "image": "",
-    "category": ""
+    "category": "Artistic"
   },
   {
     "templateName": "Tech Innovator",
     "description": "A cutting-edge and futuristic web template for tech enthusiasts and innovators. Ideal for sharing tech news, reviews, and insights.",
     "price": 23.99,
     "likes": "",
-    "category": "",
     "tags": "Tech, Futuristic, Innovation",
     "image": "",
-    "category": ""
+    "category": "Business"
   },
   {
     "templateName": "Portfolio",
@@ -97,7 +96,7 @@
     "likes": 0,
     "tags": "Professional, Clean, Neutral",
     "image": "",
-    "category": ""
+    "category": "Business"
   },
   {
     "templateName": "Art Gallery",
@@ -106,7 +105,7 @@
     "likes": 0,
     "tags": "Artistic, Sophisticated, Elegant",
     "image": "",
-    "category": ""
+    "category": "Artistic"
   },
   {
     "templateName": "Culinary Delight",
@@ -115,7 +114,7 @@
     "likes": 0,
     "tags": "Culinary, Delicious, Appetizing",
     "image": "",
-    "category": ""
+    "category": "Restaurants and Food"
   },
   {
     "templateName": "Health and Wellness",
@@ -124,7 +123,7 @@
     "likes": 0,
     "tags": "Health, Wellness, Holistic",
     "image": "",
-    "category": ""
+    "category": "Health and Wellness"
   },
   {
     "templateName": "Travelogue",
@@ -133,7 +132,7 @@
     "likes": 0,
     "tags": "Travel, Adventure, Wanderlust",
     "image": "",
-    "category": ""
+    "category": "Travel and Adventure"
   },
   {
     "templateName": "Fashionista",
@@ -142,7 +141,7 @@
     "likes": 0,
     "tags": "Fashion, Trendy, Chic",
     "image": "",
-    "category": ""
+    "category": "Fashion and Style"
   },
   {
     "templateName": "Gaming Haven",
@@ -151,7 +150,7 @@
     "likes": 0,
     "tags": "Gaming, Immersive, Community",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "Tech Hub",
@@ -160,7 +159,7 @@
     "likes": 0,
     "tags": "Tech, Cutting-edge, Innovative",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "Pet Paradise",
@@ -169,7 +168,7 @@
     "likes": 0,
     "tags": "Pets, Heartwarming, Companionship",
     "image": "",
-    "category": ""
+    "category": "Health and Wellness"
   },
   {
     "templateName": "Fitness Fanatic",
@@ -178,7 +177,7 @@
     "likes": 0,
     "tags": "Fitness, Dynamic, Motivational",
     "image": "",
-    "category": ""
+    "category": "Health and Wellness"
   },
   {
     "templateName": "Blue",
@@ -187,7 +186,7 @@
     "likes": 0,
     "tags": "Blue, Serene, Calm",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Red",
@@ -196,7 +195,7 @@
     "likes": 0,
     "tags": "Red, Bold, Energetic",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Green",
@@ -205,7 +204,7 @@
     "likes": 0,
     "tags": "Green, Refreshing, Vibrant",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Yellow",
@@ -214,7 +213,7 @@
     "likes": 0,
     "tags": "Yellow, Cheerful, Sunny",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Purple",
@@ -223,7 +222,7 @@
     "likes": 0,
     "tags": "Purple, Royal, Majestic",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Orange",
@@ -232,7 +231,7 @@
     "likes": 0,
     "tags": "Orange, Vibrant, Energetic",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Pink",
@@ -241,7 +240,7 @@
     "likes": 0,
     "tags": "Pink, Playful, Romantic",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Gray",
@@ -250,7 +249,7 @@
     "likes": 0,
     "tags": "Gray, Sleek, Sophisticated",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Brown",
@@ -259,7 +258,7 @@
     "likes": 0,
     "tags": "Brown, Warm, Earthy",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Black",
@@ -268,7 +267,7 @@
     "likes": 0,
     "tags": "Black, Sleek, Elegant",
     "image": "",
-    "category": ""
+    "category": "Color"
   },
   {
     "templateName": "Economic Elegance",
@@ -277,7 +276,7 @@
     "likes": 0,
     "tags": "Economics, Data Visualization, Sophisticated",
     "image": "",
-    "category": ""
+    "category": "Business"
   },
   {
     "templateName": "Financial Focus",
@@ -286,7 +285,7 @@
     "likes": 0,
     "tags": "Economics, Trends, Analysis",
     "image": "",
-    "category": ""
+    "category": "Business"
   },
   {
     "templateName": "Wealthy Web",
@@ -295,7 +294,7 @@
     "likes": 0,
     "tags": "Economics, Prosperity, Growth",
     "image": "",
-    "category": ""
+    "category": "Business"
   },
   {
     "templateName": "Money Matters",
@@ -304,7 +303,7 @@
     "likes": 0,
     "tags": "Economics, Insights, Reports",
     "image": "",
-    "category": ""
+    "category": "Beauty"
   },
   {
     "templateName": "Economic Excellence",
@@ -313,7 +312,7 @@
     "likes": 0,
     "tags": "Economics, Excellence, Expertise",
     "image": "",
-    "category": ""
+    "category": "Business"
   },
   {
     "templateName": "Sportify",
@@ -322,7 +321,7 @@
     "likes": 0,
     "tags": "Sports, Energetic, Dynamic",
     "image": "",
-    "category": ""
+    "category": "Sport"
   },
   {
     "templateName": "Athletic Arena",
@@ -331,7 +330,7 @@
     "likes": 0,
     "tags": "Sports, Athletics, Arena",
     "image": "",
-    "category": ""
+    "category": "Sport"
   },
   {
     "templateName": "Foodie Haven",
@@ -340,7 +339,7 @@
     "likes": 0,
     "tags": "Food, Culinary, Delicious",
     "image": "",
-    "category": ""
+    "category": "Restaurants and Food"
   },
   {
     "templateName": "Gourmet Gaze",
@@ -349,7 +348,7 @@
     "likes": 0,
     "tags": "Food, Gourmet, Elegant",
     "image": "",
-    "category": ""
+    "category": "Restaurants and Food"
   },
   {
     "templateName": "Healthy Harvest",
@@ -358,7 +357,7 @@
     "likes": 0,
     "tags": "Food, Healthy, Nutritious",
     "image": "",
-    "category": ""
+    "category": "Restaurants and Food"
   },
   {
     "templateName": "CodeCraft",
@@ -367,7 +366,7 @@
     "likes": 0,
     "tags": "Web Development, Coding, Modern",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "WebWiz",
@@ -376,7 +375,7 @@
     "likes": 0,
     "tags": "Web Development, Design, Innovation",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "PixelPerfect",
@@ -385,7 +384,7 @@
     "likes": 0,
     "tags": "Web Development, Precision, Detail",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "TechTrend",
@@ -394,7 +393,7 @@
     "likes": 0,
     "tags": "Web Development, Tech, Trendy",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "DevDesign",
@@ -403,7 +402,7 @@
     "likes": 0,
     "tags": "Web Development, Design, Collaboration",
     "image": "",
-    "category": ""
+    "category": "Tech"
   },
   {
     "templateName": "Natural Glow",
@@ -412,7 +411,7 @@
     "likes": 0,
     "tags": "Beauty, Nature-Inspired, Elegant",
     "image": "",
-    "category": ""
+    "category": "Beauty"
   },
   {
     "templateName": "Chic Couture",
@@ -421,7 +420,7 @@
     "likes": 0,
     "tags": "Fashion, Sophisticated, Elegant",
     "image": "",
-    "category": ""
+    "category": "Fashion and Style"
   },
   {
     "templateName": "Subtle Sophistication",
@@ -430,7 +429,7 @@
     "likes": 0,
     "tags": "Fashion, Elegance, Classic",
     "image": "",
-    "category": ""
+    "category": "Fashion and Style"
   },
   {
     "templateName": "Beige Bliss",
@@ -439,7 +438,7 @@
     "likes": 0,
     "tags": "Fashion, Serenity, Timeless",
     "image": "",
-    "category": ""
+    "category": "Beauty"
   },
   {
     "templateName": "Radiant Revival",
@@ -448,7 +447,7 @@
     "likes": 0,
     "tags": "Skincare, Revitalizing, Vibrant",
     "image": "",
-    "category": ""
+    "category": "Beauty"
   },
   {
     "templateName": "Botanical Beauty",
@@ -457,6 +456,6 @@
     "likes": 0,
     "tags": "Nature-Inspired, Greenery, Blooms",
     "image": "",
-    "category": ""
+    "category": "Beauty"
   }
 ]
