@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import museumList from "../json/museums.json";
 import StyledSearchBar from "./styled/SearchBar.styled";
+import StyledButton from "./styled/Button.styled";
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
@@ -36,7 +37,7 @@ export const SearchBar = ({ setResults }) => {
           value={input}
           onChange={(e) => handleChange(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <StyledButton type="submit">Search</StyledButton>
       </form>
     </>
   );
