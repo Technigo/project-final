@@ -39,7 +39,6 @@ export const AllPlanets = () => {
 
   return (
     <div>
-      <div>This is the AllPlanets page, route "/"</div>
       {planets.map((planet) => (
         <div key={planet._id}>
           <Link to={`planets/${planet.name}`}>
