@@ -23,4 +23,10 @@ export const StyledNavBar = styled.nav`
     margin-right: 5px;
     display: flex;
   }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;

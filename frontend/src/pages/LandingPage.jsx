@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { SearchBar } from "../components/SearchBar";
-import { SearchResultList } from "../components/SearchResultList";
 import { MuseumCardContainer } from "../components/MuseumCardContainer";
 import { NavBar } from "../components/NavBar";
 import { HeroSection } from "../components/HeroSection";
 import { Footer } from "../components/Footer";
 import styled from "styled-components";
+import museumList from "../json/museums.json";
+import StyledButton from "../components/styled/Button.styled";
 
 export const LandingPage = () => {
   const [results, setResults] = useState([]);
@@ -20,8 +21,10 @@ export const LandingPage = () => {
       <HeroSection />
       <PaddedContent>
         <SearchBar setResults={setResults} />
-        <SearchResultList museumList={results} />
-        {results.length === 0 && <MuseumCardContainer />}
+        <StyledButton onClick={() => setResults([])}>Clear</StyledButton>
+        <MuseumCardContainer
+          results={results.length === 0 ? museumList : results}
+        />
       </PaddedContent>
       <Footer />
     </>

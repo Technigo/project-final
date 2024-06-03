@@ -1,20 +1,21 @@
-import { useParams, Navigate } from "react-router-dom"
-import { IoRestaurantOutline } from "react-icons/io5"
+import { useParams, Navigate } from "react-router-dom";
+import { IoRestaurantOutline } from "react-icons/io5";
 
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
-import { FavoriteFunction } from "../components/FavoriteFunction"
-import museumList from "../json/museums.json"
-import "./TemporaryStyle.css"
+import { ToHomepageBtn } from "../components/ToHomepageBtn";
+import { FavoriteFunction } from "../components/FavoriteFunction";
+import museumList from "../json/museums.json";
+import "./TemporaryStyle.css";
 
-import image1 from "../assets/image1.png"
+import image1 from "../assets/image1.png";
+import StyledButton from "../components/styled/Button.styled";
 
 export const DetailPage = () => {
-  const params = useParams()
-  const museumId = Number(params.slug)
-  const museum = museumList.find((museum) => museum.id === museumId)
+  const params = useParams();
+  const museumId = Number(params.slug);
+  const museum = museumList.find((museum) => museum.id === museumId);
 
   if (!museum) {
-    return <Navigate to="/not-found" />
+    return <Navigate to="/not-found" />;
   }
 
   return (
@@ -33,17 +34,17 @@ export const DetailPage = () => {
 
       <h4>Opening hours</h4>
       {museum.opening_hours.map((hours, index) => {
-        const day = Object.keys(hours)[0]
-        const time = hours[day]
+        const day = Object.keys(hours)[0];
+        const time = hours[day];
         return (
           <p key={index}>
             {day}: {time}
           </p>
-        )
+        );
       })}
 
       <p>Ticket price: {museum.ticket_price}</p>
-      <button>Buy a ticket</button>
+      <StyledButton>Buy a ticket</StyledButton>
 
       <p>
         Visit the official website{" "}
@@ -73,5 +74,5 @@ export const DetailPage = () => {
         <p>Written by Alma</p>
       </div>
     </div>
-  )
-}
+  );
+};

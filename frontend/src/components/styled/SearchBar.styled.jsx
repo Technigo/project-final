@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledSearchBar = styled.input`
   border: 1px solid grey;
   border-radius: 28px;
-  height: 20px;
+  height: 15px;
   width: max-content;
   padding: 2px 23px 2px 30px;
   outline: 0;
