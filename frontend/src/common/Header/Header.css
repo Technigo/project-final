@@ -43,3 +43,15 @@ header button {
   outline: none;
   box-shadow: none;
 }
+
+@media (min-width: 600px) {
+  .nav-categories {
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+  }
+
+  .hamburger-button {
+    display: none;
+  }
+}

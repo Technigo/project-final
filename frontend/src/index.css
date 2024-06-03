@@ -74,3 +74,10 @@ button {
   font-weight: 700;
   font-size: 24px;
 }
+
+/* remove all text decoration on links and buttons */
+a,
+button {
+  all: unset;
+  cursor: pointer;
+}
