@@ -1,4 +1,4 @@
-import mongoose from "../config/database.js";
+import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
@@ -9,6 +9,7 @@ const productSchema = new Schema({
   tags: { type: String, required: false },
   likes: { type: Number, default: 0 },
   image: { type: String, required: false },
+  category: { type: String, required: false },
 });
 
 export const Product = model("Product", productSchema);
