@@ -4,13 +4,13 @@ import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/Cat
 import { Hero } from "./components/Hero/Hero";
 import { ProductShowcase } from "./components/ProductShowcase/ProductShowcase";
 import "./Home.css";
-import { TrustIndicators } from "./components/TrustIndicators/TrustIndicators";
+import { DeliveryStatements } from "./components/DeliveryStatements/DeliveryStatements";
 
 export const Home = () => {
   return (
     <div className="homepage">
       <Hero />
-      <TrustIndicators />
+      <DeliveryStatements />
       <ProductShowcase />
       <CategoryIcons />
       <ProductCategories />
