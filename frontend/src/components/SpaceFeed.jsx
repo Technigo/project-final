@@ -11,6 +11,7 @@ export const SpaceFeed = () => {
     error,
   } = useSpaceFeedStore()
   const [newMessage, setNewMessage] = useState("")
+  const [messageError, setMessageError] = useState("")
 
   useEffect(() => {
     fetchSpaceFeed()
@@ -23,10 +24,14 @@ export const SpaceFeed = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    if (newMessage.length > 5 && newMessage.length < 140) {
-      postSpaceMessage(newMessage)
-      setNewMessage("")
+    if (newMessage.length < 5 || newMessage.length > 140) {
+      setMessageError("Message must be between 5 and 140 characters")
+      return
     }
+
+    postSpaceMessage(newMessage)
+    setNewMessage("")
+    setMessageError("")
   }
 
   const handleLike = (messageId) => {
@@ -54,7 +59,7 @@ export const SpaceFeed = () => {
           Post
         </button>
       </form>
-      {error && <p>{error.message}</p>}
+      {messageError && <p>{messageError}</p>}
       {loading && <p>Loading...</p>}
       <ul>
         {spaceFeed && spaceFeed.length > 0 ? (
