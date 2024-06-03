@@ -2,14 +2,13 @@ import { useParams } from "react-router-dom";
 import { create } from "zustand";
 
 export const useProductsStore = create((set, get) => ({
-  products: {},
+  productsData: {},
   singleProduct: {},
   loadingProduct: false,
-  URL: "https://project-final-glim.onrender.com/products",
-  URL_singleProduct: `https://project-final-glim.onrender.com/products/${product}`,
 
   fetchProducts: async () => {
     set({ loadingProduct: true });
+    const URL = "https://project-final-glim.onrender.com/products";
     try {
       const response = await fetch(URL, {
         method: "GET",
@@ -20,18 +19,19 @@ export const useProductsStore = create((set, get) => ({
       }
       const data = await response.json();
       console.log(data);
-      set({ products: data });
+      set({ productsData: data });
     } catch (error) {
       console.error("error:", error);
       set({ error: error });
     } finally {
-      set({ loadingProducts: false });
+      set({ loadingProduct: false });
     }
   },
 
   fetchSingleProduct: async () => {
     set({ loadingProduct: true });
     const { product } = useParams();
+    const URL_singleProduct = `https://project-final-glim.onrender.com/products/${product}`;
     try {
       const response = await fetch(URL_singleProduct, {
         method: "GET",
@@ -47,7 +47,7 @@ export const useProductsStore = create((set, get) => ({
       console.error("error:", error);
       set({ error: error });
     } finally {
-      set({ loadingProducts: false });
+      set({ loadingProduct: false });
     }
   },
 }));
