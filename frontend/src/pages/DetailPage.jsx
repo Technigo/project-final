@@ -7,7 +7,8 @@ import museumList from "../json/museums.json"
 import "./TemporaryStyle.css"
 
 import image1 from "../assets/image1.png"
-import { PostComments } from "../components/PostComments"
+import { PostComment } from "../components/PostComment"
+import { GetComment } from "../components/GetComment"
 
 export const DetailPage = () => {
   const params = useParams()
@@ -55,7 +56,8 @@ export const DetailPage = () => {
 
       <h4>Reviews</h4>
 
-      <PostComments museumId={museumId} />
+      <PostComment museumId={museumId} />
+      <GetComment />
       <div className="comment">
         <p>
           The Museum of Romantic Life is a hidden gem in Paris, offering a

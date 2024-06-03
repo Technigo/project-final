@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-export const PostComments = ({ museumId }) => {
+export const PostComment = ({ museumId }) => {
   const [message, setMessage] = useState("")
   const [count, setCount] = useState(0)
 
@@ -26,10 +26,8 @@ export const PostComments = ({ museumId }) => {
       console.log("Review submitted:", newReview)
       setMessage("")
       setCount(0)
-      setError(null)
     } catch (error) {
       console.error("Error submitting review:", error.message)
-      setError("Failed to submit review")
     }
   }
 
