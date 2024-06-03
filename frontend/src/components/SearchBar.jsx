@@ -28,10 +28,9 @@ export const SearchBar = ({ setResults }) => {
 
   return (
     <>
-      {" "}
       <form onSubmit={search}>
         <FaSearch />
-        <input
+        <StyledSearchBar
           type="text"
           placeholder="Type to search..."
           value={input}
