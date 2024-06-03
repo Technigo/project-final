@@ -1,0 +1,11 @@
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Media Quieries for desktop*/
+@media (min-width: 1024px) {
+  .product-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
