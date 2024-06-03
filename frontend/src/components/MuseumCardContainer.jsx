@@ -4,9 +4,9 @@ import { MuseumCard } from "./MuseumCard";
 import StyledButton from "./styled/Button.styled";
 
 export const MuseumCardContainer = () => {
-  const [amountToShow, setAmountToShow] = useState(4);
+  const [amountToShow, setAmountToShow] = useState(6);
 
-  const showMore = () => setAmountToShow(amountToShow + 4);
+  const showMore = () => setAmountToShow(amountToShow + 6);
 
   const showMuseums = () =>
     museumList
