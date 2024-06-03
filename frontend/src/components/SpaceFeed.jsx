@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useSpaceFeedStore } from "../stores/useSpaceFeedStore"
+import { useEffect, useState } from "react";
+import { useSpaceFeedStore } from "../stores/useSpaceFeedStore";
 
 export const SpaceFeed = () => {
   const {
@@ -9,20 +9,22 @@ export const SpaceFeed = () => {
     likeSpaceMessage,
     loading,
     error,
+
   } = useSpaceFeedStore()
   const [newMessage, setNewMessage] = useState("")
   const [messageError, setMessageError] = useState("")
 
   useEffect(() => {
-    fetchSpaceFeed()
-  }, [fetchSpaceFeed])
+    fetchSpaceFeed();
+  }, [fetchSpaceFeed]);
 
   const handleNewMessage = (event) => {
-    setNewMessage(event.target.value)
-  }
+    setNewMessage(event.target.value);
+    setMessageError("");
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (newMessage.length < 5 || newMessage.length > 140) {
       setMessageError("Message must be between 5 and 140 characters")
@@ -35,8 +37,8 @@ export const SpaceFeed = () => {
   }
 
   const handleLike = (messageId) => {
-    likeSpaceMessage(messageId)
-  }
+    likeSpaceMessage(messageId);
+  };
 
   return (
     <div>
@@ -51,22 +53,26 @@ export const SpaceFeed = () => {
             placeholder=""
             required
             onChange={handleNewMessage}
-            minLength={5}
-            maxLength={140}
           />
         </label>
         <button type="submit" disabled={loading}>
           Post
         </button>
+        {messageError && <p className="message-error">{messageError}</p>}
       </form>
+
       {messageError && <p>{messageError}</p>}
+
       {loading && <p>Loading...</p>}
+
       <ul>
         {spaceFeed && spaceFeed.length > 0 ? (
           spaceFeed.map((message) => (
             <li key={message._id}>
               <p>{message.message}</p>
-              <button onClick={() => handleLike(message._id)}>
+              <button
+                className="like-button"
+                onClick={() => handleLike(message._id)}>
                 Like ({message.likes})
               </button>
             </li>
@@ -76,5 +82,5 @@ export const SpaceFeed = () => {
         )}
       </ul>
     </div>
-  )
-}
+  );
+};

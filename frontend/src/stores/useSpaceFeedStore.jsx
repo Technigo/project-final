@@ -1,4 +1,4 @@
-import { create } from "zustand"
+import { create } from "zustand";
 
 // Initial states
 export const useSpaceFeedStore = create((set) => ({
@@ -72,7 +72,7 @@ export const useSpaceFeedStore = create((set) => ({
 
     try {
       const response = await fetch(
-        `https://project-final-45vw.onrender.com/${messageId}/like`,
+        `https://project-final-45vw.onrender.com/space-feed/${messageId}/like`,
         {
           method: "POST",
         }
