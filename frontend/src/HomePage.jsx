@@ -1,10 +1,13 @@
 import { Map } from "./Map";
+import "./HomePage.css";
 
 export const HomePage = () => {
   return (
-    <>
-      <h1>happy angry note</h1>
-      <Map />
-    </>
+    <div className="HomePage">
+      <h1 className="HomePage-title">happy angry note</h1>
+      <div className="HomePage-map">
+        <Map />
+      </div>
+    </div>
   );
 };
