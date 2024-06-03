@@ -33,7 +33,6 @@ export const PostComment = ({ museumId }) => {
 
   return (
     <div>
-      {" "}
       <label htmlFor="review-form">Visitors' reviews</label>
       <form onSubmit={handleSubmit}>
         <textarea

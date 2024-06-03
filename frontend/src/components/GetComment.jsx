@@ -23,7 +23,10 @@ export const GetComment = () => {
   return (
     <div>
       {comments.map((comment) => (
-        <div key={comment._id}>{comment.message}</div>
+        <div className="comment" key={comment._id}>
+          <p>{comment.message}</p>
+          <p>{moment(comment.createdAt).format("LL")}</p>
+        </div>
       ))}
     </div>
   )

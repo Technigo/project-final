@@ -7,8 +7,7 @@ const { Schema } = mongoose
 // Define schema
 const reviewSchema = new Schema({
   museumId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Museum",
+    type: Number,
     required: true,
   },
   message: { type: String, required: true, minlength: 10, maxlength: 250 },
