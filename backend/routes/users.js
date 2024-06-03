@@ -1,5 +1,5 @@
-import express from "express";
 import bcrypt from "bcrypt";
+import express from "express";
 
 import { authenticateUser } from "../middlewares/authenticateUser";
 import { User } from "../models/userSchema";
@@ -128,16 +128,47 @@ router.post("/login", async (req, res) => {
       });
     }
   } catch (error) {
+    console.error("Login Endpoint", error);
     res.status(500).json({
       message: "Somethings wrong with the sign in. Please try again later.",
     });
   }
 });
 
-router.get("/profile", authenticateUser);
-router.get("/profile", (req, res) => {
-  res
-    .status(200)
-    .json({ message: "This is a test. We have to put the user profile here." });
+router.get("/profile/:userId", authenticateUser);
+router.get("/profile/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findOne({ _id: userId }).exec();
+
+    if (user) {
+      res.status(200).json({
+        user: user,
+        message: "This is a test. We have to put the user profile here.",
+      });
+    } else {
+      res.status(404).json({
+        message: "Sorry, there is no user with that ID.",
+      });
+    }
+  } catch (error) {
+    console.error("Get user endpoint:", error);
+    res.status(500).json({
+      message:
+        "Sorry, this page is not available at the moment. Please try again later.",
+    });
+  }
 });
+
+router.put("/profile", authenticateUser);
+router.put("/profile", async (req, res) => {
+  try {
+  } catch (error) {
+    console.error("Profile Endpoint Update", error);
+    res.status(500).json({
+      message: "Failed to update user.",
+    });
+  }
+});
+
 export default router;
