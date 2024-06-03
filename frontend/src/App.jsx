@@ -9,9 +9,4 @@ export const App = () => {
   );
 };
 
-{
-  /* 
-  <PlanetsCarouselProvider/>
-  //import { PlanetsCarouselProvider } from "../src/contexts/PlanetsCarouselContext";
-*/
-}
+
