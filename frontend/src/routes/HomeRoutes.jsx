@@ -28,5 +28,7 @@ export const HomeRoutes = () => {
   /* 
   <PlanetsCarouselProvider/>
   //import { PlanetsCarouselProvider } from "../src/contexts/PlanetsCarouselContext";
+   <Sun />
+import { Sun } from "../components/Sun";
 */
 }
