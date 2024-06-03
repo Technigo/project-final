@@ -1,7 +1,6 @@
 import "./Hero.css";
 import heroImage from "/assets/images/hero-image.jpg";
 import { Image } from "../../../../common/ReusableComponents/Image";
-import { Link } from "react-router-dom";
 import { Button } from "../../../../common/ReusableComponents/Button";
 
 export const Hero = () => {
