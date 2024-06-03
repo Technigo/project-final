@@ -3,6 +3,7 @@
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   aspect-ratio: 5 / 9;
@@ -25,6 +26,24 @@
   z-index: 2;
   text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-h1 {
+  position: absolute;
+  color: white;
+  z-index: 3;
+  top: 29%;
+}
+
+.hero-button {
+  background-color: #00957f;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px transparent;
 }
 
 /* Media Queries for tablet */
@@ -35,5 +54,9 @@
 @media screen and (min-width: 1024px) {
   .hero {
     aspect-ratio: 16 / 7;
+  }
+
+  .hero-h1 {
+    top: 19%;
   }
 }
