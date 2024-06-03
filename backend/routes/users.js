@@ -144,7 +144,7 @@ router.get("/profile/:userId", async (req, res) => {
     if (user) {
       res.status(200).json({
         user: user,
-        message: "This is a test. We have to put the user profile here.",
+        message: "Success in finding the user profile.",
       });
     } else {
       res.status(404).json({
@@ -160,9 +160,34 @@ router.get("/profile/:userId", async (req, res) => {
   }
 });
 
-router.put("/profile", authenticateUser);
-router.put("/profile", async (req, res) => {
+router.put("/profile/:userId", authenticateUser);
+router.put("/profile/:userId", async (req, res) => {
   try {
+    const { firstname, lastname, email, address, allergies, pros, hair, skin } =
+      req.body;
+    const { userId } = req.params;
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        address: address,
+        allergies: allergies,
+        pros: pros,
+        hair: hair,
+        skin: skin,
+      },
+      { new: true, runValidators: true }
+    );
+
+    if (updatedUser) {
+      res
+        .status(200)
+        .json({ updatedUser: updatedUser, message: "User was updated" });
+    } else {
+      res.status(404).json({ message: "There is no User with that ID." });
+    }
   } catch (error) {
     console.error("Profile Endpoint Update", error);
     res.status(500).json({
