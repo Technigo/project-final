@@ -6,7 +6,7 @@ export const NotFoundPage = () => {
   return (
     <div className="notFound-container">
       <div className="notFound-content">
-        <p>Houston, we have a problem. Error message 404: Space Not Found.</p>
+        <p>Houston, we have a problem. 404 Space Not Found.</p>
         <Lottie animationData={animationData} />
       </div>
       <Link className="goHome" to="/">
