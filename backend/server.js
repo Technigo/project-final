@@ -8,13 +8,13 @@ mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
 // Middleware to check if database in a good state, get the next, otherwise error-message
-const checkDatabaseConnection = (req, res, next) => {
-  if (mongoose.connection.readyState === 1) {
-    next();
-  } else {
-    res.status(503).json({ error: "Service unavailable" });
-  }
-};
+// const checkDatabaseConnection = (req, res, next) => {
+//   if (mongoose.connection.readyState === 1) {
+//     next();
+//   } else {
+//     res.status(503).json({ error: "Service unavailable" });
+//   }
+// };
 
 // Create product mongoose-schema & model
 // Destructure schema & model
@@ -74,7 +74,7 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
-app.use(checkDatabaseConnection);
+// app.use(checkDatabaseConnection);
 
 // Start defining your routes here
 // http://localhost:8080/
