@@ -6,7 +6,7 @@ import {
 import { Note } from "./Note";
 import "./Map.css";
 
-export const Map = () => {
+export const Map = (props) => {
   return (
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
       <ReactGoogleMap
@@ -17,11 +17,9 @@ export const Map = () => {
         disableDefaultUI={true}
         mapId="happyangrynote"
       >
-        <Note
-          latitude={55.60587}
-          longitude={13.00073}
-          text="det är för varmt"
-        />
+        {props.notes.map((note) => (
+          <Note key={note._id} {...note} />
+        ))}
       </ReactGoogleMap>
     </APIProvider>
   );
