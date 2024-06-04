@@ -55,7 +55,7 @@ export const DetailPage = () => {
       <h4>Reviews</h4>
 
       <PostComment museumId={museumId} />
-      <GetComment />
+      <GetComment museumId={museumId} />
     </div>
   )
 }

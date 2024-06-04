@@ -13,5 +13,3 @@ success: false,
 message: "Invalid museumId",
 })
 }
-
-Just testing some things to have an update
