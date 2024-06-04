@@ -8,13 +8,15 @@ import { ProductsPage } from "../pages/ProductsPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { ShoppingCart } from "../pages/ShoppingCart";
 import { SignUpPage } from "../pages/SignUpPage";
+
 import { SingleProductPage } from "../pages/SingleProductPage";
 
-export const GlimRoutes = () => {
+export const GlimRoutes = ({ data}) => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home data={data["homepage"]} />} />
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/signup" element={<SignUpPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/cart" element={<ShoppingCart />} />
       <Route path="/products/:id" element={<SingleProductPage />} />

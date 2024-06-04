@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "cta-blue": "#002795",
+        "cta-blue-hover": "#1138a6",
         "main-green": "#97a65D",
         "main-yellow": "#FFDE68",
         "main-red": "#E48d6A",

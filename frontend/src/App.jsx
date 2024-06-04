@@ -17,11 +17,11 @@ export const App = () => {
     setLocale(e.target.value);
   };
   */
-  
+
   return (
     <>
       <Navigation data={data["navbar"]} />
-      <GlimRoutes />
+      <GlimRoutes data={data} />
     </>
   );
 };
