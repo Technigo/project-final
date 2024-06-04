@@ -17,7 +17,7 @@ export const Hero = ({ data }) => {
       <div className="absolute top-0 right-0 text-white font-body">
         <p className="text-right">{data.ctaText}</p>
         <NavLink to="/signup" >
-          <button className="bg-cta-blue px-4 py-2 rounded-full">
+          <button className="bg-cta-blue px-4 py-2 rounded-full hover:bg-cta-blue-hover">
             {data.ctaButton}
           </button>
         </NavLink>
