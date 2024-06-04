@@ -173,7 +173,7 @@
     "description": "An intensive hair mask infused with avocado oil and shea butter to revive dry, damaged hair.",
     "price": 29.99,
     "allergies": [],
-    "pros": ["Deeply conditions", "Repairs split ends"],
+    "pros": [],
     "hair": {
       "moisture": "Ultra-hydrating",
       "shape": "All hair types"
