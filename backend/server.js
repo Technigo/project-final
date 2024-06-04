@@ -111,8 +111,8 @@ app.post("/sessions", async (req, res) => {
 //GET reviews
 app.get("/reviews", async (req, res) => {
   try {
-    const review = await Review.find().sort({ createdAt: -1 })
-    res.json(review)
+    const reviews = await Review.find().sort({ createdAt: -1 })
+    res.json(reviews)
   } catch (error) {
     res.status(500).json({ error: "Something went wrong" })
   }
@@ -121,11 +121,26 @@ app.get("/reviews", async (req, res) => {
 //POST reviews
 app.post("/reviews", async (req, res) => {
   const { museumId, message } = req.body
+
+  if (isNaN(museumId)) {
+    return res.status(400).json({
+      response: error.message,
+      success: false,
+      message: "Invalid museumId",
+      errors: error.errors || {},
+    })
+  }
+
   try {
     const review = await Review.create({ museumId, message })
     res.status(201).json(review)
   } catch (error) {
-    res.status(400).json({ error: "Invalid input" })
+    res.status(400).json({
+      response: error.message,
+      success: false,
+      message: "Could not create message",
+      errors: error.errors,
+    })
   }
 })
 

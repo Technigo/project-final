@@ -1,18 +1,19 @@
-import { useParams, Navigate } from "react-router-dom";
-import { IoRestaurantOutline } from "react-icons/io5";
-
-import { ToHomepageBtn } from "../components/ToHomepageBtn";
-import { FavoriteFunction } from "../components/FavoriteFunction";
-import museumList from "../json/museums.json";
-import "./TemporaryStyle.css";
-
-import image1 from "../assets/image1.png";
+import { useParams, Navigate } from "react-router-dom"
+import { IoRestaurantOutline } from "react-icons/io5"
+import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { FavoriteFunction } from "../components/FavoriteFunction"
+import { PostComment } from "../components/PostComment"
+import { GetComment } from "../components/GetComment"
+import museumList from "../json/museums.json"
+import image1 from "../assets/image1.png"
+import "./TemporaryStyle.css"
 import StyledButton from "../components/styled/Button.styled";
 
+
 export const DetailPage = () => {
-  const params = useParams();
-  const museumId = Number(params.slug);
-  const museum = museumList.find((museum) => museum.id === museumId);
+  const params = useParams()
+  const museumId = params.slug
+  const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
     return <Navigate to="/not-found" />;
@@ -54,25 +55,9 @@ export const DetailPage = () => {
       </p>
 
       <h4>Reviews</h4>
-      <p>Log in to see the reviews</p>
 
-      <div className="comment">
-        <p>
-          The Museum of Romantic Life is a hidden gem in Paris, offering a
-          tranquil escape into the world of Romanticism. The charming garden and
-          cozy café made it a perfect afternoon retreat.
-        </p>
-        <p>Written by Etna</p>
-      </div>
-      <div className="comment">
-        <p>
-          {" "}
-          Visiting the Museum of Romantic Life was like stepping back in time to
-          the 19th century. The beautiful exhibits and serene atmosphere left me
-          feeling inspired and relaxed.
-        </p>
-        <p>Written by Alma</p>
-      </div>
+      <PostComment museumId={museumId} />
+      <GetComment museumId={museumId} />
     </div>
   );
 };
