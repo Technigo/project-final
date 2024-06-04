@@ -1,0 +1,26 @@
+.slick-dots li button:before {
+  font-size: 7px;
+}
+
+.slick-dots {
+  position: relative;
+  bottom: -10px;
+}
+
+.slick-dots li button {
+  padding: 30px;
+}
+
+.slick-next {
+  right: 20px;
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 20px;
+  z-index: 1;
+}
+
+.slick-next:hover:before {
+  opacity: 1;
+}
