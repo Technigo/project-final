@@ -14,8 +14,10 @@ export const Statements = ({ data }) => {
           <h2 className="font-heading text-4xl text-text-dark">{data.title}</h2>{" "}
           <img className="w-20 ml-10" src={glim} />
         </div>
-        <p className="font-body ">{data.subTitle}</p>
-        <img className="my-10" src={wideImage} />
+        <p className="font-body tablet:text-center laptop:text-right">
+          {data.subTitle}
+        </p>
+        <img className="my-10 mx-auto" src={wideImage} />
         <div>
           <img className="float-right w-1/4 mx-4" src={face1} />
           <p className="text-justify font-body m-4">{data.text}</p>
