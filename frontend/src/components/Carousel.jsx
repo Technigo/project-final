@@ -1,7 +1,18 @@
 import { useEffect, useRef } from "react";
+import { useProductsStore } from "../store/useProductsStore";
 import { ProductCard } from "./ProductCard";
+import { Loading } from "../components/Loading";
 
 export const Carousel = () => {
+  const { productsData, fetchProducts, loadingProduct } = useProductsStore();
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  console.log(productsData);
+  console.log("loading: ", loadingProduct);
+
   const sliderRef = useRef(null);
   let mouseDown = false;
   let startX, scrollLeft;
@@ -45,30 +56,38 @@ export const Carousel = () => {
   }, []);
 
   return (
-    <div>
-      <div
-        ref={sliderRef}
-        className=" flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth"
-      >
-        <div className="flex-shrink-0 snap-center w-52">
-          <ProductCard />
+    <div ref={sliderRef}>
+      {loadingProduct ? (
+        <Loading />
+      ) : (
+        <ul className="flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth">
+          {productsData.products &&
+            productsData.products.map((item, index) => (
+              <li className="snap-center" key={index}>
+                <ProductCard data={item} />
+              </li>
+            ))}
+        </ul>
+      )}
+
+      {/* <div className="flex-shrink-0 snap-center w-52">
+          <ProductCard data={productsData} />
         </div>
         <div className="flex-shrink-0 snap-center w-52">
-          <ProductCard />
+          <ProductCard data={productsData} />
         </div>
         <div className="flex-shrink-0 snap-center w-52 ">
-          <ProductCard />
+          <ProductCard data={productsData} />
         </div>
         <div className="flex-shrink-0 snap-center w-52 ">
-          <ProductCard />
+          <ProductCard data={productsData} />
         </div>
         <div className="flex-shrink-0 snap-center w-52 ">
-          <ProductCard />
+          <ProductCard data={productsData} />
         </div>
         <div className="flex-shrink-0 snap-center w-52">
-          <ProductCard />
-        </div>
-      </div>
+          <ProductCard data={productsData} />
+        </div> */}
     </div>
   );
 };

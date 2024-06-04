@@ -11,7 +11,6 @@ export const Home = ({ data }) => {
     <div className="flex flex-col bg-main-red">
       <Hero data={data["hero"]} />
       <Carousel />
-      <ProductCard />
 
       <ReviewCard />
     </div>
