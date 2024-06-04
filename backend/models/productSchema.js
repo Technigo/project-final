@@ -45,10 +45,6 @@ const productSchema = new Schema({
   instructions: String,
   size: String,
   image: {
-    //According to online information cloudinary will give us this two things.
-    publicId: {
-      type: String,
-    },
     url: {
       type: String,
       required: true,
