@@ -42,7 +42,7 @@ export const Category = () => {
   }, [category]);
   return (
     <div className="category-page">
-      <CategoryIcons />
+      <CategoryIcons variant="grey" />
       <h2>{category.toUpperCase()}</h2>
       {isLoading && <p>Loading... </p>}
       {error && <p>Error: {error}</p>}

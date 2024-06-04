@@ -35,8 +35,8 @@
   background-color: var(--yellow);
 }
 
-.category-icon-background.gray {
-  background-color: var(--darkgray);
+.category-icon-background.grey {
+  background-color: var(--lightgrey);
 }
 
 .category-icon-image {
