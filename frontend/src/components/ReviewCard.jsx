@@ -6,8 +6,8 @@ export const ReviewCard = ({ data, langData }) => {
   const langReviewData = langData;
 
   return (
-    <div className="m-auto w-3/4 bg-button-light rounded-t-xl">
-      <div className="p-4 ">
+    <div className="m-auto w-3/4  ">
+      <div className="p-4 bg-button-light rounded-t-xl">
         <p className="font-body text-text-dark">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
           tenetur quo ad a distinctio suscipit numquam mollitia amet totam iure!
