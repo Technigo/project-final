@@ -64,7 +64,7 @@ export const SingleProduct = () => {
               ))}
             </div>
             <button className="add-to-cart-button">Add to cart</button>
-            <DeliveryStatements />
+            <DeliveryStatements fontSize="16px" />
           </div>
         </div>
       )}
