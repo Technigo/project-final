@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
-import { Header } from "../../common/Header/Header";
 import "./AllProducts.css";
 import { ProductCard } from "./ProductCard";
 
