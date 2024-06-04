@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 import "./AllProducts.css";
 import { ProductCard } from "./ProductCard";
+import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState([]);

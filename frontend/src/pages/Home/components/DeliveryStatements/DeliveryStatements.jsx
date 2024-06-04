@@ -1,8 +1,10 @@
-import { Image } from "../../../../common/ReusableComponents/Image";
-import "./DeliveryStatements.css";
 import box from "/assets/icons/box.svg";
 import delivery from "/assets/icons/delivery.svg";
 import store from "/assets/icons/store.svg";
+
+import { Image } from "../../../../common/ReusableComponents/Image";
+
+import "./DeliveryStatements.css";
 
 const deliverystatements = [
   {
@@ -27,14 +29,14 @@ const deliverystatements = [
 export const DeliveryStatements = () => {
   return (
     <div className="delivery-statements">
-      {deliverystatements.map((deliverystatements, index) => (
+      {deliverystatements.map((deliverystatement, index) => (
         <div key={index} className="delivery-statement">
           <Image
-            src={deliverystatements.src}
-            alt={deliverystatements.alt}
-            className={deliverystatements.className}
+            src={deliverystatement.src}
+            alt={deliverystatement.alt}
+            className={deliverystatement.className}
           />
-          <p className="delivery-text">{deliverystatements.text}</p>
+          <p className="delivery-text">{deliverystatement.text}</p>
         </div>
       ))}
     </div>
