@@ -10,16 +10,25 @@ const router = express.Router();
 //POST a new Review
 router.post("/", authenticateUser);
 router.post("/", async (req, res) => {
-  const {
-    firstname,
-    message,
-    productID,
-    userID,
-    userSkinType,
-    userHairType,
-    reviewScore,
-  } = req.body;
   try {
+    const {
+      firstname,
+      message,
+      productID,
+      userID,
+      userSkinType,
+      userHairType,
+      reviewScore,
+    } = req.body;
+    console.log(
+      firstname,
+      message,
+      productID,
+      userID,
+      userSkinType,
+      userHairType,
+      reviewScore
+    );
     const review = await new Review({
       firstname: firstname,
       message: message,
@@ -28,14 +37,13 @@ router.post("/", async (req, res) => {
       userSkinType: userSkinType,
       userHairType: userHairType,
       reviewScore: reviewScore,
-    })
-      .save()
-      .exec();
+    }).save();
     res.status(201).json({
       review: review,
       message: "A new review was created.",
     });
   } catch (error) {
+    console.error("Register Endpoint", error);
     res.status(400).json({ message: "Couldn't create a new review." });
   }
 });

@@ -1,12 +1,12 @@
 import cors from "cors";
 import express from "express";
 
+//Import from seeding so that is runs
+import seedDatabase from "./config/seeddatabase";
 import documentationRoutes from "./routes/documentation";
 import productsRoutes from "./routes/products";
 import reviewRoutes from "./routes/reviews";
 import userRoutes from "./routes/users";
-
-/* import seeddatabase from "./config/seeddatabase"; */
 
 const app = express();
 

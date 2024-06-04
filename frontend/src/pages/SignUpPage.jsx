@@ -1,5 +1,4 @@
 export const SignUpPage = () => {
-  return (
-    <div>SignUpPage</div>
-  )
-}
+
+  return <div>Sign up page</div>;
+};

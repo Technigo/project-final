@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import express from "express";
 
 import { authenticateUser } from "../middlewares/authenticateUser";
@@ -9,17 +10,29 @@ const router = express.Router();
 
 router.post("/register", async (req, res) => {
   try {
+    console.log(firstname);
     const {
       firstname,
       lastname,
       email,
       address,
       password,
-      /* allergies,
+      allergies,
       pros,
       hair,
-      skin, */
+      skin,
     } = req.body;
+    console.log(
+      firstname,
+      lastname,
+      email,
+      address,
+      password,
+      allergies,
+      pros,
+      hair,
+      skin
+    );
 
     if (!firstname) {
       return res.status(400).json({ message: "Firstname is required." });
@@ -64,7 +77,7 @@ router.post("/register", async (req, res) => {
     if (password.length < 8) {
       return res
         .status(400)
-        .json({ message: "Password must be at least 2 characters long." });
+        .json({ message: "Password must be at least 8 characters long." });
     }
 
     //Create a new user
@@ -74,18 +87,19 @@ router.post("/register", async (req, res) => {
       email: email,
       address: address,
       password: bcrypt.hashSync(password, 10),
-      /* allergies: allergies,
+      allergies: allergies,
       pros: pros,
       hair: hair,
-      skin: skin, */
+      skin: skin,
     });
-    await user.save().exec();
+    await user.save();
     res.status(201).json({
       message: `Your Registration was successfull ${user.firstname}. Please log in now.`,
       id: user._id,
       accessToken: user.accessToken,
     });
   } catch (error) {
+    console.error("Register Endpoint", error);
     res.status(400).json({ message: "Could not register user." });
   }
 });
@@ -114,16 +128,81 @@ router.post("/login", async (req, res) => {
       });
     }
   } catch (error) {
+    console.error("Login Endpoint", error);
     res.status(500).json({
       message: "Somethings wrong with the sign in. Please try again later.",
     });
   }
 });
 
-router.get("/profile", authenticateUser);
-router.get("/profile", (req, res) => {
-  res
-    .status(200)
-    .json({ message: "This is a test. We have to put the user profile here." });
+router.get("/profile/:userId", authenticateUser);
+router.get("/profile/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findOne({ _id: userId }).exec();
+
+    if (user) {
+      res.status(200).json({
+        user: user,
+        message: "Success in finding the user profile.",
+      });
+    } else {
+      res.status(404).json({
+        message: "Sorry, there is no user with that ID.",
+      });
+    }
+  } catch (error) {
+    console.error("Get user endpoint:", error);
+    res.status(500).json({
+      message:
+        "Sorry, this page is not available at the moment. Please try again later.",
+    });
+  }
 });
+
+router.patch("/profile/:userId", authenticateUser);
+router.patch("/profile/:userId", async (req, res) => {
+  try {
+    const updatedFields = req.body;
+    const { userId } = req.params;
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: updatedFields },
+      { new: true, runValidators: true }
+    );
+
+    if (updatedUser) {
+      res
+        .status(200)
+        .json({ updatedUser: updatedUser, message: "User was updated" });
+    } else {
+      res.status(404).json({ message: "There is no User with that ID." });
+    }
+  } catch (error) {
+    console.error("Profile Endpoint Update", error);
+    res.status(500).json({
+      message: "Failed to update user.",
+    });
+  }
+});
+
+router.delete("/profile/:userId", authenticateUser);
+router.delete("/profile/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (deletedUser) {
+      res.status(200).json({ message: "User was successfully deleted." });
+    } else {
+      res.status(404).json({ message: "There is no user with that ID." });
+    }
+  } catch (error) {
+    console.error("Profile Endpoint Delete", error);
+    res.status(500).json({
+      message: "Failed to delete user.",
+    });
+  }
+});
+
 export default router;
