@@ -2,7 +2,7 @@ export const App = () => {
 
   return (
     <>
-      <h1>Welcome to webify!!</h1>
+      <h1 className="text-cyan-500 font-montserrat"	>Welcome to webify!!</h1>
     </>
   );
 };
