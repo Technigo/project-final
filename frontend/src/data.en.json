@@ -25,29 +25,29 @@
     ],
     "products": "Products",
     "about": "About Us",
-    "sign-up": "Sign Up",
+    "signUp": "Sign Up",
     "login": "Sign In"
   },
 
   "homepage": {
     "hero": {
-      "cta-text": "Join us on a skincare journey, uniquely crafted just for you.",
-      "cta-button": "Sign up"
+      "ctaText": "Join us on a skincare journey, uniquely crafted just for you.",
+      "ctaButton": "Sign up"
     },
     "products": {
       "title": "Products",
-      "cta-button": "See products"
+      "ctaButton": "See products"
     },
-    "at-glim": {
+    "atGlim": {
       "title": "At glim,",
-      "sub-title": "we believe that every individual's skin is unique and deserves personalized care.",
+      "subTitle": "we believe that every individual's skin is unique and deserves personalized care.",
       "text": "Our mission is to empower you to achieve your healthiest, most radiant skin by offering a curated selection of premium skincare products tailored to you specific skin type and concerns."
     },
     "treatments": {
       "title": "Treatments",
-      "cta-button": "Treatments"
+      "ctaButton": "Treatments"
     },
-    "mission-statement": {
+    "missionStatement": {
       "title": "Why choose us?",
       "perks": [
         {
@@ -72,28 +72,28 @@
         }
       ]
     },
-    "contact-info": {
+    "contactInfo": {
       "title": "Contact Info"
     }
   },
 
-  "products-list-page": {
-    "add-to-cart": "Add to cart",
-    "show-reviews": "Show reviews",
-    "reviews-on": "Reviews on"
+  "productsListPage": {
+    "addToCart": "Add to cart",
+    "showReviews": "Show reviews",
+    "reviewsOn": "Reviews on"
   },
 
-  "single-product-page": {
-    "add-to-cart": "Add to cart",
-    "show-reviews": "Show reviews",
-    "reviews-on": "Reviews on",
-    "similar-products": "Similar products"
+  "singleProductPage": {
+    "addToCart": "Add to cart",
+    "showReviews": "Show reviews",
+    "reviewsOn": "Reviews on",
+    "similarProducts": "Similar products"
   },
 
-  "profile-page": {
+  "profilePage": {
     "profile": "Profile",
-    "skin-heading": "Skin:",
-    "skin-types": [
+    "skinHeading": "Skin:",
+    "skinTypes": [
       { "type": "Combination" },
       { "type": "Dry" },
       { "type": "Normal" },
@@ -101,24 +101,24 @@
       { "type": "Acne" },
       { "type": "Oily" }
     ],
-    "hair-heading": "Hair:",
+    "hairHeading": "Hair:",
 
-    "shape-heading": "Shape:",
-    "shape-types": [
+    "shapeHeading": "Shape:",
+    "shapeTypes": [
       { "type": "Curly" },
       { "type": "Wavy" },
       { "type": "Straight" }
     ],
 
-    "moisture-heading": "Moisture:",
-    "moisture-types": [
+    "moistureHeading": "Moisture:",
+    "moistureTypes": [
       { "type": "Dry" },
       { "type": "Normal" },
       { "type": "Oily" }
     ],
 
-    "allergies-heading": "Allergies:",
-    "allergy-types": [
+    "allergiesHeading": "Allergies:",
+    "allergyTypes": [
       { "type": "Fragrance" },
       { "type": "Preservatives" },
       { "type": "Dyes" },
@@ -127,26 +127,26 @@
       { "type": "Parabens" }
     ],
 
-    "preference-heading": "Preferences:",
-    "preference-types": [
+    "preferenceHeading": "Preferences:",
+    "preferenceTypes": [
       { "type": "Organic" },
       { "type": "Natural Ingredients" },
       { "type": "Vegan" }
     ],
 
-    "recommended-button": "See recommended products",
-    "update-profile-button": "Update Profile",
+    "recommendedButton": "See recommended products",
+    "updateProfileButton": "Update Profile",
 
-    "personal-info": {
+    "personalInfo": {
       "title": "Personal Info",
       "name": "Name:",
       "surname": "Surname:",
       "adress": "Address:",
       "email": "Email"
     },
-    "your-reviews": {
+    "yourReviews": {
       "title": "Your reviews",
-      "see-more-button": "See more"
+      "seeMoreButton": "See more"
     }
   }
 }

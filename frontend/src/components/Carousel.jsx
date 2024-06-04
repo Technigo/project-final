@@ -48,7 +48,7 @@ export const Carousel = () => {
     <div>
       <div
         ref={sliderRef}
-        className=" flex whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%]  gap-2 scroll-smooth"
+        className=" flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth"
       >
         <div className="flex-shrink-0 snap-center w-52">
           <ProductCard />
