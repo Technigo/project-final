@@ -16,6 +16,8 @@ export default {
         "text-dark": "#452626",
 
         "button-light": "#FFF5F2",
+
+        "bg-input": "FFFDF6",
       },
       fontFamily: {
         body: ["Comfortaa", "cursive"],
