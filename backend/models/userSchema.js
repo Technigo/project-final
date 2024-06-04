@@ -43,15 +43,15 @@ const userSchema = new Schema({
       type: String,
       required: true,
     },
-    streetnumber: {
-      type: Number,
-      required: false,
-    },
     city: {
       type: String,
       required: true,
     },
     postalCode: {
+      type: String,
+      required: true,
+    },
+    country: {
       type: String,
       required: true,
     },
