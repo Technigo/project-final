@@ -7,6 +7,8 @@ import { GetComment } from "../components/GetComment"
 import museumList from "../json/museums.json"
 import image1 from "../assets/image1.png"
 import "./TemporaryStyle.css"
+import StyledButton from "../components/styled/Button.styled";
+
 
 export const DetailPage = () => {
   const params = useParams()
@@ -14,7 +16,7 @@ export const DetailPage = () => {
   const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
-    return <Navigate to="/not-found" />
+    return <Navigate to="/not-found" />;
   }
 
   return (
@@ -33,17 +35,17 @@ export const DetailPage = () => {
 
       <h4>Opening hours</h4>
       {museum.opening_hours.map((hours, index) => {
-        const day = Object.keys(hours)[0]
-        const time = hours[day]
+        const day = Object.keys(hours)[0];
+        const time = hours[day];
         return (
           <p key={index}>
             {day}: {time}
           </p>
-        )
+        );
       })}
 
       <p>Ticket price: {museum.ticket_price}</p>
-      <button>Buy a ticket</button>
+      <StyledButton>Buy a ticket</StyledButton>
 
       <p>
         Visit the official website{" "}
@@ -57,5 +59,5 @@ export const DetailPage = () => {
       <PostComment museumId={museumId} />
       <GetComment museumId={museumId} />
     </div>
-  )
-}
+  );
+};

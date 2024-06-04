@@ -7,7 +7,7 @@ export const HeroSection = () => {
     <HeroContainer>
       <Carousel />
       <Overlay />
-      <h1>Where Curiosity Meets Culture</h1>
+      <h1>Where Curiosity <br></br>Meets Culture</h1>
     </HeroContainer>
   );
 };

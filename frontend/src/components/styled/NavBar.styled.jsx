@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const StyledNavBar = styled.nav`
   z-index: 1;
   background: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   width: 100%;
   color: white;
   display: flex;
   align-items: center;
+  top: 0;
 
   ul {
     display: flex;
@@ -21,5 +22,11 @@ export const StyledNavBar = styled.nav`
     margin-left: auto;
     margin-right: 5px;
     display: flex;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
