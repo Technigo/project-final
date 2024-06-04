@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledNewsletter = styled.div`
+const StyledNewsletter = styled.form`
   background-color: #dee0e2;
   max-width: 100%;
   padding: 30px 30px 55px;

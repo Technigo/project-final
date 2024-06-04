@@ -1,34 +1,41 @@
 import StyledButton from "./styled/Button.styled";
 import StyledNewsletter from "./styled/Newsletter.styled";
 import { AlertMessage } from "./AlertMessage";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Newsletter = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const inputRef = useRef("");
 
-  const signUp = () => {
-    e.preventDefault();
-    if (input === "") {
+  const signUp = (event) => {
+    event.preventDefault();
+    if (inputRef.current.value === "") {
       setShowErrorMessage(true);
     } else {
-      const signUpUser = input.toLowerCase();
+      setShowErrorMessage(false);
+      const signUpUser = inputRef.current.value.toLowerCase();
     }
   };
 
   return (
     <>
-      <StyledNewsletter>
+      <StyledNewsletter onSubmit={signUp}>
         <h2>Newsletter</h2>
         <p>
           Sign up & receive exclusive updates about collections, exhibitions,
           and events
         </p>
-        <input type="email" placeholder="Enter your e-mail address here." />
-        <StyledButton type="submit">Sign up</StyledButton>
+        <input
+          ref={inputRef}
+          type="email"
+          placeholder="Enter your e-mail address here."
+        />
+        <StyledButton>Sign up</StyledButton>
         {showErrorMessage === true && (
           <AlertMessage
             type="text"
             message="That does not look like an email address..."
+            
           />
         )}
       </StyledNewsletter>
