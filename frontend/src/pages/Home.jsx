@@ -1,7 +1,7 @@
 
 import { Carousel } from "../components/Carousel";
 import { Hero } from "../components/Hero";
-import { ProductCard } from "../components/ProductCard";
+import { Footer } from "../components/Footer";
 
 import { ReviewCard } from "../components/ReviewCard";
 
@@ -13,6 +13,7 @@ export const Home = ({ data }) => {
       <Carousel />
 
       <ReviewCard />
+      <Footer data={data["footer"] } />
     </div>
   );
 };
