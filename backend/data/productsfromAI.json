@@ -128,7 +128,7 @@
     }
   },
   {
-    "name": "LuxeLocks Shampoo",
+    "title": "LuxeLocks Shampoo",
     "brand": "BelleHair",
     "category": "Hair Care",
     "subcategory": "Shampoo",
@@ -147,7 +147,7 @@
     }
   },
   {
-    "name": "SilkGlow Conditioner",
+    "title": "SilkGlow Conditioner",
     "brand": "SilkEssence",
     "category": "Hair Care",
     "subcategory": "Conditioner",
@@ -166,7 +166,7 @@
     }
   },
   {
-    "name": "ReviveRoots Hair Mask",
+    "title": "ReviveRoots Hair Mask",
     "brand": "NatureBlend",
     "category": "Hair Care",
     "subcategory": "Hair Mask",
