@@ -251,7 +251,7 @@
     "subcategory": "Cleanser",
     "description": "A salicylic acid cleanser that gently removes excess oil without over-drying.",
     "price": 9.99,
-    "allergies": ["parabens", "perservatives"],
+    "allergies": ["parabens", "preservatives"],
     "pros": [],
     "hair": {
       "moisture": null,
@@ -331,7 +331,7 @@
     "subcategory": "Moisturizer",
     "description": "Barrier+ Triple Lipid-Peptide Face Cream for intense hydration.",
     "price": 29.99,
-    "allergies": ["perservatives"],
+    "allergies": ["preservatives"],
     "pros": [],
     "hair": {
       "moisture": null,
