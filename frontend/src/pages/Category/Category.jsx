@@ -25,9 +25,9 @@ export const Category = () => {
         if (data.success) {
           setProducts(data.response);
           setError(null);
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 3000);
+          // setTimeout(() => {
+          //   setIsLoading(false);
+          // }, 3000);
         } else {
           setError(data.error.message);
         }

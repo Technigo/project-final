@@ -23,9 +23,9 @@ export const AllProducts = () => {
       if (data.success) {
         setProducts(data.response);
         setError(null);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 5000);
+        // setTimeout(() => {
+        //   setIsLoading(false);
+        // }, 5000);
       } else {
         setError(data.error.message);
       }
