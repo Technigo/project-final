@@ -6,27 +6,28 @@ import { useState } from "react";
 //If the user is logged in, the museum should be saved to the users profile and the heart should be filled to indicate museum is saved
 //If user is not logged in, they should be redirected to register/login page
 
-export const FavoriteFunction = () => {
-  const [isFavorited, setIsFavorited] = useState(false);
+export const FavoriteFunction = ({ museumId }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleFavoritedChange = () => {
-    setIsFavorited((isFavorited) => !isFavorited);
+  const handleFavoritedChange = async () => {
     const options = {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ museumId }),
     };
-    //fetch(`, options)
-    //.then((response) => response.json())
-    //.then((response) => {
-    //setHasBeenLiked(true);
-    //onLike(response);
-    //})
+    fetch("http://localhost:3000/favorites", options)
+      .then((response) => response.json())
+      .then((response) => {
+        setIsFavorite(response.savedAsFavorite);
+      });
   };
 
   return (
     <>
-      <button onClick={isFavorited ? undefined : postNewSave}>
-        <IoMdHeartEmpty />
-        <IoMdHeart />
+      <button onClick={handleFavoritedChange}>
+        {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
       </button>
     </>
   );

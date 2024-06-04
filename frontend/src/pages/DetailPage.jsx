@@ -1,19 +1,18 @@
-import { useParams, Navigate } from "react-router-dom"
-import { IoRestaurantOutline } from "react-icons/io5"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
-import { FavoriteFunction } from "../components/FavoriteFunction"
-import { PostComment } from "../components/PostComment"
-import { GetComment } from "../components/GetComment"
-import museumList from "../json/museums.json"
-import image1 from "../assets/image1.png"
-import "./TemporaryStyle.css"
+import { useParams, Navigate } from "react-router-dom";
+import { IoRestaurantOutline } from "react-icons/io5";
+import { ToHomepageBtn } from "../components/ToHomepageBtn";
+import { FavoriteFunction } from "../components/FavoriteFunction";
+import { PostComment } from "../components/PostComment";
+import { GetComment } from "../components/GetComment";
+import museumList from "../json/museums.json";
+import image1 from "../assets/image1.png";
+import "./TemporaryStyle.css";
 import StyledButton from "../components/styled/Button.styled";
 
-
 export const DetailPage = () => {
-  const params = useParams()
-  const museumId = params.slug
-  const museum = museumList.find((museum) => museum.id === +museumId)
+  const params = useParams();
+  const museumId = params.slug;
+  const museum = museumList.find((museum) => museum.id === +museumId);
 
   if (!museum) {
     return <Navigate to="/not-found" />;
@@ -24,7 +23,7 @@ export const DetailPage = () => {
       <ToHomepageBtn />
       <img src={image1} alt="Description of image" />
       <h3>{museum.name}</h3>
-      <FavoriteFunction />
+      <FavoriteFunction museumId={museum.id} />
       <p>{museum.location}</p>
       <p>{museum.description} </p>
       {museum.has_cafe ? (
