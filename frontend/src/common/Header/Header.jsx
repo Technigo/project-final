@@ -40,7 +40,7 @@ export const Header = () => {
         </ul>
         <div className="nav-logo">
           <Link to="/">
-            <Image src={logo} alt="logo" />
+            <Image src={logo} alt="logo" className="logo" />
           </Link>
         </div>
         <ul className="nav-icons">
