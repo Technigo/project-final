@@ -14,10 +14,10 @@ export const Hero = ({ data }) => {
         alt="background image"
       ></img>
 
-      <div className="absolute top-0 right-0 text-white font-body">
-        <p className="text-right">{data.ctaText}</p>
+      <div className="absolute top-0 right-0 w-44 tablet:w-72 laptop:w-96 m-10 tablet:m-20 laptop:m-40 text-right text-white font-body">
+        <p className="py-4 text-xl tablet:text-2xl laptop:text-4xl">{data.ctaText}</p>
         <NavLink to="/signup" >
-          <button className="bg-cta-blue px-4 py-2 rounded-full hover:bg-cta-blue-hover">
+          <button className="bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover">
             {data.ctaButton}
           </button>
         </NavLink>
