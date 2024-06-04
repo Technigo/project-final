@@ -1,47 +1,36 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import api from "../../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setError("");
-
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const response = await api.post("/sessions", formData);
-      if (response.status === 200) {
-        const token = response.data.token;
-        setFormData({ username: "", password: "" });
-        // Store access token in localStorage
-        localStorage.setItem("token", token);
-        // Navigate to the profile page
-        navigate("/profile");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      // Sign-in failed
-      setError(error.response?.data?.error || "Something went wrong");
+      const response = await api.post("/sessions", {
+        username,
+        password,
+      });
+      console.log("Login response:", response.data);
+      const { token } = response.data;
+      localStorage.setItem("authToken", token);
+      console.log("Token saved to localStorage:", token);
+      // Redirect to profile or another page
+      navigate("/profile");
+    } catch (err) {
+      setError("Login failed. Please check your credentials.");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
       <div className="container mx-auto px-4 py-20">
-        {/*         <h1 className="text-4xl font-boldmb-4">Log In</h1>
-         */}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="username" className="label">
               Username:
@@ -50,8 +39,8 @@ export const Login = () => {
               type="text"
               id="username"
               name="username"
-              value={formData.username}
-              onChange={handleInputChange}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
               required
             />
@@ -64,8 +53,8 @@ export const Login = () => {
               type="password"
               id="password"
               name="password"
-              value={formData.password}
-              onChange={handleInputChange}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
               minLength={6}
               required
@@ -79,6 +68,15 @@ export const Login = () => {
             Log In
           </button>
         </form>
+        <p className="mt-4">
+          Don't have an account?{" "}
+          <button
+            onClick={() => navigate("/signup")}
+            className="text-primary underline focus:outline-none"
+          >
+            Sign Up
+          </button>
+        </p>
       </div>
     </div>
   );

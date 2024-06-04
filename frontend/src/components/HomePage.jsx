@@ -1,5 +1,6 @@
 import heroImage from "/images/hero-image.jpg";
 import Menu from "../utilities/Menu";
+import Footer from "../utilities/Footer";
 
 export const HomePage = () => {
   return (
@@ -71,6 +72,7 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

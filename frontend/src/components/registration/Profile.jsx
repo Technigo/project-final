@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../axiosConfig";
-/* import { useNavigate } from "react-router-dom"; */
 import Menu from "../../utilities/Menu";
+import { useUser } from "../registration/userContext";
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUser();
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
+  const [hobbies, setHobbies] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -27,8 +30,9 @@ const Profile = () => {
           },
         });
         setUser(response.data);
-        setName(response.data.name);
-        setBio(response.data.bio);
+        setName(response.data.name || "");
+        setBio(response.data.bio || "");
+        setHobbies(response.data.hobbies || "");
       } catch (error) {
         console.error("Error fetching profile:", error);
         if (error.response?.status === 401) {
@@ -47,7 +51,7 @@ const Profile = () => {
     };
 
     fetchProfile();
-  }, []);
+  }, [navigate, setUser]);
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
@@ -55,6 +59,7 @@ const Profile = () => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("bio", bio);
+    formData.append("hobbies", hobbies);
     if (profilePicture) {
       formData.append("profilePicture", profilePicture);
     }
@@ -94,6 +99,7 @@ const Profile = () => {
       <Menu />
       <div className="container mx-auto pt-16">
         <h1 className="text-2xl font-bold mb-4">Profile</h1>
+        <h2 className="text-2xl font-bold mb-4">Hello, {user.name}</h2>
         <form onSubmit={handleUpdateProfile}>
           <input
             type="text"
@@ -107,6 +113,13 @@ const Profile = () => {
             placeholder="Bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
+            className="block mb-4 px-4 py-2 rounded border border-gray-300"
+          />
+          <input
+            type="text"
+            placeholder="Hobbies"
+            value={hobbies}
+            onChange={(e) => setHobbies(e.target.value)}
             className="block mb-4 px-4 py-2 rounded border border-gray-300"
           />
           <input
