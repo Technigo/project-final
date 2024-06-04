@@ -1,17 +1,20 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import StyledAlertMessage from "./styled/AlerMessage.styled";
+
 
 export const AlertMessage = ({ type, message }) => {
   return (
-    <div
+    <StyledAlertMessage
       className={`alert-message ${
         type === "success" ? "background-success" : "background-error"
-      }`}>
+      }`}
+    >
       <p>{message}</p>
-    </div>
-  )
-}
+    </StyledAlertMessage>
+  );
+};
 
 AlertMessage.propTypes = {
   type: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-}
+};
