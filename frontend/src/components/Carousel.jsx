@@ -56,11 +56,14 @@ export const Carousel = () => {
   }, []);
 
   return (
-    <div ref={sliderRef}>
+    <div>
       {loadingProduct ? (
         <Loading />
       ) : (
-        <ul className="flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth">
+        <ul
+          ref={sliderRef}
+          className="flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth"
+        >
           {productsData.products &&
             productsData.products.map((item, index) => (
               <li className="snap-center" key={index}>
