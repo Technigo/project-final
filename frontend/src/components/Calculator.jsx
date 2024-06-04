@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from "react"
 
 export const Calculator = () => {
-  return <WeightOnPlanets />;
-};
+  return <WeightOnPlanets />
+}
 
-// Defines the gravity factors 
+// Defines the gravity factors
 const gravityFactors = {
   Mercury: 0.38,
   Venus: 0.91,
@@ -15,36 +15,36 @@ const gravityFactors = {
   Uranus: 0.92,
   Neptune: 1.19,
   Pluto: 0.063,
-};
+}
 
 const calculateWeight = (weight, gravityFactor) => {
-  return weight * gravityFactor;
-};
+  return weight * gravityFactor
+}
 
 const WeightOnPlanets = () => {
-  const [weight, setWeight] = useState("");
-  const [results, setResults] = useState({});
+  const [weight, setWeight] = useState("")
+  const [results, setResults] = useState({})
 
   const handleChange = (e) => {
-    setWeight(e.target.value);
-  };
+    setWeight(e.target.value)
+  }
 
   const handleCalculate = () => {
-    const weightInKilos = weight;
+    const weightInKilos = weight
     if (weightInKilos === null || weightInKilos <= 0) {
-      alert("Please enter any items' weight in kilos, perhaps your pet? 🐩 🐾");
-      return;
+      alert("Please enter any items' weight in kilos, perhaps your pet? 🐩 🐾")
+      return
     }
 
-    const newResults = {};
+    const newResults = {}
     for (const [planet, gravityFactor] of Object.entries(gravityFactors)) {
       newResults[planet] = calculateWeight(
         weightInKilos,
         gravityFactor
-      ).toFixed(2);
+      ).toFixed(2)
     }
-    setResults(newResults);
-  };
+    setResults(newResults)
+  }
 
   return (
     <div>
@@ -53,7 +53,7 @@ const WeightOnPlanets = () => {
         type="number"
         value={weight}
         onChange={handleChange}
-        placeholder="Enter a number here"
+        placeholder="Enter kilos in here"
       />
       <button onClick={handleCalculate}>Calculate</button>
       <div>
@@ -64,7 +64,5 @@ const WeightOnPlanets = () => {
         ))}
       </div>
     </div>
-  );
-};
-
-
+  )
+}

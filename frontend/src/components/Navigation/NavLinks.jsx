@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
 
-export const NavLinks = ({ label }) => {
-  return <NavLink to="/">{label}</NavLink>
+export const NavLinks = ({ label, to }) => {
+  return <NavLink to={to}>{label}</NavLink>
 }
