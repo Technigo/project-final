@@ -934,18 +934,18 @@
     "id": 50
   },
   {
-    "name": "Museum of Bags and Purses",
-    "description": "Embark on a journey through the history of fashion at the Museum of Bags and Purses in Amsterdam. This unique museum houses a stunning collection of bags and purses from different cultures and time periods, offering a fascinating glimpse into the evolution of style and craftsmanship. Located along the picturesque Herengracht canal, it's a treasure trove for fashion enthusiasts.",
-    "theme": "Bags and Purses",
-    "location": "Herengracht 573, 1017 CD Amsterdam, Netherlands",
-    "lat": "52.364300",
-    "lon": "4.893400",
-    "ticket_price": "€12.50",
+    "name": "Fondation Maeght",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in Saint-Paul-de-Vence, France, the Fondation Maeght is a private foundation that features modern and contemporary art, including works by Miró, Chagall, Giacometti, and others, displayed both indoors and in a sculpture garden.",
+    "location": "623 Chemin des Gardettes, 06570 Saint-Paul-de-Vence, France",
+    "lat": "43.6947",
+    "lon": "7.1202",
+    "ticket_price": "€15",
     "has_cafe": true,
-    "website": "https://tassenmuseum.nl/",
+    "website": "https://www.fondation-maeght.com",
     "opening_hours": [
       {
-        "Mon-Sun": "10:00-17:00"
+        "Mon-Sun": "10:00-18:00"
       }
     ],
     "id": 51
@@ -959,7 +959,7 @@
     "lon": "11.262600",
     "ticket_price": "€8",
     "has_cafe": false,
-    "website": "https://www.uffizi.it/en/the-museum-of-musical-instruments",
+    "website": "https://accademiagallery.org/museum-of-musical-instruments/",
     "opening_hours": [
       {
         "Mon-Sun": "08:15-18:50"
@@ -976,7 +976,7 @@
     "lon": "14.422800",
     "ticket_price": "160 CZK",
     "has_cafe": false,
-    "website": "https://www.tortureum.com/",
+    "website": "https://www.museumtorture.com/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-22:00"
@@ -993,7 +993,7 @@
     "lon": "-13.828500",
     "ticket_price": "€12",
     "has_cafe": false,
-    "website": "https://www.cactlanzarote.com/en/cact/museo-atlantico/",
+    "website": "https://underwatermuseumlanzarote.com/en/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-18:00"
@@ -1010,7 +1010,7 @@
     "lon": "100.485000",
     "ticket_price": "200 THB",
     "has_cafe": false,
-    "website": "http://www.sirirajmuseum.com/",
+    "website": "https://si.mahidol.ac.th/sirirajmuseum/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-17:00"
@@ -1025,12 +1025,12 @@
     "location": "Koniushennaya Ploshchad', 2B, Saint Petersburg, Russia, 191186",
     "lat": "59.939000",
     "lon": "30.321300",
-    "ticket_price": "450 RUB",
+    "ticket_price": "850 RUB",
     "has_cafe": true,
     "website": "https://www.15kop.ru/en/",
     "opening_hours": [
       {
-        "Mon-Sun": "11:00-20:00"
+        "Mon-Sun": "11:00-21:00"
       }
     ],
     "id": 56
@@ -1053,41 +1053,41 @@
     "id": 57
   },
   {
-    "name": "The Button Museum",
-    "theme": "Buttons",
-    "description": "Uncover the fascinating history of buttons at The Button Museum in London. This delightful museum showcases a diverse collection of buttons spanning centuries of fashion and design, offering insight into their cultural significance and craftsmanship. Situated in the vibrant neighborhood of Drummond Place, it's a hidden gem for fashion enthusiasts and history buffs alike.",
-    "location": "1 Drummond Pl, London N1 1RL, UK",
-    "lat": "51.5353",
-    "lon": "-0.1072",
-    "ticket_price": "£5",
-    "has_cafe": false,
-    "website": "http://www.thebuttonmuseum.com",
+    "name": "Museum of Old and New Art (MONA)",
+    "theme": "Contemporary Art",
+    "description": "Located in Hobart, Tasmania, Australia, MONA is Australia's largest privately funded museum, featuring a diverse collection of contemporary and modern art, antiquities, and unique installations.",
+    "location": "655 Main Rd, Berriedale TAS 7011, Australia",
+    "lat": "-42.8299",
+    "lon": "147.2820",
+    "ticket_price": "AUD 30",
+    "has_cafe": true,
+    "website": "https://mona.net.au",
     "opening_hours": [
       {
-        "Mon-Fri": "10:00-17:00"
+        "Mon": "Closed"
       },
       {
-        "Sat": "10:00-14:00"
-      },
-      {
-        "Sun": "Closed"
+        "Tue-Sun": "10:00-17:00"
       }
     ],
     "id": 58
   },
   {
-    "name": "The Hair Museum of Avanos",
-    "theme": "Hair art",
-    "description": "Step into a world of unique artistry at The Hair Museum of Avanos. This extraordinary museum showcases a remarkable collection of hair art, crafted from strands of human hair. From intricate designs to elaborate compositions, each piece tells a story of creativity and craftsmanship. Located in Avanos, it's a one-of-a-kind destination for art enthusiasts and curious travelers alike.",
-    "location": "Kızılırmak, 50500 Avanos/Nevşehir, Turkey",
-    "lat": "38.7150",
-    "lon": "34.8467",
-    "ticket_price": "5 TRY",
-    "has_cafe": false,
-    "website": "https://www.hairmuseum.com",
+    "name": "The Barnes Foundation",
+    "theme": "Impressionist, Post-Impressionist, Early Modern Art",
+    "description": "Located in Philadelphia, USA, The Barnes Foundation houses one of the world's largest collections of Impressionist, Post-Impressionist, and early Modern paintings, along with African sculpture, Native American ceramics, and more.",
+    "location": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
+    "lat": "39.9607",
+    "lon": "-75.1720",
+    "ticket_price": "$25",
+    "has_cafe": true,
+    "website": "https://www.barnesfoundation.org",
     "opening_hours": [
       {
-        "Mon-Sun": "09:00-18:00"
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-17:00"
       }
     ],
     "id": 59
@@ -1132,16 +1132,16 @@
   {
     "name": "Museum of Shadow",
     "theme": "Shadows",
-    "description": "Discover the beauty of shadows at the Museum of Shadow in Glenelg. This unique museum celebrates the artistry and symbolism of shadows, showcasing a captivating collection of shadow-related artifacts and artworks. From shadow puppets to shadow play, it offers an illuminating exploration of this often-overlooked phenomenon. Located in Glenelg, it's a place where light meets darkness in a mesmerizing display.",
-    "location": "2 Murrell St, Glenelg, South Australia 5045, Australia",
-    "lat": "-34.9801",
-    "lon": "138.5105",
-    "ticket_price": "10AUD",
+    "description": "Discover the beauty of shadows at the Museum of Shadow in St.Petersburg. This unique museum celebrates the artistry and symbolism of shadows, showcasing a captivating collection of shadow-related artifacts and artworks. From shadow puppets to shadow play, it offers an illuminating exploration of this often-overlooked phenomenon. It's a place where light meets darkness in a mesmerizing display.",
+    "location": "2 Bolshaya Konyushennaya St, 5А, St Petersburg, Russia",
+    "lat": "59.94051",
+    "lon": "30.32355",
+    "ticket_price": "450 RUB",
     "has_cafe": false,
-    "website": "https://www.museumofshadow.com",
+    "website": "https://en.shadowmuseum.ru/",
     "opening_hours": [
       {
-        "Mon-Sun": "10:00-16:00"
+        "Mon-Sun": "11:00-20:00"
       }
     ],
     "id": 62
@@ -2016,62 +2016,5 @@
       }
     ],
     "id": 106
-  },
-  {
-    "name": "The Barnes Foundation",
-    "theme": "Impressionist, Post-Impressionist, and Early Modern Art",
-    "description": "Located in Philadelphia, USA, The Barnes Foundation houses one of the world's largest collections of Impressionist, Post-Impressionist, and early Modern paintings, along with African sculpture, Native American ceramics, and more.",
-    "location": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
-    "lat": "39.9607",
-    "lon": "-75.1720",
-    "ticket_price": "$25",
-    "has_cafe": true,
-    "website": "https://www.barnesfoundation.org",
-    "opening_hours": [
-      {
-        "Mon": "Closed"
-      },
-      {
-        "Tue-Sun": "11:00-17:00"
-      }
-    ],
-    "id": 107
-  },
-  {
-    "name": "Museum of Old and New Art (MONA)",
-    "theme": "Contemporary Art",
-    "description": "Located in Hobart, Tasmania, Australia, MONA is Australia's largest privately funded museum, featuring a diverse collection of contemporary and modern art, antiquities, and unique installations.",
-    "location": "655 Main Rd, Berriedale TAS 7011, Australia",
-    "lat": "-42.8299",
-    "lon": "147.2820",
-    "ticket_price": "AUD 30",
-    "has_cafe": true,
-    "website": "https://mona.net.au",
-    "opening_hours": [
-      {
-        "Mon": "Closed"
-      },
-      {
-        "Tue-Sun": "10:00-17:00"
-      }
-    ],
-    "id": 108
-  },
-  {
-    "name": "Fondation Maeght",
-    "theme": "Modern and Contemporary Art",
-    "description": "Located in Saint-Paul-de-Vence, France, the Fondation Maeght is a private foundation that features modern and contemporary art, including works by Miró, Chagall, Giacometti, and others, displayed both indoors and in a sculpture garden.",
-    "location": "623 Chemin des Gardettes, 06570 Saint-Paul-de-Vence, France",
-    "lat": "43.6947",
-    "lon": "7.1202",
-    "ticket_price": "€15",
-    "has_cafe": true,
-    "website": "https://www.fondation-maeght.com",
-    "opening_hours": [
-      {
-        "Mon-Sun": "10:00-18:00"
-      }
-    ],
-    "id": 109
   }
 ]
