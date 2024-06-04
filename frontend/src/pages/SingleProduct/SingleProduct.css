@@ -1,12 +1,12 @@
 .singleproduct-page {
   max-width: 100vw;
-  padding: 20px;
+  margin: 20px;
 }
 
 .product-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .image-container {
@@ -27,4 +27,26 @@
 
 .ssp-delivery {
   background-color: var(--white);
+}
+
+.size-button-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 5px;
+}
+
+.size-button {
+  border: 1px solid var(--black);
+  color: var(--black);
+  padding: 10px;
+  text-align: center;
+}
+
+.add-to-cart-button {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px transparent;
+  text-align: center;
 }
