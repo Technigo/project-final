@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 import "./AllProducts.css";
 import { ProductCard } from "./ProductCard";
+import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -12,40 +12,33 @@ export const AllProducts = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = () => {
-    setIsLoading(true); // Set loading to true before fetch starts
+  const fetchProducts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `https://cones-and-stones-ppnudpghiq-lz.a.run.app/products`
+      );
 
-    fetch("https://cones-and-stones-ppnudpghiq-lz.a.run.app/products")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Could not load products");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Fetched data:", data); // Log the fetched data
-        if (data.success && Array.isArray(data.response)) {
-          setProducts(data.response);
-          setError(null); // Clear error if fetch is successful
-        } else {
-          throw new Error("Fetched data is not in the expected format");
-        }
-
-        // Introduce a delay before setting loading to false
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 100);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error); // Log the error
-        setError(error.message); // Set error message in state
-        setIsLoading(false); // Set loading to false after fetch completes
-      });
+      const data = await response.json();
+      if (data.success) {
+        setProducts(data.response);
+        setError(null);
+        // setTimeout(() => {
+        //   setIsLoading(false);
+        // }, 5000);
+      } else {
+        setError(data.error.message);
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="allproducts-page">
-      <CategoryIcons />
+      <CategoryIcons variant="grey" />
       <h2>All products</h2>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
@@ -53,6 +46,7 @@ export const AllProducts = () => {
         {Array.isArray(products) &&
           products.map((product) => (
             <ProductCard
+              key={product._id}
               id={product._id}
               image_url={product.image_url}
               name={product.name}

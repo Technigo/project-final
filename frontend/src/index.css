@@ -29,8 +29,7 @@ h6 {
 }
 
 h1 {
-  font-size: 64px;
-  color: var(--white);
+  font-size: 40px;
 }
 
 h2 {
@@ -81,4 +80,20 @@ a,
 button {
   all: unset;
   cursor: pointer;
+}
+
+/* When the navlink is used, it gets an active-class, which we can use to highlight the link that has been pressed */
+a.active {
+  text-decoration: underline;
+}
+
+/* Media Queries for tablet */
+@media screen and (min-width: 667px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+/* Media Queries for desktop */
+@media screen and (min-width: 1024px) {
 }

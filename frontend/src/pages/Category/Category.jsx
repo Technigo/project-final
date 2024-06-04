@@ -25,10 +25,9 @@ export const Category = () => {
         if (data.success) {
           setProducts(data.response);
           setError(null);
-          // After delay of 500 milliseconds, set setLoading to false
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 3000);
+          // setTimeout(() => {
+          //   setIsLoading(false);
+          // }, 3000);
         } else {
           setError(data.error.message);
         }
@@ -43,7 +42,7 @@ export const Category = () => {
   }, [category]);
   return (
     <div className="category-page">
-      <CategoryIcons />
+      <CategoryIcons variant="grey" />
       <h2>{category.toUpperCase()}</h2>
       {isLoading && <p>Loading... </p>}
       {error && <p>Error: {error}</p>}
