@@ -9,7 +9,7 @@ export const Footer = ({ data }) => {
   const missionStatement = data.missionStatement;
   const contact = data.contactInfo;
 
-  console.log("statement: ", missionStatement.perks);
+  const perkArray = missionStatement.perks;
 
   return (
     <>
@@ -22,12 +22,15 @@ export const Footer = ({ data }) => {
                 {missionStatement.title}
               </h2>
             </div>
-            {missionStatement.perks.map((item, index) => {
-              <div>
-                <h3 key={index}>{item.perk}</h3>
-                <p>{item.comment}</p>
-              </div>;
-            })}
+            {missionStatement.perks &&
+              missionStatement.perks.map((item, index) => (
+                <div className="text-center my-8">
+                  <h3 className="font-heading text-2xl my-2">{item.perk}</h3>
+                  <p className="w-[25ch] hidden tablet:block m-auto">
+                    {item.comment}
+                  </p>
+                </div>
+              ))}
           </div>
         </div>
         <img
@@ -42,9 +45,9 @@ export const Footer = ({ data }) => {
           {contact.title}
         </h2>
         <div className="flex gap-4 justify-center my-10">
-          {contact.contactRoute.map((item, index) => {
-            <p key={index}>hej</p>;
-          })}
+          {contact.socialMedia.map((item, index) => (
+            <img src={item.icon} />
+          ))}
           <img className="w-10" src={facebook} />
           <img className="w-10" src={instagram} />
           <img className="w-10" src={linkedin} />
