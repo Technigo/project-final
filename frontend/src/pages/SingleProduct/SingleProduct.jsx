@@ -45,9 +45,13 @@ export const SingleProduct = () => {
       </div>
 
       {product && (
-        <div>
+        <div className="product-wrapper">
           <div className="image-container">
-            <Image src={product.image_url} alt="product-image" />
+            <Image
+              src={product.image_url}
+              alt="product-image"
+              className="product"
+            />
           </div>
           <div className="product-info">
             <h2>{product.name}</h2>
@@ -60,7 +64,7 @@ export const SingleProduct = () => {
               ))}
             </div>
             <button className="add-to-cart-button">Add to cart</button>
-            <DeliveryStatements className="spp-delivery"/>
+            <DeliveryStatements />
           </div>
         </div>
       )}
