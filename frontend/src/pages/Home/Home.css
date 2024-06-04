@@ -1,0 +1,7 @@
+.homepage {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  overflow: hidden;
+}

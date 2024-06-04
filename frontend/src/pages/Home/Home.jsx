@@ -12,18 +12,9 @@ export const Home = () => {
       <Hero />
       <DeliveryStatements />
       <ProductShowcase />
-      <CategoryIcons />
+      <CategoryIcons variant="yellow" />
       <ProductCategories />
       <Banner />
     </div>
   );
 };
-
-/* 
-Nav
-Hero
-Trust indicator
-Products
-Category-buttons
-Categories
-Banner */

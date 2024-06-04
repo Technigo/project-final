@@ -1,7 +1,7 @@
 .delivery-statements {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: baseline;
   background-color: #f38d7c;
   gap: 5px;
   padding: 60px 0;
@@ -30,6 +30,28 @@
   text-align: center;
 }
 
+/* Media Queries for tablet */
+@media screen and (min-width: 667px) {
+  .delivery-statements {
+    gap: 32px;
+  }
+  .delivery-image {
+    width: 55px;
+    height: 55px;
+  }
+
+  .delivery-statement {
+    gap: 32px;
+  }
+}
+
+/* Media Queries for desktop */
+@media screen and (min-width: 1024px) {
+  .delivery-image {
+    width: 65px;
+    height: 65px;
+  }
+}
 /* .delivery-statements {
   --mask: radial-gradient(34.99px at 50% 48px, #000 99%, #0000 101%)
       calc(50% - 60px) 0/120px 51% repeat-x,
