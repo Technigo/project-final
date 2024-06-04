@@ -18,7 +18,7 @@ export const Navigation = ({ data }) => {
   };
 
   return (
-    <nav className="grid grid-cols-3 bg-main-red sticky justify-between">
+    <nav className="grid grid-cols-3 bg-main-red justify-between">
       <div className="left-nav flex">
         <NavLink to="/products" className="text-white m-4 hidden laptop:block">
           <p className="font-body text-white font-extralight text-lg hidden tablet:block">
@@ -64,7 +64,7 @@ export const Navigation = ({ data }) => {
         </NavLink>
 
         <div
-          className="hidden absolute backdrop-blur-sm top-0 right-0 flex-col text-right  p-4 rounded-bl-lg text-white bg-strong-red"
+          className="hidden absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg text-white bg-strong-red"
           ref={navRef}
         >
           <button className="" onClick={showNavbar}>
