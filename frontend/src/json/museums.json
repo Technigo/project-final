@@ -51,7 +51,7 @@
     "lon": "28.976800",
     "ticket_price": "25 TRY",
     "has_cafe": false,
-    "website": "http://en.masumiyetmuzesi.org/",
+    "website": "https://www.masumiyetmuzesi.org/en",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -174,7 +174,7 @@
     "lon": "-99.189900",
     "ticket_price": "70 MXN",
     "has_cafe": false,
-    "website": "http://www.mnh.inah.gob.mx/museos/caracol.html",
+    "website": "https://www.caracol.inah.gob.mx/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -194,7 +194,7 @@
     "lon": "-71.978800",
     "ticket_price": "20 PEN",
     "has_cafe": true,
-    "website": "https://www.mapcusco.com/",
+    "website": "https://mapcusco.pe/en/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-22:00"
@@ -251,7 +251,7 @@
     "lon": "2.416900",
     "ticket_price": "€8",
     "has_cafe": false,
-    "website": "https://www.museeduvampire.com/",
+    "website": "https://officiel-galeries-musees.fr/lieu/musee-des-vampires-et-monstres-de-limaginaire/",
     "opening_hours": [
       {
         "Mon-Sun": "14:00-18:00"
@@ -262,13 +262,13 @@
   {
     "name": "The Clown Museum",
     "theme": "Clowns",
-    "description": "Step into a world of laughter and whimsy at The Clown Museum in Kiel. This quirky museum celebrates the art of clowning, showcasing costumes, props, and memorabilia from clown performances around the world. Located in the charming city of Kiel, it offers a delightful escape into the colorful world of clowns.",
-    "location": "Wiener Str. 2, 24103 Kiel, Germany",
-    "lat": "54.326400",
-    "lon": "10.140900",
+    "description": "Step into a world of laughter and whimsy at The Clown Museum in Leipzig. This quirky museum celebrates the art of clowning, showcasing costumes, props, and memorabilia from clown performances around the world. Located in the charming city of Kiel, it offers a delightful escape into the colorful world of clowns.",
+    "location": "Breite Str. 22, 04317 Leipzig, Tyskland",
+    "lat": "51.336400",
+    "lon": "12.408160",
     "ticket_price": "€5",
     "has_cafe": false,
-    "website": "https://www.clownmuseum.at/",
+    "website": "https://www.clown-museum.de/",
     "opening_hours": [
       {
         "Mon-Fri": "10:00-18:00"
@@ -350,7 +350,7 @@
   {
     "name": "Museum of Bad Art",
     "theme": "Bad Art",
-    "description": "Discover the beauty of bad art at the Museum of Bad Art in Somerville. This offbeat museum celebrates the unintentional creativity found in poorly executed artworks, inviting visitors to appreciate the quirky charm of artistic mishaps. Located in the eclectic neighborhood of Davis Square, it's a testament to the power of artistic expression.",
+    "description": "Discover the beauty of bad art at the Museum of Bad Art in Somerville. This offbeat museum celebrates the unintentional creativity found in poorly executed artworks, inviting visitors to appreciate the quirky charm of artistic mishaps. Visit the museum to enjoy some, according to themselves, 'art too bad to be ignored'.",
     "location": "55 Davis Square, Somerville, MA 02144, USA",
     "lat": "42.396200",
     "lon": "-71.122400",
@@ -393,7 +393,7 @@
     "lon": "34.846300",
     "ticket_price": "Free",
     "has_cafe": true,
-    "website": "https://www.hairmuseum.com/",
+    "website": "https://www.chezgalip.com/_hair-museum_en",
     "opening_hours": [
       {
         "Mon-Sun": "08:00-19:00"
@@ -464,7 +464,7 @@
     "lon": "0.630100",
     "ticket_price": "£24.90",
     "has_cafe": true,
-    "website": "https://www.leeds-castle.com/",
+    "website": "https://leeds-castle.com/attraction/dog-collar-museum/",
     "opening_hours": [
       {
         "Mon-Sun": "10:30-17:00"
@@ -498,7 +498,7 @@
     "lon": "-3.138500",
     "ticket_price": "£4.95",
     "has_cafe": true,
-    "website": "https://www.pencilmuseum.co.uk/",
+    "website": "https://www.derwentart.com/en-gb/c/about/company/derwent-pencil-museum",
     "opening_hours": [
       {
         "Mon-Sun": "09:30-17:00"
@@ -532,7 +532,7 @@
     "lon": "30.555000",
     "ticket_price": "UAH 200",
     "has_cafe": false,
-    "website": "https://www.spymuseum.com.ua/",
+    "website": "https://www.spymuseum.org/exhibition-experiences/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-19:00"
@@ -609,7 +609,7 @@
     "lon": "-90.071500",
     "ticket_price": "$10",
     "has_cafe": true,
-    "website": "https://www.southernfood.org/",
+    "website": "https://www.southernfood.org/motac",
     "opening_hours": [
       {
         "Mon-Sun": "11:00-17:00"
@@ -675,7 +675,7 @@
     "id": 36
   },
   {
-    "name": "The Käthe Kollwitz Museum",
+    "name": "The Kollwitz Museum",
     "theme": "Käthe Kollwitz Art",
     "description": "Explore the powerful art of Käthe Kollwitz at her eponymous museum in Berlin. This intimate museum showcases the works of the renowned German artist, known for her poignant portrayals of human suffering and social injustice. Located in the Charlottenburg district, it's a moving tribute to one of Germany's most iconic artists.",
     "location": "Fasanenstraße 24, 10719 Berlin, Germany",
@@ -692,15 +692,15 @@
     "id": 37
   },
   {
-    "name": "Museum of Illusions",
+    "name": "Illuseum",
     "theme": "Optical Illusions",
     "description": "Challenge your perception of reality at the Museum of Illusions in Berlin. This mind-bending museum features a series of interactive exhibits and optical illusions that will leave you questioning what you see. Located in the heart of Berlin, it's a playful exploration of the science behind visual trickery.",
-    "location": "Kantstraße 6, 10623 Berlin, Germany",
-    "lat": "52.505300",
-    "lon": "13.328800",
-    "ticket_price": "€12",
+    "location": "Karl-Liebknecht-Strasse 9, 10178 Berlin, Germany",
+    "lat": "52.521360",
+    "lon": "13.406490",
+    "ticket_price": "€16",
     "has_cafe": false,
-    "website": "https://museumofillusions.de/",
+    "website": "https://www.illuseum-berlin.de/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-20:00"
@@ -732,15 +732,15 @@
     "location": "1-5-2 Kiyokawa, Taito City, Tokyo 111-0022, Japan",
     "lat": "35.724200",
     "lon": "139.793900",
-    "ticket_price": "¥500",
+    "ticket_price": "¥300",
     "has_cafe": false,
-    "website": "http://tanabatamuseum.info/",
+    "website": "https://www.uenostation.com/the-shitamachi-museum-a-taste-of-downtown-culture-in-ueno-park/",
     "opening_hours": [
       {
         "Mon": "Closed"
       },
       {
-        "Tue-Sun": "10:00-17:00"
+        "Tue-Sun": "9:30-16:30"
       }
     ],
     "id": 40
@@ -803,15 +803,15 @@
     "id": 43
   },
   {
-    "name": "Sewara Museum",
-    "theme": "Nigerian Crafts and Artifacts",
-    "description": "Celebrate Nigerian craftsmanship and heritage at the Sewara Museum in Abuja. This vibrant museum showcases a diverse collection of traditional crafts, artifacts, and cultural artifacts, offering insight into the rich tapestry of Nigerian culture. Located on Kubwa Expressway, it's a cultural hub for visitors seeking to explore Nigeria's artistic legacy.",
-    "location": "Kubwa Expressway, Dutse, Abuja, Nigeria",
-    "lat": "9.116000",
-    "lon": "7.375000",
-    "ticket_price": "300 NGN",
-    "has_cafe": false,
-    "website": "https://sewaramuseum.org.ng/",
+    "name": "Museum of West African Art",
+    "theme": "West African Art",
+    "description": "Explore the rich legacy of West Africa at the Museum of West African Art (MOWAA). This premier museum showcases a diverse collection of artifacts from ancient Nok settlements to contemporary artists. MOWAA offers an immersive experience into the life, spirituality, and cosmologies of West African communities. Located in Nigera, it's a cultural gem highlighting the region's craftsmanship and heritage.",
+    "location": "1 Benin Sapele Rd, Oka, Benin City 300102, Edo, Nigeria",
+    "lat": "6.195910",
+    "lon": "5.640410",
+    "ticket_price": "Free",
+    "has_cafe": true,
+    "website": "https://wearemowaa.org/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-17:00"
@@ -828,7 +828,7 @@
     "lon": "69.664000",
     "ticket_price": "5 INR",
     "has_cafe": false,
-    "website": "https://www.kutchmuseum.org/",
+    "website": "https://www.gujarattourism.com/kutch-zone/kutch/kutch-museum.html",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -848,7 +848,7 @@
     "lon": "40.735500",
     "ticket_price": "100 MZN",
     "has_cafe": false,
-    "website": "http://www.museuislandofmozambique.gov.mz/",
+    "website": "https://en.unesco.org/silkroad/silk-road-themes/underwater-heritage/museum-island-mozambique",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -896,13 +896,13 @@
   {
     "name": "Seychelles Natural History Museum",
     "theme": "Natural History",
-    "description": "Prepare to be amazed and bewildered at the Trick Eye Museum in Singapore, where art comes to life through mind-bending optical illusions. Challenge your perception as you interact with immersive artworks that blur the line between reality and fantasy. Uncover hidden secrets and snap photos that defy expectations in this one-of-a-kind museum experience.",
+    "description": "The Natural History Museum hosts exhibitions that not only illustrate flora, fauna and geological history of Seychelles, but serve to enlighten visitors about major environmental concern with Seven prominent aspects of Seychelles ‘ natural heritage are showcased through exhibits and dioramas.",
     "location": "Independence Ave, Victoria, Seychelles",
     "lat": "-4.619200",
     "lon": "55.452400",
     "ticket_price": "50 SCR",
     "has_cafe": false,
-    "website": "http://www.seychellesnaturalhistorymuseum.org/",
+    "website": "https://seychellesnationalmuseums.org/about-the-museum-of-natural-history/",
     "opening_hours": [
       {
         "Mon-Fri": "08:00-16:00"
@@ -925,7 +925,7 @@
     "lon": "-0.074400",
     "ticket_price": "£10",
     "has_cafe": false,
-    "website": "http://www.stephenwrightartist.com/houseofdreams/",
+    "website": "https://www.stephenwrightartist.com/house-of-dreams",
     "opening_hours": [
       {
         "Mon-Sun": "By appointment only"
