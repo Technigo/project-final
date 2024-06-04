@@ -7,6 +7,7 @@ import { Footer } from "../components/Footer";
 import styled from "styled-components";
 import museumList from "../json/museums.json";
 import StyledButton from "../components/styled/Button.styled";
+import { Newsletter } from "../components/Newsletter";
 
 export const LandingPage = () => {
   const [results, setResults] = useState([]);
@@ -26,6 +27,7 @@ export const LandingPage = () => {
           results={results.length === 0 ? museumList : results}
         />
       </PaddedContent>
+      <Newsletter />
       <Footer />
     </>
   );

@@ -13,11 +13,12 @@ export const Footer = () => {
         </div>
         <div>
           <a target="_blank" href="https://icons8.com/icon/65186/museum">
-            Museum
-          </a>{" "}
-          icon by{" "}
+            Museum icon by{" "}
+          </a>
+
           <a target="_blank" href="https://icons8.com">
-            Icons8
+            {" "}
+            Icons 8
           </a>
           <p> © 2024 MuSeek. All rights reserved.</p>
         </div>
