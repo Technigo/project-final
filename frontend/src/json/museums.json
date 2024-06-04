@@ -1137,7 +1137,7 @@
     "lat": "59.94051",
     "lon": "30.32355",
     "ticket_price": "450 RUB",
-    "has_cafe": false,
+    "has_cafe": true,
     "website": "https://en.shadowmuseum.ru/",
     "opening_hours": [
       {
