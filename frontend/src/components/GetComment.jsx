@@ -1,6 +1,9 @@
 import moment from "moment"
 import { useEffect, useState } from "react"
 
+//TO UPDATE: add user name, delete method, authentication
+//Fetch more often? so user don't need to refresh after sending a comment
+
 export const GetComment = ({ museumId }) => {
   const [comments, setComments] = useState([])
 
