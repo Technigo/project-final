@@ -1,14 +1,9 @@
 import PropTypes from "prop-types";
 import StyledAlertMessage from "./styled/AlerMessage.styled";
 
-
 export const AlertMessage = ({ type, message }) => {
   return (
-    <StyledAlertMessage
-      className={`alert-message ${
-        type === "success" ? "background-success" : "background-error"
-      }`}
-    >
+    <StyledAlertMessage type={type} >
       <p>{message}</p>
     </StyledAlertMessage>
   );

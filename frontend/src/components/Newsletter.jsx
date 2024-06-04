@@ -5,15 +5,18 @@ import { useRef, useState } from "react";
 
 export const Newsletter = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const inputRef = useRef("");
 
   const signUp = (event) => {
     event.preventDefault();
     if (inputRef.current.value === "") {
       setShowErrorMessage(true);
+      setShowSuccessMessage(false);
     } else {
       setShowErrorMessage(false);
-      const signUpUser = inputRef.current.value.toLowerCase();
+      setShowSuccessMessage(true);
+      inputRef.current.value = "";
     }
   };
 
@@ -35,8 +38,10 @@ export const Newsletter = () => {
           <AlertMessage
             type="text"
             message="That does not look like an email address..."
-            
           />
+        )}
+        {showSuccessMessage === true && (
+          <AlertMessage type="success" message="Thank you! Email registered" />
         )}
       </StyledNewsletter>
     </>
