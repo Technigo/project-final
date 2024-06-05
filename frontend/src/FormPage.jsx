@@ -1,6 +1,18 @@
+import { useEffect } from "react";
 import "./FormPage.css";
 
 export const FormPage = () => {
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const latitudeInput = document.querySelector('input[name="latitude"]');
+      const longitudeInput = document.querySelector('input[name="longitude"]');
+      latitudeInput.value = latitude;
+      longitudeInput.value = longitude;
+    });
+  }, []);
+
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -29,18 +41,12 @@ export const FormPage = () => {
     <div className="FormPage">
       <h1 className="FormPage-title">happy angry note</h1>
       <form className="FormPage-form" onSubmit={onSubmit}>
+        <input type="hidden" name="latitude" />
+        <input type="hidden" name="longitude" />
+
         <label>
-          <span>latitude</span>
-          <input type="text" name="latitude" />
-        </label>
-        <br />
-        <label>
-          <span>longitude</span>
-          <input type="text" name="longitude" />
-        </label>
-        <br />
-        <label>
-          <span>text</span>
+          <span>Note</span>
+          <br />
           <textarea name="text" />
         </label>
         <br />
