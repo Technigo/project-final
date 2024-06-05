@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Image } from "../../../../common/ReusableComponents/Image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -76,10 +77,10 @@ export const ProductShowcase = () => {
         {slides.map((slide, index) => (
           <div key={index}>
             <Link to={`/products/${slide.id}`}>
-              <img
+              <Image
+                className="slide"
                 src={slide.imageUrl}
                 alt={slide.productName}
-                style={{ width: "100%", height: "auto" }}
               />
             </Link>
           </div>
