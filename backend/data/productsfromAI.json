@@ -16,7 +16,7 @@
     "instructions": "Apply to wet hair, lather, and rinse thoroughly.",
     "size": "250ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717493114/organic-lavender-shampoo_ujknwb.jpg"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/greenleaf-naturals-shampoo_dz4ukw.png"
     }
   },
   {
@@ -36,24 +36,24 @@
     "instructions": "Apply a small amount to clean face and neck. Use morning and night.",
     "size": "50ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717493114/sensitive-skin-face-cream_nmp7oq.jpg"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572376/Dermacare-sensitive-skin_jfjbib.png"
     }
   },
   {
-    "title": "Metal Nail Polish",
+    "title": "Metal Free Nail Polish",
     "brand": "PureColor",
     "category": "Nail Care",
     "subcategory": "Nail Polish",
     "description": "A non-toxic nail polish free from harmful metals like lead and nickel. Available in vibrant shades.",
     "price": 7.99,
-    "allergies": ["metals"],
+    "allergies": [],
     "pros": ["vegan", "crueltyfree"],
     "hair": null,
     "skin": [],
     "instructions": "Apply two coats for best results.",
     "size": "10ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/PureColor-nailpolish_bzz81g.png"
     }
   },
   {
@@ -70,7 +70,7 @@
     "instructions": "Apply morning and night after cleansing.",
     "size": "30ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513507/flow-nightserum_bw7wmg.png"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572377/Lumina-serum_jkuqpv.png"
     }
   },
   {
@@ -90,7 +90,7 @@
     "instructions": "Apply a few drops to damp or dry hair.",
     "size": "100ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/hair-mist-silk_xezhcc.png"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Silklocks-oil_soohrl.png"
     }
   },
   {
@@ -107,7 +107,7 @@
     "instructions": "Apply a thin layer to clean skin before moisturizing.",
     "size": "30ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717493113/clearskin-acne-serum_uwdyja.jpg"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572376/gLOWRX_uu8us9.png"
     }
   },
   {
@@ -124,7 +124,7 @@
     "instructions": "Apply a thin layer, avoiding the eye area. Leave on for 10 minutes and rinse thoroughly.",
     "size": "50ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Latexlux-mask_o68dy4.png"
     }
   },
   {
@@ -143,7 +143,7 @@
     "instructions": "Apply to wet hair, lather, and rinse thoroughly.",
     "size": "250ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717493114/luxelock-shampoo_lsf4rz.jpg"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/Bellehair-shampoo_vj7erx.png"
     }
   },
   {
@@ -221,7 +221,7 @@
     "instructions": "Rub a small amount between your palms and apply to your beard for styling.",
     "size": "50g",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/eucalyptus-hair-oil_xx3cua.png"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/beard-balm-groom_oo3dej.png"
     }
   },
   {
@@ -241,7 +241,7 @@
     "instructions": "Wet your beard, apply a small amount of wash, lather, and rinse thoroughly.",
     "size": "150ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717574168/Beard-wash-freshface_1_bc6v2f.png"
     }
   },
   {
@@ -261,7 +261,7 @@
     "instructions": "Use daily to keep skin clear and matte.",
     "size": "150ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/neutrogena-oil_ywtqow.png"
     }
   },
   {
@@ -301,7 +301,7 @@
     "instructions": "Use twice a week for best results.",
     "size": "100g",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572375/glytone-acnefighting_nwv0xk.png"
     }
   },
   {
@@ -321,7 +321,7 @@
     "instructions": "Use morning and night.",
     "size": "200ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572377/cerave-cleanser_ess59y.png"
     }
   },
   {
@@ -361,7 +361,7 @@
     "instructions": "Use daily after shower",
     "size": "250ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/light-glow-body_ywz1wz.png"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572375/Amlacit-body_oojopm.png"
     }
   },
   {
@@ -381,7 +381,7 @@
     "instructions": "Apply a dollop of Bubblegum Bliss Moisturizer to your face and pretend you're blowing bubblegum bubbles!",
     "size": "50ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572376/Sillyskin_ek8vop.png"
     }
   },
   {
@@ -441,7 +441,7 @@
     "instructions": "Apply shampoo in the shower on wet hair and massage, rinse thoroughly",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513525/naturalfeel-shampoo-glim_ei6ubf.png"
     }
   },
   {
@@ -461,7 +461,7 @@
     "instructions": "Apply conditioner after the shampoo, in the shower on wet hair and massage, rinse thoroughly",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/ocean_breeze_conditioner_t5kcd8.png"
     }
   },
   {
@@ -481,7 +481,7 @@
     "instructions": "Apply shampoo in the shower on wet hair and massage, rinse thoroughly",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/sandstorm_kysok8.png"
     }
   },
   {
@@ -501,7 +501,7 @@
     "instructions": "Apply on clean skin in the morning",
     "size": "150ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/goldenTouch-facecream_kjcibs.png"
     }
   },
   {
@@ -521,7 +521,7 @@
     "instructions": "Apply cream on clean dry skin every evening for best results",
     "size": "100ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/Naturalfeel-facecream_ladplc.png"
     }
   },
   {
@@ -541,7 +541,7 @@
     "instructions": "Apply conditioner in the shower on wet hair after rinsing the shampoo. Massage and rinse thoroughly",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513529/Moonlight-conditioner_gbcjbe.png"
     }
   },
   {
@@ -561,7 +561,7 @@
     "instructions": "Apply on areas like around the eyes and the mouth",
     "size": "100ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/j-mi-face-serum_eg4ji3.png"
     }
   },
   {
@@ -581,7 +581,7 @@
     "instructions": "Massage onto the face with circular movements",
     "size": "100ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/natureblend-serum_uykqll.png"
     }
   },
   {
@@ -601,7 +601,7 @@
     "instructions": "Apply to clean skin in the evening",
     "size": "150ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/LeafySkincare-nightcream_qhswb2.png"
     }
   },
   {
@@ -621,7 +621,7 @@
     "instructions": "Spray onto your face whenever you need to feel refreshed during the day",
     "size": "150ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/light-glow-mist_j1xe8c.png"
     }
   },
   {
@@ -641,7 +641,7 @@
     "instructions": "Put onto your clean face in the morning, good ti combine with Find your glow, mist.",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/light-glow-cream_tahodt.png"
     }
   },
   {
@@ -660,7 +660,7 @@
     "skin": null,
     "instructions": "Apply in the evening, after washing and drying your face",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/cosmetic_uoffhi.png"
     }
   },
   {
@@ -680,7 +680,7 @@
     "instructions": "Apply to face and neck each morning after cleansing.",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/Flow-facecream_evn96s.png"
     }
   },
   {
@@ -700,7 +700,7 @@
     "instructions": "Apply to clean skin in the morning and evening.",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/Lorem-skincare_bfyeub.png"
     }
   },
   {
@@ -720,7 +720,7 @@
     "instructions": "Apply to your face and neck before bed.",
     "size": "170ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/Cleard-facetoner_ydpnvu.png"
     }
   },
   {
@@ -740,7 +740,7 @@
     "instructions": "Apply onto the tips of your hair after showering.",
     "size": "200ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/eucalyptus-hair-oil_xx3cua.png"
     }
   },
   {
@@ -760,7 +760,7 @@
     "instructions": "Rub a small amount between your palms and work through your beard.",
     "size": "100ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/beardoil_2_rkjz87.png"
     }
   }
 ]
