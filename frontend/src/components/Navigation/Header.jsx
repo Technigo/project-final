@@ -4,6 +4,7 @@ import mobileMenu from "../../assets/icons/mobileMenu.png"
 import mobileMenuClose from "../../assets/icons/mobileMenuClose.png"
 import { MobileMenu } from "./MobileMenu"
 import { MainMenu } from "./MainMenu"
+import { Breadcrumbs } from "./Breadcrumbs"
 
 export const Header = () => {
   const [active, setActive] = useState(false)
@@ -32,6 +33,7 @@ export const Header = () => {
           )}
         </div>
       </nav>
+      <Breadcrumbs />
     </header>
   )
 }
