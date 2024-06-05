@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
-
 const { Schema } = mongoose;
 
-const sunSchema = new Schema({
-    fact: {
+const celestialSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  fact: {
     type: String,
     required: true,
   },
@@ -15,10 +18,10 @@ const sunSchema = new Schema({
   additional_info: {
     type: String,
     required: true,
-  }
+  },
 });
 
 //The model (based entirely on all entries in the sunSchema)
-const SunModel = mongoose.model("SunModel", sunSchema);
+const CelestialModel = mongoose.model("CelestialModel", celestialSchema);
 
-export default SunModel;
+export default CelestialModel;
