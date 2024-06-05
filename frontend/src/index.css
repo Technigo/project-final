@@ -33,12 +33,12 @@ h1 {
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 24px;
   text-transform: uppercase;
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 h4 {
@@ -51,6 +51,7 @@ h5 {
 
 h6 {
   font-size: 16px;
+  text-transform: uppercase;
 }
 
 p {
@@ -59,25 +60,13 @@ p {
   color: var(--darkgrey);
 }
 
-button {
-  font-weight: 400;
-  font-size: 16px;
-  color: var(--white);
-}
-
-.category-icons {
-  font-weight: 700;
-  font-size: 20px;
-}
-
 .delivery-statements {
   font-weight: 400;
   font-size: 24px;
 }
 
-/* remove all text decoration on links and buttons */
-a,
-button {
+/* remove all text decoration on links  */
+a {
   all: unset;
   cursor: pointer;
 }
