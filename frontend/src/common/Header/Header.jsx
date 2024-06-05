@@ -5,7 +5,7 @@ import hamburger from "/assets/icons/hamburger.svg";
 import cart from "/assets/icons/cart.svg";
 import search from "/assets/icons/search.svg";
 import user from "/assets/icons/user.svg";
-import { Image } from "../ReusableComponents/Image";
+import { Image } from "../ReusableComponents/Image/Image";
 
 export const Header = () => {
   return (
