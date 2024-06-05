@@ -733,7 +733,7 @@
     "allergies": null,
     "pros": null,
     "hair": {
-      "moisture": ["dry"],
+      "moisture": "dry",
       "shape": null
     },
     "skin": null,
@@ -753,7 +753,7 @@
     "allergies": null,
     "pros": ["organic"],
     "hair": {
-      "moisture": ["dry"],
+      "moisture": "dry",
       "shape": null
     },
     "skin": null,
