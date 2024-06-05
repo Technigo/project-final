@@ -8,9 +8,10 @@ export const ProductShowcase = () => {
   const settings = {
     dots: true,
     infinite: true,
-    // speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    swipe: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1024, // Adjust this value based on your requirements
