@@ -44,6 +44,13 @@
   height: 40px;
 }
 
+.category-icon-text {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
 /* Media Queries for tablet */
 @media screen and (min-width: 667px) {
   .category-icons {

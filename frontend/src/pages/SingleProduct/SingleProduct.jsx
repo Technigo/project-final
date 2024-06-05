@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
-import { Button } from "../../common/ReusableComponents/Button";
+import { Button } from "../../common/ReusableComponents/Button/Button";
 
 export const SingleProduct = () => {
   const { productId } = useParams(); //get the product ID from the URL
@@ -61,10 +61,10 @@ export const SingleProduct = () => {
             <p>{product.details}</p>
             <div className="size-button-wrapper">
               {product.stock.map((item, index) => (
-                <Button key={index} label={item.size} className="size"></Button>
+                <Button key={index} label={item.size} variant="size"></Button>
               ))}
             </div>
-            <Button label="Add to cart" className="add-to-cart" />
+            <Button label="Add to cart" variant="add-to-cart" />
             <DeliveryStatements fontSize="16px" />
           </div>
         </div>

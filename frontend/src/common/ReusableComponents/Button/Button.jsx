@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "./Button.css";
 
-export const Button = ({ onClick, label, className, ariaLabel, to }) => {
+export const Button = ({ onClick, label, variant, ariaLabel, to }) => {
   const buttonContent = (
     <button
       onClick={onClick}
-      className={`${className}-button`}
+      className={`${variant}-button`}
       aria-label={ariaLabel || label}
     >
       {label}
