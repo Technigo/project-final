@@ -1,9 +1,9 @@
-// parent component for PlanetDetail & PlanetList
 
-import { useState, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
-import { PlanetDetails } from "./PlanetDetails"
-import { PlanetList } from "./PlanetList"
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { PlanetDetails } from "./PlanetDetails";
+import { PlanetList } from "./PlanetList";
+
 
 export const Planet = () => {
   const { planet } = useParams()
