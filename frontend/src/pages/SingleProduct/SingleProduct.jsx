@@ -61,10 +61,10 @@ export const SingleProduct = () => {
             <p>{product.details}</p>
             <div className="size-button-wrapper">
               {product.stock.map((item, index) => (
-                <Button key={index} label={item.size} className="size"></Button>
+                <Button key={index} label={item.size} variant="size"></Button>
               ))}
             </div>
-            <Button label="Add to cart" className="add-to-cart" />
+            <Button label="Add to cart" variant="add-to-cart" />
             <DeliveryStatements fontSize="16px" />
           </div>
         </div>

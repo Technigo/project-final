@@ -17,7 +17,6 @@ export const Hero = () => {
         <Button
           variant="hero"
           label="See all products"
-          // className="hero"
           to="/products"
         />
       </div>
