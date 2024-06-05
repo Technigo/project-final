@@ -1,10 +1,8 @@
-import {
-  APIProvider,
-  Map as ReactGoogleMap,
-  Marker,
-} from "@vis.gl/react-google-maps";
+import { APIProvider, Map as ReactGoogleMap } from "@vis.gl/react-google-maps";
 import { Note } from "./Note";
 import "./Map.css";
+
+const sweden = { lat: 62.3875, lng: 16.325556 };
 
 export const Map = (props) => {
   return (
@@ -13,6 +11,8 @@ export const Map = (props) => {
         className="Map"
         defaultCenter={{ lat: 62.3875, lng: 16.325556 }}
         defaultZoom={5}
+        center={props.center || undefined}
+        zoom={props.zoom || undefined}
         gestureHandling={"greedy"}
         disableDefaultUI={true}
         mapId="happyangrynote"
