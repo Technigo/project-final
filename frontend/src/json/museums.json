@@ -17,7 +17,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 1
+    "id": 1,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575351/1-romance_jb7uqa.jpg"
   },
   {
     "name": "Musée Marmottan Monet",
@@ -40,7 +41,8 @@
         "Wed-Sun": "10:00-18:00"
       }
     ],
-    "id": 2
+    "id": 2,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575352/2-marmottan_foql3l.jpg"
   },
   {
     "name": "The Museum of Innocence",
@@ -60,7 +62,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 3
+    "id": 3,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575353/3-innocence_ly1svb.jpg"
   },
   {
     "name": "The House of Alijn",
@@ -83,7 +86,8 @@
         "Sat-Sun": "10:00-18:00"
       }
     ],
-    "id": 4
+    "id": 4,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575353/4-alijn_oy3ujk.jpg"
   },
   {
     "name": "Museum of the History of Medicine",
@@ -103,7 +107,8 @@
         "Tue-Sun": "14:00-17:30"
       }
     ],
-    "id": 5
+    "id": 5,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575369/5-medicine_biay29.jpg"
   },
   {
     "name": "National Leprechaun Museum",
@@ -120,7 +125,8 @@
         "Mon-Sun": "10:00-18:30"
       }
     ],
-    "id": 6
+    "id": 6,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575368/6-irishfolklore_xvg4x7.jpg"
   },
   {
     "name": "The Cat Cabinet",
@@ -140,7 +146,8 @@
         "Sat-Sun": "12:00-17:00"
       }
     ],
-    "id": 7
+    "id": 7,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575370/7-catcabinet_engkhd.jpg"
   },
   {
     "name": "Mini Bottle Gallery",
@@ -163,7 +170,8 @@
         "Sun": "12:00-16:00"
       }
     ],
-    "id": 8
+    "id": 8,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575369/8-minibottle_uust22.jpg"
   },
   {
     "name": "Museo del Caracol",
@@ -183,7 +191,8 @@
         "Tue-Sun": "09:00-17:00"
       }
     ],
-    "id": 9
+    "id": 9,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575370/9-caracol_ufgghn.jpg"
   },
   {
     "name": "Museo de Arte Precolombino",
@@ -200,7 +209,8 @@
         "Mon-Sun": "09:00-22:00"
       }
     ],
-    "id": 10
+    "id": 10,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575370/10-precolombian_xqoltf.jpg"
   },
   {
     "name": "The Neon Museum",
@@ -217,7 +227,8 @@
         "Mon-Sun": "14:00-22:00"
       }
     ],
-    "id": 11
+    "id": 11,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575371/11-neonmuseum_sihmmq.jpg"
   },
   {
     "name": "The Fan Museum",
@@ -240,7 +251,8 @@
         "Sun": "12:00-17:00"
       }
     ],
-    "id": 12
+    "id": 12,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575371/12-fanmuseum_g5izlc.jpg"
   },
   {
     "name": "Museum of Vampires and Legendary Creatures",
@@ -257,7 +269,8 @@
         "Mon-Sun": "14:00-18:00"
       }
     ],
-    "id": 13
+    "id": 13,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575375/13-vampires_asqbaa.jpg"
   },
   {
     "name": "The Clown Museum",
@@ -274,7 +287,8 @@
         "Mon-Fri": "10:00-18:00"
       }
     ],
-    "id": 14
+    "id": 14,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575371/14-clowns_fqfcua.jpg"
   },
   {
     "name": "Museum of Brands, Packaging & Advertising",
@@ -291,7 +305,8 @@
         "Mon-Sun": "10:00-18:00"
       }
     ],
-    "id": 15
+    "id": 15,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/v1717575372/15-brands_tapscw.jpg"
   },
   {
     "name": "International Spy Museum",
@@ -308,7 +323,8 @@
         "Mon-Sun": "09:00-19:00"
       }
     ],
-    "id": 16
+    "id": 16,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575372/16-spy_jn2svz.jpg"
   },
   {
     "name": "The Museum of Russian Art",
@@ -328,7 +344,8 @@
         "Sat-Sun": "10:00-16:00"
       }
     ],
-    "id": 17
+    "id": 17,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575373/17-tmora_khdppd.jpg"
   },
   {
     "name": "The Museum of Death",
@@ -345,7 +362,8 @@
         "Mon-Sun": "10:00-20:00"
       }
     ],
-    "id": 18
+    "id": 18,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575372/18-death_qtedxr.jpg "
   },
   {
     "name": "Museum of Bad Art",
@@ -362,7 +380,8 @@
         "Mon-Sun": "24 hours"
       }
     ],
-    "id": 19
+    "id": 19,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575373/19-badart_lmgpb9.jpg"
   },
   {
     "name": "The Shoe Museum",
@@ -382,7 +401,8 @@
         "Sat-Sun": "10:00-18:00"
       }
     ],
-    "id": 20
+    "id": 20,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575421/20-shoe_elb1mp.jpg"
   },
   {
     "name": "The Avanos Hair Museum",
@@ -399,7 +419,8 @@
         "Mon-Sun": "08:00-19:00"
       }
     ],
-    "id": 21
+    "id": 21,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575421/21-hair_ro5xaw.jpg"
   },
   {
     "name": "The Cup Noodles Museum",
@@ -419,7 +440,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 22
+    "id": 22,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575420/22-cupnoodles_mt9ruu.jpg"
   },
   {
     "name": "The Salt and Pepper Shaker Museum",
@@ -436,7 +458,8 @@
         "Mon-Sun": "10:00-18:00"
       }
     ],
-    "id": 23
+    "id": 23,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575420/23-saltpepper_gzwq0f.jpg"
   },
   {
     "name": "Sulabh International Museum of Toilets",
@@ -453,7 +476,8 @@
         "Mon-Sun": "10:00-17:00"
       }
     ],
-    "id": 24
+    "id": 24,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575422/24-toilet_hkjvbl.jpg"
   },
   {
     "name": "The Dog Collar Museum",
@@ -470,7 +494,8 @@
         "Mon-Sun": "10:30-17:00"
       }
     ],
-    "id": 25
+    "id": 25,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575421/25-dogcollar_weeazf.jpg"
   },
   {
     "name": "Museum of Icelandic Sorcery and Witchcraft",
@@ -487,7 +512,8 @@
         "Mon-Sun": "10:00-18:00"
       }
     ],
-    "id": 26
+    "id": 26,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575447/26-witchcraft_uhsqum.jpg"
   },
   {
     "name": "The Pencil Museum",
@@ -504,7 +530,8 @@
         "Mon-Sun": "09:30-17:00"
       }
     ],
-    "id": 27
+    "id": 27,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575444/27-pencils_o25mfd.jpg"
   },
   {
     "name": "The Museum of Broken Relationships",
@@ -521,7 +548,8 @@
         "Mon-Sun": "09:00-21:00"
       }
     ],
-    "id": 28
+    "id": 28,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575444/28-relationship_bbfydd.jpg"
   },
   {
     "name": "The Spy Museum",
@@ -538,7 +566,8 @@
         "Mon-Sun": "10:00-19:00"
       }
     ],
-    "id": 29
+    "id": 29,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575446/29-spy_zn3uhl.jpg"
   },
   {
     "name": "The Museum of Underwater Archaeology",
@@ -555,7 +584,8 @@
         "Mon-Sun": "09:00-19:00"
       }
     ],
-    "id": 30
+    "id": 30,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575446/30-underwater_kjjt6h.jpg"
   },
   {
     "name": "Musée de l'Absinthe",
@@ -575,7 +605,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 31
+    "id": 31,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575445/31-absinthe_zgj4oq.jpg"
   },
   {
     "name": "Museo del Oro",
@@ -598,7 +629,8 @@
         "Sun": "10:00-16:00"
       }
     ],
-    "id": 32
+    "id": 32,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575447/32-gold_bnq1b3.jpg"
   },
   {
     "name": "The Museum of the American Cocktail",
@@ -615,7 +647,8 @@
         "Mon-Sun": "11:00-17:00"
       }
     ],
-    "id": 33
+    "id": 33,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575447/33-cocktails_frn869.jpg"
   },
   {
     "name": "The Nobel Prize Museum",
@@ -635,7 +668,8 @@
         "Tue-Sun": "11:00-17:00"
       }
     ],
-    "id": 34
+    "id": 34,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/v1717575448/34-nobelprize_tbpkom.jpg"
   },
   {
     "name": "Museum of Spirits",
@@ -655,7 +689,8 @@
         "Tue-Sun": "10:00-17:00"
       }
     ],
-    "id": 35
+    "id": 35,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575448/35-spritmuseum_rjrdwc.jpg"
   },
   {
     "name": "Bode Museum",
@@ -672,7 +707,8 @@
         "Mon-Sun": "10:00-18:00"
       }
     ],
-    "id": 36
+    "id": 36,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575468/36-bode_vyv7y4.jpg"
   },
   {
     "name": "The Kollwitz Museum",
@@ -689,7 +725,8 @@
         "Mon-Sun": "11:00-18:00"
       }
     ],
-    "id": 37
+    "id": 37,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575467/37-kollwitz_oeqlzx.jpg"
   },
   {
     "name": "Illuseum",
@@ -706,7 +743,8 @@
         "Mon-Sun": "10:00-20:00"
       }
     ],
-    "id": 38
+    "id": 38,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575467/38-opticalillusion_eiiff7.jpg"
   },
   {
     "name": "MUTTER Museum",
@@ -723,7 +761,8 @@
         "Mon-Sun": "10:00-17:00"
       }
     ],
-    "id": 39
+    "id": 39,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575471/39-mutter_qedori.jpg"
   },
   {
     "name": "Shitamachi Tanabata Museum",
@@ -743,7 +782,8 @@
         "Tue-Sun": "9:30-16:30"
       }
     ],
-    "id": 40
+    "id": 40,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575468/40-tanabata_qcaic2.jpg"
   },
   {
     "name": "Museum of Traditional Korean Music",
@@ -763,7 +803,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 41
+    "id": 41,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575470/41-koreanmusic_y58fwt.jpg"
   },
   {
     "name": "Meguro Parasitological Museum",
@@ -783,7 +824,8 @@
         "Wed-Sun": "10:00-17:00"
       }
     ],
-    "id": 42
+    "id": 42,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575469/42-meguro_gz5xab.jpg"
   },
   {
     "name": "Tanzanite Experience Museum",
@@ -800,7 +842,8 @@
         "Mon-Sun": "09:00-17:00"
       }
     ],
-    "id": 43
+    "id": 43,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575469/43-tanzanite_bagmxd.jpg"
   },
   {
     "name": "Museum of West African Art",
@@ -817,7 +860,8 @@
         "Mon-Sun": "09:00-17:00"
       }
     ],
-    "id": 44
+    "id": 44,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575084/44-mowaa_de2kro.jpg"
   },
   {
     "name": "Kutch Museum",
@@ -837,7 +881,8 @@
         "Tue-Sun": "10:00-17:00"
       }
     ],
-    "id": 45
+    "id": 45,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575476/45-kutch_e8stle.jpg"
   },
   {
     "name": "Museum of the Island of Mozambique",
@@ -857,7 +902,8 @@
         "Tue-Sun": "09:00-17:00"
       }
     ],
-    "id": 46
+    "id": 46,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575514/46-mozambique_zvzzh0.jpg"
   },
   {
     "name": "Museum of Islamic Art",
@@ -874,7 +920,8 @@
         "Mon-Sun": "09:00-16:00"
       }
     ],
-    "id": 47
+    "id": 47,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575659/47-islamic_qcz7da.jpg"
   },
   {
     "name": "Trick Eye Museum",
@@ -891,7 +938,8 @@
         "Mon-Sun": "10:00-21:00"
       }
     ],
-    "id": 48
+    "id": 48,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/v1717575548/48-illusion_m9ij1m.jpg"
   },
   {
     "name": "Seychelles Natural History Museum",
@@ -914,7 +962,8 @@
         "Sun": "Closed"
       }
     ],
-    "id": 49
+    "id": 49,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575576/49-seychelles_jvblly.jpg"
   },
   {
     "name": "House of Dreams Museum",
@@ -931,7 +980,8 @@
         "Mon-Sun": "By appointment only"
       }
     ],
-    "id": 50
+    "id": 50,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575588/50-houseofdreams_dvo1bd.jpg"
   },
   {
     "name": "Fondation Maeght",
@@ -948,7 +998,8 @@
         "Mon-Sun": "10:00-18:00"
       }
     ],
-    "id": 51
+    "id": 51,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575572/51-maeght_jctaxt.jpg"
   },
   {
     "name": "Museo degli Strumenti Musicali",
@@ -965,7 +1016,8 @@
         "Mon-Sun": "08:15-18:50"
       }
     ],
-    "id": 52
+    "id": 52,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575558/52-instruments_zgo3rl.jpg"
   },
   {
     "name": "Museum of Medieval Torture Instruments",
@@ -982,7 +1034,8 @@
         "Mon-Sun": "10:00-22:00"
       }
     ],
-    "id": 53
+    "id": 53,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575659/53-torture_qec2zo.jpg"
   },
   {
     "name": "Museo Atlantico",
@@ -999,7 +1052,8 @@
         "Mon-Sun": "09:00-18:00"
       }
     ],
-    "id": 54
+    "id": 54,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575659/54-atlantico_jb5uzm.jpg"
   },
   {
     "name": "Siriraj Medical Museum",
@@ -1016,7 +1070,8 @@
         "Mon-Sun": "10:00-17:00"
       }
     ],
-    "id": 55
+    "id": 55,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575660/55-medicalhistory_fb51ok.jpg"
   },
   {
     "name": "Museum of Soviet Arcade Machines",
@@ -1033,7 +1088,8 @@
         "Mon-Sun": "11:00-21:00"
       }
     ],
-    "id": 56
+    "id": 56,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575661/56-arcadesoviet_ot4moh.jpg"
   },
   {
     "name": "Museum of Everyday Life",
@@ -1050,7 +1106,8 @@
         "Mon-Sun": "08:00-20:00"
       }
     ],
-    "id": 57
+    "id": 57,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575697/57-everyday_rlhail.jpg"
   },
   {
     "name": "Museum of Old and New Art (MONA)",
@@ -1070,7 +1127,8 @@
         "Tue-Sun": "10:00-17:00"
       }
     ],
-    "id": 58
+    "id": 58,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575697/58-MONA_m1ellm.jpg"
   },
   {
     "name": "The Barnes Foundation",
@@ -1090,7 +1148,8 @@
         "Tue-Sun": "11:00-17:00"
       }
     ],
-    "id": 59
+    "id": 59,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575699/59-barnes_rpf9ib.jpg"
   },
   {
     "name": "Museum of Bread",
@@ -1110,7 +1169,8 @@
         "Mon": "Closed"
       }
     ],
-    "id": 60
+    "id": 60,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575698/60-bread_r7iwxo.jpg"
   },
   {
     "name": "The Museum of Witchcraft and Magic",
@@ -1127,7 +1187,8 @@
         "Mon-Sun": "10:30-18:00"
       }
     ],
-    "id": 61
+    "id": 61,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/uploa/v1717575699/61-witchcraft_aiczff.jpg"
   },
   {
     "name": "Museum of Shadow",
@@ -1144,7 +1205,8 @@
         "Mon-Sun": "11:00-20:00"
       }
     ],
-    "id": 62
+    "id": 62,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575699/62-shadows_c1b9ie.jpg"
   },
   {
     "name": "Museum of the Holy Souls in Purgatory",
@@ -1161,7 +1223,8 @@
         "Mon-Sun": "07:00-12:00, 16:00-19:00"
       }
     ],
-    "id": 63
+    "id": 63,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575084/63-purgatory_snt2pf.jpg"
   },
   {
     "name": "The Mummy Museum",
@@ -1178,7 +1241,8 @@
         "Mon-Sun": "09:00-18:00"
       }
     ],
-    "id": 64
+    "id": 64,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575085/64-mummies_bqxoks.jpg"
   },
   {
     "name": "Museum of the Weird",
@@ -1195,7 +1259,8 @@
         "Mon-Sun": "10:00-19:00"
       }
     ],
-    "id": 65
+    "id": 65,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575084/65-weird_k1fcyz.jpg"
   },
   {
     "name": "Arnold's Cannibal Museum",
@@ -1212,7 +1277,8 @@
         "Mon-Sun": "By appointment only"
       }
     ],
-    "id": 66
+    "id": 66,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575085/66-cannibalism_s1rkvc.jpg"
   },
   {
     "name": "Brewery Museum",
@@ -1229,7 +1295,8 @@
         "Thu": "10:00-13:00"
       }
     ],
-    "id": 67
+    "id": 67,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575085/67-brewery_g2qfao.jpg"
   },
   {
     "name": "Borgquist's Hat Museum",
@@ -1246,7 +1313,8 @@
         "Mon-Sun": "By appointment only"
       }
     ],
-    "id": 68
+    "id": 68,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575085/68-hats_butoho.jpg"
   },
   {
     "name": "Vagabond Museum",
@@ -1263,7 +1331,8 @@
         "Mon-Sun": "11:00-16:00"
       }
     ],
-    "id": 69
+    "id": 69,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575128/69-vagabond_fsxhah.jpg"
   },
   {
     "name": "Vanja's Textile Museum",
@@ -1280,7 +1349,8 @@
         "Mon-Sun": "By appointment only"
       }
     ],
-    "id": 70
+    "id": 70,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575129/70-textile_icqexn.jpg"
   },
   {
     "name": "Hanger Museum",
@@ -1297,7 +1367,8 @@
         "Mon-Sun": "12:00-16:00"
       }
     ],
-    "id": 71
+    "id": 71,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575129/71-hanger_zypixt.jpg"
   },
   {
     "name": "Inhotim",
@@ -1320,7 +1391,8 @@
         "Sat-Sun": "9:30-17:30"
       }
     ],
-    "id": 72
+    "id": 72,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575129/72-inhotim_cb4cvs.jpg"
   },
   {
     "name": "Museo Soumaya",
@@ -1337,7 +1409,8 @@
         "Mon-Sun": "10:30-18:30"
       }
     ],
-    "id": 73
+    "id": 73,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575129/73-soumaya_i2twvy.jpg"
   },
   {
     "name": "Ralli Museum",
@@ -1360,7 +1433,8 @@
         "Sat-Sun": "10:30-18:00"
       }
     ],
-    "id": 74
+    "id": 74,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575163/74-ralli_rrzep1.jpg"
   },
   {
     "name": "Museo de Arte de Ponce",
@@ -1380,7 +1454,8 @@
         "Wed-Sun": "10:00-17:00"
       }
     ],
-    "id": 75
+    "id": 75,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575164/75-ponce_e4hiqt.jpg"
   },
   {
     "name": "Chichu Art Museum",
@@ -1400,7 +1475,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 76
+    "id": 76,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575182/76-chichu_edlwuc.jpg"
   },
   {
     "name": "Museo Nacional de Arte Romano",
@@ -1423,7 +1499,8 @@
         "Sun": "10:00-15:00"
       }
     ],
-    "id": 77
+    "id": 77,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575182/77-roman_mivjym.jpg"
   },
   {
     "name": "Museo Universitario Arte Contemporáneo (MUAC)",
@@ -1443,7 +1520,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 78
+    "id": 78,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575183/78-muac_ppmglo.jpg"
   },
   {
     "name": "Zeitz Museum of Contemporary Art Africa (MOCAA)",
@@ -1463,7 +1541,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 79
+    "id": 79,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575183/79-zeitz_rq4scg.jpg"
   },
   {
     "name": "The Menil Collection",
@@ -1483,7 +1562,8 @@
         "Tue-Sun": "11:00-19:00"
       }
     ],
-    "id": 80
+    "id": 80,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575183/80-menil_s2gxht.jpg"
   },
   {
     "name": "Museum of Contemporary Art (MOCA)",
@@ -1503,7 +1583,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 81
+    "id": 81,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575183/81-moca_gmnzwj.jpg"
   },
   {
     "name": "The David Collection",
@@ -1523,7 +1604,8 @@
         "Wed-Sun": "10:00-17:00"
       }
     ],
-    "id": 82
+    "id": 82,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575213/82-islamic_wc9vus.jpg"
   },
   {
     "name": "Fundación Proa",
@@ -1543,7 +1625,8 @@
         "Tue-Sun": "12:00-19:00"
       }
     ],
-    "id": 83
+    "id": 83,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575213/83-proa_soxyen.jpg"
   },
   {
     "name": "Glenstone",
@@ -1563,7 +1646,8 @@
         "Thu-Sun": "10:00-17:00"
       }
     ],
-    "id": 84
+    "id": 84,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575214/85-glenstone_utxs9s.jpg"
   },
   {
     "name": "Sammlung Boros",
@@ -1583,7 +1667,8 @@
         "Thu-Sun": "10:00-18:00"
       }
     ],
-    "id": 85
+    "id": 85,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575214/85-sammlung_irvtir.jpg"
   },
   {
     "name": "Kumu Art Museum",
@@ -1609,7 +1694,8 @@
         "Fri-Sun": "10:00-18:00"
       }
     ],
-    "id": 86
+    "id": 86,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575215/86-kumu_f1gawi.jpg"
   },
   {
     "name": "Museo de Arte Contemporáneo de Monterrey (MARCO)",
@@ -1629,7 +1715,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 87
+    "id": 87,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575216/87-marco_cimo2i.jpg"
   },
   {
     "name": "Museo Tamayo",
@@ -1649,7 +1736,8 @@
         "Tue-Sun": "10:00-18:00"
       }
     ],
-    "id": 88
+    "id": 88,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575217/88-tamayo_klvpuv.jpg"
   },
   {
     "name": "National Museum of Modern and Contemporary Art (MMCA)",
@@ -1675,7 +1763,8 @@
         "Sun": "10:00-18:00"
       }
     ],
-    "id": 89
+    "id": 89,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575216/89-mmca_degwuk.jpg"
   },
   {
     "name": "Pérez Art Museum Miami (PAMM)",
@@ -1701,7 +1790,8 @@
         "Fri-Sun": "11:00-18:00"
       }
     ],
-    "id": 90
+    "id": 90,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575217/90-pamm_f4jdxn.jpg"
   },
   {
     "name": "Macao Museum of Art (MAM)",
@@ -1721,7 +1811,8 @@
         "Tue-Sun": "10:00-19:00"
       }
     ],
-    "id": 91
+    "id": 91,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575219/91-macao_udimdk.jpg"
   },
   {
     "name": "Museo de Arte Latinoamericano de Buenos Aires (MALBA)",
@@ -1741,7 +1832,8 @@
         "Wed-Mon": "12:00-20:00"
       }
     ],
-    "id": 92
+    "id": 92,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575218/92-malba_sq6kbn.jpg"
   },
   {
     "name": "The Phillips Collection",
@@ -1764,7 +1856,8 @@
         "Sun": "12:00-18:30"
       }
     ],
-    "id": 93
+    "id": 93,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575218/93-philips_krhime.jpg"
   },
   {
     "name": "Museu Coleção Berardo",
@@ -1784,7 +1877,8 @@
         "Tue-Sun": "10:00-19:00"
       }
     ],
-    "id": 94
+    "id": 94,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575268/94-berardo_dtpimj.jpg"
   },
   {
     "name": "Tate St Ives",
@@ -1801,7 +1895,8 @@
         "Mon-Sun": "10:00-17:20"
       }
     ],
-    "id": 95
+    "id": 95,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575285/95-tate_b7ndnr.jpg"
   },
   {
     "name": "Hara Museum of Contemporary Art",
@@ -1821,7 +1916,8 @@
         "Tue-Sun": "11:00-17:00"
       }
     ],
-    "id": 96
+    "id": 96,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575304/96-hara_ygk6sf.jpg"
   },
   {
     "name": "Villa Stuck",
@@ -1841,7 +1937,8 @@
         "Tue-Sun": "11:00-18:00"
       }
     ],
-    "id": 97
+    "id": 97,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575318/97-villastuck_kwgxhs.jpg"
   },
   {
     "name": "Museum of Contemporary Art San Diego (MCASD)",
@@ -1861,7 +1958,8 @@
         "Wed-Sun": "11:00-17:00"
       }
     ],
-    "id": 98
+    "id": 98,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717577269/98-mascd_ov2xgb.jpg"
   },
   {
     "name": "Astrup Fearnley Museum of Modern Art",
@@ -1881,7 +1979,8 @@
         "Tue-Sun": "11:00-17:00"
       }
     ],
-    "id": 99
+    "id": 99,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575334/99-astrup_lihxzw.jpg"
   },
   {
     "name": "Centro de Arte Contemporáneo (CAC)",
@@ -1898,7 +1997,8 @@
         "Mon-Sun": "10:00-20:00"
       }
     ],
-    "id": 100
+    "id": 100,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575334/100-cac_mbaf0n.jpg"
   },
   {
     "name": "Garage Museum of Contemporary Art",
@@ -1915,7 +2015,8 @@
         "Mon-Sun": "11:00-22:00"
       }
     ],
-    "id": 101
+    "id": 101,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575334/101-garage_gj24ki.jpg"
   },
   {
     "name": "Hirshhorn Museum and Sculpture Garden",
@@ -1932,7 +2033,8 @@
         "Mon-Sun": "10:00-17:30"
       }
     ],
-    "id": 102
+    "id": 102,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575334/102-hirshhorn_wl7sha.jpg"
   },
   {
     "name": "Dia:Beacon",
@@ -1952,7 +2054,8 @@
         "Wed-Mon": "10:00-17:00"
       }
     ],
-    "id": 103
+    "id": 103,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575336/103-diabeacon_m1upit.jpg"
   },
   {
     "name": "Museum of Contemporary Art (MCA)",
@@ -1975,7 +2078,8 @@
         "Thu-Sun": "10:00-17:00"
       }
     ],
-    "id": 104
+    "id": 104,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575352/104-mca_tipnll.jpg"
   },
   {
     "name": "WIELS Contemporary Art Centre",
@@ -1995,6 +2099,7 @@
         "Wed-Sun": "11:00-18:00"
       }
     ],
-    "id": 105
+    "id": 105,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575351/105-wiels_lnz4nn.jpg"
   }
 ]
