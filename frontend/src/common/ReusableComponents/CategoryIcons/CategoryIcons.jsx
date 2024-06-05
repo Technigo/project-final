@@ -41,7 +41,7 @@ const categoryicons = [
 
 export const CategoryIcons = ({ variant }) => {
   return (
-    <div className={`category-icons-wrapper ${variant}`}>
+    <section className={`category-icons-container ${variant}`}>
       <h3 className="category-icons-h3">Shop by category</h3>
       <div className="category-icons">
         {categoryicons.map((categoryicon, index) => (
@@ -61,6 +61,6 @@ export const CategoryIcons = ({ variant }) => {
           </NavLink>
         ))}
       </div>
-    </div>
+    </section>
   );
 };

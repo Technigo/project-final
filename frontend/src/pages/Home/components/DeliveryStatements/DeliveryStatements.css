@@ -1,4 +1,4 @@
-.delivery-statements {
+.delivery-statements-container {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
@@ -31,7 +31,7 @@
 
 /* Media Queries for tablet */
 @media screen and (min-width: 667px) {
-  .delivery-statements {
+  .delivery-statements-container {
     gap: 32px;
   }
   .delivery-image {
