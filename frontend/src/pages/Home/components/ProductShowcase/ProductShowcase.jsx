@@ -14,14 +14,14 @@ export const ProductShowcase = () => {
     swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 1024, // Adjust this value based on your requirements
+        breakpoint: 1025, // Adjust this value based on your requirements
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600, // Adjust this value based on your requirements
+        breakpoint: 668, // Adjust this value based on your requirements
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
