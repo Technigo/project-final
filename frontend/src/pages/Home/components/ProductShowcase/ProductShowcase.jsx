@@ -50,9 +50,9 @@ export const ProductShowcase = () => {
     },
     {
       imageUrl:
-        "https://res.cloudinary.com/dftguo4fa/image/upload/c_fill,ar_1:1,g_auto/v1716982715/openart-image_6ec_sGin_1716982248764_raw_isbybr.jpg",
+        "https://res.cloudinary.com/dftguo4fa/image/upload/v1716975475/openart-image_CD-eAqhN_1716974003775_raw_glo0cv.jpg",
       linkUrl:
-        "https://cones-and-stones.netlify.app/products/66584ad69c3e3eec961e7c65",
+        "https://cones-and-stones.netlify.app/products/66586efd9c3e3eec962a7125",
     },
     {
       imageUrl:
