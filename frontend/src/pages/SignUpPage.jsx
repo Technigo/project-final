@@ -116,21 +116,36 @@ export const SignUpPage = () => {
             <select
               name="skintype"
               id="skin"
-              className="mt-8 h-8 rounded-md font-heading font-bold pl-4"
+              className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input"
             >
-              <option value="sensitive" className="font-heading font-bold">
+              <option
+                value="sensitive"
+                className="font-heading font-bold bg-bg-input"
+              >
                 Sensitive
               </option>
-              <option value="dry" className="font-heading font-bold">
+              <option
+                value="dry"
+                className="font-heading font-bold bg-bg-input"
+              >
                 Dry
               </option>
-              <option value="oily" className="font-heading font-bold">
+              <option
+                value="oily"
+                className="font-heading font-bold bg-bg-input"
+              >
                 Oily
               </option>
-              <option value="combination" className="font-heading font-bold">
+              <option
+                value="combination"
+                className="font-heading font-bold bg-bg-input"
+              >
                 Combination
               </option>
-              <option value="acne" className="font-heading font-bold">
+              <option
+                value="acne"
+                className="font-heading font-bold bg-bg-input"
+              >
                 Acne
               </option>
             </select>
@@ -151,11 +166,163 @@ export const SignUpPage = () => {
             <select
               name="hair-moisture"
               id="moisture"
-              className="mt-2 h-8 rounded-md font-heading font-bold pl-4"
-            ></select>
+              className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input"
+            >
+              <option
+                value="dry"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Dry
+              </option>
+              <option
+                value="normal"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Normal
+              </option>
+              <option
+                value="oily"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Oily
+              </option>
+            </select>
+            <label
+              htmlFor="shape"
+              className="font-heading font-bold text-xl mt-5"
+            >
+              Shape
+            </label>
+            <select
+              name="hair-shape"
+              id="shape"
+              className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input"
+            >
+              <option
+                value="staight"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Straight
+              </option>
+              <option
+                value="wavy"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Wavy
+              </option>
+              <option
+                value="curly"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Curly
+              </option>
+              <option
+                value="coils"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Coils
+              </option>
+            </select>
           </div>
-          <img src="allergies02.svg" alt="Icon of hand with allergies"></img>
-          <img src="preferences02.svg" alt="Icon of a heart"></img>
+          <div className="flex flex-col mt-10">
+            <div className="flex">
+              <img
+                src="allergies02.svg"
+                alt="Icon of hand with allergies"
+              ></img>
+              <label
+                htmlFor="allergies"
+                className="font-heading font-bold text-2xl mt-9 ml-5"
+              >
+                Allergies:
+              </label>
+            </div>
+            <select
+              name="allergies"
+              id="allergies"
+              className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input"
+              multiple
+            >
+              <option
+                value="fragrances"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Fragrances
+              </option>
+              <option
+                value="preservatives"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Preservatives
+              </option>
+              <option
+                value="dyes"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Dyes
+              </option>
+              <option
+                value="metals"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Metals
+              </option>
+              <option
+                value="latex"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Latex
+              </option>{" "}
+              <option
+                value="parabens"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Parabens
+              </option>
+            </select>
+          </div>
+          <div className="flex flex-col mt-10">
+            <div className="flex">
+              <img src="preferences02.svg" alt="Icon of a heart"></img>
+              <label
+                htmlFor="preferences"
+                className="font-heading font-bold text-2xl mt-9 ml-5"
+              >
+                Preferences:
+              </label>
+            </div>
+            <select
+              name="preferences"
+              id="preferences"
+              className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input"
+              multiple
+            >
+              <option
+                value="organic"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Organic
+              </option>
+              <option
+                value="vegan"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Vegan
+              </option>
+              <option
+                value="crueltyfree"
+                className="font-heading font-bold bg-bg-input"
+              >
+                Crueltyfree
+              </option>
+            </select>
+          </div>
+          <button className="bg-bg-input h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading">
+            Go back
+          </button>
+          <button className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading">
+            Create profile
+          </button>
         </form>
       </section>
     </>
