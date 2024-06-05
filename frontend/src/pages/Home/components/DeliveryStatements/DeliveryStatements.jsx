@@ -29,14 +29,14 @@ const deliverystatements = [
 export const DeliveryStatements = ({bgColor, fontSize}) => {
   return (
     <div className="delivery-statements" style={{backgroundColor: bgColor, fontSize: fontSize}}>
-      {deliverystatements.map((deliverystatements, index) => (
+      {deliverystatements.map((deliverystatement, index) => (
         <div key={index} className="delivery-statement">
           <Image
             src={deliverystatement.src}
             alt={deliverystatement.alt}
             className={deliverystatement.className}
           />
-          <span className="delivery-text">{deliverystatements.text}</span>
+          <span className="delivery-text">{deliverystatement.text}</span>
         </div>
       ))}
     </div>
