@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const planetSchema = new Schema({
   name: {
@@ -44,6 +44,6 @@ const planetSchema = new Schema({
 });
 
 //The model (based entirely on all entries in the planetSchema)
-const PlanetModel = mongoose.model("PlanetModel", planetSchema);
+const PlanetModel = model("PlanetModel", planetSchema);
 
 export default PlanetModel;

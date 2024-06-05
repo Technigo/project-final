@@ -75,53 +75,71 @@ app.get("/", (req, res) => {
 
 // GET all planets
 app.get("/planets", async (req, res) => {
-  const allPlanets = await PlanetModel.find();
+  try {
+    const allPlanets = await PlanetModel.find();
 
-  if (allPlanets.length > 0) {
-    res.json(allPlanets);
-  } else {
-    res.status(404).send("No planets can be found at the moment.");
+    if (allPlanets.length > 0) {
+      res.json(allPlanets);
+    } else {
+      res.status(404).send("No planets can be found at the moment.");
+    }
+  } catch (error) {
+    res.status(500).send(`An error occured while fetching the planets`);
   }
 });
 
 // GET a specific planet
 app.get("/planets/:planet", async (req, res) => {
   const planet = req.params.planet;
+  try {
+    const onePlanet = await PlanetModel.findOne({
+      name: { $regex: planet, $options: "i" },
+    }).exec();
 
-  const onePlanet = await PlanetModel.findOne({
-    name: { $regex: planet, $options: "i" },
-  }).exec();
-
-  if (onePlanet) {
-    res.json(onePlanet);
-  } else {
+    if (onePlanet) {
+      res.json(onePlanet);
+    } else {
+      res
+        .status(404)
+        .send(
+          "Couldn't find the specific planet you're looking for. Please try again"
+        );
+    }
+  } catch (error) {
     res
-      .status(404)
-      .send(
-        "Couldn't find the specific planet you're looking for. Please try again"
-      );
+      .status(500)
+      .send(`An error occured while fetching the planet you search for`);
   }
 });
 
 // GET all celestial bodies
 app.get("/celestial", async (req, res) => {
   const allCelestials = await CelestialModel.find();
-
-  if (allCelestials.length > 0) {
-    res.json(allCelestials);
-  } else {
-    res.status(404).send("No celestial entities can be found at the moment.");
+  try {
+    if (allCelestials) {
+      res.json(allCelestials);
+    } else {
+      res.status(404).send("No celestial bodies can be found at the moment.");
+    }
+  } catch (error) {
+    res.status(500).send(`An error occured while fetching the ${name}.`);
   }
 });
 
 //GET Sun, Moon and potentially other celestial bodies
 app.get("/celestial/:name", async (req, res) => {
-  const name = req.params.name;
-  const getCelestial = await CelestialModel.findOne({ name: name });
-  if (getCelestial) {
-    res.json(getCelestial);
-  } else {
-    res.status(404).send(`Couldn't catch the ${name} right now. Try again!`);
+  const celestial = req.params.name;
+  try {
+    const getCelestial = await CelestialModel.findOne({
+      name: { $regex: celestial, $options: "i" },
+    });
+    if (getCelestial) {
+      res.json(getCelestial);
+    } else {
+      res.status(404).send(`Couldn't find the ${name} right now. Try again!`);
+    }
+  } catch (error) {
+    res.status(500).send(`An error occurred while fetching the ${name}.`);
   }
 });
 

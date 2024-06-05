@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const celestialSchema = new Schema({
   name: {
@@ -21,7 +21,6 @@ const celestialSchema = new Schema({
   },
 });
 
-//The model (based entirely on all entries in the sunSchema)
-const CelestialModel = mongoose.model("CelestialModel", celestialSchema);
+const CelestialModel = model("CelestialModel", celestialSchema);
 
 export default CelestialModel;
