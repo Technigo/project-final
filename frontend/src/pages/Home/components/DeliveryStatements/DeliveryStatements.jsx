@@ -28,7 +28,7 @@ const deliverystatements = [
 ];
 export const DeliveryStatements = ({bgColor, fontSize}) => {
   return (
-    <div className="delivery-statements" style={{backgroundColor: bgColor, fontSize: fontSize}}>
+    <section className="delivery-statements-container" style={{backgroundColor: bgColor, fontSize: fontSize}}>
       {deliverystatements.map((deliverystatement, index) => (
         <div key={index} className="delivery-statement">
           <Image
@@ -39,6 +39,6 @@ export const DeliveryStatements = ({bgColor, fontSize}) => {
           <span className="delivery-text">{deliverystatement.text}</span>
         </div>
       ))}
-    </div>
+    </section>
   );
 };

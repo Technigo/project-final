@@ -5,7 +5,7 @@ import { Button } from "../../../../common/ReusableComponents/Button/Button";
 
 export const Hero = () => {
   return (
-    <div className="hero">
+    <section className="hero-container">
       <Image
         src={heroImage}
         alt="Hero-image of small girl dancing in the field"
@@ -20,6 +20,6 @@ export const Hero = () => {
           to="/products"
         />
       </div>
-    </div>
+    </section>
   );
 };
