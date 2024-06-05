@@ -4,13 +4,11 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import expressListEndpoints from "express-list-endpoints";
 import PlanetModel from "./models/PlanetModel";
-//import MoonModel from "./models/MoonModel";
-//import SunModel from "./models/SunModel";
 import SpaceFeed from "./models/SpaceFeed";
 import spaceData from "./data/SpaceFeed.json";
 import planetsData from "./data/Planets.json";
-//import sunData from "./data/sun-moon.json";
-//import moonData from "./data/sun-moon.json";
+import celestialData from "./data/Celestial.json";
+import CelestialModel from "./models/CelestialModel";
 
 //Load environment variables
 dotenv.config();
@@ -24,6 +22,7 @@ mongoose.Promise = Promise;
 const seedDatabase = async () => {
   await SpaceFeed.deleteMany();
   await PlanetModel.deleteMany();
+  await CelestialModel.deleteMany();
 
   spaceData.forEach(async (feed) => {
     await new SpaceFeed(feed).save();
@@ -31,6 +30,10 @@ const seedDatabase = async () => {
 
   planetsData.forEach(async (planet) => {
     await new PlanetModel(planet).save();
+  });
+
+  celestialData.forEach(async (celestial) => {
+    await new CelestialModel(celestial).save();
   });
 };
 
@@ -70,7 +73,7 @@ app.get("/", (req, res) => {
   res.json(endpoints);
 });
 
-// GET planets
+// GET all planets
 app.get("/planets", async (req, res) => {
   const allPlanets = await PlanetModel.find();
 
@@ -100,29 +103,27 @@ app.get("/planets/:planet", async (req, res) => {
   }
 });
 
-/*
-//GET Sun 
-app.get("/sun", async (req, res) => {
-  const getSun = await SunModel.find();
+// GET all celestial bodies
+app.get("/celestial", async (req, res) => {
+  const allCelestials = await CelestialModel.find();
 
-  if (getSun) {
-    res.json(getSun);
+  if (allCelestials.length > 0) {
+    res.json(allCelestials);
   } else {
-    res.status(404).send("Couldn't catch the Sun right now. Try again!");
+    res.status(404).send("No celestial entities can be found at the moment.");
   }
 });
 
-//GET Moon
-app.get("/moon", async (req, res) => {
-  const getMoon = await MoonModel.find();
-
-  if (getMoon) {
-    res.json(getMoon);
+//GET Sun, Moon and potentially other celestial bodies
+app.get("/celestial/:name", async (req, res) => {
+  const name = req.params.name;
+  const getCelestial = await CelestialModel.findOne({ name: name });
+  if (getCelestial) {
+    res.json(getCelestial);
   } else {
-    res.status(404).send("Couldn't catch the Moon right now. Try again!");
+    res.status(404).send(`Couldn't catch the ${name} right now. Try again!`);
   }
 });
-*/
 
 //Route handler to show space messages in descending order from when created, limit to 10 messages
 app.get("/space-feed", async (req, res) => {
