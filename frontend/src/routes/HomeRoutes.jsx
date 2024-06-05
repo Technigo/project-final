@@ -18,6 +18,7 @@ export const HomeRoutes = () => {
           </>
         }
       />
+      <Route path="/planets" element={<AllPlanets />} />
       <Route path="/planets/:planet" element={<Planet />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
