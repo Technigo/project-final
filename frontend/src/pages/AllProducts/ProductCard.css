@@ -4,11 +4,6 @@
   margin-bottom: 10px;
 }
 
-.all-products-image {
-  width: 100%;
-  height: auto;
-}
-
 .product-card-text {
   display: flex;
   flex-direction: column;
