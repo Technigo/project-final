@@ -1,10 +1,10 @@
 import { Banner } from "./components/Banner/Banner";
-import { ProductCategories } from "./components/ProductCategories/ProductCategories";
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 import { Hero } from "./components/Hero/Hero";
 import { ProductShowcase } from "./components/ProductShowcase/ProductShowcase";
 import "./Home.css";
 import { DeliveryStatements } from "./components/DeliveryStatements/DeliveryStatements";
+import { NewArrivalsSection } from "./components/NewArrivals/NewArrivalsSection";
 
 export const Home = () => {
   return (
@@ -13,7 +13,7 @@ export const Home = () => {
       <DeliveryStatements bgColor="#f38d7c" fontSize="24px" />
       <ProductShowcase />
       <CategoryIcons variant="yellow" />
-      <ProductCategories />
+      <NewArrivalsSection />
       <Banner />
     </div>
   );

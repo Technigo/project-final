@@ -1,0 +1,12 @@
+.new-arrivals-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* Media Quieries for desktop*/
+@media (min-width: 1024px) {
+  .new-arrivals-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
