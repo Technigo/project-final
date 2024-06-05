@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { Toggle } from "../ReusableComponents/Toggle/Toggle";
 import "./Footer.css";
-import logofooter from "/assets/logotypes/logo-footer.svg";
+import logoFooter from "/assets/logotypes/logo-footer.svg";
+import { Image } from "../ReusableComponents/Image/Image";
 
 export const Footer = () => {
   return (
     <footer className="footer-container">
+      <Image src={logoFooter} alt="footer-logo" className="footer-logo" />
       <Toggle title="Clothes">
         <ul className="footer-categories">
           <li>
