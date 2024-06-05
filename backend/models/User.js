@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-import crypto from "crypto";
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, minlength: 3 },
@@ -9,7 +8,6 @@ const userSchema = new mongoose.Schema({
   name: { type: String },
   bio: { type: String },
   hobby: { type: String },
-  profilePicture: { type: String },
 });
 
 // Middleware to hash the password before saving

@@ -137,16 +137,16 @@ router.get("/profile", authenticateToken, async (req, res) => {
 router.put(
   "/profile",
   authenticateToken,
-  upload.single("profilePicture"),
+  /*  upload.single("profilePicture"), */
   async (req, res) => {
     try {
-      const { name, bio } = req.body;
-      const profilePicture = req.file ? req.file.path : null;
-      const updatedData = { name, bio };
+      const { name, bio, hobby } = req.body;
+      /*  const profilePicture = req.file ? req.file.path : null; */
+      const updatedData = { name, bio, hobby };
 
-      if (profilePicture) {
-        updatedData.profilePicture = profilePicture;
-      }
+      /*  if (profilePicture) {
+         updatedData.profilePicture = profilePicture;
+       } */
       // Log the update data to debug
       console.log("Updating user profile with data:", updatedData);
 
