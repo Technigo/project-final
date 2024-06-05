@@ -1,0 +1,23 @@
+.banner-wrapper {
+  padding: 60px 0;
+}
+
+.banner-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: scale-down;
+}
+
+/* Media Queries for tablet */
+@media screen and (min-width: 667px) {
+  .banner-wrapper {
+    padding: 80px 0;
+  }
+}
+
+/* Media Queries for desktop */
+@media screen and (min-width: 1024px) {
+  .banner-wrapper {
+    padding: 160px 0;
+  }
+}
