@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Image } from "../../common/ReusableComponents/Image";
+import { Image } from "../../common/ReusableComponents/Image/Image";
 import "./ProductCard.css";
 
 export const ProductCard = ({ id, image_url, name, price }) => {

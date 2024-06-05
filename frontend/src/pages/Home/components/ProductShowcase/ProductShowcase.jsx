@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Image } from "../../../../common/ReusableComponents/Image";
+import { Image } from "../../../../common/ReusableComponents/Image/Image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
