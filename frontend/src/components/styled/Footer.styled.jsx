@@ -6,6 +6,8 @@ const StyledFooter = styled.div`
   justify-content: center;
   width: 100%;
   height: 80px;
+  padding: 40px 20px;
+  text-align: center;
 
   ul {
     display: flex;
