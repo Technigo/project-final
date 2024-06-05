@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
-import { Button } from "../../common/ReusableComponents/Button";
+import { Button } from "../../common/ReusableComponents/Button/Button";
 
 export const SingleProduct = () => {
   const { productId } = useParams(); //get the product ID from the URL
