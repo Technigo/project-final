@@ -14,11 +14,13 @@ export const ContactPage = () => {
         <p>Get in touch with us!</p>
 
         <h4>Etna Zuñiga</h4>
+        <p>Something about us..pending</p>
         <FaLinkedin />
         <FaGithub />
         <FaGlobe />
 
         <h4>Alma Herrström </h4>
+        <p>Something about us..pending</p>
         <FaLinkedin />
         <FaGithub />
         <FaGlobe />
