@@ -17,7 +17,7 @@ export const NewArrivalsSection = () => {
   ];
 
   return (
-    <div className="new-arrivals-wrapper">
+    <div className="new-arrivals-container">
       {newArrivals.map((newArrival, index) => (
         <div key={index}>
           <Link to={`/products?sort=date_desc`}>
