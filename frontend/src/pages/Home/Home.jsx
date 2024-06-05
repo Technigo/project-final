@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <div className="homepage">
       <Hero />
-      <DeliveryStatements bgColor="#f38d7c" fontSize="24px" />
+      <DeliveryStatements variant="pink" />
       <ProductShowcase />
       <CategoryIcons variant="yellow" />
       <ProductCategories />

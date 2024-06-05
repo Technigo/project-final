@@ -26,17 +26,19 @@ const deliverystatements = [
     text: "Pick up in store",
   },
 ];
-export const DeliveryStatements = ({ bgColor, fontSize }) => {
+export const DeliveryStatements = ({ variant }) => {
   return (
-    <section className="delivery-statements-container" style={{backgroundColor: bgColor, fontSize: fontSize}}>
+    <section className={`delivery-statements-container ${variant}`}>
       {deliverystatements.map((deliverystatement, index) => (
-        <div key={index} className="delivery-statement">
+        <div key={index} className={`delivery-statement ${variant}`}>
           <Image
             src={deliverystatement.src}
             alt={deliverystatement.alt}
             className={deliverystatement.className}
           />
-          <span className="delivery-text">{deliverystatement.text}</span>
+          <p className={`delivery-text ${variant}`}>
+            {deliverystatement.text}
+          </p>
         </div>
       ))}
     </section>

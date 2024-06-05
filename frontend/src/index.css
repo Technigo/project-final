@@ -60,11 +60,6 @@ p {
   color: var(--darkgrey);
 }
 
-.delivery-statements {
-  font-weight: 400;
-  font-size: 24px;
-}
-
 /* remove all text decoration on links  */
 a {
   all: unset;

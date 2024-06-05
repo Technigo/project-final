@@ -42,7 +42,7 @@ export const AllProducts = () => {
       <h2>All products</h2>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      <div className="product-list">
+      <section className="product-list">
         {Array.isArray(products) &&
           products.map((product) => (
             <ProductCard
@@ -53,7 +53,7 @@ export const AllProducts = () => {
               price={product.price}
             />
           ))}
-      </div>
+      </section>
     </div>
   );
 };
