@@ -162,7 +162,7 @@
     "instructions": "Apply to damp hair after shampooing, leave for 2 minutes, and rinse.",
     "size": "200ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717493114/silkglowconditioner_ckrbph.jpg"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Silkessence-conditioner_s2e2v3.png"
     }
   },
   {
@@ -201,7 +201,7 @@
     "instructions": "Apply a few drops to your beard daily and massage gently.",
     "size": "30ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513502/beardoil_zevdxu.png"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717575386/beardoil_sgpd8k.png"
     }
   },
   {
@@ -601,7 +601,7 @@
     "instructions": "Apply to clean skin in the evening",
     "size": "150ml",
     "image": {
-      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/LeafySkincare-nightcream_qhswb2.png"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717575394/LeafySkincare-nightcream_uirnsp.png"
     }
   },
   {
@@ -761,6 +761,26 @@
     "size": "100ml",
     "image": {
       "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/beardoil_2_rkjz87.png"
+    }
+  },
+  {
+    "title": "Organic Lavender Conditioner",
+    "brand": "GreenLeaf Naturals",
+    "category": "Hair Care",
+    "subcategory": "Conditioner",
+    "description": "A soothing and nourishing conditioner infused with organic lavender essential oil. Gently cleanses the hair while promoting relaxation.",
+    "price": 16.99,
+    "allergies": [],
+    "pros": ["organic", "vegan", "crueltyfree"],
+    "hair": {
+      "moisture": "hydrating",
+      "shape": "curly"
+    },
+    "skin": [],
+    "instructions": "Apply to wet hair after the Lavender Shampoo, lather, and rinse thoroughly.",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Greenleaf-conditioner_b47xui.png"
     }
   }
 ]
