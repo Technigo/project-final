@@ -2101,5 +2101,26 @@
     ],
     "id": 105,
     "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575351/105-wiels_lnz4nn.jpg"
+  },
+  {
+    "name": "Museo Leonora Carrington",
+    "theme": "Contemporary Art",
+    "description": "An opportunity to appreciate the surreal work from the surrealist artist of English origin, but with Mexican heart. Her sculptures, jewellery, graphic works and personal objects are exhibited as well.",
+    "location": "Calz de Guadalupe 705, San Juan de Guadalupe, Julian Carrillo, 78340 San Luis Potosí, S.L.P., Mexico",
+    "lat": "22.13837",
+    "lon": "100.9706",
+    "ticket_price": "60 MXN",
+    "has_cafe": false,
+    "website": "https://www.leonoracarringtonmuseo.org/",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tues-Sun": "11:00-18:00"
+      }
+    ],
+    "id": 106,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717586863/106-surrealism_p6houd.jpg"
   }
 ]
