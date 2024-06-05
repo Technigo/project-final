@@ -42,7 +42,7 @@ header button {
   box-shadow: none;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1024px) {
   .nav-categories {
     display: flex;
     gap: 30px;
