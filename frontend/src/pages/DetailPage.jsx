@@ -25,58 +25,104 @@ export const DetailPage = () => {
   }
 
   return (
-    <div>
+    <Container>
       <ToHomepageBtn />
-      <StyledImage src={museum.url} alt={`Image related to ${museum.name}`} />
-      <h3>{museum.name}</h3>
-      <FavoriteFunction museumId={museum.id} />
-      <p>{museum.location}</p>
-      <p>{museum.description} </p>
-      {museum.has_cafe ? (
-        <IoRestaurantOutline />
-      ) : (
-        <p>This museum has no cafe or restaurant on their premises</p>
-      )}
-      <h4>Opening hours</h4>
-      {museum.opening_hours.map((hours, index) => {
-        const day = Object.keys(hours)[0]
-        const time = hours[day]
-        return (
-          <p key={index}>
-            {day}: {time}
-          </p>
-        )
-      })}
-      <p>Ticket price: {museum.ticket_price}</p>
-      <StyledButton>Buy a ticket</StyledButton>
-      <p>
-        Visit the official website{" "}
-        <a href={museum.website} target="_blank" rel="noopener noreferrer">
-          here
-        </a>
-      </p>
-      <h4>Reviews</h4>
+      <Content>
+        <StyledImage src={museum.url} alt={`Image related to ${museum.name}`} />
 
-      {isAuthenticated ? (
-        <>
-          <PostComment museumId={museumId} />
-          <GetComment museumId={museumId} />
-        </>
-      ) : (
-        <p>
-          <Link to={"/login"}>Log in </Link> or
-          <Link to={"/register"}> sign up</Link> to see reviews from other users
-        </p>
-      )}
-    </div>
+        <TextContainer>
+          <h3>{museum.name}</h3>
+          <FavoriteFunction museumId={museum.id} />
+          <p>{museum.location}</p>
+          <p>{museum.description} </p>
+          {museum.has_cafe ? (
+            <IoRestaurantOutline />
+          ) : (
+            <p>This museum has no cafe or restaurant on their premises</p>
+          )}
+          <h4>Opening hours</h4>
+          {museum.opening_hours.map((hours, index) => {
+            const day = Object.keys(hours)[0]
+            const time = hours[day]
+            return (
+              <p key={index}>
+                {day}: {time}
+              </p>
+            )
+          })}
+          <p>Ticket price: {museum.ticket_price}</p>
+          <StyledButton>Buy a ticket</StyledButton>
+          <p>
+            Visit the official website{" "}
+            <a href={museum.website} target="_blank" rel="noopener noreferrer">
+              here
+            </a>
+          </p>
+        </TextContainer>
+      </Content>
+
+      <CommentSection>
+        <h4>Reviews</h4>
+
+        {isAuthenticated ? (
+          <>
+            <PostComment museumId={museumId} />
+            <GetComment museumId={museumId} />
+          </>
+        ) : (
+          <p>
+            <Link to={"/login"}>Log in </Link> or
+            <Link to={"/register"}> sign up</Link> to see reviews from other
+            users
+          </p>
+        )}
+      </CommentSection>
+    </Container>
   )
 }
 
 //Styled components
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+
 const StyledImage = styled.img`
-  width: 100%; // Make the image as wide as the device
-  height: 40vh; // Adjust the height as needed to make it rectangular
-  object-fit: cover; // Ensure the image covers the area, cropping if necessary
-  object-position: center; // Center the image
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  object-position: center;
+
+  @media (min-width: 768px) {
+    width: 30%;
+    height: auto;
+  }
+`
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    width: 70%;
+    padding: 20px;
+  }
+`
+
+const CommentSection = styled.div`
+  width: 100%;
+  margin-top: 10px;
 `
