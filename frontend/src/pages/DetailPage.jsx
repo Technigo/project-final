@@ -1,14 +1,21 @@
+import { useContext } from "react"
 import { useParams, Navigate } from "react-router-dom"
 import { IoRestaurantOutline } from "react-icons/io5"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import { FavoriteFunction } from "../components/FavoriteFunction"
 import { PostComment } from "../components/PostComment"
 import { GetComment } from "../components/GetComment"
+import { AuthContext } from "../contexts/AuthContext"
+import { Link } from "react-router-dom"
+
 import museumList from "../json/museums.json"
 import styled from "styled-components"
 import StyledButton from "../components/styled/Button.styled"
 
 export const DetailPage = () => {
+  const { authState } = useContext(AuthContext)
+  const { isAuthenticated, accessToken } = authState
+
   const params = useParams()
   const museumId = params.slug
   const museum = museumList.find((museum) => museum.id === +museumId)
@@ -49,8 +56,18 @@ export const DetailPage = () => {
         </a>
       </p>
       <h4>Reviews</h4>
-      <PostComment museumId={museumId} />
-      <GetComment museumId={museumId} />
+
+      {isAuthenticated ? (
+        <>
+          <PostComment museumId={museumId} />
+          <GetComment museumId={museumId} />
+        </>
+      ) : (
+        <p>
+          <Link to={"/login"}>Log in </Link> or
+          <Link to={"/register"}> sign up</Link> to see reviews from other users
+        </p>
+      )}
     </div>
   )
 }
