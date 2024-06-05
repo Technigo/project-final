@@ -1,4 +1,4 @@
-import { Image } from "../../../../common/ReusableComponents/Image";
+import { Image } from "../../../../common/ReusableComponents/Image/Image";
 import "./Banner.css";
 import banner from "/assets/images/banner.png";
 

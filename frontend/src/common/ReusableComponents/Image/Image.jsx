@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./Image.css";
 
 export const Image = ({ src, alt, className }) => {
   return <img src={src} alt={alt} className={`${className}-image`} />;
