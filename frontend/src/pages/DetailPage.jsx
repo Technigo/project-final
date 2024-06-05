@@ -26,10 +26,12 @@ export const DetailPage = () => {
 
   return (
     <Container>
-      <ToHomepageBtn />
-      <Content>
+      <ImageContainer>
         <StyledImage src={museum.url} alt={`Image related to ${museum.name}`} />
+        <StyledToHomepageBtn />
+      </ImageContainer>
 
+      <Content>
         <TextContainer>
           <h3>{museum.name}</h3>
           <FavoriteFunction museumId={museum.id} />
@@ -38,7 +40,7 @@ export const DetailPage = () => {
           {museum.has_cafe ? (
             <IoRestaurantOutline />
           ) : (
-            <p>This museum has no cafe or restaurant on their premises</p>
+            <p>This museum has no cafe or restaurant on its premises</p>
           )}
           <h4>Opening hours</h4>
           {museum.opening_hours.map((hours, index) => {
@@ -62,7 +64,7 @@ export const DetailPage = () => {
       </Content>
 
       <CommentSection>
-        <h4>Reviews</h4>
+        <h4>Have you been here? Let the community know what you thought!</h4>
 
         {isAuthenticated ? (
           <>
@@ -72,8 +74,8 @@ export const DetailPage = () => {
         ) : (
           <p>
             <Link to={"/login"}>Log in </Link> or
-            <Link to={"/register"}> sign up</Link> to see reviews from other
-            users
+            <Link to={"/register"}> sign up</Link> to leave a review or read
+            what visitors liked about this museum!
           </p>
         )}
       </CommentSection>
@@ -86,8 +88,25 @@ export const DetailPage = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  align-items: left;
+`
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 40vh;
+
+  @media (min-width: 768px) {
+    width: 30%;
+    height: auto;
+  }
+`
+
+const StyledToHomepageBtn = styled(ToHomepageBtn)`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
 `
 
 const Content = styled.div`
@@ -103,26 +122,21 @@ const Content = styled.div`
 
 const StyledImage = styled.img`
   width: 100%;
-  height: 40vh;
+  height: 100%;
   object-fit: cover;
   object-position: center;
-
-  @media (min-width: 768px) {
-    width: 30%;
-    height: auto;
-  }
 `
+
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 20px;
 
   @media (min-width: 768px) {
     width: 70%;
-    padding: 20px;
   }
 `
 
 const CommentSection = styled.div`
-  width: 100%;
-  margin-top: 10px;
+  padding: 20px;
 `

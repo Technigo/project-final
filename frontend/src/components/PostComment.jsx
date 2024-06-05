@@ -33,7 +33,7 @@ export const PostComment = ({ museumId }) => {
 
   return (
     <div>
-      <label htmlFor="review-form">Visitors' reviews</label>
+      <label htmlFor="review-form">Post a review</label>
       <form onSubmit={handleSubmit}>
         <textarea
           id="review-form"
@@ -45,8 +45,8 @@ export const PostComment = ({ museumId }) => {
           required
           minLength={10}
           maxLength={250}
-          placeholder="Share your thoughts with the community!"></textarea>
-        <button type="submit">Submit review</button>
+          placeholder="Share your thoughts and best tips in the surrounding neighborhood!"></textarea>
+        <button type="submit">Submit</button>
         <p>{count}/250</p>
       </form>
     </div>
