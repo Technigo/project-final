@@ -1155,7 +1155,7 @@
     "lon": "12.4700",
     "ticket_price": "Free",
     "has_cafe": false,
-    "website": "https://www.museumofpurgatory.com",
+    "website": "https://www.italia.it/en/lazio/rome/museum-of-the-holy-souls-in-purgatory",
     "opening_hours": [
       {
         "Mon-Sun": "07:00-12:00, 16:00-19:00"
@@ -1172,7 +1172,7 @@
     "lon": "-101.2561",
     "ticket_price": "85MXN",
     "has_cafe": false,
-    "website": "https://www.mummymuseum.com",
+    "website": "http://www.momiasdeguanajuato.gob.mx/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-18:00"
@@ -1306,9 +1306,9 @@
     "location": "Brumadinho, Minas Gerais, Brazil",
     "lat": "-20.132556",
     "lon": "-44.197224",
-    "ticket_price": "Varies",
+    "ticket_price": "50 BRL",
     "has_cafe": true,
-    "website": "https://www.inhotim.org.br",
+    "website": "https://www.inhotim.org.br/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1426,15 +1426,15 @@
     "id": 77
   },
   {
-    "name": "The Museum of Innocence",
-    "theme": "Literary Art",
-    "description": "The Museum of Innocence in Istanbul, Turkey, is based on the novel by Orhan Pamuk. It displays items mentioned in the book, creating a narrative between fiction and reality.",
-    "location": "Çukurcuma Caddesi, Dalgıç Çıkmazı, No: 2, 34425 Beyoğlu/Istanbul, Turkey",
-    "lat": "41.0321",
-    "lon": "28.9734",
-    "ticket_price": "40 TRY",
-    "has_cafe": false,
-    "website": "https://en.masumiyetmuzesi.org",
+    "name": "Museo Universitario Arte Contemporáneo (MUAC)",
+    "theme": "Contemporary Art",
+    "description": "Located in Mexico City, Mexico, MUAC is part of the National Autonomous University of Mexico (UNAM) and is dedicated to contemporary art, featuring works by Mexican and international artists.",
+    "location": "Insurgentes Sur 3000, C.U., Coyoacán, 04510 Ciudad de México, CDMX, Mexico",
+    "lat": "19.3206",
+    "lon": "-99.1893",
+    "ticket_price": "MXN 40",
+    "has_cafe": true,
+    "website": "https://muac.unam.mx/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1474,7 +1474,7 @@
     "lon": "-95.3972",
     "ticket_price": "Free",
     "has_cafe": false,
-    "website": "https://www.menil.org",
+    "website": "https://www.menil.org/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1775,7 +1775,7 @@
     "lon": "-9.2077",
     "ticket_price": "€5",
     "has_cafe": true,
-    "website": "https://www.museuberardo.pt",
+    "website": "https://www.berardocollection.com/?sid=1&lang=en",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1892,7 +1892,7 @@
     "lon": "-4.4261",
     "ticket_price": "Free",
     "has_cafe": true,
-    "website": "https://cacmalaga.eu",
+    "website": "https://cacmalaga.eu/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-20:00"
@@ -1909,7 +1909,7 @@
     "lon": "37.6019",
     "ticket_price": "RUB 500",
     "has_cafe": true,
-    "website": "https://garagemca.org",
+    "website": "https://garagemca.org/",
     "opening_hours": [
       {
         "Mon-Sun": "11:00-22:00"
@@ -1957,13 +1957,13 @@
   {
     "name": "Museum of Contemporary Art (MCA)",
     "theme": "Contemporary Art",
-    "description": "Located in Sydney, Australia, the Museum of Contemporary Art Australia is dedicated to exhibiting, interpreting, and collecting contemporary art from Australia and around the world.",
+    "description": "Located in The Rocks, Australia, the Museum of Contemporary Art Australia is dedicated to exhibiting, interpreting, and collecting contemporary art from Australia and around the world.",
     "location": "140 George St, The Rocks NSW 2000, Australia",
     "lat": "-33.8599",
     "lon": "151.2094",
     "ticket_price": "Free",
     "has_cafe": true,
-    "website": "https://www.mca.com.au",
+    "website": "https://www.mca.com.au/",
     "opening_hours": [
       {
         "Mon-Tue": "10:00-17:00"
@@ -1996,25 +1996,5 @@
       }
     ],
     "id": 105
-  },
-  {
-    "name": "Museo Universitario Arte Contemporáneo (MUAC)",
-    "theme": "Contemporary Art",
-    "description": "Located in Mexico City, Mexico, MUAC is part of the National Autonomous University of Mexico (UNAM) and is dedicated to contemporary art, featuring works by Mexican and international artists.",
-    "location": "Insurgentes Sur 3000, C.U., Coyoacán, 04510 Ciudad de México, CDMX, Mexico",
-    "lat": "19.3206",
-    "lon": "-99.1893",
-    "ticket_price": "MXN 40",
-    "has_cafe": true,
-    "website": "https://muac.unam.mx",
-    "opening_hours": [
-      {
-        "Mon": "Closed"
-      },
-      {
-        "Tue-Sun": "10:00-18:00"
-      }
-    ],
-    "id": 106
   }
 ]
