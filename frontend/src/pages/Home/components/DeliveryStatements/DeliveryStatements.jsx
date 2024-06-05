@@ -2,7 +2,7 @@ import box from "/assets/icons/box.svg";
 import delivery from "/assets/icons/delivery.svg";
 import store from "/assets/icons/store.svg";
 
-import { Image } from "../../../../common/ReusableComponents/Image";
+import { Image } from "../../../../common/ReusableComponents/Image/Image";
 
 import "./DeliveryStatements.css";
 
@@ -26,9 +26,12 @@ const deliverystatements = [
     text: "Pick up in store",
   },
 ];
-export const DeliveryStatements = ({bgColor, fontSize}) => {
+export const DeliveryStatements = ({ bgColor, fontSize }) => {
   return (
-    <div className="delivery-statements" style={{backgroundColor: bgColor, fontSize: fontSize}}>
+    <div
+      className="delivery-statements"
+      style={{ backgroundColor: bgColor, fontSize: fontSize }}
+    >
       {deliverystatements.map((deliverystatement, index) => (
         <div key={index} className="delivery-statement">
           <Image

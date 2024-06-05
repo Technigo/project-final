@@ -4,7 +4,7 @@ import dresses from "/assets/icons/dresses.svg";
 import tops from "/assets/icons/tops.svg";
 import { NavLink } from "react-router-dom";
 
-import { Image } from "../Image";
+import { Image } from "../Image/Image";
 
 import "./CategoryIcons.css";
 

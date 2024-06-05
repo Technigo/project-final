@@ -1,4 +1,4 @@
-import { Image } from "../../common/ReusableComponents/Image";
+import { Image } from "../../common/ReusableComponents/Image/Image";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
