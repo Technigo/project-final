@@ -11,9 +11,10 @@ export default {
         "main-red": "#E48d6A",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-green": "#475318",
+        "light-yellow": "#FFE486",
 
         "text-light": "#fff",
-        "text-dark": "#452626",
+        "text-dark": "#671E01",
 
         "button-light": "#FFF5F2",
 

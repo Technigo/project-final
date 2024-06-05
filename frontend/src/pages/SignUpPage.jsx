@@ -8,11 +8,11 @@ export const SignUpPage = () => {
           src="signup.svg"
           alt="picture of a woman using skincare."
         ></img>
-        <h1 className="text-2xl font-heading font-bold mt-10">Sign Up</h1>
-        <h2 className="text-xl font-heading font-medium mt-3">
+        <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
+        <h3 className="text-xl font-heading font-medium mt-3">
           login Information
-        </h2>
-        <form className="flex flex-col px-10 w-full">
+        </h3>
+        <form className="flex flex-col w-full px-10">
           <label
             htmlFor="email"
             className="text-text-dark font-heading font-semibold mt-8"
@@ -34,18 +34,18 @@ export const SignUpPage = () => {
             Confirm password:
           </label>
           <input className="rounded-xl h-10 bg-bg-input" id="confirm"></input>
-          <button className="bg-main-yellow h-8 w-28 self-center mt-12 rounded-3xl text-text-dark font-heading">
+          <button className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading">
             Next
           </button>
         </form>
       </section>
-      <section className="bg-main-red h-screen flex flex-col items-center text-text-light">
+      <section className="bg-main-red h-screen flex flex-col items-center text-text-light px-10">
         {" "}
-        <h1 className="text-2xl font-heading font-bold mt-10">Sign Up</h1>
-        <h2 className="text-xl font-heading font-medium mt-3">
+        <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
+        <h3 className="text-xl font-heading font-medium mt-3">
           personal Information
-        </h2>
-        <form className="flex flex-col px-10 w-full">
+        </h3>
+        <form className="flex flex-col w-full">
           <label
             htmlFor="firstname"
             className="text-text-dark font-heading font-semibold mt-8"
@@ -62,7 +62,7 @@ export const SignUpPage = () => {
           <input id="lastname" className="rounded-xl h-10 bg-bg-input"></input>
           <label
             htmlFor="address"
-            className="text-text-dark font-heading font-semibold mt-8"
+            className="text-text-dark font-heading font-semibold mt-10"
           >
             Address:
           </label>
@@ -92,9 +92,52 @@ export const SignUpPage = () => {
             Country:
           </label>
           <input id="country" className="rounded-xl h-10 bg-bg-input"></input>
-          <button className="bg-main-yellow h-8 w-28 self-center mt-8 rounded-3xl text-text-dark font-heading">
+          <button className="bg-main-yellow h-8 w-28 self-center mt-12 rounded-3xl text-text-dark font-heading">
             Next
           </button>
+        </form>
+      </section>
+      <section className="bg-light-yellow h-screen flex flex-col items-center text-text-dark px-10">
+        <h2 className="text-2xl font-heading font-bold mt-20">Who are you?</h2>
+        <h3 className="text-xl font-heading font-medium mt-8 text-center">
+          Personalize your account to get custom recommondations
+        </h3>
+        <form className="flex flex-col w-full mt-16">
+          <div className="flex flex-col">
+            <div className="flex">
+              <img src="skintype02.svg" alt="Icon of a face" className=""></img>
+              <label
+                htmlFor="skin"
+                className="font-heading font-bold text-2xl mt-9 ml-5"
+              >
+                Skin:
+              </label>
+            </div>
+            <select
+              name="skintype"
+              id="skin"
+              className="mt-8 h-8 w-56 rounded-md font-heading font-bold pl-4"
+            >
+              <option value="sensitive" className="font-heading font-bold">
+                Sensitive
+              </option>
+              <option value="dry" className="font-heading font-bold">
+                Dry
+              </option>
+              <option value="oily" className="font-heading font-bold">
+                Oily
+              </option>
+              <option value="combination" className="font-heading font-bold">
+                Combination
+              </option>
+              <option value="acne" className="font-heading font-bold">
+                Acne
+              </option>
+            </select>
+          </div>
+          <img src="hairtype02.svg" alt="Icon of hair"></img>
+          <img src="allergies02.svg" alt="Icon of hand with allergies"></img>
+          <img src="preferences02.svg" alt="Icon of a heart"></img>
         </form>
       </section>
     </>
