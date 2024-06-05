@@ -12,16 +12,18 @@ export const App = () => {
       {/* Any component that is within the browser-router can expose routes & use links  */}
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<AllProducts />} />
-          <Route path="/products/category/:category" element={<Category />} />
-          <Route path="/products/:productId" element={<SingleProduct />} />
-          <Route
-            path="/products/category/:category/:productId"
-            element={<SingleProduct />}
-          />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<AllProducts />} />
+            <Route path="/products/category/:category" element={<Category />} />
+            <Route path="/products/:productId" element={<SingleProduct />} />
+            <Route
+              path="/products/category/:category/:productId"
+              element={<SingleProduct />}
+            />
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </>
