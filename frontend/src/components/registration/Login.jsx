@@ -1,5 +1,4 @@
 import { useState } from "react";
-/* import { useNavigate } from "react-router-dom"; */
 import api from "../../axiosConfig";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +10,7 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
       const response = await api.post("/sessions", {
         username,
