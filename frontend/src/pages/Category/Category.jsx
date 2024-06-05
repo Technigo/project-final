@@ -46,7 +46,7 @@ export const Category = () => {
       <h2>{category}</h2>
       {isLoading && <p>Loading... </p>}
       {error && <p>Error: {error}</p>}
-      <div className="product-list">
+      <section className="product-list">
         {products.map((product) => (
           <ProductCard
             key={product._id}
@@ -56,7 +56,7 @@ export const Category = () => {
             price={product.price}
           />
         ))}
-      </div>
+      </section>
     </div>
   );
 };

@@ -13,15 +13,12 @@
 .hamburger-menu-image {
   height: 30px;
   width: 30px;
+  object-fit: contain;
 }
 
 .nav-logo {
   width: 80px;
   justify-self: center;
-}
-
-.nav-logo img {
-  width: 100%;
 }
 
 .nav-categories {
@@ -35,6 +32,7 @@
 .nav-icons img {
   width: 30px;
   height: 30px;
+  object-fit: contain;
 }
 
 header button {

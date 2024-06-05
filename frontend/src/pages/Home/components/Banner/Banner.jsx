@@ -4,12 +4,12 @@ import banner from "/assets/images/banner.png";
 
 export const Banner = () => {
   return (
-    <div className="banner-wrapper">
+    <section className="banner-container">
       <Image
         src={banner}
         alt="image saying we believe in the power of play"
         className="banner"
       />
-    </div>
+    </section>
   );
 };

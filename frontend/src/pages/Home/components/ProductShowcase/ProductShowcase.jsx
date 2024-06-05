@@ -72,7 +72,7 @@ export const ProductShowcase = () => {
   ];
 
   return (
-    <div className="carousel">
+    <section className="carousel">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
@@ -86,6 +86,6 @@ export const ProductShowcase = () => {
           </div>
         ))}
       </Slider>
-    </div>
+    </section>
   );
 };
