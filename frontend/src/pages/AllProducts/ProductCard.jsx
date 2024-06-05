@@ -9,7 +9,7 @@ export const ProductCard = ({ id, image_url, name, price }) => {
       <Link to={`/products/${id}`}>
         <Image src={image_url} alt={name} className="all-products" />
         <div className="product-card-text">
-          <h6>{name.toUpperCase()}</h6>
+          <h6>{name}</h6>
           <h6>{price}SEK</h6>
         </div>
       </Link>
