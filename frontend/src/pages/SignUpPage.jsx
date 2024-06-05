@@ -6,45 +6,53 @@ export const SignUpPage = () => {
   return (
     <>
       {activeSection === "sectionone" && (
-        <section className="bg-main-red h-fit flex flex-col items-center text-text-light pb-10">
+        <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0">
           {" "}
           <img
-            className="w-screen"
+            className="w-screen tablet:order-last"
             src="signup.svg"
             alt="picture of a woman using skincare."
           ></img>
-          <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
+          <h2 className="text-2xl font-heading font-bold mt-10 tablet:mt-20">
+            Sign Up
+          </h2>
           <h3 className="text-xl font-heading font-medium mt-3">
             login Information
           </h3>
-          <form className="flex flex-col w-full px-10">
+          <form className="flex flex-col w-full px-10 tablet:px-36 tablet:block">
             <label
               htmlFor="email"
-              className="text-text-dark font-heading font-semibold mt-8"
+              className="text-text-dark font-heading font-semibold mt-8 tablet:block"
             >
               Email:
             </label>
-            <input className="rounded-xl h-10 bg-bg-input" id="email"></input>
+            <input
+              className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
+              id="email"
+            ></input>
             <label
               htmlFor="password"
-              className="text-text-dark font-heading font-semibold mt-8"
+              className="text-text-dark font-heading font-semibold mt-8 tablet:w-1/2 tablet:block"
             >
               Password:
             </label>
             <input
-              className="rounded-xl h-10 bg-bg-input"
+              className="rounded-xl h-10 bg-bg-input tablet:w-1/2"
               id="password"
             ></input>
             <label
               htmlFor="confirm"
-              className="text-text-dark font-heading font-semibold mt-8"
+              className="text-text-dark font-heading font-semibold mt-8 tablet:w-1/2 tablet:block"
             >
               Confirm password:
             </label>
-            <input className="rounded-xl h-10 bg-bg-input" id="confirm"></input>
+            <input
+              className="rounded-xl h-10 bg-bg-input tablet:w-1/2"
+              id="confirm"
+            ></input>
             <button
               onClick={() => setActiveSection("sectiontwo")}
-              className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading"
+              className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:block"
             >
               Next
             </button>
@@ -52,7 +60,7 @@ export const SignUpPage = () => {
         </section>
       )}
       {activeSection === "sectiontwo" && (
-        <section className="bg-main-red h-fit flex flex-col items-center text-text-light px-10 pb-10">
+        <section className="bg-main-red h-full flex flex-col items-center text-text-light px-10 pb-20">
           {" "}
           <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
           <h3 className="text-xl font-heading font-medium mt-3">
@@ -121,7 +129,7 @@ export const SignUpPage = () => {
         </section>
       )}
       {activeSection === "sectionthree" && (
-        <section className="bg-light-yellow h-fit flex flex-col items-center text-text-dark px-10 pb-10">
+        <section className="bg-light-yellow h-full flex flex-col items-center text-text-dark px-10 pb-20">
           <h2 className="text-2xl font-heading font-bold mt-20">
             Who are you?
           </h2>
