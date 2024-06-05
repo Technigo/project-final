@@ -1,7 +1,7 @@
 export const SignUpPage = () => {
   return (
     <>
-      <section className="bg-main-red h-screen flex flex-col items-center text-text-light">
+      <section className="bg-main-red h-fit flex flex-col items-center text-text-light pb-10">
         {" "}
         <img
           className="w-screen"
@@ -39,7 +39,7 @@ export const SignUpPage = () => {
           </button>
         </form>
       </section>
-      <section className="bg-main-red h-screen flex flex-col items-center text-text-light px-10">
+      <section className="bg-main-red h-fit flex flex-col items-center text-text-light px-10 pb-10">
         {" "}
         <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
         <h3 className="text-xl font-heading font-medium mt-3">
@@ -97,7 +97,7 @@ export const SignUpPage = () => {
           </button>
         </form>
       </section>
-      <section className="bg-light-yellow h-screen flex flex-col items-center text-text-dark px-10">
+      <section className="bg-light-yellow h-fit flex flex-col items-center text-text-dark px-10 pb-10">
         <h2 className="text-2xl font-heading font-bold mt-20">Who are you?</h2>
         <h3 className="text-xl font-heading font-medium mt-8 text-center">
           Personalize your account to get custom recommondations
@@ -105,7 +105,7 @@ export const SignUpPage = () => {
         <form className="flex flex-col w-full mt-16">
           <div className="flex flex-col">
             <div className="flex">
-              <img src="skintype02.svg" alt="Icon of a face" className=""></img>
+              <img src="skintype02.svg" alt="Icon of a face"></img>
               <label
                 htmlFor="skin"
                 className="font-heading font-bold text-2xl mt-9 ml-5"
@@ -116,7 +116,7 @@ export const SignUpPage = () => {
             <select
               name="skintype"
               id="skin"
-              className="mt-8 h-8 w-56 rounded-md font-heading font-bold pl-4"
+              className="mt-8 h-8 rounded-md font-heading font-bold pl-4"
             >
               <option value="sensitive" className="font-heading font-bold">
                 Sensitive
@@ -135,7 +135,25 @@ export const SignUpPage = () => {
               </option>
             </select>
           </div>
-          <img src="hairtype02.svg" alt="Icon of hair"></img>
+          <div className="flex flex-col mt-10">
+            <div className="flex">
+              <img src="hairtype02.svg" alt="Icon of hair"></img>
+              <label className="font-heading font-bold text-2xl mt-9 ml-5">
+                Hair:
+              </label>
+            </div>
+            <label
+              htmlFor="moisture"
+              className="font-heading font-bold text-xl mt-5"
+            >
+              Moisture
+            </label>
+            <select
+              name="hair-moisture"
+              id="moisture"
+              className="mt-2 h-8 rounded-md font-heading font-bold pl-4"
+            ></select>
+          </div>
           <img src="allergies02.svg" alt="Icon of hand with allergies"></img>
           <img src="preferences02.svg" alt="Icon of a heart"></img>
         </form>
