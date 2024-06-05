@@ -6,7 +6,7 @@ const StyledCardMuseumContainer = styled.div`
   grid-template-columns: repeat(1fr);
 
   width: 100%;
-  background-color: rgba(34, 47, 62, 1);
+  background-color: rgba(61, 61, 61,1.0);
 `;
 
 export default StyledCardMuseumContainer;

@@ -8,9 +8,12 @@ const StyledFooter = styled.div`
   height: 80px;
   padding: 40px 20px;
   text-align: center;
+  font-size: 16px;
+  flex-wrap: wrap;
 
   ul {
     display: flex;
+
     a {
       color: #f7f7f7;
       display: flex;

@@ -1,10 +1,11 @@
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { ToHomepageBtn } from "../components/ToHomepageBtn";
+import StyledAboutPage from "../components/styled/AboutPage.styled";
 
 //To rewrite this section with our own words, this it too "chatgpt"
 
 export const AboutPage = () => {
   return (
-    <div>
+    <StyledAboutPage>
       <ToHomepageBtn />
       <h3>About MuSeek</h3>
       <p>
@@ -27,6 +28,6 @@ export const AboutPage = () => {
         perspective, MuSeek is your trusted companion for enriching museum
         exploration.
       </p>
-    </div>
-  )
-}
+    </StyledAboutPage>
+  );
+};
