@@ -51,7 +51,7 @@
     "lon": "28.976800",
     "ticket_price": "25 TRY",
     "has_cafe": false,
-    "website": "http://en.masumiyetmuzesi.org/",
+    "website": "https://www.masumiyetmuzesi.org/en",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -174,7 +174,7 @@
     "lon": "-99.189900",
     "ticket_price": "70 MXN",
     "has_cafe": false,
-    "website": "http://www.mnh.inah.gob.mx/museos/caracol.html",
+    "website": "https://www.caracol.inah.gob.mx/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -194,7 +194,7 @@
     "lon": "-71.978800",
     "ticket_price": "20 PEN",
     "has_cafe": true,
-    "website": "https://www.mapcusco.com/",
+    "website": "https://mapcusco.pe/en/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-22:00"
@@ -251,7 +251,7 @@
     "lon": "2.416900",
     "ticket_price": "€8",
     "has_cafe": false,
-    "website": "https://www.museeduvampire.com/",
+    "website": "https://officiel-galeries-musees.fr/lieu/musee-des-vampires-et-monstres-de-limaginaire/",
     "opening_hours": [
       {
         "Mon-Sun": "14:00-18:00"
@@ -262,13 +262,13 @@
   {
     "name": "The Clown Museum",
     "theme": "Clowns",
-    "description": "Step into a world of laughter and whimsy at The Clown Museum in Kiel. This quirky museum celebrates the art of clowning, showcasing costumes, props, and memorabilia from clown performances around the world. Located in the charming city of Kiel, it offers a delightful escape into the colorful world of clowns.",
-    "location": "Wiener Str. 2, 24103 Kiel, Germany",
-    "lat": "54.326400",
-    "lon": "10.140900",
+    "description": "Step into a world of laughter and whimsy at The Clown Museum in Leipzig. This quirky museum celebrates the art of clowning, showcasing costumes, props, and memorabilia from clown performances around the world. Located in the charming city of Kiel, it offers a delightful escape into the colorful world of clowns.",
+    "location": "Breite Str. 22, 04317 Leipzig, Tyskland",
+    "lat": "51.336400",
+    "lon": "12.408160",
     "ticket_price": "€5",
     "has_cafe": false,
-    "website": "https://www.clownmuseum.at/",
+    "website": "https://www.clown-museum.de/",
     "opening_hours": [
       {
         "Mon-Fri": "10:00-18:00"
@@ -350,7 +350,7 @@
   {
     "name": "Museum of Bad Art",
     "theme": "Bad Art",
-    "description": "Discover the beauty of bad art at the Museum of Bad Art in Somerville. This offbeat museum celebrates the unintentional creativity found in poorly executed artworks, inviting visitors to appreciate the quirky charm of artistic mishaps. Located in the eclectic neighborhood of Davis Square, it's a testament to the power of artistic expression.",
+    "description": "Discover the beauty of bad art at the Museum of Bad Art in Somerville. This offbeat museum celebrates the unintentional creativity found in poorly executed artworks, inviting visitors to appreciate the quirky charm of artistic mishaps. Visit the museum to enjoy some, according to themselves, 'art too bad to be ignored'.",
     "location": "55 Davis Square, Somerville, MA 02144, USA",
     "lat": "42.396200",
     "lon": "-71.122400",
@@ -393,7 +393,7 @@
     "lon": "34.846300",
     "ticket_price": "Free",
     "has_cafe": true,
-    "website": "https://www.hairmuseum.com/",
+    "website": "https://www.chezgalip.com/_hair-museum_en",
     "opening_hours": [
       {
         "Mon-Sun": "08:00-19:00"
@@ -464,7 +464,7 @@
     "lon": "0.630100",
     "ticket_price": "£24.90",
     "has_cafe": true,
-    "website": "https://www.leeds-castle.com/",
+    "website": "https://leeds-castle.com/attraction/dog-collar-museum/",
     "opening_hours": [
       {
         "Mon-Sun": "10:30-17:00"
@@ -498,7 +498,7 @@
     "lon": "-3.138500",
     "ticket_price": "£4.95",
     "has_cafe": true,
-    "website": "https://www.pencilmuseum.co.uk/",
+    "website": "https://www.derwentart.com/en-gb/c/about/company/derwent-pencil-museum",
     "opening_hours": [
       {
         "Mon-Sun": "09:30-17:00"
@@ -532,7 +532,7 @@
     "lon": "30.555000",
     "ticket_price": "UAH 200",
     "has_cafe": false,
-    "website": "https://www.spymuseum.com.ua/",
+    "website": "https://www.spymuseum.org/exhibition-experiences/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-19:00"
@@ -609,7 +609,7 @@
     "lon": "-90.071500",
     "ticket_price": "$10",
     "has_cafe": true,
-    "website": "https://www.southernfood.org/",
+    "website": "https://www.southernfood.org/motac",
     "opening_hours": [
       {
         "Mon-Sun": "11:00-17:00"
@@ -675,7 +675,7 @@
     "id": 36
   },
   {
-    "name": "The Käthe Kollwitz Museum",
+    "name": "The Kollwitz Museum",
     "theme": "Käthe Kollwitz Art",
     "description": "Explore the powerful art of Käthe Kollwitz at her eponymous museum in Berlin. This intimate museum showcases the works of the renowned German artist, known for her poignant portrayals of human suffering and social injustice. Located in the Charlottenburg district, it's a moving tribute to one of Germany's most iconic artists.",
     "location": "Fasanenstraße 24, 10719 Berlin, Germany",
@@ -692,15 +692,15 @@
     "id": 37
   },
   {
-    "name": "Museum of Illusions",
+    "name": "Illuseum",
     "theme": "Optical Illusions",
     "description": "Challenge your perception of reality at the Museum of Illusions in Berlin. This mind-bending museum features a series of interactive exhibits and optical illusions that will leave you questioning what you see. Located in the heart of Berlin, it's a playful exploration of the science behind visual trickery.",
-    "location": "Kantstraße 6, 10623 Berlin, Germany",
-    "lat": "52.505300",
-    "lon": "13.328800",
-    "ticket_price": "€12",
+    "location": "Karl-Liebknecht-Strasse 9, 10178 Berlin, Germany",
+    "lat": "52.521360",
+    "lon": "13.406490",
+    "ticket_price": "€16",
     "has_cafe": false,
-    "website": "https://museumofillusions.de/",
+    "website": "https://www.illuseum-berlin.de/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-20:00"
@@ -732,15 +732,15 @@
     "location": "1-5-2 Kiyokawa, Taito City, Tokyo 111-0022, Japan",
     "lat": "35.724200",
     "lon": "139.793900",
-    "ticket_price": "¥500",
+    "ticket_price": "¥300",
     "has_cafe": false,
-    "website": "http://tanabatamuseum.info/",
+    "website": "https://www.uenostation.com/the-shitamachi-museum-a-taste-of-downtown-culture-in-ueno-park/",
     "opening_hours": [
       {
         "Mon": "Closed"
       },
       {
-        "Tue-Sun": "10:00-17:00"
+        "Tue-Sun": "9:30-16:30"
       }
     ],
     "id": 40
@@ -803,15 +803,15 @@
     "id": 43
   },
   {
-    "name": "Sewara Museum",
-    "theme": "Nigerian Crafts and Artifacts",
-    "description": "Celebrate Nigerian craftsmanship and heritage at the Sewara Museum in Abuja. This vibrant museum showcases a diverse collection of traditional crafts, artifacts, and cultural artifacts, offering insight into the rich tapestry of Nigerian culture. Located on Kubwa Expressway, it's a cultural hub for visitors seeking to explore Nigeria's artistic legacy.",
-    "location": "Kubwa Expressway, Dutse, Abuja, Nigeria",
-    "lat": "9.116000",
-    "lon": "7.375000",
-    "ticket_price": "300 NGN",
-    "has_cafe": false,
-    "website": "https://sewaramuseum.org.ng/",
+    "name": "Museum of West African Art",
+    "theme": "West African Art",
+    "description": "Explore the rich legacy of West Africa at the Museum of West African Art (MOWAA). This premier museum showcases a diverse collection of artifacts from ancient Nok settlements to contemporary artists. MOWAA offers an immersive experience into the life, spirituality, and cosmologies of West African communities. Located in Nigera, it's a cultural gem highlighting the region's craftsmanship and heritage.",
+    "location": "1 Benin Sapele Rd, Oka, Benin City 300102, Edo, Nigeria",
+    "lat": "6.195910",
+    "lon": "5.640410",
+    "ticket_price": "Free",
+    "has_cafe": true,
+    "website": "https://wearemowaa.org/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-17:00"
@@ -828,7 +828,7 @@
     "lon": "69.664000",
     "ticket_price": "5 INR",
     "has_cafe": false,
-    "website": "https://www.kutchmuseum.org/",
+    "website": "https://www.gujarattourism.com/kutch-zone/kutch/kutch-museum.html",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -848,7 +848,7 @@
     "lon": "40.735500",
     "ticket_price": "100 MZN",
     "has_cafe": false,
-    "website": "http://www.museuislandofmozambique.gov.mz/",
+    "website": "https://en.unesco.org/silkroad/silk-road-themes/underwater-heritage/museum-island-mozambique",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -896,13 +896,13 @@
   {
     "name": "Seychelles Natural History Museum",
     "theme": "Natural History",
-    "description": "Prepare to be amazed and bewildered at the Trick Eye Museum in Singapore, where art comes to life through mind-bending optical illusions. Challenge your perception as you interact with immersive artworks that blur the line between reality and fantasy. Uncover hidden secrets and snap photos that defy expectations in this one-of-a-kind museum experience.",
+    "description": "The Natural History Museum hosts exhibitions that not only illustrate flora, fauna and geological history of Seychelles, but serve to enlighten visitors about major environmental concern with Seven prominent aspects of Seychelles ‘ natural heritage are showcased through exhibits and dioramas.",
     "location": "Independence Ave, Victoria, Seychelles",
     "lat": "-4.619200",
     "lon": "55.452400",
     "ticket_price": "50 SCR",
     "has_cafe": false,
-    "website": "http://www.seychellesnaturalhistorymuseum.org/",
+    "website": "https://seychellesnationalmuseums.org/about-the-museum-of-natural-history/",
     "opening_hours": [
       {
         "Mon-Fri": "08:00-16:00"
@@ -925,7 +925,7 @@
     "lon": "-0.074400",
     "ticket_price": "£10",
     "has_cafe": false,
-    "website": "http://www.stephenwrightartist.com/houseofdreams/",
+    "website": "https://www.stephenwrightartist.com/house-of-dreams",
     "opening_hours": [
       {
         "Mon-Sun": "By appointment only"
@@ -934,18 +934,18 @@
     "id": 50
   },
   {
-    "name": "Museum of Bags and Purses",
-    "description": "Embark on a journey through the history of fashion at the Museum of Bags and Purses in Amsterdam. This unique museum houses a stunning collection of bags and purses from different cultures and time periods, offering a fascinating glimpse into the evolution of style and craftsmanship. Located along the picturesque Herengracht canal, it's a treasure trove for fashion enthusiasts.",
-    "theme": "Bags and Purses",
-    "location": "Herengracht 573, 1017 CD Amsterdam, Netherlands",
-    "lat": "52.364300",
-    "lon": "4.893400",
-    "ticket_price": "€12.50",
+    "name": "Fondation Maeght",
+    "theme": "Modern and Contemporary Art",
+    "description": "Located in Saint-Paul-de-Vence, France, the Fondation Maeght is a private foundation that features modern and contemporary art, including works by Miró, Chagall, Giacometti, and others, displayed both indoors and in a sculpture garden.",
+    "location": "623 Chemin des Gardettes, 06570 Saint-Paul-de-Vence, France",
+    "lat": "43.6947",
+    "lon": "7.1202",
+    "ticket_price": "€15",
     "has_cafe": true,
-    "website": "https://tassenmuseum.nl/",
+    "website": "https://www.fondation-maeght.com",
     "opening_hours": [
       {
-        "Mon-Sun": "10:00-17:00"
+        "Mon-Sun": "10:00-18:00"
       }
     ],
     "id": 51
@@ -959,7 +959,7 @@
     "lon": "11.262600",
     "ticket_price": "€8",
     "has_cafe": false,
-    "website": "https://www.uffizi.it/en/the-museum-of-musical-instruments",
+    "website": "https://accademiagallery.org/museum-of-musical-instruments/",
     "opening_hours": [
       {
         "Mon-Sun": "08:15-18:50"
@@ -976,7 +976,7 @@
     "lon": "14.422800",
     "ticket_price": "160 CZK",
     "has_cafe": false,
-    "website": "https://www.tortureum.com/",
+    "website": "https://www.museumtorture.com/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-22:00"
@@ -993,7 +993,7 @@
     "lon": "-13.828500",
     "ticket_price": "€12",
     "has_cafe": false,
-    "website": "https://www.cactlanzarote.com/en/cact/museo-atlantico/",
+    "website": "https://underwatermuseumlanzarote.com/en/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-18:00"
@@ -1010,7 +1010,7 @@
     "lon": "100.485000",
     "ticket_price": "200 THB",
     "has_cafe": false,
-    "website": "http://www.sirirajmuseum.com/",
+    "website": "https://si.mahidol.ac.th/sirirajmuseum/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-17:00"
@@ -1025,12 +1025,12 @@
     "location": "Koniushennaya Ploshchad', 2B, Saint Petersburg, Russia, 191186",
     "lat": "59.939000",
     "lon": "30.321300",
-    "ticket_price": "450 RUB",
+    "ticket_price": "850 RUB",
     "has_cafe": true,
     "website": "https://www.15kop.ru/en/",
     "opening_hours": [
       {
-        "Mon-Sun": "11:00-20:00"
+        "Mon-Sun": "11:00-21:00"
       }
     ],
     "id": 56
@@ -1053,41 +1053,41 @@
     "id": 57
   },
   {
-    "name": "The Button Museum",
-    "theme": "Buttons",
-    "description": "Uncover the fascinating history of buttons at The Button Museum in London. This delightful museum showcases a diverse collection of buttons spanning centuries of fashion and design, offering insight into their cultural significance and craftsmanship. Situated in the vibrant neighborhood of Drummond Place, it's a hidden gem for fashion enthusiasts and history buffs alike.",
-    "location": "1 Drummond Pl, London N1 1RL, UK",
-    "lat": "51.5353",
-    "lon": "-0.1072",
-    "ticket_price": "£5",
-    "has_cafe": false,
-    "website": "http://www.thebuttonmuseum.com",
+    "name": "Museum of Old and New Art (MONA)",
+    "theme": "Contemporary Art",
+    "description": "Located in Hobart, Tasmania, Australia, MONA is Australia's largest privately funded museum, featuring a diverse collection of contemporary and modern art, antiquities, and unique installations.",
+    "location": "655 Main Rd, Berriedale TAS 7011, Australia",
+    "lat": "-42.8299",
+    "lon": "147.2820",
+    "ticket_price": "AUD 30",
+    "has_cafe": true,
+    "website": "https://mona.net.au",
     "opening_hours": [
       {
-        "Mon-Fri": "10:00-17:00"
+        "Mon": "Closed"
       },
       {
-        "Sat": "10:00-14:00"
-      },
-      {
-        "Sun": "Closed"
+        "Tue-Sun": "10:00-17:00"
       }
     ],
     "id": 58
   },
   {
-    "name": "The Hair Museum of Avanos",
-    "theme": "Hair art",
-    "description": "Step into a world of unique artistry at The Hair Museum of Avanos. This extraordinary museum showcases a remarkable collection of hair art, crafted from strands of human hair. From intricate designs to elaborate compositions, each piece tells a story of creativity and craftsmanship. Located in Avanos, it's a one-of-a-kind destination for art enthusiasts and curious travelers alike.",
-    "location": "Kızılırmak, 50500 Avanos/Nevşehir, Turkey",
-    "lat": "38.7150",
-    "lon": "34.8467",
-    "ticket_price": "5 TRY",
-    "has_cafe": false,
-    "website": "https://www.hairmuseum.com",
+    "name": "The Barnes Foundation",
+    "theme": "Impressionist, Post-Impressionist, Early Modern Art",
+    "description": "Located in Philadelphia, USA, The Barnes Foundation houses one of the world's largest collections of Impressionist, Post-Impressionist, and early Modern paintings, along with African sculpture, Native American ceramics, and more.",
+    "location": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
+    "lat": "39.9607",
+    "lon": "-75.1720",
+    "ticket_price": "$25",
+    "has_cafe": true,
+    "website": "https://www.barnesfoundation.org",
     "opening_hours": [
       {
-        "Mon-Sun": "09:00-18:00"
+        "Mon": "Closed"
+      },
+      {
+        "Tue-Sun": "11:00-17:00"
       }
     ],
     "id": 59
@@ -1132,16 +1132,16 @@
   {
     "name": "Museum of Shadow",
     "theme": "Shadows",
-    "description": "Discover the beauty of shadows at the Museum of Shadow in Glenelg. This unique museum celebrates the artistry and symbolism of shadows, showcasing a captivating collection of shadow-related artifacts and artworks. From shadow puppets to shadow play, it offers an illuminating exploration of this often-overlooked phenomenon. Located in Glenelg, it's a place where light meets darkness in a mesmerizing display.",
-    "location": "2 Murrell St, Glenelg, South Australia 5045, Australia",
-    "lat": "-34.9801",
-    "lon": "138.5105",
-    "ticket_price": "10AUD",
-    "has_cafe": false,
-    "website": "https://www.museumofshadow.com",
+    "description": "Discover the beauty of shadows at the Museum of Shadow in St.Petersburg. This unique museum celebrates the artistry and symbolism of shadows, showcasing a captivating collection of shadow-related artifacts and artworks. From shadow puppets to shadow play, it offers an illuminating exploration of this often-overlooked phenomenon. It's a place where light meets darkness in a mesmerizing display.",
+    "location": "2 Bolshaya Konyushennaya St, 5А, St Petersburg, Russia",
+    "lat": "59.94051",
+    "lon": "30.32355",
+    "ticket_price": "450 RUB",
+    "has_cafe": true,
+    "website": "https://en.shadowmuseum.ru/",
     "opening_hours": [
       {
-        "Mon-Sun": "10:00-16:00"
+        "Mon-Sun": "11:00-20:00"
       }
     ],
     "id": 62
@@ -1155,7 +1155,7 @@
     "lon": "12.4700",
     "ticket_price": "Free",
     "has_cafe": false,
-    "website": "https://www.museumofpurgatory.com",
+    "website": "https://www.italia.it/en/lazio/rome/museum-of-the-holy-souls-in-purgatory",
     "opening_hours": [
       {
         "Mon-Sun": "07:00-12:00, 16:00-19:00"
@@ -1172,7 +1172,7 @@
     "lon": "-101.2561",
     "ticket_price": "85MXN",
     "has_cafe": false,
-    "website": "https://www.mummymuseum.com",
+    "website": "http://www.momiasdeguanajuato.gob.mx/",
     "opening_hours": [
       {
         "Mon-Sun": "09:00-18:00"
@@ -1306,9 +1306,9 @@
     "location": "Brumadinho, Minas Gerais, Brazil",
     "lat": "-20.132556",
     "lon": "-44.197224",
-    "ticket_price": "Varies",
+    "ticket_price": "50 BRL",
     "has_cafe": true,
-    "website": "https://www.inhotim.org.br",
+    "website": "https://www.inhotim.org.br/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1426,15 +1426,15 @@
     "id": 77
   },
   {
-    "name": "The Museum of Innocence",
-    "theme": "Literary Art",
-    "description": "The Museum of Innocence in Istanbul, Turkey, is based on the novel by Orhan Pamuk. It displays items mentioned in the book, creating a narrative between fiction and reality.",
-    "location": "Çukurcuma Caddesi, Dalgıç Çıkmazı, No: 2, 34425 Beyoğlu/Istanbul, Turkey",
-    "lat": "41.0321",
-    "lon": "28.9734",
-    "ticket_price": "40 TRY",
-    "has_cafe": false,
-    "website": "https://en.masumiyetmuzesi.org",
+    "name": "Museo Universitario Arte Contemporáneo (MUAC)",
+    "theme": "Contemporary Art",
+    "description": "Located in Mexico City, Mexico, MUAC is part of the National Autonomous University of Mexico (UNAM) and is dedicated to contemporary art, featuring works by Mexican and international artists.",
+    "location": "Insurgentes Sur 3000, C.U., Coyoacán, 04510 Ciudad de México, CDMX, Mexico",
+    "lat": "19.3206",
+    "lon": "-99.1893",
+    "ticket_price": "MXN 40",
+    "has_cafe": true,
+    "website": "https://muac.unam.mx/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1474,7 +1474,7 @@
     "lon": "-95.3972",
     "ticket_price": "Free",
     "has_cafe": false,
-    "website": "https://www.menil.org",
+    "website": "https://www.menil.org/",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1775,7 +1775,7 @@
     "lon": "-9.2077",
     "ticket_price": "€5",
     "has_cafe": true,
-    "website": "https://www.museuberardo.pt",
+    "website": "https://www.berardocollection.com/?sid=1&lang=en",
     "opening_hours": [
       {
         "Mon": "Closed"
@@ -1892,7 +1892,7 @@
     "lon": "-4.4261",
     "ticket_price": "Free",
     "has_cafe": true,
-    "website": "https://cacmalaga.eu",
+    "website": "https://cacmalaga.eu/",
     "opening_hours": [
       {
         "Mon-Sun": "10:00-20:00"
@@ -1909,7 +1909,7 @@
     "lon": "37.6019",
     "ticket_price": "RUB 500",
     "has_cafe": true,
-    "website": "https://garagemca.org",
+    "website": "https://garagemca.org/",
     "opening_hours": [
       {
         "Mon-Sun": "11:00-22:00"
@@ -1957,13 +1957,13 @@
   {
     "name": "Museum of Contemporary Art (MCA)",
     "theme": "Contemporary Art",
-    "description": "Located in Sydney, Australia, the Museum of Contemporary Art Australia is dedicated to exhibiting, interpreting, and collecting contemporary art from Australia and around the world.",
+    "description": "Located in The Rocks, Australia, the Museum of Contemporary Art Australia is dedicated to exhibiting, interpreting, and collecting contemporary art from Australia and around the world.",
     "location": "140 George St, The Rocks NSW 2000, Australia",
     "lat": "-33.8599",
     "lon": "151.2094",
     "ticket_price": "Free",
     "has_cafe": true,
-    "website": "https://www.mca.com.au",
+    "website": "https://www.mca.com.au/",
     "opening_hours": [
       {
         "Mon-Tue": "10:00-17:00"
@@ -1996,82 +1996,5 @@
       }
     ],
     "id": 105
-  },
-  {
-    "name": "Museo Universitario Arte Contemporáneo (MUAC)",
-    "theme": "Contemporary Art",
-    "description": "Located in Mexico City, Mexico, MUAC is part of the National Autonomous University of Mexico (UNAM) and is dedicated to contemporary art, featuring works by Mexican and international artists.",
-    "location": "Insurgentes Sur 3000, C.U., Coyoacán, 04510 Ciudad de México, CDMX, Mexico",
-    "lat": "19.3206",
-    "lon": "-99.1893",
-    "ticket_price": "MXN 40",
-    "has_cafe": true,
-    "website": "https://muac.unam.mx",
-    "opening_hours": [
-      {
-        "Mon": "Closed"
-      },
-      {
-        "Tue-Sun": "10:00-18:00"
-      }
-    ],
-    "id": 106
-  },
-  {
-    "name": "The Barnes Foundation",
-    "theme": "Impressionist, Post-Impressionist, and Early Modern Art",
-    "description": "Located in Philadelphia, USA, The Barnes Foundation houses one of the world's largest collections of Impressionist, Post-Impressionist, and early Modern paintings, along with African sculpture, Native American ceramics, and more.",
-    "location": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, USA",
-    "lat": "39.9607",
-    "lon": "-75.1720",
-    "ticket_price": "$25",
-    "has_cafe": true,
-    "website": "https://www.barnesfoundation.org",
-    "opening_hours": [
-      {
-        "Mon": "Closed"
-      },
-      {
-        "Tue-Sun": "11:00-17:00"
-      }
-    ],
-    "id": 107
-  },
-  {
-    "name": "Museum of Old and New Art (MONA)",
-    "theme": "Contemporary Art",
-    "description": "Located in Hobart, Tasmania, Australia, MONA is Australia's largest privately funded museum, featuring a diverse collection of contemporary and modern art, antiquities, and unique installations.",
-    "location": "655 Main Rd, Berriedale TAS 7011, Australia",
-    "lat": "-42.8299",
-    "lon": "147.2820",
-    "ticket_price": "AUD 30",
-    "has_cafe": true,
-    "website": "https://mona.net.au",
-    "opening_hours": [
-      {
-        "Mon": "Closed"
-      },
-      {
-        "Tue-Sun": "10:00-17:00"
-      }
-    ],
-    "id": 108
-  },
-  {
-    "name": "Fondation Maeght",
-    "theme": "Modern and Contemporary Art",
-    "description": "Located in Saint-Paul-de-Vence, France, the Fondation Maeght is a private foundation that features modern and contemporary art, including works by Miró, Chagall, Giacometti, and others, displayed both indoors and in a sculpture garden.",
-    "location": "623 Chemin des Gardettes, 06570 Saint-Paul-de-Vence, France",
-    "lat": "43.6947",
-    "lon": "7.1202",
-    "ticket_price": "€15",
-    "has_cafe": true,
-    "website": "https://www.fondation-maeght.com",
-    "opening_hours": [
-      {
-        "Mon-Sun": "10:00-18:00"
-      }
-    ],
-    "id": 109
   }
 ]
