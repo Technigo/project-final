@@ -92,22 +92,24 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
   position: relative;
-  width: 100%;
+  width: 100vw;
+  height: 40vh;
+  border: solid red;
 
-  @media (min-width: 768px) {
-    width: 50%;
+  @media (min-width: 1024px) {
+    width: 40%;
+    height: 80vh;
   }
 `
 
 export const StyledImage = styled.img`
   width: 100%;
-  height: 40vh;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 
-  @media (min-width: 768px) {
-    width: 45vw;
-    height: 80vh;
+  @media (min-width: 1024px) {
+    height: 100%;
   }
 `
 
@@ -123,7 +125,7 @@ const Content = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -134,7 +136,7 @@ const TextContainer = styled.div`
   flex-direction: column;
   padding: 20px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 70%;
   }
 `
