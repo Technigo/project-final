@@ -43,6 +43,14 @@
   left: 0;
 }
 
+.menu-categories {
+  list-style-type: none;
+}
+
+.menu-categories li {
+  margin-bottom: 20px;
+}
+
 @media (min-width: 668px) {
   .bm-menu {
     width: 50%;
