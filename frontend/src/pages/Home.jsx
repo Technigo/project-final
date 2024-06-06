@@ -1,7 +1,7 @@
 
 import { Carousel } from "../components/Carousel";
 import { Hero } from "../components/Hero";
-import { ProductCard } from "../components/ProductCard";
+import { Footer } from "../components/Footer";
 
 import { ReviewCard } from "../components/ReviewCard";
 import { Statements } from "../components/Statements";
@@ -14,6 +14,7 @@ export const Home = ({ data }) => {
       <Carousel />
       <Statements data={data["atGlim"] } />
       <ReviewCard />
+      <Footer data={data["footer"] } />
     </div>
   );
 };

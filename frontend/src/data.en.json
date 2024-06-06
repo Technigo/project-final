@@ -48,33 +48,70 @@
       "title": "Treatments",
       "ctaButton": "Treatments"
     },
-    "missionStatement": {
-      "title": "Why choose us?",
-      "perks": [
-        {
-          "perk": "Personalized Recommendations:",
-          "comment": "Our advanced skin analysis tool evaluates you skin type and needs, providing customized product recommendations that work best for you."
-        },
-        {
-          "perk": "Quality and Efficacy:",
-          "comment": "We partner with top-tier skincare brands that prioritize high-quality ingredients and proven results, ensuring you get the best care possible."
-        },
-        {
-          "perk": "Expert Guidance:",
-          "comment": "Our team of skincare experts is here to offer advice and support, helping you make informed decisions about your skincare routine."
-        },
-        {
-          "perk": "Commitment to Your Skin's Health:",
-          "comment": "We are dedicated to helping you achieve long-term skin health, not just temporary solutions. Our personalized approach means you skincare regimen evolves with our skin's changing needs."
-        },
-        {
-          "perk": "Sustainable Choices:",
-          "comment": "We are commited to sustainability and offer products that are not only good for your skin but also kind to the planet."
-        }
-      ]
-    },
-    "contactInfo": {
-      "title": "Contact Info"
+    "footer": {
+      "missionStatement": {
+        "title": "Why choose us?",
+        "perks": [
+          {
+            "perk": "Personalized Recommendations",
+            "comment": "Our advanced skin analysis tool evaluates you skin type and needs, providing customized product recommendations that work best for you."
+          },
+          {
+            "perk": "Quality and Efficacy",
+            "comment": "We partner with top-tier skincare brands that prioritize high-quality ingredients and proven results, ensuring you get the best care possible."
+          },
+          {
+            "perk": "Expert Guidance",
+            "comment": "Our team of skincare experts is here to offer advice and support, helping you make informed decisions about your skincare routine."
+          },
+          {
+            "perk": "Sustainable Choices",
+            "comment": "We are commited to sustainability and offer products that are not only good for your skin but also kind to the planet."
+          }
+        ]
+      },
+      "contactInfo": {
+        "title": "contact us",
+        "contactRoute": [
+          {
+            "icon": "/soMeIcons/email.svg",
+            "altText": "Email",
+            "info": "contact@teamflamingo.com"
+          },
+          {
+            "icon": "/soMeIcons/phone.svg",
+            "altText": "Phonenumber",
+            "info": "+46 688 888 8888"
+          },
+          {
+            "icon": "/soMeIcons/adress.svg",
+            "altText": "Adress",
+            "info": "Flamingo road 3\n157888 Glim\nSwissweden"
+          }
+        ],
+        "socialMedia": [
+          {
+            "icon": "/soMeIcons/instagram.svg",
+            "altText": "Instagram",
+            "link": ""
+          },
+          {
+            "icon": "/soMeIcons/facebook.svg",
+            "altText": "Facebook",
+            "link": ""
+          },
+          {
+            "icon": "/soMeIcons/linkedin.svg",
+            "altText": "LinkedIn",
+            "link": ""
+          },
+          {
+            "icon": "/soMeIcons/github.svg",
+            "altText": "GitHub",
+            "link": ""
+          }
+        ]
+      }
     }
   },
 
