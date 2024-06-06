@@ -4,6 +4,7 @@ import facebook from "/soMeIcons/facebook.svg";
 import github from "/soMeIcons/github.svg";
 import linkedin from "/soMeIcons/linkedin.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
+import { Slideshow } from "./StatementSlideshow";
 
 export const Footer = ({ data }) => {
   const missionStatement = data.missionStatement;
@@ -22,15 +23,19 @@ export const Footer = ({ data }) => {
                 {missionStatement.title}
               </h2>
             </div>
-            {missionStatement.perks &&
-              missionStatement.perks.map((item, index) => (
-                <div className="text-center my-8">
-                  <h3 className="font-heading text-2xl my-2">{item.perk}</h3>
-                  <p className="w-[25ch] hidden tablet:block m-auto">
-                    {item.comment}
-                  </p>
-                </div>
-              ))}
+
+            <Slideshow items={perkArray} />
+            <div className="grid grid-cols-2 ">
+              {missionStatement.perks &&
+                missionStatement.perks.map((item, index) => (
+                  <div className="text-center my-8 hidden laptop:block">
+                    <h3 className="font-heading text-2xl my-2">{item.perk}</h3>
+                    <p className="hidden font-extralight w-[45ch] tablet:block m-auto">
+                      {item.comment}
+                    </p>
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
         <img
@@ -45,9 +50,9 @@ export const Footer = ({ data }) => {
           {contact.title}
         </h2>
 
-        <div className="flex whitespace-pre text-body flex-col gap-4 align-center my-10">
+        <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around gap-4 align-center my-10">
           {contact.contactRoute.map((item, index) => (
-            <div className="flex flex-col items-center my-6">
+            <div className="flex flex-col items-center w-1/5 my-6">
               <img className="w-12 my-4" src={item.icon} alt={item.altText} />
               <p className="text-center font-extralight">{item.info}</p>
             </div>
