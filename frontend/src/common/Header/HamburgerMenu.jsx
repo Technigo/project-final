@@ -14,6 +14,9 @@ export const HamburgerMenu = () => {
           className="hamburger-icon"
         />
       }
+      // menuClassName={"bm-menu"}
+      // pageWrapId={"page-wrap"}
+      // outerContainerId={"outer-container"}
     >
       <a className="menu-item" href="/">
         Home

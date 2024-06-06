@@ -2,20 +2,19 @@
   width: 29px;
 }
 
-.bm-burger-bars {
-  background: #373a47;
-}
-
 .bm-menu {
-  background: #b8b7ad;
+  background: #ffffff;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+  margin-top: 44px;
+  width: 100%; /* Increase the width of the menu */
+  position: fixed;
+  left: 0; /* Align the menu to the left of the page */
 }
 
 .bm-menu-item {
-  display: inline-block;
-  color: #d1d1d1;
-  text-decoration: none;
+  /* display: inline-block; */
+  color: #000000;
   margin-bottom: 10px;
 }
 
@@ -28,20 +27,42 @@
   width: 24px;
 }
 
-.bm-cross {
+/* .bm-cross {
   background: #bdc3c7;
-}
+} */
 
 .bm-item-list {
-  color: #b8b7ad;
+  color: #000000;
+  /* position: fixed; */
+  /* margin-top: 118px; */
 }
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+  margin-top: 70px;
+  left: 0;
+}
+
+@media (min-width: 668px) {
+  .bm-menu {
+    width: 50%;
+  }
+
+  .bm-overlay {
+    margin-top: 74px;
+  }
 }
 
 @media (min-width: 1024px) {
   .hamburger-icon-image {
+    display: none;
+  }
+
+  .bm-menu {
+    display: none;
+  }
+
+  .bm-overlay {
     display: none;
   }
 }
