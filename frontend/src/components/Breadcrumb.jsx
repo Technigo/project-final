@@ -8,8 +8,10 @@ export const Breadcrumb = () => {
   return (
     <nav aria-label="breadcrumb">
       <ol className="mx-6 my-4 flex w-full flex-wrap items-center font-montserrat font-bold">
-        <li className="flex cursor-pointer text-sm text-black">
-          <Link to="/">HOME</Link>
+        <li className="flex text-sm text-black">
+          <Link to="/" className="cursor-pointer">
+            HOME
+          </Link>
           {pathnames.length > 0 && (
             <img src={breadcrumbIcon} alt="breadcrumb icon" className="mx-4" />
           )}
@@ -18,7 +20,7 @@ export const Breadcrumb = () => {
         {pathnames.map((name, position) => {
           const goTo = `/${pathnames.slice(0, position + 1).join("/")}`;
           const positionIsLast = position === pathnames.length - 1;
-          const pathName = name.toUpperCase();
+          const pathName = name.toUpperCase().replace(/-/g, " ");
 
           return (
             <li key={name} className="flex items-center text-sm text-blue">
