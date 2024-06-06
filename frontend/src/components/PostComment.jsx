@@ -1,8 +1,12 @@
 import { useState } from "react"
+// import { AuthContext } from "../contexts/AuthContext"
 
 export const PostComment = ({ museumId, onNewComment }) => {
   const [message, setMessage] = useState("")
   const [count, setCount] = useState(0)
+
+  // Get the logged-in user info
+  // const { user } = useContext(AuthContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -13,7 +17,11 @@ export const PostComment = ({ museumId, onNewComment }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ museumId, message }),
+        body: JSON.stringify({
+          museumId,
+          message,
+          // user: { _id: user._id, name: user.name },
+        }),
       })
 
       if (!response.ok) {

@@ -13,7 +13,7 @@ import StyledButton from "../components/styled/Button.styled"
 
 export const DetailPage = () => {
   const { authState } = useContext(AuthContext)
-  const { isAuthenticated, accessToken } = authState
+  const { isAuthenticated } = authState
 
   const params = useParams()
   const museumId = params.slug
