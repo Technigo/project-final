@@ -60,17 +60,20 @@ export const Carousel = () => {
       {loadingProduct ? (
         <Loading />
       ) : (
-        <ul
-          ref={sliderRef}
-          className="flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth"
-        >
-          {productsData.products &&
-            productsData.products.map((item, index) => (
-              <li className="snap-center" key={index}>
-                <ProductCard data={item} />
-              </li>
-            ))}
-        </ul>
+          <>
+          <h2 className="font-heading text-xl text-center text-white font-light">Products</h2>
+          <ul
+            ref={sliderRef}
+            className="flex no-scrollbar whitespace-nowrap snap-x snap-mandatory overflow-x-auto overflow-hidden mx-auto px-[50%] p-6 gap-2 scroll-smooth"
+            >
+            {productsData.products &&
+              productsData.products.map((item, index) => (
+                <li className="snap-center" key={index}>
+                  <ProductCard data={item} />
+                </li>
+              ))}
+          </ul>
+              </>
       )}
 
       {/* <div className="flex-shrink-0 snap-center w-52">

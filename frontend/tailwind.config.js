@@ -9,11 +9,12 @@ export default {
         "main-green": "#97a65D",
         "main-yellow": "#FFDE68",
         "main-red": "#E48d6A",
+        "main-white": "#FFFDF6",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-green": "#475318",
 
         "text-light": "#fff",
-        "text-dark": "#452626",
+        "text-dark": "#671E01",
 
         "button-light": "#FFF5F2",
       },
