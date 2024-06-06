@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Loading } from "../components/Loading";
 import { NotFound } from "./NotFound";
 import { Footer } from "../components/Footer";
+import { ReviewForm } from "../components/ReviewForm";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export const SingleProductPage = () => {
 
   return (
     <>
-      <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
+      <section className="bg-main-red w-full pt-12 laptop:pt-28">
         {loadingProduct ? (
           <Loading />
         ) : (
@@ -45,6 +46,8 @@ export const SingleProductPage = () => {
           </div>
         )}
       </section>
+
+      <ReviewForm />
 
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />
