@@ -20,22 +20,31 @@ export const Header = () => {
         </button>
         <ul className="nav-categories">
           <li>
-            {/* The end attribute on NavLink makes it so that the link will only be considered active if the location is exactly the same as the to value.  */}
-            <NavLink to="/products" end>
-              All products
-            </NavLink>
+            <h5>
+              {/* The end attribute on NavLink makes it so that the link will only be considered active if the location is exactly the same as the to value.  */}
+              <NavLink to="/products" end>
+                All products
+              </NavLink>
+            </h5>
           </li>
-          <li>
+          <li><h5>
             <NavLink to="/products/category/tops">Tops</NavLink>
+            </h5>
           </li>
           <li>
+            <h5>
             <NavLink to="/products/category/bottoms">Bottoms</NavLink>
+            </h5>
           </li>
           <li>
+            <h5>
             <NavLink to="/products/category/dresses">Dresses</NavLink>
+            </h5>
           </li>
           <li>
+            <h5>
             <NavLink to="/products/category/accessories">Accessories</NavLink>
+            </h5>
           </li>
         </ul>
         <div className="nav-logo">

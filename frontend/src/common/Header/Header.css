@@ -47,7 +47,6 @@ header button {
     display: flex;
     gap: 30px;
     list-style-type: none;
-    text-transform: uppercase;
   }
 
   .hamburger-button {

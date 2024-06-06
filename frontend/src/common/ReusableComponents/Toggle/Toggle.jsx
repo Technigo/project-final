@@ -10,10 +10,10 @@ export const Toggle = ({ title, children }) => {
   };
   return (
     <div className="toggle-wrapper">
-      <div className="toggle-title" onClick={toggleOpen}>
+      <h5 className="toggle-title" onClick={toggleOpen}>
         {title}
         <span className="toggle-icon">{isOpen ? "-" : "+"}</span>
-      </div>
+      </h5>
       {isOpen && <div className="toggle-content">{children}</div>}
     </div>
   );
