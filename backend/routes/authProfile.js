@@ -2,7 +2,7 @@ import express from "express";
 import passport from "../config/passport";
 import jwt from "jsonwebtoken";
 import User from "../models/User";
-import { upload } from "../config/multer";
+/* import { upload } from "../config/multer"; */
 /* import { authenticate } from "passport"; */
 
 const router = express.Router();

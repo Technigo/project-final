@@ -1,15 +1,13 @@
 import api from "../../axiosConfig";
-import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import signUpImage from "/images/signUp.jpg";
 
-export const SignUpPage = () => {
+export const SignUpPage = ({ onSignupSuccess }) => {
   const usernameInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [error, setError] = useState(null);
   const [role, setRole] = useState("Listener");
-  const [isLogin, setIsLogin] = useState(false);
-  const navigate = useNavigate();
+  /*  const [isLogin, setIsLogin] = useState(false); */
 
   const handleRoleChange = (e) => {
     setRole(e.target.value);
@@ -17,37 +15,23 @@ export const SignUpPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const username = usernameInputRef.current.value;
     const password = passwordInputRef.current.value;
 
     try {
-      let response;
-      if (isLogin) {
-        console.log("Sending login request:", { username, password });
-        response = await api.post("/sessions", { username, password });
-        console.log("Login response:", response.data);
-      } else {
-        console.log("Sending signup request:", { username, password, role });
-        response = await api.post("/users", { username, password, role });
-        const { accessToken } = response.data;
-        localStorage.setItem("authToken", accessToken);
-        console.log("Signup response:", response.data);
-      }
-      navigate("/profile");
+      const response = await api.post("/users", { username, password, role });
+      const { accessToken } = response.data;
+      localStorage.setItem("authToken", accessToken);
+      console.log("Signup response:", response.data);
+      onSignupSuccess();
     } catch (error) {
-      console.error("Error during authentication:", error);
+      console.error("Error during signup:", error);
       setError(
         error.response?.data?.error ||
-          "An error occurred during authentication."
+          "An error occurred during signup. Please try again."
       );
     }
   };
-
-  /*   const toggleForm = () => {
-    setIsLogin((prev) => !prev); // Toggle between sign-up and login
-    setError(null); // Reset error when toggling forms
-  }; */
 
   return (
     <div className="container mx-auto">

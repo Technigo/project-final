@@ -4,6 +4,7 @@ import api from "../../axiosConfig";
 import Menu from "../../utilities/Menu";
 import defaultProfilePicture from "/icons/profile.png";
 import gearIcon from "/icons/gear.svg";
+import { ProfileForm } from "./ProfileForm";
 
 const Profile = () => {
   const [userData, setUserData] = useState({
@@ -74,11 +75,16 @@ const Profile = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      setUserData(response.data);
-      setEditMode(false);
-      setNotification("Profile updated successfully!");
-      setTimeout(() => setNotification(""), 3000);
+      if (response.data) {
+        setUserData(response.data);
+        setEditMode(false);
+        setNotification("Profile updated successfully!");
+        setTimeout(() => setNotification(""), 3000);
+      } else {
+        throw new Error("Failed to get updated data from server.");
+      }
     } catch (err) {
+      console.error("Failed to update profile:", err);
       setError("Failed to update profile.");
     }
   };
@@ -137,41 +143,11 @@ const Profile = () => {
           )}
 
           {editMode && (
-            <form onSubmit={handleUpdateProfile} className="space-y-4 flex-1">
-              <input
-                type="text"
-                placeholder="Username"
-                value={userData.username}
-                onChange={(e) =>
-                  setUserData({ ...userData, username: e.target.value })
-                }
-                className="block w-full px-4 py-2 rounded border border-gray-300"
-              />
-              <input
-                type="text"
-                placeholder="Bio"
-                value={userData.bio}
-                onChange={(e) =>
-                  setUserData({ ...userData, bio: e.target.value })
-                }
-                className="block w-full px-4 py-2 rounded border border-gray-300"
-              />
-              <input
-                type="text"
-                placeholder="Hobbies"
-                value={userData.hobbies}
-                onChange={(e) =>
-                  setUserData({ ...userData, hobbies: e.target.value })
-                }
-                className="block w-auto px-4 py-2 rounded border border-gray-300"
-              />
-              <button
-                type="submit"
-                className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
-              >
-                Save Changes
-              </button>
-            </form>
+            <ProfileForm
+              userData={userData}
+              setUserData={setUserData}
+              handleUpdateProfile={handleUpdateProfile}
+            />
           )}
           {notification && <p className="text-green-500">{notification}</p>}
         </div>
