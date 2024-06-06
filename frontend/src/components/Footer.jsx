@@ -1,5 +1,6 @@
-import dropdown from "../assets/dropdown.svg";
 import { useState } from "react";
+
+import dropdown from "../assets/dropdown.svg";
 
 export const Footer = () => {
   const [shopIsOpen, setShopIsOpen] = useState(false);
@@ -36,7 +37,7 @@ export const Footer = () => {
   const myAccount = ["MY PAGE", "LOGIN", "LOGOUT"];
 
   return (
-    <footer className="flex flex-col items-center bg-blue pt-6 font-montserrat leading-9 text-white">
+    <footer className="inset-x-0 bottom-0 flex flex-col items-center bg-blue pt-6 font-montserrat leading-9 text-white">
       <div>
         <button
           className="ml-3 flex w-[300px] flex-row justify-between border-b"
@@ -82,7 +83,7 @@ export const Footer = () => {
           <img src={dropdown} className="h-2 self-center" />
         </button>
         {customerIsOpen && (
-          <p className="ml-6 py-3 leading-6 tracking-wide w-[280px]">
+          <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
             This is not a real web shop, but if it was, we'd proably have the
             best customer service in the world!
           </p>
@@ -99,7 +100,7 @@ export const Footer = () => {
           <img src={dropdown} className="h-2 self-center" />
         </button>
         {aboutIsOpen && (
-          <p className="leading-6 tracking-wide w-[280px] ml-6 py-3">
+          <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
             This site was designed and developed by Mai, Sofie and Wen for our
             final project of the Web Development Bootcamp at Technigo
           </p>

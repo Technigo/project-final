@@ -32,7 +32,7 @@ export const Header = () => {
           {navigation.map((item) => (
             <NavLink
               key={item.name}
-              to={item.to}
+              to={item.href}
               className="text-lg font-semibold"
             >
               {item.name}
