@@ -24,7 +24,7 @@ export const MuseumCard = ({ museum }) => {
         <MuseumCardContent>
           <h3>{museum.name}</h3>
           <p>{museum.theme}</p>
-          <p>{museum.website}</p>
+          <p>{museum.location}</p>
         </MuseumCardContent>
       </Link>
     </StyledMuseumCard>

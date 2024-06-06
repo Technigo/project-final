@@ -1,13 +1,22 @@
-import { FaArrowLeft } from "react-icons/fa"
+import styled from "styled-components"
+import { LuArrowLeftCircle } from "react-icons/lu";
 import { Link } from "react-router-dom"
 
 export const ToHomepageBtn = () => {
   return (
-    <div>
+    <ToHomepageBtnStyled>
       <Link to={"/"}>
-        <FaArrowLeft />
-        <span>Back to homepage</span>{" "}
+        <LuArrowLeftCircle />
       </Link>
-    </div>
+    </ToHomepageBtnStyled>
   )
 }
+
+const ToHomepageBtnStyled = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  color: white;
+  font-size: 36px;
+`
