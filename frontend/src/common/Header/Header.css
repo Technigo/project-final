@@ -51,6 +51,7 @@
     display: flex;
     gap: 20px;
     list-style-type: none;
+
     text-transform: uppercase;
     order: 2;
   }

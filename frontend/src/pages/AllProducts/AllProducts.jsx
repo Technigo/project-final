@@ -39,7 +39,7 @@ export const AllProducts = () => {
   return (
     <div className="allproducts-page">
       <CategoryIcons variant="grey" />
-      <h2>All products</h2>
+      <h4>All products</h4>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       <section className="product-list">
