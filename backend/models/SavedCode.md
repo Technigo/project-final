@@ -13,3 +13,6 @@ success: false,
 message: "Invalid museumId",
 })
 }
+
+--> In comments
+word-wrap: break-word;
