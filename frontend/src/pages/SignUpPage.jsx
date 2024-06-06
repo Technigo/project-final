@@ -19,40 +19,46 @@ export const SignUpPage = () => {
           <h3 className="text-xl font-heading font-medium mt-3">
             login Information
           </h3>
-          <form className="flex flex-col w-full px-10 tablet:px-36 tablet:block">
-            <label
-              htmlFor="email"
-              className="text-text-dark font-heading font-semibold mt-8 tablet:block"
-            >
-              Email:
-            </label>
-            <input
-              className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
-              id="email"
-            ></input>
-            <label
-              htmlFor="password"
-              className="text-text-dark font-heading font-semibold mt-8 tablet:w-1/2 tablet:block"
-            >
-              Password:
-            </label>
-            <input
-              className="rounded-xl h-10 bg-bg-input tablet:w-1/2"
-              id="password"
-            ></input>
-            <label
-              htmlFor="confirm"
-              className="text-text-dark font-heading font-semibold mt-8 tablet:w-1/2 tablet:block"
-            >
-              Confirm password:
-            </label>
-            <input
-              className="rounded-xl h-10 bg-bg-input tablet:w-1/2"
-              id="confirm"
-            ></input>
+          <form className="flex flex-col w-full px-10 tablet:px-36">
+            <div className="flex flex-col w-full">
+              <label
+                htmlFor="email"
+                className="text-text-dark font-heading font-semibold mt-8 tablet:block"
+              >
+                Email:
+              </label>
+              <input
+                className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
+                id="email"
+              ></input>
+            </div>
+            <div className="flex flex-col w-full tablet:w-2/5">
+              <label
+                htmlFor="password"
+                className="text-text-dark font-heading font-semibold mt-8  "
+              >
+                Password:
+              </label>
+              <input
+                className="rounded-xl h-10 bg-bg-input "
+                id="password"
+              ></input>
+            </div>
+            <div className="flex flex-col w-full tablet:w-2/5 tablet:self-end">
+              <label
+                htmlFor="confirm"
+                className="text-text-dark font-heading font-semibold mt-8"
+              >
+                Confirm password:
+              </label>
+              <input
+                className="rounded-xl h-10 bg-bg-input "
+                id="confirm"
+              ></input>
+            </div>
             <button
               onClick={() => setActiveSection("sectiontwo")}
-              className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:block"
+              className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
             >
               Next
             </button>
