@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import notFoundImage from "../assets/not-found.jpg";
+import { Breadcrumb } from "../components/Breadcrumb";
 
 export const NotFound = () => {
   return (
     <>
+      <Breadcrumb />
       <div className="mx-auto flex justify-center">
         <div className="mx-6 my-10">
           <img
