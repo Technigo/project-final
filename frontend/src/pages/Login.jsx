@@ -1,7 +1,13 @@
+import { Header } from "../components/Header";
 import { Form } from "../components/Form";
+import { Footer } from "../components/Footer";
 
 export const Login = () => {
   return (
-    <Form isLogin={true} />
+    <>
+      <Header />
+      <Form isLogin={true} />
+      <Footer />
+    </>
   );
 };
