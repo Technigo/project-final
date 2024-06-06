@@ -14,7 +14,7 @@ import { LocationContext } from "./LocationContext";
 import "./App.css";
 
 const sweden = { lat: 62.3875, lng: 16.325556 };
-// https://github.com/remix-run/react-router/blob/dev/examples/view-transitions/src/main.tsx 
+// https://github.com/remix-run/react-router/blob/dev/examples/view-transitions/src/main.tsx
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,13 +22,15 @@ const router = createBrowserRouter([
       let { pathname } = useLocation();
       const [notes, setNotes] = useState([]);
       const [location, setLocation] = useState(sweden);
+      const [noteId, setNoteId] = useState("");
 
       useEffect(() => {
         const url = "http://localhost:8080/notes";
         fetch(url)
           .then((response) => response.json())
           .then((data) => setNotes(data));
-      }, []);
+        // fetch more notes, every time you change page
+      }, [pathname]);
       console.log(notes);
 
       useEffect(() => {
@@ -68,7 +70,10 @@ const router = createBrowserRouter([
               mapId="happyangrynote"
             >
               {pathname === "/" &&
-                notes.map((note) => <Note key={note._id} {...note} />)}
+            // this is so the user can open one note at a time
+                notes.map((note) => (
+                  <Note key={note._id} {...note} open={note._id == noteId} onClick={()=> setNoteId(note._id)} />
+                ))}
             </Map>
           </APIProvider>
 

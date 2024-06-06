@@ -5,19 +5,18 @@ import {
   useAdvancedMarkerRef,
 } from "@vis.gl/react-google-maps";
 
-export const Note = ({ text, latitude, longitude }) => {
-  const [infowindowOpen, setInfowindowOpen] = useState(false);
+export const Note = ({ text, latitude, longitude, open, onClick }) => {
   const [markerRef, marker] = useAdvancedMarkerRef();
 
   return (
     <>
       <AdvancedMarker
         ref={markerRef}
-        onClick={() => setInfowindowOpen(true)}
+        onClick={onClick}
         position={{ lat: latitude, lng: longitude }}
         title={"AdvancedMarker that opens an Infowindow when clicked."}
       />
-      {infowindowOpen && (
+      {open && (
         <InfoWindow
           anchor={marker}
           maxWidth={200}
