@@ -25,10 +25,8 @@ export const DetailPage = () => {
 
   return (
     <Container>
-      <ImageContainer>
-        <StyledImage src={museum.url} alt={`Image related to ${museum.name}`} />
-        <StyledToHomepageBtn />
-      </ImageContainer>
+      <StyledImage src={museum.url} alt={`Image related to ${museum.name}`} />
+      <ToHomepageBtn />
 
       <Content>
         <TextContainer>
@@ -89,24 +87,6 @@ const Container = styled.div`
   align-items: left;
 `
 
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 40vh;
-
-  @media (min-width: 768px) {
-    width: 30%;
-    height: auto;
-  }
-`
-
-const StyledToHomepageBtn = styled(ToHomepageBtn)`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-`
-
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -120,9 +100,14 @@ const Content = styled.div`
 
 export const StyledImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: 40vh;
   object-fit: cover;
   object-position: center;
+
+  @media (min-width: 768px) {
+    width: 50%;
+    height: auto;
+  }
 `
 
 const TextContainer = styled.div`
