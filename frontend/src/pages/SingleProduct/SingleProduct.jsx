@@ -55,7 +55,7 @@ export const SingleProduct = () => {
             />
           </section>
           <section className="product-info">
-            <h2>{product.name}</h2>
+            <h3>{product.name}</h3>
             <h4>{product.price} SEK</h4>
             <p>{product.description}</p>
             <p>{product.details}</p>

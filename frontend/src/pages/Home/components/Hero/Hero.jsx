@@ -13,7 +13,7 @@ export const Hero = () => {
       />
       <h1 className="hero-h1">Summer vibes</h1>
       <div className="hero-text">
-        <h4 className="hero-h4">Playful clothes for sunny days</h4>
+        <h2 className="hero-h4">Playful clothes for sunny days</h2>
         <Button variant="hero" label="See all products" to="/products" />
       </div>
     </section>
