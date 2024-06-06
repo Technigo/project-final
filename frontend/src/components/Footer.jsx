@@ -4,7 +4,7 @@ import facebook from "/soMeIcons/facebook.svg";
 import github from "/soMeIcons/github.svg";
 import linkedin from "/soMeIcons/linkedin.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
-import { Slideshow } from "./StatementSlideshow";
+import { Slideshow } from "./WhyUsSlideshow";
 
 export const Footer = ({ data }) => {
   const missionStatement = data.missionStatement;
