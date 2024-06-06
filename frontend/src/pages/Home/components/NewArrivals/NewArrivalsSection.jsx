@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { Image } from "../../../../common/ReusableComponents/Image/Image";
+import { Button } from "../../../../common/ReusableComponents/Button/Button";
 import "./NewArrivalsSection.css";
 
 export const NewArrivalsSection = () => {
@@ -17,18 +17,21 @@ export const NewArrivalsSection = () => {
   ];
 
   return (
-    <div className="new-arrivals-container">
+    <section className="new-arrivals-container">
       {newArrivals.map((newArrival, index) => (
-        <div key={index}>
-          <Link to={`/products?sort=date_desc`}>
-            <Image
-              className="new-arrivals"
-              src={newArrival.imgUrl}
-              alt={newArrival.imgAlt}
-            />
-          </Link>
+        <div key={index} className="new-arrivals-wrapper">
+          <Button
+            variant="hero"
+            label="See newest products"
+            to="/products?sort=date_desc"
+          />
+          <Image
+            className="new-arrivals"
+            src={newArrival.imgUrl}
+            alt={newArrival.imgAlt}
+          />
         </div>
       ))}
-    </div>
+    </section>
   );
 };
