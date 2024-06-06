@@ -140,9 +140,9 @@ router.put(
   /*  upload.single("profilePicture"), */
   async (req, res) => {
     try {
-      const { name, bio, hobby } = req.body;
+      const { username, bio, hobby } = req.body;
       /*  const profilePicture = req.file ? req.file.path : null; */
-      const updatedData = { name, bio, hobby };
+      const updatedData = { username, bio, hobby };
 
       /*  if (profilePicture) {
          updatedData.profilePicture = profilePicture;
