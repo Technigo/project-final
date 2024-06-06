@@ -1,3 +1,33 @@
+import thankYouImage from "../assets/thank-you.jpg";
+
 export const OrderConfirmation = () => {
-  return <div>OrderConfirmation</div>;
+  return (
+    <div className="flex w-full justify-center lg:justify-start">
+      <div className="mx-6 flex flex-col items-center lg:mx-auto lg:max-w-screen-lg lg:flex-initial lg:items-start">
+        <h1 className="mt-10 font-poppins font-bold lg:mb-10">Thank you!</h1>
+
+        <div className="flex flex-col justify-center lg:mx-auto">
+          <div className="flex justify-center">
+            <img
+              src={thankYouImage}
+              alt="laptop"
+              className="my-10 w-full max-w-md"
+            />
+          </div>
+          <div>
+            <h2 className="mb-6 font-poppins font-bold text-blue">
+              Well... You won’t get your product
+            </h2>
+            <p className="mb-20 font-lato text-sm lg:text-lg">
+              Thanks for Playing Along!
+              <br />
+              Your checkout process was just a simulation—no money was withdrawn
+              and no products will be shipped. <br />
+              We'd love to hear any feedback you have about your experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
