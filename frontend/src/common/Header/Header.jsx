@@ -1,23 +1,18 @@
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 import logo from "/assets/logotypes/logo-stamp.svg";
-import hamburger from "/assets/icons/hamburger.svg";
+// import hamburger from "/assets/icons/hamburger.svg";
 import cart from "/assets/icons/cart.svg";
 // import search from "/assets/icons/search.svg";
 // import user from "/assets/icons/user.svg";
 import { Image } from "../ReusableComponents/Image/Image";
+import { HamburgerMenu } from "./HamburgerMenu";
 
 export const Header = () => {
   return (
     <header>
       <nav className="nav-container">
-        <button className="hamburger-button">
-          <Image
-            src={hamburger}
-            alt="hamburger-menu"
-            className="hamburger-menu"
-          />
-        </button>
+        <HamburgerMenu />
         <ul className="nav-categories">
           <li>
             <h5>
@@ -27,23 +22,24 @@ export const Header = () => {
               </NavLink>
             </h5>
           </li>
-          <li><h5>
-            <NavLink to="/products/category/tops">Tops</NavLink>
+          <li>
+            <h5>
+              <NavLink to="/products/category/tops">Tops</NavLink>
             </h5>
           </li>
           <li>
             <h5>
-            <NavLink to="/products/category/bottoms">Bottoms</NavLink>
+              <NavLink to="/products/category/bottoms">Bottoms</NavLink>
             </h5>
           </li>
           <li>
             <h5>
-            <NavLink to="/products/category/dresses">Dresses</NavLink>
+              <NavLink to="/products/category/dresses">Dresses</NavLink>
             </h5>
           </li>
           <li>
             <h5>
-            <NavLink to="/products/category/accessories">Accessories</NavLink>
+              <NavLink to="/products/category/accessories">Accessories</NavLink>
             </h5>
           </li>
         </ul>

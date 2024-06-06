@@ -31,11 +31,10 @@
 @media (min-width: 668px) {
   .nav-logo {
     width: 100px;
-    /* justify-self: center; */
   }
 
-  .hamburger-menu-image {
-    width: 26px;
+  .nav-icons img {
+    width: 37px;
   }
 }
 
@@ -48,13 +47,7 @@
     display: flex;
     gap: 20px;
     list-style-type: none;
-
-    text-transform: uppercase;
     order: 2;
-  }
-
-  .hamburger-button {
-    display: none;
   }
 
   .nav-logo {

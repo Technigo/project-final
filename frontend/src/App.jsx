@@ -5,6 +5,7 @@ import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
 import { Footer } from "./common/Footer/Footer";
 import { Header } from "./common/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HamburgerMenu } from "./common/Header/HamburgerMenu";
 
 export const App = () => {
   return (
