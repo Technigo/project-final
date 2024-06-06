@@ -21,15 +21,14 @@ export const Breadcrumb = () => {
           const pathName = name.toUpperCase();
 
           return (
-            <li
-              key={name}
-              className="flex cursor-pointer items-center text-sm text-blue"
-            >
+            <li key={name} className="flex items-center text-sm text-blue">
               {positionIsLast ? (
                 <span>{pathName}</span>
               ) : (
                 <>
-                  <Link to={goTo}>{pathName}</Link>
+                  <Link to={goTo} className="cursor-pointer">
+                    {pathName}
+                  </Link>
                   <img
                     src={breadcrumbIcon}
                     alt="breadcrumb icon"
