@@ -25,7 +25,7 @@ export const CommentSection = ({ museumId }) => {
   useEffect(() => {
     fetchComments()
   }, [museumId])
-  
+
   const handleNewComment = (newComment) => {
     setComments((prevComments) => [newComment, ...prevComments])
   }
