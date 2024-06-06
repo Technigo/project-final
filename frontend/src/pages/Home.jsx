@@ -12,9 +12,9 @@ export const Home = ({ data }) => {
       <Hero data={data["hero"]} />
       <Carousel />
       <Statements data={data["atGlim"]} />
-      
-      {/* add the X of the bg-main-X  and w-full to the aboveColor to make the Footer match*/}
-      <Footer data={data["footer"]} aboveColor={"yellow w-full"} />
+
+      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
+      <Footer data={data["footer"]} aboveColor={"yellow"} />
     </div>
   );
 };

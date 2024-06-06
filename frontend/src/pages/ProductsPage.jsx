@@ -67,8 +67,8 @@ export const ProductsPage = () => {
           </ul>
         )}
       </section>
-      {/* add the X of the bg-main-X  and w-full to the aboveColor to make the Footer match*/}
-      <Footer aboveColor={"red w-full"} />
+      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
+      <Footer aboveColor={"red"} />
     </>
   );
 };

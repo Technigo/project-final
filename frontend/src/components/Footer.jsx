@@ -11,7 +11,10 @@ import data2 from "../data.en.json";
 export const Footer = ({ providedData, aboveColor }) => {
   let data = null;
 
-  let previousSectionColor = `bg-main-${aboveColor}`
+  console.log(aboveColor);
+  const previousSectionColor = aboveColor
+    ? `bg-main-${aboveColor} w-full`
+    : `w-full bg-red-600`;
   console.log(data2);
 
   if (!providedData) data = data2.homepage.footer;
@@ -24,11 +27,7 @@ export const Footer = ({ providedData, aboveColor }) => {
 
   return (
     <>
-      <img
-        className={previousSectionColor}
-        src={swoop2}
-        alt="Section border"
-      />
+      <img className={previousSectionColor} src={swoop2} alt="Section border" />
       <section className="mission bg-main-green">
         <div className=" text-text-light">
           <div className="p-6 tablet:p-10 laptop:p-20">
