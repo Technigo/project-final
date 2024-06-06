@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import { LuUser2 } from "react-icons/lu";
 import { GrLanguage } from "react-icons/gr";
 import { StyledNavBar } from "./styled/NavBar.styled";
+import styled from "styled-components";
+
+const NavBarImage = styled.img`
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+`;
 
 export const NavBar = () => {
   const goToTop = () => {
@@ -14,7 +22,7 @@ export const NavBar = () => {
         <Link to={"/register"}>Register</Link>
         <Link to={"/login"}>Login</Link>
       </ul>
-      <img onClick={goToTop} src="museum-icon.png" />
+      <NavBarImage onClick={goToTop} src="museum-icon.png" />
 
       <Link to={"/user-page"}>
         <LuUser2 />

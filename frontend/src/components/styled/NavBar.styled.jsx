@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNavBar = styled.nav`
   z-index: 1;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   width: 100%;
   color: white;
@@ -16,17 +16,22 @@ export const StyledNavBar = styled.nav`
     a {
       margin: 0 5px;
     }
+
+    a:first-child {
+      margin-left: 20px;
+    }
   }
 
   a {
     margin-left: auto;
-    margin-right: 5px;
     display: flex;
+
+    svg {
+      margin-right: 10px;
+    }
   }
 
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  svg {
+    margin-right: 20px;
   }
 `;

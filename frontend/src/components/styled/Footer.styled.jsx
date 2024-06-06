@@ -3,20 +3,23 @@ import styled from "styled-components";
 const StyledFooter = styled.div`
   background-color: rgba(34, 47, 62, 1);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
-  height: 80px;
-  padding: 40px 20px;
   text-align: center;
-  font-size: 16px;
-  flex-wrap: wrap;
+  font-size: 10px;
+  padding: 15px 0;
 
   ul {
     display: flex;
+    flex-direction: column;
+    padding-left: 0;
 
     a {
       color: #f7f7f7;
-      display: flex;
+      text-align: center;
+      font-size: 18px;
+      width: fit-content;
+      margin: 0 auto;
     }
   }
 
@@ -26,7 +29,6 @@ const StyledFooter = styled.div`
 
   p {
     color: #f7f7f7;
-    display: flex;
   }
 `;
 

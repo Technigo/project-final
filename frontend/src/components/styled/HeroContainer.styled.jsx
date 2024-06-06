@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const HeroContainer = styled.div`
   position: relative;
+  display: flex;
 
   h1 {
     position: absolute;
