@@ -1,0 +1,53 @@
+.App-header {
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.App-header a {
+  color: #71deff;
+  text-decoration: underline;
+}
+
+.App-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+/* https://github.com/remix-run/react-router/blob/dev/examples/view-transitions/src/index.css this is about the view transitions that ive added. */
+.App-outlet {
+  view-transition-name: outlet;
+}
+
+::view-transition-old(outlet) {
+  animation: 500ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    500ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(outlet) {
+  animation: 500ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    500ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(500px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-500px);
+  }
+}

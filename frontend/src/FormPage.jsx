@@ -1,34 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Map } from "./Map";
+import { useContext } from "react";
+import { LocationContext } from "./LocationContext";
 import "./FormPage.css";
 
 export const FormPage = () => {
   const navigate = useNavigate();
-  const [location, setLocation] = useState({ lat: 0, lng: 0 });
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLocation({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      });
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      const latitudeInput = document.querySelector('input[name="latitude"]');
-      const longitudeInput = document.querySelector('input[name="longitude"]');
-      latitudeInput.value = latitude;
-      longitudeInput.value = longitude;
-    });
-  }, []);
-  console.log(location);
+  const location = useContext(LocationContext);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = {
-      latitude: formData.get("latitude"),
-      longitude: formData.get("longitude"),
+      latitude: location.lat,
+      longitude: location.lng,
       text: formData.get("text"),
     };
     console.log(data);
@@ -50,24 +34,18 @@ export const FormPage = () => {
 
   return (
     <div className="FormPage">
-      <h1 className="FormPage-title">happy angry note</h1>
-      <div className="FormPage-map">
-        <Map
-          notes={[]}
-          center={location.lat && location}
-          zoom={location.lat && 16}
-        />
-      </div>
       <form className="FormPage-form" onSubmit={onSubmit}>
         <input type="hidden" name="latitude" />
         <input type="hidden" name="longitude" />
 
         <label>
-          <span>Note</span>
+          <span className="FormPage-label">Note</span>
           <br />
-          <textarea name="text" />
+          <textarea className="FormPage-textarea" name="text" />
         </label>
-        <button type="submit">submit</button>
+        <button className="FormPage-submit" type="submit">
+          submit
+        </button>
       </form>
     </div>
   );
