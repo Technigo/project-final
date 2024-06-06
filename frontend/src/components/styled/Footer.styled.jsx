@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
-  background-color: rgba(34, 47, 62, 1);
+  background-color: #0a162c;
   display: flex;
   flex-direction: column;
   width: 100%;
