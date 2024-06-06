@@ -13,13 +13,6 @@ export const Header = () => {
     <header>
       <nav className="nav-container">
         <HamburgerMenu />
-        {/* <button className="hamburger-button">
-          <Image
-            src={hamburger}
-            alt="hamburger-menu"
-            className="hamburger-menu"
-          />
-        </button> */}
         <ul className="nav-categories">
           <li>
             <h5>

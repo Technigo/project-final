@@ -1,9 +1,5 @@
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
+.hamburger-icon-image {
+  width: 29px;
 }
 
 .bm-burger-bars {
@@ -42,4 +38,10 @@
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .hamburger-icon-image {
+    display: none;
+  }
 }

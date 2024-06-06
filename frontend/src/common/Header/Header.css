@@ -34,9 +34,9 @@
     /* justify-self: center; */
   }
 
-  .hamburger-menu-image {
+  /* .hamburger-menu-image {
     width: 26px;
-  }
+  } */
   .nav-icons img {
     width: 37px;
   }
@@ -56,9 +56,9 @@
     order: 2;
   }
 
-  .hamburger-button {
+  /* .hamburger-button {
     display: none;
-  }
+  } */
 
   .nav-logo {
     order: 1;
