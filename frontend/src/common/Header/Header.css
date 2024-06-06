@@ -1,8 +1,8 @@
 .nav-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   align-items: center;
-  margin: 20px 20px 0 20px;
+  justify-content: space-between;
+  margin: 15px 20px 10px 20px; /* Update left and right margin in media queries on desktop when single product page and all-products page styling is done. Logo and cart icon should be aligned with product images.*/
 }
 
 .hamburger-menu-image {
@@ -12,7 +12,6 @@
 
 .nav-logo {
   width: 90px;
-  justify-self: center;
 }
 
 .nav-categories {
@@ -20,7 +19,8 @@
 }
 
 .nav-icons {
-  justify-self: end;
+  display: flex;
+  gap: 10px;
 }
 
 .nav-icons img {
@@ -31,7 +31,7 @@
 @media (min-width: 668px) {
   .nav-logo {
     width: 100px;
-    justify-self: center;
+    /* justify-self: center; */
   }
 
   .hamburger-menu-image {
@@ -43,14 +43,29 @@
 }
 
 @media (min-width: 1024px) {
+  .nav-container {
+    justify-content: flex-start;
+  }
+
   .nav-categories {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     list-style-type: none;
     text-transform: uppercase;
+    order: 2;
   }
 
   .hamburger-button {
     display: none;
+  }
+
+  .nav-logo {
+    order: 1;
+    margin-right: 20px;
+  }
+
+  .nav-icons {
+    order: 3;
+    margin-left: auto;
   }
 }
