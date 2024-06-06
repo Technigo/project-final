@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const StyledAlertMessage = styled.div`
   padding: 8px 12px;
+  display: block;
+  width: fit-content;
+  padding: 5px 20px;
   border-radius: 4px;
   margin: 6px auto;
   background-color: ${(props) =>

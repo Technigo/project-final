@@ -1,19 +1,20 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { LandingPage } from "./pages/LandingPage"
-import { DetailPage } from "./pages/DetailPage"
-import { NotFoundPage } from "./pages/NotFoundPage"
-import { UserPage } from "./pages/UserPage"
-import { LoginPage } from "./pages/LoginPage"
-import { RegisterPage } from "./pages/RegisterPage"
-import { AboutPage } from "./pages/AboutPage"
-import { ContactPage } from "./pages/ContactPage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LandingPage } from "./pages/LandingPage";
+import { DetailPage } from "./pages/DetailPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { UserPage } from "./pages/UserPage";
+import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
+import { AboutPage } from "./pages/AboutPage";
+import { ContactPage } from "./pages/ContactPage";
+import Layout from "./Layout";
 
 export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route>
-          <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<LandingPage />} />
           <Route path="/:slug" element={<DetailPage />} />
           <Route path="/not-found" element={<NotFoundPage />} />
           <Route path="/user-page" element={<UserPage />} />
@@ -24,5 +25,5 @@ export const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};

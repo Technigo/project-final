@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
   background-color: rgba(34, 47, 62, 1);
   display: flex;
   flex-direction: column;

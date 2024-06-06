@@ -2122,5 +2122,22 @@
     ],
     "id": 106,
     "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717586863/106-surrealism_p6houd.jpg"
+  },
+  {
+    "name": "Museo Nacional de Culturas Populares",
+    "theme": "Impressionism",
+    "description": "It holds temporary exhibitions, organises events in accordance with the traditional festive calendar and develops educational and artistic activities in accordance with the theme of the exhibitions.",
+    "lat": "19.2100",
+    "lon": "99.0940",
+    "ticket_price": "$20 mxn",
+    "has_cafe": true,
+    "website": "https://sic.cultura.gob.mx/ficha.php?table=museo&table_id=976",
+    "opening_hours": [
+      {
+        "Tue-Sun": "11:00-18:00"
+      }
+    ],
+    "id": 107,
+    "url": "pending"
   }
 ]
