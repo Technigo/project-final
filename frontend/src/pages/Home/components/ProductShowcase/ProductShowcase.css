@@ -1,3 +1,7 @@
+.carousel-container {
+  padding: 30px 0;
+}
+
 .slick-dots li button:before {
   font-size: 7px;
 }

@@ -72,7 +72,7 @@ export const ProductShowcase = () => {
   ];
 
   return (
-    <section className="carousel">
+    <section className="carousel-container">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
