@@ -17,11 +17,7 @@ export const Note = ({ text, latitude, longitude, open, onClick }) => {
         title={"AdvancedMarker that opens an Infowindow when clicked."}
       />
       {open && (
-        <InfoWindow
-          anchor={marker}
-          maxWidth={200}
-          onCloseClick={() => setInfowindowOpen(false)}
-        >
+        <InfoWindow anchor={marker} maxWidth={200} onCloseClick={onClick}>
           {text}
         </InfoWindow>
       )}
