@@ -1,24 +1,17 @@
 .nav-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
   align-items: center;
-  width: 100%;
-}
-
-.hamburger-button {
-  justify-self: start;
+  justify-content: space-between;
+  margin: 15px 20px 10px 20px; /* Update left and right margin in media queries on desktop when single product page and all-products page styling is done. Logo and cart icon should be aligned with product images.*/
 }
 
 .hamburger-menu-image {
-  height: 30px;
-  width: 30px;
+  width: 24px;
   object-fit: contain;
 }
 
 .nav-logo {
-  width: 80px;
-  justify-self: center;
+  width: 90px;
 }
 
 .nav-categories {
@@ -26,31 +19,53 @@
 }
 
 .nav-icons {
-  justify-self: end;
+  display: flex;
+  gap: 10px;
 }
 
 .nav-icons img {
-  width: 30px;
-  height: 30px;
+  width: 35px;
   object-fit: contain;
 }
 
-header button {
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
+@media (min-width: 668px) {
+  .nav-logo {
+    width: 100px;
+    /* justify-self: center; */
+  }
+
+  .hamburger-menu-image {
+    width: 26px;
+  }
+  .nav-icons img {
+    width: 37px;
+  }
 }
 
 @media (min-width: 1024px) {
+  .nav-container {
+    justify-content: flex-start;
+  }
+
   .nav-categories {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     list-style-type: none;
     text-transform: uppercase;
+    order: 2;
   }
 
   .hamburger-button {
     display: none;
+  }
+
+  .nav-logo {
+    order: 1;
+    margin-right: 20px;
+  }
+
+  .nav-icons {
+    order: 3;
+    margin-left: auto;
   }
 }
