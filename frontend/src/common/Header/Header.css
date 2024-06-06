@@ -1,23 +1,17 @@
 .nav-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
   align-items: center;
-  width: 100%;
-}
-
-.hamburger-button {
-  justify-self: start;
+  margin: 20px 20px 0 20px;
 }
 
 .hamburger-menu-image {
-  height: 30px;
-  width: 30px;
+  width: 24px;
   object-fit: contain;
 }
 
 .nav-logo {
-  width: 80px;
+  width: 90px;
   justify-self: center;
 }
 
@@ -30,16 +24,22 @@
 }
 
 .nav-icons img {
-  width: 30px;
-  height: 30px;
+  width: 35px;
   object-fit: contain;
 }
 
-header button {
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
+@media (min-width: 668px) {
+  .nav-logo {
+    width: 100px;
+    justify-self: center;
+  }
+
+  .hamburger-menu-image {
+    width: 26px;
+  }
+  .nav-icons img {
+    width: 37px;
+  }
 }
 
 @media (min-width: 1024px) {

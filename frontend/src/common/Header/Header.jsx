@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "/assets/logotypes/logo-stamp.svg";
 import hamburger from "/assets/icons/hamburger.svg";
 import cart from "/assets/icons/cart.svg";
-import search from "/assets/icons/search.svg";
-import user from "/assets/icons/user.svg";
+// import search from "/assets/icons/search.svg";
+// import user from "/assets/icons/user.svg";
 import { Image } from "../ReusableComponents/Image/Image";
 
 export const Header = () => {
@@ -44,12 +44,12 @@ export const Header = () => {
           </Link>
         </div>
         <ul className="nav-icons">
-          <button className="search-button">
+          {/* <button className="search-button">
             <Image src={search} alt="search" className="search" />
-          </button>
-          <Link to="/">
+          </button> */}
+          {/* <Link to="/">
             <Image src={user} alt="my-account" className="user" />
-          </Link>
+          </Link> */}
           <Link to="/">
             <Image src={cart} alt="shopping-cart" className="cart" />
           </Link>
