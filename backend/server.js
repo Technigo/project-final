@@ -19,6 +19,10 @@ const Note = mongoose.model("Note", {
     type: String,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
@@ -37,8 +41,11 @@ app.get("/", (req, res) => {
   res.send("Hello Technigo!");
 });
 
+const maxAge = 14 * 24 * 60 * 60 * 1000;
 app.get("/notes", async (req, res) => {
-  const notes = await Note.find();
+  const notes = await Note.find({
+    createdAt: { $gt: new Date(Date.now() - maxAge) },
+  });
   res.json(notes);
 });
 
