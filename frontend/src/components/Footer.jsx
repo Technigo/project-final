@@ -8,6 +8,7 @@ export const Footer = () => {
         <div>
           <ul>
             <Link to={"/about"}>About MuSeek</Link>
+
             <Link to={"/contact"}>Contact us</Link>
           </ul>
         </div>

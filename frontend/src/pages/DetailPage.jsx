@@ -21,7 +21,7 @@ export const DetailPage = () => {
   const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
-    return <Navigate to="/not-found" />
+    return <Navigate to="/not-found" />;
   }
 
   return (

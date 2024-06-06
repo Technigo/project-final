@@ -5,7 +5,7 @@ const StyledCardMuseum = styled.div`
   padding: 20px;
   border-radius: 7px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-  background-color: rgba(61, 61, 61,1.0);
+  background-color: rgba(34, 47, 62, 1);
   color: #f7f7f7;
 `;
 
