@@ -2,6 +2,7 @@ import { useProductsStore } from "../store/useProductsStore";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../components/Loading";
+import { NotFound } from "./NotFound";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export const SingleProductPage = () => {
   }, []);
 
   if (!product || !product.image || !product.image.url) {
-    return <div>No product found or image unavailable.</div>;
+    return <div><NotFound reason="product"/></div>;
   }
 
   return (

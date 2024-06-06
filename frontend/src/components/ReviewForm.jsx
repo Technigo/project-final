@@ -22,7 +22,11 @@ export const SingleProductPage = () => {
   }, []);
 
   if (!product || !product.image || !product.image.url) {
-    return <div>No product to review.</div>;
+    return (
+      <div>
+        <NotFound reason="product to review" />
+      </div>
+    );
   }
 
   return (

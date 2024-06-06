@@ -1,12 +1,22 @@
 import swoop from "/footer-swoop.svg";
+import swoop2 from "/footer-swoop2.svg";
 import instagram from "/soMeIcons/instagram.svg";
 import facebook from "/soMeIcons/facebook.svg";
 import github from "/soMeIcons/github.svg";
 import linkedin from "/soMeIcons/linkedin.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
 import { Slideshow } from "./WhyUsSlideshow";
+import data2 from "../data.en.json";
 
-export const Footer = ({ data }) => {
+export const Footer = ({ providedData, aboveColor }) => {
+  let data = null;
+
+  let previousSectionColor = `bg-main-${aboveColor}`
+  console.log(data2);
+
+  if (!providedData) data = data2.homepage.footer;
+  else data = providedData;
+
   const missionStatement = data.missionStatement;
   const contact = data.contactInfo;
 
@@ -14,9 +24,13 @@ export const Footer = ({ data }) => {
 
   return (
     <>
+      <img
+        className={previousSectionColor}
+        src={swoop2}
+        alt="Section border"
+      />
       <section className="mission bg-main-green">
         <div className=" text-text-light">
-          <img className="w-full" src={swoop} alt="Section border" />
           <div className="p-6 tablet:p-10 laptop:p-20">
             <div className="flex mb-8 items-end justify-center">
               <h2 className="font-heading text-4xl">
@@ -46,7 +60,7 @@ export const Footer = ({ data }) => {
       </section>
 
       <section className="contact bg-main-green text-text-light">
-        <h2 className="font-heading text-4xl text-center my-10">
+        <h2 className="font-heading text-4xl text-center py-10">
           {contact.title}
         </h2>
 
@@ -59,7 +73,7 @@ export const Footer = ({ data }) => {
           ))}
         </div>
 
-        <div className="flex gap-8 justify-center my-10">
+        <div className="flex gap-8 justify-center py-10">
           {contact.socialMedia.map((item, index) => (
             <img
               className="w-10 hover:opacity-75 hover:cursor-pointer active:opacity-50"

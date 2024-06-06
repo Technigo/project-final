@@ -14,7 +14,7 @@ export const Home = ({ data }) => {
       <Carousel />
       <Statements data={data["atGlim"] } />
 
-      <Footer data={data["footer"] } />
+      <Footer data={data["footer"]} aboveColor={"yellow w-full"} />
     </div>
   );
 };
