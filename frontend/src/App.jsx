@@ -70,9 +70,20 @@ const router = createBrowserRouter([
               mapId="happyangrynote"
             >
               {pathname === "/" &&
-            // this is so the user can open one note at a time
+                // this is so the user can open one note at a time
                 notes.map((note) => (
-                  <Note key={note._id} {...note} open={note._id == noteId} onClick={()=> setNoteId(note._id)} />
+                  <Note
+                    key={note._id}
+                    {...note}
+                    open={note._id == noteId}
+                    onClick={() => {
+                      if (note._id === noteId) {
+                        setNoteId("");
+                      } else {
+                        setNoteId(note._id);
+                      }
+                    }}
+                  />
                 ))}
             </Map>
           </APIProvider>
