@@ -13,7 +13,7 @@ export const Home = ({ data }) => {
       <Hero data={data["hero"]} />
       <Carousel />
       <Statements data={data["atGlim"] } />
-      <ReviewCard />
+
       <Footer data={data["footer"] } />
     </div>
   );
