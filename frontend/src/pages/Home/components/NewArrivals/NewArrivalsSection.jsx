@@ -17,21 +17,21 @@ export const NewArrivalsSection = () => {
   ];
 
   return (
-    <div className="new-arrivals-container">
+    <section className="new-arrivals-container">
       {newArrivals.map((newArrival, index) => (
-        <div key={index}>
-          <Image
-            className="new-arrivals"
-            src={newArrival.imgUrl}
-            alt={newArrival.imgAlt}
-          />
+        <div key={index} className="new-arrivals-wrapper">
           <Button
             variant="hero"
             label="See newest products"
             to="/products?sort=date_desc"
           />
+          <Image
+            className="new-arrivals"
+            src={newArrival.imgUrl}
+            alt={newArrival.imgAlt}
+          />
         </div>
       ))}
-    </div>
+    </section>
   );
 };
