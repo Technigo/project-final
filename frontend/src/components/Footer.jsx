@@ -13,8 +13,8 @@ export const Footer = ({ data }) => {
 
   return (
     <>
-      <section className="mission">
-        <div className="bg-main-green text-text-light">
+      <section className="mission bg-main-green">
+        <div className=" text-text-light">
           <img className="w-full" src={swoop} alt="Section border" />
           <div className="p-6 tablet:p-10 laptop:p-20">
             <div className="flex mb-8 items-end justify-center">
@@ -34,7 +34,7 @@ export const Footer = ({ data }) => {
           </div>
         </div>
         <img
-          className="w-full bg-main-green"
+          className="w-3/4 h-2 m-auto object-cover bg-main-green"
           src={dottedLine}
           alt="Section border"
         />
@@ -44,14 +44,24 @@ export const Footer = ({ data }) => {
         <h2 className="font-heading text-4xl text-center my-10">
           {contact.title}
         </h2>
-        <div className="flex gap-4 justify-center my-10">
-          {contact.socialMedia.map((item, index) => (
-            <img src={item.icon} />
+
+        <div className="flex whitespace-pre text-body flex-col gap-4 align-center my-10">
+          {contact.contactRoute.map((item, index) => (
+            <div className="flex flex-col items-center my-6">
+              <img className="w-12 my-4" src={item.icon} alt={item.altText} />
+              <p className="text-center font-extralight">{item.info}</p>
+            </div>
           ))}
-          <img className="w-10" src={facebook} />
-          <img className="w-10" src={instagram} />
-          <img className="w-10" src={linkedin} />
-          <img className="w-10" src={github} />
+        </div>
+
+        <div className="flex gap-8 justify-center my-10">
+          {contact.socialMedia.map((item, index) => (
+            <img
+              className="w-10 hover:opacity-75 hover:cursor-pointer active:opacity-50"
+              src={item.icon}
+              alt={item.altText}
+            />
+          ))}
         </div>
       </section>
     </>

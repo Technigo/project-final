@@ -77,39 +77,39 @@
         "title": "Contact Us",
         "contactRoute": [
           {
-            "icon": "mail",
+            "icon": "/soMeIcons/email.svg",
             "altText": "Email",
-            "link": ""
+            "info": "contact@teamflamingo.com"
           },
           {
-            "icon": "phone",
+            "icon": "/soMeIcons/phone.svg",
             "altText": "Phonenumber",
-            "link": ""
+            "info": "+46 688 888 8888"
           },
           {
-            "icon": "adress",
+            "icon": "/soMeIcons/adress.svg",
             "altText": "Adress",
-            "link": ""
+            "info": "Flamingo road 3\n157888 Glim\nSwissweden"
           }
         ],
         "socialMedia": [
           {
-            "icon": "instagram",
+            "icon": "/soMeIcons/instagram.svg",
             "altText": "Instagram",
             "link": ""
           },
           {
-            "icon": "facebook",
+            "icon": "/soMeIcons/facebook.svg",
             "altText": "Facebook",
             "link": ""
           },
           {
-            "icon": "linkedin",
+            "icon": "/soMeIcons/linkedin.svg",
             "altText": "LinkedIn",
             "link": ""
           },
           {
-            "icon": "github",
+            "icon": "/soMeIcons/github.svg",
             "altText": "GitHub",
             "link": ""
           }
