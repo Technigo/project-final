@@ -27,7 +27,7 @@ export const DetailPage = () => {
     <Container>
       <Content>
         <ImageContainer>
-          <ToHomepageBtnStyled />
+          <ToHomepageBtn/>
           <StyledImage
             src={museum.url}
             alt={`Image related to ${museum.name}`}
@@ -94,7 +94,6 @@ const ImageContainer = styled.div`
   position: relative;
   width: 100vw;
   height: 40vh;
-  border: solid red;
 
   @media (min-width: 1024px) {
     width: 40%;
@@ -111,13 +110,6 @@ export const StyledImage = styled.img`
   @media (min-width: 1024px) {
     height: 100%;
   }
-`
-
-const ToHomepageBtnStyled = styled(ToHomepageBtn)`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
 `
 
 const Content = styled.div`

@@ -8,6 +8,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import Layout from "./Layout";
+import { ReferencePage } from "./pages/ReferencePage";
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/references" element={<ReferencePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
