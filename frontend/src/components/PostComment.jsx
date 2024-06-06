@@ -1,8 +1,6 @@
-//this is work in progress
-
 import { useState } from "react"
 
-export const PostComment = ({ museumId }) => {
+export const PostComment = ({ museumId, onNewComment }) => {
   const [message, setMessage] = useState("")
   const [count, setCount] = useState(0)
 
@@ -26,6 +24,9 @@ export const PostComment = ({ museumId }) => {
       console.log("Review submitted:", newReview)
       setMessage("")
       setCount(0)
+
+      // Update the comments in the parent component
+      onNewComment(newReview)
     } catch (error) {
       console.error("Error submitting review:", error.message)
     }

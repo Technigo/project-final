@@ -3,8 +3,7 @@ import { useParams, Navigate } from "react-router-dom"
 import { IoRestaurantOutline } from "react-icons/io5"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import { FavoriteFunction } from "../components/FavoriteFunction"
-import { PostComment } from "../components/PostComment"
-import { GetComment } from "../components/GetComment"
+import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
 
@@ -21,7 +20,7 @@ export const DetailPage = () => {
   const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
-    return <Navigate to="/not-found" />;
+    return <Navigate to="/not-found" />
   }
 
   return (
@@ -63,13 +62,12 @@ export const DetailPage = () => {
         </TextContainer>
       </Content>
 
-      <CommentSection>
+      <CommentContainer>
         <h4>Have you been here? Let the community know what you thought!</h4>
 
         {isAuthenticated ? (
           <>
-            <PostComment museumId={museumId} />
-            <GetComment museumId={museumId} />
+            <CommentSection museumId={museumId} />
           </>
         ) : (
           <p>
@@ -78,7 +76,7 @@ export const DetailPage = () => {
             what visitors liked about this museum!
           </p>
         )}
-      </CommentSection>
+      </CommentContainer>
     </Container>
   )
 }
@@ -120,7 +118,7 @@ const Content = styled.div`
   }
 `
 
-const StyledImage = styled.img`
+export const StyledImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -137,6 +135,6 @@ const TextContainer = styled.div`
   }
 `
 
-const CommentSection = styled.div`
+const CommentContainer = styled.div`
   padding: 20px;
 `
