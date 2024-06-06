@@ -1,15 +1,16 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import cart from "../assets/cart.svg";
 import user from "../assets/human-icon.svg";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "Shop", href: "#" },
-  { name: "Blog", href: "#" },
-  { name: "About", href: "#" },
+  { name: "Home", to: "/" },
+  { name: "Shop", to: "/products" },
+  { name: "Blog", to: "#" },
+  { name: "About", to: "#" },
 ];
 
 export const Header = () => {
@@ -29,13 +30,13 @@ export const Header = () => {
         </div>
         <div className="hidden lg:flex lg:gap-x-14">
           {navigation.map((item) => (
-            <a
+            <NavLink
               key={item.name}
-              href={item.href}
+              to={item.to}
               className="text-lg font-semibold"
             >
               {item.name}
-            </a>
+            </NavLink>
           ))}
         </div>
         <div className="flex flex-row gap-6">
@@ -96,13 +97,13 @@ export const Header = () => {
             <div className="-my-6 text-lg">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
-                  <a
+                  <NavLink
                     key={item.name}
-                    href={item.href}
+                    to={item.to}
                     className="text-gray-900 hover:bg-gray-50 -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7"
                   >
                     {item.name}
-                  </a>
+                  </NavLink>
                 ))}
               </div>
               {/* <div className="py-6">

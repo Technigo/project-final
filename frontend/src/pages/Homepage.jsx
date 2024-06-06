@@ -1,3 +1,11 @@
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+
 export const Homepage = () => {
-  return <div>Homepage</div>;
+  return (
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  );
 };
