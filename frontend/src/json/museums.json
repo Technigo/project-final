@@ -459,7 +459,7 @@
       }
     ],
     "id": 23,
-    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575420/23-saltpepper_gzwq0f.jpg"
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717575420/22-saltpepper_gzwq0f.jpg"
   },
   {
     "name": "Sulabh International Museum of Toilets",
@@ -2129,7 +2129,7 @@
     "description": "It holds temporary exhibitions, organises events in accordance with the traditional festive calendar and develops educational and artistic activities in accordance with the theme of the exhibitions.",
     "lat": "19.2100",
     "lon": "99.0940",
-    "ticket_price": "$20 mxn",
+    "ticket_price": "20 MXN",
     "has_cafe": true,
     "website": "https://sic.cultura.gob.mx/ficha.php?table=museo&table_id=976",
     "opening_hours": [
@@ -2138,6 +2138,45 @@
       }
     ],
     "id": 107,
-    "url": "pending"
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717687065/107-populares_r4gclw.jpg"
+  },
+  {
+    "name": "59 Rivoli",
+    "theme": "Contemporary Art",
+    "description": "An artist collective and exhibition space in the heart of Paris. The building, originally an artist squat, now hosts over 30 artists and offers rotating exhibitions, open studios, and various cultural events.",
+    "location": "59 Rue de Rivoli, 75001 Paris, France",
+    "lat": "48.8600",
+    "lon": "2.3440",
+    "ticket_price": "Free",
+    "has_cafe": false,
+    "website": "https://www.59rivoli.org",
+    "opening_hours": [
+      {
+        "Mon": "Closed"
+      },
+      {
+        "Tues-Sun": "13:00-20:00"
+      }
+    ],
+    "id": 108,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717687788/108-rivoli_thh6ji.jpg"
+  },
+  {
+    "name": "Atelier Brancusi",
+    "theme": "Modern Art",
+    "description": "A reconstruction of the studio of the Romanian sculptor Constantin Brancusi, showcasing his sculptures, pedestals, furniture, and tools, offering insight into his artistic process and life.",
+    "location": "Place Georges Pompidou, 75004 Paris, France",
+    "lat": "48.8606",
+    "lon": "2.3522",
+    "ticket_price": "Free",
+    "has_cafe": false,
+    "website": "https://www.centrepompidou.fr/fr/collection/latelier-brancusi",
+    "opening_hours": [
+      {
+        "Tue-Sun": "14:00-18:00"
+      }
+    ],
+    "id": 109,
+    "url": "https://res.cloudinary.com/dcowhgigh/image/upload/v1717687789/109-brancusi_bg4kk7.jpg"
   }
 ]

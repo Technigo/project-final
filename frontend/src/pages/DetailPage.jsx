@@ -25,10 +25,14 @@ export const DetailPage = () => {
 
   return (
     <Container>
-      <StyledImage src={museum.url} alt={`Image related to ${museum.name}`} />
-      <ToHomepageBtn />
-
       <Content>
+        <ImageContainer>
+          <ToHomepageBtnStyled />
+          <StyledImage
+            src={museum.url}
+            alt={`Image related to ${museum.name}`}
+          />
+        </ImageContainer>
         <TextContainer>
           <h3>{museum.name}</h3>
           <FavoriteFunction museumId={museum.id} />
@@ -69,9 +73,8 @@ export const DetailPage = () => {
           </>
         ) : (
           <p>
-            <Link to={"/login"}>Log in </Link> or
-            <Link to={"/register"}> sign up</Link> to leave a review or read
-            what visitors liked about this museum!
+            <Link to={"/login"}>Log in</Link> to leave a review or read what
+            visitors liked about this museum.
           </p>
         )}
       </CommentContainer>
@@ -87,14 +90,12 @@ const Container = styled.div`
   align-items: left;
 `
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
+const ImageContainer = styled.div`
+  position: relative;
   width: 100%;
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
+    width: 50%;
   }
 `
 
@@ -105,8 +106,26 @@ export const StyledImage = styled.img`
   object-position: center;
 
   @media (min-width: 768px) {
-    width: 50%;
-    height: auto;
+    width: 45vw;
+    height: 80vh;
+  }
+`
+
+const ToHomepageBtnStyled = styled(ToHomepageBtn)`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `
 
