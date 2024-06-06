@@ -24,7 +24,7 @@
 }
 
 .nav-icons img {
-  width: 35px;
+  width: 30px;
   object-fit: contain;
 }
 
@@ -36,9 +36,6 @@
 
   .hamburger-menu-image {
     width: 26px;
-  }
-  .nav-icons img {
-    width: 37px;
   }
 }
 
