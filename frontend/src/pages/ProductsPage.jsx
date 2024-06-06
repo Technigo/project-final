@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 
+
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
 
