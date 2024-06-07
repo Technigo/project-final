@@ -4,6 +4,7 @@
 
 .hamburger-icon-image {
   width: 29px;
+  margin: -10px 0 0 20px;
 }
 
 .cross-icon-image {
@@ -34,6 +35,7 @@
   /* background-color: black; */
   height: 29px;
   width: 29px;
+  left: 5px;
 }
 
 /* .bm-cross {
@@ -48,7 +50,7 @@
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
-  margin-top: 70px;
+  margin-top: 56px;
   left: 0;
 }
 
@@ -66,7 +68,7 @@
   }
 
   .bm-overlay {
-    margin-top: 74px;
+    margin-top: 60px;
   }
 }
 

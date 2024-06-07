@@ -18,7 +18,7 @@ export const HamburgerMenu = () => {
   };
 
   return (
-    <div id="outer-container">
+    <div>
       <Menu
         isOpen={isOpen}
         onStateChange={(state) => handleStateChange(state)}
@@ -36,8 +36,8 @@ export const HamburgerMenu = () => {
             <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
           ) : null
         }
-        outerContainerId="outer-container"
-        pageWrapId="page-wrap"
+        // outerContainerId="outer-container"
+        // pageWrapId="page-wrap"
       >
         <ul className="menu-categories">
           <li>

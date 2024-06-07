@@ -8,11 +8,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const App = () => {
   return (
-    <div id="outer-container">
+    <>
       {/* Any component that is within the browser-router can expose routes & use links  */}
       <BrowserRouter>
         <Header />
-        <main id="page-wrap">
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<AllProducts />} />
@@ -26,6 +26,6 @@ export const App = () => {
         </main>
         <Footer />
       </BrowserRouter>
-    </div>
+    </>
   );
 };
