@@ -11,7 +11,8 @@ body {
 }
 
 :root {
-  --text-color: #FFEDD8;
+  --text-color-primary: #FFFFFF;
+  --text-color-secondary: #FFEDD8;
   --headline-color: #FFFFFF;
   --background-color: #000000;
   --textbox-background: #161822;
