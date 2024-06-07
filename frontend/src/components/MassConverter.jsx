@@ -1,6 +1,5 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { Button } from "./Button"
 import GlobalStyles from "./GlobalStyles"
 
 const MassConverterFont = styled.div`
