@@ -25,6 +25,8 @@ export const DetailPage = () => {
 
   return (
     <Container>
+      <Background />
+      <ContentContainer>
       <Content>
         <ImageContainer>
           <ToHomepageBtn />
@@ -37,35 +39,42 @@ export const DetailPage = () => {
           <h3>{museum.name}</h3>
           <FavoriteFunction museumId={museum.id} />
           <p>{museum.location}</p>
-          <p>{museum.description} </p>
+          <Description>{museum.description} </Description>
           {museum.has_cafe ? (
-            <IoRestaurantOutline />
+            <CafeIconContainer>
+              <IoRestaurantOutline />{" "}
+            </CafeIconContainer>
           ) : (
             <p>This museum has no cafe or restaurant on its premises</p>
           )}
-          <h4>Opening hours</h4>
-          {museum.opening_hours.map((hours, index) => {
-            const day = Object.keys(hours)[0]
-            const time = hours[day]
-            return (
-              <p key={index}>
-                {day}: {time}
-              </p>
-            )
-          })}
-          <p>Ticket price: {museum.ticket_price}</p>
+          <OpeningHours>
+            <h4>Opening hours</h4>
+            {museum.opening_hours.map((hours, index) => {
+              const day = Object.keys(hours)[0]
+              const time = hours[day]
+              return (
+                <p key={index}>
+                  {day}: {time}
+                </p>
+              )
+            })}
+          </OpeningHours>
+
+          <TicketPrice>Ticket price: {museum.ticket_price}</TicketPrice>
           <StyledButton>Buy a ticket</StyledButton>
-          <p>
+          <VisitWebsite>
             Visit the official website{" "}
             <a href={museum.website} target="_blank" rel="noopener noreferrer">
               here
             </a>
-          </p>
+          </VisitWebsite>
         </TextContainer>
       </Content>
 
       <CommentContainer>
-        <h4>Have you been here? Let the community know what you thought!</h4>
+        <h4>
+          Have you been here? Share your experience with our friendly community!
+        </h4>
 
         {isAuthenticated ? (
           <>
@@ -78,6 +87,7 @@ export const DetailPage = () => {
           </p>
         )}
       </CommentContainer>
+      </ContentContainer>
     </Container>
   )
 }
@@ -85,19 +95,57 @@ export const DetailPage = () => {
 //Styled components
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
+`
+
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #232222;
+  z-index: -1;
+`
+
+
+const ContentContainer = styled.div`
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
 const ImageContainer = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 40vh;
+  margin-bottom: 20px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     width: 40%;
     height: 80vh;
+    margin-bottom: 0;
   }
 `
 
@@ -106,33 +154,57 @@ export const StyledImage = styled.img`
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 10px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     height: 100%;
   }
 `
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`
-
 const TextContainer = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
+`
 
-  @media (min-width: 1024px) {
-    width: 70%;
+const Description = styled.p`
+  margin-bottom: 5px;
+`
+
+const CafeIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+
+  svg {
+    margin-right: 8px;
+  }
+`
+
+const OpeningHours = styled.div`
+  margin-bottom: 5px;
+
+  h4 {
+    margin-bottom: 5px;
+  }
+`
+const TicketPrice = styled.p`
+  margin-bottom: 5px;
+`
+
+const VisitWebsite = styled.p`
+  margin-bottom: 5px;
+
+  a {
+    color: #007bff;
+    text-decoration: none;
   }
 `
 
 const CommentContainer = styled.div`
   padding: 20px;
+
+   @media (min-width: 1024px) {
+    width: 40%;
 `

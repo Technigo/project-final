@@ -32,14 +32,16 @@ export const GetComment = ({ comments }) => {
   }
 
   return (
-    <div>
+    <CommentContainer>
       {comments.map(
         (comment) =>
           // Check if comment is not already deleted
           !deletedComments.includes(comment._id) && (
-            <div className="comment" key={comment._id}>
-              <p>{comment.message}</p>
-              <span>{moment(comment.createdAt).format("LL")}</span>
+            <Comment key={comment._id}>
+              <CommentText>{comment.message}</CommentText>
+              <CommentDate>
+                {moment(comment.createdAt).format("LL")}
+              </CommentDate>
               <StyledRxCrossIcon onClick={() => deleteComment(comment._id)} />
 
               {/* <span>
@@ -47,17 +49,43 @@ export const GetComment = ({ comments }) => {
               ? comment.user.name
               : "Anonymous"}
           </span> */}
-            </div>
+            </Comment>
           )
       )}
-    </div>
+    </CommentContainer>
   )
 }
 
+const CommentContainer = styled.div`
+  margin-top: 20px;
+`
+
+const Comment = styled.div`
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  position: relative;
+`
+
+const CommentText = styled.p`
+  margin-bottom: 5px;
+`
+
+const CommentDate = styled.span`
+  font-size: 0.8rem;
+  color: #6c757d;
+`
+
 const StyledRxCrossIcon = styled(RxCross2)`
   cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2rem;
+  color: #6c757d;
 
   &:hover {
-    color: red; /* Change color on hover (optional) */
+    color: red;
   }
 `
