@@ -16,6 +16,7 @@ export default {
         "text-dark": "#452626",
 
         "button-light": "#FFF5F2",
+        "button-varm-light": "#FFCDBD",
         
       },
       fontFamily: {

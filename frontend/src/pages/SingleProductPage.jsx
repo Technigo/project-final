@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../components/Loading";
 import { MdOutlineStar } from "react-icons/md";
+import SimilarProducts  from "../components/SimilarProducts"
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -81,7 +82,9 @@ export const SingleProductPage = () => {
               </button>
             </div>
           </div>
+          <SimilarProducts category={singleProduct.category} currentProductId={singleProduct._id}/>
         </div>
+        
       )}
     </section>
   );
