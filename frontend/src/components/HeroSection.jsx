@@ -38,9 +38,13 @@ const Heading = styled.h1`
   position: relative;
   color: white;
   z-index: 1;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   padding: 20px;
   font-family: "Chocolate Classical Sans", sans-serif;
   font-weight: 600;
+
+  @media (min-width: 768px) {
+    font-size: 4em;
+  }
 `

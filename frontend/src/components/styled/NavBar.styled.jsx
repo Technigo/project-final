@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const StyledNavBar = styled.nav`
-  z-index: 1;
+  z-index: 100;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   width: 100%;
@@ -34,4 +34,4 @@ export const StyledNavBar = styled.nav`
   svg {
     margin-right: 20px;
   }
-`;
+`
