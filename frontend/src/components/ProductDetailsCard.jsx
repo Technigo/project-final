@@ -5,10 +5,10 @@ import { Button } from "./Button";
 
 export const ProductDetailsCard = ({
   numOfLikes,
-  templateImg,
+  image,
   tags,
   price,
-  name,
+  templateName,
   description,
   category,
 }) => {
@@ -21,7 +21,7 @@ export const ProductDetailsCard = ({
         </span>
         <img
           className="lg:max-w-[600px]"
-          src={templateImg}
+          src={image}
           alt="image of the template"
         />
         <button className="absolute bottom-5 right-5 rounded-full bg-white p-3 hover:bg-light-gray">
@@ -37,7 +37,7 @@ export const ProductDetailsCard = ({
           ))}
         </span>
         <p className="mb-2 text-sm font-bold text-blue">{category}</p>
-        <h3 className="font-montserrat font-bold">{name}</h3>
+        <h1 className="font-montserrat font-bold">{templateName}</h1>
         <p className="text-sm">€{price}</p>
         <p>{description}</p>
         <div className="mt-6 w-fit self-center lg:self-start">
@@ -49,11 +49,11 @@ export const ProductDetailsCard = ({
 };
 
 ProductDetailsCard.propTypes = {
-  templateImg: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   tags: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  templateName: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   numOfLikes: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired
+  category: PropTypes.string.isRequired,
 };
