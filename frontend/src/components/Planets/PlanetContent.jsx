@@ -1,30 +1,29 @@
-import styled from "styled-components";
-import mercuryImg from "../../assets/images/mercury.png";
-import venusImg from "../../assets/images/venus.png";
-import tellusImg from "../../assets/images/tellus.png";
-import marsImg from "../../assets/images/mars.png";
-import jupiterImg from "../../assets/images/jupiter.png";
-import saturnImg from "../../assets/images/saturn.png";
-import uranusImg from "../../assets/images/uranus.png";
-import neptuneImg from "../../assets/images/neptune.png";
-import plutoImg from "../../assets/images/pluto.png";
+import styled from "styled-components"
+import mercuryImg from "../../assets/images/mercury.png"
+import venusImg from "../../assets/images/venus.png"
+import tellusImg from "../../assets/images/tellus.png"
+import marsImg from "../../assets/images/mars.png"
+import jupiterImg from "../../assets/images/jupiter.png"
+import saturnImg from "../../assets/images/saturn.png"
+import uranusImg from "../../assets/images/uranus.png"
+import neptuneImg from "../../assets/images/neptune.png"
+import plutoImg from "../../assets/images/pluto.png"
 
 const PlanetPage = styled.div`
-    background: #000000;
-    h1.space-mono-bold {
-      font-family: "Space Mono";
-      color: #FFFFFF;
-    }
-    p.roboto-mono {
-      font-family: "Roboto Mono";
-    }
+  background: #000000;
+  h1.space-mono-bold {
+    font-family: "Space Mono";
+    color: #ffffff;
   }
-  `;
+  p.roboto-mono {
+    font-family: "Roboto Mono";
+  }
+`
 
 const PlanetImg = styled.img`
   height: 300px;
   width: 300px;
-`;
+`
 
 const planetImages = {
   mercury: mercuryImg,
@@ -36,16 +35,16 @@ const planetImages = {
   uranus: uranusImg,
   neptune: neptuneImg,
   pluto: plutoImg,
-};
+}
 
 export const PlanetContent = ({ onePlanet }) => {
-  const surfaceTemperature = onePlanet.surfaceTemperature;
+  const surfaceTemperature = onePlanet.surfaceTemperature
 
   const temperatureEntries = surfaceTemperature
     ? Object.entries(surfaceTemperature)
-    : [];
+    : []
 
-  const planetImg = planetImages[onePlanet.name.toLowerCase()];
+  const planetImg = planetImages[onePlanet.name.toLowerCase()]
 
   return (
     <div>
@@ -89,5 +88,5 @@ export const PlanetContent = ({ onePlanet }) => {
         <p className="roboto-mono">Curiosa: {onePlanet.curiosa}</p>
       </PlanetPage>
     </div>
-  );
-};
+  )
+}

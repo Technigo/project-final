@@ -11,20 +11,11 @@ const NotFoundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #FFFFF;
+  color: #ffffff;
 `
 
-const Font = styled.div`
-h1 {
-  font-family: "Space Mono";
-}
-p {
-  font-family: "Roboto Mono";
-  color: #CF4B14;
-}
-}`
-
 const NotFoundContent = styled.div`
+  font-size: var(--font-size-h1-desktop);
   text-align: center;
 `
 
@@ -32,13 +23,11 @@ export const NotFoundPage = () => {
   return (
     <NotFoundContainer>
       <NotFoundContent>
-        <Font>
-          <h1>
-            404<br>NOT FOUND</br>
-          </h1>
-          <p>Houston, we have a problem:</p>
-          <p>You are lost in space</p>
-        </Font>
+        <h1>
+          404<br>NOT FOUND</br>
+        </h1>
+        <p>Houston, we have a problem:</p>
+        <p>You are lost in space</p>
       </NotFoundContent>
       <Link className="goHome" to="/">
         <button>GO HOME</button>

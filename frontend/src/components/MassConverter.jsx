@@ -10,14 +10,32 @@ const MassConverterFont = styled.div`
 
 const Heading = styled.h1`
   font-size: var(--font-size-h1-desktop);
-  font-family: var(--font-family-main);
-  color: #FFFFF;
+  font-family: var(--font-family-headlines);
+  color: #ffffff;
+  text-align: center;
 `
 
 const Description = styled.p`
   font-size: var(--font-size-medium);
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-text);
   color: var(--text-color);
+  text-align: center;
+`
+
+const Input = styled.input`
+  font-family: "Roboto Mono", monospace;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`
+
+const Results = styled.div`
+  margin-top: 20px;
+
+  div {
+    margin: 5px 0;
+  }
 `
 
 const gravityFactors = {
@@ -47,7 +65,7 @@ export const MassConverter = () => {
   const handleCalculate = () => {
     const weightInKilos = weight
     if (weightInKilos === null || weightInKilos <= 0) {
-      alert("Please enter any items' weight in kilos, perhaps your pet? 🐩 🐾")
+      alert("Please enter any item's weight in kilos, perhaps your pet? 🐩 🐾")
       return
     }
 
@@ -62,10 +80,10 @@ export const MassConverter = () => {
   }
 
   return (
-    <div>
+    <MassConverterFont>
       <GlobalStyles />
-      <h1>THE MASS CONVERTER</h1>
-      <p>
+      <Heading>THE MASS C0NVERTER</Heading>
+      <Description>
         Have you ever wondered how much you or your belongings would weigh on
         different planets? With the Mass Converter, you can explore the
         fascinating variations in weight caused by the different gravitational
@@ -75,22 +93,21 @@ export const MassConverter = () => {
         favorite item, or just your curiosity, this tool provides a fun and
         educational way to understand the effects of gravity beyond Earth. Try
         it now and see how your weight changes across the cosmos!
-      </p>
-      <input
-        className="roboto-mono"
+      </Description>
+      <Input
         type="number"
         value={weight}
         onChange={handleChange}
         placeholder="Enter kilograms here"
       />
       <Button onClick={handleCalculate}>CALCULATE</Button>
-      <div className="results">
+      <Results>
         {Object.entries(results).map(([planet, weight]) => (
           <div key={planet}>
             {planet}: {weight} kilos
           </div>
         ))}
-      </div>
-    </div>
+      </Results>
+    </MassConverterFont>
   )
 }
