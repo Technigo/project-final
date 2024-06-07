@@ -6,7 +6,7 @@ export const SignUpPage = () => {
   return (
     <>
       {activeSection === "sectionone" && (
-        <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pb-10 laptop:px-36">
+        <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
           {" "}
           <img
             className="w-screen tablet:order-last laptop:rounded-3xl"
@@ -72,102 +72,108 @@ export const SignUpPage = () => {
         </section>
       )}
       {activeSection === "sectiontwo" && (
-        <section className="bg-main-red h-full flex flex-col items-center text-text-light px-10 pb-20 tablet:p-0">
+        <section className="bg-main-red h-full flex flex-col items-center text-text-light px-10 pb-20 tablet:p-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
           {" "}
-          <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
-          <h3 className="text-xl font-heading font-medium mt-3">
-            personal Information
-          </h3>
-          <form className="flex flex-col w-full tablet:px-36 tablet:pb-10">
-            <div className="flex flex-col mt-8 tablet:flex-row tablet:gap-5">
-              <div className="flex flex-col w-full">
-                <label
-                  htmlFor="firstname"
-                  className="text-text-dark font-heading font-semibold"
-                >
-                  Firstname:
-                </label>
-                <input
-                  className="rounded-xl h-10 bg-bg-input"
-                  id="firstname"
-                ></input>
-              </div>
-              <div className="flex flex-col w-full mt-2 tablet:mt-0">
-                <label
-                  htmlFor="lastname"
-                  className="text-text-dark font-heading font-semibold"
-                >
-                  Lastname:
-                </label>
-                <input
-                  id="lastname"
-                  className="rounded-xl h-10 bg-bg-input"
-                ></input>
-              </div>
+          <div>
+            <div className="flex flex-col items-center">
+              <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
+              <h3 className="text-xl font-heading font-medium mt-3">
+                personal Information
+              </h3>
             </div>
-            <div className="mt-10">
-              <div className="flex flex-col tablet:flex-row tablet:gap-5">
+            <form className="flex flex-col w-full tablet:px-36 tablet:pb-10 laptop:pl-0 laptop:pr-12 laptop:flex-row">
+              <div className="flex flex-col mt-8 tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
                 <div className="flex flex-col w-full">
                   <label
-                    htmlFor="address"
+                    htmlFor="firstname"
                     className="text-text-dark font-heading font-semibold"
                   >
-                    Address:
+                    Firstname:
                   </label>
                   <input
-                    id="address"
                     className="rounded-xl h-10 bg-bg-input"
+                    id="firstname"
                   ></input>
                 </div>
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full mt-2 tablet:mt-0 laptop:mt-2">
                   <label
-                    htmlFor="postal code"
-                    className="text-text-dark font-heading font-semibold mt-2 tablet:mt-0"
+                    htmlFor="lastname"
+                    className="text-text-dark font-heading font-semibold"
                   >
-                    Postal code:
+                    Lastname:
                   </label>
                   <input
-                    id="postal code"
+                    id="lastname"
                     className="rounded-xl h-10 bg-bg-input"
                   ></input>
                 </div>
               </div>
-              <div className="flex flex-col tablet:flex-row tablet:gap-5">
-                <div className="flex flex-col w-full">
-                  <label
-                    htmlFor="city"
-                    className="text-text-dark font-heading font-semibold mt-2"
-                  >
-                    City:
-                  </label>
-                  <input
-                    id="city"
-                    className="rounded-xl h-10 bg-bg-input"
-                  ></input>
+              <div className="flex flex-col">
+                <div className="mt-10 flex flex-col laptop:mt-8">
+                  <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0">
+                    <div className="flex flex-col w-full">
+                      <label
+                        htmlFor="address"
+                        className="text-text-dark font-heading font-semibold"
+                      >
+                        Address:
+                      </label>
+                      <input
+                        id="address"
+                        className="rounded-xl h-10 bg-bg-input"
+                      ></input>
+                    </div>
+                    <div className="flex flex-col w-full">
+                      <label
+                        htmlFor="postal code"
+                        className="text-text-dark font-heading font-semibold mt-2 tablet:mt-0 laptop:mt-2"
+                      >
+                        Postal code:
+                      </label>
+                      <input
+                        id="postal code"
+                        className="rounded-xl h-10 bg-bg-input"
+                      ></input>
+                    </div>
+                  </div>
+                  <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0">
+                    <div className="flex flex-col w-full">
+                      <label
+                        htmlFor="city"
+                        className="text-text-dark font-heading font-semibold mt-2"
+                      >
+                        City:
+                      </label>
+                      <input
+                        id="city"
+                        className="rounded-xl h-10 bg-bg-input"
+                      ></input>
+                    </div>
+                    <div className="flex flex-col w-full">
+                      <label
+                        htmlFor="country"
+                        className="text-text-dark font-heading font-semibold mt-2"
+                      >
+                        Country:
+                      </label>
+                      <input
+                        id="country"
+                        className="rounded-xl h-10 bg-bg-input"
+                      ></input>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col w-full">
-                  <label
-                    htmlFor="country"
-                    className="text-text-dark font-heading font-semibold mt-2"
-                  >
-                    Country:
-                  </label>
-                  <input
-                    id="country"
-                    className="rounded-xl h-10 bg-bg-input"
-                  ></input>
-                </div>
+                <button
+                  onClick={() => setActiveSection("sectionthree")}
+                  className="bg-main-yellow h-8 w-28 self-center mt-12 rounded-3xl text-text-dark font-heading tablet:mb-10 tablet:self-end"
+                >
+                  Next
+                </button>
               </div>
-            </div>
-            <button
-              onClick={() => setActiveSection("sectionthree")}
-              className="bg-main-yellow h-8 w-28 self-center mt-12 rounded-3xl text-text-dark font-heading tablet:mb-10 tablet:self-end"
-            >
-              Next
-            </button>
-          </form>
+            </form>
+          </div>
           <img
-            className="hidden tablet:block tablet:w-screen"
+            className="hidden tablet:block tablet:w-screen laptop:rounded-3xl laptop:max-w-3xl"
             src="signup.svg"
             alt="picture of a woman using skincare."
           ></img>
