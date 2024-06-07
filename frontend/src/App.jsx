@@ -5,15 +5,17 @@ import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
 import { Footer } from "./common/Footer/Footer";
 import { Header } from "./common/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HamburgerMenu } from "./common/Header/HamburgerMenu";
+// import { HamburgerMenu } from "./common/Header/HamburgerMenu";
 
 export const App = () => {
   return (
-    <>
+    <div id="outer-container">
+      {/* outer container */}
       {/* Any component that is within the browser-router can expose routes & use links  */}
       <BrowserRouter>
         <Header />
-        <main>
+        {/* <HamburgerMenu /> */}
+        <main id="page-wrap">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<AllProducts />} />
@@ -27,6 +29,6 @@ export const App = () => {
         </main>
         <Footer />
       </BrowserRouter>
-    </>
+    </div>
   );
 };
