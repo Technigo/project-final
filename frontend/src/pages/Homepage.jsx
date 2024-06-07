@@ -12,23 +12,21 @@ import { CategoryCard } from "../components/CategoryCard";
 const category = [
   {
     name: "Business",
-    imageURL:
-      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717589290/mockups/upjlenilirfukk6k3nrs.webp",
+    bgName: "business",
+    // bgName:
+    //   "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Travel and Adventure",
-    imageURL:
-      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588831/mockups/u2xtb6q0aedxthqn2d88.webp",
+    bgName: "travel",
   },
   {
     name: "Color",
-    imageURL:
-      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588974/mockups/tlsk4tsiin3uesyr094k.webp",
+    bgName: "color",
   },
   {
     name: "Health and Wellness",
-    imageURL:
-      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588806/mockups/ta9gbwyxaaqeekzcroya.webp",
+    bgName: "health",
   },
 ];
 
@@ -172,7 +170,7 @@ export const Homepage = () => {
               key={item.name}
               className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
             >
-              <CategoryCard category={item.name} imageURL={item.imageURL} />
+              <CategoryCard category={item.name} bgName={item.bgName} />
             </div>
           ))}
         </div>

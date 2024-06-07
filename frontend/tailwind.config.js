@@ -24,7 +24,18 @@ export default withMT({
       black: "#000000",
       white: "#FFFFFF",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        health:
+          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/f_webp,fl_awebp,q_auto/v1717588806/mockups/ta9gbwyxaaqeekzcroya')",
+        business:
+          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/v1717589290/mockups/upjlenilirfukk6k3nrs.webp')",
+        color:
+          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588974/mockups/tlsk4tsiin3uesyr094k.webp')",
+        travel:
+          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588831/mockups/u2xtb6q0aedxthqn2d88.webp')",
+      },
+    },
   },
   plugins: [],
 });

@@ -1,12 +1,10 @@
 import PropTypes from "prop-types";
 
-export const CategoryCard = ({ category, imageURL }) => {
-  console.log(imageURL);
+export const CategoryCard = ({ category, bgName }) => {
+  console.log(bgName);
   return (
     <>
-      <div
-        className={`absolute inset-0 bg-[url(${imageURL})] bg-center" bg-cover`}
-      >
+      <div className={`absolute inset-0 bg-${bgName} bg-cover bg-center`}>
         <div className="w-ful absolute inset-0 h-full w-full bg-gradient-to-t from-black/70 via-black/50"></div>
       </div>
       <div className="z-50 space-y-6 text-center font-montserrat font-bold text-white">
@@ -19,5 +17,5 @@ export const CategoryCard = ({ category, imageURL }) => {
 
 CategoryCard.propTypes = {
   category: PropTypes.string.isRequired,
-  imageURL: PropTypes.string.isRequired,
+  bgName: PropTypes.string.isRequired,
 };
