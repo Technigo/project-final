@@ -1,4 +1,13 @@
 import { NavLinks } from "./NavLinks"
+import styled from "styled-components"
+
+const MobileMenuContainer = styled.ul`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`
 
 export const MobileMenu = () => {
   const mobileLinks = [
@@ -9,12 +18,12 @@ export const MobileMenu = () => {
   ]
 
   return (
-    <ul>
+    <MobileMenuContainer>
       {mobileLinks.map((link, index) => (
         <li key={`navlink-${index}`}>
           <NavLinks label={link.label} to={link.to} />
         </li>
       ))}
-    </ul>
+    </MobileMenuContainer>
   )
 }
