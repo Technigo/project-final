@@ -55,4 +55,5 @@ ProductDetailsCard.propTypes = {
   price: PropTypes.number.isRequired,
   numOfLikes: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired
 };
