@@ -6,65 +6,69 @@ export const SignUpPage = () => {
   return (
     <>
       {activeSection === "sectionone" && (
-        <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0">
+        <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pb-10 laptop:px-36">
           {" "}
           <img
-            className="w-screen tablet:order-last"
+            className="w-screen tablet:order-last laptop:rounded-3xl"
             src="signup.svg"
             alt="picture of a woman using skincare."
           ></img>
-          <h2 className="text-2xl font-heading font-bold mt-10 tablet:mt-20">
-            Sign Up
-          </h2>
-          <h3 className="text-xl font-heading font-medium mt-3">
-            login Information
-          </h3>
-          <form className="flex flex-col w-full px-10 tablet:px-36">
-            <div className="flex flex-col w-full">
-              <label
-                htmlFor="email"
-                className="text-text-dark font-heading font-semibold mt-8 tablet:block"
+          <div className="w-full">
+            <div className="flex flex-col items-center">
+              <h2 className="text-2xl font-heading font-bold mt-10 tablet:mt-20">
+                Sign Up
+              </h2>
+              <h3 className="text-xl font-heading font-medium mt-3">
+                login Information
+              </h3>
+            </div>
+            <form className="flex flex-col w-full px-10 tablet:px-36 laptop:pl-0 laptop:pr-12">
+              <div className="flex flex-col w-full">
+                <label
+                  htmlFor="email"
+                  className="text-text-dark font-heading font-semibold mt-8 tablet:block"
+                >
+                  Email:
+                </label>
+                <input
+                  className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
+                  id="email"
+                ></input>
+              </div>
+              <div className="flex flex-col tablet:flex-row tablet:gap-5">
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="password"
+                    className="text-text-dark font-heading font-semibold mt-8  "
+                  >
+                    Password:
+                  </label>
+                  <input
+                    className="rounded-xl h-10 bg-bg-input "
+                    id="password"
+                  ></input>
+                </div>
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="confirm"
+                    className="text-text-dark font-heading font-semibold mt-8"
+                  >
+                    Confirm password:
+                  </label>
+                  <input
+                    className="rounded-xl h-10 bg-bg-input "
+                    id="confirm"
+                  ></input>
+                </div>
+              </div>
+              <button
+                onClick={() => setActiveSection("sectiontwo")}
+                className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
               >
-                Email:
-              </label>
-              <input
-                className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
-                id="email"
-              ></input>
-            </div>
-            <div className="flex flex-col tablet:flex-row tablet:gap-5">
-              <div className="flex flex-col w-full">
-                <label
-                  htmlFor="password"
-                  className="text-text-dark font-heading font-semibold mt-8  "
-                >
-                  Password:
-                </label>
-                <input
-                  className="rounded-xl h-10 bg-bg-input "
-                  id="password"
-                ></input>
-              </div>
-              <div className="flex flex-col w-full">
-                <label
-                  htmlFor="confirm"
-                  className="text-text-dark font-heading font-semibold mt-8"
-                >
-                  Confirm password:
-                </label>
-                <input
-                  className="rounded-xl h-10 bg-bg-input "
-                  id="confirm"
-                ></input>
-              </div>
-            </div>
-            <button
-              onClick={() => setActiveSection("sectiontwo")}
-              className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
-            >
-              Next
-            </button>
-          </form>
+                Next
+              </button>
+            </form>
+          </div>
         </section>
       )}
       {activeSection === "sectiontwo" && (
