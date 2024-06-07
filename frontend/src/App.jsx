@@ -1,7 +1,7 @@
-import { Fonts } from "./components/Fonts";
-import { BrowserRouter } from "react-router-dom";
-import { HomeRoutes } from "./routes/HomeRoutes";
-import { Header } from "./components/Navigation/Header";
+import { Fonts } from "./components/Fonts"
+import { BrowserRouter } from "react-router-dom"
+import { HomeRoutes } from "./routes/HomeRoutes"
+import { Header } from "./components/Navigation/Header"
 
 export const App = () => {
   return (
@@ -12,5 +12,5 @@ export const App = () => {
         <HomeRoutes />
       </BrowserRouter>
     </>
-  );
-};
+  )
+}

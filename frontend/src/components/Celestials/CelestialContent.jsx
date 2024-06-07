@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import  sunImg from "../../assets/images/sun.png";
-import  moonImg  from "../../assets/images/moon.png";
+import styled from "styled-components"
+import sunImg from "../../assets/images/sun.png"
+import moonImg from "../../assets/images/moon.png"
 
 const SunAndMoonPage = styled.div`
     background: #000000;
@@ -11,10 +11,10 @@ const SunAndMoonPage = styled.div`
     p.roboto-mono {
       font-family: "Roboto Mono";
     }
-  }`;
+  }`
 
 const CelestialContent = ({ oneBody }) => {
-  const imgSrc = oneBody.name.toLowerCase() === "sun" ? sunImg : moonImg;
+  const imgSrc = oneBody.name.toLowerCase() === "sun" ? sunImg : moonImg
 
   return (
     <div>
@@ -31,7 +31,7 @@ const CelestialContent = ({ oneBody }) => {
         <p className="roboto-mono">Curiosa: {oneBody.curiosa}</p>
       </SunAndMoonPage>
     </div>
-  );
-};
+  )
+}
 
-export default CelestialContent;
+export default CelestialContent

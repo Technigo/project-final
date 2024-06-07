@@ -1,4 +1,22 @@
+import GlobalStyles from "../GlobalStyles"
 import { NavLinks } from "./NavLinks"
+import styled from "styled-components"
+
+const Menu = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
+const MenuItem = styled.li`
+  margin-left: 40px;
+  margin-right: 60px;
+`
 
 export const MainMenu = () => {
   const navLinks = [
@@ -9,12 +27,15 @@ export const MainMenu = () => {
   ]
 
   return (
-    <ul>
-      {navLinks.map((link, index) => (
-        <li key={`navlink-${index}`}>
-          <NavLinks label={link.label} to={link.to} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <GlobalStyles />
+      <Menu>
+        {navLinks.map((link, index) => (
+          <MenuItem key={`navlink-${index}`}>
+            <NavLinks label={link.label} to={link.to} />
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
   )
 }

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import backgroundImage from "../assets/images/404background.jpg";
+import { Link } from "react-router-dom"
+import styled from "styled-components"
+import backgroundImage from "../assets/images/404background.jpg"
 
 const NotFoundContainer = styled.div`
   background-image: url(${backgroundImage});
@@ -11,37 +11,38 @@ const NotFoundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff; /* Text color for contrast */
-`;
+  color: #FFFFF;
+`
 
 const Font = styled.div`
-h2 {
+h1 {
   font-family: "Space Mono";
 }
 p {
   font-family: "Roboto Mono";
   color: #CF4B14;
 }
-}`;
+}`
 
 const NotFoundContent = styled.div`
   text-align: center;
-`;
+`
 
 export const NotFoundPage = () => {
   return (
     <NotFoundContainer>
       <NotFoundContent>
         <Font>
-        <h2 className="">404</h2>
-        <h2>NOT FOUND</h2>
-        <p>Houston, we have a problem:</p>
-        <p>You are lost in space</p>
+          <h1>
+            404<br>NOT FOUND</br>
+          </h1>
+          <p>Houston, we have a problem:</p>
+          <p>You are lost in space</p>
         </Font>
       </NotFoundContent>
       <Link className="goHome" to="/">
         <button>GO HOME</button>
       </Link>
     </NotFoundContainer>
-  );
-};
+  )
+}
