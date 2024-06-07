@@ -35,6 +35,9 @@ export default {
         desktop: "1511px",
         // => @media (min-width: 1280px) { ... }
       },
+      backgroundImage: {
+        "arrow-select": `url("arrowselect.svg")`,
+      },
     },
   },
   plugins: [],
