@@ -21,36 +21,37 @@ export const HamburgerMenu = () => {
     <div id="outer-container">
       <Menu
         isOpen={isOpen}
-        onStateChange={handleStateChange}
+        onStateChange={(state) => handleStateChange(state)}
         customBurgerIcon={
-          <Image
-            src={HamburgerIcon}
-            alt="Hamburger icon"
-            className="hamburger-icon"
-          />
+          !isOpen ? (
+            <Image
+              src={HamburgerIcon}
+              alt="Hamburger icon"
+              className="hamburger-icon"
+            />
+          ) : null
         }
         customCrossIcon={
-          <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
+          isOpen ? (
+            <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
+          ) : null
         }
+        outerContainerId="outer-container"
+        pageWrapId="page-wrap"
         // isOpen={isOpen}
         // onStateChange={(state) => handleStateChange(state)}
         // customBurgerIcon={
-        //   isOpen ? (
-        //     <Image
-        //       src={CrossIcon}
-        //       alt="Close icon"
-        //       className="hamburger-icon"
-        //     />
-        //   ) : (
-        //     <Image
-        //       src={HamburgerIcon}
-        //       alt="Hamburger icon"
-        //       className="hamburger-icon"
-        //     />
-        //   )
+        //   <Image
+        //     src={HamburgerIcon}
+        //     alt="Hamburger icon"
+        //     className="hamburger-icon"
+        //   />
         // }
-        outerContainerId={"outer-container"}
-        pageWrapId={"page-wrap"}
+        // customCrossIcon={
+        //   <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
+        // }
+        // outerContainerId={"outer-container"}
+        // pageWrapId={"page-wrap"}
       >
         <ul className="menu-categories">
           <li>
