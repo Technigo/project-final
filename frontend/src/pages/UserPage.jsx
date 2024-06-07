@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import styled from "styled-components"
 import { AuthContext } from "../contexts/AuthContext"
-
 import { LogoutButton } from "../components/LogoutButton"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
@@ -41,17 +41,17 @@ export const UserPage = () => {
   }, [isAuthenticated, accessToken, logout])
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Loading>Loading...</Loading>
   }
 
   if (!isAuthenticated) {
     return (
-      <div>
+      <UserContainer>
         <p>You are not authorized to view this page. Please log in.</p>
         <ToHomepageBtn />
-        <Link to={"/login"}>Log in </Link> or
-        <Link to={"/register"}> sign up</Link>
-      </div>
+        <AuthLink to={"/login"}>Log in </AuthLink> or
+        <AuthLink to={"/register"}> sign up</AuthLink>
+      </UserContainer>
     )
   }
 
@@ -59,12 +59,52 @@ export const UserPage = () => {
     <div>
       <ToHomepageBtn />
 
-      <h2>Welcome to your personal page</h2>
-      <p>Liked museums</p>
-      <p>Posted reviews</p>
-      <p>Purchased tickets</p>
-
-      <LogoutButton />
+      <UserContainer>
+        <ToHomepageBtn />
+        <WelcomeMessage>Welcome to your personal page</WelcomeMessage>
+        <FeatureList>
+          <FeatureItem>Liked museums</FeatureItem>
+          <FeatureItem>Posted reviews</FeatureItem>
+          <FeatureItem>Purchased tickets</FeatureItem>
+        </FeatureList>
+        <LogoutButton />
+      </UserContainer>
     </div>
   )
 }
+
+const UserContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`
+
+const WelcomeMessage = styled.h2`
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+`
+
+const FeatureList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+`
+
+const FeatureItem = styled.li`
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #666;
+`
+
+const AuthLink = styled(Link)`
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 5px;
+`
+
+const Loading = styled.div`
+  color: #333;
+  font-size: 1.2em;
+`
