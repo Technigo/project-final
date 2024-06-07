@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
-export const Button = ({ text, style, onClick }) => {
+export const Button = ({ text, style, navTo }) => {
+  const navigate = useNavigate();
+
   const blueStyle =
     "bg-button-blue shadow-[0px_4px_4px_#000000] text-white disabled:bg-button-disabled";
   const whiteStyle =
@@ -8,8 +11,8 @@ export const Button = ({ text, style, onClick }) => {
   // font weight is 700 acc. to the design - need to import Poppins with 700 weight
   return (
     <button
-      onClick={onClick}
-      className={`${style === "white" ? whiteStyle : blueStyle} hover:bg-button-hover min-h-12 min-w-48 rounded px-4 font-montserrat text-base font-bold`}
+      onClick={() => navigate(navTo)}
+      className={`${style === "white" ? whiteStyle : blueStyle} min-h-12 min-w-48 rounded px-4 font-montserrat text-base font-bold hover:bg-button-hover`}
     >
       {text}
     </button>
@@ -19,5 +22,5 @@ export const Button = ({ text, style, onClick }) => {
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   style: PropTypes.string,
-  onClick: PropTypes.func,
+  navTo: PropTypes.string,
 };

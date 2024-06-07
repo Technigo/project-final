@@ -9,26 +9,24 @@ import { Button } from "../components/Button";
 import { Testimonial } from "../components/Testimonial";
 import { CategoryCard } from "../components/CategoryCard";
 
-const category = [
-  {
-    name: "Business",
-    bgName: "business",
-    // bgName:
-    //   "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Travel and Adventure",
-    bgName: "travel",
-  },
-  {
-    name: "Color",
-    bgName: "color",
-  },
-  {
-    name: "Health and Wellness",
-    bgName: "health",
-  },
-];
+// const category = [
+//   {
+//     name: "Business",
+//     bgName: "business",
+//   },
+//   {
+//     name: "Travel and Adventure",
+//     bgName: "travel",
+//   },
+//   {
+//     name: "Color",
+//     bgName: "color",
+//   },
+//   {
+//     name: "Health and Wellness",
+//     bgName: "health",
+//   },
+// ];
 
 export const Homepage = () => {
   const customTheme = {
@@ -56,7 +54,7 @@ export const Homepage = () => {
           needed—just pick, customize, and launch. <br />
           Let&apos;s make website creation easy and fun!
         </p>
-        <Button text="SIGN UP" />
+        <Button text="SHOP NOW" navTo="/products" />
       </section>
       <section className="my-20 flex flex-col items-center justify-normal space-y-3 text-center">
         <h2 className="font-bold">Best sellers</h2>
@@ -150,7 +148,7 @@ export const Homepage = () => {
             success, these templates offer sleek designs and seamless
             functionality. Start creating a standout website effortlessly!
           </p>
-          <Button text="SIGN UP" />
+          <Button text="SIGN UP" navTo="/signup" />
         </div>
         <div className="h-80 w-80 lg:h-96 lg:w-96">
           <img
@@ -165,14 +163,19 @@ export const Homepage = () => {
           Explore our most popular products! Tried, tested, and loved by many.
         </p>
         <div className="mt-8 grid w-full grid-cols-2 gap-6 px-6 lg:w-fit lg:grid-cols-[repeat(4,_minmax(0,_320px))] lg:gap-8">
-          {category.map((item) => (
+          {/* {category.map((item) => (
             <div
               key={item.name}
               className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
             >
               <CategoryCard category={item.name} bgName={item.bgName} />
             </div>
-          ))}
+          ))} */}
+          <CategoryCard />
+          <div className="bg-health hidden"></div>
+          <div className="bg-business hidden"></div>
+          <div className="bg-color hidden"></div>
+          <div className="bg-travel hidden"></div>
         </div>
       </section>
       <section className="mt-20 flex flex-col items-center gap-9 bg-light-blue py-14">
@@ -186,7 +189,7 @@ export const Homepage = () => {
           Explore our collection of customizable templates
         </p>
         <h2 className="font-bold">Create Beautiful Websites Effortlessly</h2>
-        <Button text="SIGN UP" />
+        <Button text="LOG IN" navTo="login" />
       </section>
     </main>
   );

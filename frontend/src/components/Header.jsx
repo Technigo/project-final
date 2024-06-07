@@ -2,6 +2,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import cart from "../assets/cart.svg";
 import user from "../assets/human-icon.svg";
@@ -14,6 +15,8 @@ const navigation = [
 ];
 
 export const Header = () => {
+  const navigate = useNavigate();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -32,16 +35,26 @@ export const Header = () => {
           {navigation.map((item) => (
             <NavLink
               key={item.name}
-              to={item.href}
-              className="text-lg font-semibold"
+              to={item.to}
+              className="text-lg font-semibold hover:text-light-gray"
             >
               {item.name}
             </NavLink>
           ))}
         </div>
         <div className="flex flex-row gap-6">
-          <img src={user} alt="user account" />
-          <div className="relative">
+          <img
+            className="cursor-pointer"
+            src={user}
+            alt="user account"
+            onClick={() => {
+              navigate("/login");
+            }}
+          />
+          <div
+            className="relative cursor-pointer"
+            onClick={() => navigate("/cart")}
+          >
             <img src={cart} alt="shopping cart" />
             <div className="absolute -top-2 left-3 flex h-4 w-4 items-center justify-center rounded-[50%] bg-red">
               <p className="text-[10px]">0</p>
