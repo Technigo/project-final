@@ -11,8 +11,21 @@ export const ProductsPage = () => {
   const [ filteredProducts, setFilteredProducts ] = useState([]);
 
   const handleSortChange = (e) => {
-    setSortValue(e.target.value);
-  };
+    setSortValue(e.target.value)
+  }
+  useEffect(() => {
+    let sortedProducts = [...filteredProducts];
+  
+    if (sortValue === 'top rated') {
+      //sortedProducts.sort((a, b) => a.rating - b.rating);
+    } else if (sortValue === 'lowest price') {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'highest price') {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+  
+    setFilteredProducts(sortedProducts);
+  }, [sortValue, filteredProducts]);
 
   const handleFilterChange = (e) => {
     setFilterValue(e.target.value);
@@ -55,7 +68,6 @@ console.log ("filtered", filteredProducts)
           <option value="sort" disabled hidden>
             Sort
           </option>
-          <option value="newest">Newest</option>
           <option value="top rated">Top rated</option>
           <option value="lowest price">Lowest price</option>
           <option value="highest price">Highest price</option>
