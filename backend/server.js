@@ -5,10 +5,21 @@ import expressListEndpoints from "express-list-endpoints"
 import authRoutes from "./routes/authRoutes.js"
 import reviewRoutes from "./routes/reviewRoutes.js"
 import favoriteRoutes from "./routes/favoriteRoutes.js"
+import { Museum } from "./models/Museum.js"
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/museums"
 mongoose.connect(mongoUrl)
 mongoose.Promise = Promise
+
+//Seed database
+if (process.env.RESET_DB) {
+  const seedDatabase = async () => {
+    await Museum.deleteMany()
+    //insert each document in the array into the collection
+    await Museum.insertMany(museumData)
+  }
+  seedDatabase()
+}
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:

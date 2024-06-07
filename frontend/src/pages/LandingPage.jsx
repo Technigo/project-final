@@ -3,7 +3,7 @@ import { SearchBar } from "../components/SearchBar";
 import { MuseumCardContainer } from "../components/MuseumCardContainer";
 import { NavBar } from "../components/NavBar";
 import { HeroSection } from "../components/HeroSection";
-import museumList from "../json/museums.json";
+import museumList from "../../../backend/data/museums.json";
 import { Newsletter } from "../components/Newsletter";
 import styled from "styled-components";
 

@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
-import museumList from "../json/museums.json";
+import museumList from "../../../backend/data/museums.json";
 import StyledSearchBar from "./styled/SearchBar.styled";
 import StyledButton from "./styled/Button.styled";
 import { AlertMessage } from "./AlertMessage";

@@ -7,7 +7,7 @@ import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
 
-import museumList from "../json/museums.json"
+import museumList from "../../../backend/data/museums.json"
 import styled from "styled-components"
 import StyledButton from "../components/styled/Button.styled"
 
@@ -27,7 +27,7 @@ export const DetailPage = () => {
     <Container>
       <Content>
         <ImageContainer>
-          <ToHomepageBtn/>
+          <ToHomepageBtn />
           <StyledImage
             src={museum.url}
             alt={`Image related to ${museum.name}`}
