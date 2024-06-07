@@ -69,6 +69,7 @@ const Comment = styled.div`
 `
 
 const CommentText = styled.p`
+  word-wrap: break-word;
   margin-bottom: 5px;
 `
 
