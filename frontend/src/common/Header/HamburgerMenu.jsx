@@ -38,20 +38,6 @@ export const HamburgerMenu = () => {
         }
         outerContainerId="outer-container"
         pageWrapId="page-wrap"
-        // isOpen={isOpen}
-        // onStateChange={(state) => handleStateChange(state)}
-        // customBurgerIcon={
-        //   <Image
-        //     src={HamburgerIcon}
-        //     alt="Hamburger icon"
-        //     className="hamburger-icon"
-        //   />
-        // }
-        // customCrossIcon={
-        //   <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
-        // }
-        // outerContainerId={"outer-container"}
-        // pageWrapId={"page-wrap"}
       >
         <ul className="menu-categories">
           <li>
