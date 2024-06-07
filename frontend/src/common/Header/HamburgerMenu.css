@@ -4,6 +4,12 @@
 
 .hamburger-icon-image {
   width: 29px;
+  margin: -10px 0 0 20px;
+}
+
+.cross-icon-image {
+  width: 29px;
+  /* margin: -10px 0 0 20px; */
 }
 
 .bm-menu {
@@ -27,8 +33,10 @@
 }
 
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  /* background-color: black; */
+  height: 29px;
+  width: 29px;
+  left: 20px;
 }
 
 /* .bm-cross {
@@ -43,7 +51,7 @@
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
-  margin-top: 70px;
+  margin-top: 56px;
   left: 0;
 }
 
@@ -61,12 +69,16 @@
   }
 
   .bm-overlay {
-    margin-top: 74px;
+    margin-top: 60px;
   }
 }
 
 @media (min-width: 1024px) {
   .hamburger-icon-image {
+    display: none;
+  }
+
+  .cross-icon-image {
     display: none;
   }
 
