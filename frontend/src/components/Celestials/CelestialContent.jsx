@@ -5,15 +5,15 @@ import moonImg from "../../assets/images/moon.png";
 
 
 const SunAndMoonPage = styled.div`
-    background: #000000;
-    h1.space-mono-bold {
-      font-family: "Space Mono";
-      color: #FFFFFF;
-    }
-    p.roboto-mono {
-      font-family: "Roboto Mono";
-    }
-  }`
+  background: #000000;
+  h1.space-mono-bold {
+    font-family: "Space Mono";
+    color: #ffffff;
+  }
+  p.roboto-mono {
+    font-family: "Roboto Mono";
+  }
+`
 
 const CelestialContent = ({ oneBody }) => {
   const imgSrc = oneBody.name.toLowerCase() === "sun" ? sunImg : moonImg
