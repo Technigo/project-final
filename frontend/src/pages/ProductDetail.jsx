@@ -21,7 +21,7 @@ export const ProductDetail = () => {
 
   return (
     <>
-      <Breadcrumb />
+      <Breadcrumb lastBreadcrumbOverride={product.templateName.toUpperCase()} />
       <div className="mx-6 mb-20 mt-10 lg:my-20">
         <ProductDetailsCard
           image={product.image}
