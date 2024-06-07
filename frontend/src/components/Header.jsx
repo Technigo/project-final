@@ -50,7 +50,7 @@ export const Header = () => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="text-gray-700 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -100,7 +100,7 @@ export const Header = () => {
                   <NavLink
                     key={item.name}
                     to={item.to}
-                    className="text-gray-900 -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:text-blue"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:text-blue"
                   >
                     {item.name}
                   </NavLink>

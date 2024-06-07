@@ -1,4 +1,4 @@
-// import { Carousel } from "@material-tailwind/react";
+// import { useState } from "@material-tailwind/react";
 
 import { useState } from "react";
 
@@ -10,9 +10,9 @@ export const Testimonial = () => {
   };
   return (
     <>
-      <div className="flex flex-row justify-center gap-6">
+      <div className="flex flex-row gap-6 lg:grid lg:grid-cols-3">
         <div
-          className={`${page == 1 ? "flex" : "hidden"} h-fit flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
+          className={`${page == 1 ? "flex" : "hidden"} h-full flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
         >
           <div className="flex flex-col items-center gap-2">
             <div className="w-16 overflow-clip rounded-full">
@@ -30,7 +30,7 @@ export const Testimonial = () => {
           </p>
         </div>
         <div
-          className={`${page == 2 ? "flex" : "hidden"} h-fit flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
+          className={`${page == 2 ? "flex" : "hidden"} h-full flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
         >
           <div className="flex flex-col items-center gap-2">
             <div className="w-16 overflow-clip rounded-full">
@@ -49,7 +49,7 @@ export const Testimonial = () => {
           </p>
         </div>
         <div
-          className={`${page == 3 ? "flex" : "hidden"} h-fit flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
+          className={`${page == 3 ? "flex" : "hidden"} h-full flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
         >
           <div className="flex flex-col items-center gap-2">
             <div className="w-16 overflow-clip rounded-full">

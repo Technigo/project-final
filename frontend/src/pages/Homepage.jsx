@@ -1,12 +1,36 @@
 import { Carousel } from "@material-tailwind/react";
 import { ThemeProvider } from "@material-tailwind/react";
 
-import { Button } from "../components/Button";
-import pen from "../assets/pen-icon.svg";
-import checkMark from "../assets/check-icon.svg";
 import arrowUp from "../assets/arrow-up-icon.svg";
+import checkMark from "../assets/check-icon.svg";
 import ctaImg from "../assets/ctaImg.jpg";
+import pen from "../assets/pen-icon.svg";
+import { Button } from "../components/Button";
 import { Testimonial } from "../components/Testimonial";
+import { CategoryCard } from "../components/CategoryCard";
+
+const category = [
+  {
+    name: "Business",
+    imageURL:
+      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717589290/mockups/upjlenilirfukk6k3nrs.webp",
+  },
+  {
+    name: "Travel and Adventure",
+    imageURL:
+      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588831/mockups/u2xtb6q0aedxthqn2d88.webp",
+  },
+  {
+    name: "Color",
+    imageURL:
+      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588974/mockups/tlsk4tsiin3uesyr094k.webp",
+  },
+  {
+    name: "Health and Wellness",
+    imageURL:
+      "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588806/mockups/ta9gbwyxaaqeekzcroya.webp",
+  },
+];
 
 export const Homepage = () => {
   const customTheme = {
@@ -36,10 +60,12 @@ export const Homepage = () => {
         </p>
         <Button text="SIGN UP" />
       </section>
-      <section className="my-20 flex flex-col items-center justify-normal">
+      <section className="my-20 flex flex-col items-center justify-normal space-y-3 text-center">
         <h2 className="font-bold">Best sellers</h2>
-        <p className="font-lato">Check our TOP templates!</p>
-        <div className="w-3/4">
+        <p className="mx-6 font-lato">
+          Explore our most popular products! Tried, tested, and loved by many.
+        </p>
+        <div className="w-3/4 pt-4">
           <ThemeProvider value={customTheme}>
             <Carousel
               className="rounded-xl"
@@ -141,49 +167,28 @@ export const Homepage = () => {
           Explore our most popular products! Tried, tested, and loved by many.
         </p>
         <div className="mt-8 grid w-full grid-cols-2 gap-6 px-6 lg:w-fit lg:grid-cols-[repeat(4,_minmax(0,_320px))] lg:gap-8">
-          <div className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96">
-            <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ddpsnaef5/image/upload/f_auto,q_auto/v1/mockups/ta9gbwyxaaqeekzcroya')] bg-cover bg-center">
-              <div className="w-ful absolute inset-0 h-full w-full bg-gradient-to-t from-black/70 via-black/50"></div>
+          {category.map((item) => (
+            <div
+              key={item.name}
+              className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
+            >
+              <CategoryCard category={item.name} imageURL={item.imageURL} />
             </div>
-            <div className="z-50 space-y-6 text-center font-montserrat font-bold text-white">
-              <h3>Category</h3>
-              <p>SHOP ALL</p>
-            </div>
-          </div>
-          <div className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96">
-            <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ddpsnaef5/image/upload/f_auto,q_auto/v1/mockups/diayjvjksyf5noftnywo')] bg-cover bg-center">
-              <div className="w-ful absolute inset-0 h-full w-full bg-gradient-to-t from-black/70 via-black/50"></div>
-            </div>
-            <div className="z-50 space-y-6 text-center font-montserrat font-bold text-white">
-              <h3>Category</h3>
-              <p>SHOP ALL</p>
-            </div>
-          </div>
-          <div className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96">
-            <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ddpsnaef5/image/upload/f_auto,q_auto/v1/mockups/ta9gbwyxaaqeekzcroya')] bg-cover bg-center">
-              <div className="w-ful absolute inset-0 h-full w-full bg-gradient-to-t from-black/70 via-black/50"></div>
-            </div>
-            <div className="z-50 space-y-6 text-center font-montserrat font-bold text-white">
-              <h3>Category</h3>
-              <p>SHOP ALL</p>
-            </div>
-          </div>
-          <div className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96">
-            <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/ddpsnaef5/image/upload/f_auto,q_auto/v1/mockups/ta9gbwyxaaqeekzcroya')] bg-cover bg-center">
-              <div className="w-ful absolute inset-0 h-full w-full bg-gradient-to-t from-black/70 via-black/50"></div>
-            </div>
-            <div className="z-50 space-y-6 text-center font-montserrat font-bold text-white">
-              <h3>Category</h3>
-              <p>SHOP ALL</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
-      <section className="my-20 flex flex-col items-center gap-9 bg-light-blue py-14">
+      <section className="mt-20 flex flex-col items-center gap-9 bg-light-blue py-14">
         <h2 className="font-bold">What Our Customers Say</h2>
         <div className="mx-6 rounded-sm">
           <Testimonial />
         </div>
+      </section>
+      <section className="flex h-[400px] flex-col items-center justify-center space-y-9 bg-[url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-bottom text-center text-white lg:h-[670px]">
+        <p className="mb-5 font-montserrat font-bold">
+          Explore our collection of customizable templates
+        </p>
+        <h2 className="font-bold">Create Beautiful Websites Effortlessly</h2>
+        <Button text="SIGN UP" />
       </section>
     </main>
   );
