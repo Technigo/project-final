@@ -60,6 +60,7 @@
   .footer-logo {
     order: 0;
     padding-left: 50px;
+    padding-right: 30px;
     display: flex;
     align-items: baseline;
   }
