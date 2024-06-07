@@ -13,6 +13,7 @@ export default {
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
+        "overlay": "rgba(0,0,0,0.5)",
 
         "text-light": "#fff",
         "text-dark": "#671E01",

@@ -41,7 +41,10 @@ export const Footer = ({ providedData, aboveColor }) => {
             <div className="grid grid-cols-2 ">
               {missionStatement.perks &&
                 missionStatement.perks.map((item, index) => (
-                  <div className="text-center my-8 hidden laptop:block">
+                  <div
+                    key={index}
+                    className="text-center my-8 hidden laptop:block"
+                  >
                     <h3 className="font-heading text-2xl my-2">{item.perk}</h3>
                     <p className="hidden font-extralight w-[45ch] tablet:block m-auto">
                       {item.comment}
@@ -65,7 +68,7 @@ export const Footer = ({ providedData, aboveColor }) => {
 
         <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around gap-4 align-center my-10">
           {contact.contactRoute.map((item, index) => (
-            <div className="flex flex-col items-center w-1/5 my-6">
+            <div key={index} className="flex flex-col items-center w-1/5 my-6">
               <img className="w-12 my-4" src={item.icon} alt={item.altText} />
               <p className="text-center font-extralight">{item.info}</p>
             </div>
@@ -75,6 +78,7 @@ export const Footer = ({ providedData, aboveColor }) => {
         <div className="flex gap-8 justify-center py-10">
           {contact.socialMedia.map((item, index) => (
             <img
+              key={index}
               className="w-10 hover:opacity-75 hover:cursor-pointer active:opacity-50"
               src={item.icon}
               alt={item.altText}

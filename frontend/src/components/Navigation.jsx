@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import glimLogo from "/glimSmall.svg";
 import shoppingCart from "/cart-shopping-solid.svg";
@@ -10,12 +10,38 @@ import swoop from "/nav-swoop2.svg";
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
+  const [open, setOpen] = useState(false);
   const navRef = useRef();
   const btnRef = useRef();
+  const overlayRef = useRef();
+  const modalContentRef = useRef();
 
   const showNavbar = () => {
     navRef.current.classList.toggle("hidden");
     btnRef.current.classList.toggle("invisible");
+  };
+
+  const handleLogin = () => {
+  Consle.log("logging in")
+  }
+  const handleClickOutside = (event) => {
+    if (overlayRef.current && !modalContentRef.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
+  const toggleLogin = () => {
+    setOpen(!open);
   };
 
   return (
@@ -36,12 +62,15 @@ export const Navigation = ({ data }) => {
                 {data.about}
               </p>
             </NavLink>
-            <NavLink to="/login" className="text-white m-2 laptop:hidden">
+            <div
+              onClick={toggleLogin}
+              className="text-white m-2 cursor-pointer laptop:hidden"
+            >
               <img src={userIcon} alt="Profile" className="h-4 tablet:hidden" />
               <p className="font-body text-white font-extralight text-lg hidden tablet:block">
                 {data.login}
               </p>
-            </NavLink>
+            </div>
             <NavLink to="/cart" className="text-white tablet:hidden">
               <img
                 src={shoppingCart}
@@ -56,11 +85,14 @@ export const Navigation = ({ data }) => {
             </NavLink>
           </div>
           <div className="right-nav flex flex-row justify-end">
-            <NavLink to="/login" className="text-white my-4">
+            <div
+              onClick={toggleLogin}
+              className="text-white my-4 cursor-pointer"
+            >
               <p className="font-body text-white font-extralight text-lg hidden laptop:block">
                 {data.login}
               </p>
-            </NavLink>
+            </div>
             <NavLink to="/cart" className="text-white">
               <img
                 src={shoppingCart}
@@ -70,7 +102,7 @@ export const Navigation = ({ data }) => {
             </NavLink>
 
             <div
-              className="hidden absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg text-white bg-strong-red"
+              className="hidden absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg border-main-red text-white bg-strong-red"
               ref={navRef}
             >
               <button className="" onClick={showNavbar}>
@@ -92,6 +124,52 @@ export const Navigation = ({ data }) => {
           </div>
         </div>
       </nav>
+
+      {open ? (
+        <div
+          onClick={handleClickOutside}
+          ref={overlayRef}
+          className="fixed top-0 left-0 w-full h-full bg-overlay flex items-center justify-center z-30"
+        >
+          <div
+            ref={modalContentRef}
+            className="w-1/2 my-20 rounded-lg bg-strong-red border-2 border-main-red border-opacity-50 backdrop-blur-sm px-4 py-2 relative"
+          >
+            <div className="flex justify-between">
+              <h1 className="font-heading text-text-light text-2xl my-4">
+                Log In!
+              </h1>
+            </div>
+            <form className="flex flex-col gap-2">
+              <input
+                type="email"
+                placeholder="Email..."
+                className="p-2 rounded-lg"
+              />
+              <input
+                type="password"
+                placeholder="Password..."
+                className="p-2 rounded-lg"
+              />
+              <button
+                onClick={handleLogin}
+                className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light">
+                Login
+              </button>
+              <NavLink to="/signup">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center m-auto px-6 py-2 rounded-full hover:bg-cta-blue-hover text-sm text-text-light">
+                  Sign up
+                </button>
+              </NavLink>
+            </form>
+            <p className="absolute text-text-light -bottom-8 z-0 text-xs">
+              Press outside of the box to close the window
+            </p>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };
