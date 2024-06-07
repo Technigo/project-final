@@ -21,7 +21,7 @@ export const NotFound = () => {
               404 - Page not found
             </h2>
             <p className="font-lato text-sm lg:text-lg">
-              Sorry, but the page you are looking for doesn't exist, has been
+              Sorry, but the page you are looking for does not exist, has been
               removed, or is temporarily unavailable. <br />
               But don’t worry, there’s plenty more to explore:
             </p>
