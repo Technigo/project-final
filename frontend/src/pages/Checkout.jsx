@@ -1,3 +1,10 @@
+import { Breadcrumb } from "../components/Breadcrumb";
+
 export const Checkout = () => {
-  return <div>Checkout</div>;
+  return (
+    <>
+      <Breadcrumb />
+      <div>Checkout</div>
+    </>
+  );
 };
