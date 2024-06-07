@@ -4,35 +4,51 @@ import { slide as Menu } from "react-burger-menu";
 import { Image } from "../ReusableComponents/Image/Image";
 import "./HamburgerMenu.css";
 import HamburgerIcon from "./hamburger.svg";
+import CrossIcon from "./cross.svg";
 
 export const HamburgerMenu = () => {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // const handleStateChange = (state) => {
-  //   setIsOpen(state.isOpen);
-  // };
+  const handleStateChange = (state) => {
+    setIsOpen(state.isOpen);
+  };
 
   const closeMenu = () => {
     setIsOpen(false);
   };
 
-  // const toggleMenu = () => {
-  //   setIsOpen(!isOpen);
-  // };
-
   return (
     <div id="outer-container">
       <Menu
+        isOpen={isOpen}
+        onStateChange={handleStateChange}
         customBurgerIcon={
           <Image
             src={HamburgerIcon}
             alt="Hamburger icon"
             className="hamburger-icon"
-            // onClick={toggleMenu}
           />
         }
+        customCrossIcon={
+          <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
+        }
         // isOpen={isOpen}
-        // onStateChange={handleStateChange}
+        // onStateChange={(state) => handleStateChange(state)}
+        // customBurgerIcon={
+        //   isOpen ? (
+        //     <Image
+        //       src={CrossIcon}
+        //       alt="Close icon"
+        //       className="hamburger-icon"
+        //     />
+        //   ) : (
+        //     <Image
+        //       src={HamburgerIcon}
+        //       alt="Hamburger icon"
+        //       className="hamburger-icon"
+        //     />
+        //   )
+        // }
         outerContainerId={"outer-container"}
         pageWrapId={"page-wrap"}
       >

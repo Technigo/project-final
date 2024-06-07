@@ -6,6 +6,10 @@
   width: 29px;
 }
 
+.cross-icon-image {
+  width: 29px;
+}
+
 .bm-menu {
   background: #ffffff;
   padding: 2.5em 1.5em 0;
@@ -27,8 +31,9 @@
 }
 
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  /* background-color: black; */
+  height: 29px;
+  width: 29px;
 }
 
 /* .bm-cross {
