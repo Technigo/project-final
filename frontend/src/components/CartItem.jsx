@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import rubbish from "../assets/rubbish-bin-blue.svg";
+
 import fakePic from "../assets/thank-you.jpg";
 
 export const CartItem = ({ image, name, price }) => {
