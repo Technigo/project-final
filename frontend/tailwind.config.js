@@ -6,14 +6,15 @@ export default {
       colors: {
         "cta-blue": "#002795",
         "cta-blue-hover": "#1138a6",
+        "main-red": "#E48d6A",
         "main-green": "#97a65D",
         "main-yellow": "#FFDE68",
-        "main-red": "#E48d6A",
+
         "main-white": "#FFFDF6",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
-        "overlay": "rgba(0,0,0,0.5)",
+        overlay: "rgba(0,0,0,0.5)",
 
         "text-light": "#fff",
         "text-dark": "#671E01",

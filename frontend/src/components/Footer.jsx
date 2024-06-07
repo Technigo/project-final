@@ -14,9 +14,8 @@ export const Footer = ({ providedData, aboveColor }) => {
   console.log(aboveColor);
   const previousSectionColor = aboveColor
     ? `bg-main-${aboveColor} w-full`
-    : `w-full bg-red-600`;
-  console.log(data2);
-
+    : `w-full`;
+ 
   if (!providedData) data = data2.homepage.footer;
   else data = providedData;
 
