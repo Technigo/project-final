@@ -30,8 +30,13 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.25); /* Adjust the opacity as needed */
-  z-index: 0; /* Ensure the overlay is above the carousel but below the text */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 70%,
+    #232222 100%
+  );
+  z-index: 0;
 `
 
 const Heading = styled.h1`

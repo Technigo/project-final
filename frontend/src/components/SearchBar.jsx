@@ -70,11 +70,12 @@ const StyledSearchBar = styled.input`
 `
 
 const SearchBarContainer = styled.form`
+padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px auto;
   align-items: center;
-
+  justify-content: center;
+  background-color: #232222;
   button {
     margin: 0 5px;
   }
