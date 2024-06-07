@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   h1 {
     @apply text-4xl;
@@ -14,7 +13,10 @@
     @apply text-2xl;
   }
   p {
-    @apply text-sm
+    @apply text-sm;
+  }
+  html {
+    @apply font-poppins;
   }
 
   @screen lg {
@@ -28,7 +30,7 @@
       @apply text-4xl;
     }
     p {
-      @apply text-lg
+      @apply text-lg;
     }
   }
 }
