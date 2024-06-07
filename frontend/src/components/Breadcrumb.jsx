@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import breadcrumbIcon from "../assets/icon-breadcrumb.svg";
+import PropTypes from "prop-types";
 
-export const Breadcrumb = () => {
+export const Breadcrumb = ({ lastBreadcrumbOverride }) => {
   const { pathname } = useLocation();
   const pathnames = pathname.split("/").filter((x) => x);
 
@@ -20,16 +21,16 @@ export const Breadcrumb = () => {
         {pathnames.map((name, position) => {
           const goTo = `/${pathnames.slice(0, position + 1).join("/")}`;
           const positionIsLast = position === pathnames.length - 1;
-          const pathName = name.toUpperCase().replace(/-/g, " ");
+          const displayPathName = name.toUpperCase().replace(/-/g, " ");
 
           return (
             <li key={name} className="flex items-center text-sm text-blue">
               {positionIsLast ? (
-                <span>{pathName}</span>
+                <span>{lastBreadcrumbOverride || displayPathName}</span>
               ) : (
                 <>
                   <Link to={goTo} className="cursor-pointer">
-                    {pathName}
+                    {displayPathName}
                   </Link>
                   <img
                     src={breadcrumbIcon}
@@ -44,4 +45,8 @@ export const Breadcrumb = () => {
       </ol>
     </nav>
   );
+};
+
+Breadcrumb.propTypes = {
+  lastBreadcrumbOverride: PropTypes.string,
 };

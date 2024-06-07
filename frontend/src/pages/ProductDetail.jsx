@@ -1,17 +1,38 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Breadcrumb } from "../components/Breadcrumb";
 import { ProductDetailsCard } from "../components/ProductDetailsCard";
 
 export const ProductDetail = () => {
+  const [product, setProduct] = useState(null);
+  const { Id } = useParams();
+  console.log("Id:", Id);
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/products/${Id}`)
+      .then((response) => response.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.error("Error fetching product", error));
+  }, [Id]);
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>
-      <ProductDetailsCard
-        templateImg="https://res.cloudinary.com/ddpsnaef5/image/upload/v1717358234/cld-sample-5.jpg"
-        tags="Health, Wellness, Holistic"
-        name="Health and Wellness"
-        price={34.99}
-        numOfLikes={3}
-        category="Health and Wellness"
-        description="A mouth-watering web template for foodies and culinary experts. Display your recipes and culinary creations in style."
-      />
-    </div>
+    <>
+      <Breadcrumb lastBreadcrumbOverride={product.templateName.toUpperCase()} />
+      <div className="mx-6 mb-20 mt-10 lg:my-20">
+        <ProductDetailsCard
+          image={product.image}
+          tags={product.tags}
+          templateName={product.templateName}
+          price={product.price}
+          numOfLikes={product.numOfLikes}
+          category={product.category}
+          description={product.description}
+        />
+      </div>
+    </>
   );
 };
