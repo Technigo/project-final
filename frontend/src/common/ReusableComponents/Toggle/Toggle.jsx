@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Image } from "../Image/Image";
 import PropTypes from "prop-types";
 import "./Toggle.css";
@@ -7,9 +7,21 @@ import minus from "/assets/icons/minus.svg";
 
 export const Toggle = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // Check for large screen size
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
-  // Check for large screen size on component render
-  const isLargeScreen = window.innerWidth >= 1024;
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -17,7 +29,10 @@ export const Toggle = ({ title, children }) => {
 
   return (
     <div className="toggle-wrapper">
-      <h5 className="toggle-title" onClick={toggleOpen}>
+      <h5
+        className="toggle-title"
+        onClick={!isLargeScreen ? toggleOpen : undefined}
+      >
         {title}
         <Image
           src={isOpen ? minus : plus}
@@ -25,8 +40,12 @@ export const Toggle = ({ title, children }) => {
           className="toggle-icon"
         />
       </h5>
-      <div className="toggle-content">
-        {isLargeScreen || isOpen ? children : null}
+      <div
+        className={`toggle-content ${
+          isLargeScreen || isOpen ? "visible" : "hidden"
+        }`}
+      >
+        {children}
       </div>
     </div>
   );

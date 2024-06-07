@@ -26,6 +26,7 @@
 
 .footer-logo-image {
   height: 40px;
+  object-fit: contain;
 }
 
 @media (min-width: 668px) {
@@ -58,7 +59,8 @@
 
   .footer-logo {
     order: 0;
-    padding: 30px;
+    padding-left: 50px;
+    padding-right: 30px;
     display: flex;
     align-items: baseline;
   }
@@ -66,9 +68,10 @@
   .footer-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     border: none;
-    width: 100%;
+    gap: 150px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer-logo-image {

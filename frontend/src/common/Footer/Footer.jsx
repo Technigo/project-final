@@ -5,10 +5,14 @@ import logoFooter from "/assets/logotypes/logo-footer.svg";
 import { Image } from "../ReusableComponents/Image/Image";
 
 export const Footer = () => {
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="footer-container">
       <div className="footer-logo">
-        <Link to="/">
+        <Link to="/" onClick={handleLinkClick}>
           <Image src={logoFooter} alt="footer-logo" className="footer-logo" />
         </Link>
       </div>
@@ -16,21 +20,38 @@ export const Footer = () => {
         <Toggle title="Clothes">
           <ul className="footer-categories">
             <li>
-              <NavLink to="/products" end>
+              <NavLink to="/products" end onClick={handleLinkClick}>
                 All clothes
               </NavLink>
             </li>
             <li>
-              <NavLink to="/products/category/tops">Tops</NavLink>
+              <NavLink to="/products/category/tops" onClick={handleLinkClick}>
+                Tops
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/products/category/bottoms">Bottoms</NavLink>
+              <NavLink
+                to="/products/category/bottoms"
+                onClick={handleLinkClick}
+              >
+                Bottoms
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/products/category/dresses">Dresses</NavLink>
+              <NavLink
+                to="/products/category/dresses"
+                onClick={handleLinkClick}
+              >
+                Dresses
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/products/category/accessories">Accessories</NavLink>
+              <NavLink
+                to="/products/category/accessories"
+                onClick={handleLinkClick}
+              >
+                Accessories
+              </NavLink>
             </li>
           </ul>
         </Toggle>
@@ -45,7 +66,7 @@ export const Footer = () => {
           <ul className="footer-categories">
             <li>
               This is not a real web shop, but if it was, it'd probably have the
-              best Custumer Service in the world.
+              best custumer service in the world.
             </li>
           </ul>
         </Toggle>
