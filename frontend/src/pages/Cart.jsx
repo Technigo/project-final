@@ -1,6 +1,7 @@
 // //importera pcl när den är välkommen tillbaka in i main.
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
+import { Breadcrumb } from "../components/Breadcrumb";
 
 const cartItems = [
   { id: "", templateName: "", price: 150 },
@@ -14,36 +15,13 @@ export const Cart = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   };
 
-  // const calculateVAT = (ordervalue, vatRate = 0.25) => {
-  //   return ordervalue * vatRate;
-  // };
-
-  // const calculateTotal = (ordervalue, vat) => {
-  //   return ordervalue + vat;
-  // };
   const orderValue = calculateOrderValue();
   const vat = orderValue * 0.25;
   const total = orderValue + vat;
-  // const vat = calculateVAT(orderValue);
-  // const total = calculateTotal(orderValue, vat);
-  // const calculateOrderValue = () => {
-  //   // eslint-disable-next-line react/prop-types
-  //   return cartItems.reduce(
-  //     (total, item) => total + item.price * item.quantity,
-  //     0,
-  //   );
-  // };
-
-  // const calculateVAT = (orderValue, vatRate = 0.25) => {
-  //   return orderValue * vatRate;
-  // };
-
-  // const calculateTotal = (orderValue, vat) => {
-  //   return orderValue + vat;
-  // };
 
   return (
     <>
+      <Breadcrumb />
       <div className="text-blue">
         <div className="">
           <span>Order Value:</span>
