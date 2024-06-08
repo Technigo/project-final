@@ -5,6 +5,7 @@ import expressListEndpoints from "express-list-endpoints"
 import authRoutes from "./routes/authRoutes.js"
 import reviewRoutes from "./routes/reviewRoutes.js"
 import favoriteRoutes from "./routes/favoriteRoutes.js"
+import museumData from "./data/museums.json"
 import { Museum } from "./models/Museum.js"
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/museums"
@@ -16,7 +17,7 @@ if (process.env.RESET_DB) {
   const seedDatabase = async () => {
     await Museum.deleteMany()
     //insert each document in the array into the collection
-    await Museum.insertMany()
+    await Museum.insertMany(museumData)
   }
   seedDatabase()
 }
