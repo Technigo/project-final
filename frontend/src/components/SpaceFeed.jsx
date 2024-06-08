@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from "react"
+import { useEffect, useState } from "react"
 import { useSpaceFeedStore } from "../stores/useSpaceFeedStore"
 import styled from "styled-components"
 import rocketIcon from "./../assets/icons/rocket.png"
@@ -7,6 +7,7 @@ import { formatDistanceToNow } from "date-fns"
 
 const FeedContainer = styled.div`
   width: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +16,7 @@ const FeedContainer = styled.div`
   color: var(--text-color-secondary);
   font-family: var(--font-family-text);
   font-size: var(--font-size-text-mob);
+  font-weight: 300;
 
   h2 {
     font-family: var(--font-family-headlines);
@@ -22,7 +24,7 @@ const FeedContainer = styled.div`
     color: var(--headline-color);
 
     @media (min-width: 768px) {
-      font-size: var(--font-size-h2-desktop);
+      font-size: 40px;
     }
   }
 
@@ -34,13 +36,16 @@ const FeedContainer = styled.div`
   }
 
   textarea {
-    width: 280px;
+    width: 260px;
     height: 60px;
     border-radius: 8px;
+    padding-left: 8px;
 
     @media (min-width: 768px) {
       width: 660px;
       height: 140px;
+      font-size: 16px;
+      padding: 16px 16px;
     }
   }
 `
@@ -52,6 +57,11 @@ const Form = styled.form`
   gap: 10px;
   width: 100%;
   max-width: 660px;
+`
+
+const CharacterCount = styled.div`
+  text-align: right;
+  width: 100%;
 `
 
 const Button = styled.button`
@@ -66,6 +76,7 @@ const Button = styled.button`
   font-weight: 700;
   display: block;
   justify-content: center;
+  margin-bottom: 20px;
 
   &:hover {
     background-color: #ee723f;
@@ -103,12 +114,12 @@ const MessageContainer = styled.div`
   font-size: var(--font-size-text-mob);
   font-family: var(--font-family-text);
   color: var(--text-color-primary);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
     width: 660px;
     max-height: 1100px;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-small);
   }
 
   ul {
@@ -136,6 +147,7 @@ const MessageContainer = styled.div`
 const Details = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: end;
   background-color: #161822;
 `
 
@@ -151,6 +163,7 @@ export const SpaceFeed = () => {
   const [newMessage, setNewMessage] = useState("")
   const [messageError, setMessageError] = useState("")
   const [likedMessages, setLikedMessages] = useState({})
+  const [remainingChars, setRemainingChars] = useState(140)
 
   useEffect(() => {
     fetchSpaceFeed()
@@ -174,8 +187,12 @@ export const SpaceFeed = () => {
   }, [spaceFeed])
 
   const handleNewMessage = (event) => {
-    setNewMessage(event.target.value)
+    const message = event.target.value
+    setNewMessage(message)
     setMessageError("")
+
+    const remaining = 140 - message.length
+    setRemainingChars(remaining)
   }
 
   const handleSubmit = (event) => {
@@ -189,6 +206,7 @@ export const SpaceFeed = () => {
     postSpaceMessage(newMessage)
     setNewMessage("")
     setMessageError("")
+    setRemainingChars(140)
   }
 
   const handleLike = (messageId) => {
@@ -223,11 +241,12 @@ export const SpaceFeed = () => {
           <textarea
             type="text"
             value={newMessage}
-            placeholder="Write here..."
+            placeholder="Share something here..."
             required
             onChange={handleNewMessage}
           />
         </label>
+        <CharacterCount>{remainingChars} / 140</CharacterCount>
         <Button type="submit" disabled={loading}>
           POST
         </Button>

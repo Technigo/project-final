@@ -1,20 +1,20 @@
-import { useState } from "react";
-import Slider from "react-slick";
-import styled from "styled-components";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import sunImg from "../assets/images/sun.png";
-import mercuryImg from "../assets/images/mercury.png";
-import venusImg from "../assets/images/venus.png";
-import tellusImg from "../assets/images/tellus.png";
-import moonImg from "../assets/images/moon.png";
-import marsImg from "../assets/images/mars.png";
-import jupiterImg from "../assets/images/jupiter.png";
-import saturnImg from "../assets/images/saturn.png";
-import uranusImg from "../assets/images/uranus.png";
-import neptuneImg from "../assets/images/neptune.png";
-import plutoImg from "../assets/images/pluto.png";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import Slider from "react-slick"
+import styled from "styled-components"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import sunImg from "../assets/images/sun.png"
+import mercuryImg from "../assets/images/mercury.png"
+import venusImg from "../assets/images/venus.png"
+import tellusImg from "../assets/images/tellus.png"
+import moonImg from "../assets/images/moon.png"
+import marsImg from "../assets/images/mars.png"
+import jupiterImg from "../assets/images/jupiter.png"
+import saturnImg from "../assets/images/saturn.png"
+import uranusImg from "../assets/images/uranus.png"
+import neptuneImg from "../assets/images/neptune.png"
+import plutoImg from "../assets/images/pluto.png"
+import { Link } from "react-router-dom"
 
 const planets = [
   { name: "Sun", image: sunImg },
@@ -28,10 +28,10 @@ const planets = [
   { name: "Uranus", image: uranusImg },
   { name: "Neptune", image: neptuneImg },
   { name: "Pluto", image: plutoImg },
-];
+]
 
 export const PlanetsCarousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   const settings = {
     infinite: true,
@@ -62,7 +62,7 @@ export const PlanetsCarousel = () => {
       },
     ],
     beforeChange: (current, next) => setCurrentSlide(next),
-  };
+  }
 
   return (
     <CarouselContainer>
@@ -91,13 +91,14 @@ export const PlanetsCarousel = () => {
         ))}
       </Slider>
     </CarouselContainer>
-  );
-};
+  )
+}
 
 const CarouselContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-`;
+  margin-bottom: 400px;
+`
 
 const Slide = styled.div`
   text-align: center;
@@ -106,7 +107,7 @@ const Slide = styled.div`
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.7)")};
   opacity: ${({ isCenter }) => (isCenter ? "1" : "0.5")};
   margin: ${({ isCenter }) => (isCenter ? "0 -40px" : "0")};
-`;
+`
 
 const PlanetImage = styled.img`
   width: 100%;
@@ -114,9 +115,9 @@ const PlanetImage = styled.img`
   margin: 0 auto;
   transition: transform 0.5s;
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.9)")};
-`;
+`
 
 const PlanetName = styled.p`
   font-size: 1.2em;
   margin-top: 10px;
-`;
+`
