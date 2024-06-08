@@ -22,11 +22,9 @@ const HeaderContainer = styled.header`
 
 const NavContainer = styled.nav`
   display: flex;
-  flex: 1;
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  flex-wrap: nowrap;
 `
 
 const MobileMenuIcon = styled.div`
@@ -43,7 +41,7 @@ const MobileMenuIcon = styled.div`
 `
 
 const MobileMenuContainer = styled.div`
-  display: ${(props) => (props.active ? "block" : "none")};
+  display: ${(props) => (props.$active ? "block" : "none")};
   position: absolute;
   top: 100%;
   right: 0;
@@ -58,6 +56,13 @@ const MobileMenuContainer = styled.div`
   }
 `
 
+const BreadcrumbContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  top: 80px;
+`
+
 export const Header = () => {
   const [active, setActive] = useState(false)
 
@@ -70,9 +75,12 @@ export const Header = () => {
     <>
       <GlobalStyles />
       <HeaderContainer>
+        <BreadcrumbContainer>
+          <Breadcrumbs />
+        </BreadcrumbContainer>
         <NavContainer>
           <MainMenu />
-          <MobileMenuContainer active={active}>
+          <MobileMenuContainer $active={active}>
             <MobileMenu />
           </MobileMenuContainer>
         </NavContainer>
@@ -85,7 +93,6 @@ export const Header = () => {
             </>
           )}
         </MobileMenuIcon>
-        <Breadcrumbs />
       </HeaderContainer>
     </>
   )
