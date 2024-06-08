@@ -22,6 +22,7 @@ body {
   --textbox-background: #161822;
   --button-color: #CF4B14;
   --menu-active-color: #CF4B14;
+  --menu-hover-color: #CF4B14;
   --font-family-headlines: "Space mono", sans-serif;
   --font-family-text: "Roboto mono", monospace;
 
