@@ -55,9 +55,9 @@ export const SingleProduct = () => {
             />
           </section>
           <section className="product-info">
-            <h3 className="text-s">{product.name}</h3>
+            <h3>{product.name}</h3>
             <h4>{product.price} SEK</h4>
-            <p className="text-xs">{product.description}</p>
+            <p>{product.description}</p>
             <p>{product.details}</p>
             <div className="size-button-wrapper">
               {product.stock.map((item, index) => (

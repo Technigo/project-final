@@ -74,13 +74,9 @@ a.active {
   text-decoration: underline;
 }
 
-/* when for small text */
-.text-s {
-  font-size: 12px;
-}
-
+/* For extra small text */
 .text-xs {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 /* Media Queries for tablet */
