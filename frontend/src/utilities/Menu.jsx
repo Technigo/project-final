@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "/images/logo.png";
 
 const Menu = () => {
@@ -15,27 +16,21 @@ const Menu = () => {
         </div>
 
         <div className="hidden md:flex">
-          <a href="/" className="mx-2 text-dark hover:text-secondary">
+          <Link to="/" className="mx-2 text-dark hover:text-light">
             Home
-          </a>
-          <a href="/about" className="mx-2 text-dark hover:text-secondary">
-            About Us
-          </a>
-          <a href="/events" className="mx-2 text-dark hover:text-secondary">
+          </Link>
+          <Link to="/events" className="mx-2 text-dark hover:text-light">
             Events
-          </a>
-          <a href="/guidelines" className="mx-2 text-dark hover:text-secondary">
-            Community Guidelines
-          </a>
-          <a
-            href="/support-wall"
-            className="mx-2 text-dark hover:text-secondary"
+          </Link>
+          <Link
+            to="/community-guidelines"
+            className="mx-2 text-dark hover:text-light"
           >
-            Support Wall
-          </a>
-          <a href="/contact" className="mx-2 text-dark hover:text-secondary">
-            Contact
-          </a>
+            Community Guidelines
+          </Link>
+          <Link to="/about" className="mx-2 text-dark hover:text-light">
+            About Us
+          </Link>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -51,42 +46,30 @@ const Menu = () => {
       </div>
       {isOpen && (
         <div className="md:hidden bg-white shadow-md">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="block px-4 py-2 text-dark hover:text-secondary"
           >
             Home
-          </a>
-          <a
-            href="/about"
+          </Link>
+          <Link
+            to="/about"
             className="block px-4 py-2 text-dark hover:text-secondary"
           >
             About Us
-          </a>
-          <a
-            href="/events"
+          </Link>
+          <Link
+            to="/events"
             className="block px-4 py-2 text-dark hover:text-secondary"
           >
             Events
-          </a>
-          <a
-            href="/guidelines"
+          </Link>
+          <Link
+            to="/community-guidelines"
             className="block px-4 py-2 text-dark hover:text-secondary"
           >
             Community Guidelines
-          </a>
-          <a
-            href="/support-wall"
-            className="block px-4 py-2 text-dark hover:text-secondary"
-          >
-            Support Wall
-          </a>
-          <a
-            href="/contact"
-            className="block px-4 py-2 text-dark hover:text-secondary"
-          >
-            Contact
-          </a>
+          </Link>
         </div>
       )}
     </nav>

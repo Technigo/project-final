@@ -1,6 +1,7 @@
 import heroImage from "/images/hero-image.jpg";
 import Menu from "../utilities/Menu";
 import Footer from "../utilities/Footer";
+import { Button } from "../utilities/Button";
 
 export const HomePage = () => {
   return (
@@ -19,12 +20,11 @@ export const HomePage = () => {
               A safe space to share, connect, and find support
             </p>
             <div className="mt-8">
-              <a
-                href="/find-out-more"
-                className="inline-block bg-light text-primary px-6 py-3 rounded-full text-lg"
-              >
-                Find Out More
-              </a>
+              <Button
+                text="Fint Out More"
+                link="/find-out-more"
+                variant="light"
+              />
             </div>
           </div>
         </div>
@@ -32,19 +32,14 @@ export const HomePage = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3x1 font-bold font-serif text-dark">
+          <h2 className="text-3xl font-bold font-serif text-dark">
             Why Join us?
           </h2>
           <p className="mt-4 text-lg text-dark">
             Connect with others who understand your journey
           </p>
           <div className="mt-8">
-            <a
-              href="/signup"
-              className="bg-primary text-light px-6 py-3 rounded-full text-lg"
-            >
-              Get Started
-            </a>
+            <Button text="Get Started" link="/signup" variant="primary" />
           </div>
         </div>
       </section>
@@ -69,6 +64,21 @@ export const HomePage = () => {
               </p>
               <p className="mt-4 text-right text-secondary">- John Smith</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold font-serif text-dark">
+            Join Our Upcoming Events
+          </h2>
+          <p className="mt-4 text-lg text-dark">
+            Discover events designed to help you connect, learn, and grow with
+            the ADHD community.
+          </p>
+          <div className="mt-8">
+            <Button text="View All Events" link="/events" variant="primary" />
           </div>
         </div>
       </section>
