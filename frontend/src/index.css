@@ -74,6 +74,15 @@ a.active {
   text-decoration: underline;
 }
 
+/* when for small text */
+.text-s {
+  font-size: 12px;
+}
+
+.text-xs {
+  font-size: 10px;
+}
+
 /* Media Queries for tablet */
 @media screen and (min-width: 667px) {
   h1 {
