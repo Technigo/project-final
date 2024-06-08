@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-//import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-
-//import StyledMuseumCard from "./styled/MuseumCard.styled"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { getOptimizedUrl } from "../util/UrlUtil";
 
 export const MuseumCard = ({ museum }) => {
   return (
     <StyledMuseumCard>
       <Link to={`/${museum.id}`} key={museum.id}>
         <ImageContainer>
-          <img src={museum.url} alt={`Image related to ${museum.name}`} />
+          <img
+            src={getOptimizedUrl(museum.url, 650)}
+            alt={`Image related to ${museum.name}`}
+          />
         </ImageContainer>
         <MuseumCardContent>
           <h3>{museum.name}</h3>
@@ -18,8 +19,8 @@ export const MuseumCard = ({ museum }) => {
         </MuseumCardContent>
       </Link>
     </StyledMuseumCard>
-  )
-}
+  );
+};
 
 const MuseumCardContent = styled.div`
   opacity: 0;
@@ -38,7 +39,7 @@ const MuseumCardContent = styled.div`
     margin: 5px 0;
     font-size: 14px;
   }
-`
+`;
 
 const StyledMuseumCard = styled.div`
   position: relative;
@@ -71,7 +72,7 @@ const StyledMuseumCard = styled.div`
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
   }
-`
+`;
 const ImageContainer = styled.div`
   position: absolute;
   top: 0;
@@ -85,4 +86,4 @@ const ImageContainer = styled.div`
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
   }
-`
+`;

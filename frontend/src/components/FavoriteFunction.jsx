@@ -1,5 +1,6 @@
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useState } from "react";
+import styled from "styled-components";
 
 //In this component, user should be able to click on the icon
 //I think we can only create this once we have global state of authorization set up as the program needs to know whether user is logged in
@@ -26,9 +27,23 @@ export const FavoriteFunction = ({ museumId }) => {
 
   return (
     <>
-      <button onClick={handleFavoritedChange}>
+      <Button onClick={handleFavoritedChange}>
         {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
-      </button>
+      </Button>
     </>
   );
 };
+
+//Styled components
+
+const Button = styled.button`
+  border: none;
+  padding: 5px;
+  display: block;
+  font-size: 25px;
+  width: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 15;
+  right: 1;
+`;
