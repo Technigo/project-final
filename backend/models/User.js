@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
-import bcrypt from "bcrypt"
-const { Schema } = mongoose
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+const { Schema } = mongoose;
 
 // Define schema
 const userSchema = new Schema({
@@ -16,11 +16,15 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  id: {
+    type: String,
+    required: true,
+  },
   accessToken: {
     type: String,
     default: () => bcrypt.genSaltSync(),
   },
-})
+});
 
 // Create model with mongoose
-export const User = mongoose.model("User", userSchema)
+export const User = mongoose.model("User", userSchema);

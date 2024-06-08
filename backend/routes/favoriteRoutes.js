@@ -1,8 +1,13 @@
-import express from "express"
-import { toggleFavorite } from "../controllers/favoriteController.js"
+import express from "express";
+import {
+  isMuseumLiked,
+  toggleFavorite,
+} from "../controllers/favoriteController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.post("/favorites", toggleFavorite)
+router.post("/favorites", toggleFavorite);
 
-export default router
+router.post("/favorites/:museumId", isMuseumLiked);
+
+export default router;

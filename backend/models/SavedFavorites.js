@@ -6,6 +6,10 @@ const savedFavoritesSchema = new Schema({
     type: Number,
     required: true,
   },
+  userId: {
+    type: String,
+    required: true,
+  },
 });
 
 export const SavedFavorites = mongoose.model(
