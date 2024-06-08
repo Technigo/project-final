@@ -10,44 +10,51 @@ import GlobalStyles from "../GlobalStyles"
 
 const HeaderContainer = styled.header`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-family-main);
-  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-bottom: 80px;
+`
 
-  img {
-    max-height: 50px;
-  }
+const NavContainer = styled.nav`
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  flex-wrap: nowrap;
+`
 
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Align links to the right */
-    flex-grow: 1; /* Allow nav to take up remaining space */
-
-    & > div {
-      display: flex;
-      align-items: center;
-    }
-
-    img {
-      cursor: pointer;
-      margin-left: 20px;
-    }
-  }
+const MobileMenuIcon = styled.div`
+  display: none;
+  cursor: pointer;
 
   @media (max-width: 768px) {
-    nav > div:first-of-type {
-      display: none; /* Hide main menu on mobile */
-    }
+    display: block;
   }
 
-  @media (min-width: 769px) {
-    nav > div:last-of-type {
-      display: none; /* Hide mobile menu icon on desktop */
-    }
+  img {
+    max-width: 40px;
+  }
+`
+
+const MobileMenuContainer = styled.div`
+  display: ${(props) => (props.active ? "block" : "none")};
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--background-color);
+  opacity: 80%;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+
+  &:hover {
+    color: #cf4b14;
   }
 `
 
@@ -63,26 +70,22 @@ export const Header = () => {
     <>
       <GlobalStyles />
       <HeaderContainer>
-        <header>
-          <img src={logo} alt="Solar system logo" />
-          <nav>
-            <div>
-              <MainMenu />
-            </div>
-
-            <div onClick={handleMobileMenu}>
-              {!active ? (
-                <img src={mobileMenu} alt="Mobile menu icon" />
-              ) : (
-                <>
-                  <img src={mobileMenuClose} alt="Mobile menu close icon" />
-                  <MobileMenu />
-                </>
-              )}
-            </div>
-          </nav>
-          <Breadcrumbs />
-        </header>
+        <NavContainer>
+          <MainMenu />
+          <MobileMenuContainer active={active}>
+            <MobileMenu />
+          </MobileMenuContainer>
+        </NavContainer>
+        <MobileMenuIcon onClick={handleMobileMenu}>
+          {!active ? (
+            <img src={mobileMenu} alt="Mobile menu icon" />
+          ) : (
+            <>
+              <img src={mobileMenuClose} alt="Mobile menu close icon" />
+            </>
+          )}
+        </MobileMenuIcon>
+        <Breadcrumbs />
       </HeaderContainer>
     </>
   )

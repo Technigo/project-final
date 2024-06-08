@@ -7,7 +7,6 @@ import { formatDistanceToNow } from "date-fns"
 
 const FeedContainer = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

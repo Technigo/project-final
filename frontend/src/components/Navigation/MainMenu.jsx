@@ -7,6 +7,8 @@ const Menu = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  font-family: var(--font-family-headlines);
+  font-size: 20px;
 
   @media (max-width: 768px) {
     display: none;
@@ -15,15 +17,14 @@ const Menu = styled.ul`
 
 const MenuItem = styled.li`
   margin-left: 40px;
-  margin-right: 60px;
 `
 
 export const MainMenu = () => {
   const navLinks = [
-    { label: "Planets", to: "/planets" },
-    { label: "Mass Converter", to: "/massconverter" },
-    { label: "The Sun", to: "/sun" },
-    { label: "The Moon", to: "/moon" },
+    { label: "_PLANETS", to: "/planets" },
+    { label: "_MASS CONVERTER", to: "/massconverter" },
+    { label: "_THE SUN", to: "/sun" },
+    { label: "_THE MOON", to: "/moon" },
   ]
 
   return (

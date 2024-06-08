@@ -4,10 +4,14 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   margin: 0;
-  padding: 80px 60px; 
+  padding: 20px 20px; 
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-family-main); 
+
+  @media (min-width: 768px) {
+    padding: 80px 60px;
+  }
 }
 
 :root {
