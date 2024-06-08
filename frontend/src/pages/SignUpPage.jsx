@@ -180,15 +180,15 @@ export const SignUpPage = () => {
         </section>
       )}
       {activeSection === "sectionthree" && (
-        <section className="bg-light-yellow h-full flex flex-col items-center text-text-dark px-10 pb-20 tablet:px-0">
-          <h2 className="text-2xl font-heading font-bold mt-20">
+        <section className="bg-light-yellow h-full flex flex-col items-center text-text-dark px-10 pb-20 tablet:px-0 laptop:items-start">
+          <h2 className="text-2xl font-heading font-bold mt-20 laptop:px-36">
             Who are you?
           </h2>
-          <h3 className="text-xl font-heading font-medium mt-8 text-center tablet:px-44">
+          <h3 className="text-xl font-heading font-medium mt-8 text-center tablet:px-44 laptop:px-36">
             Personalize your account to get custom recommondations
           </h3>
           <form className="flex flex-col w-full mt-16 tablet:px-36">
-            <div className="flex flex-col tablet:flex-row tablet:gap-5">
+            <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col w-full">
                 <div className="flex">
                   <img src="skintype02.svg" alt="Icon of a face"></img>
@@ -311,7 +311,7 @@ export const SignUpPage = () => {
                 </select>
               </div>
             </div>
-            <div className="flex flex-col tablet:flex-row tablet:gap-5">
+            <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col mt-10 w-full">
                 <div className="flex">
                   <img
