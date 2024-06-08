@@ -31,16 +31,22 @@ button {
   text-align: center;
 }
 
-/* hoverstates */
+/* hover states */
 
 .hero-button:hover,
 .add-to-cart-button:hover {
   background-color: var(--black);
 }
 
+/* active states  */
+.size-button:active {
+  background-color: var(--black);
+  color: var(--white);
+}
+
 /* disabled states */
 
 .add-to-cart-button:disabled {
   background-color: var(--lightgrey);
-  color: var(--black)
+  color: var(--black);
 }
