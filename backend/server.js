@@ -16,7 +16,7 @@ if (process.env.RESET_DB) {
   const seedDatabase = async () => {
     await Museum.deleteMany()
     //insert each document in the array into the collection
-    await Museum.insertMany(museumData)
+    await Museum.insertMany()
   }
   seedDatabase()
 }
