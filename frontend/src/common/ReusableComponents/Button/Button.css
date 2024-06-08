@@ -9,7 +9,16 @@ button {
 
 .hero-button {
   background-color: #00957f;
-  padding: 10px 30px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px transparent;
+  text-align: center;
+}
+
+.add-to-cart-button {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 10px;
   border-radius: 20px;
   border: 1px transparent;
   text-align: center;
@@ -22,11 +31,16 @@ button {
   text-align: center;
 }
 
-.add-to-cart-button {
-  background-color: var(--green);
-  color: var(--white);
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px transparent;
-  text-align: center;
+/* hoverstates */
+
+.hero-button:hover,
+.add-to-cart-button:hover {
+  background-color: var(--black);
+}
+
+/* disabled states */
+
+.add-to-cart-button:disabled {
+  background-color: var(--lightgrey);
+  color: var(--black)
 }
