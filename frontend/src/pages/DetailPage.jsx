@@ -1,27 +1,27 @@
-import { useContext } from "react";
-import { useParams, Navigate } from "react-router-dom";
-import { IoRestaurantOutline } from "react-icons/io5";
-import { ToHomepageBtn } from "../components/ToHomepageBtn";
-import { FavoriteFunction } from "../components/FavoriteFunction";
-import { CommentSection } from "../components/CommentSection";
-import { AuthContext } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { useContext } from "react"
+import { useParams, Navigate } from "react-router-dom"
+import { IoRestaurantOutline } from "react-icons/io5"
+import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { FavoriteFunction } from "../components/FavoriteFunction"
+import { CommentSection } from "../components/CommentSection"
+import { AuthContext } from "../contexts/AuthContext"
+import { Link } from "react-router-dom"
 
-import museumList from "../../../backend/data/museums.json";
-import styled from "styled-components";
-import StyledButton from "../components/styled/Button.styled";
-import { getOptimizedUrl } from "../util/UrlUtil";
+import museumList from "../../../backend/data/museums.json"
+import styled from "styled-components"
+import StyledButton from "../components/styled/Button.styled"
+import { getOptimizedUrl } from "../util/UrlUtil"
 
 export const DetailPage = () => {
-  const { authState } = useContext(AuthContext);
-  const { isAuthenticated } = authState;
+  const { authState } = useContext(AuthContext)
+  const { isAuthenticated } = authState
 
-  const params = useParams();
-  const museumId = params.slug;
-  const museum = museumList.find((museum) => museum.id === +museumId);
+  const params = useParams()
+  const museumId = params.slug
+  const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
-    return <Navigate to="/not-found" />;
+    return <Navigate to="/not-found" />
   }
 
   return (
@@ -51,28 +51,28 @@ export const DetailPage = () => {
             <OpeningHours>
               <h4>Opening hours</h4>
               {museum.opening_hours.map((hours, index) => {
-                const day = Object.keys(hours)[0];
-                const time = hours[day];
+                const day = Object.keys(hours)[0]
+                const time = hours[day]
                 return (
                   <p key={index}>
                     {day}: {time}
                   </p>
-                );
+                )
               })}
             </OpeningHours>
-
-            <TicketPrice>Ticket price: {museum.ticket_price}</TicketPrice>
-            <StyledButton>Buy a ticket</StyledButton>
             <VisitWebsite>
               Visit the official website{" "}
               <a
                 href={museum.website}
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 here
               </a>
             </VisitWebsite>
+            <TicketPrice>Ticket price: {museum.ticket_price}</TicketPrice>
+            <Link to={"/shop"}>
+              <StyledButton>Buy a ticket</StyledButton>{" "}
+            </Link>
           </TextContainer>
         </Content>
 
@@ -95,8 +95,8 @@ export const DetailPage = () => {
         </CommentContainer>
       </ContentContainer>
     </Container>
-  );
-};
+  )
+}
 
 //Styled components
 
@@ -105,7 +105,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const Background = styled.div`
   position: absolute;
@@ -115,7 +115,7 @@ const Background = styled.div`
   height: 100%;
   background-color: #232222;
   z-index: -1;
-`;
+`
 
 const ContentContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
@@ -128,7 +128,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const Content = styled.div`
   display: flex;
@@ -139,7 +139,7 @@ const Content = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
-`;
+`
 
 const ImageContainer = styled.div`
   position: relative;
@@ -152,7 +152,7 @@ const ImageContainer = styled.div`
     height: 80vh;
     margin-bottom: 0;
   }
-`;
+`
 
 export const StyledImage = styled.img`
   width: 100%;
@@ -164,7 +164,7 @@ export const StyledImage = styled.img`
   @media (min-width: 768px) {
     height: 100%;
   }
-`;
+`
 
 const TextContainer = styled.div`
   flex: 1;
@@ -172,15 +172,14 @@ const TextContainer = styled.div`
   flex-direction: column;
   padding: 20px;
 
-  h3{
+  h3 {
     font-size: 36px;
-
   }
-`;
+`
 
 const Description = styled.p`
   margin-bottom: 5px;
-`;
+`
 
 const CafeIconContainer = styled.div`
   display: flex;
@@ -190,7 +189,7 @@ const CafeIconContainer = styled.div`
   svg {
     margin-right: 8px;
   }
-`;
+`
 
 const OpeningHours = styled.div`
   margin-bottom: 5px;
@@ -198,10 +197,10 @@ const OpeningHours = styled.div`
   h4 {
     margin-bottom: 5px;
   }
-`;
+`
 const TicketPrice = styled.p`
   margin-bottom: 5px;
-`;
+`
 
 const VisitWebsite = styled.p`
   margin-bottom: 5px;
@@ -210,11 +209,11 @@ const VisitWebsite = styled.p`
     color: #007bff;
     text-decoration: none;
   }
-`;
+`
 
 const CommentContainer = styled.div`
   padding: 20px;
 
    @media (min-width: 1024px) {
     width: 40%;
-`;
+`

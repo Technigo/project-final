@@ -14,9 +14,6 @@ message: "Invalid museumId",
 })
 }
 
---> In comments
-word-wrap: break-word;
-
 
 // Define schema
 const reviewSchema = new Schema({

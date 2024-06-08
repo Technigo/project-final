@@ -1,14 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LandingPage } from "./pages/LandingPage";
-import { DetailPage } from "./pages/DetailPage";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { UserPage } from "./pages/UserPage";
-import { LoginPage } from "./pages/LoginPage";
-import { RegisterPage } from "./pages/RegisterPage";
-import { AboutPage } from "./pages/AboutPage";
-import { ContactPage } from "./pages/ContactPage";
-import Layout from "./Layout";
-import { ReferencePage } from "./pages/ReferencePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { LandingPage } from "./pages/LandingPage"
+import { DetailPage } from "./pages/DetailPage"
+import { NotFoundPage } from "./pages/NotFoundPage"
+import { UserPage } from "./pages/UserPage"
+import { LoginPage } from "./pages/LoginPage"
+import { RegisterPage } from "./pages/RegisterPage"
+import { AboutPage } from "./pages/AboutPage"
+import { ContactPage } from "./pages/ContactPage"
+import Layout from "./Layout"
+import { ReferencePage } from "./pages/ReferencePage"
+import { ShopPage } from "./pages/ShopPage"
 
 export const App = () => {
   return (
@@ -24,8 +25,9 @@ export const App = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/references" element={<ReferencePage />} />
+          <Route path="/shop" element={<ShopPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  );
-};
+  )
+}
