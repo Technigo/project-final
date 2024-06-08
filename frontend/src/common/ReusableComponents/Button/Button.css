@@ -8,7 +8,7 @@ button {
 }
 
 .hero-button {
-  background-color: #00957f;
+  background-color: var(--green);
   padding: 10px 20px;
   border-radius: 20px;
   border: 1px transparent;

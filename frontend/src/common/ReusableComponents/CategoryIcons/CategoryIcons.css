@@ -35,8 +35,16 @@
   background-color: var(--yellow);
 }
 
+.category-icon-background.yellow:hover {
+  background-color: var(--lightgrey);
+}
+
 .category-icon-background.grey {
   background-color: var(--lightgrey);
+}
+
+.category-icon-background.grey:hover {
+  background-color: var(--yellow);
 }
 
 .category-icon-image {
