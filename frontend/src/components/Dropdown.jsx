@@ -25,7 +25,11 @@ export const Dropdown = ({ text, content }) => {
           <path d="M21 1L11 11L1 1" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </button>
-      <div className={`${dropdownOpen ? "flex" : "hidden"}`}>{content}</div>
+      <div
+        className={`${dropdownOpen ? "flex items-center justify-center" : "hidden"} w-96`}
+      >
+        {content}
+      </div>
     </div>
   );
 };
