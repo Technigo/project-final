@@ -33,6 +33,15 @@ button {
   font-size: 14px;
 }
 
+.size-selected-button {
+  border: 1px solid var(--black);
+  color: var(--white);
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  background-color: var(--black);
+}
+
 /* hover states */
 
 .hero-button:hover,
@@ -41,10 +50,10 @@ button {
 }
 
 /* active states  */
-.size-button:active {
+/* .size-button:focus {
   background-color: var(--black);
   color: var(--white);
-}
+} */
 
 /* disabled states */
 

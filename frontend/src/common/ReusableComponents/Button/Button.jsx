@@ -2,12 +2,20 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Button.css";
 
-export const Button = ({ onClick, label, variant, ariaLabel, to }) => {
+export const Button = ({
+  onClick,
+  label,
+  variant,
+  ariaLabel,
+  to,
+  disabled,
+}) => {
   const buttonContent = (
     <button
       onClick={onClick}
       className={`${variant}-button`}
       aria-label={ariaLabel || label}
+      disabled={disabled}
     >
       {label}
     </button>
@@ -22,4 +30,5 @@ Button.proptypes = {
   className: PropTypes.string,
   ariaLabel: PropTypes.string,
   to: PropTypes.string,
+  disabled: PropTypes.boolean,
 };

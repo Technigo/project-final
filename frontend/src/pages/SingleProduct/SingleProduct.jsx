@@ -11,6 +11,7 @@ export const SingleProduct = () => {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -39,6 +40,10 @@ export const SingleProduct = () => {
     fetchProduct();
   }, [productId]);
 
+  const selectSize = (size) => {
+    setSelectedSize(size);
+  };
+
   return (
     <div className="singleproduct-page">
       <div>
@@ -64,10 +69,21 @@ export const SingleProduct = () => {
             </Toggle>
             <div className="size-button-wrapper">
               {product.stock.map((item, index) => (
-                <Button key={index} label={item.size} variant="size"></Button>
+                <Button
+                  key={index}
+                  label={item.size}
+                  variant={
+                    selectedSize === item.size ? "size-selected" : "size"
+                  }
+                  onClick={() => selectSize(item.size)}
+                ></Button>
               ))}
             </div>
-            <Button label="Add to cart" variant="add-to-cart" />
+            <Button
+              label="Add to cart"
+              variant="add-to-cart"
+              disabled={!selectedSize}
+            />
             <DeliveryStatements variant="white" />
           </section>
         </div>
