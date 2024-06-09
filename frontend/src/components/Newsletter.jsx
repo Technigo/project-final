@@ -58,6 +58,7 @@ const StyledNewsletter = styled.form`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   background-color: #dee0e2;
   width: 100%;
   padding: 35px 0;
@@ -106,6 +107,6 @@ const NewsletterDiv = styled.div``
 
 const Logo = styled.div`
   img {
-    width: 250px;
+    max-width: 250px;
   }
 `
