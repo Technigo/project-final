@@ -15,10 +15,23 @@ export default {
         sans: ["Noto Sans", "sans-serif"],
         serif: ["STIX Two Text", "serif"],
       },
+      /*  screens: {
+         sm: '320px',
+         md: '768px',
+         lg: '1024px',
+         xl: '1280px',
+       }, */
+      animation: {
+        'flip-scale-down-ver': 'flip-scale-down-ver 0.5s linear both',
+      },
+      keyframes: {
+        'flip-scale-down-ver': {
+          '0%': { transform: 'scale(1) rotateY(0)' },
+          '50%': { transform: 'scale(0.4) rotateY(-90deg)' },
+          '100%': { transform: 'scale(1) rotateY(-180deg)' },
+        },
+      },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };
