@@ -35,7 +35,24 @@ export const toggleFavorite = async (req, res) => {
   }
 };
 
-// getLikedMuseumsForUser
+export const likedMuseums = async (req, res) => {
+  const { accessToken } = req.body;
+
+  try {
+    const user = await User.findOne({ accessToken });
+    const likedMuseumsForUser = await SavedFavorites.find({ userId: user.id });
+    res
+      .status(200)
+      .json({ success: true, likedMuseums: likedMuseumsForUser ?? [] });
+  } catch (error) {
+    res.status(400).json({
+      response: error.message,
+      succes: false,
+      message: "Something went wrong",
+      error: error.errors || {},
+    });
+  }
+};
 
 export const isMuseumLiked = async (req, res) => {
   const museumId = req.params.museumId;

@@ -14,13 +14,19 @@ import styled from "styled-components"
 import StyledButton from "../components/styled/Button.styled"
 import { getOptimizedUrl } from "../util/UrlUtil"
 
+
 export const DetailPage = () => {
   const { authState } = useContext(AuthContext)
   const { isAuthenticated } = authState
 
-  const params = useParams()
-  const museumId = params.slug
-  const museum = museumList.find((museum) => museum.id === +museumId)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  const params = useParams();
+  const museumId = params.slug;
+  const museum = museumList.find((museum) => museum.id === +museumId);
 
   if (!museum) {
     return <Navigate to="/not-found" />

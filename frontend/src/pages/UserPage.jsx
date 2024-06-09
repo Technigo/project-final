@@ -1,19 +1,20 @@
-import { useContext, useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import { AuthContext } from "../contexts/AuthContext"
-import { LogoutButton } from "../components/LogoutButton"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { AuthContext } from "../contexts/AuthContext";
+import { LogoutButton } from "../components/LogoutButton";
+import { ToHomepageBtn } from "../components/ToHomepageBtn";
+import LikedMuseums from "../components/LikedMuseums";
 
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
 //Authorize with access token from /user-page
 
 export const UserPage = () => {
-  const { authState, logout } = useContext(AuthContext)
-  const { isAuthenticated, accessToken } = authState
+  const { authState, logout } = useContext(AuthContext);
+  const { isAuthenticated, accessToken } = authState;
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserPage = async () => {
@@ -22,26 +23,26 @@ export const UserPage = () => {
           headers: {
             Authorization: accessToken,
           },
-        })
+        });
         if (!response.ok) {
-          throw new Error("Failed to fetch user page")
+          throw new Error("Failed to fetch user page");
         }
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
-        console.error(error)
-        logout()
+        console.error(error);
+        logout();
       }
-    }
+    };
 
     if (isAuthenticated) {
-      fetchUserPage()
+      fetchUserPage();
     } else {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [isAuthenticated, accessToken, logout])
+  }, [isAuthenticated, accessToken, logout]);
 
   if (loading) {
-    return <Loading>Loading...</Loading>
+    return <Loading>Loading...</Loading>;
   }
 
   if (!isAuthenticated) {
@@ -52,7 +53,7 @@ export const UserPage = () => {
         <AuthLink to={"/login"}>Log in </AuthLink> or
         <AuthLink to={"/register"}> sign up</AuthLink>
       </UserContainer>
-    )
+    );
   }
 
   return (
@@ -63,48 +64,48 @@ export const UserPage = () => {
         <ToHomepageBtn />
         <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
         <FeatureList>
-          <FeatureItem>Liked museums</FeatureItem>
+          <LikedMuseums />
           <FeatureItem>Posted reviews</FeatureItem>
           <FeatureItem>Purchased tickets</FeatureItem>
         </FeatureList>
         <LogoutButton />
       </UserContainer>
     </div>
-  )
-}
+  );
+};
 
 const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-`
+`;
 
 const WelcomeMessage = styled.h2`
   font-size: 1.5em;
   margin-bottom: 20px;
   color: #333;
-`
+`;
 
 const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
-`
+`;
 
 const FeatureItem = styled.li`
   font-size: 1.2em;
   margin-bottom: 10px;
   color: #666;
-`
+`;
 
 const AuthLink = styled(Link)`
   color: #007bff;
   text-decoration: none;
   margin-left: 5px;
-`
+`;
 
 const Loading = styled.div`
   color: #333;
   font-size: 1.2em;
-`
+`;
