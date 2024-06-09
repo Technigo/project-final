@@ -1,6 +1,7 @@
 Favorite function - Etna
 
 ✅ Make favorite function work (should be saved even after user logs out/logs in again)
+
 - Heart in images in grid
 
 Detailpage "styling"
@@ -11,7 +12,7 @@ Detailpage "styling"
 
 Backend
 
-- Connect user name with comment
+✅ Connect user name with comment
 - set museumId to objectId - Alma
 - Display comments and saved museums on their personal page
 ✅ Deploy backend - alma and etna

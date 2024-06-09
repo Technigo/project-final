@@ -91,6 +91,7 @@ const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
+  width: 50%;
 `;
 
 const FeatureItem = styled.li`

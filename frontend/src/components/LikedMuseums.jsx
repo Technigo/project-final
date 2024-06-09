@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const LikedMuseumCardGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 `;
 
@@ -46,7 +46,7 @@ const LikedMuseums = () => {
       {likedMuseumsData.length > 0 ? (
         <LikedMuseumCardGrid>
           {likedMuseumsData.map((museum) => (
-            <MuseumCard museum={museum} />
+            <MuseumCard museum={museum} key={museum.id} />
           ))}
         </LikedMuseumCardGrid>
       ) : (

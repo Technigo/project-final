@@ -1,17 +1,20 @@
-import { useState } from "react"
-import styled from "styled-components"
-import StyledButton from "./styled/Button.styled"
+import { useContext, useState } from "react";
+import styled from "styled-components";
+import StyledButton from "./styled/Button.styled";
+import { AuthContext } from "../contexts/AuthContext";
 // import { AuthContext } from "../contexts/AuthContext"
 
 export const PostComment = ({ museumId, onNewComment }) => {
-  const [message, setMessage] = useState("")
-  const [count, setCount] = useState(0)
+  const { authState } = useContext(AuthContext);
+  const { accessToken } = authState;
+  const [message, setMessage] = useState("");
+  const [count, setCount] = useState(0);
 
   // Get the logged-in user info
   // const { user } = useContext(AuthContext)
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       const response = await fetch("http://localhost:3000/reviews", {
@@ -22,25 +25,25 @@ export const PostComment = ({ museumId, onNewComment }) => {
         body: JSON.stringify({
           museumId,
           message,
-          // user: { _id: user._id, name: user.name },
+          accessToken,
         }),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error("Failed to submit review")
+        throw new Error("Failed to submit review");
       }
 
-      const newReview = await response.json()
-      console.log("Review submitted:", newReview)
-      setMessage("")
-      setCount(0)
+      const newReview = await response.json();
+      console.log("Review submitted:", newReview);
+      setMessage("");
+      setCount(0);
 
       // Update the comments in the parent component
-      onNewComment(newReview)
+      onNewComment(newReview);
     } catch (error) {
-      console.error("Error submitting review:", error.message)
+      console.error("Error submitting review:", error.message);
     }
-  }
+  };
 
   return (
     <CommentForm onSubmit={handleSubmit}>
@@ -49,8 +52,8 @@ export const PostComment = ({ museumId, onNewComment }) => {
         id="review-form"
         value={message}
         onChange={(e) => {
-          setMessage(e.target.value)
-          setCount(e.target.value.length)
+          setMessage(e.target.value);
+          setCount(e.target.value.length);
         }}
         required
         minLength={10}
@@ -60,13 +63,13 @@ export const PostComment = ({ museumId, onNewComment }) => {
       <CharacterCount>{count}/250</CharacterCount>
       <StyledButton type="submit">Submit</StyledButton>
     </CommentForm>
-  )
-}
+  );
+};
 
 const CommentForm = styled.form`
   margin-top: 20px;
   position: relative;
-`
+`;
 
 const TextArea = styled.textarea`
   position: relative;
@@ -76,7 +79,7 @@ const TextArea = styled.textarea`
   border: 1px solid #ced4da;
   border-radius: 5px;
   resize: none;
-`
+`;
 
 const CharacterCount = styled.span`
   position: absolute;
@@ -84,4 +87,4 @@ const CharacterCount = styled.span`
   right: 10px;
   color: #6c757d;
   font-size: 0.8rem;
-`
+`;

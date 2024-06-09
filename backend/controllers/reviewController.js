@@ -1,4 +1,5 @@
 import { Review } from "../models/Review.js";
+import { User } from "../models/User.js";
 
 export const getReviews = async (req, res) => {
   try {
@@ -12,7 +13,7 @@ export const getReviews = async (req, res) => {
 // getReviewsForUser
 
 export const postReviews = async (req, res) => {
-  const { museumId, message } = req.body;
+  const { museumId, message, accessToken } = req.body;
 
   if (isNaN(museumId)) {
     return res.status(400).json({
@@ -22,7 +23,13 @@ export const postReviews = async (req, res) => {
   }
 
   try {
-    const review = await Review.create({ museumId, message });
+    const user = await User.findOne({ accessToken });
+    const review = await Review.create({
+      museumId,
+      message,
+      userId: user.id,
+      userName: user.name,
+    });
     res.status(201).json(review);
   } catch (error) {
     res.status(400).json({
@@ -47,7 +54,3 @@ export const deleteReviews = async (req, res) => {
     res.status(500).json({ error: "Something went wrong" });
   }
 };
-
-// endpoint to lookup a museum to see if its favorite (get)
-
-// endpoint to get all favorites for a user  --- TODO?
