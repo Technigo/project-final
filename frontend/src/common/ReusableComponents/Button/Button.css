@@ -30,6 +30,7 @@ button {
   color: var(--black);
   padding: 10px;
   text-align: center;
+  font-size: 14px;
 }
 
 /* hover states */

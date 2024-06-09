@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
 import { Button } from "../../common/ReusableComponents/Button/Button";
+import { Toggle } from "../../common/ReusableComponents/Toggle/Toggle";
 
 export const SingleProduct = () => {
   const { productId } = useParams(); //get the product ID from the URL
@@ -58,7 +59,9 @@ export const SingleProduct = () => {
             <h3>{product.name}</h3>
             <h4>{product.price} SEK</h4>
             <p>{product.description}</p>
-            <p>{product.details}</p>
+            <Toggle title="DETAILS">
+              <p>{product.details}</p>
+            </Toggle>
             <div className="size-button-wrapper">
               {product.stock.map((item, index) => (
                 <Button key={index} label={item.size} variant="size"></Button>
