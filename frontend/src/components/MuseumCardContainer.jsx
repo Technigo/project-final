@@ -5,9 +5,9 @@ import StyledButton from "./styled/Button.styled"
 import styled from "styled-components"
 
 export const MuseumCardContainer = ({ results }) => {
-  const [amountToShow, setAmountToShow] = useState(6)
+  const [amountToShow, setAmountToShow] = useState(8)
 
-  const showMore = () => setAmountToShow(amountToShow + 6)
+  const showMore = () => setAmountToShow(amountToShow + 4)
 
   const showMuseums = () =>
     results
