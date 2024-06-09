@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { useParams, Navigate } from "react-router-dom"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import L from "leaflet"
@@ -14,19 +14,17 @@ import styled from "styled-components"
 import StyledButton from "../components/styled/Button.styled"
 import { getOptimizedUrl } from "../util/UrlUtil"
 
-
 export const DetailPage = () => {
   const { authState } = useContext(AuthContext)
   const { isAuthenticated } = authState
 
-
   useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, []);
+    window.scrollTo({ top: 0 })
+  }, [])
 
-  const params = useParams();
-  const museumId = params.slug;
-  const museum = museumList.find((museum) => museum.id === +museumId);
+  const params = useParams()
+  const museumId = params.slug
+  const museum = museumList.find((museum) => museum.id === +museumId)
 
   if (!museum) {
     return <Navigate to="/not-found" />

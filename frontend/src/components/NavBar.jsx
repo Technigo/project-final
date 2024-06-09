@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import { LuUser2 } from "react-icons/lu"
 import { GrLanguage } from "react-icons/gr"
-// import { StyledNavBar } from "./styled/NavBar.styled"
 import styled from "styled-components"
 
 export const NavBar = () => {
