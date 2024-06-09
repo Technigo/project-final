@@ -41,6 +41,7 @@ const MobileMenuIcon = styled.div`
 
   img {
     max-width: 40px;
+    margin: 20px 20px;
   }
 `
 

@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
-import GlobalStyles from "./GlobalStyles"
 
 const MassConverterFont = styled.div`
   font-family: var(--font-family-main);
@@ -110,7 +109,6 @@ export const MassConverter = () => {
 
   return (
     <MassConverterFont>
-      <GlobalStyles />
       <Heading>THE MASS C0NVERTER</Heading>
       <Description>
         Have you ever wondered how much you or your belongings would weigh on
