@@ -51,7 +51,7 @@ export const SingleProduct = () => {
           <section className="image-container">
             <Image
               src={product.image_url}
-              alt="product-image"
+              alt={product.name}
               className="product"
             />
           </section>
