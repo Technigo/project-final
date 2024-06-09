@@ -26,15 +26,18 @@ export const AboutUs = () => {
               alt="Backend Extraordinair"
               className="w-20 rounded-full border-2 border-main-yellow"
             />
-            <h3 className="font-heading text-center text-xl">Linda</h3>
+            <h3 className="font-heading text-center text-xl my-2">Linda</h3>
             <div className="flex flex-col text-center">
-              <a className="hover:opacity-75" href="https://www.linkedin.com/in/lindafrischknecht/">
+              <a className="hover:opacity-75 active:opacity-50
+               my-2" href="https://www.linkedin.com/in/lindafrischknecht/">
                 Contact me
               </a>
-              <a className="hover:opacity-75" href="https://linda-f-project-portfolio.netlify.app/">
+              <a className="hover:opacity-75 active:opacity-50
+              " href="https://linda-f-project-portfolio.netlify.app/">
                 Portfolio
               </a>
-              <a className="hover:opacity-75" href="https://github.com/linda-f">GitHub</a>
+              <a className="hover:opacity-75 active:opacity-50
+              " href="https://github.com/linda-f">GitHub</a>
             </div>
           </div>
           <div>
@@ -43,13 +46,16 @@ export const AboutUs = () => {
               alt="Designer Extraordinair"
               className="w-20 rounded-full border-2 border-main-yellow"
             />
-            <h3 className="font-heading text-center text-xl">Izabel</h3>
+            <h3 className="font-heading text-center text-xl my-2">Izabel</h3>
             <div className="flex flex-col text-center">
-              <a className="hover:opacity-75" href="https://www.linkedin.com/in/izabel-lind-f%C3%A4rnstrand-6336071a2/">
+              <a className="hover:opacity-75 active:opacity-50
+               my-2" href="https://www.linkedin.com/in/izabel-lind-f%C3%A4rnstrand-6336071a2/">
                 Contact me
               </a>
-              <a className="hover:opacity-75" href="https://izabellindfarnstrand.netlify.app/">Portfolio</a>
-              <a className="hover:opacity-75" href="https://github.com/Izzibizz">GitHub</a>
+              <a className="hover:opacity-75 active:opacity-50
+              " href="https://izabellindfarnstrand.netlify.app/">Portfolio</a>
+              <a className="hover:opacity-75 active:opacity-50
+              " href="https://github.com/Izzibizz">GitHub</a>
             </div>
           </div>
           <div>
@@ -58,15 +64,18 @@ export const AboutUs = () => {
               alt="Jack of all trades"
               className="w-20 rounded-full border-2 border-main-yellow"
             />
-            <h3 className="font-heading text-center text-xl">Martin</h3>
+            <h3 className="font-heading text-center text-xl my-2">Martin</h3>
             <div className="flex flex-col text-center">
-              <a className="hover:opacity-75" href="https://www.linkedin.com/in/martin-j%C3%B6nsson-058064163/">
+              <a className="hover:opacity-75 active:opacity-50
+               my-2" href="https://www.linkedin.com/in/martin-j%C3%B6nsson-058064163/">
                 Contact me
               </a>
-              <a className="hover:opacity-75" href="https://martin-joensson-portfolio.netlify.app/">
+              <a className="hover:opacity-75 active:opacity-50
+              " href="https://martin-joensson-portfolio.netlify.app/">
                 Portfolio
               </a>
-              <a className="hover:opacity-75" href="https://github.com/Martin-Joensson">GitHub</a>
+              <a className="hover:opacity-75 active:opacity-50
+              " href="https://github.com/Martin-Joensson">GitHub</a>
             </div>
           </div>
         </div>
