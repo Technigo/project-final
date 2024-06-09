@@ -76,7 +76,6 @@ const TextArea = styled.textarea`
   border: 1px solid #ced4da;
   border-radius: 5px;
   resize: none;
-  margin-bottom: 10px;
 `
 
 const CharacterCount = styled.span`

@@ -7,9 +7,11 @@ import { LoginPage } from "./pages/LoginPage"
 import { RegisterPage } from "./pages/RegisterPage"
 import { AboutPage } from "./pages/AboutPage"
 import { ContactPage } from "./pages/ContactPage"
-import Layout from "./Layout"
 import { ReferencePage } from "./pages/ReferencePage"
 import { ShopPage } from "./pages/ShopPage"
+import Layout from "./Layout"
+import 'leaflet/dist/leaflet.css';
+
 
 export const App = () => {
   return (

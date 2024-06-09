@@ -1,8 +1,91 @@
-import StyledButton from "./styled/Button.styled";
-import StyledNewsletter from "./styled/Newsletter.styled";
-import { AlertMessage } from "./AlertMessage";
-import { useRef, useState } from "react";
-import styled from "styled-components";
+import StyledButton from "./styled/Button.styled"
+// import StyledNewsletter from "./styled/Newsletter.styled";
+import { AlertMessage } from "./AlertMessage"
+import { useRef, useState } from "react"
+import styled from "styled-components"
+
+export const Newsletter = () => {
+  const [showErrorMessage, setShowErrorMessage] = useState(false)
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const inputRef = useRef("")
+
+  const signUp = (event) => {
+    event.preventDefault()
+    if (inputRef.current.value === "") {
+      setShowErrorMessage(true)
+      setShowSuccessMessage(false)
+    } else {
+      setShowErrorMessage(false)
+      setShowSuccessMessage(true)
+      inputRef.current.value = ""
+    }
+  }
+
+  return (
+    <StyledNewsletter onSubmit={signUp}>
+      <NewsletterDiv>
+        <h2>Newsletter</h2>
+        <p>
+          Sign up & receive exclusive updates about collections, exhibitions,
+          and events
+        </p>
+        <SignupContainer>
+          <input
+            ref={inputRef}
+            type="email"
+            placeholder="Enter your e-mail address here."
+          />
+          <StyledButton>Sign up</StyledButton>
+        </SignupContainer>
+        {showErrorMessage === true && (
+          <AlertMessage
+            type="text"
+            message="That does not look like an email address..."
+          />
+        )}
+        {showSuccessMessage === true && (
+          <AlertMessage type="success" message="Thank you! Email registered" />
+        )}
+      </NewsletterDiv>
+      <Logo>
+        <img src="icon4-blue-slogan.png" />
+      </Logo>
+    </StyledNewsletter>
+  )
+}
+
+const StyledNewsletter = styled.form`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #dee0e2;
+  width: 100%;
+  padding: 35px 0;
+
+  h2,
+  p,
+  input,
+  button {
+    margin-left: 5%;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  input {
+    border-radius: 14px;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+`
 
 const SignupContainer = styled.div`
   display: flex;
@@ -18,49 +101,12 @@ const SignupContainer = styled.div`
   button {
     margin-left: 15px;
   }
-`;
+`
 
-export const Newsletter = () => {
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const inputRef = useRef("");
+const NewsletterDiv = styled.div``
 
-  const signUp = (event) => {
-    event.preventDefault();
-    if (inputRef.current.value === "") {
-      setShowErrorMessage(true);
-      setShowSuccessMessage(false);
-    } else {
-      setShowErrorMessage(false);
-      setShowSuccessMessage(true);
-      inputRef.current.value = "";
-    }
-  };
-
-  return (
-    <StyledNewsletter onSubmit={signUp}>
-      <h2>Newsletter</h2>
-      <p>
-        Sign up & receive exclusive updates about collections, exhibitions, and
-        events
-      </p>
-      <SignupContainer>
-        <input
-          ref={inputRef}
-          type="email"
-          placeholder="Enter your e-mail address here."
-        />
-        <StyledButton>Sign up</StyledButton>
-      </SignupContainer>
-      {showErrorMessage === true && (
-        <AlertMessage
-          type="text"
-          message="That does not look like an email address..."
-        />
-      )}
-      {showSuccessMessage === true && (
-        <AlertMessage type="success" message="Thank you! Email registered" />
-      )}
-    </StyledNewsletter>
-  );
-};
+const Logo = styled.div`
+  img {
+    max-width: 250px;
+  }
+`

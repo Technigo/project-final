@@ -12,9 +12,10 @@ Detailpage "styling"
 
 Backend
 
-- Connect user name with comment
+- Connect user name with comment - alma
+- set museumId to objectId - Alma
 - Display comments and saved museums on their personal page
-- Deploy backend and set museumId to objectId
+- Deploy backend - alma and etna
 
 Design
 
