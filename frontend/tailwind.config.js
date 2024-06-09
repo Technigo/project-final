@@ -10,17 +10,13 @@ export default {
         light: "#F3E8E2",
         lighter: "#E0D1CB",
         dark: "#191818",
+        'link-color': 'var(--link-color)',
+        'link-hover-color': 'var(--link-hover-color)',
       },
       fontFamily: {
         sans: ["Noto Sans", "sans-serif"],
         serif: ["STIX Two Text", "serif"],
       },
-      /*  screens: {
-         sm: '320px',
-         md: '768px',
-         lg: '1024px',
-         xl: '1280px',
-       }, */
       animation: {
         'flip-scale-down-ver': 'flip-scale-down-ver 0.5s linear both',
       },

@@ -34,7 +34,6 @@ export const ModalProvider = ({ children }) => {
           }}
         >
           {content}
-          <button onClick={hideModal}>Close</button>
         </div>
       )}
     </ModalContext.Provider>

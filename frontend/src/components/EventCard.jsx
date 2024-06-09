@@ -1,6 +1,4 @@
-import React from "react";
-
-const EventCard = ({ event, index, flipped, handleFlip }) => {
+const EventCard = ({ event, index, flipped, handleFlip, className }) => {
   const isFlipped = flipped === index;
 
   return (
@@ -15,7 +13,7 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
         alt={event.title}
         className="w-full md:w-1/2 h-48 md:h-full object-cover rounded-lg"
         style={{
-          maxHeight: "400px",
+          maxHeight: "350px",
         }}
       />
       <div
@@ -46,16 +44,14 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
           }}
         >
           <h3 className="text-2xl font-bold text-primary">{event.title}</h3>
-          <div className="mt-4 text-dark text-center md:text-left">
+          <div className="mt-4 text-dark text-left md:text-left">
             <p>
               <strong>Time:</strong> {event.details.time}
             </p>
             <p>
               <strong>Place:</strong> {event.details.place}
             </p>
-            <p>
-              <strong>Info:</strong> {event.details.info}
-            </p>
+            <p>{event.details.info}</p>
           </div>
         </div>
       </div>

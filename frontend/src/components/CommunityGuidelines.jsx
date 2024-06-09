@@ -30,7 +30,9 @@ export const CommunityGuidelines = () => {
 
           <div className="text-left space-y-8">
             <div>
-              <h3 className="text-xl font-semibold">Respect & Kindness</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Respect & Kindness
+              </h3>
               <p>
                 Please treat all members with respect and kinsdness. We value
                 diverse perspectives and expect everyone to engage in
@@ -39,7 +41,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">Confidentiality</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Confidentiality
+              </h3>
               <p>
                 We may be an ADHD-focused community group, however, it is your
                 choice whether you talk about your ADHD.
@@ -47,7 +51,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">Age Requirement</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Age Requirement
+              </h3>
               <p>
                 The group is aimed at adults with suspected or diagnosed ADHD
                 aged 18 and over. Unfortunately, we cannot accept attendees
@@ -56,7 +62,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">No Medical Advice</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                No Medical Advice
+              </h3>
               <p>
                 Our community is here to provide support and share experiences.
                 However, please refrain from giving medical advice. Always
@@ -65,7 +73,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">Alcohol Consumption</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Alcohol Consumption
+              </h3>
               <p>
                 Some of our events are held in bars, and we are happy for
                 alcoholic beverages to be consumed. You are responsible for your
@@ -76,7 +86,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">Inclusivity</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Inclusivity
+              </h3>
               <p>
                 Use inclusive language and avoid offensive or discriminatory
                 remarks. This includes avoiding language that may be considered
@@ -85,7 +97,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">Diversity and Respect</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Diversity and Respect
+              </h3>
               <p>
                 We welcome everyone regardless of their ethnicity, religion,
                 age, culture, gender identity, sexual orientation, and
@@ -96,7 +110,9 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">Reporting Issues</h3>
+              <h3 className="text-xl text-primary font-semibold">
+                Reporting Issues
+              </h3>
               <p>
                 If you feel uncomfortable or upset by another attendee’s
                 actions, please speak to the event host during the event, or
@@ -112,7 +128,7 @@ export const CommunityGuidelines = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold">
+              <h3 className="text-xl text-primary font-semibold">
                 Zero Tolerance for Discrimination
               </h3>
               <p>Any type of discrimination will not be tolerated.</p>

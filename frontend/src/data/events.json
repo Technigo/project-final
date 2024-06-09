@@ -1,32 +1,42 @@
 [
-    {
-        "title": "Social Activities for ADHD",
-        "description": "Engage in fun and supportive social activities designed for individuals with ADHD. Meet new friends and build a community.",
-        "imageUrl": "/images/social-event.jpg",
-        "details": {
-            "time": "10:00 AM - 12:00 PM",
-            "place": "Community Center",
-            "info": "Join us for various social activities and make new friends."
-        }
-    },
-    {
-        "title": "Mindfulness and ADHD",
-        "description": "Explore mindfulness techniques to help manage ADHD symptoms and improve focus and emotional regulation.",
-        "imageUrl": "/images/mindful-event.jpg",
-        "details": {
-            "time": "2:00 PM - 4:00 PM",
-            "place": "Yoga Studio",
-            "info": "Learn mindfulness techniques to manage ADHD symptoms."
-        }
-    },
-    {
-        "title": "ADHD Support Group",
-        "description": "Join our support group to share experiences, tips, and support with others living with ADHD.",
-        "imageUrl": "/images/support-event.jpg",
-        "details": {
-            "time": "5:00 PM - 7:00 PM",
-            "place": "Library Hall",
-            "info": "Share experiences and get support from others living with ADHD."
-        }
-    }
+	{
+		"title": "How to Plan Your Days with ADHD",
+		"description": "Join us for an interactive session on strategies and tools to help plan and organize your days more effectively.",
+		"imageUrl": "/images/plan-event.jpg",
+		"details": {
+			"time": "2:00 PM - 4:00 PM",
+			"place": "Conference Room A",
+			"info": "Learn effective planning strategies tailored for ADHD."
+		}
+	},
+	{
+		"title": "Social Activities for ADHD",
+		"description": "Engage in fun and supportive social activities designed for individuals with ADHD. Meet new friends and build a community.",
+		"imageUrl": "/images/social-event.jpg",
+		"details": {
+			"time": "10:00 AM - 12:00 PM",
+			"place": "Community Center",
+			"info": "Join us for various social activities and make new friends."
+		}
+	},
+	{
+		"title": "Mindfulness and ADHD",
+		"description": "Explore mindfulness techniques to help manage ADHD symptoms and improve focus and emotional regulation.",
+		"imageUrl": "/images/mindful-event.jpg",
+		"details": {
+			"time": "2:00 PM - 4:00 PM",
+			"place": "Yoga Studio",
+			"info": "Learn mindfulness techniques to manage ADHD symptoms."
+		}
+	},
+	{
+		"title": "ADHD Support Group",
+		"description": "Join our support group to share experiences, tips, and support with others living with ADHD.",
+		"imageUrl": "/images/support-event.jpg",
+		"details": {
+			"time": "5:00 PM - 7:00 PM",
+			"place": "Library Hall",
+			"info": "Share experiences and get support from others living with ADHD."
+		}
+	}
 ]

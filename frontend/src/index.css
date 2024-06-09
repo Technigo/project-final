@@ -4,21 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animista Flip Animation */
-@keyframes flip-scale-down-ver {
-  0% {
-    transform: scale(1) rotateY(0);
-  }
-
-  50% {
-    transform: scale(0.4) rotateY(-90deg);
-  }
-
-  100% {
-    transform: scale(1) rotateY(-180deg);
-  }
+:root {
+  --link-color: #191818;
+  --link-hover-color: #d1510a;
 }
 
-.flip-scale-down-ver {
-  animation: flip-scale-down-ver 0.5s linear both;
+.link {
+  @apply text-link-color hover:text-link-hover-color;
 }

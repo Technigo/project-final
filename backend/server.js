@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 
 // Add middlewares to enable cors and json body parsing¨
 const corsOptions = {
-  origin: "http://localhost:5173", // Change this to match your frontend origin
+  origin: "http://localhost:5174", // Change this to match your frontend origin
   credentials: true, // Allow cookies to be sent
 };
 
