@@ -1,8 +1,11 @@
 import styled from "styled-components"
+import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
 export const ShopPage = () => {
   return (
     <Container>
+      <ToHomepageBtn />
+
       <Title>Virtual Ticket Booth</Title>
       <TicketBooth>
         <TicketContent>
@@ -22,6 +25,16 @@ export const ShopPage = () => {
 const Container = styled.div`
   padding: 20px;
   text-align: center;
+
+  a {
+    color: #0056b3;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: #007bff;
+  }
 `
 
 const Title = styled.h2`
@@ -48,12 +61,4 @@ const Message = styled.p`
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
-`
-
-const Link = styled.a`
-  color: #007bff;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 `
