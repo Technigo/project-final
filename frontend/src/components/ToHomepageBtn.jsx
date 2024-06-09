@@ -14,8 +14,8 @@ export const ToHomepageBtn = () => {
 
 const ToHomepageBtnStyled = styled.div`
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 5px;
+  left: 10px;
   z-index: 1;
   color: white;
   font-size: 36px;

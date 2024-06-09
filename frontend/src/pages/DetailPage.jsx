@@ -212,6 +212,8 @@ const ImageContainerTablet = styled.div`
   display: none;
 
   @media (min-width: 768px) {
+    margin-top: 20px;
+
     display: flex;
     position: relative;
     width: 40%;
