@@ -166,7 +166,6 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid red;
 
   @media (min-width: 768px) {
     margin-top: 20px;
@@ -178,8 +177,6 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-    border: solid green;
-
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -236,8 +233,6 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 20px 20px 20px;
-    border: solid blue;
-
 
   h3 {
     font-size: 36px;
