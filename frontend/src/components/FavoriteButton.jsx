@@ -10,7 +10,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 export const FavoriteButton = ({ museumId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const { authState, logout } = useContext(AuthContext);
+  const { authState } = useContext(AuthContext);
   const { accessToken } = authState;
 
   const checkIfFavorite = async () => {
@@ -30,7 +30,7 @@ export const FavoriteButton = ({ museumId }) => {
     checkIfFavorite();
   }, []);
 
-  const handleFavoritedChange = async () => {
+  const handleFavoriteToggle = async () => {
     const options = {
       method: "POST",
       headers: {
@@ -38,7 +38,7 @@ export const FavoriteButton = ({ museumId }) => {
       },
       body: JSON.stringify({ museumId, accessToken }),
     };
-    fetch("http://localhost:3000/favorites", options)
+    fetch("http://localhost:3000/favorites/toggle", options)
       .then((response) => response.json())
       .then((response) => {
         setIsFavorite(response.savedAsFavorite);
@@ -47,7 +47,7 @@ export const FavoriteButton = ({ museumId }) => {
 
   return (
     <>
-      <Button onClick={handleFavoritedChange}>
+      <Button onClick={handleFavoriteToggle}>
         {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
       </Button>
     </>

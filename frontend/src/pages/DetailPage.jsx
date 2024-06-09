@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { IoRestaurantOutline } from "react-icons/io5";
 import { ToHomepageBtn } from "../components/ToHomepageBtn";
@@ -15,6 +15,10 @@ import { getOptimizedUrl } from "../util/UrlUtil";
 export const DetailPage = () => {
   const { authState } = useContext(AuthContext);
   const { isAuthenticated } = authState;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const params = useParams();
   const museumId = params.slug;
