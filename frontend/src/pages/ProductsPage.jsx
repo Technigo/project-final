@@ -1,14 +1,18 @@
 import { useProductsStore } from "../store/useProductsStore";
+//import { useUserStore } from "../store/useUserStore";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
+  //const { loggedIn } = useUserStore();
+  const loggedIn = true // to be deleted
   const [categoryValue, setCategoryValue] = useState("category");
   const [sortValue, setSortValue] = useState("sort");
   const [filterValue, setFilterValue] = useState("filter");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  
 
   const handleSortChange = (e) => {
     setSortValue(e.target.value);
@@ -67,9 +71,9 @@ export const ProductsPage = () => {
 
   return (
     <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
-      <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 tablet:flex-row desktop:flex-row">
-        <h2 className="text-text-light text-2xl mb-6 tablet:text-3xl tablet:mb-0 laptop:text-3xl ">
-          Products
+      <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row desktop:flex-row">
+        <h2 className="text-text-light text-2xl  tablet:text-3xl laptop:text-3xl text-center mb-6 desktop:mb-0">
+        {loggedIn ? "Recommended Products" : "Products"}
         </h2>
         <div className="flex flex-col gap-2 tablet:gap-2 tablet:flex-row ">
           <form>
