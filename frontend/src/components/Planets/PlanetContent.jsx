@@ -12,6 +12,7 @@ import plutoImg from "../../assets/images/pluto.png"
 import GlobalStyles from "../GlobalStyles"
 import Rocket from "../../assets/icons/travelTimeRocket.png"
 import leftarrow from "../../assets/icons/leftarrow.png"
+import PlanetNavigation from "./PlanetNavigation";
 
 const BackLink = styled(NavLink)`
   position: absolute;
@@ -111,25 +112,21 @@ const TextBox = styled.div`
 `
 
 const planetImages = {
-  mercury: mercuryImg,
-  venus: venusImg,
-  tellus: tellusImg,
-  mars: marsImg,
-  jupiter: jupiterImg,
-  saturn: saturnImg,
-  uranus: uranusImg,
-  neptune: neptuneImg,
-  pluto: plutoImg,
-}
+  Mercury: mercuryImg,
+  Venus: venusImg,
+  Tellus: tellusImg,
+  Mars: marsImg,
+  Jupiter: jupiterImg,
+  Saturn: saturnImg,
+  Uranus: uranusImg,
+  Neptune: neptuneImg,
+  Pluto: plutoImg,
+};
 
 export const PlanetContent = ({ onePlanet }) => {
-  const surfaceTemperature = onePlanet.surfaceTemperature
+  const surfaceTemperature = onePlanet.surfaceTemperature;
+  const planetImg = planetImages[onePlanet.name];
 
-  const temperatureEntries = surfaceTemperature
-    ? Object.entries(surfaceTemperature)
-    : []
-
-  const planetImg = planetImages[onePlanet.name.toLowerCase()]
 
   return (
     <>
@@ -224,3 +221,4 @@ export const PlanetContent = ({ onePlanet }) => {
     </>
   )
 }
+
