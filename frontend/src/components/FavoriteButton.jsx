@@ -1,7 +1,7 @@
-import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
-import { AuthContext } from "../contexts/AuthContext";
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io"
+import { useContext, useEffect, useState } from "react"
+import styled from "styled-components"
+import { AuthContext } from "../contexts/AuthContext"
 
 //In this component, user should be able to click on the icon
 //I think we can only create this once we have global state of authorization set up as the program needs to know whether user is logged in
@@ -9,9 +9,9 @@ import { AuthContext } from "../contexts/AuthContext";
 //If user is not logged in, they should be redirected to register/login page
 
 export const FavoriteButton = ({ museumId }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const { authState, logout } = useContext(AuthContext);
-  const { accessToken } = authState;
+  const [isFavorite, setIsFavorite] = useState(false)
+  const { authState, logout } = useContext(AuthContext)
+  const { accessToken } = authState
 
   const checkIfFavorite = async () => {
     const options = {
@@ -20,15 +20,15 @@ export const FavoriteButton = ({ museumId }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ accessToken }),
-    };
+    }
     fetch(`http://localhost:3000/favorites/${museumId}`, options)
       .then((response) => response.json())
-      .then((response) => setIsFavorite(response.savedAsFavorite));
-  };
+      .then((response) => setIsFavorite(response.savedAsFavorite))
+  }
 
   useEffect(() => {
-    checkIfFavorite();
-  }, []);
+    checkIfFavorite()
+  }, [])
 
   const handleFavoritedChange = async () => {
     const options = {
@@ -37,13 +37,13 @@ export const FavoriteButton = ({ museumId }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ museumId, accessToken }),
-    };
+    }
     fetch("http://localhost:3000/favorites", options)
       .then((response) => response.json())
       .then((response) => {
-        setIsFavorite(response.savedAsFavorite);
-      });
-  };
+        setIsFavorite(response.savedAsFavorite)
+      })
+  }
 
   return (
     <>
@@ -51,19 +51,14 @@ export const FavoriteButton = ({ museumId }) => {
         {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
       </Button>
     </>
-  );
-};
+  )
+}
 
 //Styled components
 
 const Button = styled.button`
   border: none;
-  padding: 5px;
-  display: block;
-  font-size: 25px;
-  width: 10px;
+  font-size: 35px;
   cursor: pointer;
-  position: absolute;
-  top: 15;
-  right: 1;
-`;
+  background-color: transparent;
+`

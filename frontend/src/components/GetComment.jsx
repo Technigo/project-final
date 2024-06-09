@@ -62,10 +62,11 @@ const CommentContainer = styled.div`
 
 const Comment = styled.div`
   background-color: #f8f9fa;
-  padding: 10px;
   border-radius: 5px;
-  margin-bottom: 10px;
   position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
 `
 
 const CommentText = styled.p`
