@@ -18,6 +18,10 @@ const HeaderContainer = styled.header`
   font-family: var(--font-family-main);
   box-sizing: border-box;
   margin-bottom: 80px;
+
+  @media (min-width: 768px) {
+    padding: 80px 60px;
+  }
 `
 
 const NavContainer = styled.nav`

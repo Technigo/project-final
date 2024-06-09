@@ -15,6 +15,8 @@ import uranusImg from "../assets/images/uranus.png"
 import neptuneImg from "../assets/images/neptune.png"
 import plutoImg from "../assets/images/pluto.png"
 import { Link } from "react-router-dom"
+import nextArrowIcon from "../assets/icons/rightarrow.png"
+import prevArrowIcon from "../assets/icons/leftarrow.png"
 
 const planets = [
   { name: "Sun", image: sunImg },
@@ -33,6 +35,18 @@ const planets = [
 export const PlanetsCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  const CustomPrevArrow = ({ onClick }) => (
+    <Arrow direction="left" onClick={onClick}>
+      <img src={prevArrowIcon} alt="Previous" />
+    </Arrow>
+  )
+
+  const CustomNextArrow = ({ onClick }) => (
+    <Arrow direction="right" onClick={onClick}>
+      <img src={nextArrowIcon} alt="Next" />
+    </Arrow>
+  )
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -49,9 +63,9 @@ export const PlanetsCarousel = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
@@ -61,32 +75,26 @@ export const PlanetsCarousel = () => {
         },
       },
     ],
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
     beforeChange: (current, next) => setCurrentSlide(next),
   }
 
   return (
     <CarouselContainer>
       <Slider {...settings}>
-        {planets.map((planets, index) => (
+        {planets.map((planet, index) => (
           <Slide key={index} isCenter={index === currentSlide}>
-            {planets.name === "Sun" || planets.name === "Moon" ? (
-              <Link to={`/${planets.name.toLowerCase()}`}>
-                <PlanetImage
-                  src={planets.image}
-                  alt={planets.name}
-                  isCenter={index === currentSlide}
-                />
+            {planet.name === "Sun" || planet.name === "Moon" ? (
+              <Link to={`/${planet.name.toLowerCase()}`}>
+                <PlanetImage src={planet.image} alt={planet.name} />
               </Link>
             ) : (
-              <Link to={`/planets/${planets.name.toLowerCase()}`}>
-                <PlanetImage
-                  src={planets.image}
-                  alt={planets.name}
-                  isCenter={index === currentSlide}
-                />
+              <Link to={`/planets/${planet.name.toLowerCase()}`}>
+                <PlanetImage src={planet.image} alt={planet.name} />
               </Link>
             )}
-            <PlanetName>{planets.name}</PlanetName>
+            <PlanetName>{planet.name}</PlanetName>
           </Slide>
         ))}
       </Slider>
@@ -95,29 +103,48 @@ export const PlanetsCarousel = () => {
 }
 
 const CarouselContainer = styled.div`
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  margin-bottom: 400px;
+  margin-top: 100px;
 `
 
 const Slide = styled.div`
   text-align: center;
-  padding: 10px;
   transition: transform 0.5s, opacity 0.5s;
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.7)")};
   opacity: ${({ isCenter }) => (isCenter ? "1" : "0.5")};
-  margin: ${({ isCenter }) => (isCenter ? "0 -40px" : "0")};
 `
 
 const PlanetImage = styled.img`
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
   margin: 0 auto;
   transition: transform 0.5s;
-  transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.9)")};
+
+  @media (min-width: 768px) {
+    max-width: 280px;
+  }
 `
 
 const PlanetName = styled.p`
   font-size: 1.2em;
   margin-top: 10px;
+`
+
+const Arrow = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  ${({ direction }) => (direction === "left" ? "left: 10px;" : "right: 10px;")}
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `
