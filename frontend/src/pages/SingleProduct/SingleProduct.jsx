@@ -80,7 +80,7 @@ export const SingleProduct = () => {
               ))}
             </div>
             <Button
-              label="Add to cart"
+              label={selectedSize ? "Add to cart" : "Select size"}
               variant="add-to-cart"
               disabled={!selectedSize}
             />
