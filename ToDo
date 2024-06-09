@@ -1,13 +1,14 @@
 Favorite function - Etna
 
-- Make favorite function work (should be saved even after user logs out/logs in again)
+✅ Make favorite function work (should be saved even after user logs out/logs in again)
+
 - Heart in images in grid
 
 Detailpage "styling"
 
 - Detailpage: Top section image - mobile
 - Detailpage: Textbox too large for small phone
-- When going into detailpage, you should come directly to the top
+  ✅ When going into detailpage, you should come directly to the top
 
 Backend
 
