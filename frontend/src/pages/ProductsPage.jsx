@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
-import { ProductCard } from "../components/ProductCard";
 import { useProductsStore } from "../store/useProductsStore";
 
 export const ProductsPage = () => {
