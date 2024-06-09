@@ -1,8 +1,8 @@
-import { useProductsStore } from "../store/useProductsStore";
 import { useEffect } from "react";
-import { ProductCard } from "../components/ProductCard";
-import { Loading } from "../components/Loading";
 
+import { Loading } from "../components/Loading";
+import { ProductCard } from "../components/ProductCard";
+import { useProductsStore } from "../store/useProductsStore";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
@@ -56,7 +56,7 @@ export const ProductsPage = () => {
       {loadingProduct ? (
         <Loading />
       ) : (
-        <ul className=" w-11/12 m-auto grid grid-cols-2 gap-6 tablet:grid-cols-4 tablet: w-9/12 laptop:grid-cols-5 desktop:grid-cols-6">
+        <ul className=" w-11/12 m-auto grid grid-cols-2 gap-6 tablet:grid-cols-4 tablet:w-9/12 laptop:grid-cols-5 desktop:grid-cols-6">
           {productsData.products &&
             productsData.products.map((item, index) => (
               <li key={index} className="w-full">
