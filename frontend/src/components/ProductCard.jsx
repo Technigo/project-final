@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export const ProductCard = ({ data }) => {
   const productData = data;
   //const productLangData = langData; //Should probably be products-list-page
@@ -6,21 +8,29 @@ export const ProductCard = ({ data }) => {
   const image = productData.image.url;
   const productName = productData.title;
   const price = `€${productData.price}`;
+  const id = productData._id;
 
   // Change variable to accept data from translation file.
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
 
   return (
-    <div className="bg-strong-red m-auto min-w-[200px]  relative w-2/3 max-w-2/3 rounded-xl">
-      <div className="absolute bg-transparent w-[100%] h-[100%]"></div>
-      <img className="w-100% rounded-t-xl" src={image} alt="" />
-      <div className="m-2 flex flex-col items-center text-white">
-        <h3 className="font-heading">{productName}</h3>
-        <p className="font-body my-2">{price}</p>
-        <button className="w-28 bg-button-light my-2 rounded-full text-text-dark">
-          {addToCart}
-        </button>
-      </div>
+    <div className="bg-strong-red m-auto w-full h-full rounded-xl pb-5">
+      {/* <div className="absolute w-[100%] h-[100%]"></div> */}
+      <NavLink to={`/products/${id}`}>
+        <img className="w-full rounded-t-xl" src={image} alt="" />
+        <div className="m-4 flex flex-col items-center h-28 text-white">
+          <h3 className="font-heading text-xs laptop:text-sm  ">
+            {productName}
+          </h3>
+
+          <div className="flex flex-col h-full  justify-end items-center ">
+            <p className="font-body my-3 font-bold text-sm">{price}</p>
+            <button className="w-24 text-xs bg-button-light p-1 rounded-full text-text-dark hover:bg-main-yellow">
+              {addToCart}
+            </button>
+          </div>
+        </div>
+      </NavLink>
     </div>
   );
 };

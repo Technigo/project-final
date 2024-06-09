@@ -9,6 +9,7 @@ export default {
         "main-green": "#97a65D",
         "main-yellow": "#FFDE68",
         "main-red": "#E48d6A",
+        "main-white": "#FFFDF6",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-green": "#475318",
         "light-yellow": "#FFE486",
@@ -20,6 +21,7 @@ export default {
         "button-light": "#FFF5F2",
 
         "bg-input": "#FFFDF6",
+
       },
       fontFamily: {
         body: ["Comfortaa", "cursive"],

@@ -28,10 +28,10 @@ export const useProductsStore = create((set, get) => ({
     }
   },
 
-  fetchSingleProduct: async () => {
+  fetchSingleProduct: async (id) => {
     set({ loadingProduct: true });
-    const { product } = useParams();
-    const URL_singleProduct = `https://project-final-glim.onrender.com/products/${product}`;
+
+    const URL_singleProduct = `https://project-final-glim.onrender.com/products/${id}`;
     try {
       const response = await fetch(URL_singleProduct, {
         method: "GET",
