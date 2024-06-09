@@ -61,7 +61,7 @@ export const UserPage = () => {
 
       <UserContainer>
         <ToHomepageBtn />
-        <WelcomeMessage>Welcome to your personal page</WelcomeMessage>
+        <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
         <FeatureList>
           <FeatureItem>Liked museums</FeatureItem>
           <FeatureItem>Posted reviews</FeatureItem>

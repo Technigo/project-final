@@ -5,6 +5,7 @@ import expressListEndpoints from "express-list-endpoints"
 import authRoutes from "./routes/authRoutes.js"
 import reviewRoutes from "./routes/reviewRoutes.js"
 import favoriteRoutes from "./routes/favoriteRoutes.js"
+import museumRoutes from "./routes/museumRoutes.js"
 import museumData from "./data/museums.json"
 import { Museum } from "./models/Museum.js"
 
@@ -42,6 +43,7 @@ app.get("/", (req, res) => {
 app.use(authRoutes)
 app.use(reviewRoutes)
 app.use(favoriteRoutes)
+app.use(museumRoutes)
 
 // Start the server
 app.listen(port, () => {
