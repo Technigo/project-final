@@ -4,21 +4,18 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   margin: 0;
-  padding: 20px 20px; 
+  box-sizing: 0;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-family-main); 
 
-  @media (min-width: 768px) {
-    padding: 80px 60px;
-  }
 }
 
 :root {
   --text-color-primary: #FFFFFF;
   --text-color-secondary: #FFEDD8;
   --headline-color: #FFFFFF;
-  --background-color: #000000;
+  --background-color: #030401;
   --textbox-background: #161822;
   --button-color: #CF4B14;
   --menu-active-color: #CF4B14;
