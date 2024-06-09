@@ -9,6 +9,7 @@ const MassConverterFont = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
+  margin: 20px 20px;
 `
 
 const Heading = styled.h1`
