@@ -19,7 +19,7 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
         }}
       />
       <div
-        className={`relative w-full h-full flex flex-col md:flex-row items-center rounded-lg`}
+        className={`relative w-full h-full flex flex-col justify-center items-center md:items-start md:justify-start rounded-lg`}
         style={{
           transformStyle: "preserve-3d",
           transition: "transform 0.5s",
@@ -27,26 +27,26 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
         }}
       >
         <div
-          className="-full h-full flex flex-col md:flex-row items-center"
+          className="w-full h-full flex flex-col justify-center md:justify-start items-center md:items-start p-4 md:p-6"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(0deg)",
           }}
         >
-          <div className="mt-4 md:mt-0 md:ml-4 w-full md:w-1/2">
+          <div className="mt-4 md:mt-0 w-full">
             <h3 className="text-2xl font-bold text-primary">{event.title}</h3>
             <p className="mt-4 text-dark">{event.description}</p>
           </div>
         </div>
         <div
-          className="absolute w-full h-full flex flex-col justify-center items-center"
+          className="absolute w-full h-full flex flex-col justify-center items-center p-4 md:p-6"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
           <h3 className="text-2xl font-bold text-primary">{event.title}</h3>
-          <div className="mt-4 text-dark">
+          <div className="mt-4 text-dark text-center md:text-left">
             <p>
               <strong>Time:</strong> {event.details.time}
             </p>
