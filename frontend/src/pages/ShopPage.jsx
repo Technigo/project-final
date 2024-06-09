@@ -1,5 +1,59 @@
-import React from "react"
+import styled from "styled-components"
 
 export const ShopPage = () => {
-  return <div>ShopPage</div>
+  return (
+    <Container>
+      <Title>Virtual Ticket Booth</Title>
+      <TicketBooth>
+        <TicketContent>
+          <Message>
+            We're delighted that you're interested in exploring museums through
+            MuSeek! However, as much as we'd love to provide real tickets, this
+            is merely a school project. If you've found a fascinating museum via
+            MuSeek, we recommend visiting the official website for ticket
+            purchases. Thank you for your curiosity!
+          </Message>
+        </TicketContent>
+      </TicketBooth>
+    </Container>
+  )
 }
+
+const Container = styled.div`
+  padding: 20px;
+  text-align: center;
+`
+
+const Title = styled.h2`
+  font-size: 24px;
+  margin-bottom: 20px;
+`
+
+const TicketBooth = styled.div`
+  width: 70%;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+`
+
+const TicketContent = styled.div`
+  position: relative;
+  z-index: 2;
+`
+
+const Message = styled.p`
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+`
+
+const Link = styled.a`
+  color: #007bff;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
