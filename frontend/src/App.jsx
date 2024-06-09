@@ -19,9 +19,10 @@ export const App = () => {
   */
 
   return (
-    <>
+    <div className="bg-main-red">
       <Navigation data={data["navbar"]} />
       <GlimRoutes data={data} />
-    </>
+    </div>
   );
 };
+
