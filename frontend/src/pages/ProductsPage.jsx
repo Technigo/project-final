@@ -1,8 +1,9 @@
-import { useProductsStore } from "../store/useProductsStore";
 import { useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
+import { ProductCard } from "../components/ProductCard";
+import { useProductsStore } from "../store/useProductsStore";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
@@ -70,5 +71,6 @@ export const ProductsPage = () => {
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />
     </>
+
   );
 };

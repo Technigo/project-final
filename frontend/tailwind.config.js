@@ -14,12 +14,18 @@ export default {
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
-        overlay: "rgba(0,0,0,0.5)",
+        "overlay": "rgba(0,0,0,0.5)",
+
+        "light-yellow": "#FFE486",
+        "light-orange": "#FF8E61",
+
 
         "text-light": "#fff",
         "text-dark": "#671E01",
 
         "button-light": "#FFF5F2",
+        "bg-input": "#FFFDF6",
+
       },
       fontFamily: {
         body: ["Comfortaa", "cursive"],
@@ -34,6 +40,9 @@ export default {
 
         desktop: "1511px",
         // => @media (min-width: 1280px) { ... }
+      },
+      backgroundImage: {
+        "arrow-select": `url("arrowselect.svg")`,
       },
     },
   },
