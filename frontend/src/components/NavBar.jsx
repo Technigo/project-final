@@ -34,7 +34,7 @@ const NavBarImage = styled.img`
   width: 130px;
 `
 const StyledNavBar = styled.nav`
-  z-index: 100;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   width: 100%;
