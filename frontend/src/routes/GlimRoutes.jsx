@@ -21,7 +21,7 @@ export const GlimRoutes = ({ data}) => {
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/login" element={<LogInPage />} />
       <Route path="/signup" element={<SignUpPage />} />
-      <Route path="/*" element={<NotFound />} />
+      <Route path="/*" element={<NotFound reason="page"/>} />
 
       {/* Add the routes */}
     </Routes>
