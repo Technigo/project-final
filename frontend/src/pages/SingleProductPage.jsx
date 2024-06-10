@@ -6,7 +6,7 @@ import { Loading } from "../components/Loading";
 import { MdOutlineStar } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 import SimilarProducts from "../components/SimilarProducts";
-import { NotFound } from "./NotFound";
+/* import { NotFound } from "./NotFound"; */
 import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
 
@@ -15,10 +15,11 @@ export const SingleProductPage = () => {
   const { fetchSingleProduct, loadingProduct, singleProduct } =
     useProductsStore();
   const [quantity, setQuantity] = useState(0);
+
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
-  const [userAllergy, setUserAllergy] = useState(["fragrances"]); //replace with userdata from global
-  const [allergyAlert, setAllergyAlert] = useState([]);
-  const product = singleProduct.product;
+  const product = singleProduct?.product || {};
+    const [userAllergy, setUserAllergy] = useState(["fragrances"]);  //replace with userdata from global
+   const [allergyAlert, setAllergyAlert] = useState([]); 
 
   // Adding quantity of items to add to cart
   const handleIncrement = () => {
@@ -51,7 +52,7 @@ export const SingleProductPage = () => {
   //     </div>
   //   );
   // }
-  console.log("Product:", product)
+  console.log("Product:", product);
   console.log("param ID:", id);
   console.log("singleproduct", singleProduct);
   return (
@@ -64,17 +65,16 @@ export const SingleProductPage = () => {
         </NavLink>
         {loadingProduct ? (
           <Loading />
+        ) : !product || !product.image || !product.image.url ? (
+          <div className="w-6/12 bg-main-red m-auto mt-24 font-heading text-text-light text-xl text-center">
+            <h2>No product found</h2>
+            <Loading />
+          </div>
         ) : (
-          // ) : !singleProduct || !singleProduct.image || !singleProduct.image.url ? (
-          //   <div className="w-6/12 bg-main-red m-auto mt-24 font-heading text-text-light text-xl text-center">
-          //     <h2>No product found</h2>
-          //     <Loading />
-          //   </div>
-          // ) : (
           <div className="w-full tablet:w-11/12 tablet:m-auto tablet:flex pb-12 desktop:w-9/12 relative">
             <img
-              src={singleProduct.image.url}
-              alt={singleProduct.description}
+              src={product.image.url}
+              alt={product.description}
               className="w-full tablet:w-7/12 desktop:w-5/12 object-cover aspect-square tablet:rounded-xl"
             />
             {allergyAlert.length > 0 && (
@@ -84,12 +84,10 @@ export const SingleProductPage = () => {
             )}
             <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light font-heading tablet:pl-8 desktop:pl-16">
               <h2 className="font-light text-lg tablet:text-xl mb-2">
-                {singleProduct.brand}
+                {product.brand}
               </h2>
-              <h3 className="text-xl tablet:text-3xl mb-8">
-                {singleProduct.title}
-              </h3>
-              <p className="mb-8 leading-loose">{singleProduct.description}</p>
+              <h3 className="text-xl tablet:text-3xl mb-8">{product.title}</h3>
+              <p className="mb-8 leading-loose">{product.description}</p>
               <div className="mb-12 flex">
                 <MdOutlineStar />
                 <MdOutlineStar />
@@ -97,7 +95,7 @@ export const SingleProductPage = () => {
                 <MdOutlineStar />
                 <MdOutlineStar />
               </div>
-              <h3 className="text-3xl mb-8">{singleProduct.price} €</h3>
+              <h3 className="text-3xl mb-8">{product.price} €</h3>
               <div className="flex gap-6">
                 <div className="flex">
                   <button
@@ -124,8 +122,8 @@ export const SingleProductPage = () => {
           </div>
         )}
         <SimilarProducts
-          subcategory={singleProduct.subcategory}
-          currentProductId={singleProduct._id}
+          subcategory={product.subcategory}
+          currentProductId={product._id}
         />
       </section>
       <ReviewForm />

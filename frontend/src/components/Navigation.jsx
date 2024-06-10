@@ -22,8 +22,8 @@ export const Navigation = ({ data }) => {
   };
 
   const handleLogin = () => {
-  Consle.log("logging in")
-  }
+    Consle.log("logging in");
+  };
   const handleClickOutside = (event) => {
     if (overlayRef.current && !modalContentRef.current.contains(event.target)) {
       setOpen(false);
@@ -153,13 +153,15 @@ export const Navigation = ({ data }) => {
               />
               <button
                 onClick={handleLogin}
-                className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light">
+                className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
+              >
                 Login
               </button>
               <NavLink to="/signup">
                 <button
                   onClick={() => setOpen(false)}
-                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center m-auto px-6 py-2 rounded-full hover:bg-cta-blue-hover text-sm text-text-light">
+                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center m-auto px-6 py-2 rounded-full text-sm text-text-light"
+                >
                   Sign up
                 </button>
               </NavLink>

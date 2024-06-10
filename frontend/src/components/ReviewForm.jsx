@@ -6,6 +6,7 @@ import { Loading } from "../components/Loading";
 import star from "/star-regular.svg";
 import starFull from "/star-solid.svg";
 import StarRating from "./StarRating";
+import { NotFound } from "../pages/NotFound";
 
 export const ReviewForm = () => {
   const { id } = useParams();
