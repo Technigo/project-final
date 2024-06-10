@@ -41,6 +41,17 @@ export const ProductList = () => {
   return (
     <>
       <Breadcrumb />
+      <div className="flex w-full justify-center lg:justify-start">
+        <div className="mx-auto flex w-full flex-col items-center lg:max-w-screen-md lg:flex-initial lg:items-start">
+          <h1 className="my-10 font-poppins font-bold lg:my-20">
+            Shop our templates
+          </h1>
+        </div>
+      </div>
+      <div>
+        
+      </div>
+
       <div className="flex w-auto flex-col items-center px-8">
         <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
           {products.map((product) => (
