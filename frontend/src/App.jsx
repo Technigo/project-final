@@ -23,8 +23,12 @@ export const App = () => {
   return (
     <>
       <ScrollToTop />
+
+    <div className="bg-main-red">
+
       <Navigation data={data["navbar"]} />
       <GlimRoutes data={data} />
-    </>
+    </div>
   );
 };
+

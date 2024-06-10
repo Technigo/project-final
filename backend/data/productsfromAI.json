@@ -16,7 +16,7 @@
     "instructions": "Apply to wet hair, lather, and rinse thoroughly.",
     "size": "250ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/greenleaf-naturals-shampoo_dz4ukw.png"
     }
   },
   {
@@ -36,24 +36,751 @@
     "instructions": "Apply a small amount to clean face and neck. Use morning and night.",
     "size": "50ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572376/Dermacare-sensitive-skin_jfjbib.png"
     }
   },
   {
-    "title": "Metal-Free Nail Polish",
+    "title": "Metal Free Nail Polish",
     "brand": "PureColor",
     "category": "Nail Care",
     "subcategory": "Nail Polish",
     "description": "A non-toxic nail polish free from harmful metals like lead and nickel. Available in vibrant shades.",
     "price": 7.99,
-    "allergies": ["metals"],
+    "allergies": [],
     "pros": ["vegan", "crueltyfree"],
     "hair": null,
     "skin": [],
     "instructions": "Apply two coats for best results.",
     "size": "10ml",
     "image": {
-      "url": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1"
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/PureColor-nailpolish_bzz81g.png"
+    }
+  },
+  {
+    "title": "Radiant Glow Serum",
+    "brand": "Lumina",
+    "category": "Skincare",
+    "subcategory": "Serum",
+    "description": "Revitalize your skin with this illuminating serum.",
+    "price": 29.99,
+    "allergies": ["parabens"],
+    "pros": ["vegan"],
+    "hair": [],
+    "skin": ["dry", "oily", "combination"],
+    "instructions": "Apply morning and night after cleansing.",
+    "size": "30ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572377/Lumina-serum_jkuqpv.png"
+    }
+  },
+  {
+    "title": "Silky Smooth Hair Oil",
+    "brand": "SilkLocks",
+    "category": "Hair Care",
+    "subcategory": "Hair Oil",
+    "description": "Nourish and tame frizz with this luxurious hair oil.",
+    "price": 19.99,
+    "allergies": ["fragrances"],
+    "pros": [],
+    "hair": {
+      "moisture": "Hydrating",
+      "shape": "Curly"
+    },
+    "skin": [],
+    "instructions": "Apply a few drops to damp or dry hair.",
+    "size": "100ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Silklocks-oil_soohrl.png"
+    }
+  },
+  {
+    "title": "ClearSkin Acne Serum",
+    "brand": "GlowRx",
+    "category": "Skincare",
+    "subcategory": "Serum",
+    "description": "Target stubborn acne with this powerful serum.",
+    "price": 24.99,
+    "allergies": [],
+    "pros": ["organic", "vegan", "crueltyfree"],
+    "hair": [],
+    "skin": ["acne"],
+    "instructions": "Apply a thin layer to clean skin before moisturizing.",
+    "size": "30ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572376/gLOWRX_uu8us9.png"
+    }
+  },
+  {
+    "title": "Latex-Infused Firming Mask",
+    "brand": "LatexLux",
+    "category": "Skincare",
+    "subcategory": "Face Mask",
+    "description": "Experience the lifting effect of natural latex in this firming mask.",
+    "price": 34.99,
+    "allergies": ["latex"],
+    "pros": ["crueltyfree"],
+    "hair": [],
+    "skin": ["dry", "oily", "combination", "sensitive", "acne"],
+    "instructions": "Apply a thin layer, avoiding the eye area. Leave on for 10 minutes and rinse thoroughly.",
+    "size": "50ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Latexlux-mask_o68dy4.png"
+    }
+  },
+  {
+    "title": "LuxeLocks Shampoo",
+    "brand": "BelleHair",
+    "category": "Hair Care",
+    "subcategory": "Shampoo",
+    "description": "A luxurious sulfate-free shampoo infused with argan oil and keratin for smooth, shiny hair.",
+    "price": 24.99,
+    "allergies": [],
+    "pros": ["crueltyfree"],
+    "hair": {
+      "moisture": "Hydrating",
+      "shape": "Straight to wavy"
+    },
+    "instructions": "Apply to wet hair, lather, and rinse thoroughly.",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/Bellehair-shampoo_vj7erx.png"
+    }
+  },
+  {
+    "title": "SilkGlow Conditioner",
+    "brand": "SilkEssence",
+    "category": "Hair Care",
+    "subcategory": "Conditioner",
+    "description": "A nourishing conditioner enriched with silk proteins and vitamin E for silky-smooth strands.",
+    "price": 19.99,
+    "allergies": [],
+    "pros": ["vegan", "organic"],
+    "hair": {
+      "moisture": "Moisturizing",
+      "shape": "Curly"
+    },
+    "instructions": "Apply to damp hair after shampooing, leave for 2 minutes, and rinse.",
+    "size": "200ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Silkessence-conditioner_s2e2v3.png"
+    }
+  },
+  {
+    "title": "ReviveRoots Hair Mask",
+    "brand": "NatureBlend",
+    "category": "Hair Care",
+    "subcategory": "Hair Mask",
+    "description": "An intensive hair mask infused with avocado oil and shea butter to revive dry, damaged hair.",
+    "price": 29.99,
+    "allergies": [],
+    "pros": [],
+    "hair": {
+      "moisture": "Ultra-hydrating",
+      "shape": "All hair types"
+    },
+    "instructions": "Apply to clean, towel-dried hair, leave for 10 minutes, and rinse thoroughly.",
+    "size": "150ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/natureblend-reviveroots-mask_i4wbsg.png"
+    }
+  },
+  {
+    "title": "Beard Oil",
+    "brand": "WhiskerWonders",
+    "category": "Beard Care",
+    "subcategory": "Beard Oil",
+    "description": "A nourishing blend of argan oil, jojoba oil, and cedarwood essential oil to soften and condition your beard.",
+    "price": 19.99,
+    "allergies": [],
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "combination"],
+    "instructions": "Apply a few drops to your beard daily and massage gently.",
+    "size": "30ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717575386/beardoil_sgpd8k.png"
+    }
+  },
+  {
+    "title": "Beard Balm",
+    "brand": "GentlemanGroom",
+    "category": "Beard Care",
+    "subcategory": "Beard Balm",
+    "description": "A styling balm enriched with shea butter, beeswax, and eucalyptus oil for shaping and taming unruly beards.",
+    "price": 14.99,
+    "allergies": ["fragrances"],
+    "pros": ["organic", "vegan"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "combination", "sensitive"],
+    "instructions": "Rub a small amount between your palms and apply to your beard for styling.",
+    "size": "50g",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/beard-balm-groom_oo3dej.png"
+    }
+  },
+  {
+    "title": "Beard Wash",
+    "brand": "FreshFace",
+    "category": "Beard Care",
+    "subcategory": "Beard Wash",
+    "description": "A gentle beard wash infused with chamomile and aloe vera to cleanse without stripping natural oils.",
+    "price": 12.99,
+    "allergies": [],
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["combination", "dry", "sensitive", "oily"],
+    "instructions": "Wet your beard, apply a small amount of wash, lather, and rinse thoroughly.",
+    "size": "150ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717574168/Beard-wash-freshface_1_bc6v2f.png"
+    }
+  },
+  {
+    "title": "Oil-Control Cleanser",
+    "brand": "Neutrogena",
+    "category": "Skincare",
+    "subcategory": "Cleanser",
+    "description": "A salicylic acid cleanser that gently removes excess oil without over-drying.",
+    "price": 9.99,
+    "allergies": ["parabens", "preservatives"],
+    "pros": [],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["oily", "acne"],
+    "instructions": "Use daily to keep skin clear and matte.",
+    "size": "150ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572374/neutrogena-oil_ywtqow.png"
+    }
+  },
+  {
+    "title": "Matte Moisturizer with SPF",
+    "brand": "Cetaphil",
+    "category": "Skincare",
+    "subcategory": "Moisturizer",
+    "description": "Lightweight moisturizer with sun protection. Controls shine and prevents breakouts.",
+    "price": 14.49,
+    "allergies": [],
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["oily", "acne"],
+    "instructions": "Apply in the morning after cleansing.",
+    "size": "50ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/cetaphil-matte-moisturizer_izglrh.png"
+    }
+  },
+  {
+    "title": "Acne-Fighting Clay Mask",
+    "brand": "Glytone",
+    "category": "Skincare",
+    "subcategory": "Face Mask",
+    "description": "Sulfur clay mask that absorbs excess oil and minimizes pores.",
+    "price": 19.99,
+    "allergies": [],
+    "pros": [],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["acne", "oily"],
+    "instructions": "Use twice a week for best results.",
+    "size": "100g",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572375/glytone-acnefighting_nwv0xk.png"
+    }
+  },
+  {
+    "title": "Hydrating Cleanser",
+    "brand": "CeraVe",
+    "category": "Skincare",
+    "subcategory": "Cleanser",
+    "description": "Gentle cleanser with ceramides and hyaluronic acid to nourish and hydrate dry skin.",
+    "price": 12.99,
+    "allergies": [],
+    "pros": ["vegan"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "sensitive"],
+    "instructions": "Use morning and night.",
+    "size": "200ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572377/cerave-cleanser_ess59y.png"
+    }
+  },
+  {
+    "title": "Rich Moisturizing Cream",
+    "brand": "SkinFix",
+    "category": "Skincare",
+    "subcategory": "Moisturizer",
+    "description": "Barrier+ Triple Lipid-Peptide Face Cream for intense hydration.",
+    "price": 29.99,
+    "allergies": ["preservatives"],
+    "pros": [],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry"],
+    "instructions": "Apply generously to face and neck.",
+    "size": "75ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/crystal-daycream_hxycta.png"
+    }
+  },
+  {
+    "title": "Gentle Body Lotion",
+    "brand": "AmLactin",
+    "category": "Skincare",
+    "subcategory": "Body Lotion",
+    "description": "Rapid Relief Restoring Lotion with alpha-hydroxy acids for soft, smooth skin.",
+    "price": 8.99,
+    "allergies": [],
+    "pros": ["crueltyfree"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "combination"],
+    "instructions": "Use daily after shower",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572375/Amlacit-body_oojopm.png"
+    }
+  },
+  {
+    "title": "Bubblegum Bliss Moisturizer",
+    "brand": "SillySkin",
+    "category": "Moisturizers",
+    "subcategory": "Face Cream",
+    "description": "Experience the sweet scent of bubblegum while keeping your skin hydrated. Our moisturizer is infused with imaginary bubblegum extract for a whimsical touch.",
+    "price": 12.99,
+    "allergies": ["fragrances"],
+    "pros": [],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "combination", "oily"],
+    "instructions": "Apply a dollop of Bubblegum Bliss Moisturizer to your face and pretend you're blowing bubblegum bubbles!",
+    "size": "50ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572376/Sillyskin_ek8vop.png"
+    }
+  },
+  {
+    "title": "Unicorn Tears Serum",
+    "brand": "Mythical Beauty",
+    "category": "Serums",
+    "subcategory": "Face Serum",
+    "description": "Harness the magical power of unicorn tears! Our serum promises to make your skin glow like a mythical creature.",
+    "price": 24.99,
+    "allergies": ["dyes", "latex"],
+    "pros": [],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "combination", "oily"],
+    "instructions": "Apply Unicorn Tears Serum to your face while chanting, \"Sparkle, sparkle, magical glow!\"",
+    "size": "30ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513510/unicorn_sukfgo.png"
+    }
+  },
+  {
+    "title": "Zombie Apocalypse Exfoliator",
+    "brand": "Undead Skincare",
+    "category": "Skincare",
+    "subcategory": "Exfoliators",
+    "description": "Scrub away dead skin cells with our spooky exfoliator. Contains crushed zombie bones (not really).",
+    "price": 19.99,
+    "allergies": [],
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry", "combination", "oily", "acne", "sensitive"],
+    "instructions": "Apply Zombie Apocalypse Exfoliator in circular motions and pretend you're battling zombies.",
+    "size": "100ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513507/zombie_cke2ex.png"
+    }
+  },
+  {
+    "title": "Ultimate Shampoo",
+    "brand": "Natural feel",
+    "category": "Hair care",
+    "subcategory": "Shampoo",
+    "description": "Deeply healing and nourishing shampoo for dry or damaged hair.",
+    "price": 27.99,
+    "allergies": ["fragrances"],
+    "pros": ["organic"],
+    "hair": {
+      "moisture": "dry",
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply shampoo in the shower on wet hair and massage, rinse thoroughly",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513525/naturalfeel-shampoo-glim_ei6ubf.png"
+    }
+  },
+  {
+    "title": "Ocean breeze Conditioner",
+    "brand": "Moist Yourself",
+    "category": "Hair care",
+    "subcategory": "Conitioner",
+    "description": "Volumizing salty conditioner that leaves your hair full and easy to shape",
+    "price": 22.49,
+    "allergies": ["fragrances", "parabens"],
+    "pros": null,
+    "hair": {
+      "moisture": "normal",
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply conditioner after the shampoo, in the shower on wet hair and massage, rinse thoroughly",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/ocean_breeze_conditioner_t5kcd8.png"
+    }
+  },
+  {
+    "title": "Sandstorm Shampoo",
+    "brand": "Moist Yourself",
+    "category": "Hair care",
+    "subcategory": "Shampoo",
+    "description": "Volumizing shampoo for volume and a salty sandy feel",
+    "price": 24.99,
+    "allergies": ["fragrances", "parabens"],
+    "pros": null,
+    "hair": {
+      "moisture": "normal",
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply shampoo in the shower on wet hair and massage, rinse thoroughly",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/sandstorm_kysok8.png"
+    }
+  },
+  {
+    "title": "Olive face cream",
+    "brand": "goldenTouch",
+    "category": "skincare",
+    "subcategory": "Face cream",
+    "description": "Wonderful olive face cream that mouisturizes your skin deeply with natural ingredients",
+    "price": 27.99,
+    "allergies": null,
+    "pros": ["organic", "vegan"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["dry"],
+    "instructions": "Apply on clean skin in the morning",
+    "size": "150ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/goldenTouch-facecream_kjcibs.png"
+    }
+  },
+  {
+    "title": "Rejuvenizing face cream",
+    "brand": "Natural feel",
+    "category": "Skincare",
+    "subcategory": "Face cream",
+    "description": "A pre Anti-aging face cream for preventing fine lines",
+    "price": 27.99,
+    "allergies": ["fragrances"],
+    "pros": ["crueltyfree"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": "dry",
+    "instructions": "Apply cream on clean dry skin every evening for best results",
+    "size": "100ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/Naturalfeel-facecream_ladplc.png"
+    }
+  },
+  {
+    "title": "Seaweed conditioner",
+    "brand": "Moonlight",
+    "category": "Hair care",
+    "subcategory": "Conditioner",
+    "description": "Gives your hair an extra soft feel with the help of seaweed.",
+    "price": 19.99,
+    "allergies": ["fragrances"],
+    "pros": ["organic"],
+    "hair": {
+      "moisture": "dry",
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply conditioner in the shower on wet hair after rinsing the shampoo. Massage and rinse thoroughly",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513529/Moonlight-conditioner_gbcjbe.png"
+    }
+  },
+  {
+    "title": "Youth face serum",
+    "brand": "J-mi",
+    "category": "Skincare",
+    "subcategory": "Serum",
+    "description": "Anti-age serum that prevents signs of aging.",
+    "price": 17.99,
+    "allergies": ["latex"],
+    "pros": null,
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["combination"],
+    "instructions": "Apply on areas like around the eyes and the mouth",
+    "size": "100ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/j-mi-face-serum_eg4ji3.png"
+    }
+  },
+  {
+    "title": "Relaxing night serum",
+    "brand": "NatureBlend",
+    "category": "Skincare",
+    "subcategory": "Serum",
+    "description": "Let your skin relax with this night serum, with refreshing wheat and green tea extract",
+    "price": 22.99,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Massage onto the face with circular movements",
+    "size": "100ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513526/natureblend-serum_uykqll.png"
+    }
+  },
+  {
+    "title": "H20 night cream",
+    "brand": "Leafy skinCare",
+    "category": "Skincare",
+    "subcategory": "Face cream",
+    "description": "This night cream gives your skin a glow of the hydrating himalayan spring water",
+    "price": 25.49,
+    "allergies": ["fragrances"],
+    "pros": null,
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["oily"],
+    "instructions": "Apply to clean skin in the evening",
+    "size": "150ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717575394/LeafySkincare-nightcream_uirnsp.png"
+    }
+  },
+  {
+    "title": "Find your glow Facemist",
+    "brand": "Light Glow",
+    "category": "Skincare",
+    "subcategory": "Mist",
+    "description": "Refreshing face mist with natural minerals.",
+    "price": 13.99,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Spray onto your face whenever you need to feel refreshed during the day",
+    "size": "150ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/light-glow-mist_j1xe8c.png"
+    }
+  },
+  {
+    "title": "Find your calm Face cream",
+    "brand": "Light Glow",
+    "category": "Skincare",
+    "subcategory": "Face cream",
+    "description": "A calming face cream made from wheat and oat, making it the perfect match for sensitive skin",
+    "price": 18.99,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": ["sensitive", "dry"],
+    "instructions": "Put onto your clean face in the morning, good ti combine with Find your glow, mist.",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/light-glow-cream_tahodt.png"
+    }
+  },
+  {
+    "title": "Night Repair",
+    "brand": "Cosmetic",
+    "category": "Skincare",
+    "subcategory": "Face oil",
+    "description": "Deeply repairing Antioxidant-rich face oil with vitamin E to nourish and protect your skin. For all skintypes",
+    "price": 25.49,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply in the evening, after washing and drying your face",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513505/cosmetic_uoffhi.png"
+    }
+  },
+  {
+    "title": "Flowy Face cream",
+    "brand": "Flow",
+    "category": "Skincare",
+    "subcategory": "Face cream",
+    "description": "Daycream that ",
+    "price": 18.99,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply to face and neck each morning after cleansing.",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/Flow-facecream_evn96s.png"
+    }
+  },
+  {
+    "title": "Sensitive face cream",
+    "brand": "Lorem Skincare",
+    "category": "Skincare",
+    "subcategory": "Face cream",
+    "description": "Lightweight face lotion with tea tree oil and witch hazel to control oiliness and provide a matte finish.",
+    "price": 28.99,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply to clean skin in the morning and evening.",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513508/Lorem-skincare_bfyeub.png"
+    }
+  },
+  {
+    "title": "Citrus Face toner",
+    "brand": "ClearD",
+    "category": "Skincare",
+    "subcategory": "Toner",
+    "description": "Deeply cleansing toner with citrus and mint",
+    "price": 22.99,
+    "allergies": null,
+    "pros": null,
+    "hair": {
+      "moisture": null,
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply to your face and neck before bed.",
+    "size": "170ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/Cleard-facetoner_ydpnvu.png"
+    }
+  },
+  {
+    "title": "Eucalyptus hair oil",
+    "brand": "Flow",
+    "category": "Hair care",
+    "subcategory": "hair oil",
+    "description": "Nourishing hair oil that needs some extra love,promoting healthy hair growth. ",
+    "price": 22.99,
+    "allergies": null,
+    "pros": null,
+    "hair": {
+      "moisture": "dry",
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Apply onto the tips of your hair after showering.",
+    "size": "200ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/eucalyptus-hair-oil_xx3cua.png"
+    }
+  },
+  {
+    "title": "Natural beard oil",
+    "brand": "Main",
+    "category": "Beard care",
+    "subcategory": "oil",
+    "description": "Beard oil that softens and nourishes your beard while promoting healthy growth.",
+    "price": 22.99,
+    "allergies": null,
+    "pros": ["organic"],
+    "hair": {
+      "moisture": "dry",
+      "shape": null
+    },
+    "skin": null,
+    "instructions": "Rub a small amount between your palms and work through your beard.",
+    "size": "100ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717513503/beardoil_2_rkjz87.png"
+    }
+  },
+  {
+    "title": "Organic Lavender Conditioner",
+    "brand": "GreenLeaf Naturals",
+    "category": "Hair Care",
+    "subcategory": "Conditioner",
+    "description": "A soothing and nourishing conditioner infused with organic lavender essential oil. Gently cleanses the hair while promoting relaxation.",
+    "price": 16.99,
+    "allergies": [],
+    "pros": ["organic", "vegan", "crueltyfree"],
+    "hair": {
+      "moisture": "hydrating",
+      "shape": "curly"
+    },
+    "skin": [],
+    "instructions": "Apply to wet hair after the Lavender Shampoo, lather, and rinse thoroughly.",
+    "size": "250ml",
+    "image": {
+      "url": "https://res.cloudinary.com/dl8hnjcax/image/upload/v1717572372/Greenleaf-conditioner_b47xui.png"
     }
   }
 ]

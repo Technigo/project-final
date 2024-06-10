@@ -8,7 +8,6 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find().exec();
-    console.log(products);
     //For Search bar in Frontend use this endpoint as well
     const productTitle = req.query.title;
 

@@ -8,7 +8,7 @@ export const ProductCard = ({ data }) => {
   const image = productData.image.url;
   const productName = productData.title;
   const price = `€${productData.price}`;
-  const id = productData._id
+  const id = productData._id;
 
   // Change variable to accept data from translation file.
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
@@ -18,14 +18,18 @@ export const ProductCard = ({ data }) => {
       {/* <div className="absolute w-[100%] h-[100%]"></div> */}
       <NavLink to={`/products/${id}`}>
         <img className="w-full rounded-t-xl" src={image} alt="" />
-      <div className="m-4 flex flex-col items-center justify-between text-white">
-        <h3 className="font-heading text-xs laptop:text-sm  ">{productName}</h3>
-        <div className="flex flex-col items-center "><p className="font-body my-3 font-bold text-sm">{price}</p>
-        <button className="w-24 text-xs bg-button-light p-1 rounded-full text-text-dark hover:bg-main-yellow">
-          {addToCart}
-        </button>
+        <div className="m-4 flex flex-col items-center h-28 text-white">
+          <h3 className="font-heading text-xs laptop:text-sm  ">
+            {productName}
+          </h3>
+
+          <div className="flex flex-col h-full  justify-end items-center ">
+            <p className="font-body my-3 font-bold text-sm">{price}</p>
+            <button className="w-24 text-xs bg-button-light p-1 rounded-full text-text-dark hover:bg-main-yellow">
+              {addToCart}
+            </button>
+          </div>
         </div>
-      </div>
       </NavLink>
     </div>
   );

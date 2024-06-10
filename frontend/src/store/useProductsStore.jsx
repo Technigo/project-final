@@ -42,7 +42,7 @@ export const useProductsStore = create((set, get) => ({
       }
       const data = await response.json();
       console.log(data);
-      set({ singleProduct: data.product });
+      set({ singleProduct: data });
     } catch (error) {
       console.error("error:", error);
       set({ error: error });

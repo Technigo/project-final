@@ -6,6 +6,9 @@ import { Loading } from "../components/Loading";
 import { MdOutlineStar } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 import SimilarProducts  from "../components/SimilarProducts"
+import { NotFound } from "./NotFound";
+import { Footer } from "../components/Footer";
+import { ReviewForm } from "../components/ReviewForm";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -15,6 +18,8 @@ export const SingleProductPage = () => {
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const [ userAllergy, setUserAllergy ] = useState(["fragrances"]) //replace with userdata from global
   const [ allergyAlert, setAllergyAlert] = useState([])
+  const product = singleProduct.product;
+
 
   // Adding quantity of items to add to cart
   const handleIncrement = () => {
@@ -38,8 +43,17 @@ export const SingleProductPage = () => {
   }, [singleProduct, userAllergy]);
 
 
+  if (!product || !product.image || !product.image.url) {
+    return (
+      <div>
+        <NotFound reason="product" />
+      </div>
+    );
+  }
+
   console.log("singleproduct", singleProduct);
   return (
+        <>
     <section className="bg-main-red h-full min-h-screen pt-4 laptop:pt-12 w-full ">
       <NavLink to="/products">
         <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
@@ -90,5 +104,10 @@ export const SingleProductPage = () => {
       )}
       <SimilarProducts subcategory={singleProduct.subcategory} currentProductId={singleProduct._id}/>
     </section>
+      <ReviewForm />
+
+      {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
+      <Footer aboveColor={"red"} />
+    </>
   );
 }

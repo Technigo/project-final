@@ -9,7 +9,7 @@ export const Hero = ({ data }) => {
   return (
     <section className="relative  min-h-[400px] max-h-full">
       <img
-        className="object-cover h-[543px] tablet:h-[598px] laptop:h-[810px]"
+        className="object-cover w-full h-[543px] tablet:h-[598px] laptop:h-[810px]"
         src={heroImage}
         alt="background image"
       ></img>
