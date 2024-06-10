@@ -13,7 +13,13 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "DELETE", "PUT"],
+  })
+);
+app.use(express.json());
 app.use(express.json());
 
 // Start defining your routes here
