@@ -1,14 +1,16 @@
-import express from "express"
+import express from "express";
 import {
   getReviews,
   postReviews,
   deleteReviews,
-} from "../controllers/reviewController.js"
+  getReviewsForUser,
+} from "../controllers/reviewController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/reviews", getReviews)
-router.post("/reviews", postReviews)
-router.delete("/reviews/:id", deleteReviews)
+router.get("/reviews", getReviews);
+router.post("/reviews", postReviews);
+router.delete("/reviews/:id", deleteReviews);
+router.post("/reviews/user", getReviewsForUser);
 
-export default router
+export default router;

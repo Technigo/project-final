@@ -5,6 +5,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { LogoutButton } from "../components/LogoutButton";
 import { ToHomepageBtn } from "../components/ToHomepageBtn";
 import LikedMuseums from "../components/LikedMuseums";
+import { UserReviews } from "../components/UserReviews";
 
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
@@ -65,7 +66,9 @@ export const UserPage = () => {
         <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
         <FeatureList>
           <LikedMuseums />
-          <FeatureItem>Posted reviews</FeatureItem>
+          <FeatureItem>
+            <UserReviews />
+          </FeatureItem>
           <FeatureItem>Purchased tickets</FeatureItem>
         </FeatureList>
         <LogoutButton />

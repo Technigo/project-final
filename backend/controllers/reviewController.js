@@ -1,3 +1,4 @@
+import { Museum } from "../models/Museum.js";
 import { Review } from "../models/Review.js";
 import { User } from "../models/User.js";
 
@@ -11,6 +12,31 @@ export const getReviews = async (req, res) => {
 };
 
 // getReviewsForUser
+
+export const getReviewsForUser = async (req, res) => {
+  const { accessToken } = req.body;
+
+  try {
+    const user = await User.findOne({ accessToken });
+    const userReviews = await Review.find({
+      userId: user.id,
+    });
+    /*const userReviewsWhitMuseumsName = userReviews.map(async (review) => {
+      const museumInfo = await Museum.findOne({
+        id: review.museumId,
+      });
+      return { ...review, museumName: museumInfo.name };
+    });*/
+    res.status(200).json(userReviews);
+  } catch (error) {
+    res.status(400).json({
+      response: error.message,
+      success: false,
+      message: "Could not get user reviews",
+      errors: error.errors,
+    });
+  }
+};
 
 export const postReviews = async (req, res) => {
   const { museumId, message, accessToken } = req.body;
