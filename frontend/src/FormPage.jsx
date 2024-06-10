@@ -4,8 +4,7 @@ import Button from "@mui/material/Button";
 import { LocationContext } from "./LocationContext";
 import "./FormPage.css";
 import Paper from "@mui/material/Paper";
-import TextField from '@mui/material/TextField';
-
+import TextField from "@mui/material/TextField";
 
 export const FormPage = () => {
   const navigate = useNavigate();
@@ -38,20 +37,18 @@ export const FormPage = () => {
 
   return (
     <div className="FormPage">
-     
-      <Paper elevation={3}>
+      <Paper elevation={3} className="FormPage-paper">
         <form className="FormPage-form" onSubmit={onSubmit}>
           <input type="hidden" name="latitude" />
           <input type="hidden" name="longitude" />
 
-       
-          <TextField
-          name="text"
-            label="Note"
-            multiline
-            rows={4}
-          />
-          <Button variant="contained" className="FormPage-submit" type="submit">
+          <TextField name="text" label="Note" multiline rows={4} />
+          <Button
+            style={{ background: "#1334ef" }}
+            variant="contained"
+            className="FormPage-submit"
+            type="submit"
+          >
             submit
           </Button>
         </form>

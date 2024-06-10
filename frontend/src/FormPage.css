@@ -5,6 +5,10 @@
   height: 100vh;
 }
 
+.FormPage-paper {
+  background: #f0ed18 !important;
+}
+
 .FormPage-form {
   display: grid;
   gap: 10px;

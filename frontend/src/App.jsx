@@ -44,18 +44,23 @@ const router = createBrowserRouter([
           });
         }
       }, [pathname]);
-
+// Plug in Material ui https://mui.com/base-ui/react-input/
       return (
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">happy angry note</h1>
-            <Link to="/" unstable_viewTransition>
-              home
-            </Link>
-            .
-            <Link to="/new" unstable_viewTransition>
-              new
-            </Link>
+            <h1 className="App-title">Angry happy note</h1>
+            <ul className="App-menu">
+              <li>
+                <Link to="/" unstable_viewTransition>
+                  Note map
+                </Link>
+              </li>
+              <li>  
+                <Link to="/new" unstable_viewTransition>
+                  Add note
+                </Link>
+              </li>
+            </ul>
           </header>
 
           <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>

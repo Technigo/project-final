@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+
 .App-header {
-  background: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  font-size: 20px;
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background: rgba(240, 237, 25, 0.91);
+  color: #000000;
+  font-size: 12px;
   margin: 0;
+  text-align: center;
   padding: 10px;
   position: absolute;
   top: 0;
@@ -12,8 +19,10 @@
 }
 
 .App-header a {
-  color: #71deff;
+  color: #1334ef;
   text-decoration: underline;
+  font-family: sans-serif;
+  font-size: 15px;
 }
 
 .App-map {
@@ -22,6 +31,16 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.App-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 15px;
 }
 
 
