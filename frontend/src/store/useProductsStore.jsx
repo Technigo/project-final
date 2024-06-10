@@ -41,7 +41,7 @@ export const useProductsStore = create((set, get) => ({
         throw new Error("Could not fetch");
       }
       const data = await response.json();
-      console.log(data);
+      console.log("Fetch single product", data);
       set({ singleProduct: data });
     } catch (error) {
       console.error("error:", error);

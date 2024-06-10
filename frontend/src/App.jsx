@@ -24,11 +24,10 @@ export const App = () => {
     <>
       <ScrollToTop />
 
-    <div className="bg-main-red">
-
-      <Navigation data={data["navbar"]} />
-      <GlimRoutes data={data} />
-    </div>
+      <div className="bg-main-red">
+        <Navigation data={data["navbar"]} />
+        <GlimRoutes data={data} />
+      </div>
+    </>
   );
 };
-
