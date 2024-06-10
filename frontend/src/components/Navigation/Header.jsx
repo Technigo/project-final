@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import logo from "../../assets/icons/logo.svg"
 import mobileMenu from "../../assets/icons/mobileMenu.png"
 import mobileMenuClose from "../../assets/icons/mobileMenuClose.png"
@@ -86,7 +87,9 @@ export const Header = () => {
   return (
     <>
       <HeaderContainer>
-        <Logo src={logo} />
+        <Link to="/">
+          <Logo src={logo} alt="Logo" />
+        </Link>
         <BreadcrumbContainer>
           <Breadcrumbs />
         </BreadcrumbContainer>
