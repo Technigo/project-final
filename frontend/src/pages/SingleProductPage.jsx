@@ -12,9 +12,9 @@ import { ReviewForm } from "../components/ReviewForm";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
-  const { fetchSingleProduct, loadingProduct, singleProduct } =
+  const { fetchSingleProduct, loadingProduct, singleProduct, setShoppingCart } =
     useProductsStore();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
@@ -28,6 +28,11 @@ export const SingleProductPage = () => {
   // Removing quantity of items to add to cart
   const handleDecrement = () => {
     setQuantity((prevQuantity) => (prevQuantity > 0 ? prevQuantity - 1 : 0));
+  };
+
+  // Adding product to the cart
+  const handleAddToCart = () => {
+    setShoppingCart(product, quantity);
   };
 
   useEffect(() => {
@@ -44,6 +49,8 @@ export const SingleProductPage = () => {
       setAllergyAlert(matchingAllergies);
     }
   }, [singleProduct, userAllergy]);
+
+
 
   // if (!product || !product.image || !product.image.url) {
   //   return (
@@ -114,7 +121,7 @@ export const SingleProductPage = () => {
                     +
                   </button>
                 </div>
-                <button className="w-24 h-6 text-xs bg-strong-yellow p-1 rounded-full text-text-dark hover:bg-main-yellow">
+                <button onClick={handleAddToCart} className="w-24 h-6 text-xs bg-strong-yellow p-1 rounded-full text-text-dark hover:bg-main-yellow">
                   {addToCart}
                 </button>
               </div>
