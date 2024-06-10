@@ -2,18 +2,31 @@ import { Footer } from "../components/Footer";
 import { useState, useRef } from "react";
 
 export const SignUpPage = () => {
-  const [activeSection, setActiveSection] = useState("sectionone");
+  const [activeSection, setActiveSection] = useState("sectionthree"); // CHANGE TO "sectionone"!!!
+
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-  /*   const [passwordLengthCheck, setPasswordLengthCheck] = useState(true); */
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+
+  const [allergies, setAllergies] = useState([]);
+  const [pros, setPros] = useState([]);
+
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  /*  const [pwValidation, setPwValidation] = useState(false) */
 
   const passwordRef = useRef();
+
+  // Section One
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
@@ -27,48 +40,12 @@ export const SignUpPage = () => {
     setIsPassword(isValidLength && isValidPattern);
   };
 
-  /* const handlePassword = (e) => {
-    setPassword(e.target.value);
-    let length = false;
-    let valid = false;
-
-    console.log("Password:", e.target.value);
-    if (e.target.value.length >= 8) {
-      // setPasswordLengthCheck(false);
-      length = true;
-      // setPassword(e.target.value);
-    } else {
-      // setPasswordLengthCheck(true);
-      length = false;
-      setIsPassword(false);
-    }
-
-    const pattern = /(?=.*^[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-    const input = e.target.value; // Replace with the actual input
-
-    if (pattern.test(e.target.value)) {
-      valid = true;
-      // setPwValidation(true)
-    } else {
-      valid = false;
-      // setPwValidation(false)
-
-      setIsPassword(false);
-    }
-
-    if (length && valid) {
-      console.log("L&V:", length, valid);
-      setIsPassword(true);
-    }
-  }; */
-
   const handleComparePassword = (e) => {
     setConfirmPassword(e.target.value);
     if (password === e.target.value) {
       setIsSame(true);
     } else {
       setIsSame(false);
-      // alert("The passwords are not matching. Please check your spelling.");
     }
   };
 
@@ -86,6 +63,81 @@ export const SignUpPage = () => {
       }
     }
   };
+
+  // Section two
+
+  const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const handleLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const handleAddress = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handlePostalCode = (e) => {
+    setPostalCode(e.target.value);
+  };
+
+  const handleCity = (e) => {
+    setCity(e.target.value);
+  };
+
+  const handleCountry = (e) => {
+    setCountry(e.target.value);
+  };
+
+  const handleSectionTwo = (e) => {
+    e.preventDefault();
+    if (firstName.length >= 2 && lastName.length >= 2) {
+      setActiveSection("sectionthree");
+    } else {
+      alert("NO!");
+    }
+  };
+
+  // Section Three
+
+  // skin []
+  // hair{moisture: "", shape ""}
+  // allergy []
+  // pros []
+
+  /* const allergyEnum = [
+    "fragrances",
+    "preservatives",
+    "dyes",
+    "metals",
+    "latex",
+    "parabens",
+  ];
+  
+  const prosEnum = ["organic", "vegan", "crueltyfree"];
+  
+  const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"]; */
+
+ const handleCheckboxChange = (setter) => (e) => {
+   const value = e.target.value;
+   setter((prev) =>
+     prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+   );
+ };
+
+ const skinOptions = ["Sensitive", "Dry", "Oily", "Combination", "Acne"];
+ const hairMoistureOptions = ["Dry", "Normal", "Oily"];
+ const hairShapeOptions = ["Straight", "Wavy", "Curly", "Coils"];
+ const allergyOptions = [
+   "Fragrances",
+   "Preservatives",
+   "Dyes",
+   "Metals",
+   "Latex",
+   "Parabens",
+ ];
+ const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
 
   return (
     <>
@@ -155,7 +207,7 @@ export const SignUpPage = () => {
               <button
                 ref={passwordRef}
                 onClick={handleSectionOne}
-                className="bg-main-yellow disabled:bg-strong-red2 h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
+                className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
               >
                 Next
               </button>
@@ -173,18 +225,20 @@ export const SignUpPage = () => {
                 personal Information
               </h3>
             </div>
-            <form className="flex flex-col w-full tablet:px-36 tablet:pb-10 laptop:pl-0 laptop:pr-12 laptop:flex-row">
+            <form className="flex flex-col text-text-dark w-full tablet:px-36 tablet:pb-10 laptop:pl-0 laptop:pr-12 laptop:flex-row">
               <div className="flex flex-col mt-8 tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="firstname"
-                    className="text-text-dark font-heading font-semibold"
+                    className=" font-heading font-semibold"
                   >
                     Firstname:
                   </label>
                   <input
+                    value={firstName}
                     className="rounded-xl h-10 bg-bg-input"
                     id="firstname"
+                    onChange={handleFirstName}
                   ></input>
                 </div>
                 <div className="flex flex-col w-full mt-2 tablet:mt-0 laptop:mt-2">
@@ -195,8 +249,10 @@ export const SignUpPage = () => {
                     Lastname:
                   </label>
                   <input
+                    vaalue={lastName}
                     id="lastname"
                     className="rounded-xl h-10 bg-bg-input"
+                    onChange={handleLastName}
                   ></input>
                 </div>
               </div>
@@ -211,8 +267,10 @@ export const SignUpPage = () => {
                         Address:
                       </label>
                       <input
+                        value={address}
                         id="address"
                         className="rounded-xl h-10 bg-bg-input"
+                        onChange={handleAddress}
                       ></input>
                     </div>
                     <div className="flex flex-col w-full">
@@ -223,8 +281,10 @@ export const SignUpPage = () => {
                         Postal code:
                       </label>
                       <input
+                        value={postalCode}
                         id="postal code"
                         className="rounded-xl h-10 bg-bg-input"
+                        onChange={handlePostalCode}
                       ></input>
                     </div>
                   </div>
@@ -237,8 +297,10 @@ export const SignUpPage = () => {
                         City:
                       </label>
                       <input
+                        value={city}
                         id="city"
                         className="rounded-xl h-10 bg-bg-input"
+                        onChange={handleCity}
                       ></input>
                     </div>
                     <div className="flex flex-col w-full">
@@ -249,14 +311,16 @@ export const SignUpPage = () => {
                         Country:
                       </label>
                       <input
+                        value={country}
                         id="country"
                         className="rounded-xl h-10 bg-bg-input"
+                        onChange={handleCountry}
                       ></input>
                     </div>
                   </div>
                 </div>
                 <button
-                  onClick={() => setActiveSection("sectionthree")}
+                  onClick={handleSectionTwo}
                   className="bg-main-yellow h-8 w-28 self-center mt-12 rounded-3xl text-text-dark font-heading tablet:mb-10 tablet:self-end"
                 >
                   Next
@@ -279,7 +343,7 @@ export const SignUpPage = () => {
           <h3 className="text-xl font-heading font-medium mt-8 text-center tablet:px-44 laptop:px-36">
             Personalize your account to get custom recommondations
           </h3>
-          <form className="flex flex-col w-full mt-16 tablet:px-36">
+            <form className="flex flex-col w-full mt-16 tablet:px-36">
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col w-full">
                 <div className="flex">
@@ -405,6 +469,50 @@ export const SignUpPage = () => {
             </div>
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col mt-10 w-full">
+                
+                 <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="allergies"
+                    className="text-text-dark font-heading font-semibold"
+                  >
+                    Allergies:
+                  </label>
+                  {allergyOptions.map((option) => (
+                    <label key={option}>
+                      <input
+                        type="checkbox"
+                        value={option}
+                        checked={allergies.includes(option)}
+                        onChange={handleCheckboxChange(setAllergies)}
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col mt-8 tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="preferences"
+                    className=" font-heading font-semibold"
+                  >
+                    Preferences:
+                  </label>
+                  {preferenceOptions.map((option) => (
+                    <label key={option}>
+                      <input
+                        type="checkbox"
+                        value={option}
+                        checked={preferences.includes(option)}
+                        onChange={handleCheckboxChange(setPreferences)}
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+                
+                
+                
                 <div className="flex">
                   <img
                     src="allergies02.svg"
