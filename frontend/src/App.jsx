@@ -44,7 +44,7 @@ const router = createBrowserRouter([
           });
         }
       }, [pathname]);
-// Plug in Material ui https://mui.com/base-ui/react-input/
+      // Plug in Material ui https://mui.com/base-ui/react-input/
       return (
         <div className="App">
           <header className="App-header">
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                   Note map
                 </Link>
               </li>
-              <li>  
+              <li>
                 <Link to="/new" unstable_viewTransition>
                   Add note
                 </Link>
