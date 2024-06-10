@@ -9,10 +9,10 @@ import { AuthContext } from "../contexts/AuthContext"
 //If user is not logged in, they should be redirected to register/login page
 
 export const FavoriteButton = ({ museumId }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const { authState } = useContext(AuthContext);
-  const { accessToken } = authState;
-  
+  const [isFavorite, setIsFavorite] = useState(false)
+  const { authState } = useContext(AuthContext)
+  const { accessToken } = authState
+
   const checkIfFavorite = async () => {
     const options = {
       method: "POST",
@@ -37,7 +37,7 @@ export const FavoriteButton = ({ museumId }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ museumId, accessToken }),
-    };
+    }
     fetch("http://localhost:3000/favorites/toggle", options)
       .then((response) => response.json())
       .then((response) => {
@@ -58,7 +58,10 @@ export const FavoriteButton = ({ museumId }) => {
 
 const Button = styled.button`
   border: none;
-  font-size: 35px;
+  font-size: 40px;
   cursor: pointer;
   background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `
