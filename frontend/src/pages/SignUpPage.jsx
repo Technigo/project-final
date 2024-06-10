@@ -3,18 +3,87 @@ import { useState, useRef } from "react";
 
 export const SignUpPage = () => {
   const [activeSection, setActiveSection] = useState("sectionone");
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
+  const [password, setPassword] = useState("");
+  const [isPassword, setIsPassword] = useState(false);
+  const [isSame, setIsSame] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  /*   const [passwordLengthCheck, setPasswordLengthCheck] = useState(true); */
+  const [fetchStatus, setFetchStatus] = useState("");
+  const [successStatus, setSuccessStatus] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+  /*  const [pwValidation, setPwValidation] = useState(false) */
 
   const passwordRef = useRef();
-  const comparePasswordRef = useRef();
 
-  const handleSectionOne = () => {
-    console.log(passwordRef.value, comparePasswordRef.value);
-    if (password === confirmPassword) {
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    const inputPassword = e.target.value;
+    const minLength = 8;
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+
+    const isValidLength = inputPassword.length >= minLength;
+    const isValidPattern = pattern.test(inputPassword);
+
+    setIsPassword(isValidLength && isValidPattern);
+  };
+
+  /* const handlePassword = (e) => {
+    setPassword(e.target.value);
+    let length = false;
+    let valid = false;
+
+    console.log("Password:", e.target.value);
+    if (e.target.value.length >= 8) {
+      // setPasswordLengthCheck(false);
+      length = true;
+      // setPassword(e.target.value);
+    } else {
+      // setPasswordLengthCheck(true);
+      length = false;
+      setIsPassword(false);
+    }
+
+    const pattern = /(?=.*^[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+    const input = e.target.value; // Replace with the actual input
+
+    if (pattern.test(e.target.value)) {
+      valid = true;
+      // setPwValidation(true)
+    } else {
+      valid = false;
+      // setPwValidation(false)
+
+      setIsPassword(false);
+    }
+
+    if (length && valid) {
+      console.log("L&V:", length, valid);
+      setIsPassword(true);
+    }
+  }; */
+
+  const handleComparePassword = (e) => {
+    setConfirmPassword(e.target.value);
+    if (password === e.target.value) {
+      setIsSame(true);
+    } else {
+      setIsSame(false);
+      // alert("The passwords are not matching. Please check your spelling.");
+    }
+  };
+
+  const handleSectionOne = (e) => {
+    e.preventDefault();
+
+    if (isPassword && isSame) {
       setActiveSection("sectiontwo");
     } else {
-      alert("The passwords are not matching. Please check your spelling.");
+      if (!isPassword) {
+        alert("Make sure you use at least one capital and one number.");
+      }
+      if (!isSame) {
+        alert("The passwords aren't matching!");
+      }
     }
   };
 
@@ -61,11 +130,10 @@ export const SignUpPage = () => {
                   </label>
                   <input
                     value={password}
-                    ref={passwordRef}
                     type="password"
                     className="rounded-xl h-10 bg-bg-input "
                     id="password"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePassword}
                   ></input>
                 </div>
                 <div className="flex flex-col w-full">
@@ -77,17 +145,17 @@ export const SignUpPage = () => {
                   </label>
                   <input
                     value={confirmPassword}
-                    ref={comparePasswordRef}
                     type="password"
                     className="rounded-xl h-10 bg-bg-input "
                     id="confirm"
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    onChange={handleComparePassword}
                   ></input>
                 </div>
               </div>
               <button
+                ref={passwordRef}
                 onClick={handleSectionOne}
-                className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
+                className="bg-main-yellow disabled:bg-strong-red2 h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
               >
                 Next
               </button>
