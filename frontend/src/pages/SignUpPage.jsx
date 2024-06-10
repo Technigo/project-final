@@ -24,6 +24,7 @@ export const SignUpPage = () => {
     setHairMoisture,
     skinType,
     setSkinType,
+    registerUser
   } = useUserStore();
   const [activeSection, setActiveSection] = useState("sectionthree"); // CHANGE TO "sectionone"!!!
 
@@ -143,8 +144,8 @@ export const SignUpPage = () => {
   };
 
   /* ------------  Not Working ------------ */
+  // It's one selection off... 
 
-  // Handler to toggle item selection
   const handleAllergyCheckboxChange = (e) => {
     const value = e.target.value;
     // If the item is already selected, remove it from the array
@@ -175,9 +176,7 @@ export const SignUpPage = () => {
 
     console.log("Does this work?: ", selectedPros);
   };
-  // const skinOptions = ["Sensitive", "Dry", "Oily", "Combination", "Acne"];
-  // const hairMoistureOptions = ["Dry", "Normal", "Oily"];
-  // const hairShapeOptions = ["Straight", "Wavy", "Curly", "Coils"];
+
   const allergyOptions = [
     "Fragrances",
     "Preservatives",
@@ -190,9 +189,21 @@ export const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setAllergies(selectedAllergies);
 
     console.log("Register user:", "Allergies:", allergies, "Pros: ", pros);
-
+    // registerUser(
+    //   firstName,
+    //   lastName,
+    //   email,
+    //   address,
+    //   password,
+    //   allergies,
+    //   pros,
+    //   hairShape,
+    //   hairMoisture,
+    //   skinType
+    // );
     resetFields;
   };
 
