@@ -8,7 +8,7 @@ import { AuthContext } from "../contexts/AuthContext"
 //If the user is logged in, the museum should be saved to the users profile and the heart should be filled to indicate museum is saved
 //If user is not logged in, they should be redirected to register/login page
 
-export const FavoriteButton = ({ museumId }) => {
+export const FavoriteButton = ({ museumId, inCard }) => {
   const [isFavorite, setIsFavorite] = useState(false)
   const { authState } = useContext(AuthContext)
   const { accessToken } = authState
@@ -46,22 +46,30 @@ export const FavoriteButton = ({ museumId }) => {
   }
 
   return (
-    <>
+    <FavoriteButtonWrapper inCard={inCard}>
       <Button onClick={handleFavoriteToggle}>
         {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
       </Button>
-    </>
+    </FavoriteButtonWrapper>
   )
 }
 
 //Styled components
+const FavoriteButtonWrapper = styled.div`
+  position: ${({ inCard }) => (inCard ? "static" : "absolute")};
+  top: ${({ inCard }) => (inCard ? "0" : "20px")};
+  right: ${({ inCard }) => (inCard ? "0" : "20px")};
+`
 
 const Button = styled.button`
   border: none;
   font-size: 40px;
   cursor: pointer;
   background-color: transparent;
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  transition: transform 0.3s;
+  color: inherit;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `

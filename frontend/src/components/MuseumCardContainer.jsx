@@ -31,7 +31,7 @@ const MuseumCardGrid = styled.div`
   padding: 0 20px;
   grid-template-columns: repeat(1, 1fr);
 
-  @media (min-width: 700px) {
+  @media (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -41,7 +41,7 @@ const MuseumCardGrid = styled.div`
 
   @media (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 100px; /* Increase padding for larger devices */
+    padding: 0 100px;
   }
 `;
 
