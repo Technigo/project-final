@@ -6,11 +6,15 @@ import userIcon from "/user-solid.svg";
 import burgerMenu from "/bars-solid.svg";
 import xMark from "/square-xmark-solid.svg";
 import swoop from "/nav-swoop2.svg";
+import { useUserStore } from "../store/useUserStore";
 
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
+  const { email, password } = useUserStore();
   const [open, setOpen] = useState(false);
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
   const navRef = useRef();
   const btnRef = useRef();
   const overlayRef = useRef();
@@ -21,8 +25,11 @@ export const Navigation = ({ data }) => {
     btnRef.current.classList.toggle("invisible");
   };
 
-  const handleLogin = () => {
-    console.log("logging in");
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    console.log("Logging in:", emailInput, passwordInput);
+    loginUser(email, password);
   };
   const handleClickOutside = (event) => {
     if (overlayRef.current && !modalContentRef.current.contains(event.target)) {
@@ -142,14 +149,18 @@ export const Navigation = ({ data }) => {
             </div>
             <form className="flex flex-col gap-2">
               <input
+                value={emailInput}
                 type="email"
                 placeholder="Email..."
                 className="p-2 rounded-lg"
+                onChange={(e) => setEmailInput(e.target.value)}
               />
               <input
+                value={passwordInput}
                 type="password"
                 placeholder="Password..."
                 className="p-2 rounded-lg"
+                onChange={(e) => setPasswordInput(e.target.value)}
               />
               <button
                 onClick={handleLogin}
