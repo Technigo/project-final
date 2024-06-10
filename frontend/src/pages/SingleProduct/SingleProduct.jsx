@@ -1,10 +1,13 @@
-import { Image } from "../../common/ReusableComponents/Image/Image";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./SingleProduct.css";
-import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
+
 import { Button } from "../../common/ReusableComponents/Button/Button";
+import { Image } from "../../common/ReusableComponents/Image/Image";
 import { Toggle } from "../../common/ReusableComponents/Toggle/Toggle";
+import { useCartStore } from "../../stores/useCartStore";
+import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
+
+import "./SingleProduct.css";
 
 export const SingleProduct = () => {
   const { productId } = useParams(); //get the product ID from the URL
@@ -12,6 +15,8 @@ export const SingleProduct = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
+  // Destructuring addToCart from useCartStore
+  const {addToCart} = useCartStore();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -42,6 +47,13 @@ export const SingleProduct = () => {
 
   const selectSize = (size) => {
     setSelectedSize(size);
+  };
+
+  const handleAddToCart = () => {
+    if (selectedSize && product) {
+      // addToCart({ ...product, size: selectedSize });
+      addToCart(product, selectedSize)
+    }
   };
 
   return (
@@ -83,6 +95,7 @@ export const SingleProduct = () => {
               label={selectedSize ? "Add to cart" : "Select size"}
               variant="add-to-cart"
               disabled={!selectedSize}
+              onClick={handleAddToCart}
             />
             <DeliveryStatements variant="white" />
           </section>
