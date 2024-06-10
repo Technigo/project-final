@@ -1,5 +1,7 @@
 import { Navigation } from "./components/Navigation";
 import { GlimRoutes } from "./routes/GlimRoutes";
+import { ScrollToTop } from "./components/ScrollToTop";
+
 import dataEn from "./data.en.json";
 
 export const App = () => {
@@ -19,7 +21,11 @@ export const App = () => {
   */
 
   return (
+    <>
+      <ScrollToTop />
+
     <div className="bg-main-red">
+
       <Navigation data={data["navbar"]} />
       <GlimRoutes data={data} />
     </div>

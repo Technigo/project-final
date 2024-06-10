@@ -8,9 +8,14 @@ export default {
         "cta-blue-hover": "#1138a6",
         "main-red": "#E48d6A",
         "main-green": "#97a65D",
-        "main-yellow": "#FFDE68",
+
+        "main-yellow": "#FFE486",
+        "strong-yellow": "#FFDE68",
+
+        "main-yellow-check": "#FFDE68",
 
         "main-white": "#FFFDF6",
+
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
@@ -19,12 +24,16 @@ export default {
         "light-yellow": "#FFE486",
         "light-orange": "#FF8E61",
 
-
         "text-light": "#fff",
         "text-dark": "#671E01",
 
         "button-light": "#FFF5F2",
+
+        "button-varm-light": "#FFCDBD",
+        
+
         "bg-input": "#FFFDF6",
+
 
       },
       fontFamily: {
