@@ -6,7 +6,6 @@ import { MobileMenu } from "./MobileMenu"
 import { MainMenu } from "./MainMenu"
 import { Breadcrumbs } from "./Breadcrumbs"
 import styled from "styled-components"
-import GlobalStyles from "../GlobalStyles"
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -21,6 +20,14 @@ const HeaderContainer = styled.header`
 
   @media (min-width: 768px) {
     padding: 80px 60px;
+  }
+`
+
+const Logo = styled.img`
+  width: 60px;
+
+  @media (min-width: 768px) {
+    width: 100px;
   }
 `
 
@@ -78,8 +85,8 @@ export const Header = () => {
 
   return (
     <>
-      <GlobalStyles />
       <HeaderContainer>
+        <Logo src={logo} />
         <BreadcrumbContainer>
           <Breadcrumbs />
         </BreadcrumbContainer>
