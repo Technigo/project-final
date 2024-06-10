@@ -1,20 +1,22 @@
-import { useState } from "react";
-import Slider from "react-slick";
-import styled from "styled-components";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import sunImg from "../assets/images/sun.png";
-import mercuryImg from "../assets/images/mercury.png";
-import venusImg from "../assets/images/venus.png";
-import tellusImg from "../assets/images/tellus.png";
-import moonImg from "../assets/images/moon.png";
-import marsImg from "../assets/images/mars.png";
-import jupiterImg from "../assets/images/jupiter.png";
-import saturnImg from "../assets/images/saturn.png";
-import uranusImg from "../assets/images/uranus.png";
-import neptuneImg from "../assets/images/neptune.png";
-import plutoImg from "../assets/images/pluto.png";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import Slider from "react-slick"
+import styled from "styled-components"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import sunImg from "../assets/images/sun.png"
+import mercuryImg from "../assets/images/mercury.png"
+import venusImg from "../assets/images/venus.png"
+import tellusImg from "../assets/images/tellus.png"
+import moonImg from "../assets/images/moon.png"
+import marsImg from "../assets/images/mars.png"
+import jupiterImg from "../assets/images/jupiter.png"
+import saturnImg from "../assets/images/saturn.png"
+import uranusImg from "../assets/images/uranus.png"
+import neptuneImg from "../assets/images/neptune.png"
+import plutoImg from "../assets/images/pluto.png"
+import nextArrowIcon from "../assets/icons/rightarrow.png"
+import prevArrowIcon from "../assets/icons/leftarrow.png"
 
 const planets = [
   { name: "Sun", image: sunImg },
@@ -28,10 +30,22 @@ const planets = [
   { name: "Uranus", image: uranusImg },
   { name: "Neptune", image: neptuneImg },
   { name: "Pluto", image: plutoImg },
-];
+]
 
 export const PlanetsCarousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const CustomPrevArrow = ({ onClick }) => (
+    <Arrow direction="left" onClick={onClick}>
+      <img src={prevArrowIcon} alt="Previous" />
+    </Arrow>
+  )
+
+  const CustomNextArrow = ({ onClick }) => (
+    <Arrow direction="right" onClick={onClick}>
+      <img src={nextArrowIcon} alt="Next" />
+    </Arrow>
+  )
 
   const settings = {
     infinite: true,
@@ -49,9 +63,9 @@ export const PlanetsCarousel = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
@@ -61,8 +75,10 @@ export const PlanetsCarousel = () => {
         },
       },
     ],
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
     beforeChange: (current, next) => setCurrentSlide(next),
-  };
+  }
 
   return (
     <CarouselContainer>
@@ -91,32 +107,52 @@ export const PlanetsCarousel = () => {
         ))}
       </Slider>
     </CarouselContainer>
-  );
-};
+  )
+}
 
 const CarouselContainer = styled.div`
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-`;
+  margin-top: 100px;
+`
 
 const Slide = styled.div`
   text-align: center;
-  padding: 10px;
   transition: transform 0.5s, opacity 0.5s;
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.7)")};
   opacity: ${({ isCenter }) => (isCenter ? "1" : "0.5")};
-  margin: ${({ isCenter }) => (isCenter ? "0 -40px" : "0")};
-`;
+`
 
 const PlanetImage = styled.img`
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
   margin: 0 auto;
   transition: transform 0.5s;
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.9)")};
-`;
+
+  @media (min-width: 768px) {
+    max-width: 280px;
+  }
+`
 
 const PlanetName = styled.p`
   font-size: 1.2em;
   margin-top: 10px;
-`;
+`
+
+const Arrow = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  ${({ direction }) => (direction === "left" ? "left: 10px;" : "right: 10px;")}
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
