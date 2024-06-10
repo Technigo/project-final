@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import Button from "@mui/material/Button";
 import { LocationContext } from "./LocationContext";
 import "./FormPage.css";
+import Paper from "@mui/material/Paper";
+import TextField from '@mui/material/TextField';
+
 
 export const FormPage = () => {
   const navigate = useNavigate();
@@ -34,19 +38,24 @@ export const FormPage = () => {
 
   return (
     <div className="FormPage">
-      <form className="FormPage-form" onSubmit={onSubmit}>
-        <input type="hidden" name="latitude" />
-        <input type="hidden" name="longitude" />
+     
+      <Paper elevation={3}>
+        <form className="FormPage-form" onSubmit={onSubmit}>
+          <input type="hidden" name="latitude" />
+          <input type="hidden" name="longitude" />
 
-        <label>
-          <span className="FormPage-label">Note</span>
-          <br />
-          <textarea className="FormPage-textarea" name="text" />
-        </label>
-        <button className="FormPage-submit" type="submit">
-          submit
-        </button>
-      </form>
+       
+          <TextField
+          name="text"
+            label="Note"
+            multiline
+            rows={4}
+          />
+          <Button variant="contained" className="FormPage-submit" type="submit">
+            submit
+          </Button>
+        </form>
+      </Paper>
     </div>
   );
 };
