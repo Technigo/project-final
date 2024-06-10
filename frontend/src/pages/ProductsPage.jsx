@@ -4,15 +4,17 @@ import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
+import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
 
 export const ProductsPage = () => {
-  const { productsData, fetchProducts, loadingProduct } = useProductsStore();
+  const { productsData, fetchProducts, loadingProduct, addedProduct } = useProductsStore();
   //const { loggedIn } = useUserStore();
   const loggedIn = true; // to be deleted
   const [categoryValue, setCategoryValue] = useState("category");
   const [sortValue, setSortValue] = useState("sort");
   const [filterValue, setFilterValue] = useState("filter");
   const [filteredProducts, setFilteredProducts] = useState([]);
+
 
   const handleSortChange = (e) => {
     setSortValue(e.target.value);
@@ -46,34 +48,37 @@ export const ProductsPage = () => {
 
   useEffect(() => {
     let newFilteredProducts = productsData.products;
-
+  
     if (categoryValue !== "category" && categoryValue !== "all") {
       newFilteredProducts = newFilteredProducts.filter(
         (product) => product.category && product.category === categoryValue
       );
     }
-
+  
     if (filterValue !== "filter" && filterValue !== "all") {
       newFilteredProducts = newFilteredProducts.filter(
         (product) => product.pros && product.pros.includes(filterValue)
       );
     }
-
-    // if (sortValue === "lowest price") {
-    //   newFilteredProducts.sort((a, b) => a.price - b.price);
-    // } else if (sortValue === "highest price") {
-    //   newFilteredProducts.sort((a, b) => b.price - a.price);
-    // } else if (sortValue === "top rated") {
-    //   newFilteredProducts.sort((a, b) => a.rating - b.rating);
-    // }
-
+  
+    // Apply previous filters if they exist
+    if (sortValue === "top rated") {
+      newFilteredProducts.sort((a, b) => a.rating - b.rating);
+    } else if (sortValue === "lowest price") {
+      newFilteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sortValue === "highest price") {
+      newFilteredProducts.sort((a, b) => b.price - a.price);
+    }
+  
     setFilteredProducts(newFilteredProducts);
-  }, [categoryValue, filterValue, productsData.products]);
+  }, [categoryValue, filterValue, productsData.products, sortValue]);
 
   console.log("Filtered Product:", filteredProducts);
+  console.log("added", addedProduct)
 
   return (
     <>
+    < ShoppingCartPopup />
       <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
         <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row">
           <h2 className="text-text-light text-2xl  tablet:text-3xl laptop:text-3xl text-center mb-6 desktop:mb-0">

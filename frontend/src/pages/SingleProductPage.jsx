@@ -12,7 +12,7 @@ import { ReviewForm } from "../components/ReviewForm";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
-  const { fetchSingleProduct, loadingProduct, singleProduct, setShoppingCart } =
+  const { fetchSingleProduct, loadingProduct, singleProduct, shoppingCart, setShoppingCart } =
     useProductsStore();
   const [quantity, setQuantity] = useState(1);
 
@@ -32,7 +32,8 @@ export const SingleProductPage = () => {
 
   // Adding product to the cart
   const handleAddToCart = () => {
-    setShoppingCart(product);
+    setShoppingCart(product, quantity);
+    console.log("shopping cart", shoppingCart)
   };
 
   useEffect(() => {

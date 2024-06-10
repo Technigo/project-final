@@ -9,7 +9,12 @@ export const useProductsStore = create(
   loadingProduct: false,
   shoppingCart: [],
   totalPrice: 0,
+  addedProduct: [],
 
+  setAddedProduct: (product) => {
+    set[{ addedProduct: product }]
+  },
+  
   setShoppingCart: (product, quantity) => {
     const currentCart = get().shoppingCart;
     const productIndex = currentCart.findIndex(
@@ -27,19 +32,36 @@ export const useProductsStore = create(
         updatedCart[productIndex].quantity
       );
   
-      set({ shoppingCart: updatedCart });
+      set({ shoppingCart: updatedCart, addedProduct: [product] });
     } else {
       // Add the new product to the cart
-      set({ shoppingCart: [...currentCart, { product, quantity }] });
+      set({ shoppingCart: [...currentCart, { product, quantity }], addedProduct: [product] });
     }
   
     // Recalculate total price and update store
     const price = get().shoppingCart.reduce((total, item) => {
       return total + item.product.price * item.quantity;
     }, 0);
-    const roundedPrice = Math.ceil(price);
-        // Set the rounded total price
-        set({ totalPrice: roundedPrice });
+    const roundedPrice = Math.ceil(price * 100) / 100; // Round up to 2 decimal places
+    set({ totalPrice: roundedPrice });
+      },
+  
+      updateCart: (newQuantity, productId) => {
+        const currentCart = get().shoppingCart;
+        const productIndex = currentCart.findIndex(item => item.product._id === productId);
+    
+        if (productIndex >= 0) {
+          const updatedCart = [...currentCart];
+          updatedCart[productIndex].quantity = Math.max(1, newQuantity);
+          set({ shoppingCart: updatedCart });
+    
+          // Recalculate total price and update store
+          const price = updatedCart.reduce((total, item) => {
+            return total + item.product.price * item.quantity;
+          }, 0); 
+          const roundedPrice = Math.ceil(price * 100) / 100; // Round up to 2 decimal places
+          set({ totalPrice: roundedPrice });
+        }
       },
 
   removeAllByIdFromCart: (productId) => {
@@ -52,7 +74,7 @@ export const useProductsStore = create(
     const price = updatedCart.reduce((total, item) => {
       return total + (item.product.price * item.quantity);
     }, 0);
-    const roundedPrice = Math.ceil(price);
+    const roundedPrice = Math.ceil(price * 100) / 100; // Round up to 2 decimal places
     set({ shoppingCart: updatedCart, totalPrice: roundedPrice });
   },
   
