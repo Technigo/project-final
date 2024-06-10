@@ -4,11 +4,11 @@ import { persist } from "zustand/middleware";
 export const useUserStore = create(
   persist(
     (set, get) => ({
-      URL_userId: `https://project-final-glim.onrender.com/users/profile/${id}`,
+      //URL_userId: `https://project-final-glim.onrender.com/users/profile/${id}`,
       user: {},
       userId: "",
-      firstname: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       email: "",
       address: {},
       password: "",
@@ -22,21 +22,21 @@ export const useUserStore = create(
       loggedIn: false,
 
       //Functions to update userInfo
-      setFirstName: (Input) => set({ firstname: Input }),
-      setLastName: (Input) => set({ lastname: Input }),
+      setFirstName: (Input) => set({ firstName: Input }),
+      setLastName: (Input) => set({ lastName: Input }),
       setEmail: (Input) => set({ email: Input }),
       setAddress: (Input) => set({ address: Input }),
       setPassword: (Input) => set({ password: Input }),
       setAllergies: (Input) => set({ allergies: Input }),
       setPros: (Input) => set({ pros: Input }),
-      sethairShape: (Input) => set({ hairShape: Input }),
+      setHairShape: (Input) => set({ hairShape: Input }),
       setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
 
       //Register user
       registerUser: async (
-        firstname,
-        lastname,
+        firstName,
+        lastName,
         email,
         address,
         password,
@@ -47,13 +47,14 @@ export const useUserStore = create(
         skinType
       ) => {
         set({ loadingUser: true });
-        const URL_register = "https://project-final-glim.onrender.com/users/register"
+        const URL_register =
+          "https://project-final-glim.onrender.com/users/register";
         try {
           const response = await fetch(URL_register, {
             method: "POST",
             body: JSON.stringify({
-              firstname: firstname,
-              lastname: lastname,
+              firstName: firstName,
+              lastName: lastName,
               email: email,
               address: address,
               password: password,
@@ -80,7 +81,7 @@ export const useUserStore = create(
       },
       loginUser: async (email, password) => {
         set({ loadingUser: true });
-        const URL_login = "https://project-final-glim.onrender.com/users/login"
+        const URL_login = "https://project-final-glim.onrender.com/users/login";
         try {
           const response = await fetch(URL_login, {
             method: "POST",
@@ -99,8 +100,8 @@ export const useUserStore = create(
               loggedIn: true,
               userID: data._id,
               accessToken: data.accessToken,
-              firstname: data.firstname,
-              lastname: data.lastname,
+              firstName: data.firstName,
+              lastName: data.lastName,
               email: data.email,
               address: data.address,
               allergies: data.allergies,

@@ -1,30 +1,53 @@
 import { Footer } from "../components/Footer";
 import { useState, useRef } from "react";
+import { useUserStore } from "../store/useUserStore";
 
 export const SignUpPage = () => {
-  const { firstname, lastname, address, email, password, allergies, pros, hairShape,
+  const {
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    email,
+    setEmail,
+    address,
+    setAddress,
+    password,
+    setPassword,
+    allergies,
+    setAllergies,
+    pros,
+    setPros,
+    hairShape,
+    setHairShape,
     hairMoisture,
-    skinType } = useUserStore()
+    setHairMoisture,
+    skinType,
+    setSkinType,
+  } = useUserStore();
   const [activeSection, setActiveSection] = useState("sectionthree"); // CHANGE TO "sectionone"!!!
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address, setAddress] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [address, setAddress] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
 
-  const [allergies, setAllergies] = useState([]);
-  const [preferences, setPreferences] = useState([]);
-  const [hairShape, setHairShape] = useState("");
-  const [hairMoisture, setHairMoisture] = useState("");
-  const [skin, setSkin] = useState("");
+  // const [allergies, setAllergies] = useState([]);
+  // const [pros, setPros] = useState([]);
+  // const [hairShape, setHairShape] = useState("");
+  // const [hairMoisture, setHairMoisture] = useState("");
+  // const [skinType, setSkinType] = useState("");
+
+  const [selectedAllergies, setSelectedAllergies] = useState([]);
+  const [selectedPros, setSelectedPros] = useState([]);
 
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
@@ -107,24 +130,6 @@ export const SignUpPage = () => {
 
   // Section Three
 
-  // skin []
-  // hair{moisture: "", shape ""}
-  // allergy []
-  // pros []
-
-  /* const allergyEnum = [
-    "fragrances",
-    "preservatives",
-    "dyes",
-    "metals",
-    "latex",
-    "parabens",
-  ];
-  
-  const prosEnum = ["organic", "vegan", "crueltyfree"];
-  
-  const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"]; */
-
   const handleHairShape = (e) => {
     setHairShape(e.target.value);
   };
@@ -134,19 +139,49 @@ export const SignUpPage = () => {
   };
 
   const handleSkin = (e) => {
-    setSkin(e.target.value);
+    setSkinType(e.target.value);
   };
 
-  const handleCheckboxChange = (setter) => (e) => {
+  console.log("Pros:", pros, "Is Array:", Array.isArray(pros));
+  console.log("Allergies:", allergies, "Is Array:", Array.isArray(allergies));
+
+  /* ------------  Not Working ------------ */
+
+  // Handler to toggle item selection
+  const handleAllergyCheckboxChange = (e) => {
+    console.log(e.target.value);
     const value = e.target.value;
-    setter((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
-    );
+    // If the item is already selected, remove it from the array
+    if (selectedAllergies.includes(value)) {
+      setSelectedAllergies(selectedAllergies.filter((item) => item !== value));
+    } else {
+      // If the item is not selected, add it to the array
+      setSelectedAllergies([...selectedAllergies, value]);
+    }
+
+    setAllergies(selectedAllergies);
+
+    console.log("Does this work?: ", selectedAllergies);
   };
 
-  const skinOptions = ["Sensitive", "Dry", "Oily", "Combination", "Acne"];
-  const hairMoistureOptions = ["Dry", "Normal", "Oily"];
-  const hairShapeOptions = ["Straight", "Wavy", "Curly", "Coils"];
+  const handleProsCheckboxChange = (e) => {
+    console.log(e.target.value);
+    const value = e.target.value;
+    // If the item is already selected, remove it from the array
+    if (selectedPros.includes(value)) {
+      setSelectedPros(selectedPros.filter((item) => item !== value));
+    } else {
+      // If the item is not selected, add it to the array
+      setsSlectedPros([...selectedPros, value]);
+    }
+
+    setAllergies(selectedPros);
+
+    console.log("Does this work?: ", selectedPros);
+  };
+  // const skinOptions = ["Sensitive", "Dry", "Oily", "Combination", "Acne"];
+  // const hairMoistureOptions = ["Dry", "Normal", "Oily"];
+  // const hairShapeOptions = ["Straight", "Wavy", "Curly", "Coils"];
   const allergyOptions = [
     "Fragrances",
     "Preservatives",
@@ -157,11 +192,25 @@ export const SignUpPage = () => {
   ];
   const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
 
-  console.table(hairMoisture, hairShape, skin, preferences, allergies);
+  console.table(
+    "H-Moist: ",
+    hairMoisture,
+    "H-Shape",
+    hairShape,
+    "Skin: ",
+    skinType,
+    "Pros: ",
+    pros,
+    "Allergies: ",
+    allergies
+  );
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Register user:");
+  };
 
-  }
+console.log(allergies)
 
   return (
     <>
@@ -495,48 +544,7 @@ export const SignUpPage = () => {
               </div>
             </div>
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
-              <div className="flex flex-col mt-10 w-full">
-                <div className="flex flex-col w-full">
-                  <label
-                    htmlFor="allergies"
-                    className="text-text-dark font-heading font-semibold"
-                  >
-                    Allergies:
-                  </label>
-                  {allergyOptions.map((option) => (
-                    <label key={option}>
-                      <input
-                        type="checkbox"
-                        value={option}
-                        checked={allergies.includes(option)}
-                        onChange={handleCheckboxChange(setAllergies)}
-                      />
-                      {option}
-                    </label>
-                  ))}
-                </div>
-              </div>
-              <div className="flex flex-col mt-8 tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
-                <div className="flex flex-col w-full">
-                  <label
-                    htmlFor="preferences"
-                    className=" font-heading font-semibold"
-                  >
-                    Preferences:
-                  </label>
-                  {preferenceOptions.map((option) => (
-                    <label key={option}>
-                      <input
-                        type="checkbox"
-                        value={option}
-                        checked={preferences.includes(option)}
-                        onChange={handleCheckboxChange(setPreferences)}
-                      />
-                      {option}
-                    </label>
-                  ))}
-                </div>
-
+              <div className="flex flex-col mt-8 tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
                 <div className="flex">
                   <img
                     src="allergies02.svg"
@@ -549,50 +557,20 @@ export const SignUpPage = () => {
                     Allergies:
                   </label>
                 </div>
-                <select
-                  name="allergies"
-                  id="allergies"
-                  className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
-                  multiple
-                >
-                  <option
-                    value="fragrances"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Fragrances
-                  </option>
-                  <option
-                    value="preservatives"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Preservatives
-                  </option>
-                  <option
-                    value="dyes"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Dyes
-                  </option>
-                  <option
-                    value="metals"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Metals
-                  </option>
-                  <option
-                    value="latex"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Latex
-                  </option>{" "}
-                  <option
-                    value="parabens"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Parabens
-                  </option>
-                </select>
+
+                {allergyOptions.map((option) => (
+                  <label key={option}>
+                    <input
+                      type="checkbox"
+                      value={option}
+                      checked={allergies.isArray && allergies.includes(option)}
+                      onChange={handleAllergyCheckboxChange}
+                    />
+                    {option}
+                  </label>
+                ))}
               </div>
+
               <div className="flex flex-col w-full mt-10">
                 <div className="flex">
                   <img src="preferences02.svg" alt="Icon of a heart"></img>
@@ -603,7 +581,18 @@ export const SignUpPage = () => {
                     Preferences:
                   </label>
                 </div>
-                <select
+                {preferenceOptions.map((option) => (
+                  <label key={option}>
+                    <input
+                      type="checkbox"
+                      value={option}
+                      checked={pros.isArray && pros.includes(option)}
+                      onChange={handleProsCheckboxChange}
+                    />
+                    {option}
+                  </label>
+                ))}
+                {/* <select
                   name="preferences"
                   id="preferences"
                   className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
@@ -627,7 +616,7 @@ export const SignUpPage = () => {
                   >
                     Crueltyfree
                   </option>
-                </select>
+                </select> */}
               </div>
             </div>
             <button
