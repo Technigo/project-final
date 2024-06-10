@@ -19,6 +19,9 @@ export const SignUpPage = () => {
 
   const [allergies, setAllergies] = useState([]);
   const [preferences, setPreferences] = useState([]);
+  const [hairShape, setHairShape] = useState("");
+  const [hairMoisture, setHairMoisture] = useState("");
+  const [skin, setSkin] = useState("");
 
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
@@ -119,6 +122,18 @@ export const SignUpPage = () => {
   
   const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"]; */
 
+  const handleHairShape = (e) => {
+    setHairShape(e.target.value);
+  };
+
+  const handleHairMoisture = (e) => {
+    setHairMoisture(e.target.value);
+  };
+
+  const handleSkin = (e) => {
+    setSkin(e.target.value);
+  };
+
   const handleCheckboxChange = (setter) => (e) => {
     const value = e.target.value;
     setter((prev) =>
@@ -139,7 +154,11 @@ export const SignUpPage = () => {
   ];
   const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
 
-  console.log("arrays:", preferences, allergies)
+  console.table(hairMoisture, hairShape, skin, preferences, allergies);
+
+  const handleSubmit = () => {
+    
+  }
 
   return (
     <>
@@ -361,6 +380,7 @@ export const SignUpPage = () => {
                   name="skintype"
                   id="skin"
                   className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                  onChange={handleSkin}
                 >
                   <option
                     value="sensitive"
@@ -411,6 +431,7 @@ export const SignUpPage = () => {
                   name="hair-moisture"
                   id="moisture"
                   className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                  onChange={handleHairMoisture}
                 >
                   <option
                     value="dry"
@@ -441,6 +462,7 @@ export const SignUpPage = () => {
                   name="hair-shape"
                   id="shape"
                   className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                  onChange={handleHairShape}
                 >
                   <option
                     value="staight"
