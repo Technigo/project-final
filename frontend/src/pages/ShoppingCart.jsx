@@ -92,7 +92,7 @@ export const ShoppingCart = () => {
             ))}
         </ul>
         {totalPrice > 0 &&
-        <div className="bg-main-white rounded-xl p-10 font-heading flex flex-col justify-between">
+        <div className="bg-main-white max-h-80 rounded-xl p-10 font-heading flex flex-col justify-between">
           <div>
             <p>Victoria Olofsdottir</p>
             <p>Perstorpsvägen 129</p>

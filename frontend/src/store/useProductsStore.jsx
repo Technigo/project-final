@@ -37,8 +37,10 @@ export const useProductsStore = create(
     const price = get().shoppingCart.reduce((total, item) => {
       return total + item.product.price * item.quantity;
     }, 0);
-    set({ totalPrice: price });
-  },
+    const roundedPrice = Math.ceil(price);
+        // Set the rounded total price
+        set({ totalPrice: roundedPrice });
+      },
 
   removeAllByIdFromCart: (productId) => {
     const currentCart = get().shoppingCart;
@@ -50,9 +52,8 @@ export const useProductsStore = create(
     const price = updatedCart.reduce((total, item) => {
       return total + (item.product.price * item.quantity);
     }, 0);
-  
-    // Update store state with the updated cart and total price
-    set({ shoppingCart: updatedCart, totalPrice: price });
+    const roundedPrice = Math.ceil(price);
+    set({ shoppingCart: updatedCart, totalPrice: roundedPrice });
   },
   
   removeAllFromCart: () => {
