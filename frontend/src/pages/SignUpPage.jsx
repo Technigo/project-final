@@ -18,7 +18,7 @@ export const SignUpPage = () => {
   const [country, setCountry] = useState("");
 
   const [allergies, setAllergies] = useState([]);
-  const [pros, setPros] = useState([]);
+  const [preferences, setPreferences] = useState([]);
 
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
@@ -119,25 +119,27 @@ export const SignUpPage = () => {
   
   const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"]; */
 
- const handleCheckboxChange = (setter) => (e) => {
-   const value = e.target.value;
-   setter((prev) =>
-     prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
-   );
- };
+  const handleCheckboxChange = (setter) => (e) => {
+    const value = e.target.value;
+    setter((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  };
 
- const skinOptions = ["Sensitive", "Dry", "Oily", "Combination", "Acne"];
- const hairMoistureOptions = ["Dry", "Normal", "Oily"];
- const hairShapeOptions = ["Straight", "Wavy", "Curly", "Coils"];
- const allergyOptions = [
-   "Fragrances",
-   "Preservatives",
-   "Dyes",
-   "Metals",
-   "Latex",
-   "Parabens",
- ];
- const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
+  const skinOptions = ["Sensitive", "Dry", "Oily", "Combination", "Acne"];
+  const hairMoistureOptions = ["Dry", "Normal", "Oily"];
+  const hairShapeOptions = ["Straight", "Wavy", "Curly", "Coils"];
+  const allergyOptions = [
+    "Fragrances",
+    "Preservatives",
+    "Dyes",
+    "Metals",
+    "Latex",
+    "Parabens",
+  ];
+  const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
+
+  console.log("arrays:", preferences, allergies)
 
   return (
     <>
@@ -343,7 +345,7 @@ export const SignUpPage = () => {
           <h3 className="text-xl font-heading font-medium mt-8 text-center tablet:px-44 laptop:px-36">
             Personalize your account to get custom recommondations
           </h3>
-            <form className="flex flex-col w-full mt-16 tablet:px-36">
+          <form className="flex flex-col w-full mt-16 tablet:px-36">
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col w-full">
                 <div className="flex">
@@ -469,8 +471,7 @@ export const SignUpPage = () => {
             </div>
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col mt-10 w-full">
-                
-                 <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full">
                   <label
                     htmlFor="allergies"
                     className="text-text-dark font-heading font-semibold"
@@ -510,9 +511,7 @@ export const SignUpPage = () => {
                     </label>
                   ))}
                 </div>
-                
-                
-                
+
                 <div className="flex">
                   <img
                     src="allergies02.svg"
