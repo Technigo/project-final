@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../axiosConfig";
+import { getProfile, updateProfile, logout } from "../registration/authService";
 import Menu from "../../utilities/Menu";
 import defaultProfilePicture from "/icons/profile.png";
 import gearIcon from "/icons/gear.svg";
 import { ProfileForm } from "./ProfileForm";
+import { useModal } from "../registration/ModalContext";
+import { AuthForm } from "./AuthForm";
+import Footer from "../../utilities/Footer";
 
-const Profile = () => {
+export const Profile = () => {
   const [userData, setUserData] = useState({
     username: "",
     bio: "",
@@ -18,34 +21,41 @@ const Profile = () => {
   const [error, setError] = useState("");
   const [notification, setNotification] = useState("");
   const navigate = useNavigate();
+  const { showModal } = useModal();
 
   useEffect(() => {
     const fetchProfile = async () => {
       const token = localStorage.getItem("authToken");
       if (!token) {
-        setError("Token not found");
+        showModal(
+          <AuthForm
+            type="login"
+            onSuccess={() => {
+              setLoading(true);
+              /*  fetchProfile(); */
+            }}
+            navigate={navigate}
+          />
+        );
         setLoading(false);
         return;
       }
 
       try {
-        const response = await api.get("/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        console.log("Token being sent:", token); // Debug log
+        const profileData = await getProfile(token);
         setUserData({
-          username: response.data.username || "",
-          bio: response.data.bio || "",
-          hobbies: response.data.hobbies || "",
-          role: response.data.role || "",
+          username: profileData.username || "",
+          bio: profileData.bio || "",
+          hobbies: profileData.hobbies || "",
+          role: profileData.role || "",
         });
       } catch (error) {
         console.error("Error fetching profile:", error);
         if (error.response?.status === 401) {
           localStorage.removeItem("authToken");
           setError("Unauthorized. Please log in again.");
-          navigate("/login");
+          showModal(<AuthForm type="login" />);
         } else {
           setError(
             error.response?.data?.error ||
@@ -58,31 +68,22 @@ const Profile = () => {
     };
 
     fetchProfile();
-  }, [navigate]);
+  }, [navigate, showModal]);
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("authToken");
-    const formData = new FormData();
+    /*  const token = localStorage.getItem("authToken"); */
+    /*  const formData = new FormData();
     formData.append("username", userData.username);
     formData.append("bio", userData.bio);
-    formData.append("hobbies", userData.hobbies);
+    formData.append("hobbies", userData.hobbies); */
 
     try {
-      await api.put("/profile", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (response.data) {
-        setUserData(response.data);
-        setEditMode(false);
-        setNotification("Profile updated successfully!");
-        setTimeout(() => setNotification(""), 3000);
-      } else {
-        throw new Error("Failed to get updated data from server.");
-      }
+      const updatedData = await updateProfile(userData);
+      setUserData(updatedData);
+      setEditMode(false);
+      setNotification("Profile updated successfully!");
+      setTimeout(() => setNotification(""), 3000);
     } catch (err) {
       console.error("Failed to update profile:", err);
       setError("Failed to update profile.");
@@ -90,12 +91,9 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    navigate("/login");
+    logout();
+    navigate("/found-out-more");
   };
-
-  /*   // Destructuring for cleaner rendering
-  const { name, bio, hobbies, profilePicture } = userData; */
 
   if (loading) {
     return <div>Loading...</div>;
@@ -161,5 +159,3 @@ const Profile = () => {
     </>
   );
 };
-
-export default Profile;

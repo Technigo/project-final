@@ -1,26 +1,15 @@
 import { Button } from "../utilities/Button";
 import Menu from "../utilities/Menu";
+import Footer from "../utilities/Footer";
 import { useModal } from "./registration/ModalContext";
-import { SignUpPage } from "./registration/SignUpPage";
+import { AuthForm } from "./registration/AuthForm";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Footer from "../utilities/Footer";
 
 export const FindOutMorePage = () => {
   const { showModal } = useModal();
   const navigate = useNavigate();
   const [currentFact, setCurrentFact] = useState(0);
-
-  const handleSignupSuccess = () => {
-    navigate("/profile");
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFact((prevFact) => (prevFact + 1) % facts.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
 
   const facts = [
     "Many adults with ADHD were not diagnosed as children.",
@@ -29,6 +18,21 @@ export const FindOutMorePage = () => {
     "Therapy and medication can be effective in managing ADHD symptoms in adults.",
     "Joining a support group can provide valuable connections and coping strategies.",
   ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFact((prevFact) => (prevFact + 1) % facts.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [facts.length]);
+
+  const handleAuthSuccess = () => {
+    navigate("/profile");
+  };
+
+  const handleRoleSelection = (type) => {
+    showModal(<AuthForm type={type} onSuccess={handleAuthSuccess} />);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
@@ -78,9 +82,7 @@ export const FindOutMorePage = () => {
           <div className="flex justify-center mt-8">
             <Button
               text="Choose your role"
-              onClick={() =>
-                showModal(<SignUpPage onSignupSuccess={handleSignupSuccess} />)
-              }
+              onClick={() => handleRoleSelection("signup")}
               variant="primary"
             />
           </div>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import api from "../../axiosConfig";
-import { useNavigate } from "react-router-dom";
+/* import { useModal } from "./ModalContext"; */
 
-export const Login = () => {
+export const Login = ({ navigate }) => {
+  const { hideModal, showModal } = useModal();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,14 +22,21 @@ export const Login = () => {
       console.log("Token saved to localStorage:", token);
       // Redirect to profile or another page
       navigate("/profile");
+      hideModal();
     } catch (err) {
       setError("Login failed. Please check your credentials.");
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
-      <div className="container mx-auto px-4 py-20">
+    <div className="fixed inset-0 items-center justify-center bg-dark bg-opacity-50 z-50 flex">
+      <div className="relative bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-3xl flex flex-col md:flex-row">
+        <button
+          className="absolute top-4 right-4 text-2xl font-bold text-primary hover:text-secondary"
+          onClick={hideModal}
+        >
+          x
+        </button>
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="username" className="label">
@@ -71,7 +78,9 @@ export const Login = () => {
         <p className="mt-4">
           Don't have an account?{" "}
           <button
-            onClick={() => navigate("/signup")}
+            onClick={() =>
+              showModal(<SignUpPage onSignupSuccess={() => hideModal()} />)
+            }
             className="text-primary underline focus:outline-none"
           >
             Sign Up

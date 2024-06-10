@@ -1,11 +1,11 @@
-import api from "../../axiosConfig";
 import { useState, useRef } from "react";
-import signUpImage from "/images/signUp.jpg";
 import { useModal } from "./ModalContext";
-import { Login } from "./Login";
+import { signup, login } from "../registration/authService";
+import signUpImage from "/images/signUp.jpg";
 
-export const SignUpPage = ({ onSignupSuccess }) => {
-  const { hideModal, showModal } = useModal();
+export const AuthForm = ({ type, onSuccess }) => {
+  const { hideModal } = useModal();
+  const [formMode, setFormMode] = useState(type);
   const usernameInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [error, setError] = useState(null);
@@ -21,17 +21,18 @@ export const SignUpPage = ({ onSignupSuccess }) => {
     const password = passwordInputRef.current.value;
 
     try {
-      const response = await api.post("/users", { username, password, role });
-      const { accessToken } = response.data;
-      localStorage.setItem("authToken", accessToken);
-      console.log("Signup response:", response.data);
-      onSignupSuccess();
+      if (formMode === "signup") {
+        await signup(username, password, role);
+      } else {
+        await login(username, password);
+      }
       hideModal();
+      onSuccess();
     } catch (error) {
-      console.error("Error during signup:", error);
+      console.error("Authentication error:", error); // Debug log
       setError(
-        error.response?.data?.error ||
-          "An error occurred during signup. Please try again."
+        error.response?.data?.message ||
+          "An error occurred during the authentication process."
       );
     }
   };
@@ -40,6 +41,7 @@ export const SignUpPage = ({ onSignupSuccess }) => {
     <div className="fixed inset-0 items-center justify-center bg-dark bg-opacity-50 z-50 flex">
       <div className="relative bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-3xl flex flex-col md:flex-row">
         <button
+          aria-label="Close"
           className="absolute top-4 right-4 text-2xl font-bold text-primary hover:text-secondary"
           onClick={hideModal}
         >
@@ -57,48 +59,50 @@ export const SignUpPage = ({ onSignupSuccess }) => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
+              aria-label="Username"
               placeholder="Username"
               ref={usernameInputRef}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <input
               type="password"
+              aria-label="Password"
               placeholder="Password"
               ref={passwordInputRef}
-              name="password"
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <div className="mb-4">
-              <label className="block mb-2 font-bold">Role</label>
-              <select
-                value={role}
-                onChange={handleRoleChange}
-                className="block w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
-                style={{
-                  height: "44px",
-                  backgroundSize: "1.5rem 1.5rem",
-                  backgroundPosition: "right 1rem center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <option value="Listener">Listener</option>
-                <option value="Seeker">Seeker</option>
-              </select>
-            </div>
+            {formMode === "signup" && (
+              <div className="mb-4">
+                <label className="block mb-2 font-bold">Role</label>
+                <select
+                  aria-label="Select role"
+                  value={role}
+                  onChange={handleRoleChange}
+                  className="block w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="Listener">Listener</option>
+                  <option value="Seeker">Seeker</option>
+                </select>
+              </div>
+            )}
             <button
               type="submit"
               className="bg-primary text-light px-4 py-2 rounded hover:bg-secondary w-full"
             >
-              Sign Up
+              {formMode === "signup" ? "Sign Up" : "Log In"}
             </button>
           </form>
           <p className="mt-4 text-center md:text-left">
-            Already have an account?{" "}
+            {formMode === "signup"
+              ? "Already have an account?"
+              : "Don't have an account?"}{" "}
             <button
-              onClick={() => showModal(<Login />)}
+              onClick={() =>
+                setFormMode(formMode === "signup" ? "login" : "signup")
+              }
               className="text-primary underline focus:outline-none"
             >
-              Login
+              {formMode === "signup" ? "Login" : "Sign Up"}
             </button>
           </p>
         </div>
