@@ -12,7 +12,7 @@ export const ProductCard = ({ templateImg, tags, name, price, category }) => {
           <span className="mb-1 flex flex-row">
             {tags.split(", ").map((tag) => (
               <button key={tag} className="mr-2 text-sm text-blue">
-                #tag
+                #{tag}
               </button>
             ))}
           </span>
@@ -38,4 +38,5 @@ ProductCard.propTypes = {
   tags: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
 };
