@@ -8,7 +8,7 @@ const Menu = styled.ul`
   flex-direction: row;
   justify-content: flex-end;
   font-family: var(--font-family-headlines);
-  font-size: 20px;
+  font-size: 18px;
 
   @media (max-width: 768px) {
     display: none;

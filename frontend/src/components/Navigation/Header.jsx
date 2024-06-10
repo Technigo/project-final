@@ -10,6 +10,7 @@ import styled from "styled-components"
 
 const HeaderContainer = styled.header`
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +21,18 @@ const HeaderContainer = styled.header`
   margin-bottom: 80px;
 
   @media (min-width: 768px) {
-    padding: 80px 60px;
+    padding: 20px 40px;
+  }
+`
+const HeaderContent = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  padding: 20px;
+
+  @media (min-width: 768px) {
+    padding: 20px 40px;
   }
 `
 
@@ -70,10 +82,14 @@ const MobileMenuContainer = styled.div`
 `
 
 const BreadcrumbContainer = styled.div`
+  flex-grow: 1;
   display: flex;
   justify-content: flex-start;
-  position: relative;
-  top: 80px;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 `
 
 export const Header = () => {
@@ -85,14 +101,12 @@ export const Header = () => {
   }
 
   return (
-    <>
-      <HeaderContainer>
+    <HeaderContainer>
+      <HeaderContent>
         <Link to="/">
           <Logo src={logo} alt="Logo" />
         </Link>
-        <BreadcrumbContainer>
-          <Breadcrumbs />
-        </BreadcrumbContainer>
+
         <NavContainer>
           <MainMenu />
           <MobileMenuContainer $active={active}>
@@ -108,7 +122,10 @@ export const Header = () => {
             </>
           )}
         </MobileMenuIcon>
-      </HeaderContainer>
-    </>
+      </HeaderContent>
+      <BreadcrumbContainer>
+        <Breadcrumbs />
+      </BreadcrumbContainer>
+    </HeaderContainer>
   )
 }
