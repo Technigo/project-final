@@ -1,40 +1,46 @@
-import { useState, useEffect } from "react"
-import styled from "styled-components"
+import { useState, useEffect } from "react";
+import styled from "styled-components";
 //import StyledHero from "./styled/Hero.styled";
 
 export const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const museumImages = ["museum1.jpeg", "museum2.jpg", "museum3.jpg"]
+  const museumImages = [
+    "museum1.jpg",
+    "museum2.jpg",
+    "museum3.jpg",
+    "museum4.jpg",
+    "museum5.jpg",
+    "museum6.jpg",
+  ];
 
-  const autoScroll = true
-  let intervalTime = 6000
-  let slideInterval
+  const autoScroll = true;
+  let intervalTime = 8000;
+  let slideInterval;
 
   const nextSlide = () => {
     setCurrentSlide(
       currentSlide === museumImages.length - 1 ? 0 : currentSlide + 1
-    )
-  }
+    );
+  };
 
   const auto = () => {
-    slideInterval = setInterval(nextSlide, intervalTime)
-  }
+    slideInterval = setInterval(nextSlide, intervalTime);
+  };
 
   useEffect(() => {
     if (autoScroll) {
-      auto()
+      auto();
     }
-    return () => clearInterval(slideInterval)
-  }, [currentSlide])
+    return () => clearInterval(slideInterval);
+  }, [currentSlide]);
 
   return (
     <CarouselContainer>
       <StyledHero src={museumImages[currentSlide]} />
     </CarouselContainer>
-  )
-}
-
+  );
+};
 
 const CarouselContainer = styled.div`
   width: 100%;
