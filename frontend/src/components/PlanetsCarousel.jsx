@@ -132,24 +132,14 @@ export const PlanetsCarousel = () => {
       <Slider {...settings}>
         {planets.map((planet, index) => (
           <Slide key={index} isCenter={index === currentSlide}>
-            {planet.name === "sun" || planet.name === "moon" ? (
-              <Link to={`/${planet.name}`}>
-                <PlanetImage
-                  src={planet.image}
-                  alt={planet.name}
-                  isCenter={index === currentSlide}
-                />
-              </Link>
-            ) : (
-              <Link to={`/planets/${planet.name}`}>
-                <PlanetImage
-                  src={planet.image}
-                  alt={planet.name}
-                  isCenter={index === currentSlide}
-                  saturnimg={planet.name === "saturn"}
-                />
-              </Link>
-            )}
+            <Link to={planet.name === "sun" || planet.name === "moon" ? `/${planet.name}` : `/planets/${planet.name}`}>
+              <PlanetImage
+                src={planet.image}
+                alt={planet.name}
+                isCenter={index === currentSlide}
+                saturnimg={planet.name === "saturn"}
+              />
+            </Link>
             <PlanetName>{planet.name}</PlanetName>
           </Slide>
         ))}
