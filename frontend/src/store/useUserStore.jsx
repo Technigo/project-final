@@ -4,8 +4,6 @@ import { persist } from "zustand/middleware";
 export const useUserStore = create(
   persist(
     (set, get) => ({
-      URL_login: "https://project-final-glim.onrender.com/users/login",
-      URL_register: "https://project-final-glim.onrender.com/users/register",
       URL_userId: `https://project-final-glim.onrender.com/users/profile/${id}`,
       user: {},
       userId: "",
@@ -49,6 +47,7 @@ export const useUserStore = create(
         skinType
       ) => {
         set({ loadingUser: true });
+        const URL_register = "https://project-final-glim.onrender.com/users/register"
         try {
           const response = await fetch(URL_register, {
             method: "POST",
@@ -81,6 +80,7 @@ export const useUserStore = create(
       },
       loginUser: async (email, password) => {
         set({ loadingUser: true });
+        const URL_login = "https://project-final-glim.onrender.com/users/login"
         try {
           const response = await fetch(URL_login, {
             method: "POST",

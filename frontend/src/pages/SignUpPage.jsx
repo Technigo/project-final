@@ -1,8 +1,22 @@
 import { Footer } from "../components/Footer";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export const SignUpPage = () => {
   const [activeSection, setActiveSection] = useState("sectionone");
+  const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
+
+  const passwordRef = useRef();
+  const comparePasswordRef = useRef();
+
+  const handleSectionOne = () => {
+    console.log(passwordRef.value, comparePasswordRef.value);
+    if (password === confirmPassword) {
+      setActiveSection("sectiontwo");
+    } else {
+      alert("The passwords are not matching. Please check your spelling.");
+    }
+  };
 
   return (
     <>
@@ -23,7 +37,7 @@ export const SignUpPage = () => {
                 login Information
               </h3>
             </div>
-            <form className="flex flex-col w-full px-10 tablet:px-36 laptop:pl-0 laptop:pr-12">
+            <form className="flex flex-col w-full text-text-dark px-10 tablet:px-36 laptop:pl-0 laptop:pr-12">
               <div className="flex flex-col w-full">
                 <label
                   htmlFor="email"
@@ -32,6 +46,7 @@ export const SignUpPage = () => {
                   Email:
                 </label>
                 <input
+                  type="email"
                   className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
                   id="email"
                 ></input>
@@ -45,8 +60,12 @@ export const SignUpPage = () => {
                     Password:
                   </label>
                   <input
+                    value={password}
+                    ref={passwordRef}
+                    type="password"
                     className="rounded-xl h-10 bg-bg-input "
                     id="password"
+                    onChange={(e) => setPassword(e.target.value)}
                   ></input>
                 </div>
                 <div className="flex flex-col w-full">
@@ -57,13 +76,17 @@ export const SignUpPage = () => {
                     Confirm password:
                   </label>
                   <input
+                    value={confirmPassword}
+                    ref={comparePasswordRef}
+                    type="password"
                     className="rounded-xl h-10 bg-bg-input "
                     id="confirm"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   ></input>
                 </div>
               </div>
               <button
-                onClick={() => setActiveSection("sectiontwo")}
+                onClick={handleSectionOne}
                 className="bg-main-yellow h-8 w-28 self-center mt-14 rounded-3xl text-text-dark font-heading tablet:mb-20 tablet:self-end"
               >
                 Next

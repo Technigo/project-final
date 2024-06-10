@@ -22,7 +22,7 @@ export const Navigation = ({ data }) => {
   };
 
   const handleLogin = () => {
-    Consle.log("logging in");
+    console.log("logging in");
   };
   const handleClickOutside = (event) => {
     if (overlayRef.current && !modalContentRef.current.contains(event.target)) {
