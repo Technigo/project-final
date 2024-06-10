@@ -218,6 +218,7 @@ export const PlanetContent = ({ onePlanet }) => {
           </PlanetDetails>
         </PlanetPage>
       </PlanetContainer>
+      <PlanetNavigation />
     </>
   )
 }

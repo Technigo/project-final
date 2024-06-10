@@ -40,47 +40,36 @@ const planets = [
   { name: "moon", image: moonImg },
 ];
 
+const getPlanetPath = (planetName) => {
+  if (planetName === "sun" || planetName === "moon") {
+    return `/${planetName}`;
+  }
+  return `/planets/${planetName}`;
+};
+
 const PlanetNavigation = () => {
-  //used to get the current URL, extract the current planet's name from the URL 
-  //and find its index in the planets array.
-  //.pop Removes the last element from an array and returns it. If the 
-  //array is empty, undefined is returned and the array is not modified.
   const location = useLocation();
   const currentPlanetName = location.pathname.split("/").pop();
   const currentPlanetIndex = planets.findIndex(
     (planet) => planet.name === currentPlanetName
   );
 
-  //prevPlanetIndex & nextPlanetIndex are calculated to 
-  //wrap around the array in an infinite loop.
-  const prevPlanetIndex =
-    currentPlanetIndex === 0 ? planets.length - 1 : currentPlanetIndex - 1;
-  const nextPlanetIndex =
-    currentPlanetIndex === planets.length - 1 ? 0 : currentPlanetIndex + 1;
+  // Handle invalid planet names by defaulting to the first planet
+  const validIndex = currentPlanetIndex !== -1;
+  const index = validIndex ? currentPlanetIndex : 0;
+
+  const prevPlanetIndex = index === 0 ? planets.length - 1 : index - 1;
+  const nextPlanetIndex = index === planets.length - 1 ? 0 : index + 1;
 
   const prevPlanet = planets[prevPlanetIndex];
   const nextPlanet = planets[nextPlanetIndex];
 
   return (
     <NavigationContainer>
-      <Link
-        to={
-          prevPlanet.name === "sun"
-            ? "/sun"
-            : prevPlanet.name === "moon"
-            ? "/moon"
-            : `/planets/${prevPlanet.name}`
-        }>
+      <Link to={getPlanetPath(prevPlanet.name)}>
         <PlanetImage src={prevPlanet.image} alt={prevPlanet.name} />
       </Link>
-      <Link
-        to={
-          nextPlanet.name === "sun"
-            ? "/sun"
-            : nextPlanet.name === "moon"
-            ? "/moon"
-            : `/planets/${nextPlanet.name}`
-        }>
+      <Link to={getPlanetPath(nextPlanet.name)}>
         <PlanetImage src={nextPlanet.image} alt={nextPlanet.name} />
       </Link>
     </NavigationContainer>
@@ -88,3 +77,4 @@ const PlanetNavigation = () => {
 };
 
 export default PlanetNavigation;
+
