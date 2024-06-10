@@ -2,6 +2,9 @@ import { Footer } from "../components/Footer";
 import { useState, useRef } from "react";
 
 export const SignUpPage = () => {
+  const { firstname, lastname, address, email, password, allergies, pros, hairShape,
+    hairMoisture,
+    skinType } = useUserStore()
   const [activeSection, setActiveSection] = useState("sectionthree"); // CHANGE TO "sectionone"!!!
 
   const [email, setEmail] = useState("");
@@ -157,7 +160,7 @@ export const SignUpPage = () => {
   console.table(hairMoisture, hairShape, skin, preferences, allergies);
 
   const handleSubmit = () => {
-    
+
   }
 
   return (
