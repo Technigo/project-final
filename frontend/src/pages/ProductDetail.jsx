@@ -9,7 +9,7 @@ export const ProductDetail = () => {
   console.log("Id:", Id);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/products/${Id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/products/${Id}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => console.error("Error fetching product", error));
