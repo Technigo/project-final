@@ -1,5 +1,3 @@
-import { useState } from "react";
-import api from "../../axiosConfig";
 /* import { useModal } from "./ModalContext"; */
 
 export const Login = ({ navigate }) => {

@@ -21,7 +21,7 @@ export const Profile = () => {
   const [error, setError] = useState("");
   const [notification, setNotification] = useState("");
   const navigate = useNavigate();
-  const { showModal } = useModal();
+  const { showModal, hideModal } = useModal();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -91,8 +91,9 @@ export const Profile = () => {
   };
 
   const handleLogout = () => {
+    hideModal();
     logout();
-    navigate("/found-out-more");
+    navigate("/find-out-more");
   };
 
   if (loading) {
