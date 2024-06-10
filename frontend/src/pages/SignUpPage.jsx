@@ -142,14 +142,10 @@ export const SignUpPage = () => {
     setSkinType(e.target.value);
   };
 
-  console.log("Pros:", pros, "Is Array:", Array.isArray(pros));
-  console.log("Allergies:", allergies, "Is Array:", Array.isArray(allergies));
-
   /* ------------  Not Working ------------ */
 
   // Handler to toggle item selection
   const handleAllergyCheckboxChange = (e) => {
-    console.log(e.target.value);
     const value = e.target.value;
     // If the item is already selected, remove it from the array
     if (selectedAllergies.includes(value)) {
@@ -165,17 +161,17 @@ export const SignUpPage = () => {
   };
 
   const handleProsCheckboxChange = (e) => {
-    console.log(e.target.value);
     const value = e.target.value;
+    const array = selectedPros;
+    let newArray;
     // If the item is already selected, remove it from the array
     if (selectedPros.includes(value)) {
-      setSelectedPros(selectedPros.filter((item) => item !== value));
+      setSelectedPros(array.filter((item) => item !== value));
     } else {
       // If the item is not selected, add it to the array
-      setsSlectedPros([...selectedPros, value]);
+      setSelectedPros([...array, value]);
     }
-
-    setAllergies(selectedPros);
+    setPros(selectedPros);
 
     console.log("Does this work?: ", selectedPros);
   };
@@ -192,25 +188,18 @@ export const SignUpPage = () => {
   ];
   const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
 
-  console.table(
-    "H-Moist: ",
-    hairMoisture,
-    "H-Shape",
-    hairShape,
-    "Skin: ",
-    skinType,
-    "Pros: ",
-    pros,
-    "Allergies: ",
-    allergies
-  );
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Register user:");
+
+    console.log("Register user:", "Allergies:", allergies, "Pros: ", pros);
+
+    resetFields;
   };
 
-console.log(allergies)
+  const resetFields = () => {
+    setAllergies([]);
+    setPros([]);
+  };
 
   return (
     <>
@@ -625,7 +614,10 @@ console.log(allergies)
             >
               Go back
             </button>
-            <button className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading">
+            <button
+              onClick={handleSubmit}
+              className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading"
+            >
               Create profile
             </button>
           </form>
