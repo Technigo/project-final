@@ -1,10 +1,12 @@
+import CrossIcon from "/assets/icons/cross.svg";
+import HamburgerIcon from "/assets/icons/hamburger.svg";
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
+import { NavLink } from "react-router-dom";
+
 import { Image } from "../ReusableComponents/Image/Image";
+
 import "./HamburgerMenu.css";
-import HamburgerIcon from "./hamburger.svg";
-import CrossIcon from "./cross.svg";
 
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
