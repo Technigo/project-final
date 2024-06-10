@@ -1,14 +1,21 @@
-import "./Header.css";
-import { Link, NavLink } from "react-router-dom";
-import logo from "/assets/logotypes/logo-stamp.svg";
 // import hamburger from "/assets/icons/hamburger.svg";
 import cart from "/assets/icons/cart.svg";
+import logo from "/assets/logotypes/logo-stamp.svg";
+import { Link, NavLink } from "react-router-dom";
+
+import { useCartStore } from "../../stores/useCartStore";
 // import search from "/assets/icons/search.svg";
 // import user from "/assets/icons/user.svg";
 import { Image } from "../ReusableComponents/Image/Image";
 import { HamburgerMenu } from "./HamburgerMenu";
 
+import "./Header.css";
+
 export const Header = () => {
+  // Destructuring getTotalItems from useCartStore
+  const { getTotalItems } = useCartStore();
+  const totalItems = getTotalItems();
+
   return (
     <header>
       <nav className="nav-container">
@@ -55,8 +62,10 @@ export const Header = () => {
           {/* <Link to="/">
             <Image src={user} alt="my-account" className="user" />
           </Link> */}
-          <Link to="/">
+          <Link to="/cart">
             <Image src={cart} alt="shopping-cart" className="cart" />
+            {/* Conditionally render total item count if it's larger than 0 */}
+            {totalItems > 0 && <div className="cart-count">{totalItems}</div>}
           </Link>
         </ul>
       </nav>

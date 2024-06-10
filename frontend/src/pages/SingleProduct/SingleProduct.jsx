@@ -51,7 +51,8 @@ export const SingleProduct = () => {
 
   const handleAddToCart = () => {
     if (selectedSize && product) {
-      addToCart({ ...product, size: selectSize });
+      // addToCart({ ...product, size: selectedSize });
+      addToCart(product, selectedSize)
     }
   };
 
