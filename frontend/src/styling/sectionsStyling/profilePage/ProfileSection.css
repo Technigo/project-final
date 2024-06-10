@@ -1,0 +1,78 @@
+.profileContainer {
+  border: 5px solid red;
+  width: 305px;
+  margin: 0 auto;
+}
+
+.profileForm {
+  background-color: var(--profile-color);
+  border-radius: 20px;
+  margin-bottom: 100px;
+  padding: 40px;
+  color: var(--light-color);
+}
+
+.profileIcon {
+  width: 40px;
+}
+
+.profileTitle {
+  display: inline;
+  font-weight: 600;
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.customerEmailTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 0 0;
+}
+
+.customerEmail {
+  margin: 5px 0 20px 0;
+}
+
+.changeEmailLabel {
+  font-weight: 600;
+}
+
+.changeEmailInput {
+  width: 220px;
+  height: 40px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid var(--dark-color);
+}
+
+.profileButtonsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.changeEmailButton {
+  width: 130px;
+  height: 40px;
+  background-color: var(--light-button-color);
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--dark-color);
+  margin: 10px 0;
+}
+
+.logoutButton {
+  width: 130px;
+  height: 40px;
+  background-color: var(--light-button-color);
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--dark-color);
+}
