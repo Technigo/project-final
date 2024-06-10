@@ -2,8 +2,10 @@ import cross from "/assets/icons/cross.svg";
 import minus from "/assets/icons/minus.svg";
 import plus from "/assets/icons/plus.svg";
 
+import { Button } from "../../common/ReusableComponents/Button/Button";
 import { Image } from "../../common/ReusableComponents/Image/Image";
 import { useCartStore } from "../../stores/useCartStore";
+import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
 
 import "./Cart.css";
 
@@ -29,6 +31,10 @@ export const Cart = () => {
   const handleRemove = (productId, selectedSize) => {
     removeFromCart(productId, selectedSize);
   };
+
+  /* const handleClearCart = () => {
+    clearCart();
+  }; */
 
   return (
     <div className="cart-container">
@@ -72,6 +78,25 @@ export const Cart = () => {
           ))}
         </div>
       )}
+      <div className="cart-summary">
+        <div className="shipping">
+          <h6 className="text-xs">Shipping</h6>
+          <h6 className="text-xs">0.00 SEK</h6>
+        </div>
+
+        <div className="total">
+          <h6>Total</h6>
+          <h6>{getTotalPrice()} SEK</h6>
+        </div>
+        {/* <Button variant="size" label="Clear all" onClick={clearCart()} /> */}
+        <Button
+          variant="hero"
+          label="Checkout"
+          to="/checkout"
+          className="checkout"
+        />
+        <DeliveryStatements variant="white" />
+      </div>
     </div>
   );
 };
