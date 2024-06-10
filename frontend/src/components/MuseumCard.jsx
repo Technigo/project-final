@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { getOptimizedUrl } from "../util/UrlUtil";
+import { Link } from "react-router-dom"
+import styled from "styled-components"
+import { getOptimizedUrl } from "../util/UrlUtil"
+import { FavoriteButton } from "../components/FavoriteButton"
 
 export const MuseumCard = ({ museum }) => {
   return (
@@ -13,14 +14,15 @@ export const MuseumCard = ({ museum }) => {
           />
         </ImageContainer>
         <MuseumCardContent>
-          <h3>{museum.name}</h3>
+        <FavoriteButton museumId={museum.id} inCard />
+        <h3>{museum.name}</h3>
           <p>{museum.theme}</p>
           <p>{museum.location}</p>
         </MuseumCardContent>
       </Link>
     </StyledMuseumCard>
-  );
-};
+  )
+}
 
 const MuseumCardContent = styled.div`
   opacity: 0;
@@ -39,7 +41,7 @@ const MuseumCardContent = styled.div`
     margin: 5px 0;
     font-size: 14px;
   }
-`;
+`
 
 const StyledMuseumCard = styled.div`
   position: relative;
@@ -51,7 +53,7 @@ const StyledMuseumCard = styled.div`
   transition: transform 0.3s;
   cursor: pointer;
   width: 100%;
-  padding-top: 100%; /* Maintain square aspect ratio */
+  padding-top: 100%;
   height: 0;
 
   &:hover {
@@ -72,7 +74,7 @@ const StyledMuseumCard = styled.div`
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
   }
-`;
+`
 const ImageContainer = styled.div`
   position: absolute;
   top: 0;
@@ -86,4 +88,4 @@ const ImageContainer = styled.div`
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
   }
-`;
+`

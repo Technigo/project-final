@@ -63,10 +63,8 @@ export const DetailPage = () => {
           </ImageContainerTablet>
 
           <TextContainer>
-            <NameContainer>
-              <h3>{museum.name}</h3>
-              <FavoriteButton museumId={museum.id} />
-            </NameContainer>
+            <FavoriteButton museumId={museum.id} />
+            <Title>{museum.name}</Title>
             <p>{museum.location}</p>
             <Description>{museum.description} </Description>
             {museum.has_cafe ? (
@@ -239,15 +237,13 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 20px 20px 20px;
-
-  h3 {
-    font-size: 36px;
-    margin: 18px 0;
-  }
+  position: relative;
 `
 
-const NameContainer = styled.div`
-  display: flex;
+const Title = styled.h3`
+  font-size: 32px;
+  margin: 18px 0;
+  padding-right: 50px;
 `
 
 const Description = styled.p`
@@ -285,6 +281,7 @@ const VisitWebsite = styled.p`
 const CommentContainer = styled.div`
   padding: 20px;
 
-   @media (min-width: 1024px) {
+  @media (min-width: 1024px) {
     width: 40%;
+  }
 `
