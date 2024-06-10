@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import CelestialContent from "./CelestialContent";
+import { CelestialContent } from "./CelestialContent";
 
 export const CelestialBodies = () => {
   const { name } = useParams();
@@ -42,15 +42,8 @@ export const CelestialBodies = () => {
   }
 
   return (
-    <div>
-      <div>
-        <Link to="/">
-          <p>Back to spaceport</p>
-        </Link>
-      </div>
       <div>
         <CelestialContent oneBody={oneBody} />
       </div>
-    </div>
   );
 };

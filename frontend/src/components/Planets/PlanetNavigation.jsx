@@ -22,8 +22,8 @@ const NavigationContainer = styled.div`
 `
 
 const PlanetImage = styled.img`
-  height: 50px;
-  width: 50px;
+  height: ${(props) => (props.saturnimg ? "50px" : "50px")};
+  width: ${(props) => (props.saturnimg ? "95px" : "50px")};
   cursor: pointer;
   margin: 0 0 40px 0;
 `
@@ -67,17 +67,17 @@ const NextPlanetContainer = styled.div`
 `
 
 const planets = [
+  { name: "sun", image: sunImg },
   { name: "mercury", image: mercuryImg },
   { name: "venus", image: venusImg },
   { name: "tellus", image: tellusImg },
+  { name: "moon", image: moonImg },
   { name: "mars", image: marsImg },
   { name: "jupiter", image: jupiterImg },
   { name: "saturn", image: saturnImg },
   { name: "uranus", image: uranusImg },
   { name: "neptune", image: neptuneImg },
   { name: "pluto", image: plutoImg },
-  { name: "sun", image: sunImg },
-  { name: "moon", image: moonImg },
 ]
 
 const getPlanetPath = (planetName) => {
@@ -90,6 +90,7 @@ const getPlanetPath = (planetName) => {
 const PlanetNavigation = () => {
   const location = useLocation()
   const currentPlanetName = location.pathname.split("/").pop()
+
   const currentPlanetIndex = planets.findIndex(
     (planet) => planet.name === currentPlanetName
   )
@@ -106,6 +107,7 @@ const PlanetNavigation = () => {
 
   return (
     <NavigationContainer>
+
       <PlanetImagesContainer>
         <Link to={getPlanetPath(prevPlanet.name)}>
           <ArrowLeft src={arrowLeft} alt="Left arrow icon" />
