@@ -10,7 +10,7 @@ export const useProductsStore = create(
   shoppingCart: [],
   totalPrice: 0,
 
-  ssetShoppingCart: (product, quantity) => {
+  setShoppingCart: (product, quantity) => {
     const currentCart = get().shoppingCart;
     const productIndex = currentCart.findIndex(
       (item) => item.product._id === product._id

@@ -32,7 +32,7 @@ export const SingleProductPage = () => {
 
   // Adding product to the cart
   const handleAddToCart = () => {
-    setShoppingCart(product, quantity);
+    setShoppingCart(product);
   };
 
   useEffect(() => {
