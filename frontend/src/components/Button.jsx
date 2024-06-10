@@ -13,6 +13,7 @@ export const Button = ({ text, style, navTo }) => {
     <button
       onClick={() => navigate(navTo)}
       className={`${style === "white" ? whiteStyle : blueStyle} min-h-12 min-w-48 rounded px-4 font-montserrat text-base font-bold hover:bg-button-hover`}
+      type="submit"
     >
       {text}
     </button>
