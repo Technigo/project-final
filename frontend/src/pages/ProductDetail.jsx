@@ -7,6 +7,7 @@ export const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const { Id } = useParams();
   console.log("Id:", Id);
+  console.log(import.meta.env.VITE_API_URL);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/products/${Id}`)
