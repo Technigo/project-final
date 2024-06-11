@@ -1,12 +1,15 @@
 import express from "express";
 import cors from "cors";
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+import expressListEndpoints from "express-list-endpoints";
+import path from "path";
+import fs from "fs";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/flowershop"
-mongoose.connect(mongoUrl)
-mongoose.Promise = Promise
+import Rental from "./models/Rental.js";
 
-
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/palmarentals";
+mongoose.connect(mongoUrl);
+mongoose.Promise = Promise;
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -18,12 +21,99 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Start defining your routes here
+// Serve images from frontend public folder
+app.use(
+  "/images",
+  express.static(path.join(__dirname, "../frontend/public/images/images"))
+);
+
+// Seed the database
+const seedDB = async () => {
+  try {
+    const data = fs.readFileSync(
+      path.join(__dirname, "data/rentals.json"),
+      "utf8"
+    );
+    const rentals = JSON.parse(data).rentals;
+
+    console.log("Parsed Rentals Data:", rentals);
+
+    await Rental.deleteMany();
+    console.log("Existing rentals deleted");
+
+    const insertedRentals = await Rental.insertMany(rentals);
+    console.log("Inserted rentals:", insertedRentals);
+
+    console.log("Database seeded successfully");
+  } catch (err) {
+    console.error("Error seeding database", err);
+  }
+};
+
+// Call seed function
+seedDB();
+
+// Define routes
 // http://localhost:8080/
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
 
+// Get all rentals
+app.get("/api/rentals", async (req, res) => {
+  try {
+    const rentals = await Rental.find();
+    res.json(rentals);
+  } catch (error) {
+    console.error("Error fetching rentals:", error);
+    res.status(500).json({ error: "Failed to fetch rentals " });
+  }
+});
+
+let cart = [];
+
+// Add rental to cart
+app.post("/api/cart", (req, res) => {
+  const { id } = req.body;
+
+  Rental.findById(id, (err, rental) => {
+    if (err || !rental) {
+      return res.status(400).json({ error: "Rental not found" });
+    }
+
+    cart.push(rental);
+    res.status(201).json({ message: "Rental added to cart", cart });
+  });
+});
+
+// Get cart items
+app.get("/api/cart", (req, res) => {
+  const totalPrice = cart.reduce((total, item) => {
+    const price = parseFloat(item.price.replace("€", "")).replace(
+      " / week",
+      ""
+    );
+    return total + price;
+  }, 0);
+
+  res.json({ cart, totalPrice: `${totalPrice.toFixed(2)}` });
+});
+
+// Remove Rental from cart
+app.delete("/api/cart/:id", (req, res) => {
+  const { id } = req.params;
+
+  cart = cart.filter((item) => item._id.toString() !== id);
+
+  res.json({ message: "Rental removed from cart", cart });
+});
+
+// Clear cart
+app.delete("/api/cart", (req, res) => {
+  cart = [];
+  res.json({ message: "Cart cleared", cart });
+});
 
 // Start the server
 app.listen(port, () => {
