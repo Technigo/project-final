@@ -9,6 +9,7 @@ import { DeliveryStatements } from "../Home/components/DeliveryStatements/Delive
 
 import "./SingleProduct.css";
 import { useBagStore } from "../../stores/useBagStore";
+import { BACKEND_URL } from "../../config";
 
 export const SingleProduct = () => {
   const { productId } = useParams(); //get the product ID from the URL
@@ -23,9 +24,7 @@ export const SingleProduct = () => {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(
-          `https://cones-and-stones-ppnudpghiq-lz.a.run.app/products/${productId}`
-        );
+        const response = await fetch(`${BACKEND_URL}/products/${productId}`);
 
         const data = await response.json();
         if (data.success) {

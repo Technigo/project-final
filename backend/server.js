@@ -280,36 +280,34 @@ app.get("/products/category/:category/:productId", async (req, res) => {
 
 // Stripe Checkout Session creation endpoint
 app.post("/create-checkout-session", async (req, res) => {
-  const { productId, quantity } = req.body;
+  const { items } = req.body;
 
   try {
-    const product = await Product.findById(productId);
+    const lineItemsPromises = items.map(async (item) => {
+      const product = await Product.findById(item.id);
+      if (!product) {
+        throw new Error(`Product not found: ${item.id}`);
+      }
 
-    if (!product) {
-      return res.status(404).json({
-        success: false,
-        error: {
-          message: "Product not found",
+      return {
+        price_data: {
+          currency: "sek",
+          product_data: {
+            name: product.name,
+            description: product.description,
+            images: [product.image_url],
+          },
+          unit_amount: product.price * 100, // price in cents
         },
-      });
-    }
+        quantity: item.quantity,
+      };
+    });
+
+    const lineItems = await Promise.all(lineItemsPromises);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      line_items: [
-        {
-          price_data: {
-            currency: "sek",
-            product_data: {
-              name: product.name,
-              description: product.description,
-              images: [product.image_url],
-            },
-            unit_amount: product.price * 100, // price in cents
-          },
-          quantity: quantity,
-        },
-      ],
+      line_items: lineItems,
       mode: "payment",
       success_url: `${process.env.VITE_CLIENT_URL}/success`,
       cancel_url: `${process.env.VITE_CLIENT_URL}/cancel`,
@@ -317,10 +315,11 @@ app.post("/create-checkout-session", async (req, res) => {
 
     res.status(200).json({ id: session.id });
   } catch (error) {
+    console.error("error create-checkout-session:", error.message);
     res.status(500).json({
       success: false,
       error: {
-        message: "Internal server error",
+        message: error.message || "Internal server error",
       },
     });
   }

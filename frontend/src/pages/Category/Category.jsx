@@ -7,6 +7,7 @@ import { ProductCard } from "../AllProducts/ProductCard";
 
 import "../AllProducts/ProductCard.css";
 import "./Category.css";
+import { BACKEND_URL } from "../../config";
 
 export const Category = () => {
   const { category } = useParams();
@@ -20,7 +21,7 @@ export const Category = () => {
       setError(null);
       try {
         const response = await fetch(
-          `https://cones-and-stones-ppnudpghiq-lz.a.run.app/products/category/${category}`
+          `${BACKEND_URL}/products/category/${category}`
         );
 
         const data = await response.json();
@@ -28,7 +29,7 @@ export const Category = () => {
           // Simulate a delay by wrapping the state update in a setTimeout
           setTimeout(() => {
             setProducts(data.response);
-            setIsLoading(false)
+            setIsLoading(false);
           }, 500);
         } else {
           setError(data.error.message);
@@ -49,7 +50,7 @@ export const Category = () => {
       {isLoading && <Loader />}
 
       {error && <p>Error: {error}</p>}
-      
+
       <section className="product-list">
         {products.map((product) => (
           <ProductCard
