@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { MuseumCard } from "./MuseumCard";
-import StyledButton from "./styled/Button.styled";
-import styled from "styled-components";
+import { useState } from "react"
+import { MuseumCard } from "./MuseumCard"
+import StyledButton from "./styled/Button.styled"
+import styled from "styled-components"
 
 export const MuseumCardContainer = ({ results }) => {
-  const [amountToShow, setAmountToShow] = useState(8);
+  const [amountToShow, setAmountToShow] = useState(8)
 
-  const showMore = () => setAmountToShow(amountToShow + 4);
+  const showMore = () => setAmountToShow(amountToShow + 4)
 
   const showMuseums = () =>
     results
       .slice(0, amountToShow)
-      .map((museum, id) => <MuseumCard museum={museum} key={id} />);
+      .map((museum, id) => <MuseumCard museum={museum} key={id} />)
 
   return (
     <StyledMuseumCardContainer>
@@ -20,8 +20,8 @@ export const MuseumCardContainer = ({ results }) => {
         <StyledButton onClick={showMore}> Show more...</StyledButton>
       )}
     </StyledMuseumCardContainer>
-  );
-};
+  )
+}
 
 const MuseumCardGrid = styled.div`
   display: grid;
@@ -29,7 +29,7 @@ const MuseumCardGrid = styled.div`
   padding: 0 20px;
   grid-template-columns: repeat(1, 1fr);
 
-  @media (min-width: 700px) {
+  @media (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -41,7 +41,7 @@ const MuseumCardGrid = styled.div`
     grid-template-columns: repeat(4, 1fr);
     padding: 0 100px; /* Increase padding for larger devices */
   }
-`;
+`
 
 const StyledMuseumCardContainer = styled.div`
   display: flex;
@@ -52,4 +52,4 @@ const StyledMuseumCardContainer = styled.div`
   button {
     margin: 20px auto 0 auto;
   }
-`;
+`
