@@ -12,6 +12,7 @@ export const ProductCard = ({
   name,
   price,
   category,
+  onTagClick,
 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   // const { accessToken } = useUserStore();
@@ -25,12 +26,14 @@ export const ProductCard = ({
   // };
 
   return (
-    <Link to={`/products/${id}`} className="text-black no-underline">
+    <>
       <div className="flex flex-col">
-        <img src={templateImg} alt="image of the template" />
+        <Link to={`/products/${id}`} className="text-black no-underline">
+          <img src={templateImg} alt="image of the template" />
+        </Link>
         <span className="mb-1 mt-2 flex flex-row">
           {tags.split(", ").map((tag) => (
-            <button key={tag} className="mr-2 text-sm text-blue lg:text-xs">
+            <button key={tag} className="mr-2 text-sm text-blue lg:text-xs" onClick={() => onTagClick(tag)} >
               #{tag}
             </button>
           ))}
@@ -40,9 +43,11 @@ export const ProductCard = ({
             <p className="mb-2 text-sm font-bold text-blue lg:text-xs">
               {category}
             </p>
-            <p className="font-montserrat text-lg font-bold lg:text-sm">
-              {name}
-            </p>
+            <Link to={`/products/${id}`} className="text-black no-underline">
+              <p className="font-montserrat text-lg font-bold lg:text-sm">
+                {name}
+              </p>
+            </Link>
             <p className="mt-1 text-sm lg:text-xs">€{price}</p>
           </div>
           <div className="flex flex-row items-center gap-6 lg:gap-4">
@@ -59,7 +64,7 @@ export const ProductCard = ({
         </div>
       </div>
       <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
-    </Link>
+    </>
   );
 };
 
@@ -71,4 +76,5 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   Id: PropTypes.string.isRequired,
+  onTagClick: PropTypes.func.isRequired,
 };

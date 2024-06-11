@@ -4,6 +4,7 @@ import { Breadcrumb } from "../components/Breadcrumb";
 import { Pagination } from "../components/Pagination";
 import searchIcon from "../assets/search-icon-blue.svg";
 import { useProductStore } from "../stores/useProductStore";
+import { useSearchParams } from "react-router-dom";
 
 export const ProductList = () => {
   // use this mapping to only fetch the specific states from zustand
@@ -16,7 +17,7 @@ export const ProductList = () => {
       categories: state.categories,
     }));
 
-
+  // useState
   const [searchTemplate, setSearchTemplate] = useState("");
   const [sortType, setSortType] = useState("");
   const [sortCategory, setSortCategory] = useState("");
@@ -24,15 +25,20 @@ export const ProductList = () => {
   const [itemsPerPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // useEffect
   useEffect(() => {
     getAllProducts();
   }, [getAllProducts]);
 
   useEffect(() => {
+    // Search feature
     const filteredProducts = products.filter((product) =>
       product.templateName.toLowerCase().includes(searchTemplate.toLowerCase()),
     );
 
+    // Sorting
     const sortedProducts = filteredProducts.sort((a, b) => {
       switch (sortType) {
         case "price_asc":
@@ -48,16 +54,23 @@ export const ProductList = () => {
       }
     });
 
+    // Filter by category
     const finalProducts = sortCategory
       ? sortedProducts.filter((product) => product.category === sortCategory)
       : sortedProducts;
 
+    // Pagination
     setTotalPages(Math.ceil(finalProducts.length / itemsPerPage));
   }, [products, searchTemplate, sortType, sortCategory, itemsPerPage]);
 
-  const filteredProducts = products.filter((product) =>
-    product.templateName.toLowerCase().includes(searchTemplate.toLowerCase()),
-  );
+  const filteredProducts = products.filter((product) => {
+    if (!searchParams.get("selectedTag")) return true;
+
+    return (
+      product.tags.split(", ").includes(searchParams.get("selectedTag")) &&
+      product.templateName.toLowerCase().includes(searchTemplate.toLowerCase())
+    );
+  });
 
   const sortedProducts = filteredProducts.sort((a, b) => {
     switch (sortType) {
@@ -85,6 +98,12 @@ export const ProductList = () => {
     indexOfLastProduct,
   );
 
+  // tag
+  const handleTagClick = (tag) => {
+    setSearchParams({ selectedTag: tag });
+  };
+
+  // Pagination function
   const paginate = (pageNumber) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
@@ -183,6 +202,7 @@ export const ProductList = () => {
                   price={product.price}
                   category={product.category}
                   Id={product._id}
+                  onTagClick={handleTagClick}
                 />
               ))}
             </div>
