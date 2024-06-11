@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 import cart from "../assets/cart-blue.svg";
 import { useState } from "react";
 import { HeartButton } from "./HeartButton";
@@ -25,7 +25,7 @@ export const ProductCard = ({
   // };
 
   return (
-    <>
+    <Link to={`/products/${Id}`} className="text-black no-underline">
       <div className="flex flex-col">
         <img src={templateImg} alt="image of the template" />
         <span className="mb-1 mt-2 flex flex-row">
@@ -51,6 +51,7 @@ export const ProductCard = ({
               id={id}
               setOpenDrawer={setOpenDrawer}
             />
+
             <button className="h-6 w-6 lg:h-4 lg:w-4">
               <img src={cart} alt="add to cart button" />
             </button>
@@ -58,7 +59,7 @@ export const ProductCard = ({
         </div>
       </div>
       <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
-    </>
+    </Link>
   );
 };
 
@@ -69,4 +70,5 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
+  Id: PropTypes.string.isRequired,
 };

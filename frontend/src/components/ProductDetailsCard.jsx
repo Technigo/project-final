@@ -35,7 +35,7 @@ export const ProductDetailsCard = ({
         <span className="flex flex-row">
           {tags.split(", ").map((tag) => (
             <button key={tag} className="mr-2 text-sm text-blue">
-              #tag
+              #{tag}
             </button>
           ))}
         </span>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Pagination } from "../components/Pagination";
 import searchIcon from "../assets/search-icon-blue.svg";
 import { useProductStore } from "../stores/useProductStore";
 
@@ -15,13 +16,44 @@ export const ProductList = () => {
       categories: state.categories,
     }));
 
+
   const [searchTemplate, setSearchTemplate] = useState("");
   const [sortType, setSortType] = useState("");
   const [sortCategory, setSortCategory] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(12);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     getAllProducts();
   }, [getAllProducts]);
+
+  useEffect(() => {
+    const filteredProducts = products.filter((product) =>
+      product.templateName.toLowerCase().includes(searchTemplate.toLowerCase()),
+    );
+
+    const sortedProducts = filteredProducts.sort((a, b) => {
+      switch (sortType) {
+        case "price_asc":
+          return a.price - b.price;
+        case "price_desc":
+          return b.price - a.price;
+        case "name_asc":
+          return a.templateName.localeCompare(b.templateName);
+        case "name_desc":
+          return b.templateName.localeCompare(a.templateName);
+        default:
+          return 0;
+      }
+    });
+
+    const finalProducts = sortCategory
+      ? sortedProducts.filter((product) => product.category === sortCategory)
+      : sortedProducts;
+
+    setTotalPages(Math.ceil(finalProducts.length / itemsPerPage));
+  }, [products, searchTemplate, sortType, sortCategory, itemsPerPage]);
 
   const filteredProducts = products.filter((product) =>
     product.templateName.toLowerCase().includes(searchTemplate.toLowerCase()),
@@ -46,16 +78,29 @@ export const ProductList = () => {
     ? sortedProducts.filter((product) => product.category === sortCategory)
     : sortedProducts;
 
+  const indexOfLastProduct = currentPage * itemsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+  const currentProducts = finalProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
+
+  const paginate = (pageNumber) => {
+    if (pageNumber > 0 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTemplate, sortType, sortCategory]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (error) {
     return <div>Error: {error}</div>;
-  }
-
-  if (!finalProducts.length) {
-    return <div>No products found.</div>;
   }
 
   return (
@@ -71,7 +116,7 @@ export const ProductList = () => {
             <div className="flex gap-4 pb-6 lg:pb-0">
               <div className="border border-blue p-2">
                 <select
-                  className="font-montserrat text-sm text-blue"
+                  className="max-w-[140px] font-montserrat text-sm text-blue"
                   value={sortCategory}
                   onChange={(event) => setSortCategory(event.target.value)}
                 >
@@ -86,7 +131,7 @@ export const ProductList = () => {
 
               <div className="border border-blue p-2">
                 <select
-                  className="font-montserrat text-sm text-blue"
+                  className="max-w-[140px] font-montserrat text-sm text-blue"
                   value={sortType}
                   onChange={(event) => setSortType(event.target.value)}
                 >
@@ -103,7 +148,7 @@ export const ProductList = () => {
               <div className="flex flex-row border border-blue p-2">
                 <img src={searchIcon} className="pr-4" alt="search icon" />
                 <input
-                  className="font-montserrat text-sm"
+                  className="w-full font-montserrat text-sm"
                   type="text"
                   placeholder="Search"
                   value={searchTemplate}
@@ -115,21 +160,41 @@ export const ProductList = () => {
         </div>
       </div>
 
-      <div className="flex w-auto flex-col items-center px-8">
-        <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
-          {finalProducts.map((product) => (
-            <ProductCard
-              key={product._id}
-              id={product._id}
-              templateImg={product.image}
-              tags={product.tags}
-              name={product.templateName}
-              price={product.price}
-              category={product.category}
-            />
-          ))}
+      {!finalProducts.length ? (
+        <div className="flex items-center justify-center p-6">
+          <div className="text-blue-500 pb-20 text-lg">
+            <h2 className="mb-10 font-poppins font-bold">
+              Opps! No template found.
+            </h2>
+            <p>Try adjusting your search or filter settings!</p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="mb-10 flex w-auto flex-col items-center px-8 lg:mb-20">
+            <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
+              {currentProducts.map((product) => (
+                <ProductCard
+                  key={product._id}
+                  id={product._id}
+                  templateImg={product.image}
+                  tags={product.tags}
+                  name={product.templateName}
+                  price={product.price}
+                  category={product.category}
+                  Id={product._id}
+                />
+              ))}
+            </div>
+          </div>
+          <Pagination
+            totalItems={finalProducts.length}
+            itemsPerPage={itemsPerPage}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        </>
+      )}
     </>
   );
 };
