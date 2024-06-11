@@ -9,6 +9,7 @@ export const useProductStore = create((set, get) => ({
   error: null,
   categories: [],
   product: null,
+  favoriteProducts: [],
   getAllProducts: async () => {
     set({ loading: true, error: null });
     try {
@@ -48,6 +49,58 @@ export const useProductStore = create((set, get) => ({
       }
       const data = await response.json();
       set({ product: data });
+    } catch (error) {
+      set({ error: error });
+    } finally {
+      set({ loading: false });
+    }
+  },
+  likeProduct: async (id) => {
+    set({ loading: true, error: null });
+    try {
+      const response = await fetch(`${BACKEND_URL}/products/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Access-Control-Allow-Origin": FRONTEND_URL,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Unable to like this product error");
+      }
+      // const data = await response.json();
+      set((state) => ({
+        favoriteProducts: [...state.favoriteProducts, id],
+      }));
+      console.log("like successful!");
+    } catch (error) {
+      set({ error: error });
+    } finally {
+      set({ loading: false });
+    }
+  },
+  unlikeProduct: async (id) => {
+    set({ loading: true, error: null });
+    try {
+      const response = await fetch(`${BACKEND_URL}/products/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Access-Control-Allow-Origin": FRONTEND_URL,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ unlike: true }),
+      });
+      if (!response.ok) {
+        throw new Error("Unable to like this product error");
+      }
+      // const data = await response.json();
+      // set({ product: data });
+      set((state) => ({
+        favoriteProducts: [
+          ...state.favoriteProducts.filter((productID) => productID !== id),
+        ],
+      }));
+      console.log("Unlike successful!");
     } catch (error) {
       set({ error: error });
     } finally {

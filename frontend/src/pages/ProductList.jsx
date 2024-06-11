@@ -5,14 +5,15 @@ import searchIcon from "../assets/search-icon-blue.svg";
 import { useProductStore } from "../stores/useProductStore";
 
 export const ProductList = () => {
-  const {products, loading, error, getAllProducts, categories} = useProductStore()
+  const { products, loading, error, getAllProducts, categories } =
+    useProductStore();
 
   const [searchTemplate, setSearchTemplate] = useState("");
   const [sortType, setSortType] = useState("");
   const [sortCategory, setSortCategory] = useState("");
 
   useEffect(() => {
-    getAllProducts()
+    getAllProducts();
   }, [getAllProducts]);
 
   const filteredProducts = products.filter((product) =>
@@ -112,6 +113,7 @@ export const ProductList = () => {
           {finalProducts.map((product) => (
             <ProductCard
               key={product._id}
+              id={product._id}
               templateImg={product.image}
               tags={product.tags}
               name={product.templateName}

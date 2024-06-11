@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProductDetailsCard } from "../components/ProductDetailsCard";
@@ -6,7 +6,6 @@ import { useProductStore } from "../stores/useProductStore";
 
 export const ProductDetail = () => {
   const { getSingleProduct, loading, error, product } = useProductStore();
-  // const [product, setProduct] = useState(null);
   const { Id } = useParams();
   console.log("Id:", Id);
 
@@ -35,7 +34,7 @@ export const ProductDetail = () => {
           tags={product.tags}
           templateName={product.templateName}
           price={product.price}
-          numOfLikes={product.numOfLikes}
+          numOfLikes={product.likes}
           category={product.category}
           description={product.description}
         />
