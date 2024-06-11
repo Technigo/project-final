@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { AuthContext } from "../contexts/AuthContext"
 import { LogoutButton } from "../components/LogoutButton"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import LikedMuseums from "../components/LikedMuseums"
 import { UserReviews } from "../components/UserReviews"
 
@@ -53,7 +52,6 @@ export const UserPage = () => {
     return (
       <UserContainer>
         <p>You are not authorized to view this page. Please log in.</p>
-        <ToHomepageBtn />
         <AuthLink to={"/login"}>Log in </AuthLink> or
         <AuthLink to={"/register"}> sign up</AuthLink>
       </UserContainer>
@@ -61,22 +59,17 @@ export const UserPage = () => {
   }
 
   return (
-    <div>
-      <ToHomepageBtn />
-
-      <UserContainer>
-        <ToHomepageBtn />
-        <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
-        <FeatureList>
-          <LikedMuseums />
-          <FeatureItem>
-            <UserReviews />
-          </FeatureItem>
-          <FeatureItem>Purchased tickets</FeatureItem>
-        </FeatureList>
-        <LogoutButton />
-      </UserContainer>
-    </div>
+    <UserContainer>
+      <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
+      <FeatureList>
+        <LikedMuseums />
+        <FeatureItem>
+          <UserReviews />
+        </FeatureItem>
+        <FeatureItem>Purchased tickets</FeatureItem>
+      </FeatureList>
+      <LogoutButton />
+    </UserContainer>
   )
 }
 
@@ -84,7 +77,7 @@ const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 80px 20px 20px 20px;
 `
 
 const WelcomeMessage = styled.h2`

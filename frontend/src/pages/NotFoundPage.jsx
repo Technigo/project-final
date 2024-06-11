@@ -1,10 +1,8 @@
 import styled from "styled-components"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
 export const NotFoundPage = () => {
   return (
     <NotFoundContainer>
-      <ToHomepageBtn />
       <h4>404: Artifact Not Found</h4>
       <p>
         Oh no! You've uncovered a missing exhibit. This page is as elusive as a

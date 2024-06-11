@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { useContext, useEffect } from "react"
 import { useParams, Navigate, Link } from "react-router-dom"
 import { IoRestaurantOutline } from "react-icons/io5"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { BackButton } from "../components/BackButton"
 import { FavoriteButton } from "../components/FavoriteButton"
 import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
@@ -32,7 +32,7 @@ export const DetailPage = () => {
     <Container>
       <Background />
       <ImageContainerPhone>
-        <ToHomepageBtn />
+        <BackButton />
         <StyledImagePhone
           src={getOptimizedUrl(museum.url, 1200)}
           alt={`Image related to ${museum.name}`}
@@ -42,7 +42,7 @@ export const DetailPage = () => {
       <ContentContainer>
         <Content>
           <ImageContainerTablet>
-            <ToHomepageBtn />
+            <BackButton />
             <StyledImageTablet
               src={getOptimizedUrl(museum.url, 1200)}
               alt={`Image related to ${museum.name}`}

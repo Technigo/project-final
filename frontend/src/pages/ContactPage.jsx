@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import EtnaImage from "/etna.jpeg"
 import AlmaImage from "/alma.png"
 

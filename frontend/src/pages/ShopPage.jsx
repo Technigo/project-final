@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { BackButton } from "../components/BackButton"
 
 export const ShopPage = () => {
   return (
@@ -15,7 +15,7 @@ export const ShopPage = () => {
             purchases. Thank you for your curiosity!
           </Message>
         </TicketContent>
-        <ToHomepageBtn />
+        <BackButton />
       </TicketBooth>
     </Container>
   )
