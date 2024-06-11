@@ -13,7 +13,7 @@ export const ProductsPage = () => {
   const [sortValue, setSortValue] = useState("sort");
   const [filterValue, setFilterValue] = useState("filter");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const profile = user.user
+  const profile = user.user;
 
 
   const handleSortChange = (e) => {
@@ -55,20 +55,21 @@ export const ProductsPage = () => {
       );
     }
   
-    if (filterValue !== "filter" && filterValue !== "all") {
+    if (filterValue !== "filter" && filterValue !== "all" && filterValue !== "recommended") {
       newFilteredProducts = newFilteredProducts.filter(
         (product) => product.pros && product.pros.includes(filterValue)
       );
     }
 
-
-    //needs modification, just to get started with recommendations
-    if (profile) {
+    if (loggedIn && filterValue === "recommended") {
       newFilteredProducts = newFilteredProducts.filter((product) => {
-        // Check if any of the arrays contain "sensitive" or "curly"
+
         return (
-          (!product.skin || product.skin.includes(profile.skin)) ||
-          (product.hair && (product.hair.moisture === profile.hair.moisture || product.hair.shape === profile.hair.shape))
+          !product.skin ||
+          product.skin.includes(profile.skin) ||
+          (product.hair &&
+            (product.hair.moisture === profile.hair.moisture ||
+              product.hair.shape === profile.hair.shape))
         );
       });
     }
@@ -90,7 +91,7 @@ export const ProductsPage = () => {
 
   return (
     <>
-    < ShoppingCartPopup />
+      <ShoppingCartPopup />
       <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
         <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row">
           <h2 className="text-text-light text-2xl  tablet:text-3xl laptop:text-3xl text-center mb-6 desktop:mb-0">
@@ -155,6 +156,10 @@ export const ProductsPage = () => {
                 <option value="filter" disabled hidden>
                   Filter
                 </option>
+                {loggedIn ?   <option value="recommended" className="bg-button-light">
+                  Recommended for you
+                </option> : null}
+              
                 <option value="organic" className="bg-button-light">
                   Organic
                 </option>
