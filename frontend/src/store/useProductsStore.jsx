@@ -10,10 +10,8 @@ export const useProductsStore = create(
   shoppingCart: [],
   totalPrice: 0,
   addedProduct: [],
+  popupIsVisible: false,
 
-  setAddedProduct: (product) => {
-    set[{ addedProduct: product }]
-  },
   
   setShoppingCart: (product, quantity) => {
     const currentCart = get().shoppingCart;
@@ -32,10 +30,10 @@ export const useProductsStore = create(
         updatedCart[productIndex].quantity
       );
   
-      set({ shoppingCart: updatedCart, addedProduct: [product] });
+      set({ shoppingCart: updatedCart, addedProduct: [product], popupIsVisible: true });
     } else {
       // Add the new product to the cart
-      set({ shoppingCart: [...currentCart, { product, quantity }], addedProduct: [product] });
+      set({ shoppingCart: [...currentCart, { product, quantity }], addedProduct: [product], popupIsVisible: true });
     }
   
     // Recalculate total price and update store
@@ -44,6 +42,9 @@ export const useProductsStore = create(
     }, 0);
     const roundedPrice = Math.ceil(price * 100) / 100; // Round up to 2 decimal places
     set({ totalPrice: roundedPrice });
+
+    setTimeout(() => set({ popupIsVisible: false, addedProduct: [] }), 10000);
+
       },
   
       updateCart: (newQuantity, productId) => {

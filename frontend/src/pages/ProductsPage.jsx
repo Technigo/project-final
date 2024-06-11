@@ -14,6 +14,7 @@ export const ProductsPage = () => {
   const [sortValue, setSortValue] = useState("sort");
   const [filterValue, setFilterValue] = useState("filter");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const userPreference = ["sensitive", "curly"] //replace with data
 
 
   const handleSortChange = (e) => {
@@ -59,6 +60,18 @@ export const ProductsPage = () => {
       newFilteredProducts = newFilteredProducts.filter(
         (product) => product.pros && product.pros.includes(filterValue)
       );
+    }
+
+
+    //needs modification, just to get started with recommendations
+    if (userPreference.length > 0) {
+      newFilteredProducts = newFilteredProducts.filter((product) => {
+        // Check if any of the arrays contain "sensitive" or "curly"
+        return (
+          (!product.skin || product.skin.includes("sensitive")) ||
+          (product.hair && (product.hair.moisture === "curly" || product.hair.shape === "curly"))
+        );
+      });
     }
   
     // Apply previous filters if they exist
