@@ -1,8 +1,7 @@
 Favorite function - Etna
 
 ✅ Make favorite function work (should be saved even after user logs out/logs in again)
-
-- Heart in images in grid
+✅Heart in images in grid
 
 Detailpage "styling"
 
@@ -13,14 +12,30 @@ Detailpage "styling"
 Backend
 
 ✅ Connect user name with comment
+
 - set museumId to objectId - Alma
-- Display comments and saved museums on their personal page
-✅ Deploy backend - alma and etna
+  ✅ Display comments and saved museums on their personal page
+  ✅ Deploy backend - alma and etna
 
 Design
 
-- UX input on design
+✅ UX input on design
+
 - Theme provider? for consistency with colors
 
 Stretch goals
 ✅ Map
+
+Other things:
+- Make sure favorite button and comments work as before 🐱
+- Include rating in comment (1-5 as input in backend - stars in frontend) 🐱
+- Suggested museums under the map in detailpage to make the user explore more 🐱
+- Userpage: add user name in welcome message 🐱
+
+- Navbar showing everywhere like footer 🦀
+- Navbar responsiveness 🦀
+- Whitespace between components 🦀
+- Revisit button design (border radius) 🦀
+
+
+- Separate musuem page with filtering
