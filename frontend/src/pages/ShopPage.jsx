@@ -4,8 +4,6 @@ import { ToHomepageBtn } from "../components/ToHomepageBtn"
 export const ShopPage = () => {
   return (
     <Container>
-      <ToHomepageBtn />
-
       <Title>Virtual Ticket Booth</Title>
       <TicketBooth>
         <TicketContent>
@@ -17,13 +15,14 @@ export const ShopPage = () => {
             purchases. Thank you for your curiosity!
           </Message>
         </TicketContent>
+        <ToHomepageBtn />
       </TicketBooth>
     </Container>
   )
 }
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 80px 20px 20px 20px;
   text-align: center;
 
   a {

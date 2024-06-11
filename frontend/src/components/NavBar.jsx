@@ -92,7 +92,7 @@ const NavBarImage = styled.img`
 `
 const StyledNavBar = styled.nav`
   z-index: 999;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.75);
   position: fixed;
   width: 100%;
   color: white;
@@ -168,9 +168,9 @@ const MobileMenuIcon = styled.div`
 
 const DropdownMenu = styled.div`
   position: absolute;
-  top: 68px;
+  top: 80px;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
   padding: 20px 0;
   display: none;

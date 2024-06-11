@@ -39,7 +39,7 @@ const MuseumCardGrid = styled.div`
 
   @media (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 100px; /* Increase padding for larger devices */
+    padding: 0 100px; 
   }
 `
 

@@ -1,11 +1,9 @@
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import styled from "styled-components"
 
 export const ReferencePage = () => {
   return (
     <>
       <StyledReferencePage>
-        <ToHomepageBtn />
         <h4>Licenses</h4>
         <ul>
           {" "}
@@ -27,7 +25,7 @@ export const ReferencePage = () => {
 }
 
 const StyledReferencePage = styled.div`
-  padding: 20px;
+  padding: 80px 20px 20px 20px;
   text-align: center;
 
   h4 {

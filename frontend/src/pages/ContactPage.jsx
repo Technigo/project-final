@@ -8,8 +8,6 @@ export const ContactPage = () => {
   return (
     <>
       <StyledContactPage>
-        <ToHomepageBtn />
-
         <h3>Meet the developers behind MuSeek</h3>
 
         <p>Connect with us to learn more about our journey!</p>
@@ -82,7 +80,7 @@ export const ContactPage = () => {
 
 const StyledContactPage = styled.div`
   background-color: #f5f5f5;
-  padding: 20px;
+  padding: 80px 20px 20px 20px;
   text-align: center;
 
   h3 {

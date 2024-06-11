@@ -1,8 +1,9 @@
+import styled from "styled-components"
 import { ToHomepageBtn } from "../components/ToHomepageBtn"
 
 export const NotFoundPage = () => {
   return (
-    <div>
+    <NotFoundContainer>
       <ToHomepageBtn />
       <h4>404: Artifact Not Found</h4>
       <p>
@@ -10,6 +11,10 @@ export const NotFoundPage = () => {
         hidden treasure. But don't worry, there are hundreds of museum to
         explore!
       </p>
-    </div>
+    </NotFoundContainer>
   )
 }
+
+const NotFoundContainer = styled.div`
+  padding-top: 80px;
+`

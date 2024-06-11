@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { useParams, Navigate } from "react-router-dom"
+import { useParams, Navigate, useNavigate, Link } from "react-router-dom"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import L from "leaflet"
 import { IoRestaurantOutline } from "react-icons/io5"
@@ -7,7 +7,6 @@ import { ToHomepageBtn } from "../components/ToHomepageBtn"
 import { FavoriteButton } from "../components/FavoriteButton"
 import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
-import { Link } from "react-router-dom"
 
 import museumList from "../../../backend/data/museums.json"
 import styled from "styled-components"
@@ -148,6 +147,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  @media (min-width: 768px) {
+    padding-top: 80px;
+  }
 `
 
 const Background = styled.div`

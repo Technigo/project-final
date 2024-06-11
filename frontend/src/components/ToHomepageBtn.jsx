@@ -1,23 +1,30 @@
 import styled from "styled-components"
 import { LuArrowLeftCircle } from "react-icons/lu"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const ToHomepageBtn = () => {
+  const navigateTo = useNavigate()
+
+  const goBack = () => {
+    navigateTo(-1)
+  }
+
   return (
     <ToHomepageBtnStyled>
-      <Link to={"/"}>
+      <a onClick={goBack}>
         <LuArrowLeftCircle />
-      </Link>
+      </a>
     </ToHomepageBtnStyled>
   )
 }
 
 const ToHomepageBtnStyled = styled.div`
   position: absolute;
-  top: 5px;
+  bottom: 10px;
   left: 10px;
   z-index: 1;
   font-size: 36px;
+  cursor: pointer;
 
   a {
     color: white;
@@ -26,5 +33,8 @@ const ToHomepageBtnStyled = styled.div`
 
   &:hover {
     transform: scale(1.1);
+  }
+  @media (min-width: 768px) {
+    top: 10px;
   }
 `

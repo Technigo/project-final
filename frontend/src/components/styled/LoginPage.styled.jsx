@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledLoginPage = styled.div`
+  padding-top: 80px;
+
   background-color: #dee0e2;
   color: #f7f7f7;
   text-align: center;
@@ -9,6 +11,6 @@ const StyledLoginPage = styled.div`
   h2 {
     font-size: 30px;
   }
-`;
+`
 
-export default StyledLoginPage;
+export default StyledLoginPage
