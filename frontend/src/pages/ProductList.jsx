@@ -63,7 +63,7 @@ export const ProductList = () => {
             <div className="flex gap-4 pb-6 lg:pb-0">
               <div className="border border-blue p-2">
                 <select
-                  className="font-montserrat text-sm text-blue"
+                  className="max-w-[140px] font-montserrat text-sm text-blue"
                   value={sortCategory}
                   onChange={(event) => setSortCategory(event.target.value)}
                 >
@@ -78,7 +78,7 @@ export const ProductList = () => {
 
               <div className="border border-blue p-2">
                 <select
-                  className="font-montserrat text-sm text-blue"
+                  className="max-w-[140px] font-montserrat text-sm text-blue"
                   value={sortType}
                   onChange={(event) => setSortType(event.target.value)}
                 >
@@ -95,7 +95,7 @@ export const ProductList = () => {
               <div className="flex flex-row border border-blue p-2">
                 <img src={searchIcon} className="pr-4" alt="search icon" />
                 <input
-                  className="font-montserrat text-sm"
+                  className="font-montserrat text-sm w-full"
                   type="text"
                   placeholder="Search"
                   value={searchTemplate}
@@ -107,7 +107,7 @@ export const ProductList = () => {
         </div>
       </div>
 
-      <div className="flex w-auto flex-col items-center px-8">
+      <div className="mb-10 flex w-auto flex-col items-center px-8 lg:mb-20">
         <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
           {finalProducts.map((product) => (
             <ProductCard
