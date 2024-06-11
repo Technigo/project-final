@@ -18,8 +18,8 @@ export const Button = styled.button`
     background-color: #ee723f;
   }
 
-  &.active {
-    background-color: #ee723f;
+  &:active {
+    background-color: #a53c10;
   }
 
   @media (min-width: 768px) {

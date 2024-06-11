@@ -30,7 +30,7 @@ export const CelestialBodies = () => {
       }
     };
     fetchOneBody();
-  }, [name, URL]);
+  }, [name]);
 
   if (loading) {
     return <p>Loading celestial body...</p>;
