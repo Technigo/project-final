@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../assets/icons/logo.svg";
-import mobileMenu from "../../assets/icons/mobileMenu.png";
-import mobileMenuClose from "../../assets/icons/mobileMenuClose.png";
-import { MobileMenu } from "./MobileMenu";
-import { MainMenu } from "./MainMenu";
-import { Breadcrumbs } from "./Breadcrumbs";
-import styled from "styled-components";
+import { useState, useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
+import logo from "../../assets/icons/logo.svg"
+import mobileMenu from "../../assets/icons/mobileMenu.png"
+import mobileMenuClose from "../../assets/icons/mobileMenuClose.png"
+import { MobileMenu } from "./MobileMenu"
+import { MainMenu } from "./MainMenu"
+import { Breadcrumbs } from "./Breadcrumbs"
+import styled from "styled-components"
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
   @media (min-width: 768px) {
     padding: 20px 40px;
   }
-`;
+`
 
 const HeaderContent = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const HeaderContent = styled.div`
   @media (min-width: 768px) {
     padding: 20px 40px;
   }
-`;
+`
 
 const Logo = styled.img`
   width: 60px;
@@ -42,14 +42,14 @@ const Logo = styled.img`
   @media (min-width: 768px) {
     width: 100px;
   }
-`;
+`
 
 const NavContainer = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   position: relative;
-`;
+`
 
 const MobileMenuIcon = styled.div`
   display: none;
@@ -63,7 +63,7 @@ const MobileMenuIcon = styled.div`
     max-width: 40px;
     margin: 20px 20px;
   }
-`;
+`
 
 const MobileMenuWrapper = styled.div`
   position: absolute;
@@ -81,7 +81,7 @@ const MobileMenuWrapper = styled.div`
     width: 70%;
     width: 20vh;
   }
-`;
+`
 
 const BreadcrumbContainer = styled.div`
   flex-grow: 1;
@@ -92,29 +92,29 @@ const BreadcrumbContainer = styled.div`
   @media (min-width: 768px) {
     justify-content: flex-start;
   }
-`;
+`
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuRef = useRef(null)
 
   // Function to handle mobile menu
   const handleMobileMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+    setIsMenuOpen((prev) => !prev)
+  }
 
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
+        setIsMenuOpen(false)
       }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
+    }
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
   return (
     <HeaderContainer>
@@ -143,5 +143,5 @@ export const Header = () => {
         <Breadcrumbs />
       </BreadcrumbContainer>
     </HeaderContainer>
-  );
-};
+  )
+}
