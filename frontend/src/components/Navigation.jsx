@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import glimLogo from "/glimSmall.svg";
 import shoppingCart from "/cart-shopping-solid.svg";
 import userIcon from "/user-solid.svg";
@@ -7,6 +7,7 @@ import burgerMenu from "/bars-solid.svg";
 import xMark from "/square-xmark-solid.svg";
 import swoop from "/nav-swoop2.svg";
 import { useUserStore } from "../store/useUserStore";
+import { WelcomeMessage } from "./WelcomeMessage"
 
 //If signed in Sign in should display username/firstname
 
@@ -15,10 +16,12 @@ export const Navigation = ({ data }) => {
   const [open, setOpen] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
   const navRef = useRef();
   const btnRef = useRef();
   const overlayRef = useRef();
   const modalContentRef = useRef();
+  const navigate = useNavigate();
 
   const showNavbar = () => {
     navRef.current.classList.toggle("hidden");
@@ -28,11 +31,6 @@ export const Navigation = ({ data }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     await loginUser(emailInput, passwordInput);
-    if (loggedIn) {
-      console.log("Login successful!", email);
-    } else {
-      console.log("Login failed!", email);
-    }
   };
 
   const handleClickOutside = (event) => {
@@ -51,12 +49,24 @@ export const Navigation = ({ data }) => {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (loggedIn) {
+      setOpen(false);
+      setShowWelcomePopup(true);
+      setTimeout(() => {
+        setShowWelcomePopup(false)
+        navigate("/profile");
+      }, 2000); 
+    }
+  }, [loggedIn]);
+
   const toggleLogin = () => {
     setOpen(!open);
   };
 
   return (
-    <>
+    <>   
+     {showWelcomePopup && <WelcomeMessage />}
       <nav className="sticky top-0 w-full z-20">
         <div className="grid grid-cols-3 bg-strong-red  border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
           <div className="left-nav flex">
@@ -73,15 +83,16 @@ export const Navigation = ({ data }) => {
                 {data.about}
               </p>
             </NavLink>
-            <div
-              onClick={toggleLogin}
-              className="text-white m-2 cursor-pointer laptop:hidden"
-            >
-              <img src={userIcon} alt="Profile" className="h-4 tablet:hidden" />
-              <p className="font-body text-white font-extralight text-lg hidden tablet:block">
-                {data.login}
-              </p>
+            {loggedIn ? (
+              <NavLink to="/profile" className="laptop:hidden">
+              <img src={userIcon} alt="Profile" className="h-4 ml-2 mt-2 tablet:h-5 tablet:m-3" /></NavLink>
+              ) : (
+                <div
+                onClick={toggleLogin}
+                className="text-white m-2 cursor-pointer laptop:hidden">
+                  <img src={userIcon} alt="Profile" className="h-4 ml-2 tablet:h-5 tablet:m-3" />
             </div>
+          )}
             <NavLink to="/cart" className="text-white tablet:hidden">
               <img
                 src={shoppingCart}
@@ -96,14 +107,19 @@ export const Navigation = ({ data }) => {
             </NavLink>
           </div>
           <div className="right-nav flex flex-row justify-end">
-            <div
-              onClick={toggleLogin}
-              className="text-white my-4 cursor-pointer"
-            >
-              <p className="font-body text-white font-extralight text-lg hidden laptop:block">
-                {data.login}
-              </p>
-            </div>
+            {loggedIn ? (
+              <NavLink to="/profile">
+              <img src={userIcon} alt="Profile" className="hidden laptop:flex laptop:h-7 laptop:mt-4" /> </NavLink>
+            ) : (
+              <div
+                onClick={toggleLogin}
+                className="text-white my-4 cursor-pointer"
+              >
+                <p className="font-body text-white font-extralight text-lg hidden laptop:block">
+                  {data.login}
+                </p>
+              </div>
+            )}
             <NavLink to="/cart" className="text-white">
               <img
                 src={shoppingCart}
@@ -176,7 +192,7 @@ export const Navigation = ({ data }) => {
               />
               <button
                 onClick={handleLogin}
-               // disabled={loadingUser}
+                // disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
               >
                 {loadingUser ? "Logging in..." : "Login"}

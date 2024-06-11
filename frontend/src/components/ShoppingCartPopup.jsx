@@ -4,11 +4,6 @@ import { NavLink } from "react-router-dom"
 export const ShoppingCartPopup = () => {
   const { addedProduct, popupIsVisible } = useProductsStore();
 
-  
-
-  console.log("visible", popupIsVisible)
-  console.log("is added", addedProduct)
-
   return (
     <>
       {popupIsVisible && addedProduct && (

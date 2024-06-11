@@ -2,18 +2,24 @@
 // send user to Log in/ Sign up if not logged in.
 
 import { useUserStore } from "../store/useUserStore";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate  } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { FaUserEdit } from "react-icons/fa";
 
 
 export const ProfilePage = () => {
-  const { user } = useUserStore();
+  const { user, logoutUser } = useUserStore();
   const profile = user.user;
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate('/'); // Redirect to the main page after logout
+  };
 
   return (
     <>
-    <button className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20">
+    <button onClick={handleLogout} className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20">
             Log out
           </button>
       <section className="w-full">

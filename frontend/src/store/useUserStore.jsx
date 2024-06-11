@@ -158,27 +158,7 @@ export const useUserStore = create(
         set({
           user: {},
           userId: "",
-          firstName: "",
-          lastName: "",
-          email: "",
-          address: {
-            street: "",
-            postalCode: "",
-            city: "",
-            country: "",
-          },
-          password: "",
           accessToken: "",
-          allergies: [],
-          pros: [],
-          hair: {
-            shape: "",
-            moisture: "",
-          },
-          hairShape: "",
-          hairMoisture: "",
-          skinType: [],
-          loadingUser: false,
           loggedIn: false,
         });
       },
