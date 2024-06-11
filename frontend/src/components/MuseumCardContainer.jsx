@@ -6,8 +6,6 @@ import styled from "styled-components";
 export const MuseumCardContainer = ({ results }) => {
   const [amountToShow, setAmountToShow] = useState(8);
 
-  console.log(results);
-
   const showMore = () => setAmountToShow(amountToShow + 4);
 
   const showMuseums = () =>
@@ -31,7 +29,7 @@ const MuseumCardGrid = styled.div`
   padding: 0 20px;
   grid-template-columns: repeat(1, 1fr);
 
-  @media (min-width: 500px) {
+  @media (min-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -41,7 +39,7 @@ const MuseumCardGrid = styled.div`
 
   @media (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 100px;
+    padding: 0 100px; /* Increase padding for larger devices */
   }
 `;
 

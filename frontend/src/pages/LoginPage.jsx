@@ -23,7 +23,7 @@ export const LoginPage = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/sessions", {
+      const response = await fetch("https://museek-2ejb.onrender.com/sessions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

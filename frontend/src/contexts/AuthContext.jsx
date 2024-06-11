@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem("accessToken")
       if (token) {
         try {
-          const response = await fetch("http://localhost:3000/user-page", {
+          const response = await fetch("https://museek-2ejb.onrender.com/user-page", {
             headers: {
               Authorization: token,
             },

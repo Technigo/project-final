@@ -21,7 +21,7 @@ export const FavoriteButton = ({ museumId, inCard }) => {
       },
       body: JSON.stringify({ accessToken }),
     }
-    fetch(`http://localhost:3000/favorites/${museumId}`, options)
+    fetch(`https://museek-2ejb.onrender.com/favorites/${museumId}`, options)
       .then((response) => response.json())
       .then((response) => setIsFavorite(response.savedAsFavorite))
   }
@@ -38,7 +38,7 @@ export const FavoriteButton = ({ museumId, inCard }) => {
       },
       body: JSON.stringify({ museumId, accessToken }),
     }
-    fetch("http://localhost:3000/favorites/toggle", options)
+    fetch("https://museek-2ejb.onrender.com/favorites/toggle", options)
       .then((response) => response.json())
       .then((response) => {
         setIsFavorite(response.savedAsFavorite)
