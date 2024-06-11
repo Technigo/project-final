@@ -2,10 +2,8 @@ import PropTypes from "prop-types";
 
 import cart from "../assets/cart-blue.svg";
 import { useState } from "react";
-import { HeartIcon } from "./HeartIcon";
-import { useUserStore } from "../stores/useUserStore";
+import { HeartButton } from "./HeartButton";
 import { SideDrawer } from "./SideDrawer";
-import { useProductStore } from "../stores/useProductStore";
 
 export const ProductCard = ({
   id,
@@ -15,17 +13,16 @@ export const ProductCard = ({
   price,
   category,
 }) => {
-  // const [like, setLike] = useState(false);
-  const [openRight, setOpenRight] = useState(false);
-  const { accessToken } = useUserStore();
-  const { unlikeProduct, likeProduct, favoriteProducts } = useProductStore();
-  const handleLike = async () => {
-    if (accessToken) {
-      favoriteProducts.includes(id) ? unlikeProduct(id) : likeProduct(id);
-    } else {
-      setOpenRight(true);
-    }
-  };
+  const [openDrawer, setOpenDrawer] = useState(false);
+  // const { accessToken } = useUserStore();
+  // const { unlikeProduct, likeProduct, favoriteProducts } = useProductStore();
+  // const handleLike = async () => {
+  //   if (accessToken) {
+  //     favoriteProducts.includes(id) ? unlikeProduct(id) : likeProduct(id);
+  //   } else {
+  //     setOpenRight(true);
+  //   }
+  // };
 
   return (
     <>
@@ -49,16 +46,18 @@ export const ProductCard = ({
             <p className="mt-1 text-sm lg:text-xs">€{price}</p>
           </div>
           <div className="flex flex-row items-center gap-6 lg:gap-4">
-            <button className="h-8 w-8 lg:h-5 lg:w-5" onClick={handleLike}>
-              <HeartIcon like={favoriteProducts.includes(id)} />
-            </button>
+            <HeartButton
+              style="h-8 w-8 lg:h-5 lg:w-5"
+              id={id}
+              setOpenDrawer={setOpenDrawer}
+            />
             <button className="h-6 w-6 lg:h-4 lg:w-4">
               <img src={cart} alt="add to cart button" />
             </button>
           </div>
         </div>
       </div>
-      <SideDrawer openRight={openRight} setOpenRight={setOpenRight} />
+      <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
     </>
   );
 };

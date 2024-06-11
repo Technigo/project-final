@@ -30,6 +30,7 @@ export const ProductDetail = () => {
       <Breadcrumb lastBreadcrumbOverride={product.templateName.toUpperCase()} />
       <div className="mx-6 mb-20 mt-10 lg:my-20">
         <ProductDetailsCard
+          id={product._id}
           image={product.image}
           tags={product.tags}
           templateName={product.templateName}

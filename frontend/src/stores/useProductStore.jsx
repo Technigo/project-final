@@ -56,7 +56,7 @@ export const useProductStore = create((set, get) => ({
     }
   },
   likeProduct: async (id) => {
-    set({ loading: true, error: null });
+    set({ error: null });
     try {
       const response = await fetch(`${BACKEND_URL}/products/${id}`, {
         method: "PATCH",
@@ -75,12 +75,9 @@ export const useProductStore = create((set, get) => ({
       console.log("like successful!");
     } catch (error) {
       set({ error: error });
-    } finally {
-      set({ loading: false });
     }
   },
   unlikeProduct: async (id) => {
-    set({ loading: true, error: null });
     try {
       const response = await fetch(`${BACKEND_URL}/products/${id}`, {
         method: "PATCH",
@@ -103,8 +100,6 @@ export const useProductStore = create((set, get) => ({
       console.log("Unlike successful!");
     } catch (error) {
       set({ error: error });
-    } finally {
-      set({ loading: false });
     }
   },
 }));

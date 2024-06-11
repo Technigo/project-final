@@ -5,8 +5,15 @@ import searchIcon from "../assets/search-icon-blue.svg";
 import { useProductStore } from "../stores/useProductStore";
 
 export const ProductList = () => {
+  // use this mapping to only fetch the specific states from zustand
   const { products, loading, error, getAllProducts, categories } =
-    useProductStore();
+    useProductStore((state) => ({
+      products: state.products,
+      loading: state.loading,
+      error: state.error,
+      getAllProducts: state.getAllProducts,
+      categories: state.categories,
+    }));
 
   const [searchTemplate, setSearchTemplate] = useState("");
   const [sortType, setSortType] = useState("");
