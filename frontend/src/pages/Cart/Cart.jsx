@@ -43,7 +43,7 @@ export const Cart = () => {
     const stripe = await stripePromise;
 
     const response = await fetch(
-      "https://cones-and-stones-ppnudpghiq-lz.a.run.app//create-checkout-session",
+      "https://cones-and-stones-ppnudpghiq-lz.a.run.app/create-checkout-session",
       {
         method: "POST",
         headers: {
@@ -125,17 +125,16 @@ export const Cart = () => {
               label="Clear cart"
               onClick={handleClearCart}
             />
+          </div>
+
+          <Button
+            variant="hero"
+            label="Checkout"
+            onClick={handleCheckout}
+            className="checkout"
+          />
+          <DeliveryStatements variant="white" />
         </div>
-
-        <Button
-          variant="hero"
-          label="Checkout"
-          onClick={handleCheckout}
-          className="checkout"
-        />
-        <DeliveryStatements variant="white" />
-      </div>
-
       )}
     </div>
   );
