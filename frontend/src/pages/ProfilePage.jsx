@@ -13,11 +13,11 @@ export const ProfilePage = () => {
 
   return (
     <>
-    <button className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mt-20">
+    <button className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20">
             Log out
           </button>
       <section className="w-full">
-        <div className="w-8/12 laptop:w-6/12 m-auto font-heading text-text-light mb-10 mt-16 laptop:mt-28">
+        <div className="w-8/12 laptop:w-6/12 m-auto font-heading text-text-light mb-10 mt-6">
           <h2 className="text-2xl laptop:text-4xl mb-6 text-center">
             {profile.firstname}
           </h2>
