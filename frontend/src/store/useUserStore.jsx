@@ -112,16 +112,6 @@ export const useUserStore = create(
           set({
             user: data,
             loggedIn: true,
-            // firstName: data.firstname,
-            // lastName: data.lastname,
-            // email: data.email,
-            // address: data.address,
-            // allergies: data.allergies,
-            // pros: data.pros,
-            // hair: data.hair,
-            // hairShape: data.hair.shape,
-            // hairMoisture: data.hair.moisture,
-            // skinType: data.skin,
           });
         } catch (error) {
           console.error("error:", error);

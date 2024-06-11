@@ -144,12 +144,20 @@ export const Navigation = ({ data }) => {
         >
           <div
             ref={modalContentRef}
-            className="w-1/2 my-20 rounded-lg bg-strong-red border-2 border-main-red border-opacity-50 backdrop-blur-sm px-4 py-2 relative"
+            className="w-1/2 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-strong-red border-2 border-main-red border-opacity-50 backdrop-blur-sm px-4 py-2 relative"
           >
             <div className="flex justify-between">
               <h1 className="font-heading text-text-light text-2xl my-4">
                 Log In
               </h1>
+              <NavLink to="/signup">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="bg-strong-red hover:bg-strong-red2 transition duration-300 mb-4 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
+                >
+                  Sign up
+                </button>
+              </NavLink>
             </div>
             <form className="flex flex-col gap-2">
               <input
@@ -173,14 +181,6 @@ export const Navigation = ({ data }) => {
               >
                 {loadingUser ? "Logging in..." : "Login"}
               </button>
-              <NavLink to="/signup">
-                <button
-                  onClick={() => setOpen(false)}
-                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
-                >
-                  Sign up
-                </button>
-              </NavLink>
             </form>
             <p className="absolute text-text-light -bottom-8 z-0 text-xs">
               Press outside of the box to close the window

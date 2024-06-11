@@ -1,5 +1,5 @@
 import { useProductsStore } from "../store/useProductsStore";
-//import { useUserStore } from "../store/useUserStore";
+import { useUserStore } from "../store/useUserStore";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
@@ -8,13 +8,12 @@ import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct, addedProduct } = useProductsStore();
-  //const { loggedIn } = useUserStore();
-  const loggedIn = true; // to be deleted
+  const { loggedIn, user } = useUserStore();
   const [categoryValue, setCategoryValue] = useState("category");
   const [sortValue, setSortValue] = useState("sort");
   const [filterValue, setFilterValue] = useState("filter");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const userPreference = ["sensitive", "curly"] //replace with data
+  const profile = user.user
 
 
   const handleSortChange = (e) => {
@@ -64,12 +63,12 @@ export const ProductsPage = () => {
 
 
     //needs modification, just to get started with recommendations
-    if (userPreference.length > 0) {
+    if (profile) {
       newFilteredProducts = newFilteredProducts.filter((product) => {
         // Check if any of the arrays contain "sensitive" or "curly"
         return (
-          (!product.skin || product.skin.includes("sensitive")) ||
-          (product.hair && (product.hair.moisture === "curly" || product.hair.shape === "curly"))
+          (!product.skin || product.skin.includes(profile.skin)) ||
+          (product.hair && (product.hair.moisture === profile.hair.moisture || product.hair.shape === profile.hair.shape))
         );
       });
     }

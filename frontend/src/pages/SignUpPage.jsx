@@ -29,7 +29,7 @@ export const SignUpPage = () => {
     registerUser,
     loadingUser,
   } = useUserStore();
-  const [activeSection, setActiveSection] = useState("sectionthree");
+  const [activeSection, setActiveSection] = useState("sectionone");
 
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
