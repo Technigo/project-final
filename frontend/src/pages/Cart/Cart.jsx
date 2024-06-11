@@ -10,7 +10,7 @@ import { DeliveryStatements } from "../Home/components/DeliveryStatements/Delive
 import "./Cart.css";
 import { useBagStore } from "../../stores/useBagStore";
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 export const Cart = () => {
   const {
