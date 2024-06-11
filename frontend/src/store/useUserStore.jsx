@@ -4,17 +4,26 @@ import { persist } from "zustand/middleware";
 export const useUserStore = create(
   persist(
     (set, get) => ({
-      URL_userId: `https://project-final-glim.onrender.com/users/profile/${id}`,
+      //URL_userId: `https://project-final-glim.onrender.com/users/profile/${id}`,
       user: {},
       userId: "",
-      firstname: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      address: {},
+      address: {
+        street: "",
+        postalCode: "",
+        city: "",
+        country: "",
+      },
       password: "",
       accessToken: "",
       allergies: [],
       pros: [],
+      hair: {
+        shape: "",
+        moisture: "",
+      },
       hairShape: "",
       hairMoisture: "",
       skinType: [],
@@ -22,45 +31,49 @@ export const useUserStore = create(
       loggedIn: false,
 
       //Functions to update userInfo
-      setFirstName: (Input) => set({ firstname: Input }),
-      setLastName: (Input) => set({ lastname: Input }),
+      setFirstName: (Input) => set({ firstName: Input }),
+      setLastName: (Input) => set({ lastName: Input }),
       setEmail: (Input) => set({ email: Input }),
       setAddress: (Input) => set({ address: Input }),
       setPassword: (Input) => set({ password: Input }),
       setAllergies: (Input) => set({ allergies: Input }),
       setPros: (Input) => set({ pros: Input }),
-      sethairShape: (Input) => set({ hairShape: Input }),
-      setHairMoisture: (Input) => set({ hairMoisture: Input }),
+      setHair: (Input) => set({ hair: Input }),
+      // setHairShape: (Input) => set({ hairShape: Input }),
+      // setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
 
       //Register user
       registerUser: async (
-        firstname,
-        lastname,
+        firstName,
+        lastName,
         email,
         address,
         password,
         allergies,
         pros,
-        hairShape,
-        hairMoisture,
+        hair,
+        // hairShape,
+        // hairMoisture,
         skinType
       ) => {
         set({ loadingUser: true });
-        const URL_register = "https://project-final-glim.onrender.com/users/register"
+        const URL_register =
+          "https://project-final-glim.onrender.com/users/register";
         try {
           const response = await fetch(URL_register, {
             method: "POST",
             body: JSON.stringify({
-              firstname: firstname,
-              lastname: lastname,
+              firstname: firstName,
+              lastname: lastName,
               email: email,
               address: address,
               password: password,
               allergies: allergies,
               pros: pros,
-              hair: hairShape,
-              hairMoisture,
+              hair: hair,
+              // hairShape: hairShape,
+              // hairMoisture: hairMoisture,
               skin: skinType,
             }),
             headers: { "Content-Type": "application/json" },
@@ -80,7 +93,7 @@ export const useUserStore = create(
       },
       loginUser: async (email, password) => {
         set({ loadingUser: true });
-        const URL_login = "https://project-final-glim.onrender.com/users/login"
+        const URL_login = "https://project-final-glim.onrender.com/users/login";
         try {
           const response = await fetch(URL_login, {
             method: "POST",
@@ -94,23 +107,26 @@ export const useUserStore = create(
             throw new Error("could not fetch");
           }
           const data = await response.json();
+          console.log("Login respons data: ", data);
           if (data.accessToken) {
             set({
               loggedIn: true,
               userID: data._id,
               accessToken: data.accessToken,
-              firstname: data.firstname,
-              lastname: data.lastname,
+              firstName: data.firstname,
+              lastName: data.lastname,
               email: data.email,
               address: data.address,
               allergies: data.allergies,
               pros: data.pros,
-              hairShape: data.hair.shape,
-              hairMoisture: data.hair.moisture,
+              hair: data.hair,
+              // hairShape: data.hair.shape,
+              // hairMoisture: data.hair.moisture,
               skinType: data.skin,
             });
-            /* localStorage.setItem("access_token", data.accessToken);
-          localStorage.setItem("user_id", data._id); */
+            console.log("Hi, ", data.message);
+            console.log("Logged in Data: ", data.firstname);
+ 
           }
         } catch (error) {
           console.error("error in login:", error);
@@ -118,6 +134,34 @@ export const useUserStore = create(
         } finally {
           set({ loadingUser: false });
         }
+      },
+      logoutUser: () => {
+        set({
+          user: {},
+          userId: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          address: {
+            street: "",
+            postalCode: "",
+            city: "",
+            country: "",
+          },
+          password: "",
+          accessToken: "",
+          allergies: [],
+          pros: [],
+          hair: {
+            shape: "",
+            moisture: "",
+          },
+          hairShape: "",
+          hairMoisture: "",
+          skinType: [],
+          loadingUser: false,
+          loggedIn: false,
+        });
       },
     }),
     {

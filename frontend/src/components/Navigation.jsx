@@ -6,11 +6,15 @@ import userIcon from "/user-solid.svg";
 import burgerMenu from "/bars-solid.svg";
 import xMark from "/square-xmark-solid.svg";
 import swoop from "/nav-swoop2.svg";
+import { useUserStore } from "../store/useUserStore";
 
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
+  const { email, password, loginUser, loggedIn, loadingUser } = useUserStore();
   const [open, setOpen] = useState(false);
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
   const navRef = useRef();
   const btnRef = useRef();
   const overlayRef = useRef();
@@ -21,9 +25,16 @@ export const Navigation = ({ data }) => {
     btnRef.current.classList.toggle("invisible");
   };
 
-  const handleLogin = () => {
-    console.log("logging in");
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await loginUser(emailInput, passwordInput);
+    if (loggedIn) {
+      console.log("Login successful!", email);
+    } else {
+      console.log("Login failed!", email);
+    }
   };
+
   const handleClickOutside = (event) => {
     if (overlayRef.current && !modalContentRef.current.contains(event.target)) {
       setOpen(false);
@@ -142,25 +153,30 @@ export const Navigation = ({ data }) => {
             </div>
             <form className="flex flex-col gap-2">
               <input
+                value={emailInput}
                 type="email"
                 placeholder="Email..."
                 className="p-2 rounded-lg"
+                onChange={(e) => setEmailInput(e.target.value)}
               />
               <input
+                value={passwordInput}
                 type="password"
                 placeholder="Password..."
                 className="p-2 rounded-lg"
+                onChange={(e) => setPasswordInput(e.target.value)}
               />
               <button
                 onClick={handleLogin}
+                disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
               >
-                Login
+                {loadingUser ? "Logging in..." : "Login"}
               </button>
               <NavLink to="/signup">
                 <button
                   onClick={() => setOpen(false)}
-                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center m-auto px-6 py-2 rounded-full text-sm text-text-light"
+                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
                 >
                   Sign up
                 </button>

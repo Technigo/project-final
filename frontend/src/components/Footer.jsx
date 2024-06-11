@@ -11,11 +11,10 @@ import data2 from "../data.en.json";
 export const Footer = ({ providedData, aboveColor }) => {
   let data = null;
 
-  console.log(aboveColor);
   const previousSectionColor = aboveColor
     ? `bg-main-${aboveColor} w-full`
     : `w-full`;
- 
+
   if (!providedData) data = data2.homepage.footer;
   else data = providedData;
 
