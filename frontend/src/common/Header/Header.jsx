@@ -10,11 +10,11 @@ import logo from "/assets/logotypes/logo-stamp.svg";
 import { Link, NavLink } from "react-router-dom";
 
 import "./Header.css";
-import { useCartStore } from "../../stores/useCartStore";
+import { useBagStore } from "../../stores/useBagStore";
 
 export const Header = () => {
   // Destructuring getTotalItems from useCartStore
-  const { getTotalItems } = useCartStore();
+  const { getTotalItems } = useBagStore();
   const totalItems = getTotalItems();
 
   return (

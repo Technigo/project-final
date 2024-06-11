@@ -7,7 +7,7 @@ import { Image } from "../../common/ReusableComponents/Image/Image";
 import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
 
 import "./Cart.css";
-import { useCartStore } from "../../stores/useCartStore";
+import { useBagStore } from "../../stores/useBagStore";
 
 export const Cart = () => {
   const {
@@ -18,7 +18,7 @@ export const Cart = () => {
     getTotalItems,
     getTotalPrice,
     clearCart,
-  } = useCartStore();
+  } = useBagStore();
 
   const handleIncrease = (product, selectedSize) => {
     addToCart(product, selectedSize);

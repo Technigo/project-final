@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import { Button } from "../../common/ReusableComponents/Button/Button";
 import { Image } from "../../common/ReusableComponents/Image/Image";
 import { Toggle } from "../../common/ReusableComponents/Toggle/Toggle";
-import { useCartStore } from "../../stores/useCartStore";
 import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
 
 import "./SingleProduct.css";
+import { useBagStore } from "../../stores/useBagStore";
 
 export const SingleProduct = () => {
   const { productId } = useParams(); //get the product ID from the URL
@@ -16,7 +16,7 @@ export const SingleProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
   // Destructuring addToCart from useCartStore
-  const { addToCart } = useCartStore();
+  const { addToCart } = useBagStore();
 
   useEffect(() => {
     const fetchProduct = async () => {
