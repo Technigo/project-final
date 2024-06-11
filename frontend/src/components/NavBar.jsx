@@ -208,4 +208,5 @@ const DropdownListItem = styled.li`
 
 const MobileLogo = styled.img`
   height: 40px;
+  cursor: pointer;
 `

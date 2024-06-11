@@ -59,7 +59,7 @@ export const SearchBar = ({ setResults }) => {
 
 const StyledSearchBar = styled.input`
   border: 1px solid grey;
-  border-radius: 28px;
+  border-radius: 4px;
   height: 10px;
   width: 250px;
   padding: 2px 23px 2px 30px;
