@@ -13,6 +13,18 @@ const userSchema = new Schema({
   },
   password: { type: String, required: true },
   accessToken: { type: String, default: () => bcrypt.genSaltSync() },
+  favoriteTemplates: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
+  cartItems: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 
 export const User = model("User", userSchema);
