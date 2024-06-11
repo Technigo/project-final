@@ -32,9 +32,10 @@ const Overlay = styled.div`
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.2) 70%,
-    #232222 100%
+    rgba(22, 21, 21, 0.1) 0%,
+    rgba(22, 21, 21, 0.1) 30%,
+    rgba(22, 21, 21, 0.1) 70%,
+    #161515 100%
   );
   z-index: 0;
 `

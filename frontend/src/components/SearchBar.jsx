@@ -75,7 +75,7 @@ padding-top: 30px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: #232222;
+  background-color: #161515;
   button {
     margin: 0 5px;
   }
