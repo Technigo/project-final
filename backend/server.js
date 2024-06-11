@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.VITE_STRIPE_SECRET_KEY);
+const stripe = new Stripe(import.meta.env.VITE_STRIPE_SECRET_KEY);
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Cones&Stones";
 mongoose.connect(mongoUrl);
@@ -311,8 +311,8 @@ app.post("/create-checkout-session", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `${process.env.CLIENT_URL}/success`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel`,
+      success_url: `${import.meta.env.VITE_CLIENT_URL}/success`,
+      cancel_url: `${import.meta.env.VITE_CLIENT_URL}/cancel`,
     });
 
     res.status(200).json({ id: session.id });
