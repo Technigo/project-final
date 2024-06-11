@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Loader } from "../../common/ReusableComponents/Loader/Loader";
 
 import { Button } from "../../common/ReusableComponents/Button/Button";
 import { Image } from "../../common/ReusableComponents/Image/Image";
@@ -28,17 +29,17 @@ export const SingleProduct = () => {
 
         const data = await response.json();
         if (data.success) {
-          setProduct(data.response);
-          setError(null);
           setTimeout(() => {
+            setProduct(data.response);
+            setError(null);
             setIsLoading(false);
-          }, 3000);
+          }, 500);
         } else {
           setError(data.error.message);
+          setIsLoading(false);
         }
       } catch (error) {
         setError(error.message);
-      } finally {
         setIsLoading(false);
       }
     };
@@ -59,7 +60,7 @@ export const SingleProduct = () => {
   return (
     <div className="singleproduct-page">
       <div>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <Loader />}
         {error && <p>Error: {error}</p>}
       </div>
 

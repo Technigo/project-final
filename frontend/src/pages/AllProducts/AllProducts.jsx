@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./AllProducts.css";
 import { ProductCard } from "./ProductCard";
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
+import { Loader } from "../../common/ReusableComponents/Loader/Loader";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,7 @@ export const AllProducts = () => {
 
   const fetchProducts = async () => {
     setIsLoading(true);
+    setError(null);
     try {
       const response = await fetch(
         `https://cones-and-stones-ppnudpghiq-lz.a.run.app/products`
@@ -21,17 +23,17 @@ export const AllProducts = () => {
 
       const data = await response.json();
       if (data.success) {
-        setProducts(data.response);
-        setError(null);
-        // setTimeout(() => {
-        //   setIsLoading(false);
-        // }, 5000);
+        // Simulate a delay by wrapping the state update in a setTimeout
+        setTimeout(() => {
+          setProducts(data.response);
+          setIsLoading(false);
+        }, 500);
       } else {
         setError(data.error.message);
+        setIsLoading(false);
       }
     } catch (error) {
       setError(error.message);
-    } finally {
       setIsLoading(false);
     }
   };
@@ -40,8 +42,10 @@ export const AllProducts = () => {
     <div className="allproducts-page">
       <CategoryIcons variant="grey" />
       <h4>All products</h4>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
+
       {error && <p>Error: {error}</p>}
+
       <section className="product-list">
         {Array.isArray(products) &&
           products.map((product) => (
