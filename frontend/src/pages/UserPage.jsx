@@ -17,6 +17,7 @@ export const UserPage = () => {
   const { isAuthenticated, accessToken } = authState;
 
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState();
 
   useEffect(() => {
     const fetchUserPage = async () => {
@@ -29,17 +30,18 @@ export const UserPage = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch user page");
         }
+        const responseBody = await response.json();
+        setUser(responseBody.user);
         setLoading(false);
       } catch (error) {
         console.error(error);
         logout();
+        setLoading(false);
       }
     };
 
     if (isAuthenticated) {
       fetchUserPage();
-    } else {
-      setLoading(false);
     }
   }, [isAuthenticated, accessToken, logout]);
 
@@ -64,13 +66,15 @@ export const UserPage = () => {
 
       <UserContainer>
         <ToHomepageBtn />
-        <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
+        <WelcomeMessage>
+          Welcome to your personal page, {user.name}
+        </WelcomeMessage>
         <FeatureList>
           <LikedMuseums />
           <FeatureItem>
             <UserReviews />
           </FeatureItem>
-          <ExtraMuseums/>
+          <ExtraMuseums />
         </FeatureList>
         <LogoutButton />
       </UserContainer>
