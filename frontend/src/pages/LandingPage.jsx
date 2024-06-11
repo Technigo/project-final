@@ -1,21 +1,36 @@
-import { useState } from "react"
+import styled from "styled-components"
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import L from "leaflet"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { SearchBar } from "../components/SearchBar"
 import { MuseumCardContainer } from "../components/MuseumCardContainer"
 import { NavBar } from "../components/NavBar"
 import { HeroSection } from "../components/HeroSection"
-import museumList from "../../../backend/data/museums.json"
 import { Newsletter } from "../components/Newsletter"
-import styled from "styled-components"
-import { getOptimizedUrl } from "../util/UrlUtil"
-
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
-import L from "leaflet"
 
 export const LandingPage = () => {
+  const [museums, setMuseums] = useState([])
   const [results, setResults] = useState([])
 
-  const museumsToShow = results.length === 0 ? museumList : results
+  useEffect(() => {
+    const fetchMuseums = async () => {
+      try {
+        const response = await fetch("https://museek-2ejb.onrender.com/museums")
+        if (!response.ok) {
+          throw new Error("Error fetching museums")
+        }
+        const data = await response.json()
+        setMuseums(data)
+      } catch (error) {
+        console.error("There was en error fetching data:", error)
+      }
+    }
+
+    fetchMuseums()
+  }, [])
+
+  const museumsToShow = results.length === 0 ? museums : results
 
   const customIcon = new L.Icon({
     iconUrl:
@@ -29,7 +44,7 @@ export const LandingPage = () => {
   })
 
   return (
-    <LandinPageContainer>
+    <LandingPageContainer>
       <NavBar />
       <HeroSection />
       <SearchBar setResults={setResults} />
@@ -63,11 +78,11 @@ export const LandingPage = () => {
         ))}
       </MapContainer>
       <Newsletter />
-    </LandinPageContainer>
+    </LandingPageContainer>
   )
 }
 
-const LandinPageContainer = styled.div`
+const LandingPageContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
