@@ -113,8 +113,8 @@ export const useUserStore = create(
               loggedIn: true,
               userID: data._id,
               accessToken: data.accessToken,
-              firstname: data.firstname,
-              lastname: data.lastname,
+              firstName: data.firstname,
+              lastName: data.lastname,
               email: data.email,
               address: data.address,
               allergies: data.allergies,
@@ -125,8 +125,8 @@ export const useUserStore = create(
               skinType: data.skin,
             });
             console.log("Hi, ", data.message);
-            // localStorage.setItem("access_token", data.accessToken);
-            // localStorage.setItem("user_id", data._id);
+            console.log("Logged in Data: ", data.firstname);
+ 
           }
         } catch (error) {
           console.error("error in login:", error);

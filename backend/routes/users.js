@@ -117,6 +117,15 @@ router.post("/login", async (req, res) => {
           message: `You are logged in ${user.firstname}.`,
           id: user._id,
           accessToken: user.accessToken,
+          // Do we need to add all of the user data back to the frontend?
+          firstname: user.firstname,
+          lastName: user.lastname,
+          email: user.email,
+          address: user.address,
+          allergies: user.allergies,
+          pros: user.pros,
+          hair: user.hair,
+          skinType: user.skin,
         });
       } else {
         res.status(401).json({ message: "This password is incorrect." });
