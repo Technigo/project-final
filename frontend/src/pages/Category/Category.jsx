@@ -43,16 +43,18 @@ export const Category = () => {
 
     fetchProducts();
   }, [category]);
+
+  if (error) {
+    return <NotFoundPage />;
+  }
+
   return (
     <div className="category-page">
-      
       {isLoading && <Loader />}
-
-      {error && <NotFoundPage />}
 
       {!isLoading && !error && (
         <section className="products-container">
-<CategoryIcons variant="grey" />
+          <CategoryIcons variant="grey" />
           <h4>{category}</h4>
           <div className="product-list">
             {products.map((product) => (

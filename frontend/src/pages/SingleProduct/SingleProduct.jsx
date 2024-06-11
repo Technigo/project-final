@@ -57,13 +57,13 @@ export const SingleProduct = () => {
     }
   };
 
+  if (error) {
+    return <NotFoundPage />;
+  }
+
   return (
     <div className="singleproduct-page">
-      <div>
-        {isLoading && <Loader />}
-        {error && <NotFoundPage />}
-      </div>
-
+      {isLoading && <Loader />}
       {product && (
         <div className="product-wrapper">
           <section className="image-container">

@@ -38,13 +38,14 @@ export const AllProducts = () => {
       setIsLoading(false);
     }
   };
-
+  
+    if(error) {
+      return <NotFoundPage />;
+    }
+    
   return (
     <div className="allproducts-page">
       {isLoading && <Loader />}
-
-      {error && <NotFoundPage />}
-
       {!isLoading && !error && (
         <section className="products-container">
           <CategoryIcons variant="grey" />
