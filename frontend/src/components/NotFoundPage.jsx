@@ -12,37 +12,34 @@ const NotFoundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
 
   h1 {
     font-family: var(--font-family-headlines);
-    font-size: var(--font-size-text-mob);
-    color: var(--headline-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 0vh;
-  }
-
-  h2 {
-    font-family: var(--font-family-headlines);
-    font-size: var(--font-size-text-mob);
-    font-weight: 300;
+    font-size: var(--font-size-h1-mob);
     color: var(--headline-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 5vh;
+
+    @media (min-width: 768px) {
+      font-size: var(--font-size-h1-desktop);
+      margin: 0;
+    }
   }
 
   p {
-    font-size: var(--font-size-h2-mob);
+    font-size: var(--font-size-large);
     font-family: var(--font-family-text);
     color: #cf4b14;
     font-weight: 300;
     text-align: center;
     margin-top: 0px;
     margin-bottom: 5vh;
+
+    @media (min-width: 768px) {
+      margin: 0;
+    }
   }
 `
 
@@ -61,8 +58,7 @@ export const NotFoundPage = () => {
     <NotFoundContainer>
       <NotFoundContent>
         <p>Houston, we have a problem:</p>
-        <h1>404</h1>
-        <h2>NOT FOUND</h2>
+        <h1>404 NOT FOUND</h1>
         <p>You are lost in space</p>
       </NotFoundContent>
       <StyledLink to="/">
