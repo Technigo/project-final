@@ -13,23 +13,31 @@ export const Pagination = ({
   }
 
   return (
-    <div className="pagination">
-      <button onClick={() => paginate(1)}>First</button>
-      {pageNumbers.map((number) => (
+    <div className="my-10 flex items-center justify-center">
+      <div className="flex border border-light-blue font-montserrat text-sm font-bold">
         <button
-          key={number}
-          onClick={() => paginate(number)}
-          className={currentPage === number ? "active" : ""}
+          onClick={() => paginate(1)}
+          className="border border-light-blue p-4 text-blue"
         >
-          {number}
+          First
         </button>
-      ))}
-      <button
-        onClick={() => paginate(currentPage + 1)}
-        disabled={currentPage === pageNumbers.length}
-      >
-        Next
-      </button>
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
+            onClick={() => paginate(number)}
+            className={`text-blue ${currentPage === number ? "bg-blue text-white" : ""} border border-light-blue px-4`}
+          >
+            {number}
+          </button>
+        ))}
+        <button
+          className="text-blue border border-light-blue px-4"
+          onClick={() => paginate(currentPage + 1)}
+          disabled={currentPage === pageNumbers.length}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
