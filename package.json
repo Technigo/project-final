@@ -5,6 +5,8 @@
     "postinstall": "npm install --prefix backend"
   },
   "dependencies": {
-    "react-router-dom": "^6.23.1"
+    "@material-tailwind/react": "^2.1.9",
+    "react-router-dom": "^6.23.1",
+    "zustand": "^4.5.2"
   }
 }

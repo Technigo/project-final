@@ -10,6 +10,7 @@ import { OrderConfirmation } from "../pages/OrderConfirmation";
 import { ProductDetail } from "../pages/ProductDetail";
 import { ProductList } from "../pages/ProductList";
 import { Signup } from "../pages/Signup";
+import { CategoryPage } from "../pages/CategoryPage"
 
 export const AppRoute = () => {
   return (
@@ -17,6 +18,7 @@ export const AppRoute = () => {
       <Route path="/" element={<Homepage />} />
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:Id" element={<ProductDetail />} />
+      <Route path="/products/:category" element={<CategoryPage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/mypage" element={<MyPage />} />
