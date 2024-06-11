@@ -1,8 +1,7 @@
-import GlobalStyles from "./components/GlobalStyles"
 import { BrowserRouter } from "react-router-dom"
 import { HomeRoutes } from "./routes/HomeRoutes"
 import { Header } from "./components/Navigation/Header"
-import { NotFoundPage } from "./components/NotFoundPage"
+import GlobalStyles from "./components/GlobalStyles"
 
 export const App = () => {
   return (
@@ -11,7 +10,6 @@ export const App = () => {
       <BrowserRouter>
         <Header />
         <HomeRoutes />
-        <NotFoundPage />
       </BrowserRouter>
     </>
   )

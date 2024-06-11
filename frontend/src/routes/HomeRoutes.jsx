@@ -4,6 +4,7 @@ import { AllPlanets } from "../components/Planets/AllPlanets"
 import { Planet } from "../components/Planets/Planet"
 import { CelestialBodies } from "../components/Celestials/CelestialBodies"
 import { LandingPage } from "../components/LandingPage"
+import { NotFoundPage } from "../components/NotFoundPage"
 
 export const HomeRoutes = () => {
   return (
@@ -13,6 +14,7 @@ export const HomeRoutes = () => {
       <Route path="/planets/:planet" element={<Planet />} />
       <Route path="/massconverter" element={<MassConverter />} />
       <Route path="/:name" element={<CelestialBodies />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
