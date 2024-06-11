@@ -117,6 +117,7 @@ export const ProductList = () => {
               name={product.templateName}
               price={product.price}
               category={product.category}
+              Id={product._id}
             />
           ))}
         </div>
