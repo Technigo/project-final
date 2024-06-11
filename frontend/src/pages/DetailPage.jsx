@@ -106,8 +106,8 @@ export const DetailPage = () => {
             </p>
           )}
         </CommentContainer>
-        <MuseumMap museums={[museum]} showLink={false} />
-      </ContentContainer>
+        <MuseumMap museums={[museum]} showLink={false} center={[museum.lat, museum.lon]} />
+        </ContentContainer>
     </Container>
   )
 }
@@ -256,7 +256,5 @@ const VisitWebsite = styled.p`
 const CommentContainer = styled.div`
   padding: 20px;
 
-  @media (min-width: 1024px) {
-    width: 40%;
-  }
+ 
 `

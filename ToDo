@@ -33,10 +33,17 @@ Other things:
 - Suggested museums under the map in detailpage to make the user explore more 🐱
 - Userpage: add user name in welcome message 🐱
 
-- Navbar showing everywhere like footer 🦀
-- Navbar responsiveness 🦀
+✅ Navbar showing everywhere like footer 🦀
+✅ Navbar responsiveness 🦀
+✅ Revisit button design (border radius) 🦀
+
 - Whitespace between components 🦀
-- Revisit button design (border radius) 🦀
 - Login popup 🦀
 
 - Separate musuem page with filtering
+
+Other things again:
+
+- If user cant' delete comment from their userpage, X should not show
+- Make sure GoBack button is everywhere we need it + is visible
+- Active styling on where we are in the navbar

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import L from "leaflet"
 
-export const MuseumMap = ({ museums, showLink }) => {
+export const MuseumMap = ({ museums, showLink, center }) => {
   const customIcon = new L.Icon({
     iconUrl:
       "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
@@ -16,7 +16,7 @@ export const MuseumMap = ({ museums, showLink }) => {
 
   return (
     <MapContainer
-      center={[48.8566, 2.3522]}
+      center={center}
       zoom={12}
       style={{ height: "400px", width: "100%" }}>
       <TileLayer

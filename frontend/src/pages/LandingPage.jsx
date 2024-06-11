@@ -36,7 +36,7 @@ export const LandingPage = () => {
       <HeroSection />
       <SearchBar setResults={setResults} />
       <MuseumCardContainer results={museumsToShow} />
-      <MuseumMap museums={museumsToShow} showLink={true} />
+      <MuseumMap museums={museumsToShow} showLink={true} center={[48.8566, 2.3522]} />
       <Newsletter />
     </LandingPageContainer>
   )

@@ -53,13 +53,14 @@ export const GetComment = ({ comments }) => {
 
 const CommentContainer = styled.div`
   margin-top: 20px;
+  max-width: 600px;
 `
 
 const Comment = styled.div`
   background-color: #f8f9fa;
   border-radius: 5px;
   position: relative;
-  padding: 5px;
+  padding: 5px 15px;
   margin-bottom: 20px;
 `
 
