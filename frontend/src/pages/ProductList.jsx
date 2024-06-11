@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Pagination } from "../components/Pagination";
 import searchIcon from "../assets/search-icon-blue.svg";
 import { useProductStore } from "../stores/useProductStore";
 
 export const ProductList = () => {
-  const {products, loading, error, getAllProducts, categories} = useProductStore()
+  const { products, loading, error, getAllProducts, categories } =
+    useProductStore();
 
   const [searchTemplate, setSearchTemplate] = useState("");
   const [sortType, setSortType] = useState("");
   const [sortCategory, setSortCategory] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(12);
 
   useEffect(() => {
-    getAllProducts()
+    getAllProducts();
   }, [getAllProducts]);
 
   const filteredProducts = products.filter((product) =>
@@ -37,6 +41,15 @@ export const ProductList = () => {
   const finalProducts = sortCategory
     ? sortedProducts.filter((product) => product.category === sortCategory)
     : sortedProducts;
+
+  const indexOfLastProduct = currentPage * itemsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+  const currentProducts = finalProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -95,7 +108,7 @@ export const ProductList = () => {
               <div className="flex flex-row border border-blue p-2">
                 <img src={searchIcon} className="pr-4" alt="search icon" />
                 <input
-                  className="font-montserrat text-sm w-full"
+                  className="w-full font-montserrat text-sm"
                   type="text"
                   placeholder="Search"
                   value={searchTemplate}
@@ -109,7 +122,7 @@ export const ProductList = () => {
 
       <div className="mb-10 flex w-auto flex-col items-center px-8 lg:mb-20">
         <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
-          {finalProducts.map((product) => (
+          {currentProducts.map((product) => (
             <ProductCard
               key={product._id}
               templateImg={product.image}
@@ -122,6 +135,12 @@ export const ProductList = () => {
           ))}
         </div>
       </div>
+      <Pagination
+        totalItems={finalProducts.length}
+        itemsPerPage={itemsPerPage}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </>
   );
 };
