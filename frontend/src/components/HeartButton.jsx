@@ -3,19 +3,26 @@ import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 
 export const HeartButton = ({ style, id, setOpenDrawer }) => {
-  const { accessToken } = useUserStore((state) => ({
+  const { accessToken, saveFavorites, favorite } = useUserStore((state) => ({
     accessToken: state.accessToken,
+    saveFavorites: state.saveFavorites,
+    favorite: state.favorite,
   }));
-  const { unlikeProduct, likeProduct, favoriteProducts } = useProductStore(
-    (state) => ({
-      unlikeProduct: state.unlikeProduct,
-      likeProduct: state.likeProduct,
-      favoriteProducts: state.favoriteProducts,
-    }),
-  );
-  const handleLike = async () => {
+  const { unlikeProduct, likeProduct } = useProductStore((state) => ({
+    unlikeProduct: state.unlikeProduct,
+    likeProduct: state.likeProduct,
+    // favoriteProducts: state.favoriteProducts,
+  }));
+  const handleLike = () => {
     if (accessToken) {
-      favoriteProducts.includes(id) ? unlikeProduct(id) : likeProduct(id);
+      // favoriteProducts.includes(id) ? unlikeProduct(id) : likeProduct(id);
+      if (favorite.includes(id)) {
+        unlikeProduct(id);
+        saveFavorites(id, "remove");
+      } else {
+        likeProduct(id);
+        saveFavorites(id);
+      }
     } else {
       setOpenDrawer(true);
     }
@@ -24,7 +31,7 @@ export const HeartButton = ({ style, id, setOpenDrawer }) => {
     <button className={style} onClick={handleLike}>
       <svg
         viewBox="0 0 24 24"
-        fill={favoriteProducts.includes(id) ? "#3D52A0" : "none"}
+        fill={favorite.includes(id) ? "#3D52A0" : "none"}
         xmlns="http://www.w3.org/2000/svg"
         className="h-full w-full"
       >

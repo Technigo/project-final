@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import favorite from "../assets/favorite-icon.svg";
 import { Button } from "./Button";
 import { HeartButton } from "./HeartButton";
+import { useUserStore } from "../stores/useUserStore";
+import { useState } from "react";
+import { SideDrawer } from "./SideDrawer";
 
 export const ProductDetailsCard = ({
   numOfLikes,
@@ -14,6 +17,19 @@ export const ProductDetailsCard = ({
   category,
   id,
 }) => {
+  const { accessToken, handleCart } = useUserStore((state) => ({
+    accessToken: state.accessToken,
+    handleCart: state.handleCart,
+  }));
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const addToCart = () => {
+    if (accessToken) {
+      handleCart(id);
+    } else {
+      setOpenDrawer(true);
+    }
+  };
+
   return (
     <div className="mx-auto flex w-4/5 min-w-[300px] flex-col gap-6 font-montserrat lg:flex-row lg:place-content-center lg:gap-10">
       <div className="relative lg:h-fit">
@@ -44,9 +60,10 @@ export const ProductDetailsCard = ({
         <p className="text-sm">€{price}</p>
         <p>{description}</p>
         <div className="mt-6 w-fit self-center lg:self-start">
-          <Button text="ADD TO CART" />
+          <Button text="ADD TO CART" onClickFunc={addToCart} />
         </div>
       </div>
+      <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
     </div>
   );
 };

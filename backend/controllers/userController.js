@@ -66,11 +66,11 @@ export const handleCart = asyncHandler(async (req, res) => {
       { _id: userId },
       { $pull: { cartItems: productId } },
       { new: true }
-    );
-    res.status(200).json({
-      message: "Delete the item from the cart successfully",
-      data: user,
-    });
+    )
+      .select("cartItems -_id")
+      // .populate("cartItems", " -__v")
+      .exec();
+    res.status(200).json(user);
   } else {
     const product = await Product.findOne({ _id: productId }).exec();
     const user = await User.findOneAndUpdate(
@@ -79,10 +79,11 @@ export const handleCart = asyncHandler(async (req, res) => {
       {
         new: true,
       }
-    ).exec();
-    res
-      .status(200)
-      .json({ message: "Add the item to the cart successfully", data: user });
+    )
+      .select("cartItems -_id")
+      // .populate("cartItems", "-__v")
+      .exec();
+    res.status(200).json(user);
   }
 });
 
@@ -94,11 +95,11 @@ export const handleFavorite = asyncHandler(async (req, res) => {
       { _id: userId },
       { $pull: { favoriteTemplates: productId } },
       { new: true }
-    );
-    res.status(200).json({
-      message: "Delete the item from the favorites successfully",
-      data: user,
-    });
+    )
+      .select("favoriteTemplates -_id")
+      // .populate("favoriteTemplates", " -__v")
+      .exec();
+    res.status(200).json(user);
   } else {
     const product = await Product.findOne({ _id: productId }).exec();
     const user = await User.findOneAndUpdate(
@@ -107,10 +108,10 @@ export const handleFavorite = asyncHandler(async (req, res) => {
       {
         new: true,
       }
-    ).exec();
-    res.status(200).json({
-      message: "Add the item to the favorites successfully",
-      data: user,
-    });
+    )
+      .select("favoriteTemplates -_id")
+      // .populate("favoriteTemplates", " -__v")
+      .exec();
+    res.status(200).json(user);
   }
 });
