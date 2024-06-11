@@ -8,6 +8,8 @@ import xMark from "/square-xmark-solid.svg";
 import swoop from "/nav-swoop2.svg";
 import { useUserStore } from "../store/useUserStore";
 import { WelcomeMessage } from "./WelcomeMessage"
+import Lottie from "lottie-react";
+import animation from "../assets/animation-loading-stars.json";
 
 //If signed in Sign in should display username/firstname
 
@@ -190,12 +192,24 @@ export const Navigation = ({ data }) => {
                 className="p-2 rounded-lg"
                 onChange={(e) => setPasswordInput(e.target.value)}
               />
-              <button
+                <button
                 onClick={handleLogin}
                 // disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
               >
-                {loadingUser ? "Logging in..." : "Login"}
+                {loadingUser ? (
+                  <div className="flex items-center justify-center">
+                    <span>Logging in...</span>
+                    <Lottie
+                      animationData={animation}
+                      loop={true}
+                      autoPlay
+                      style={{ width: 30, height: 30, marginLeft: 8 }}
+                    />
+                  </div>
+                ) : (
+                  "Login"
+                )}
               </button>
             </form>
             <p className="absolute text-text-light -bottom-10 tablet:-bottom-8 z-0  text-xs">
