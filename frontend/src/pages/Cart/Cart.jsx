@@ -43,7 +43,7 @@ export const Cart = () => {
     const stripe = await stripePromise;
 
     const response = await fetch(
-      "http://localhost:8080/create-checkout-session",
+      "https://cones-and-stones-ppnudpghiq-lz.a.run.app//create-checkout-session",
       {
         method: "POST",
         headers: {
