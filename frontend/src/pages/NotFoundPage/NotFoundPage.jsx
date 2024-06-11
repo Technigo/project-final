@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../../common/ReusableComponents/Button/Button";
 import "./NotFoundPage.css";
+import { Loader } from "../../common/ReusableComponents/Loader/Loader";
 
 export const NotFoundPage = () => {
   return (

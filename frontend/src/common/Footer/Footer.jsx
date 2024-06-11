@@ -66,7 +66,7 @@ export const Footer = () => {
           <ul className="footer-categories">
             <li>
               This is not a real web shop, but if it was, it'd probably have the
-              best custumer service in the world.
+              best customer service in the world.
             </li>
           </ul>
         </Toggle>
