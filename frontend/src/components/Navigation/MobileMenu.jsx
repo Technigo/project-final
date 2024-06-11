@@ -1,5 +1,5 @@
-import { NavLinks } from "./NavLinks";
-import styled from "styled-components";
+import { NavLinks } from "./NavLinks"
+import styled from "styled-components"
 
 const MobileMenuContainer = styled.ul`
   display: none;
@@ -14,18 +14,18 @@ const MobileMenuContainer = styled.ul`
     font-size: 20px;
     justify-content: flex-end;
   }
-`;
+`
 const MobileMenuItem = styled.li`
   margin: 10px 0;
-`;
+`
 
 export const MobileMenu = () => {
   const mobileLinks = [
     { label: "_PLANETS", to: "/planets" },
     { label: "_MASS CONVERTER", to: "/massconverter" },
-    { label: "_THE SUN", to: "/sun" },
-    { label: "_THE MOON", to: "/moon" },
-  ];
+    { label: "_THE SUN", to: "/celestial/sun" },
+    { label: "_THE MOON", to: "/celestial/moon" },
+  ]
 
   return (
     <MobileMenuContainer>
@@ -35,5 +35,5 @@ export const MobileMenu = () => {
         </MobileMenuItem>
       ))}
     </MobileMenuContainer>
-  );
-};
+  )
+}
