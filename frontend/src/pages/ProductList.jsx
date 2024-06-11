@@ -79,8 +79,8 @@ export const ProductList = () => {
             Shop our templates
           </h1>
 
-          <div className="mb-10 flex flex-col items-center lg:grid lg:grid-cols-2 lg:gap-x-20">
-            <div className="flex gap-4 pb-6 lg:pb-0 lg:pr-20">
+          <div className="mb-10 flex flex-col items-center lg:w-full lg:flex-row lg:justify-between">
+            <div className="flex gap-4 pb-6 lg:pb-0">
               <div className="border border-blue p-2">
                 <select
                   className="font-montserrat text-sm text-blue"
@@ -111,7 +111,7 @@ export const ProductList = () => {
               </div>
             </div>
 
-            <div className="w-full">
+            <div className="w-full lg:flex lg:w-fit lg:self-end">
               <div className="flex flex-row border border-blue p-2">
                 <img src={searchIcon} className="pr-4" alt="search icon" />
                 <input
