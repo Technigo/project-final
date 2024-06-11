@@ -8,7 +8,7 @@ export const Breadcrumb = ({ lastBreadcrumbOverride }) => {
 
   return (
     <nav aria-label="breadcrumb">
-      <ol className="mx-6 my-4 flex w-full flex-wrap items-center font-montserrat font-bold">
+      <ol className="flex w-full flex-wrap items-center px-6 py-4 font-montserrat font-bold">
         <li className="flex text-sm text-black">
           <Link to="/" className="cursor-pointer">
             HOME
