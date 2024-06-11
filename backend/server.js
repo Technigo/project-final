@@ -311,8 +311,8 @@ app.post("/create-checkout-session", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `${import.meta.env.VITE_CLIENT_URL}/success`,
-      cancel_url: `${import.meta.env.VITE_CLIENT_URL}/cancel`,
+      success_url: `${rocess.env.VITE_CLIENT_URL}/success`,
+      cancel_url: `${rocess.env.VITE_CLIENT_URL}/cancel`,
     });
 
     res.status(200).json({ id: session.id });
