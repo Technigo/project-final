@@ -56,7 +56,7 @@ export const Navigation = ({ data }) => {
       setShowWelcomePopup(true);
       setTimeout(() => {
         setShowWelcomePopup(false)
-      }, 1500000); 
+      }, 1500); 
     }
   }, [loggedIn]);
 
