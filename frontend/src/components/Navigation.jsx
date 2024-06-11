@@ -148,7 +148,7 @@ export const Navigation = ({ data }) => {
           >
             <div className="flex justify-between">
               <h1 className="font-heading text-text-light text-2xl my-4">
-                Log In!
+                Log In
               </h1>
             </div>
             <form className="flex flex-col gap-2">
@@ -168,7 +168,7 @@ export const Navigation = ({ data }) => {
               />
               <button
                 onClick={handleLogin}
-                disabled={loadingUser}
+               // disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
               >
                 {loadingUser ? "Logging in..." : "Login"}

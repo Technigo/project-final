@@ -4,7 +4,6 @@ import { persist } from "zustand/middleware";
 export const useUserStore = create(
   persist(
     (set, get) => ({
-      //URL_userId: `https://project-final-glim.onrender.com/users/profile/${id}`,
       user: {},
       userId: "",
       firstName: "",
@@ -91,6 +90,47 @@ export const useUserStore = create(
           set({ loadingUser: false });
         }
       },
+
+      fetchUser: async (id, accessToken) => {
+        set({ loadingUser: true });
+        const URL = `https://project-final-glim.onrender.com/users/profile/${id}`;
+        try {
+          const response = await fetch(URL, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: accessToken,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error("Could not fetch user");
+          }
+          console.log();
+          const data = await response.json();
+          console.log(data);
+          set({
+            user: data,
+            loggedIn: true,
+            // firstName: data.firstname,
+            // lastName: data.lastname,
+            // email: data.email,
+            // address: data.address,
+            // allergies: data.allergies,
+            // pros: data.pros,
+            // hair: data.hair,
+            // hairShape: data.hair.shape,
+            // hairMoisture: data.hair.moisture,
+            // skinType: data.skin,
+          });
+        } catch (error) {
+          console.error("error:", error);
+          set({ error: error });
+        } finally {
+          set({ loadingUser: false });
+        }
+      },
+
       loginUser: async (email, password) => {
         set({ loadingUser: true });
         const URL_login = "https://project-final-glim.onrender.com/users/login";
@@ -107,34 +147,23 @@ export const useUserStore = create(
             throw new Error("could not fetch");
           }
           const data = await response.json();
-          console.log("Login respons data: ", data);
+
           if (data.accessToken) {
             set({
-              loggedIn: true,
-              userID: data._id,
+              userId: data.id,
               accessToken: data.accessToken,
-              firstName: data.firstname,
-              lastName: data.lastname,
-              email: data.email,
-              address: data.address,
-              allergies: data.allergies,
-              pros: data.pros,
-              hair: data.hair,
-              // hairShape: data.hair.shape,
-              // hairMoisture: data.hair.moisture,
-              skinType: data.skin,
             });
-            console.log("Hi, ", data.message);
-            console.log("Logged in Data: ", data.firstname);
- 
+            await get().fetchUser(data.id, data.accessToken);
           }
         } catch (error) {
           console.error("error in login:", error);
           set({ error: error });
         } finally {
+          /*  fetchUser(userId, accessToken); */
           set({ loadingUser: false });
         }
       },
+
       logoutUser: () => {
         set({
           user: {},
