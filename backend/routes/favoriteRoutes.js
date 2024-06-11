@@ -8,9 +8,7 @@ import {
 const router = express.Router();
 
 router.post("/favorites/toggle", toggleFavorite);
-
 router.post("/favorites/:museumId", isMuseumLiked);
-
 router.post("/favorites", likedMuseums);
 
 export default router;
