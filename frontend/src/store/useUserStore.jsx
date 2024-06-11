@@ -10,11 +10,20 @@ export const useUserStore = create(
       firstName: "",
       lastName: "",
       email: "",
-      address: {},
+      address: {
+        street: "",
+        postalCode: "",
+        city: "",
+        country: "",
+      },
       password: "",
       accessToken: "",
       allergies: [],
       pros: [],
+      hair: {
+        shape: "",
+        moisture: "",
+      },
       hairShape: "",
       hairMoisture: "",
       skinType: [],
@@ -29,8 +38,9 @@ export const useUserStore = create(
       setPassword: (Input) => set({ password: Input }),
       setAllergies: (Input) => set({ allergies: Input }),
       setPros: (Input) => set({ pros: Input }),
-      setHairShape: (Input) => set({ hairShape: Input }),
-      setHairMoisture: (Input) => set({ hairMoisture: Input }),
+      setHair: (Input) => set({ hair: Input }),
+      // setHairShape: (Input) => set({ hairShape: Input }),
+      // setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
 
       //Register user
@@ -42,8 +52,9 @@ export const useUserStore = create(
         password,
         allergies,
         pros,
-        hairShape,
-        hairMoisture,
+        hair,
+        // hairShape,
+        // hairMoisture,
         skinType
       ) => {
         set({ loadingUser: true });
@@ -60,8 +71,9 @@ export const useUserStore = create(
               password: password,
               allergies: allergies,
               pros: pros,
-              hairShape: hairShape,
-              hairMoisture: hairMoisture,
+              hair: hair,
+              // hairShape: hairShape,
+              // hairMoisture: hairMoisture,
               skin: skinType,
             }),
             headers: { "Content-Type": "application/json" },
@@ -139,7 +151,7 @@ export const useUserStore = create(
           // hairMoisture: null,
           skinType: null,
         });
-      }
+      },
     }),
     {
       name: "User-storage",

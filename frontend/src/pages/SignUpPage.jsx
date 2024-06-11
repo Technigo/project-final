@@ -1,5 +1,5 @@
 import { Footer } from "../components/Footer";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useUserStore } from "../store/useUserStore";
 
 export const SignUpPage = () => {
@@ -18,45 +18,37 @@ export const SignUpPage = () => {
     setAllergies,
     pros,
     setPros,
-    hairShape,
-    setHairShape,
-    hairMoisture,
-    setHairMoisture,
+    hair,
+    setHair,
+    // hairShape,
+    // setHairShape,
+    // hairMoisture,
+    // setHairMoisture,
     skinType,
     setSkinType,
-    registerUser
+    registerUser,
+    loadingUser,
   } = useUserStore();
-  const [activeSection, setActiveSection] = useState("sectionone"); // CHANGE TO "sectionone"!!!
+  const [activeSection, setActiveSection] = useState("sectionone");
 
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-
-  // const [allergies, setAllergies] = useState([]);
-  // const [pros, setPros] = useState([]);
-  // const [hairShape, setHairShape] = useState("");
-  // const [hairMoisture, setHairMoisture] = useState("");
-  // const [skinType, setSkinType] = useState("");
-
   const [selectedAllergies, setSelectedAllergies] = useState([]);
   const [selectedPros, setSelectedPros] = useState([]);
-
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
   const passwordRef = useRef();
 
-  // Section One
+  useEffect(() => {
+    setAllergies(selectedAllergies);
+  }, [selectedAllergies, setAllergies]);
+
+  useEffect(() => {
+    setPros(selectedPros);
+  }, [selectedPros, setPros]);
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
@@ -72,16 +64,11 @@ export const SignUpPage = () => {
 
   const handleComparePassword = (e) => {
     setConfirmPassword(e.target.value);
-    if (password === e.target.value) {
-      setIsSame(true);
-    } else {
-      setIsSame(false);
-    }
+    setIsSame(password === e.target.value);
   };
 
   const handleSectionOne = (e) => {
     e.preventDefault();
-
     if (isPassword && isSame) {
       setActiveSection("sectiontwo");
     } else {
@@ -94,31 +81,29 @@ export const SignUpPage = () => {
     }
   };
 
-  // Section two
-
-  const handleFirstName = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const handleLastName = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const handleAddress = (e) => {
-    setAddress(e.target.value);
-  };
-
-  const handlePostalCode = (e) => {
-    setPostalCode(e.target.value);
-  };
-
-  const handleCity = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleCountry = (e) => {
-    setCountry(e.target.value);
-  };
+  const handleFirstName = (e) => setFirstName(e.target.value);
+  const handleLastName = (e) => setLastName(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handleAddress = (e) =>
+    setAddress({
+      ...address,
+      street: e.target.value,
+    });
+  const handlePostalCode = (e) =>
+    setAddress({
+      ...address,
+      postalCode: e.target.value,
+    });
+  const handleCity = (e) =>
+    setAddress({
+      ...address,
+      city: e.target.value,
+    });
+  const handleCountry = (e) =>
+    setAddress({
+      ...address,
+      country: e.target.value,
+    });
 
   const handleSectionTwo = (e) => {
     e.preventDefault();
@@ -129,52 +114,34 @@ export const SignUpPage = () => {
     }
   };
 
-  // Section Three
-
-  const handleHairShape = (e) => {
-    setHairShape(e.target.value);
-  };
-
-  const handleHairMoisture = (e) => {
-    setHairMoisture(e.target.value);
-  };
-
-  const handleSkin = (e) => {
-    setSkinType(e.target.value);
-  };
-
-  /* ------------  Not Working ------------ */
-  // It's one selection off... 
+  const handleHairShape = (e) =>
+    setHair({
+      ...hair,
+      shape: e.target.value,
+    });
+  const handleHairMoisture = (e) =>
+    setHair({
+      ...hair,
+      moisture: e.target.value,
+    });
+  const handleSkin = (e) => setSkinType(e.target.value);
 
   const handleAllergyCheckboxChange = (e) => {
     const value = e.target.value;
-    // If the item is already selected, remove it from the array
-    if (selectedAllergies.includes(value)) {
-      setSelectedAllergies(selectedAllergies.filter((item) => item !== value));
-    } else {
-      // If the item is not selected, add it to the array
-      setSelectedAllergies([...selectedAllergies, value]);
-    }
-
-    setAllergies(selectedAllergies);
-
-    console.log("Set Allergies in handleCheckbox: ", selectedAllergies);
+    setSelectedAllergies((prevSelectedAllergies) =>
+      prevSelectedAllergies.includes(value)
+        ? prevSelectedAllergies.filter((item) => item !== value)
+        : [...prevSelectedAllergies, value]
+    );
   };
 
   const handleProsCheckboxChange = (e) => {
     const value = e.target.value;
-    const array = selectedPros;
-    let newArray;
-    // If the item is already selected, remove it from the array
-    if (selectedPros.includes(value)) {
-      setSelectedPros(array.filter((item) => item !== value));
-    } else {
-      // If the item is not selected, add it to the array
-      setSelectedPros([...array, value]);
-    }
-    setPros(selectedPros);
-
-    console.log("Set Pros in handleCheckbox: ", selectedPros);
+    setSelectedPros((prevSelectedPros) =>
+      prevSelectedPros.includes(value)
+        ? prevSelectedPros.filter((item) => item !== value)
+        : [...prevSelectedPros, value]
+    );
   };
 
   const allergyOptions = [
@@ -189,39 +156,67 @@ export const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAllergies(selectedAllergies);
-
-    console.log("Register user:", "Allergies:", allergies, "Pros: ", pros);
-    // registerUser(
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   address,
-    //   password,
-    //   allergies,
-    //   pros,
-    //   hairShape,
-    //   hairMoisture,
-    //   skinType
-    // );
-    resetFields;
+    console.table(
+      "Register user:",
+      firstName,
+      lastName,
+      email,
+      address,
+      password,
+      allergies,
+      pros,
+      hair,
+      skinType
+    );
+    registerUser(
+      firstName,
+      lastName,
+      email,
+      address,
+      password,
+      allergies,
+      pros,
+      hair,
+      skinType
+    );
+    //resetFields();
   };
 
   const resetFields = () => {
-    setAllergies([]);
-    setPros([]);
+    // Section One Fields
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+
+    // Section Two Fields
+    setFirstName("");
+    setLastName("");
+    setAddress({
+      street: "",
+      postalCode: "",
+      city: "",
+      country: "",
+    });
+
+    // Section One Fields
+    setSkinType("");
+    setHair({
+      shape: "",
+      moisture: "",
+    });
+    setSelectedAllergies([]);
+    setSelectedPros([]);
   };
 
   return (
     <>
       {activeSection === "sectionone" && (
         <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
-          {" "}
           <img
             className="w-screen tablet:order-last laptop:rounded-3xl"
             src="signup.svg"
             alt="picture of a woman using skincare."
-          ></img>
+          />
           <div className="w-full">
             <div className="flex flex-col items-center">
               <h2 className="text-2xl font-heading font-bold mt-10 tablet:mt-20">
@@ -240,26 +235,28 @@ export const SignUpPage = () => {
                   Email:
                 </label>
                 <input
+                  value={email}
                   type="email"
                   className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
                   id="email"
-                ></input>
+                  onChange={handleEmail}
+                />
               </div>
               <div className="flex flex-col tablet:flex-row tablet:gap-5">
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="password"
-                    className="text-text-dark font-heading font-semibold mt-8  "
+                    className="text-text-dark font-heading font-semibold mt-8"
                   >
                     Password:
                   </label>
                   <input
                     value={password}
                     type="password"
-                    className="rounded-xl h-10 bg-bg-input "
+                    className="rounded-xl h-10 bg-bg-input"
                     id="password"
                     onChange={handlePassword}
-                  ></input>
+                  />
                 </div>
                 <div className="flex flex-col w-full">
                   <label
@@ -271,10 +268,10 @@ export const SignUpPage = () => {
                   <input
                     value={confirmPassword}
                     type="password"
-                    className="rounded-xl h-10 bg-bg-input "
+                    className="rounded-xl h-10 bg-bg-input"
                     id="confirm"
                     onChange={handleComparePassword}
-                  ></input>
+                  />
                 </div>
               </div>
               <button
@@ -290,7 +287,6 @@ export const SignUpPage = () => {
       )}
       {activeSection === "sectiontwo" && (
         <section className="bg-main-red h-full flex flex-col items-center text-text-light px-10 pb-20 tablet:p-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
-          {" "}
           <div>
             <div className="flex flex-col items-center">
               <h2 className="text-2xl font-heading font-bold mt-10">Sign Up</h2>
@@ -312,7 +308,7 @@ export const SignUpPage = () => {
                     className="rounded-xl h-10 bg-bg-input"
                     id="firstname"
                     onChange={handleFirstName}
-                  ></input>
+                  />
                 </div>
                 <div className="flex flex-col w-full mt-2 tablet:mt-0 laptop:mt-2">
                   <label
@@ -322,11 +318,11 @@ export const SignUpPage = () => {
                     Lastname:
                   </label>
                   <input
-                    vaalue={lastName}
+                    value={lastName}
                     id="lastname"
                     className="rounded-xl h-10 bg-bg-input"
                     onChange={handleLastName}
-                  ></input>
+                  />
                 </div>
               </div>
               <div className="flex flex-col">
@@ -340,11 +336,11 @@ export const SignUpPage = () => {
                         Address:
                       </label>
                       <input
-                        value={address}
+                        value={address.street}
                         id="address"
                         className="rounded-xl h-10 bg-bg-input"
                         onChange={handleAddress}
-                      ></input>
+                      />
                     </div>
                     <div className="flex flex-col w-full">
                       <label
@@ -354,11 +350,11 @@ export const SignUpPage = () => {
                         Postal code:
                       </label>
                       <input
-                        value={postalCode}
+                        value={address.postalCode}
                         id="postal code"
                         className="rounded-xl h-10 bg-bg-input"
                         onChange={handlePostalCode}
-                      ></input>
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:flex-col laptop:gap-0">
@@ -370,11 +366,11 @@ export const SignUpPage = () => {
                         City:
                       </label>
                       <input
-                        value={city}
+                        value={address.city}
                         id="city"
                         className="rounded-xl h-10 bg-bg-input"
                         onChange={handleCity}
-                      ></input>
+                      />
                     </div>
                     <div className="flex flex-col w-full">
                       <label
@@ -384,11 +380,11 @@ export const SignUpPage = () => {
                         Country:
                       </label>
                       <input
-                        value={country}
+                        value={address.country}
                         id="country"
                         className="rounded-xl h-10 bg-bg-input"
                         onChange={handleCountry}
-                      ></input>
+                      />
                     </div>
                   </div>
                 </div>
@@ -405,7 +401,7 @@ export const SignUpPage = () => {
             className="hidden tablet:block tablet:w-screen laptop:rounded-3xl laptop:max-w-3xl"
             src="signup.svg"
             alt="picture of a woman using skincare."
-          ></img>
+          />
         </section>
       )}
       {activeSection === "sectionthree" && (
@@ -414,13 +410,13 @@ export const SignUpPage = () => {
             Who are you?
           </h2>
           <h3 className="text-xl font-heading font-medium mt-8 text-center tablet:px-44 laptop:px-36">
-            Personalize your account to get custom recommondations
+            Personalize your account to get custom recommendations
           </h3>
           <form className="flex flex-col w-full mt-16 tablet:px-36">
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col w-full">
                 <div className="flex">
-                  <img src="skintype02.svg" alt="Icon of a face"></img>
+                  <img src="skintype02.svg" alt="Icon of a face" />
                   <label
                     htmlFor="skin"
                     className="font-heading font-bold text-2xl mt-9 ml-5"
@@ -468,7 +464,7 @@ export const SignUpPage = () => {
               </div>
               <div className="flex flex-col w-full mt-10 tablet:mt-0">
                 <div className="flex">
-                  <img src="hairtype02.svg" alt="Icon of hair"></img>
+                  <img src="hairtype02.svg" alt="Icon of hair" />
                   <label className="font-heading font-bold text-2xl mt-9 ml-5">
                     Hair:
                   </label>
@@ -517,7 +513,7 @@ export const SignUpPage = () => {
                   onChange={handleHairShape}
                 >
                   <option
-                    value="staight"
+                    value="straight"
                     className="font-heading font-bold bg-bg-input"
                   >
                     Straight
@@ -549,7 +545,7 @@ export const SignUpPage = () => {
                   <img
                     src="allergies02.svg"
                     alt="Icon of hand with allergies"
-                  ></img>
+                  />
                   <label
                     htmlFor="allergies"
                     className="font-heading font-bold text-2xl mt-9 ml-5"
@@ -563,7 +559,7 @@ export const SignUpPage = () => {
                     <input
                       type="checkbox"
                       value={option.toLowerCase()}
-                      checked={allergies?.isArray && allergies.includes(option)}
+                      checked={selectedAllergies.includes(option.toLowerCase())}
                       onChange={handleAllergyCheckboxChange}
                     />
                     {option}
@@ -573,7 +569,7 @@ export const SignUpPage = () => {
 
               <div className="flex flex-col w-full mt-10">
                 <div className="flex">
-                  <img src="preferences02.svg" alt="Icon of a heart"></img>
+                  <img src="preferences02.svg" alt="Icon of a heart" />
                   <label
                     htmlFor="preferences"
                     className="font-heading font-bold text-2xl mt-9 ml-5"
@@ -586,37 +582,12 @@ export const SignUpPage = () => {
                     <input
                       type="checkbox"
                       value={option.toLowerCase()}
-                      checked={pros?.isArray && pros.includes(option)}
+                      checked={selectedPros.includes(option.toLowerCase())}
                       onChange={handleProsCheckboxChange}
                     />
                     {option}
                   </label>
                 ))}
-                {/* <select
-                  name="preferences"
-                  id="preferences"
-                  className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
-                  multiple
-                >
-                  <option
-                    value="organic"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Organic
-                  </option>
-                  <option
-                    value="vegan"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Vegan
-                  </option>
-                  <option
-                    value="crueltyfree"
-                    className="font-heading font-bold bg-bg-input"
-                  >
-                    Crueltyfree
-                  </option>
-                </select> */}
               </div>
             </div>
             <button
@@ -626,14 +597,17 @@ export const SignUpPage = () => {
               Go back
             </button>
             <button
+              disabled={loadingUser}
               onClick={handleSubmit}
               className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading"
             >
-              Create profile
+              {loadingUser ? "Creating user..." : "Create Profile"}
             </button>
           </form>
         </section>
       )}
+
+      <Footer aboveColor={"green"} />
     </>
   );
 };
