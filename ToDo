@@ -27,6 +27,7 @@ Stretch goals
 ✅ Map
 
 Other things:
+
 - Make sure favorite button and comments work as before 🐱
 - Include rating in comment (1-5 as input in backend - stars in frontend) 🐱
 - Suggested museums under the map in detailpage to make the user explore more 🐱
@@ -36,6 +37,6 @@ Other things:
 - Navbar responsiveness 🦀
 - Whitespace between components 🦀
 - Revisit button design (border radius) 🦀
-
+- Login popup 🦀
 
 - Separate musuem page with filtering
