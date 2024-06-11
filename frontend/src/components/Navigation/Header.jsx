@@ -25,7 +25,7 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const HeaderContent = styled.header`
+const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -68,11 +68,20 @@ const MobileMenuIcon = styled.div`
 
 const MobileMenuWrapper = styled.div`
   position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: var(--background-color);
+  top: 0;
+  right: 70%;
+  height: 100%;
   width: 100%;
+  background-color: var(--background-color);
+  width: 300px;
   z-index: 1000;
+  transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
+  transition: transform 0.3s ease-in-out;
+
+  @media (max-width: 420px) {
+    width: 70%;
+    width: 20vh;
+  }
 `;
 
 const BreadcrumbContainer = styled.div`
@@ -118,18 +127,18 @@ export const Header = () => {
         <NavContainer ref={menuRef}>
           <MainMenu />
           {isMenuOpen && (
-            <MobileMenuWrapper>
+            <MobileMenuWrapper isOpen={isMenuOpen}>
               <MobileMenu />
             </MobileMenuWrapper>
           )}
+          <MobileMenuIcon onClick={handleMobileMenu}>
+            {!isMenuOpen ? (
+              <img src={mobileMenu} alt="Mobile menu icon" />
+            ) : (
+              <img src={mobileMenuClose} alt="Mobile menu close icon" />
+            )}
+          </MobileMenuIcon>
         </NavContainer>
-        <MobileMenuIcon onClick={handleMobileMenu}>
-          {!isMenuOpen ? (
-            <img src={mobileMenu} alt="Mobile menu icon" />
-          ) : (
-            <img src={mobileMenuClose} alt="Mobile menu close icon" />
-          )}
-        </MobileMenuIcon>
       </HeaderContent>
       <BreadcrumbContainer>
         <Breadcrumbs />
