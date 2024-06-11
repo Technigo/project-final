@@ -1,9 +1,21 @@
 import heroImage from "/images/hero-image.jpg";
 import Menu from "../utilities/Menu";
 import Footer from "../utilities/Footer";
+import { useNavigate } from "react-router-dom";
+import { useModal } from "./registration/ModalContext";
+import { AuthForm } from "./registration/AuthForm";
 import { Button } from "../utilities/Button";
 
 export const HomePage = () => {
+  const { showModal } = useModal();
+  const navigate = useNavigate();
+
+  const handleGetStartedClick = () => {
+    showModal(
+      <AuthForm type="signup" onSuccess={() => navigate("/profile")} />
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
       <Menu />
@@ -39,7 +51,11 @@ export const HomePage = () => {
             Connect with others who understand your journey
           </p>
           <div className="mt-8">
-            <Button text="Get Started" link="/signup" variant="primary" />
+            <Button
+              text="Get Started"
+              onClick={handleGetStartedClick}
+              variant="primary"
+            />
           </div>
         </div>
       </section>
