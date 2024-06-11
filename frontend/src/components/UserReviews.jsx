@@ -20,5 +20,5 @@ export const UserReviews = () => {
       .then((response) => setPostedReviews(response))
   }, [])
 
-  return <GetComment comments={postedReviews} />
-}
+  return <GetComment comments={postedReviews} showMuseumName={true} />;
+};

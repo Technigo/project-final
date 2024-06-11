@@ -1,11 +1,13 @@
-import { useContext, useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import { AuthContext } from "../contexts/AuthContext"
-import { LogoutButton } from "../components/LogoutButton"
-import LikedMuseums from "../components/LikedMuseums"
-import { UserReviews } from "../components/UserReviews"
 
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { AuthContext } from "../contexts/AuthContext";
+import { LogoutButton } from "../components/LogoutButton";
+import { ToHomepageBtn } from "../components/ToHomepageBtn";
+import LikedMuseums from "../components/LikedMuseums";
+import { UserReviews } from "../components/UserReviews";
+import { ExtraMuseums } from "../components/ExtraMuseums";
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
 //Authorize with access token from /user-page
@@ -14,7 +16,9 @@ export const UserPage = () => {
   const { authState, logout } = useContext(AuthContext)
   const { isAuthenticated, accessToken } = authState
 
-  const [loading, setLoading] = useState(true)
+
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState();
 
   useEffect(() => {
     const fetchUserPage = async () => {
@@ -30,17 +34,19 @@ export const UserPage = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch user page")
         }
-        setLoading(false)
+
+        const responseBody = await response.json();
+        setUser(responseBody.user);
+        setLoading(false);
       } catch (error) {
-        console.error(error)
-        logout()
+        console.error(error);
+        logout();
+        setLoading(false);
       }
     }
 
     if (isAuthenticated) {
-      fetchUserPage()
-    } else {
-      setLoading(false)
+      fetchUserPage();
     }
   }, [isAuthenticated, accessToken, logout])
 
@@ -59,19 +65,27 @@ export const UserPage = () => {
   }
 
   return (
-    <UserContainer>
-      <WelcomeMessage>Welcome to your personal page, </WelcomeMessage>
-      <FeatureList>
-        <LikedMuseums />
-        <FeatureItem>
-          <UserReviews />
-        </FeatureItem>
-        <FeatureItem>Purchased tickets</FeatureItem>
-      </FeatureList>
-      <LogoutButton />
-    </UserContainer>
-  )
-}
+
+    <div>
+      <ToHomepageBtn />
+
+      <UserContainer>
+        <ToHomepageBtn />
+        <WelcomeMessage>
+          Welcome to your personal page, {user.name}
+        </WelcomeMessage>
+        <FeatureList>
+          <LikedMuseums />
+          <FeatureItem>
+            <UserReviews />
+          </FeatureItem>
+          <ExtraMuseums />
+        </FeatureList>
+        <LogoutButton />
+      </UserContainer>
+    </div>
+  );
+};
 
 const UserContainer = styled.div`
   display: flex;

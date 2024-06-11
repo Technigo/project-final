@@ -28,10 +28,11 @@ Stretch goals
 
 Other things:
 
-- Make sure favorite button and comments work as before 🐱
+✅ Make sure favorite button and comments work as before 🐱
+
 - Include rating in comment (1-5 as input in backend - stars in frontend) 🐱
 - Suggested museums under the map in detailpage to make the user explore more 🐱
-- Userpage: add user name in welcome message 🐱
+  ✅ Userpage: add user name in welcome message 🐱
 
 ✅ Navbar showing everywhere like footer 🦀
 ✅ Navbar responsiveness 🦀
