@@ -4,10 +4,10 @@ import plus from "/assets/icons/plus.svg";
 
 import { Button } from "../../common/ReusableComponents/Button/Button";
 import { Image } from "../../common/ReusableComponents/Image/Image";
-import { useCartStore } from "../../stores/useCartStore";
 import { DeliveryStatements } from "../Home/components/DeliveryStatements/DeliveryStatements";
 
 import "./Cart.css";
+import { useCartStore } from "../../stores/useCartStore";
 
 export const Cart = () => {
   const {
