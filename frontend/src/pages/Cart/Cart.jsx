@@ -1,6 +1,7 @@
 import cross from "/assets/icons/cross.svg";
 import minus from "/assets/icons/minus.svg";
 import plus from "/assets/icons/plus.svg";
+import { loadStripe } from "@stripe/stripe-js";
 
 import { Button } from "../../common/ReusableComponents/Button/Button";
 import { Image } from "../../common/ReusableComponents/Image/Image";
@@ -8,6 +9,8 @@ import { DeliveryStatements } from "../Home/components/DeliveryStatements/Delive
 
 import "./Cart.css";
 import { useBagStore } from "../../stores/useBagStore";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 export const Cart = () => {
   const {
@@ -34,6 +37,36 @@ export const Cart = () => {
 
   const handleClearCart = () => {
     clearCart();
+  };
+
+  const handleCheckout = async () => {
+    const stripe = await stripePromise;
+
+    const response = await fetch(
+      "https://cones-and-stones-ppnudpghiq-lz.a.run.app//create-checkout-session",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: CartItems.map((item) => ({
+            id: item._id,
+            quantity: item.quantity,
+          })),
+        }),
+      }
+    );
+
+    const session = await response.json();
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      console.error(result.error.message);
+    }
   };
 
   return (
@@ -92,14 +125,17 @@ export const Cart = () => {
               label="Clear cart"
               onClick={handleClearCart}
             />
-            <Button
-              variant="hero"
-              label="Checkout"
-              className="checkout"
-            />
-            <DeliveryStatements variant="white" />
-          </div>
         </div>
+
+        <Button
+          variant="hero"
+          label="Checkout"
+          onClick={handleCheckout}
+          className="checkout"
+        />
+        <DeliveryStatements variant="white" />
+      </div>
+
       )}
     </div>
   );

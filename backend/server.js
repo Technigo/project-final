@@ -2,19 +2,16 @@ import cors from "cors";
 import express from "express";
 import expressListEndpoints from "express-list-endpoints";
 import mongoose from "mongoose";
+import Stripe from "stripe";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const stripe = new Stripe(process.env.VITE_STRIPE_SECRET_KEY);
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Cones&Stones";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
-
-// Middleware to check if database in a good state, get the next, otherwise error-message
-// const checkDatabaseConnection = (req, res, next) => {
-//   if (mongoose.connection.readyState === 1) {
-//     next();
-//   } else {
-//     res.status(503).json({ error: "Service unavailable" });
-//   }
-// };
 
 // Create product mongoose-schema & model
 // Destructure schema & model
@@ -273,6 +270,54 @@ app.get("/products/category/:category/:productId", async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({
+      success: false,
+      error: {
+        message: "Internal server error",
+      },
+    });
+  }
+});
+
+// Stripe Checkout Session creation endpoint
+app.post("/create-checkout-session", async (req, res) => {
+  const { productId, quantity } = req.body;
+
+  try {
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        error: {
+          message: "Product not found",
+        },
+      });
+    }
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: [
+        {
+          price_data: {
+            currency: "sek",
+            product_data: {
+              name: product.name,
+              description: product.description,
+              images: [product.image_url],
+            },
+            unit_amount: product.price * 100, // price in cents
+          },
+          quantity: quantity,
+        },
+      ],
+      mode: "payment",
+      success_url: `${process.env.CLIENT_URL}/success`,
+      cancel_url: `${process.env.CLIENT_URL}/cancel`,
+    });
+
+    res.status(200).json({ id: session.id });
+  } catch (error) {
+    res.status(500).json({
       success: false,
       error: {
         message: "Internal server error",
