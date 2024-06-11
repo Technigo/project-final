@@ -44,6 +44,7 @@ export const Profile = () => {
       try {
         console.log("Token being sent:", token); // Debug log
         const profileData = await getProfile(token);
+        console.log("Fetched profile data:", profileData); // Debug log
         setUserData({
           username: profileData.username || "",
           bio: profileData.bio || "",
@@ -72,9 +73,13 @@ export const Profile = () => {
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
+    setError("");
+    setNotification("");
 
     try {
+      console.log("Updating profile with data:", userData); //debug
       const updatedData = await updateProfile(userData);
+      console.log("Updated profile data:", updatedData); // Debug log
       setUserData(updatedData);
       setEditMode(false);
       setNotification("Profile updated successfully!");
