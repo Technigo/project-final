@@ -14,10 +14,11 @@ export const Pagination = ({
 
   return (
     <div className="my-10 flex items-center justify-center">
-      <div className="flex border border-light-blue font-montserrat text-sm font-bold">
+      <div className="text-sn flex border border-light-blue font-montserrat font-bold">
         <button
           onClick={() => paginate(1)}
           className="border border-light-blue p-4 text-blue"
+          disabled={currentPage === 1}
         >
           First
         </button>
@@ -31,7 +32,7 @@ export const Pagination = ({
           </button>
         ))}
         <button
-          className="text-blue border border-light-blue px-4"
+          className="border border-light-blue px-4 text-blue"
           onClick={() => paginate(currentPage + 1)}
           disabled={currentPage === pageNumbers.length}
         >
@@ -43,8 +44,8 @@ export const Pagination = ({
 };
 
 Pagination.propTypes = {
-  totalItems: PropTypes.string.isRequired,
-  itemsPerPage: PropTypes.string.isRequired,
-  paginate: PropTypes.string.isRequired,
-  currentPage: PropTypes.string.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  itemsPerPage: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };
