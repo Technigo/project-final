@@ -15,11 +15,12 @@ export default {
         "main-yellow-check": "#FFDE68",
 
         "main-white": "#FFFDF6",
+        "main-white-transparent": "rgba(255, 253, 246, 0.7)",
 
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
-        "overlay": "rgba(0,0,0,0.5)",
+        "overlay": "rgba(255, 195, 177, 0.31)",
 
         "light-yellow": "#FFE486",
         "light-orange": "#FF8E61",

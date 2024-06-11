@@ -1,4 +1,5 @@
 import { useProductsStore } from "../store/useProductsStore";
+//import { useUserStore } from "../store/useUserStore"
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -9,16 +10,18 @@ import SimilarProducts from "../components/SimilarProducts";
 /* import { NotFound } from "./NotFound"; */
 import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
+import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
 
 export const SingleProductPage = () => {
   const { id } = useParams();
-  const { fetchSingleProduct, loadingProduct, singleProduct } =
+  const { fetchSingleProduct, loadingProduct, singleProduct, shoppingCart, setShoppingCart } =
     useProductsStore();
-  const [quantity, setQuantity] = useState(0);
+  const loggedIn = true
+  const [quantity, setQuantity] = useState(1);
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
-    const [userAllergy, setUserAllergy] = useState(["fragrances"]);  //replace with userdata from global
+    const userAllergy ="fragrances"  //replace with userdata from store
    const [allergyAlert, setAllergyAlert] = useState([]); 
 
   // Adding quantity of items to add to cart
@@ -30,6 +33,12 @@ export const SingleProductPage = () => {
     setQuantity((prevQuantity) => (prevQuantity > 0 ? prevQuantity - 1 : 0));
   };
 
+  // Adding product to the cart
+  const handleAddToCart = () => {
+    setShoppingCart(product, quantity);
+    console.log("shopping cart", shoppingCart)
+  };
+
   useEffect(() => {
     console.log("id inside useeffect:", id);
     fetchSingleProduct(id);
@@ -37,27 +46,22 @@ export const SingleProductPage = () => {
 
   //Comparing user allergies with product allergies
   useEffect(() => {
-    if (singleProduct && singleProduct.allergies) {
-      const matchingAllergies = singleProduct.allergies.filter((allergy) =>
+    if (product && product.allergies) {
+      const matchingAllergies = product.allergies.filter((allergy) =>
         userAllergy.includes(allergy)
       );
       setAllergyAlert(matchingAllergies);
     }
   }, [singleProduct, userAllergy]);
 
-  // if (!product || !product.image || !product.image.url) {
-  //   return (
-  //     <div>
-  //       <NotFound reason="product" />
-  //     </div>
-  //   );
-  // }
+
   console.log("Product:", product);
   console.log("param ID:", id);
   console.log("singleproduct", singleProduct);
   return (
     <>
-      <section className="bg-main-red h-full min-h-screen pt-4 laptop:pt-12 w-full ">
+    < ShoppingCartPopup />
+      <section className="bg-main-red h-full min-h-screen pt-4 laptop:pt-12 w-full font-heading ">
         <NavLink to="/products">
           <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
             <IoIosArrowBack />
@@ -66,11 +70,12 @@ export const SingleProductPage = () => {
         {loadingProduct ? (
           <Loading />
         ) : !product || !product.image || !product.image.url ? (
-          <div className="w-6/12 bg-main-red m-auto mt-24 font-heading text-text-light text-xl text-center">
+          <div className="w-6/12 bg-main-red m-auto mt-24 text-text-light text-xl text-center">
             <h2>No product found</h2>
             <Loading />
           </div>
         ) : (
+          <div className="flex flex-col">
           <div className="w-full tablet:w-11/12 tablet:m-auto tablet:flex pb-12 desktop:w-9/12 relative">
             <img
               src={product.image.url}
@@ -78,11 +83,12 @@ export const SingleProductPage = () => {
               className="w-full tablet:w-7/12 desktop:w-5/12 object-cover aspect-square tablet:rounded-xl"
             />
             {allergyAlert.length > 0 && (
-              <div className="absolute top-10 left-0 right-0 flex justify-center w-36 font-heading items-center bg-cta-blue text-white py-2 px-4 rounded-r-xl">
+              <div className="absolute top-10 left-0 right-0 flex justify-center w-36  items-center bg-cta-blue text-white py-2 px-4 rounded-r-xl">
                 Allergies: {allergyAlert.join(", ")}
               </div>
             )}
-            <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light font-heading tablet:pl-8 desktop:pl-16">
+            
+            <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light tablet:pl-8 desktop:pl-16">
               <h2 className="font-light text-lg tablet:text-xl mb-2">
                 {product.brand}
               </h2>
@@ -114,12 +120,25 @@ export const SingleProductPage = () => {
                     +
                   </button>
                 </div>
-                <button className="w-24 h-6 text-xs bg-strong-yellow p-1 rounded-full text-text-dark hover:bg-main-yellow">
+                <button onClick={handleAddToCart} className="w-24 h-6 text-xs bg-strong-yellow p-1 rounded-full text-text-dark hover:bg-main-yellow">
                   {addToCart}
                 </button>
               </div>
             </div>
+            </div>
+           {/*  Needs more styling, thinking its good to have some info even if its not recommended for you */}
+            { !loggedIn && product.skin.length > 0 && 
+              <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
+              <h4>Recommended for: </h4>
+              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
+              {product.skin.map((item, index) => (
+                <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl"> {item}</li>
+              ))}
+              </ul>
+              </div>
+              }
           </div>
+          
         )}
         <SimilarProducts
           subcategory={product.subcategory}
