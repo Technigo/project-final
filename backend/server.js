@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const stripe = new Stripe(import.meta.env.VITE_STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.VITE_STRIPE_SECRET_KEY);
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Cones&Stones";
 mongoose.connect(mongoUrl);
