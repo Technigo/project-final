@@ -81,7 +81,7 @@ const StyledNewsletter = styled.form`
   }
 
   input {
-    border-radius: 14px;
+    border-radius: 4px;
     padding: 8px;
     margin-bottom: 8px;
   }

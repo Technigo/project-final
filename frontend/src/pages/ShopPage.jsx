@@ -1,11 +1,9 @@
 import styled from "styled-components"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { BackButton } from "../components/BackButton"
 
 export const ShopPage = () => {
   return (
     <Container>
-      <ToHomepageBtn />
-
       <Title>Virtual Ticket Booth</Title>
       <TicketBooth>
         <TicketContent>
@@ -17,13 +15,14 @@ export const ShopPage = () => {
             purchases. Thank you for your curiosity!
           </Message>
         </TicketContent>
+        <BackButton />
       </TicketBooth>
     </Container>
   )
 }
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 80px 20px 20px 20px;
   text-align: center;
 
   a {

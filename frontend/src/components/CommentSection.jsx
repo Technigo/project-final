@@ -7,7 +7,7 @@ export const CommentSection = ({ museumId }) => {
 
   const fetchComments = async () => {
     try {
-      const response = await fetch("http://localhost:3000/reviews")
+      const response = await fetch("https://museek-2ejb.onrender.com/reviews")
       if (!response.ok) {
         throw new Error("Failed to fetch data")
       }

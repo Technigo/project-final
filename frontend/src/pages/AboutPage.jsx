@@ -1,11 +1,9 @@
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
 //import StyledAboutPage from "../components/styled/AboutPage.styled";
 import styled from "styled-components"
 
 export const AboutPage = () => {
   return (
     <StyledAboutPage>
-      <ToHomepageBtn />
       <Content>
         <h3>About MuSeek</h3>
         <p>
@@ -33,15 +31,8 @@ export const AboutPage = () => {
   )
 }
 
-const PageWrapper = styled.div`
-  background-color: #222; /* Dark background */
-  color: #fff; /* White text */
-  min-height: 100vh;
-  padding: 20px;
-`
-
 const StyledAboutPage = styled.div`
-  padding: 20px;
+  padding: 80px 20px 20px 20px;
   margin: 0 auto;
   max-width: 800px;
 `

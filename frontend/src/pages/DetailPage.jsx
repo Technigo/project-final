@@ -1,16 +1,14 @@
+import styled from "styled-components"
 import { useContext, useEffect } from "react"
-import { useParams, Navigate } from "react-router-dom"
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
-import L from "leaflet"
+import { useParams, Navigate, Link } from "react-router-dom"
 import { IoRestaurantOutline } from "react-icons/io5"
-import { ToHomepageBtn } from "../components/ToHomepageBtn"
+import { BackButton } from "../components/BackButton"
 import { FavoriteButton } from "../components/FavoriteButton"
 import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
-import { Link } from "react-router-dom"
+import { MuseumMap } from "../components/MuseumMap"
 
 import museumList from "../../../backend/data/museums.json"
-import styled from "styled-components"
 import StyledButton from "../components/styled/Button.styled"
 import { getOptimizedUrl } from "../util/UrlUtil"
 
@@ -30,22 +28,11 @@ export const DetailPage = () => {
     return <Navigate to="/not-found" />
   }
 
-  const customIcon = new L.Icon({
-    iconUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-    shadowSize: [41, 41],
-  })
-
   return (
     <Container>
       <Background />
       <ImageContainerPhone>
-        <ToHomepageBtn />
+        <BackButton />
         <StyledImagePhone
           src={getOptimizedUrl(museum.url, 1200)}
           alt={`Image related to ${museum.name}`}
@@ -55,7 +42,7 @@ export const DetailPage = () => {
       <ContentContainer>
         <Content>
           <ImageContainerTablet>
-            <ToHomepageBtn />
+            <BackButton />
             <StyledImageTablet
               src={getOptimizedUrl(museum.url, 1200)}
               alt={`Image related to ${museum.name}`}
@@ -119,24 +106,8 @@ export const DetailPage = () => {
             </p>
           )}
         </CommentContainer>
-        <MapContainer
-          center={[museum.lat, museum.lon]}
-          zoom={15}
-          style={{ height: "400px", width: "100%" }}>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <Marker position={[museum.lat, museum.lon]} icon={customIcon}>
-            <Popup>
-              <div>
-                <h3>{museum.name}</h3>
-                <p>{museum.location}</p>
-              </div>
-            </Popup>
-          </Marker>
-        </MapContainer>
-      </ContentContainer>
+        <MuseumMap museums={[museum]} showLink={false} center={[museum.lat, museum.lon]} />
+        </ContentContainer>
     </Container>
   )
 }
@@ -148,6 +119,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 768px) {
+    padding-top: 80px;
+  }
 `
 
 const Background = styled.div`
@@ -281,7 +256,5 @@ const VisitWebsite = styled.p`
 const CommentContainer = styled.div`
   padding: 20px;
 
-  @media (min-width: 1024px) {
-    width: 40%;
-  }
+ 
 `
