@@ -1,13 +1,23 @@
 import { useUserStore } from "../store/useUserStore"
+import Lottie from "lottie-react";
+import animation from "../assets/animation-success.json"
 
 export const WelcomeMessage = () => {
 
 const { user } = useUserStore()
 
   return (
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 top-40 w-3/4 tablet:w-5/12 desktop:w-3/12 h-fit bg-strong-red backdrop-blur-3xl text-center p-4 tablet:p-6 shadow-xl text-text-light font-heading rounded-md flex flex-col  gap-2 desktop:gap-6">
-      <h2>Welcome {user.user.firstname}</h2>
-      <p className="text-xs">You have been successfully logged in</p>
+    <div className="fixed top-0 left-0 w-full h-full bg-overlay backdrop-blur-sm flex items-center justify-center z-30">
+        <div className="w-2/3 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-login border-main-red border-opacity-50 backdrop-blur-sm p-8 relative flex justify-between">
+      <div className="font-heading text-text-light"><h2 className="text-xl mb-4">Welcome {user.user.firstname}</h2>
+      <p className="text-sm">You have been successfully logged in</p></div>
+      <Lottie
+              animationData={animation}
+              loop={false}
+              autoPlay
+              style={{ width: 100, height: 100 }}
+            />
+        </div>
     </div>
   )
 }

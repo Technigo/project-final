@@ -6,21 +6,20 @@ export default {
       colors: {
         "cta-blue": "#002795",
         "cta-blue-hover": "#1138a6",
-        "main-red": "#E48d6A",
+
         "main-green": "#97a65D",
 
         "main-yellow": "#FFE486",
         "strong-yellow": "#FFDE68",
-
         "main-yellow-check": "#FFDE68",
 
         "main-white": "#FFFDF6",
         "main-white-transparent": "rgba(255, 253, 246, 0.7)",
 
+        "main-red": "#E48d6A",
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
-        "overlay": "rgba(255, 195, 177, 0.31)",
 
         "light-yellow": "#FFE486",
         "light-orange": "#FF8E61",
@@ -29,11 +28,11 @@ export default {
         "text-dark": "#671E01",
 
         "button-light": "#FFF5F2",
-
         "button-varm-light": "#FFCDBD",
         
-
+        "overlay": "rgba(25, 4, 5, 0.54)",
         "bg-input": "#FFFDF6",
+        "login": "rgba(255, 204, 182, 0.8)"
 
 
       },

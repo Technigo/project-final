@@ -52,11 +52,11 @@ export const Navigation = ({ data }) => {
   useEffect(() => {
     if (loggedIn) {
       setOpen(false);
+      navigate("/profile")
       setShowWelcomePopup(true);
       setTimeout(() => {
         setShowWelcomePopup(false)
-        navigate("/profile");
-      }, 2000); 
+      }, 1500000); 
     }
   }, [loggedIn]);
 
@@ -68,7 +68,7 @@ export const Navigation = ({ data }) => {
     <>   
      {showWelcomePopup && <WelcomeMessage />}
       <nav className="sticky top-0 w-full z-20">
-        <div className="grid grid-cols-3 bg-strong-red  border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
+        <div className="grid grid-cols-3 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
           <div className="left-nav flex">
             <NavLink
               to="/products"
@@ -90,7 +90,7 @@ export const Navigation = ({ data }) => {
                 <div
                 onClick={toggleLogin}
                 className="text-white m-2 cursor-pointer laptop:hidden">
-                  <img src={userIcon} alt="Profile" className="h-4 ml-2 tablet:h-5 tablet:m-3" />
+                  <img src={userIcon} alt="Profile" className="h-4 ml-2 mt-1 tablet:h-5 tablet:m-3" />
             </div>
           )}
             <NavLink to="/cart" className="text-white tablet:hidden">
@@ -156,11 +156,11 @@ export const Navigation = ({ data }) => {
         <div
           onClick={handleClickOutside}
           ref={overlayRef}
-          className="fixed top-0 left-0 w-full h-full bg-overlay flex items-center justify-center z-30"
+          className="fixed top-0 left-0 w-full h-full bg-overlay backdrop-blur-sm flex items-center justify-center z-30"
         >
           <div
             ref={modalContentRef}
-            className="w-1/2 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-strong-red border-2 border-main-red border-opacity-50 backdrop-blur-sm px-4 py-2 relative"
+            className="w-2/3 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-login border-main-red border-opacity-50 backdrop-blur-sm px-4 py-2 relative"
           >
             <div className="flex justify-between">
               <h1 className="font-heading text-text-light text-2xl my-4">
@@ -169,7 +169,7 @@ export const Navigation = ({ data }) => {
               <NavLink to="/signup">
                 <button
                   onClick={() => setOpen(false)}
-                  className="bg-strong-red hover:bg-strong-red2 transition duration-300 mb-4 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
+                  className="bg-main-red hover:bg-strong-yellow transition duration-300 mb-4 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
                 >
                   Sign up
                 </button>
@@ -198,7 +198,7 @@ export const Navigation = ({ data }) => {
                 {loadingUser ? "Logging in..." : "Login"}
               </button>
             </form>
-            <p className="absolute text-text-light -bottom-8 z-0 text-xs">
+            <p className="absolute text-text-light -bottom-10 tablet:-bottom-8 z-0  text-xs">
               Press outside of the box to close the window
             </p>
           </div>
