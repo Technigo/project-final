@@ -12,7 +12,7 @@ export const ProfileCard = ({
   email,
 }) => {
   return (
-    <div className="py-10 px-4 flex flex-col items-center">
+    <div className="py-10 flex flex-col items-center">
       <img src={image} alt="profile of the our member" className="pb-4" />
       <p className="pb-2 font-montserrat text-xl font-bold">
         {name}
