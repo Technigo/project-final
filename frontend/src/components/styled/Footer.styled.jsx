@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledFooter = styled.footer`
-  background-color: #0a162c;
+  background-color: #232222;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -30,6 +30,6 @@ const StyledFooter = styled.footer`
   p {
     color: #f7f7f7;
   }
-`;
+`
 
-export default StyledFooter;
+export default StyledFooter

@@ -6,7 +6,7 @@ export const ReferencePage = () => {
     <>
       <StyledReferencePage>
         <ToHomepageBtn />
-        <h4>References</h4>
+        <h4>Licenses</h4>
         <ul>
           {" "}
           <li>
