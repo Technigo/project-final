@@ -67,13 +67,13 @@ export const getProfile = async () => {
 export const updateProfile = async (userData) => {
   try {
     const token = localStorage.getItem("authToken");
-    const formData = new FormData();
-    Object.keys(userData).forEach((key) => formData.append(key, userData[key]));
+    /*   const formData = new FormData();
+    Object.keys(userData).forEach((key) => formData.append(key, userData[key])); */
 
-    const response = await api.put("/profile", formData, {
+    const response = await api.put("/profile", userData, {
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     });
     return response.data;

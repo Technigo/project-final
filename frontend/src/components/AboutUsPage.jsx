@@ -2,9 +2,14 @@ import { Button } from "../utilities/Button";
 import Footer from "../utilities/Footer";
 import Menu from "../utilities/Menu";
 import teamImage from "/images/team.jpg";
-import { useState } from "react";
+import { AuthForm } from "./registration/AuthForm";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useModal } from "./registration/ModalContext";
 
 export const AboutUsPage = () => {
+  const { showModal } = useModal();
+  const navigate = useNavigate();
   const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -68,7 +73,7 @@ export const AboutUsPage = () => {
             your journey. Toghether, we can achieve more.
           </p>
           <div className="mt-8">
-            <Button text="Join Us Now" link="/signup" varian="primary" />
+            <Button text="Join Us Now" link="/" varian="primary" />
           </div>
         </div>
       </section>

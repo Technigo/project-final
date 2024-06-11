@@ -32,7 +32,7 @@ export const Profile = () => {
             type="login"
             onSuccess={() => {
               setLoading(true);
-              /*  fetchProfile(); */
+              fetchProfile();
             }}
             navigate={navigate}
           />
@@ -72,11 +72,6 @@ export const Profile = () => {
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
-    /*  const token = localStorage.getItem("authToken"); */
-    /*  const formData = new FormData();
-    formData.append("username", userData.username);
-    formData.append("bio", userData.bio);
-    formData.append("hobbies", userData.hobbies); */
 
     try {
       const updatedData = await updateProfile(userData);
@@ -87,13 +82,16 @@ export const Profile = () => {
     } catch (err) {
       console.error("Failed to update profile:", err);
       setError("Failed to update profile.");
+      setNotification();
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     hideModal();
     logout();
-    navigate("/find-out-more");
+    showModal(
+      <AuthForm type="login" onSuccess={() => navigate("/find-out-more")} />
+    );
   };
 
   if (loading) {
@@ -122,12 +120,8 @@ export const Profile = () => {
               <p className="text-sm">Role: {userData.role || "User"}</p>
               {editMode && (
                 <>
-                  <p className="text-sm">
-                    Bio: {userData.bio || "No bio provided"}
-                  </p>
-                  <p className="text-sm">
-                    Hobbies: {userData.hobbies || "No hobbies listed"}
-                  </p>
+                  <p className="text-sm">Bio: {userData.bio || ""}</p>
+                  <p className="text-sm">Hobbies: {userData.hobbies || ""}</p>
                 </>
               )}
             </div>

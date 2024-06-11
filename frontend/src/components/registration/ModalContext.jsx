@@ -17,14 +17,11 @@ export const ModalProvider = ({ children }) => {
     setIsVisible(false);
     setContent(null);
   };
+
   return (
     <ModalContext.Provider value={{ showModal, hideModal }}>
       {children}
-      {isVisible && (
-        <div className="fixed inset-0 flex items-center justify-center bg-dark bg-opacity-50 z-50">
-          {content}
-        </div>
-      )}
+      {isVisible && content}
     </ModalContext.Provider>
   );
 };
