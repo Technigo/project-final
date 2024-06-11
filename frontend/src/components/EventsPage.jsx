@@ -1,4 +1,3 @@
-import { Button } from "../utilities/Button";
 import Footer from "../utilities/Footer";
 import Menu from "../utilities/Menu";
 import heroEventImage from "/images/event-hero.jpg";

@@ -9,6 +9,19 @@
   --link-hover-color: #d1510a;
 }
 
+p {
+  @apply font-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-sans;
+}
+
 .link {
   @apply text-link-color hover:text-link-hover-color;
 }

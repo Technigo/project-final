@@ -10,6 +10,7 @@ import { useModal } from "../registration/ModalContext";
 import { AuthForm } from "./AuthForm";
 import Footer from "../../utilities/Footer";
 import { Button } from "../../utilities/Button";
+import { Community } from "./Community";
 
 export const Profile = () => {
   const [userData, setUserData] = useState({
@@ -124,15 +125,15 @@ export const Profile = () => {
       <div className="flex-grow container mx-auto pt-20 flex flex-col items-center lg:flex-row lg:items-start lg:justify-center">
         <div
           className="bg-lighter shadow-lg rounded-lg p-6 relative w-full lg:w-2/3 lg:mx-auto"
-          style={{ backgroundColor: "rgba(255, 255, 255, 0.432)" }}
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.603)" }}
         >
-          <div className="flex flex-col lg:flex:row items-center space-y-4 lg:space-y-0 lg:space-x-4 mb-6">
+          <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-4 mb-6">
             <img
               src={defaultProfilePicture}
               alt="Profile"
               className="h-32 w-32 rounded-full order-1"
             />
-            <div className="order-2 lg:order-1 text-center lg:text-left">
+            <div className="order-2 lg:order-1 text-center lg:text-left lg:p-6">
               <h1 className="text-2xl font-bold mb-2">
                 Hello, {userData.username}
               </h1>
@@ -167,6 +168,9 @@ export const Profile = () => {
           varian="primary"
           className="mt-6"
         ></Button>
+      </div>
+      <div className="w-full">
+        <Community />
       </div>
       <Footer />
     </div>
