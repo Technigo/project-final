@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Loader } from "../../common/ReusableComponents/Loader/Loader";
 import { useParams } from "react-router-dom";
 
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
@@ -16,6 +17,7 @@ export const Category = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true); // Ensure loading state is reset when category changes
+      setError(null);
       try {
         const response = await fetch(
           `https://cones-and-stones-ppnudpghiq-lz.a.run.app/products/category/${category}`
@@ -23,17 +25,17 @@ export const Category = () => {
 
         const data = await response.json();
         if (data.success) {
-          setProducts(data.response);
-          setError(null);
-          // setTimeout(() => {
-          //   setIsLoading(false);
-          // }, 3000);
+          // Simulate a delay by wrapping the state update in a setTimeout
+          setTimeout(() => {
+            setProducts(data.response);
+            setIsLoading(false)
+          }, 500);
         } else {
           setError(data.error.message);
+          setIsLoading(false);
         }
       } catch (error) {
         setError(error.message);
-      } finally {
         setIsLoading(false);
       }
     };
@@ -44,8 +46,10 @@ export const Category = () => {
     <div className="category-page">
       <CategoryIcons variant="grey" />
       <h4>{category}</h4>
-      {isLoading && <p>Loading... </p>}
+      {isLoading && <Loader />}
+
       {error && <p>Error: {error}</p>}
+      
       <section className="product-list">
         {products.map((product) => (
           <ProductCard
