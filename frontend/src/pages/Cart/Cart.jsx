@@ -128,7 +128,7 @@ export const Cart = () => {
           </div>
 
           <Button
-            variant="hero"
+            variant="shop"
             label="Checkout"
             onClick={handleCheckout}
             className="checkout"

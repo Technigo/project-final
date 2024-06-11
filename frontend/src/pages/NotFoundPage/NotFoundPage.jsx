@@ -8,7 +8,7 @@ export const NotFoundPage = () => {
       <section className="not-found-container">
         <h2>(404) Page not found. </h2>
         <p>Sorry, this page does not exist. Try going to a different page. </p>
-        <Button to="/" variant="hero" label="Go to homepage" />
+        <Button to="/" variant="shop" label="Go to homepage" />
       </section>
     </div>
   );
