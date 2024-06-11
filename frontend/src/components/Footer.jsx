@@ -5,9 +5,8 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <ul>
-        <Link to={"/about"}>About MuSeek</Link>
         <Link to={"/contact"}>Contact us</Link>
-        <Link to={"/references"}>References</Link>
+        <Link to={"/references"}>Licenses</Link>
       </ul>
 
       <p> © 2024 MuSeek. All rights reserved.</p>
