@@ -29,7 +29,7 @@ export const SignUpPage = () => {
     registerUser,
     loadingUser,
   } = useUserStore();
-  const [activeSection, setActiveSection] = useState("sectionone");
+  const [activeSection, setActiveSection] = useState("sectionthree");
 
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
@@ -179,7 +179,7 @@ export const SignUpPage = () => {
       hair,
       skinType
     );
-    //resetFields();
+    resetFields();
   };
 
   const resetFields = () => {
@@ -431,6 +431,14 @@ export const SignUpPage = () => {
                   onChange={handleSkin}
                 >
                   <option
+                    value=""
+                    selected
+                    disabled
+                    className="font-heading font-bold bg-bg-input"
+                  >
+                    -- Choose skin type
+                  </option>
+                  <option
                     value="sensitive"
                     className="font-heading font-bold bg-bg-input"
                   >
@@ -482,6 +490,14 @@ export const SignUpPage = () => {
                   onChange={handleHairMoisture}
                 >
                   <option
+                    value=""
+                    selected
+                    disabled
+                    className="font-heading font-bold bg-bg-input"
+                  >
+                    -- Choose hair moisture level
+                  </option>
+                  <option
                     value="dry"
                     className="font-heading font-bold bg-bg-input"
                   >
@@ -512,6 +528,14 @@ export const SignUpPage = () => {
                   className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                   onChange={handleHairShape}
                 >
+                  <option
+                    value=""
+                    selected
+                    disabled
+                    className="font-heading font-bold bg-bg-input"
+                  >
+                    -- Choose hair shape
+                  </option>
                   <option
                     value="straight"
                     className="font-heading font-bold bg-bg-input"
