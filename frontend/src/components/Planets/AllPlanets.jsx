@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import mercuryCard from "../../assets/images/mercuryCard.png"
-import venusCard from "../../assets/images/venusCard.png"
-import tellusCard from "../../assets/images/tellusCard.png"
-import marsCard from "../../assets/images/marsCard.png"
-import jupiterCard from "../../assets/images/jupiterCard.png"
-import saturnCard from "../../assets/images/saturnCard.png"
-import uranusCard from "../../assets/images/uranusCard.png"
-import neptuneCard from "../../assets/images/neptuneCard.png"
-import plutoCard from "../../assets/images/plutoCard.png"
+import mercuryImg from "../../assets/images/mercury.png"
+import venusImg from "../../assets/images/venus.png"
+import tellusImg from "../../assets/images/tellus.png"
+import marsImg from "../../assets/images/mars.png"
+import jupiterImg from "../../assets/images/jupiter.png"
+import saturnImg from "../../assets/images/saturn.png"
+import uranusImg from "../../assets/images/uranus.png"
+import neptuneImg from "../../assets/images/neptune.png"
+import plutoImg from "../../assets/images/pluto.png"
 
 const PlanetsContainer = styled.div`
   display: grid;
@@ -55,6 +55,7 @@ const PlanetInfo = styled.p`
   text-align: center;
   justify-content: center;
   align-items: center;
+  margin-bottom: 150px;
 
   &:hover {
     color: #cf4b14;
@@ -68,7 +69,7 @@ const PlanetInfo = styled.p`
 `
 
 const PlanetImage = styled.img`
-  width: 300px;
+  width: ${(props) => (props.isSaturn ? "350px" : "200px")};
 `
 
 export const AllPlanets = () => {
@@ -110,28 +111,24 @@ export const AllPlanets = () => {
   // Function to get the image source based on the planet name
   const getImageSrc = (planetName) => {
     switch (planetName.toLowerCase()) {
-      case "sun":
-        return sunCard
       case "mercury":
-        return mercuryCard
+        return mercuryImg
       case "venus":
-        return venusCard
+        return venusImg
       case "tellus":
-        return tellusCard
+        return tellusImg
       case "mars":
-        return marsCard
+        return marsImg
       case "jupiter":
-        return jupiterCard
+        return jupiterImg
       case "saturn":
-        return saturnCard
+        return saturnImg
       case "uranus":
-        return uranusCard
+        return uranusImg
       case "neptune":
-        return neptuneCard
+        return neptuneImg
       case "pluto":
-        return plutoCard
-      case "moon":
-        return moonCard
+        return plutoImg
       default:
         return ""
     }
@@ -170,7 +167,11 @@ export const AllPlanets = () => {
           }
         >
           <PlanetCard>
-            <PlanetImage src={getImageSrc(planet.name)} alt={planet.name} />
+            <PlanetImage
+              src={getImageSrc(planet.name)}
+              alt={planet.name}
+              isSaturn={planet.name.toLowerCase() === "saturn"}
+            />
             <PlanetInfo isSaturn={planet.name.toLowerCase() === "saturn"}>
               {planet.name.toUpperCase()}
             </PlanetInfo>

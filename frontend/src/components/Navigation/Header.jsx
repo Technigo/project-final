@@ -38,6 +38,7 @@ const HeaderContent = styled.div`
 
 const Logo = styled.img`
   width: 60px;
+  padding: 0px 20px;
 
   @media (min-width: 768px) {
     width: 100px;
