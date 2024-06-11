@@ -3,6 +3,7 @@ import "./AllProducts.css";
 import { ProductCard } from "./ProductCard";
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 import { Loader } from "../../common/ReusableComponents/Loader/Loader";
+import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -40,24 +41,28 @@ export const AllProducts = () => {
 
   return (
     <div className="allproducts-page">
-      <CategoryIcons variant="grey" />
-      <h4>All products</h4>
       {isLoading && <Loader />}
 
-      {error && <p>Error: {error}</p>}
+      {error && <NotFoundPage />}
 
-      <section className="product-list">
-        {Array.isArray(products) &&
-          products.map((product) => (
-            <ProductCard
-              key={product._id}
-              id={product._id}
-              image_url={product.image_url}
-              name={product.name}
-              price={product.price}
-            />
-          ))}
-      </section>
+      {!isLoading && !error && (
+        <section className="products-container">
+          <CategoryIcons variant="grey" />
+          <h4>All products</h4>
+          <div className="product-list">
+            {Array.isArray(products) &&
+              products.map((product) => (
+                <ProductCard
+                  key={product._id}
+                  id={product._id}
+                  image_url={product.image_url}
+                  name={product.name}
+                  price={product.price}
+                />
+              ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 };

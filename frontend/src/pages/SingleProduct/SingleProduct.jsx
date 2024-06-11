@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../common/ReusableComponents/Loader/Loader";
-
+import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
 import { Button } from "../../common/ReusableComponents/Button/Button";
 import { Image } from "../../common/ReusableComponents/Image/Image";
 import { Toggle } from "../../common/ReusableComponents/Toggle/Toggle";
@@ -61,7 +61,7 @@ export const SingleProduct = () => {
     <div className="singleproduct-page">
       <div>
         {isLoading && <Loader />}
-        {error && <p>Error: {error}</p>}
+        {error && <NotFoundPage />}
       </div>
 
       {product && (

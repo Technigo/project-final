@@ -7,6 +7,7 @@ import { Cart } from "./pages/Cart/Cart";
 import { Category } from "./pages/Category/Category";
 import { Home } from "./pages/Home/Home";
 import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 
 export const App = () => {
   return (
@@ -25,6 +26,8 @@ export const App = () => {
               path="/products/category/:category/:productId"
               element={<SingleProduct />}
             />
+            {/* Any time a user clicks on a page that is not  found */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
