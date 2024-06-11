@@ -12,6 +12,9 @@ const InputBox = styled.div`
     border-radius: 10px;
     border: none;
     margin: 10px 8px;
+    height: 20px;
+    padding: 2px 8px;
+    font-size: 15px;
   }
 `;
 

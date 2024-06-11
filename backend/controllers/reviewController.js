@@ -21,13 +21,13 @@ export const getReviewsForUser = async (req, res) => {
     const userReviews = await Review.find({
       userId: user.id,
     });
-    /*const userReviewsWhitMuseumsName = userReviews.map(async (review) => {
+    const userReviewsWhitMuseumsName = userReviews.map(async (review) => {
       const museumInfo = await Museum.findOne({
         id: review.museumId,
       });
       return { ...review, museumName: museumInfo.name };
-    });*/
-    res.status(200).json(userReviews);
+    });
+    res.status(200).json(userReviewsWhitMuseumsName);
   } catch (error) {
     res.status(400).json({
       response: error.message,

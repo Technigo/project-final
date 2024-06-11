@@ -6,6 +6,7 @@ import { LogoutButton } from "../components/LogoutButton";
 import { ToHomepageBtn } from "../components/ToHomepageBtn";
 import LikedMuseums from "../components/LikedMuseums";
 import { UserReviews } from "../components/UserReviews";
+import { ExtraMuseums } from "../components/ExtraMuseums";
 
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
@@ -69,7 +70,7 @@ export const UserPage = () => {
           <FeatureItem>
             <UserReviews />
           </FeatureItem>
-          <FeatureItem>Purchased tickets</FeatureItem>
+          <ExtraMuseums/>
         </FeatureList>
         <LogoutButton />
       </UserContainer>
