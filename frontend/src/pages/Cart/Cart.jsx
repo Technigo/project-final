@@ -32,9 +32,9 @@ export const Cart = () => {
     removeFromCart(productId, selectedSize);
   };
 
-  /* const handleClearCart = () => {
+  const handleClearCart = () => {
     clearCart();
-  }; */
+  };
 
   return (
     <div className="cart-container">
@@ -42,7 +42,7 @@ export const Cart = () => {
       {CartItems.length === 0 ? (
         <h4>Your cart is empty</h4>
       ) : (
-        <div>
+        <div className="cart-content">
           {CartItems.map((item) => (
             <div key={item._id} className="cart-item">
               <div className="cart-product-details">
@@ -76,27 +76,31 @@ export const Cart = () => {
               </div>
             </div>
           ))}
+
+          <div className="cart-summary">
+            <div className="shipping">
+              <h6 className="text-xs">Shipping</h6>
+              <h6 className="text-xs">0.00 SEK</h6>
+            </div>
+
+            <div className="total">
+              <h6>Total</h6>
+              <h6>{getTotalPrice()} SEK</h6>
+            </div>
+            <Button
+              variant="clear-cart"
+              label="Clear cart"
+              onClick={handleClearCart}
+            />
+            <Button
+              variant="hero"
+              label="Checkout"
+              className="checkout"
+            />
+            <DeliveryStatements variant="white" />
+          </div>
         </div>
       )}
-      <div className="cart-summary">
-        <div className="shipping">
-          <h6 className="text-xs">Shipping</h6>
-          <h6 className="text-xs">0.00 SEK</h6>
-        </div>
-
-        <div className="total">
-          <h6>Total</h6>
-          <h6>{getTotalPrice()} SEK</h6>
-        </div>
-        {/* <Button variant="size" label="Clear all" onClick={clearCart()} /> */}
-        <Button
-          variant="hero"
-          label="Checkout"
-          to="/checkout"
-          className="checkout"
-        />
-        <DeliveryStatements variant="white" />
-      </div>
     </div>
   );
 };
