@@ -25,7 +25,7 @@ export const ProductCard = ({
   // };
 
   return (
-    <Link to={`/products/${Id}`} className="text-black no-underline">
+    <Link to={`/products/${id}`} className="text-black no-underline">
       <div className="flex flex-col">
         <img src={templateImg} alt="image of the template" />
         <span className="mb-1 mt-2 flex flex-row">
