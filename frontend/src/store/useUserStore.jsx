@@ -53,15 +53,15 @@ export const useUserStore = create(
           const response = await fetch(URL_register, {
             method: "POST",
             body: JSON.stringify({
-              firstName: firstName,
-              lastName: lastName,
+              firstname: firstName,
+              lastname: lastName,
               email: email,
               address: address,
               password: password,
               allergies: allergies,
               pros: pros,
-              hair: hairShape,
-              hairMoisture,
+              hairShape: hairShape,
+              hairMoisture: hairMoisture,
               skin: skinType,
             }),
             headers: { "Content-Type": "application/json" },
@@ -95,23 +95,26 @@ export const useUserStore = create(
             throw new Error("could not fetch");
           }
           const data = await response.json();
+          console.log("Login respons data: ", data);
           if (data.accessToken) {
             set({
               loggedIn: true,
               userID: data._id,
               accessToken: data.accessToken,
-              firstName: data.firstName,
-              lastName: data.lastName,
+              firstname: data.firstname,
+              lastname: data.lastname,
               email: data.email,
               address: data.address,
               allergies: data.allergies,
               pros: data.pros,
-              hairShape: data.hair.shape,
-              hairMoisture: data.hair.moisture,
+              hair: data.hair,
+              // hairShape: data.hair.shape,
+              // hairMoisture: data.hair.moisture,
               skinType: data.skin,
             });
-            /* localStorage.setItem("access_token", data.accessToken);
-          localStorage.setItem("user_id", data._id); */
+            console.log("Hi, ", data.message);
+            // localStorage.setItem("access_token", data.accessToken);
+            // localStorage.setItem("user_id", data._id);
           }
         } catch (error) {
           console.error("error in login:", error);
@@ -120,6 +123,23 @@ export const useUserStore = create(
           set({ loadingUser: false });
         }
       },
+      logoutUser: () => {
+        set({
+          loggedIn: false,
+          userID: null,
+          accessToken: null,
+          firstname: null,
+          lastname: null,
+          email: null,
+          address: {},
+          allergies: [],
+          pros: [],
+          hair: {},
+          // hairShape: null,
+          // hairMoisture: null,
+          skinType: null,
+        });
+      }
     }),
     {
       name: "User-storage",

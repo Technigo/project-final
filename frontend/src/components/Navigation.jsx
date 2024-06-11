@@ -11,7 +11,7 @@ import { useUserStore } from "../store/useUserStore";
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
-  const { email, password } = useUserStore();
+  const { email, password, loginUser, loggedIn, loadingUser } = useUserStore();
   const [open, setOpen] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -25,12 +25,16 @@ export const Navigation = ({ data }) => {
     btnRef.current.classList.toggle("invisible");
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    console.log("Logging in:", emailInput, passwordInput);
-    loginUser(email, password);
+    await loginUser(emailInput, passwordInput);
+    if (loggedIn) {
+      console.log("Login successful!", email);
+    } else {
+      console.log("Login failed!", email);
+    }
   };
+
   const handleClickOutside = (event) => {
     if (overlayRef.current && !modalContentRef.current.contains(event.target)) {
       setOpen(false);
@@ -164,14 +168,15 @@ export const Navigation = ({ data }) => {
               />
               <button
                 onClick={handleLogin}
+                disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
               >
-                Login
+                {loadingUser ? "Logging in..." : "Login"}
               </button>
               <NavLink to="/signup">
                 <button
                   onClick={() => setOpen(false)}
-                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center m-auto px-6 py-2 rounded-full text-sm text-text-light"
+                  className="border-main-green hover:bg-main-green transition duration-300 mb-4 border-2 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
                 >
                   Sign up
                 </button>

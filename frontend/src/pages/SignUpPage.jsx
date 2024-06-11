@@ -26,7 +26,7 @@ export const SignUpPage = () => {
     setSkinType,
     registerUser
   } = useUserStore();
-  const [activeSection, setActiveSection] = useState("sectionthree"); // CHANGE TO "sectionone"!!!
+  const [activeSection, setActiveSection] = useState("sectionone"); // CHANGE TO "sectionone"!!!
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -158,7 +158,7 @@ export const SignUpPage = () => {
 
     setAllergies(selectedAllergies);
 
-    console.log("Does this work?: ", selectedAllergies);
+    console.log("Set Allergies in handleCheckbox: ", selectedAllergies);
   };
 
   const handleProsCheckboxChange = (e) => {
@@ -174,7 +174,7 @@ export const SignUpPage = () => {
     }
     setPros(selectedPros);
 
-    console.log("Does this work?: ", selectedPros);
+    console.log("Set Pros in handleCheckbox: ", selectedPros);
   };
 
   const allergyOptions = [
@@ -562,8 +562,8 @@ export const SignUpPage = () => {
                   <label key={option}>
                     <input
                       type="checkbox"
-                      value={option}
-                      checked={allergies.isArray && allergies.includes(option)}
+                      value={option.toLowerCase()}
+                      checked={allergies?.isArray && allergies.includes(option)}
                       onChange={handleAllergyCheckboxChange}
                     />
                     {option}
@@ -585,8 +585,8 @@ export const SignUpPage = () => {
                   <label key={option}>
                     <input
                       type="checkbox"
-                      value={option}
-                      checked={pros.isArray && pros.includes(option)}
+                      value={option.toLowerCase()}
+                      checked={pros?.isArray && pros.includes(option)}
                       onChange={handleProsCheckboxChange}
                     />
                     {option}
