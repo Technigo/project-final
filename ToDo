@@ -43,8 +43,11 @@ Other things:
 
 - Separate musuem page with filtering
 
-Other things again:
+More things:
 
 - If user cant' delete comment from their userpage, X should not show
 - Make sure GoBack button is everywhere we need it + is visible
 - Active styling on where we are in the navbar
+- Loginpage and register page are not responsive
+- Need to fix styling of about, contact, licenses, notfound
+- The button is not responsive (small devices too large)

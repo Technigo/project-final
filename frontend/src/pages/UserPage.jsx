@@ -1,13 +1,11 @@
-
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { AuthContext } from "../contexts/AuthContext";
-import { LogoutButton } from "../components/LogoutButton";
-import { ToHomepageBtn } from "../components/ToHomepageBtn";
-import LikedMuseums from "../components/LikedMuseums";
-import { UserReviews } from "../components/UserReviews";
-import { ExtraMuseums } from "../components/ExtraMuseums";
+import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import styled from "styled-components"
+import { AuthContext } from "../contexts/AuthContext"
+import { LogoutButton } from "../components/LogoutButton"
+import LikedMuseums from "../components/LikedMuseums"
+import { UserReviews } from "../components/UserReviews"
+import { ExtraMuseums } from "../components/ExtraMuseums"
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
 //Authorize with access token from /user-page
@@ -16,9 +14,8 @@ export const UserPage = () => {
   const { authState, logout } = useContext(AuthContext)
   const { isAuthenticated, accessToken } = authState
 
-
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState()
 
   useEffect(() => {
     const fetchUserPage = async () => {
@@ -35,18 +32,18 @@ export const UserPage = () => {
           throw new Error("Failed to fetch user page")
         }
 
-        const responseBody = await response.json();
-        setUser(responseBody.user);
-        setLoading(false);
+        const responseBody = await response.json()
+        setUser(responseBody.user)
+        setLoading(false)
       } catch (error) {
-        console.error(error);
-        logout();
-        setLoading(false);
+        console.error(error)
+        logout()
+        setLoading(false)
       }
     }
 
     if (isAuthenticated) {
-      fetchUserPage();
+      fetchUserPage()
     }
   }, [isAuthenticated, accessToken, logout])
 
@@ -65,12 +62,8 @@ export const UserPage = () => {
   }
 
   return (
-
     <div>
-      <ToHomepageBtn />
-
       <UserContainer>
-        <ToHomepageBtn />
         <WelcomeMessage>
           Welcome to your personal page, {user.name}
         </WelcomeMessage>
@@ -84,8 +77,8 @@ export const UserPage = () => {
         <LogoutButton />
       </UserContainer>
     </div>
-  );
-};
+  )
+}
 
 const UserContainer = styled.div`
   display: flex;

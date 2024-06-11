@@ -8,10 +8,13 @@ export const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false)
 
   const toggleMenu = () => {
+    console.log("Menu is toggled")
     setShowMenu(!showMenu)
   }
 
   const closeMenu = () => {
+    console.log("Menu is closed")
+
     setShowMenu(false)
   }
 

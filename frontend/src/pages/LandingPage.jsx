@@ -31,14 +31,19 @@ export const LandingPage = () => {
   const museumsToShow = results.length === 0 ? museums : results
 
   return (
-    <LandingPageContainer>
-      <NavBar />
-      <HeroSection />
-      <SearchBar setResults={setResults} />
-      <MuseumCardContainer results={museumsToShow} />
-      <MuseumMap museums={museumsToShow} showLink={true} center={[48.8566, 2.3522]} />
-      <Newsletter />
-    </LandingPageContainer>
+    <div>
+      <LandingPageContainer>
+        <HeroSection />
+        <SearchBar setResults={setResults} />
+        <MuseumCardContainer results={museumsToShow} />
+        <MuseumMap
+          museums={museumsToShow}
+          showLink={true}
+          center={[48.8566, 2.3522]}
+        />
+        <Newsletter />
+      </LandingPageContainer>
+    </div>
   )
 }
 
