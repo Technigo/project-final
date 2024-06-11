@@ -6,6 +6,8 @@ import {
   loginUser,
   deleteUser,
   displayUser,
+  handleCart,
+  handleFavorite,
 } from "../controllers/userController";
 import { authenticateUser } from "../middleware/authenticateUser";
 
@@ -17,6 +19,8 @@ router.post("/users/login", loginUser);
 
 router.get("/users/:userId", authenticateUser, displayUser);
 
-router.delete("/users/:userId", authenticateUser, deleteUser);
+router.post("/users/:userId/favorites", authenticateUser, handleFavorite);
+
+router.post("/users/:userId/cart", authenticateUser, handleCart);
 
 export default router;
