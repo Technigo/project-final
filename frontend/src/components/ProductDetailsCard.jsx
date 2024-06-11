@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import favorite from "../assets/favorite-icon.svg";
 import { Button } from "./Button";
+import { HeartButton } from "./HeartButton";
 
 export const ProductDetailsCard = ({
   numOfLikes,
@@ -11,6 +12,7 @@ export const ProductDetailsCard = ({
   templateName,
   description,
   category,
+  id,
 }) => {
   return (
     <div className="mx-auto flex w-4/5 min-w-[300px] flex-col gap-6 font-montserrat lg:flex-row lg:place-content-center lg:gap-10">
@@ -24,9 +26,10 @@ export const ProductDetailsCard = ({
           src={image}
           alt="image of the template"
         />
-        <button className="absolute bottom-5 right-5 rounded-full bg-white p-3 hover:bg-light-gray">
-          <img src={favorite} />
-        </button>
+        <HeartButton
+          style="absolute bottom-5 right-5 h-8 w-8 rounded-full bg-white p-[5px] hover:bg-light-gray"
+          id={id}
+        />
       </div>
       <div className="flex w-full flex-col gap-3 lg:w-96 lg:flex-none lg:justify-between">
         <span className="flex flex-row">

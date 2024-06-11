@@ -1,16 +1,29 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import cart from "../assets/cart-blue.svg";
-import favorite from "../assets/favorite-icon.svg";
+import { useState } from "react";
+import { HeartButton } from "./HeartButton";
+import { SideDrawer } from "./SideDrawer";
 
 export const ProductCard = ({
+  id,
   templateImg,
   tags,
   name,
   price,
   category,
-  Id,
 }) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+  // const { accessToken } = useUserStore();
+  // const { unlikeProduct, likeProduct, favoriteProducts } = useProductStore();
+  // const handleLike = async () => {
+  //   if (accessToken) {
+  //     favoriteProducts.includes(id) ? unlikeProduct(id) : likeProduct(id);
+  //   } else {
+  //     setOpenRight(true);
+  //   }
+  // };
+
   return (
     <Link to={`/products/${Id}`} className="text-black no-underline">
       <div className="flex flex-col">
@@ -33,20 +46,25 @@ export const ProductCard = ({
             <p className="mt-1 text-sm lg:text-xs">€{price}</p>
           </div>
           <div className="flex flex-row items-center gap-6 lg:gap-4">
-            <button className="h-6 w-6 lg:h-4 lg:w-4">
-              <img src={favorite} alt="add to favorite button" />
-            </button>
+            <HeartButton
+              style="h-8 w-8 lg:h-5 lg:w-5"
+              id={id}
+              setOpenDrawer={setOpenDrawer}
+            />
+
             <button className="h-6 w-6 lg:h-4 lg:w-4">
               <img src={cart} alt="add to cart button" />
             </button>
           </div>
         </div>
       </div>
+      <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
     </Link>
   );
 };
 
 ProductCard.propTypes = {
+  id: PropTypes.string.isRequired,
   templateImg: PropTypes.string.isRequired,
   tags: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
