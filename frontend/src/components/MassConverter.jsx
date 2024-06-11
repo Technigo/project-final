@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
+import { Button } from "../components/Navigation/Button.jsx"
 
 const MassConverterFont = styled.div`
   font-family: var(--font-family-main);
@@ -127,7 +128,7 @@ export const MassConverter = () => {
         onChange={handleChange}
         placeholder="Enter kilograms here"
       />
-      <button onClick={handleCalculate}>Calculate</button>
+      <Button onClick={handleCalculate}>CALCULATE</Button>
       {Object.keys(results).length > 0 && ( // Conditionally render Results if results is not empty
         <Results ref={resultsRef}>
           <EnteredWeight>Entered Weight: {weight} kilos</EnteredWeight>
