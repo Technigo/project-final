@@ -3,8 +3,11 @@ import express from "express";
 import expressListEndpoints from "express-list-endpoints";
 import mongoose from "mongoose";
 import Stripe from "stripe";
+import dotenv from "dotenv";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+dotenv.config();
+
+const stripe = new Stripe(process.env.VITE_STRIPE_SECRET_KEY);
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/Cones&Stones";
 mongoose.connect(mongoUrl);
