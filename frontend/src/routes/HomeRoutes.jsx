@@ -3,8 +3,8 @@ import { MassConverter } from "../components/MassConverter";
 import { AllPlanets } from "../components/Planets/AllPlanets";
 import { Planet } from "../components/Planets/Planet";
 import { CelestialBodies } from "../components/Celestials/CelestialBodies";
-import { NotFoundPage } from "../components/NotFoundPage";
 import { LandingPage } from "../components/LandingPage";
+import { NotFoundPage } from "../components/NotFoundPage";
 
 export const HomeRoutes = () => {
   return (
