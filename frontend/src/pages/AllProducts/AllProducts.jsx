@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./AllProducts.css";
 import { ProductCard } from "./ProductCard";
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
+import { Loader } from "../../common/ReusableComponents/Loader/Loader";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -40,7 +41,7 @@ export const AllProducts = () => {
     <div className="allproducts-page">
       <CategoryIcons variant="grey" />
       <h4>All products</h4>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {error && <p>Error: {error}</p>}
       <section className="product-list">
         {Array.isArray(products) &&
