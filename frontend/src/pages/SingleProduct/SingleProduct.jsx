@@ -16,7 +16,7 @@ export const SingleProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
   // Destructuring addToCart from useCartStore
-  const {addToCart} = useCartStore();
+  const { addToCart } = useCartStore();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -52,7 +52,7 @@ export const SingleProduct = () => {
   const handleAddToCart = () => {
     if (selectedSize && product) {
       // addToCart({ ...product, size: selectedSize });
-      addToCart(product, selectedSize)
+      addToCart(product, selectedSize);
     }
   };
 

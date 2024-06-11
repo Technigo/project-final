@@ -4,6 +4,8 @@ import logo from "/assets/logotypes/logo-stamp.svg";
 import { Link, NavLink } from "react-router-dom";
 
 import { useCartStore } from "../../stores/useCartStore";
+/* import { Image } from "../../stores/useCartStore"; */
+/* import { useCartStore } from "../../stores/useCartStore"; */
 // import search from "/assets/icons/search.svg";
 // import user from "/assets/icons/user.svg";
 import { Image } from "../ReusableComponents/Image/Image";
