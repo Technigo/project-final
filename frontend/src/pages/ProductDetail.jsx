@@ -2,21 +2,28 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProductDetailsCard } from "../components/ProductDetailsCard";
+import { useProductStore } from "../stores/useProductStore";
 
 export const ProductDetail = () => {
-  const [product, setProduct] = useState(null);
+  const { getSingleProduct, loading, error, product } = useProductStore();
+  // const [product, setProduct] = useState(null);
   const { Id } = useParams();
   console.log("Id:", Id);
-  
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/products/${Id}`)
-      .then((response) => response.json())
-      .then((data) => setProduct(data))
-      .catch((error) => console.error("Error fetching product", error));
-  }, [Id]);
+    getSingleProduct(Id);
+  }, [Id, getSingleProduct]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div>No products found.</div>;
   }
 
   return (

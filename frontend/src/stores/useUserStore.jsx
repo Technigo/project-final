@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 const BACKEND_URL = import.meta.env.VITE_API_URL;
+const FRONTEND_URL = import.meta.env.FRONTEND_ORIGIN;
 
 export const useUserStore = create(
   persist(
@@ -18,7 +19,7 @@ export const useUserStore = create(
           const response = await fetch(`${BACKEND_URL}/users/login`, {
             method: "POST",
             headers: {
-              "Access-Control-Allow-Origin": "http://localhost:5173",
+              "Access-Control-Allow-Origin": FRONTEND_URL,
               "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
@@ -44,7 +45,7 @@ export const useUserStore = create(
           const response = await fetch(`${BACKEND_URL}/users/signup`, {
             method: "POST",
             headers: {
-              "Access-Control-Allow-Origin": "http://localhost:5173",
+              "Access-Control-Allow-Origin": FRONTEND_URL,
               "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
@@ -71,7 +72,7 @@ export const useUserStore = create(
           const response = await fetch(`${BACKEND_URL}/users/${get().userId}`, {
             method: "GET",
             headers: {
-              "Access-Control-Allow-Origin": "http://localhost:5173",
+              "Access-Control-Allow-Origin": FRONTEND_URL,
               "Content-Type": "application/json",
               withCredentials: true,
               Authorization: get().accessToken,
@@ -99,7 +100,7 @@ export const useUserStore = create(
           const response = await fetch(`${BACKEND_URL}/users/${get().userId}`, {
             method: "DELETE",
             headers: {
-              "Access-Control-Allow-Origin": "http://localhost:5173",
+              "Access-Control-Allow-Origin": FRONTEND_URL,
               "Content-Type": "application/json",
               withCredentials: true,
               Authorization: get().accessToken,
@@ -122,6 +123,7 @@ export const useUserStore = create(
         }
       },
     }),
+    
     {
       name: "user-storage", // name of the item in the storage (must be unique)
       storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used

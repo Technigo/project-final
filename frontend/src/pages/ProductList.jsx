@@ -2,38 +2,18 @@ import { useState, useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Breadcrumb } from "../components/Breadcrumb";
 import searchIcon from "../assets/search-icon-blue.svg";
+import { useProductStore } from "../stores/useProductStore";
 
 export const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const {products, loading, error, getAllProducts, categories} = useProductStore()
+
   const [searchTemplate, setSearchTemplate] = useState("");
   const [sortType, setSortType] = useState("");
   const [sortCategory, setSortCategory] = useState("");
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/products`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-        const uniqueCategories = [
-          ...new Set(data.map((product) => product.category)),
-        ].sort();
-        setCategories(uniqueCategories);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-        setError(error.toString());
-        setLoading(false);
-      });
-  }, []);
+    getAllProducts()
+  }, [getAllProducts]);
 
   const filteredProducts = products.filter((product) =>
     product.templateName.toLowerCase().includes(searchTemplate.toLowerCase()),
