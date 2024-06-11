@@ -3,10 +3,10 @@ import { LuArrowLeftCircle } from "react-icons/lu"
 import { useNavigate } from "react-router-dom"
 
 export const ToHomepageBtn = () => {
-  const navigateTo = useNavigate()
+  const navigate = useNavigate()
 
   const goBack = () => {
-    navigateTo(-1)
+    navigate(-1)
   }
 
   return (
