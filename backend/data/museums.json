@@ -377,7 +377,16 @@
     "website": "https://museumofbadart.org/",
     "opening_hours": [
       {
-        "Mon-Sun": "24 hours"
+        "Mon": "11:30-21:00"
+      },
+      {
+        "Tue-Thu": "11:30-22:00"
+      },
+      {
+        "Tue-Thu": "11:30-23:00"
+      },
+      {
+        "Sun": "11:30-21:00"
       }
     ],
     "id": 19,
