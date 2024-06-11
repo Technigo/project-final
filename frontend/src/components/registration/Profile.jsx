@@ -2,18 +2,20 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProfile, updateProfile, logout } from "../registration/authService";
 import Menu from "../../utilities/Menu";
+import bgImage from "/images/profile-bg.jpg";
 import defaultProfilePicture from "/icons/profile.png";
 import gearIcon from "/icons/gear.svg";
 import { ProfileForm } from "./ProfileForm";
 import { useModal } from "../registration/ModalContext";
 import { AuthForm } from "./AuthForm";
 import Footer from "../../utilities/Footer";
+import { Button } from "../../utilities/Button";
 
 export const Profile = () => {
   const [userData, setUserData] = useState({
     username: "",
     bio: "",
-    hobbies: "",
+    hobby: "",
     role: "",
   });
   const [editMode, setEditMode] = useState(false);
@@ -48,7 +50,7 @@ export const Profile = () => {
         setUserData({
           username: profileData.username || "",
           bio: profileData.bio || "",
-          hobbies: profileData.hobbies || "",
+          hobby: profileData.hobby || "",
           role: profileData.role || "",
         });
       } catch (error) {
@@ -110,25 +112,33 @@ export const Profile = () => {
   }
 
   return (
-    <>
+    <div
+      className="flex flex-col min-h-screen"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <Menu />
-      <div className="container mx-auto pt-20 flex flex-col items-center">
-        <div className="bg-lighter shadow-lg rounded-lg p-4 relative">
-          <div className="flex items-center space-x-4 mb-6">
+      <div className="flex-grow container mx-auto pt-20 flex flex-col items-center lg:flex-row lg:items-start lg:justify-center">
+        <div
+          className="bg-lighter shadow-lg rounded-lg p-6 relative w-full lg:w-2/3 lg:mx-auto"
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.432)" }}
+        >
+          <div className="flex flex-col lg:flex:row items-center space-y-4 lg:space-y-0 lg:space-x-4 mb-6">
             <img
               src={defaultProfilePicture}
               alt="Profile"
-              className="h-16 w-16 rounded-full"
+              className="h-32 w-32 rounded-full order-1"
             />
-            <div>
-              <h1 className="text-2xl font-bold">Hello, {userData.username}</h1>
-              <p className="text-sm">Role: {userData.role || "User"}</p>
-              {editMode && (
-                <>
-                  <p className="text-sm">Bio: {userData.bio || ""}</p>
-                  <p className="text-sm">Hobbies: {userData.hobbies || ""}</p>
-                </>
-              )}
+            <div className="order-2 lg:order-1 text-center lg:text-left">
+              <h1 className="text-2xl font-bold mb-2">
+                Hello, {userData.username}
+              </h1>
+              <p className="text-secondary">Role: {userData.role || "User"}</p>
+              <p className="text-secondary">Bio: {userData.bio || ""}</p>
+              <p className="text-secondary">I like: {userData.hobby || ""}</p>
             </div>
           </div>
           {!editMode && (
@@ -147,15 +157,18 @@ export const Profile = () => {
               handleUpdateProfile={handleUpdateProfile}
             />
           )}
-          {notification && <p className="text-green-500">{notification}</p>}
+          {notification && (
+            <p className="text-green-500 mt-4">{notification}</p>
+          )}
         </div>
-        <button
+        <Button
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white font-bold m-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Logout
-        </button>
+          text="Log Out"
+          varian="primary"
+          className="mt-6"
+        ></Button>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };

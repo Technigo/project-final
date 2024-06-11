@@ -10,10 +10,11 @@ export const ProfileForm = ({ userData, setUserData, handleUpdateProfile }) => {
   return (
     <form onSubmit={handleUpdateProfile} className="space-y-4 flex-1">
       <div>
-        <label className="block text-sm font-bold mb-2">Username</label>
+        <label className="block text-sm font-bold mb-2">Name</label>
         <input
           type="text"
           name="username"
+          placeholder="How should we call you..."
           value={userData.username || ""}
           onChange={handleChange}
           className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
@@ -23,6 +24,7 @@ export const ProfileForm = ({ userData, setUserData, handleUpdateProfile }) => {
         <label className="block text-sm font-bold mb-2">Bio</label>
         <textarea
           name="bio"
+          placeholder="Tell us something about yourself..."
           value={userData.bio || ""}
           onChange={handleChange}
           className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
@@ -32,8 +34,9 @@ export const ProfileForm = ({ userData, setUserData, handleUpdateProfile }) => {
         <label className="block text-sm font-bold mb-2">Hobbies</label>
         <input
           type="text"
-          name="hobbies"
-          value={userData.hobbies || ""}
+          placeholder="What do you like to do..."
+          name="hobby"
+          value={userData.hobby || ""}
           onChange={handleChange}
           className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
         />
