@@ -7,15 +7,17 @@ import burgerMenu from "/bars-solid.svg";
 import xMark from "/square-xmark-solid.svg";
 import swoop from "/nav-swoop2.svg";
 import { useUserStore } from "../store/useUserStore";
-import { WelcomeMessage } from "./WelcomeMessage"
+import { WelcomeMessage } from "./WelcomeMessage";
 import Lottie from "lottie-react";
 import animation from "../assets/animation-loading-stars.json";
 
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
-  const { email, password, loginUser, loggedIn, loadingUser, logoutUser } = useUserStore();
+  const { email, password, loginUser, loggedIn, loadingUser, logoutUser } =
+    useUserStore();
   const [open, setOpen] = useState(false);
+  const [openBurger, setOpenBurger] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [showWelcomePopup, setShowWelcomePopup] = useState(false);
@@ -23,12 +25,14 @@ export const Navigation = ({ data }) => {
   const btnRef = useRef();
   const overlayRef = useRef();
   const modalContentRef = useRef();
+  const burgerRef = useRef();
   const logoutTimeoutRef = useRef(null);
   const navigate = useNavigate();
 
-  const showNavbar = () => {
-    navRef.current.classList.toggle("hidden");
-    btnRef.current.classList.toggle("invisible");
+  const showNavbar = (e) => {
+    // navRef.current.classList.toggle("hidden");
+    // btnRef.current.classList.toggle("invisible");
+    // handleClickOutsideBurger(e);
   };
 
   const handleLogin = async (e) => {
@@ -41,6 +45,25 @@ export const Navigation = ({ data }) => {
       setOpen(false);
     }
   };
+
+  const handleClickOutsideBurger = (event) => {
+    if (
+      !navRef.current.contains(event.target) ||
+      burgerRef.current.contains(event.target)
+    ) {
+      setOpenBurger(false);
+    }
+  };
+
+  useEffect(() => {
+    if (openBurger) {
+      document.addEventListener("mousedown", handleClickOutsideBurger);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideBurger);
+    };
+  }, [openBurger]);
 
   useEffect(() => {
     if (open) {
@@ -55,15 +78,15 @@ export const Navigation = ({ data }) => {
   useEffect(() => {
     if (loggedIn) {
       setOpen(false);
-      navigate("/profile")
+      navigate("/profile");
       setShowWelcomePopup(true);
       setTimeout(() => {
-        setShowWelcomePopup(false)
-      }, 1500); 
-      // Set a timeout to log out the user after 15 minutes 
+        setShowWelcomePopup(false);
+      }, 1500);
+      // Set a timeout to log out the user after 15 minutes
       logoutTimeoutRef.current = setTimeout(() => {
         logoutUser();
-        navigate("/")
+        navigate("/");
       }, 900000); //  15 minutes
     } else {
       // Clear the timeout if the user logs out
@@ -75,14 +98,17 @@ export const Navigation = ({ data }) => {
   }, [loggedIn]);
   // add a message for user to know theyve been logged out (welcome message comp could maybe be reused? but it should have the click outside func that the login box has.. would be nice)
 
-
   const toggleLogin = () => {
     setOpen(!open);
   };
 
+  const toggleBurger = () => {
+    setOpenBurger(!openBurger);
+  };
+
   return (
-    <>   
-     {showWelcomePopup && <WelcomeMessage />}
+    <>
+      {showWelcomePopup && <WelcomeMessage />}
       <nav className="sticky top-0 w-full z-20">
         <div className="grid grid-cols-3 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
           <div className="left-nav flex">
@@ -101,14 +127,24 @@ export const Navigation = ({ data }) => {
             </NavLink>
             {loggedIn ? (
               <NavLink to="/profile" className="laptop:hidden">
-              <img src={userIcon} alt="Profile" className="h-4 ml-2 mt-2 tablet:h-5 tablet:m-3" /></NavLink>
-              ) : (
-                <div
+                <img
+                  src={userIcon}
+                  alt="Profile"
+                  className="h-4 ml-2 mt-2 tablet:h-5 tablet:m-3"
+                />
+              </NavLink>
+            ) : (
+              <div
                 onClick={toggleLogin}
-                className="text-white m-2 cursor-pointer laptop:hidden">
-                  <img src={userIcon} alt="Profile" className="h-4 ml-2 mt-1 tablet:h-5 tablet:m-3" />
-            </div>
-          )}
+                className="text-white m-2 cursor-pointer laptop:hidden"
+              >
+                <img
+                  src={userIcon}
+                  alt="Profile"
+                  className="h-4 ml-2 mt-1 tablet:h-5 tablet:m-3"
+                />
+              </div>
+            )}
             <NavLink to="/cart" className="text-white tablet:hidden">
               <img
                 src={shoppingCart}
@@ -125,7 +161,12 @@ export const Navigation = ({ data }) => {
           <div className="right-nav flex flex-row justify-end">
             {loggedIn ? (
               <NavLink to="/profile">
-              <img src={userIcon} alt="Profile" className="hidden laptop:flex laptop:h-7 laptop:mt-4" /> </NavLink>
+                <img
+                  src={userIcon}
+                  alt="Profile"
+                  className="hidden laptop:flex laptop:h-7 laptop:mt-4"
+                />{" "}
+              </NavLink>
             ) : (
               <div
                 onClick={toggleLogin}
@@ -144,26 +185,54 @@ export const Navigation = ({ data }) => {
               />
             </NavLink>
 
-            <div
-              className="hidden absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg border-main-red text-white bg-strong-red"
-              ref={navRef}
-            >
-              <button className="" onClick={showNavbar}>
-                <img src={xMark} alt="Menu" className="h-4" />
+            {openBurger ? (
+              <div
+                className=" absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg border-main-red text-white bg-strong-red"
+                ref={navRef}
+              >
+                <button className="" ref={burgerRef} onClick={toggleBurger}>
+                  <img src={xMark} alt="Menu" className="h-4" />
+                </button>
+                {loggedIn ? (
+                  <NavLink
+                    className="nav-link"
+                    onClick={toggleBurger}
+                    to="/profile"
+                  >
+                    <p className="my-2">Profile</p>
+                  </NavLink>
+                ) : (
+                  <div>
+                    <p className="cursor-pointer" onClick={toggleLogin}>Login</p>
+                    <NavLink
+                      className="nav-link"
+                      onClick={toggleBurger}
+                      to="/signup"
+                    >
+                      <p className="my-2">Sign up</p>
+                    </NavLink>
+                  </div>
+                )}
+                {data.burger.map((link, index) => (
+                  <NavLink
+                    className="nav-link"
+                    onClick={toggleBurger}
+                    key={index}
+                    to={link.link}
+                  >
+                    <p className={link.style}>{link.text}</p>
+                  </NavLink>
+                ))}
+              </div>
+            ) : (
+              <button ref={btnRef} className="flex" onClick={toggleBurger}>
+                <img
+                  src={burgerMenu}
+                  alt="Menu"
+                  className="h-4 m-2 justify-start tablet:h-6 laptop:hidden"
+                />
               </button>
-              {data.burger.map((link, index) => (
-                <NavLink className="nav-link" key={index} to={link.link}>
-                  <p className={link.style}>{link.text}</p>
-                </NavLink>
-              ))}
-            </div>
-            <button ref={btnRef} className="flex" onClick={showNavbar}>
-              <img
-                src={burgerMenu}
-                alt="Menu"
-                className="h-4 m-2 justify-start tablet:h-6 laptop:hidden"
-              />
-            </button>
+            )}
           </div>
         </div>
       </nav>
@@ -206,7 +275,7 @@ export const Navigation = ({ data }) => {
                 className="p-2 rounded-lg"
                 onChange={(e) => setPasswordInput(e.target.value)}
               />
-                <button
+              <button
                 onClick={handleLogin}
                 // disabled={loadingUser}
                 className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"

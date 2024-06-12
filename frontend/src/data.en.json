@@ -2,12 +2,6 @@
   "navbar": {
     "burger": [
       {
-        "text": "Profile",
-        "link": "/profile",
-        "style": "my-4"
-      },
-
-      {
         "text": "Products",
         "link": "/products",
         "style": ""
@@ -33,7 +27,7 @@
     "hero": {
       "ctaText": "Join us on a skincare journey, uniquely crafted just for you.",
       "ctaButton": "Sign up",
-        "ctaTextLoggedIn": "We have uniqely recommended products just for you, ",
+      "ctaTextLoggedIn": "We have uniqely recommended products just for you, ",
       "ctaButtonLoggedIn": "See products"
     },
     "products": {
