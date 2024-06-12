@@ -11,6 +11,9 @@ import SimilarProducts from "../components/SimilarProducts";
 import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
+import swoopTop from "/swoops/swoop-similar-top.svg";
+import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+
 
 export const SingleProductPage = () => {
   const { id } = useParams();

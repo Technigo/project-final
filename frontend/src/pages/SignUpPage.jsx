@@ -2,6 +2,9 @@ import { Footer } from "../components/Footer";
 import { useState, useRef, useEffect } from "react";
 import { useUserStore } from "../store/useUserStore";
 import { useNavigate } from "react-router-dom"
+import swoopTop from "/swoops/swoop-similar-top.svg";
+import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+
 
 export const SignUpPage = () => {
   const {
@@ -46,6 +49,18 @@ export const SignUpPage = () => {
 
   const navigate = useNavigate();
   const passwordRef = useRef();
+
+  const checkSection = () => {
+    if (activeSection === "sectionthree") {
+      return (
+        <img
+          className="bg-light-yellow w-full laptop:hidden"
+          src={swoopBottom}
+          alt="Section border"
+        />
+      );
+    }
+  };
 
   useEffect(() => {
     setAllergies(selectedAllergies);
@@ -227,11 +242,19 @@ export const SignUpPage = () => {
     <>
       {activeSection === "sectionone" && (
         <section className="bg-main-red h-full flex flex-col items-center text-text-light pb-20 tablet:pb-0 laptop:flex-row laptop:pt-20 laptop:px-36 laptop:pb-64">
-          <img
-            className="w-screen tablet:order-last laptop:rounded-3xl"
-            src="signup.svg"
-            alt="picture of a woman using skincare."
-          />
+          <div className="relative w-full laptop:m-8">
+            <img
+              className="w-full w-screentablet:order-last laptop:rounded-3xl"
+              src="signup.svg"
+              alt="picture of a woman using skincare."
+            />
+            <img
+              className="bg-transparent w-full laptop:hidden absolute bottom-0"
+              src={swoopBottom}
+              alt="Section border"
+            />
+          </div>
+
           <div className="w-full">
             <div className="flex flex-col items-center">
               <h2 className="text-2xl font-heading font-bold mt-10 tablet:mt-20">
@@ -412,11 +435,23 @@ export const SignUpPage = () => {
               </div>
             </form>
           </div>
-          <img
-            className="hidden tablet:block tablet:w-screen laptop:rounded-3xl laptop:max-w-3xl"
-            src="signup.svg"
-            alt="picture of a woman using skincare."
-          />
+          <div className="relative">
+            <img
+              className="bg-transparent w-full laptop:hidden absolute -top-5"
+              src={swoopTop}
+              alt="Section border"
+            />
+            <img
+              className="hidden tablet:block tablet:w-screen laptop:rounded-3xl laptop:max-w-3xl"
+              src="signup.svg"
+              alt="picture of a woman using skincare."
+            />
+            <img
+              className="bg-transparent w-full laptop:hidden absolute -bottom-2"
+              src={swoopBottom}
+              alt="Section border"
+            />
+          </div>
         </section>
       )}
       {activeSection === "sectionthree" && (
@@ -646,7 +681,13 @@ export const SignUpPage = () => {
         </section>
       )}
 
-      <Footer aboveColor={"green"} />
+      {checkSection}
+      {/* <img
+        className="bg-light-yellow w-full laptop:hidden"
+        src={swoopBottom}
+        alt="Section border"
+      /> */}
+      <Footer aboveColor={"red"} />
     </>
   );
 };

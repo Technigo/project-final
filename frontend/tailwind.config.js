@@ -9,9 +9,9 @@ export default {
 
         "main-green": "#97a65D",
 
-        "main-yellow": "#FFE486",
+        "main-yellow-check": "#FFE486",
         "strong-yellow": "#FFDE68",
-        "main-yellow-check": "#FFDE68",
+        "main-yellow": "#FFDE68",
 
         "main-white": "#FFFDF6",
         "main-white-transparent": "rgba(255, 253, 246, 0.7)",
