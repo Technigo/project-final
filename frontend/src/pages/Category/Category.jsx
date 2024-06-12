@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 import { ProductCard } from "../AllProducts/ProductCard";
+import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
 
 import "../AllProducts/ProductCard.css";
 import "./Category.css";
@@ -43,25 +44,32 @@ export const Category = () => {
 
     fetchProducts();
   }, [category]);
+
+  if (error) {
+    return <NotFoundPage />;
+  }
+
   return (
     <div className="category-page">
-      <CategoryIcons variant="grey" />
-      <h4>{category}</h4>
       {isLoading && <Loader />}
 
-      {error && <p>Error: {error}</p>}
-
-      <section className="product-list">
-        {products.map((product) => (
-          <ProductCard
-            key={product._id}
-            id={product._id}
-            image_url={product.image_url}
-            name={product.name}
-            price={product.price}
-          />
-        ))}
-      </section>
+      {!isLoading && !error && (
+        <section className="products-container">
+          <CategoryIcons variant="grey" />
+          <h4>{category}</h4>
+          <div className="product-list">
+            {products.map((product) => (
+              <ProductCard
+                key={product._id}
+                id={product._id}
+                image_url={product.image_url}
+                name={product.name}
+                price={product.price}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 };

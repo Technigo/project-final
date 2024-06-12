@@ -21,7 +21,7 @@ export const NewArrivalsSection = () => {
       {newArrivals.map((newArrival, index) => (
         <div key={index} className="new-arrivals-wrapper">
           <Button
-            variant="hero"
+            variant="shop"
             label="See newest products"
             to="/products?sort=date_desc"
           />
