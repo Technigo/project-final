@@ -115,3 +115,15 @@ export const handleFavorite = asyncHandler(async (req, res) => {
     res.status(200).json(user);
   }
 });
+
+export const clearCart = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+  const user = await User.findOneAndUpdate(
+    { _id: userId },
+    { $set: { cartItems: [] } },
+    { new: true }
+  )
+    .select("cartItems -_id")
+    .exec();
+  res.status(200).json(user);
+});

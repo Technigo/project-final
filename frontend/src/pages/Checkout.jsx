@@ -9,7 +9,10 @@ import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 
 export const Checkout = () => {
-  const cart = useUserStore((state) => state.cart);
+  const { cart, clearCart } = useUserStore((state) => ({
+    cart: state.cart,
+    clearCart: state.clearCart,
+  }));
   const products = useProductStore((state) => state.products);
   return (
     <div>
@@ -38,8 +41,12 @@ export const Checkout = () => {
         />
         <Dropdown text="PAYMENT METHOD" content={<PaymentForm />} />
         <div className="flex flex-col items-center gap-8">
-          <Button text="PAY NOW" />
-          <Button text="CONTINUE SHOPPING" style="white" />
+          <Button
+            text="PAY NOW"
+            onClickFunc={clearCart}
+            navTo="/order-confirmation"
+          />
+          <Button text="CONTINUE SHOPPING" style="white" navTo="/products" />
         </div>
         <p className="w-3/4 font-lato text-base">
           *Please remember, this is not an actual shop, no money will be drawn,
