@@ -74,26 +74,28 @@ app.get("/api/rentals", async (req, res) => {
 let cart = [];
 
 // Add rental to cart
-app.post("/api/cart", (req, res) => {
+app.post("/api/cart", async (req, res) => {
   const { id } = req.body;
 
-  Rental.findById(id, (err, rental) => {
-    if (err || !rental) {
+  try {
+    const rental = await Rental.findById(id);
+    if (!rental) {
       return res.status(400).json({ error: "Rental not found" });
     }
 
     cart.push(rental);
-    res.status(201).json({ message: "Rental added to cart", cart });
-  });
+    res.status(201).json({ message: "Rental added to cart:", cart });
+  } catch (error) {
+    console.error("Error adding rental to cart:", error);
+    res.status(500).json({ error: "Failed to add rental to cart" });
+  }
 });
 
 // Get cart items
 app.get("/api/cart", (req, res) => {
   const totalPrice = cart.reduce((total, item) => {
-    const price = parseFloat(item.price.replace("€", "")).replace(
-      " / week",
-      ""
-    );
+    const priceString = item.price.replace("€", "").replace(" / week", "");
+    const price = parseFloat(priceString) || 0;
     return total + price;
   }, 0);
 

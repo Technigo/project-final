@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import "../../styling/sectionsStyling/profilePage/ShoppingCartSection.css";
 
 const ShoppingCartSection = () => {
+  const {
+    cartItems,
+    totalPrice,
+    handleRemoveFromCart,
+    handleClearCart,
+    fetchCartItems,
+  } = useCart();
+
+  useEffect(() => {
+    fetchCartItems();
+  }, [fetchCartItems]);
+
   return (
     <div className="shoppingCartContainer">
       <div className="shoppingCartWrapper">
@@ -13,6 +27,24 @@ const ShoppingCartSection = () => {
           />
         </div>
         <h2 className="shoppingCartTitle">Your shoppingcart</h2>
+
+        <div className="shoppingCartItems">
+          {cartItems.length === 0 ? (
+            <p>Your cart is empty</p>
+          ) : (
+            cartItems.map((item, index) => (
+              <div key={index} className="cartItem">
+                <div className="cartItemDetails">
+                  <p className="cartItemName">{item.name}</p>
+                  <h3 className="cartItemPrice">{item.price}</h3>
+                  <button onClick={() => handleRemoveFromCart(item._id)}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
 
         <form className="shoppingCartForm">
           <h2 className="deliveryTitle">Delivery</h2>
@@ -31,10 +63,11 @@ const ShoppingCartSection = () => {
             <input type="text" required className="deliveryAdress" />
           </label>
 
-          <h3 className="totalPrice">Total: €50</h3>
+          <h3 className="totalPrice">Total: €{totalPrice}</h3>
 
           <button className="sendOrderButton">Send Order</button>
         </form>
+
         <p className="shoppingCartQuestionsText">
           Do you have any questions? Take a look at{" "}
           <Link to="/faq" className="faqLink">

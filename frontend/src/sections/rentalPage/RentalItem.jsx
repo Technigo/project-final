@@ -1,12 +1,23 @@
 import { useEffect, useState } from "react";
-import rentalsData from "./rentals.json";
+import axios from "axios";
+import { useCart } from "../../context/CartContext";
 
 const RentalItem = () => {
   const [rentals, setRentals] = useState([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
-    setRentals(rentalsData.rentals);
+    fetchRentals();
   }, []);
+
+  const fetchRentals = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/rentals");
+      setRentals(response.data);
+    } catch (error) {
+      console.error("Error fetching rentals:", error);
+    }
+  };
 
   return (
     <div className="rentalItemContainer">
@@ -16,6 +27,7 @@ const RentalItem = () => {
           <div className="rentalItemDetails">
             <p className="rentalItemDescription">{item.description}</p>
             <h3 className="rentalItemPrice">{item.price}</h3>
+            <button onClick={() => addToCart(item)}>Add to Cart</button>
           </div>
         </div>
       ))}
