@@ -6,12 +6,12 @@ export const Dropdown = ({ text, content }) => {
     setDropdownOpen(!dropdownOpen);
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex w-5/6 flex-col items-center lg:w-3/5">
       <button
-        className="flex w-96 flex-row items-center justify-between border-b-2 border-light-blue pb-2 pl-2 text-light-blue"
+        className="flex w-full flex-row items-center justify-between border-b-2 border-light-blue pb-2 pl-2 text-light-blue"
         onClick={toggleDropdown}
       >
-        <p className="mb-1 mt-2 font-montserrat text-xl font-bold tracking-wider lg:text-2xl">
+        <p className="mb-1 mt-2 w-full text-center font-montserrat text-xl font-bold tracking-wider lg:text-2xl">
           {text}
         </p>
         <svg
@@ -26,7 +26,7 @@ export const Dropdown = ({ text, content }) => {
         </svg>
       </button>
       <div
-        className={`${dropdownOpen ? "flex flex-col justify-center" : "hidden"} w-96`}
+        className={`${dropdownOpen ? "flex flex-col items-center justify-center" : "hidden"} my-6 w-full`}
       >
         {content}
       </div>

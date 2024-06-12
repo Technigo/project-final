@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-export const Button = ({ text, style, navTo, onClickFunc, disabled }) => {
+export const Button = ({ text, style, navTo, onClickFunc, disabled, type }) => {
   const navigate = useNavigate();
 
   const blueStyle =
@@ -17,7 +17,7 @@ export const Button = ({ text, style, navTo, onClickFunc, disabled }) => {
       }}
       className={`${style === "white" ? whiteStyle : blueStyle} min-h-12 min-w-48 rounded px-4 font-montserrat text-base font-bold hover:bg-button-hover`}
       disabled={disabled}
-      type="submit"
+      type={type ? type : "submit"}
     >
       {text}
     </button>

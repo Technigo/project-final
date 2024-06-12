@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-import emptyCart from "../assets/empty-cart.png";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { Button } from "../components/Button";
 import { CartItem } from "../components/CartItem";
+import { EmptyCart } from "../components/EmptyCart";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 
@@ -44,16 +44,7 @@ export const Cart = () => {
               />
             ))
         ) : (
-          <div className="flex flex-col items-center gap-5">
-            <div className="w-28">
-              <img
-                src={emptyCart}
-                alt="no items in the cart"
-                className="object-cover"
-              />
-            </div>
-            <p className="font-lato text-base">No items in the cart</p>
-          </div>
+          <EmptyCart />
         )}
         <div className="mt-5 flex h-[120px] min-w-[300px] flex-col text-sm font-bold leading-8 before:font-montserrat">
           <div className="flex justify-between">
