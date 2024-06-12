@@ -29,4 +29,7 @@
   .product-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  .allproducts-page {
+    margin: 0 20px 0 20px;
+  }
 }

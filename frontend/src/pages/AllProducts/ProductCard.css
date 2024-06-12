@@ -18,7 +18,7 @@
 /* Media Quieries for desktop*/
 @media (min-width: 1024px) {
   .product-card {
-    width: 250px;
+    width: 100%;
   }
 
   .product-card-text {
