@@ -28,6 +28,11 @@
   font-size: 16px;
 }
 
+.FormPage-error {
+  color: #960000;
+  font-family: sans-serif;
+}
+
 .FormPage-submit {
   padding: 10px;
   font-size: 16px;
