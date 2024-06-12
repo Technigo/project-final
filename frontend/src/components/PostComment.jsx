@@ -1,20 +1,27 @@
-import { useContext, useState } from "react"
-import styled from "styled-components"
-import StyledButton from "./styled/Button.styled"
-import { AuthContext } from "../contexts/AuthContext"
+import { useContext, useState } from "react";
+import styled from "styled-components";
+import StyledButton from "./styled/Button.styled";
+import { AuthContext } from "../contexts/AuthContext";
+import StarRatings from "react-star-ratings";
+
 // import { AuthContext } from "../contexts/AuthContext"
 
 export const PostComment = ({ museumId, onNewComment }) => {
-  const { authState } = useContext(AuthContext)
-  const { accessToken } = authState
-  const [message, setMessage] = useState("")
-  const [count, setCount] = useState(0)
+  const { authState } = useContext(AuthContext);
+  const { accessToken } = authState;
+  const [message, setMessage] = useState("");
+  const [count, setCount] = useState(0);
+  const [rating, setRating] = useState(0);
+
+  const changeRating = (updatedRating) => {
+    setRating(updatedRating);
+  };
 
   // Get the logged-in user info
   // const { user } = useContext(AuthContext)
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       const response = await fetch("https://museek-2ejb.onrender.com/reviews", {
@@ -26,24 +33,25 @@ export const PostComment = ({ museumId, onNewComment }) => {
           museumId,
           message,
           accessToken,
+          rating,
         }),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error("Failed to submit review")
+        throw new Error("Failed to submit review");
       }
 
-      const newReview = await response.json()
-      console.log("Review submitted:", newReview)
-      setMessage("")
-      setCount(0)
+      const newReview = await response.json();
+      console.log("Review submitted:", newReview);
+      setMessage("");
+      setCount(0);
 
       // Update the comments in the parent component
-      onNewComment(newReview)
+      onNewComment(newReview);
     } catch (error) {
-      console.error("Error submitting review:", error.message)
+      console.error("Error submitting review:", error.message);
     }
-  }
+  };
 
   return (
     <CommentForm onSubmit={handleSubmit}>
@@ -52,26 +60,42 @@ export const PostComment = ({ museumId, onNewComment }) => {
         id="review-form"
         value={message}
         onChange={(e) => {
-          setMessage(e.target.value)
-          setCount(e.target.value.length)
+          setMessage(e.target.value);
+          setCount(e.target.value.length);
         }}
         required
         minLength={10}
         maxLength={250}
         placeholder="Share your thoughts and best tips in the surrounding neighborhood!"
       />
+
       <CharacterCount>{count}/250</CharacterCount>
+      <div>
+        <div>
+          <label>Rate your experience</label>
+        </div>
+        <StarRatings
+          rating={rating}
+          starRatedColor="rgb(253, 203, 110)"
+          changeRating={changeRating}
+          numberOfStars={5}
+          name="rating"
+          starHoverColor="rgb(99, 110, 114)"
+          starDimension="30px"
+          starSpacing="4px"
+        />
+      </div>
       <StyledButton type="submit">Submit</StyledButton>
     </CommentForm>
-  )
-}
+  );
+};
 
 const CommentForm = styled.form`
   margin-top: 20px;
   position: relative;
   width: 100%;
   max-width: 600px;
-`
+`;
 
 const TextArea = styled.textarea`
   width: 100%;
@@ -81,7 +105,7 @@ const TextArea = styled.textarea`
   border-radius: 5px;
   resize: none;
   box-sizing: border-box;
-`
+`;
 
 const CharacterCount = styled.span`
   position: absolute;
@@ -89,4 +113,4 @@ const CharacterCount = styled.span`
   right: 10px;
   color: #6c757d;
   font-size: 0.8rem;
-`
+`;

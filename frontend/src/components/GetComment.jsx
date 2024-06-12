@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useContext, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { AuthContext } from "../contexts/AuthContext";
+import StarRatings from "react-star-ratings";
 
 //TO UPDATE: add user name
 
@@ -48,6 +49,16 @@ export const GetComment = ({ comments, showMuseumName, hideDeleteBtn }) => {
               authState.user?.id !== comment.userId ? undefined : (
                 <StyledRxCrossIcon onClick={() => deleteComment(comment._id)} />
               )}
+              <div>
+                <StarRatings
+                  rating={comment.rating}
+                  starRatedColor="rgb(253, 203, 110)"
+                  numberOfStars={5}
+                  name="rating"
+                  starDimension="20px"
+                  starSpacing="3px"
+                />
+              </div>
               <p>{showMuseumName ? comment.museumName : comment.userName}</p>
             </Comment>
           )
