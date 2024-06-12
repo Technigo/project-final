@@ -29,6 +29,7 @@ export default {
 
         "button-light": "#FFF5F2",
         "button-varm-light": "#FFCDBD",
+        "button-varm-medium": "#D97D61",
         
         "overlay": "rgba(25, 4, 5, 0.54)",
         "bg-input": "#FFFDF6",
