@@ -11,7 +11,7 @@ export const GetComment = ({ comments, showMuseumName }) => {
   const deleteComment = async (commentId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/reviews/${commentId}`,
+        `https://museek-2ejb.onrender.com/reviews/${commentId}`,
         {
           method: "DELETE",
           headers: {
@@ -53,13 +53,14 @@ export const GetComment = ({ comments, showMuseumName }) => {
 
 const CommentContainer = styled.div`
   margin-top: 20px;
-`;
+  max-width: 600px;
+`
 
 const Comment = styled.div`
   background-color: #f8f9fa;
   border-radius: 5px;
   position: relative;
-  padding: 5px;
+  padding: 5px 15px;
   margin-bottom: 20px;
 `;
 

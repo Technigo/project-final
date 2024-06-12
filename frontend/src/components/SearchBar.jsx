@@ -59,7 +59,7 @@ export const SearchBar = ({ setResults }) => {
 
 const StyledSearchBar = styled.input`
   border: 1px solid grey;
-  border-radius: 28px;
+  border-radius: 4px;
   height: 10px;
   width: 250px;
   padding: 2px 23px 2px 30px;
@@ -75,7 +75,7 @@ padding-top: 30px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: #232222;
+  background-color: #161515;
   button {
     margin: 0 5px;
   }

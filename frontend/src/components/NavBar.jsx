@@ -1,15 +1,68 @@
 import { Link } from "react-router-dom"
 import { LuUser2 } from "react-icons/lu"
+import { RiCloseLine, RiMenuLine } from "react-icons/ri"
+import { useState } from "react"
 import styled from "styled-components"
 
 export const NavBar = () => {
+  const [showMenu, setShowMenu] = useState(false)
+
+  const toggleMenu = () => {
+    console.log("Menu is toggled")
+    setShowMenu(!showMenu)
+  }
+
+  const closeMenu = () => {
+    console.log("Menu is closed")
+
+    setShowMenu(false)
+  }
+
   const goToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   return (
     <StyledNavBar>
-      <NavSection>
+      {/* Phone Section */}
+      <NavSectionPhone>
+        <MobileMenuIcon onClick={toggleMenu}>
+          {showMenu ? <RiCloseLine /> : <RiMenuLine />}
+        </MobileMenuIcon>
+        <DropdownMenu open={showMenu}>
+          <DropdownList>
+            <DropdownListItem>
+              <StyledLink to={"/"} onClick={closeMenu}>
+                Home
+              </StyledLink>
+            </DropdownListItem>
+            <DropdownListItem>
+              <StyledLink to={"/about"} onClick={closeMenu}>
+                About
+              </StyledLink>
+            </DropdownListItem>
+            <DropdownListItem>
+              <StyledLink to={"/register"} onClick={closeMenu}>
+                Register
+              </StyledLink>
+            </DropdownListItem>
+            <DropdownListItem>
+              <StyledLink to={"/login"} onClick={closeMenu}>
+                Login
+              </StyledLink>
+            </DropdownListItem>
+            <DropdownListItem>
+              <StyledLink to={"/user-page"} onClick={closeMenu}>
+                User page
+              </StyledLink>
+            </DropdownListItem>
+          </DropdownList>
+        </DropdownMenu>
+        <MobileLogo onClick={goToTop} src="icon4-white.png" />
+      </NavSectionPhone>
+
+      {/* Tablet Section */}
+      <NavSectionTablet>
         <NavSectionLeft>
           <StyledLink to={"/"}>Home</StyledLink>
           <StyledLink to={"/about"}>About</StyledLink>
@@ -26,7 +79,7 @@ export const NavBar = () => {
             <LuUser2 />
           </StyledLink>
         </NavSectionRight>
-      </NavSection>
+      </NavSectionTablet>
     </StyledNavBar>
   )
 }
@@ -42,7 +95,7 @@ const NavBarImage = styled.img`
 `
 const StyledNavBar = styled.nav`
   z-index: 999;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.75);
   position: fixed;
   width: 100%;
   color: white;
@@ -50,16 +103,21 @@ const StyledNavBar = styled.nav`
   justify-content: center;
   align-items: center;
   top: 0;
-  padding: 10px 20px;
   height: 60px;
+  padding: 10px 0;
 `
 
-const NavSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: relative;
+const NavSectionTablet = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 0 20px;
+  }
 `
 
 const NavSectionRight = styled.div`
@@ -87,4 +145,71 @@ const StyledLink = styled(Link)`
   svg {
     margin-right: 5px;
   }
+`
+const NavSectionPhone = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+const MobileMenuIcon = styled.div`
+  font-size: 48px;
+  cursor: pointer;
+  padding-top: 7px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  padding: 20px 0;
+  display: none;
+  z-index: 999;
+
+  ${(props) =>
+    props.open &&
+    `
+      display: block;
+    `}
+`
+
+const DropdownList = styled.ul`
+  list-style-type: none;
+  padding: 0 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`
+
+const DropdownListItem = styled.li`
+  margin-bottom: 10px;
+  font-size: 16px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    margin-left: 20px;
+  }
+`
+
+const MobileLogo = styled.img`
+  height: 40px;
+  cursor: pointer;
 `

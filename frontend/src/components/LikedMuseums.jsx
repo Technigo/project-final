@@ -7,7 +7,7 @@ const LikedMuseumCardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-`;
+`
 
 const LikedMuseums = ({likedMuseumsData}) => {
   const { authState } = useContext(AuthContext);
@@ -26,7 +26,7 @@ const LikedMuseums = ({likedMuseumsData}) => {
         <i>You currently have no liked museums</i>
       )}
     </>
-  );
-};
+  )
+}
 
-export default LikedMuseums;
+export default LikedMuseums

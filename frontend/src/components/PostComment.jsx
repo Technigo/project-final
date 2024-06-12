@@ -17,7 +17,7 @@ export const PostComment = ({ museumId, onNewComment }) => {
     e.preventDefault()
 
     try {
-      const response = await fetch("http://localhost:3000/reviews", {
+      const response = await fetch("https://museek-2ejb.onrender.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
