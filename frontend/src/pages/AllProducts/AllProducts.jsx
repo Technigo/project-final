@@ -37,18 +37,18 @@ export const AllProducts = () => {
       setIsLoading(false);
     }
   };
-  
-    if(error) {
-      return <NotFoundPage />;
-    }
-    
+
+  if (error) {
+    return <NotFoundPage />;
+  }
+
   return (
     <div className="allproducts-page">
       {isLoading && <Loader />}
       {!isLoading && !error && (
         <section className="products-container">
           <CategoryIcons variant="grey" />
-          <h4>All products</h4>
+          <h4 className="heading">All products</h4>
           <div className="product-list">
             {Array.isArray(products) &&
               products.map((product) => (

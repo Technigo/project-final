@@ -1,6 +1,16 @@
+.allproducts-page {
+  margin: 0 10px 0 10px;
+}
+
+.heading {
+  margin-bottom: 14px;
+}
+
 .product-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  /* margin: 0 10px 0 10px; */
+  gap: 5px;
 }
 
 /* Media Quieries for desktop*/

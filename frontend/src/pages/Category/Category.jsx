@@ -6,8 +6,8 @@ import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/Cat
 import { ProductCard } from "../AllProducts/ProductCard";
 import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
 
-import "../AllProducts/ProductCard.css";
-import "./Category.css";
+// import "../AllProducts/ProductCard.css";
+import "../AllProducts/AllProducts.css";
 import { BACKEND_URL } from "../../config";
 
 export const Category = () => {
@@ -56,7 +56,7 @@ export const Category = () => {
       {!isLoading && !error && (
         <section className="products-container">
           <CategoryIcons variant="grey" />
-          <h4>{category}</h4>
+          <h4 className="heading">{category}</h4>
           <div className="product-list">
             {products.map((product) => (
               <ProductCard
