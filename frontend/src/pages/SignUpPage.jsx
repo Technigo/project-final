@@ -1,6 +1,7 @@
 import { Footer } from "../components/Footer";
 import { useState, useRef, useEffect } from "react";
 import { useUserStore } from "../store/useUserStore";
+import { useNavigate } from "react-router-dom"
 
 export const SignUpPage = () => {
   const {
@@ -28,6 +29,9 @@ export const SignUpPage = () => {
     setSkinType,
     registerUser,
     loadingUser,
+    signedUp,
+    loggedIn,
+    setSignedUp
   } = useUserStore();
   const [activeSection, setActiveSection] = useState("sectionone");
 
@@ -40,6 +44,7 @@ export const SignUpPage = () => {
   const [successStatus, setSuccessStatus] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
+  const navigate = useNavigate();
   const passwordRef = useRef();
 
   useEffect(() => {
@@ -207,6 +212,16 @@ export const SignUpPage = () => {
     setSelectedAllergies([]);
     setSelectedPros([]);
   };
+
+  //popup message if successfully signed up
+  useEffect(() => {
+    if (signedUp) {
+      navigate("/");
+    }
+  }, [signedUp]);
+
+
+  console.log("signed up", signedUp)
 
   return (
     <>

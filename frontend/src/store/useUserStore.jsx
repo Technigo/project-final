@@ -26,8 +26,10 @@ export const useUserStore = create(
       hairShape: "",
       hairMoisture: "",
       skinType: [],
+      signedUp: false,
       loadingUser: false,
       loggedIn: false,
+      automaticLogOut: false,
 
       //Functions to update userInfo
       setFirstName: (Input) => set({ firstName: Input }),
@@ -41,6 +43,7 @@ export const useUserStore = create(
       // setHairShape: (Input) => set({ hairShape: Input }),
       // setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
+      setSignedUp: (input) => set({ signedUp: input}),
 
       //Register user
       registerUser: async (
@@ -88,6 +91,7 @@ export const useUserStore = create(
           set({ error: error });
         } finally {
           set({ loadingUser: false });
+          set({ signedUp: true });
         }
       },
 
