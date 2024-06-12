@@ -1,6 +1,29 @@
 .banner-container {
   background-color: var(--purple);
   padding: 10% 10% 10% 15%;
+  position: relative;
+}
+
+.bubble-row-top {
+  background-image: url("/assets/bubble-purple.svg");
+  /* background-color: red; */
+  background-size: contain;
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  top: -30px;
+  left: 0;
+}
+
+.bubble-row-bottom {
+  background-image: url("/assets/bubble-purple.svg");
+  /* background-color: red; */
+  background-size: contain;
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
 }
 
 .banner-content {
@@ -30,17 +53,14 @@
 
 /* Media Queries for tablet */
 @media screen and (min-width: 667px) {
-  .banner-container {
-    text-align: end;
-    padding: auto;
-  }
-
   .banner-content {
+    text-align: end;
     flex-direction: row;
     position: relative;
   }
 
-  .first-br, .third-br {
+  .first-br,
+  .third-br {
     display: none;
   }
 
@@ -59,8 +79,8 @@
   .stamp-image {
     position: absolute;
     bottom: -50px;
-    left: 60%
-      }
+    left: 60%;
+  }
 }
 
 /* Media Queries for desktop */
