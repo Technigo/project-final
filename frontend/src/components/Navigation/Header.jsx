@@ -29,7 +29,6 @@ const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: start;
   width: 100%;
-  padding: 20px;
 
   @media (min-width: 768px) {
     padding: 20px 40px;
@@ -125,6 +124,13 @@ export const Header = () => {
     }
   }, [])
 
+  //Adding keyboard navigation for accessibility
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleMobileMenu()
+    }
+  }
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -139,7 +145,11 @@ export const Header = () => {
               <MobileMenu handleMenuClick={handleMobileMenu} />
             </MobileMenuWrapper>
           )}
-          <MobileMenuIcon onClick={handleMobileMenu}>
+          <MobileMenuIcon
+            onClick={handleMobileMenu}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+          >
             {!isMenuOpen ? (
               <img src={mobileMenu} alt="Mobile menu icon" />
             ) : (
