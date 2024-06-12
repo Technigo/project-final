@@ -29,6 +29,7 @@ export const useUserStore = create(
       signedUp: false,
       loadingUser: false,
       loggedIn: false,
+      logOut: false,
       automaticLogOut: false,
 
       //Functions to update userInfo
@@ -44,6 +45,8 @@ export const useUserStore = create(
       // setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
       setSignedUp: (input) => set({ signedUp: input}),
+      setLogOut: (input) => set({ logOut: input }),
+      //add setLogout in profile page to display logout message
 
       //Register user
       registerUser: async (

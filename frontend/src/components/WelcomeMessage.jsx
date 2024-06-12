@@ -5,13 +5,14 @@ import animation from "../assets/animation-success.json"
 
 export const WelcomeMessage = () => {
 
-const { user, loggedIn, signedUp, automaticLogOut } = useUserStore()
+const { user, loggedIn, signedUp, automaticLogOut, logOut } = useUserStore()
 
 const [ open, setOpen ] = useState(true)
 
 const getTitleMessage = () => {
     if (loggedIn && user) return `Welcome ${user.user.firstname}`;
     if (signedUp) return "Your signup was successful";
+    if (logOut) return "You have been logged out";
     if (automaticLogOut) return "You have been automatically logged out";
     return "";
   };
@@ -19,6 +20,7 @@ const getTitleMessage = () => {
   const getDescriptionMessage = () => {
     if (loggedIn) return "You have been successfully logged in";
     if (signedUp) return "Proceed to login to see your personal recommendations";
+    if (logOut) return `See you later, ${user.user.firstname}`;
     if (automaticLogOut) return "Please log in again if you want your personal recommendations";
     return "";
   };
