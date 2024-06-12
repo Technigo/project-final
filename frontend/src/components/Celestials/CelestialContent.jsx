@@ -78,14 +78,14 @@ const ImageContainer = styled.div`
   }
 `
 
- const CelestialImgMob = styled.img`
-   width: 100%;
-   max-width: 400px;
-   margin: 20px auto;
+const CelestialImgMob = styled.img`
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
 
-   @media (min-width: 830px) {
-     display: none;
-   }
+  @media (min-width: 830px) {
+    display: none;
+  }
 `
 
 const CelestialImg = styled.img`
@@ -249,51 +249,51 @@ export const CelestialContent = ({ oneBody }) => {
               </ImageContainer>
 
               <RightColumn>
-              {surfaceTemperature && (
-                <>
-                  {typeof surfaceTemperature === "string" ? (
-                    <h3>SURFACE TEMPERATURE: {surfaceTemperature}</h3>
-                  ) : (
-                    <>
-                      {surfaceTemperature.day && (
-                        <TextBox>
-                          <h3>DAY TEMPERATURE</h3>
-                          <p>{surfaceTemperature.day}</p>
-                        </TextBox>
-                      )}
-                      {surfaceTemperature.night && (
-                        <TextBox>
-                          <h3>NIGHT TEMPERATURE</h3>
-                          <p>{surfaceTemperature.night}</p>
-                        </TextBox>
-                      )}
-                      {surfaceTemperature.core && (
-                        <TextBox>
-                          <h3>CORE TEMPERATURE</h3>
-                          <p>{surfaceTemperature.core}</p>
-                        </TextBox>
-                      )}
-                      {surfaceTemperature.surface && (
-                        <TextBox>
-                          <h3>SURFACE TEMPERATURE</h3>
-                          <p>{surfaceTemperature.surface}</p>
-                        </TextBox>
-                      )}
-                    </>
-                  )}
-                </>
-              )}
+                {surfaceTemperature && (
+                  <>
+                    {typeof surfaceTemperature === "string" ? (
+                      <h3>SURFACE TEMPERATURE: {surfaceTemperature}</h3>
+                    ) : (
+                      <>
+                        {surfaceTemperature.day && (
+                          <TextBox>
+                            <h3>DAY TEMPERATURE</h3>
+                            <p>{surfaceTemperature.day}</p>
+                          </TextBox>
+                        )}
+                        {surfaceTemperature.night && (
+                          <TextBox>
+                            <h3>NIGHT TEMPERATURE</h3>
+                            <p>{surfaceTemperature.night}</p>
+                          </TextBox>
+                        )}
+                        {surfaceTemperature.core && (
+                          <TextBox>
+                            <h3>CORE TEMPERATURE</h3>
+                            <p>{surfaceTemperature.core}</p>
+                          </TextBox>
+                        )}
+                        {surfaceTemperature.surface && (
+                          <TextBox>
+                            <h3>SURFACE TEMPERATURE</h3>
+                            <p>{surfaceTemperature.surface}</p>
+                          </TextBox>
+                        )}
+                      </>
+                    )}
+                  </>
+                )}
 
-              <TextBox>
-                <h3>WEATHER/CLIMATE</h3>
-                <p>{oneBody.weatherClimate}</p>
-              </TextBox>
+                <TextBox>
+                  <h3>WEATHER/CLIMATE</h3>
+                  <p>{oneBody.weatherClimate}</p>
+                </TextBox>
               </RightColumn>
               <CuriosaContainer>
-              <CuriosaTextBox>
-                <h3>CURIOSA</h3>
-                <p>{oneBody.curiosa}</p>
-              </CuriosaTextBox>
+                <CuriosaTextBox>
+                  <h3>CURIOSA</h3>
+                  <p>{oneBody.curiosa}</p>
+                </CuriosaTextBox>
               </CuriosaContainer>
             </TextBoxContainer>
           </CelestialDetails>

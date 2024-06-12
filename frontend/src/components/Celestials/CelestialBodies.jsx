@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { CelestialContent } from "./CelestialContent"
 import { Loading } from "../Loading"
 
@@ -33,17 +33,13 @@ export const CelestialBodies = () => {
     fetchOneBody()
   }, [name])
 
-  if (loading) {
-    return <Loading />
-  }
-
   if (error) {
-    return <p>{error}</p>
+    return <p>{error.message}</p>
   }
 
   return (
-    <div>
+    <Loading>
       <CelestialContent oneBody={oneBody} />
-    </div>
+    </Loading>
   )
 }

@@ -3,6 +3,7 @@ import { SpaceFeed } from "./SpaceFeed"
 import earthImg from "./../assets/images/earthImg.jpg"
 import styled from "styled-components"
 import halfMoon from "./../assets/images/moonFooter.png"
+import { Loading } from "./Loading"
 
 const Headline = styled.h1`
   font-size: var(--font-size-h1-mob);
@@ -65,22 +66,24 @@ const MoonImage = styled.img`
 export const LandingPage = () => {
   return (
     <>
-      <div>
-        <Headline>THE S0LAR SYSTEM TRAVEL GUIDE</Headline>
-        <IntroText>
-          Explore the wonders of our solar system, learn fascinating facts about
-          the planets and celestial bodies, and join the conversation in our
-          Celestial Feed.
-        </IntroText>
-        <PlanetsCarousel />
-        <ImageContainer>
-          <Image src={earthImg} alt="Image of earth from space" />
-          <Overlay>
-            <SpaceFeed />
-            <MoonImage src={halfMoon} alt="Picture of Moon" />
-          </Overlay>
-        </ImageContainer>
-      </div>
+      <Loading>
+        <div>
+          <Headline>THE S0LAR SYSTEM TRAVEL GUIDE</Headline>
+          <IntroText>
+            Explore the wonders of our solar system, learn fascinating facts
+            about the planets and celestial bodies, and join the conversation in
+            our Celestial Feed.
+          </IntroText>
+          <PlanetsCarousel />
+          <ImageContainer>
+            <Image src={earthImg} alt="Image of earth from space" />
+            <Overlay>
+              <SpaceFeed />
+              <MoonImage src={halfMoon} alt="Image of the Moon" />
+            </Overlay>
+          </ImageContainer>
+        </div>
+      </Loading>
     </>
   )
 }
