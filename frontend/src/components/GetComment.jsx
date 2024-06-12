@@ -1,11 +1,13 @@
 import moment from "moment";
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { AuthContext } from "../contexts/AuthContext";
 
 //TO UPDATE: add user name
 
-export const GetComment = ({ comments, showMuseumName }) => {
+export const GetComment = ({ comments, showMuseumName, hideDeleteBtn }) => {
+  const { authState } = useContext(AuthContext);
   const [deletedComments, setDeletedComments] = useState([]);
 
   const deleteComment = async (commentId) => {
@@ -42,7 +44,10 @@ export const GetComment = ({ comments, showMuseumName }) => {
               <CommentDate>
                 {moment(comment.createdAt).format("LL")}
               </CommentDate>
-              <StyledRxCrossIcon onClick={() => deleteComment(comment._id)} />
+              {hideDeleteBtn ||
+              authState.user?.id !== comment.userId ? undefined : (
+                <StyledRxCrossIcon onClick={() => deleteComment(comment._id)} />
+              )}
               <p>{showMuseumName ? comment.museumName : comment.userName}</p>
             </Comment>
           )
@@ -54,7 +59,7 @@ export const GetComment = ({ comments, showMuseumName }) => {
 const CommentContainer = styled.div`
   margin-top: 20px;
   max-width: 600px;
-`
+`;
 
 const Comment = styled.div`
   background-color: #f8f9fa;

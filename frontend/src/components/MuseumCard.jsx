@@ -1,28 +1,28 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import { getOptimizedUrl } from "../util/UrlUtil"
-import { FavoriteButton } from "../components/FavoriteButton"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { getOptimizedUrl } from "../util/UrlUtil";
+import { FavoriteButton } from "../components/FavoriteButton";
 
 export const MuseumCard = ({ museum }) => {
   return (
     <StyledMuseumCard>
-      <Link to={`/${museum.id}`} key={museum.id}>
-        <ImageContainer>
-          <img
-            src={getOptimizedUrl(museum.url, 650)}
-            alt={`Image related to ${museum.name}`}
-          />
-        </ImageContainer>
-        <MuseumCardContent>
+      <ImageContainer>
+        <img
+          src={getOptimizedUrl(museum.url, 650)}
+          alt={`Image related to ${museum.name}`}
+        />
+      </ImageContainer>
+      <MuseumCardContent>
         <FavoriteButton museumId={museum.id} inCard />
-        <h3>{museum.name}</h3>
+        <Link to={`/${museum.id}`} key={museum.id}>
+          <h3>{museum.name}</h3>
           <p>{museum.theme}</p>
           <p>{museum.location}</p>
-        </MuseumCardContent>
-      </Link>
+        </Link>
+      </MuseumCardContent>
     </StyledMuseumCard>
-  )
-}
+  );
+};
 
 const MuseumCardContent = styled.div`
   opacity: 0;
@@ -31,6 +31,10 @@ const MuseumCardContent = styled.div`
   bottom: 10px;
   left: 10px;
   color: white;
+
+  a {
+    color: #f7f7f7;
+  }
 
   h3 {
     margin: 0;
@@ -41,7 +45,14 @@ const MuseumCardContent = styled.div`
     margin: 5px 0;
     font-size: 14px;
   }
-`
+
+  &:hover {
+    a {
+      color: #f7f7f7;
+      cursor: pointer;
+    }
+  }
+`;
 
 const StyledMuseumCard = styled.div`
   position: relative;
@@ -51,7 +62,6 @@ const StyledMuseumCard = styled.div`
   background-color: #2a2a28;
   color: #f7f7f7;
   transition: transform 0.3s;
-  cursor: pointer;
   width: 100%;
   padding-top: 100%;
   height: 0;
@@ -74,7 +84,7 @@ const StyledMuseumCard = styled.div`
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
   }
-`
+`;
 const ImageContainer = styled.div`
   position: absolute;
   top: 0;
@@ -88,4 +98,4 @@ const ImageContainer = styled.div`
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
   }
-`
+`;

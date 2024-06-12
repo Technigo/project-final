@@ -45,12 +45,12 @@ Other things:
 
 More things:
 
-- If user cant' delete comment from their userpage, X should not show 🐱
-- User can only delete theirs comments, not somebody elses. 🐱
+✅ If user cant' delete comment from their userpage, X should not show 🐱
+✅ User can only delete theirs comments, not somebody elses. 🐱
 - Make sure GoBack button is everywhere we need it + is visible 🦀
 - Active styling on where we are in the navbar 🦀
 - Loginpage and register page are not responsive 🦀
 - Need to fix styling of about, contact, licenses, notfound 🦀
-- The button is not responsive (small devices too large) 🐱
-- Should they be able to save museums from the grid view? 🐱
+✅ The button is not responsive (small devices too large) 🐱
+✅ Should they be able to save museums from the grid view? 🐱
 - Pre-load hero images

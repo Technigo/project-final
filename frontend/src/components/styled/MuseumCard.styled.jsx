@@ -10,13 +10,6 @@ const StyledMuseumCard = styled.div`
     width: auto;
     height: 150px;
   }
-
-  &:hover {
-    background-color: #83828b;
-    a {
-      color: #f7f7f7;
-    }
-  }
 `;
 
 export default StyledMuseumCard;
