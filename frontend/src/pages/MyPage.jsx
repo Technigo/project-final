@@ -35,10 +35,12 @@ export const MyPage = () => {
     <>
       <Breadcrumb />
 
-      <div className="flex flex-col items-center">
+      <div className="mx-6 mb-20 flex flex-col items-center">
         {!loading ? (
-          <div className="my-6 grid w-5/6 grid-cols-1 gap-6 text-base text-blue">
-            <h1 className="text-center font-bold text-black">My Account</h1>
+          <div className="grid w-5/6 grid-cols-1 gap-6 text-base text-blue lg:w-full lg:max-w-screen-md lg:gap-8">
+            <h1 className="my-10 text-center font-poppins font-bold text-black lg:my-20">
+              My Account
+            </h1>
             <div className="mb-4 flex flex-col items-center justify-center gap-4">
               <Avatar src={avatar} alt="avatar" size="xl" />
               <p className="font-montserrat text-xl font-bold">{username}</p>
@@ -70,7 +72,7 @@ export const MyPage = () => {
                 Delete your account
               </button>
             </div>
-            <div className="mt-6 flex w-full items-center justify-center">
+            <div className="my-6 flex w-full items-center justify-center lg:mt-10 lg:mb-20">
               <Button text="LOG OUT" navTo="/" onClickFunc={logout} />
             </div>
           </div>
@@ -78,8 +80,10 @@ export const MyPage = () => {
           <p>Loading...</p>
         )}
 
-        <div className="my-12 flex w-5/6 flex-col items-center gap-6">
-          <h2 className="mb-4 font-bold">Your Favorite Items</h2>
+        <div>
+          <h2 className="mt-10 font-bold">Your Favorite Items</h2>
+        </div>
+        <div className="my-10 grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
           {products
             .filter((product) => favorite.includes(product._id))
             .map((product) => (
