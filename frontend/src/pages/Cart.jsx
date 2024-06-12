@@ -71,7 +71,11 @@ export const Cart = () => {
         </div>
         <div className="mb-10 flex flex-col items-center gap-5">
           <Link to="/checkout">
-            <Button text="CONTINUE" style="button" />
+            <Button
+              text="CONTINUE"
+              style="button"
+              disabled={cart.length === 0}
+            />
           </Link>
           <Link to="/products">
             <Button text="CONTINUE SHOPPING" style="button" />
