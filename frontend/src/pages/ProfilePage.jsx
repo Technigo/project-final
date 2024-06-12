@@ -25,7 +25,20 @@ export const ProfilePage = () => {
   const profile = user.user;
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
-  const [inputValues, setInputValues] = useState();
+  const [inputValues, setInputValues] = useState({
+    firstname: profile.firstname,
+    lastname: profile.lastname,
+    street: profile.address.street,
+    postalCode: profile.address.postalCode,
+    city: profile.address.city,
+    country: profile.address.country,
+    email: profile.email,
+    skin: profile.skin,
+    shape: profile.hair.shape,
+    moisture: profile.hair.moisture,
+    allergies: profile.allergies,
+    pros: profile.pros,
+  });
 
   const allergyOptions = [
     "Fragrances",
@@ -48,20 +61,18 @@ export const ProfilePage = () => {
   };
 
   const handleInputChange = (event) => {
-    const newValue = event.currentTarget.value;
-    console.log(newValue);
-    // Store the new value in a state variable or pass it to a parent component
-    // For example, if you have a state variable 'inputValues' to store all input values:
+    const { name, value } = event.target;
     setInputValues((prevValues) => ({
       ...prevValues,
-      [event.currentTarget.name]: newValue,
+      [name]: value,
     }));
   };
 
   const handleUpdateProfile = () => {
     // Assuming 'inputValues' is an object containing all input values
-    const updatedProfile = { ...profile, ...inputValues };
-    updateUser(updatedProfile);
+    const user = { ...profile, ...inputValues };
+    console.log("updated profile", user);
+    updateUser(user);
   };
 
   return (
@@ -94,11 +105,50 @@ export const ProfilePage = () => {
                 <div className="bg-main-white w-full p-4 pl-6 text-text-dark rounded-xl">
                   <h4 className="font-bold">Skin:</h4>
                   {isEditing ? (
-                    <input
-                      className="text-sm border-red-700 border-2 rounded"
-                      value={profile.skin}
-                      onChange={handleInputChange}
-                    ></input>
+                    <select
+                      defaultValue={inputValues.skin}
+                      name="skintype"
+                      id="skin"
+                      className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                    >
+                      <option
+                        value=""
+                        disabled
+                        className="font-heading font-bold bg-bg-input"
+                      >
+                        -- Choose skin type
+                      </option>
+                      <option
+                        value="sensitive"
+                        className="font-heading font-bold bg-bg-input"
+                      >
+                        Sensitive
+                      </option>
+                      <option
+                        value="dry"
+                        className="font-heading font-bold bg-bg-input"
+                      >
+                        Dry
+                      </option>
+                      <option
+                        value="oily"
+                        className="font-heading font-bold bg-bg-input"
+                      >
+                        Oily
+                      </option>
+                      <option
+                        value="combination"
+                        className="font-heading font-bold bg-bg-input"
+                      >
+                        Combination
+                      </option>
+                      <option
+                        value="acne"
+                        className="font-heading font-bold bg-bg-input"
+                      >
+                        Acne
+                      </option>
+                    </select>
                   ) : (
                     <p className="text-sm">{profile.skin}</p>
                   )}
@@ -114,22 +164,82 @@ export const ProfilePage = () => {
                   <h4 className="font-bold">Hair:</h4>
                   <ul className="text-sm">
                     {isEditing ? (
-                      <input
-                        className="border-red-700 border-2 rounded"
-                        value={profile.hair.shape}
-                        onChange={handleInputChange}
-                      ></input>
-                    ) : (
-                      <li>{profile.hair.shape}</li>
-                    )}
-                    {isEditing ? (
-                      <input
-                        className="border-red-700 border-2 rounded"
-                        value={profile.hair.moisture}
-                        onChange={handleInputChange}
-                      ></input>
+                      <select
+                        defaultValue={inputValues.moisture}
+                        name="hair-moisture"
+                        id="moisture"
+                        className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                      >
+                        <option
+                          value=""
+                          disabled
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          -- Choose hair moisture level
+                        </option>
+                        <option
+                          value="dry"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Dry
+                        </option>
+                        <option
+                          value="normal"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Normal
+                        </option>
+                        <option
+                          value="oily"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Oily
+                        </option>
+                      </select>
                     ) : (
                       <li>{profile.hair.moisture}</li>
+                    )}
+                    {isEditing ? (
+                      <select
+                        defaultValue={inputValues.shape}
+                        name="hair-shape"
+                        id="shape"
+                        className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                      >
+                        <option
+                          value=""
+                          disabled
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          -- Choose hair shape
+                        </option>
+                        <option
+                          value="straight"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Straight
+                        </option>
+                        <option
+                          value="wavy"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Wavy
+                        </option>
+                        <option
+                          value="curly"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Curly
+                        </option>
+                        <option
+                          value="coils"
+                          className="font-heading font-bold bg-bg-input"
+                        >
+                          Coils
+                        </option>
+                      </select>
+                    ) : (
+                      <li>{profile.hair.shape}</li>
                     )}
                   </ul>
                 </div>
@@ -149,7 +259,7 @@ export const ProfilePage = () => {
                             type="checkbox"
                             value={option.toLowerCase()}
                             onChange={handleInputChange}
-                            // checked={selectedAllergies.includes(option.toLowerCase())}
+                            // checked={inputValues.allergies}
                           />
                           {option}
                         </label>
@@ -177,7 +287,7 @@ export const ProfilePage = () => {
                               type="checkbox"
                               value={option.toLowerCase()}
                               onChange={handleInputChange}
-                              // checked={selectedPreferences.includes(option.toLowerCase())}
+                              // checked={inputValues.pros}
                             />
                             {option}
                           </label>
@@ -219,61 +329,85 @@ export const ProfilePage = () => {
             <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">First name:</h4>
               {isEditing ? (
-                <input
-                  className="border-red-700 border-2 rounded"
-                  value={profile.firstname}
-                  onChange={handleInputChange}
-                ></input>
+                <form>
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    type="text"
+                    name="firstname"
+                    value={inputValues.firstname}
+                    onChange={handleInputChange}
+                  />
+                </form>
               ) : (
                 <p>{profile.firstname}</p>
               )}
               <h4 className="font-bold">Surname:</h4>
               {isEditing ? (
-                <input
-                  className="border-red-700 border-2 rounded"
-                  value={profile.lastname}
-                  onChange={handleInputChange}
-                ></input>
+                <form>
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    type="text"
+                    name="lastname"
+                    value={inputValues.lastname}
+                    onChange={handleInputChange}
+                  ></input>
+                </form>
               ) : (
                 <p>{profile.lastname}</p>
               )}
 
               {/* <h4 className="font-bold">Name:</h4> */}
-              <h4 className="font-bold">Adress:</h4>
+              <h4 className="font-bold">Address:</h4>
               <ul className="text-sm">
                 {isEditing ? (
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    value={profile.address.street}
-                    onChange={handleInputChange}
-                  ></input>
+                  <form>
+                    <input
+                      className="border-red-700 border-2 rounded"
+                      type="text"
+                      name="street"
+                      value={inputValues.street}
+                      onChange={handleInputChange}
+                    ></input>
+                  </form>
                 ) : (
                   <li>{profile.address.street}</li>
                 )}
                 {isEditing ? (
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    value={profile.address.postalCode}
-                    onChange={handleInputChange}
-                  ></input>
+                  <form>
+                    <input
+                      className="border-red-700 border-2 rounded"
+                      type="text"
+                      name="postalCode"
+                      value={inputValues.postalCode}
+                      onChange={handleInputChange}
+                    ></input>
+                  </form>
                 ) : (
                   <li>{profile.address.postalCode}</li>
                 )}
                 {isEditing ? (
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    value={profile.address.city}
-                    onChange={handleInputChange}
-                  ></input>
+                  <form>
+                    <input
+                      className="border-red-700 border-2 rounded"
+                      type="text"
+                      name="city"
+                      value={inputValues.city}
+                      onChange={handleInputChange}
+                    ></input>
+                  </form>
                 ) : (
                   <li>{profile.address.city}</li>
                 )}
                 {isEditing ? (
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    value={profile.address.country}
-                    onChange={handleInputChange}
-                  ></input>
+                  <form>
+                    <input
+                      className="border-red-700 border-2 rounded"
+                      type="text"
+                      name="country"
+                      value={inputValues.country}
+                      onChange={handleInputChange}
+                    ></input>
+                  </form>
                 ) : (
                   <li>{profile.address.country}</li>
                 )}
@@ -282,18 +416,29 @@ export const ProfilePage = () => {
             <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">Email:</h4>
               {isEditing ? (
-                <input
-                  className="border-red-700 border-2 rounded"
-                  value={profile.email}
-                  onChange={handleInputChange}
-                ></input>
+                <form>
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    type="text"
+                    name="email"
+                    value={inputValues.email}
+                    onChange={handleInputChange}
+                  ></input>
+                </form>
               ) : (
                 <p>{profile.email}</p>
               )}
             </div>
           </div>
+          <button
+            onClick={handleUpdateProfile}
+            className="bg-button-varm-light text-text-dark w-32 h-8 rounded-full align-center ml-6 desktop:ml-24 mt-20"
+          >
+            Save Changes
+          </button>
         </section>
       </div>
+
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"yellow"} />
     </>
