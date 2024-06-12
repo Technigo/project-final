@@ -47,16 +47,10 @@ const Slide = styled.div`
 `
 
 const PlanetImage = styled.img`
-
-  width: ${(props) => (props.saturnimg ? "120%" : "100%")};
-  margin: ${(props) => (props.saturnimg ? "80px 0px 0px 0px" : "0 auto")};
-  
+  width: 80%;
+  margin: ${({ src }) => (src === saturnImg ? "0 auto -20px auto" : "0 auto")};
   transition: transform 0.5s;
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.9)")};
-
-  @media (min-width: 768px) {
-    max-width: 280px;
-  }
 `
 
 const PlanetName = styled.p`
@@ -66,7 +60,7 @@ const PlanetName = styled.p`
 
 const Arrow = styled.button`
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -144,7 +138,6 @@ export const PlanetsCarousel = () => {
                 src={planet.image}
                 alt={planet.name}
                 isCenter={index === currentSlide}
-                saturnimg={planet.name === "saturn"}
               />
             </Link>
             <PlanetName>{planet.name}</PlanetName>

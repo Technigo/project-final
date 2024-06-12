@@ -22,8 +22,7 @@ const NavigationContainer = styled.div`
 `
 
 const PlanetImage = styled.img`
-  height: ${(props) => (props.saturnimg ? "50px" : "50px")};
-  width: ${(props) => (props.saturnimg ? "95px" : "50px")};
+  width: ${(props) => (props.saturnimg ? "80px" : "50px")};
   cursor: pointer;
   margin: 0 0 40px 0;
 `
@@ -33,7 +32,8 @@ const ArrowLeft = styled.img`
 `
 const ArrowRight = styled.img`
   width: 20px;
-  margin: 0 20px 55px 6px;
+  margin: ${(props) =>
+    props.saturnimg ? "0 30px 85px 6px" : "0 20px 55px 6px"};
 `
 
 const PlanetNameLink = styled.p`

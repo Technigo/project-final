@@ -5,11 +5,11 @@ import rocketIcon from "./../assets/icons/rocket.png"
 import rocketIconLiked from "./../assets/icons/rocket-filled.png"
 import { formatDistanceToNow } from "date-fns"
 import { Button } from "./Navigation/Button.jsx"
-import { Loading } from "../components/Loading.jsx"
+// import { Loading } from "../components/Loading.jsx"
 
 const FeedContainer = styled.div`
   width: 100%;
-  margin: 20px 20px;
+  margin: 200px 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,6 +27,12 @@ const FeedContainer = styled.div`
 
     @media (min-width: 768px) {
       font-size: 40px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 40px;
+      margin-top: 20px;
     }
   }
 
@@ -39,6 +45,10 @@ const FeedContainer = styled.div`
     max-width: 925px;
     max-height: 1100px;
     font-size: var(--font-size-large);
+    margin-top: 400px;
+  }
+  @media (min-width: 1024px) {
+    margin-top: 650px;
   }
 `
 
@@ -150,7 +160,6 @@ export const SpaceFeed = () => {
     postSpaceMessage,
     likeSpaceMessage,
     loading,
-    error,
   } = useSpaceFeedStore()
   const [newMessage, setNewMessage] = useState("")
   const [messageError, setMessageError] = useState("")
@@ -247,7 +256,7 @@ export const SpaceFeed = () => {
 
       {messageError && <p>{messageError}</p>}
 
-      {loading && <Loading />}
+      {loading}
 
       <MessageContainer>
         <ul>

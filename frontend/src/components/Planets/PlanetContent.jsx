@@ -14,7 +14,7 @@ import leftarrow from "../../assets/icons/leftarrow.png"
 
 const BackLink = styled(NavLink)`
   position: absolute;
-  top: 80px;
+  top: 100px;
   left: 8px;
   color: var(--text-color-primary);
   text-decoration: none;
