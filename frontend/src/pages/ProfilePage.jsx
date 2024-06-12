@@ -26,8 +26,8 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [inputValues, setInputValues] = useState({
-    firstName: profile.firstname,
-    lastName: profile.lastname,
+    firstname: profile.firstname,
+    lastname: profile.lastname,
     street: profile.address.street,
     postalCode: profile.address.postalCode,
     city: profile.address.city,
@@ -70,8 +70,9 @@ export const ProfilePage = () => {
 
   const handleUpdateProfile = () => {
     // Assuming 'inputValues' is an object containing all input values
-    const updatedProfile = { ...profile, ...inputValues };
-    updateUser(updatedProfile);
+    const user = { ...profile, ...inputValues };
+    console.log("updated profile", user);
+    updateUser(user);
   };
 
   return (
@@ -258,7 +259,7 @@ export const ProfilePage = () => {
                             type="checkbox"
                             value={option.toLowerCase()}
                             onChange={handleInputChange}
-                            checked={inputValues.allergies}
+                            // checked={inputValues.allergies}
                           />
                           {option}
                         </label>
@@ -286,7 +287,7 @@ export const ProfilePage = () => {
                               type="checkbox"
                               value={option.toLowerCase()}
                               onChange={handleInputChange}
-                              checked={inputValues.pros}
+                              // checked={inputValues.pros}
                             />
                             {option}
                           </label>
@@ -332,8 +333,8 @@ export const ProfilePage = () => {
                   <input
                     className="border-red-700 border-2 rounded"
                     type="text"
-                    name="firstName"
-                    value={inputValues.firstName}
+                    name="firstname"
+                    value={inputValues.firstname}
                     onChange={handleInputChange}
                   />
                 </form>
@@ -346,8 +347,8 @@ export const ProfilePage = () => {
                   <input
                     className="border-red-700 border-2 rounded"
                     type="text"
-                    name="lastName"
-                    value={inputValues.lastName}
+                    name="lastname"
+                    value={inputValues.lastname}
                     onChange={handleInputChange}
                   ></input>
                 </form>
@@ -356,7 +357,7 @@ export const ProfilePage = () => {
               )}
 
               {/* <h4 className="font-bold">Name:</h4> */}
-              <h4 className="font-bold">Adress:</h4>
+              <h4 className="font-bold">Address:</h4>
               <ul className="text-sm">
                 {isEditing ? (
                   <form>
@@ -429,8 +430,15 @@ export const ProfilePage = () => {
               )}
             </div>
           </div>
+          <button
+            onClick={handleUpdateProfile}
+            className="bg-button-varm-light text-text-dark w-32 h-8 rounded-full align-center ml-6 desktop:ml-24 mt-20"
+          >
+            Save Changes
+          </button>
         </section>
       </div>
+
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"yellow"} />
     </>
