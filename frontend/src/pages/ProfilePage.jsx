@@ -25,6 +25,7 @@ export const ProfilePage = () => {
   const profile = user.user;
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
+  const [inputValues, setInputValues] = useState();
 
   const allergyOptions = [
     "Fragrances",
@@ -48,6 +49,7 @@ export const ProfilePage = () => {
 
   const handleInputChange = (event) => {
     const newValue = event.currentTarget.value;
+    console.log(newValue);
     // Store the new value in a state variable or pass it to a parent component
     // For example, if you have a state variable 'inputValues' to store all input values:
     setInputValues((prevValues) => ({
