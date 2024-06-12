@@ -4,6 +4,8 @@ import { useUserStore } from "../store/useUserStore";
 import { useNavigate } from "react-router-dom"
 import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+import Lottie from "lottie-react";
+import animation from "../assets/Circle-loading-Animation.json";
 
 
 export const SignUpPage = () => {
@@ -675,7 +677,16 @@ export const SignUpPage = () => {
               onClick={handleSubmit}
               className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading"
             >
-              {loadingUser ? "Creating user..." : "Create Profile"}
+              {loadingUser ? (
+                <div className="flex items-center justify-center">
+                <span>Creating user...</span>
+                <Lottie
+                  animationData={animation}
+                  loop={true}
+                  autoPlay
+                  style={{ width: 30, height: 30, marginLeft: 8 }}
+                />
+              </div>) : ( "Create Profile" )}
             </button>
           </form>
         </section>

@@ -65,7 +65,7 @@ export const Carousel = () => {
   };
 
   return (
-    <div>
+    <div className="w-2/3 m-auto">
       {loadingProduct ? (
         <Loading />
       ) : (

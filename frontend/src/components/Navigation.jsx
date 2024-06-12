@@ -9,18 +9,17 @@ import swoop from "/nav-swoop2.svg";
 import { useUserStore } from "../store/useUserStore";
 import { WelcomeMessage } from "./WelcomeMessage";
 import Lottie from "lottie-react";
-import animation from "../assets/animation-loading-stars.json";
+import animation from "../assets/Circle-loading-Animation.json";
 
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
-  const { email, password, loginUser, loggedIn, loadingUser, logoutUser } =
+  const { email, password, loginUser, loggedIn, showWelcomePopup, setShowWelcomePopup, loadingUser, logoutUser } =
     useUserStore();
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
-  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
   const navRef = useRef();
   const btnRef = useRef();
   const overlayRef = useRef();
@@ -76,16 +75,16 @@ export const Navigation = ({ data }) => {
   }, [open]);
 
   useEffect(() => {
-    if (loggedIn) {
+    if (showWelcomePopup) {
       setOpen(false);
       navigate("/profile");
-      setShowWelcomePopup(true);
       setTimeout(() => {
         setShowWelcomePopup(false);
       }, 1500);
       // Set a timeout to log out the user after 15 minutes
       logoutTimeoutRef.current = setTimeout(() => {
         logoutUser();
+        setAutomaticLogOut(true)
         navigate("/");
       }, 900000); //  15 minutes
     } else {
