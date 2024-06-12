@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { useSpaceFeedStore } from "../stores/useSpaceFeedStore"
+import { formatDistanceToNow } from "date-fns"
+import { Button } from "./Navigation/Button.jsx"
+import Lottie from "lottie-react"
 import styled from "styled-components"
 import rocketIcon from "./../assets/icons/rocket.png"
 import rocketIconLiked from "./../assets/icons/rocket-filled.png"
-import { formatDistanceToNow } from "date-fns"
-import { Button } from "./Navigation/Button.jsx"
+import animationData from "./../assets/animations/scrollDown.json"
+
 // import { Loading } from "../components/Loading.jsx"
 
 const FeedContainer = styled.div`
@@ -147,12 +150,15 @@ const MessageContainer = styled.div`
     }
   }
 `
-
 const Details = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
   background-color: #161822;
+`
+
+const AnimationContainer = styled.div`
+  width: 50px;
 `
 
 export const SpaceFeed = () => {
@@ -289,6 +295,9 @@ export const SpaceFeed = () => {
           )}
         </ul>
       </MessageContainer>
+      <AnimationContainer>
+        <Lottie animationData={animationData} />
+      </AnimationContainer>
     </FeedContainer>
   )
 }
