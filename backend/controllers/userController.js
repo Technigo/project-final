@@ -1,6 +1,8 @@
-import { User } from "../models/User";
-import asyncHandler from "express-async-handler";
 import bcrypt from "bcrypt";
+import asyncHandler from "express-async-handler";
+
+import { Product } from "../models/Product";
+import { User } from "../models/User";
 
 export const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
@@ -38,7 +40,6 @@ export const loginUser = asyncHandler(async (req, res) => {
 export const deleteUser = asyncHandler(async (req, res) => {
   const { userId } = req.params;
   const user = await User.deleteOne({ _id: userId });
-  console.log(user);
   res.status(200).json({
     message: "Delete Successful.",
     success: true,
@@ -47,12 +48,70 @@ export const deleteUser = asyncHandler(async (req, res) => {
 
 export const displayUser = asyncHandler(async (req, res) => {
   const { userId } = req.params;
-  const user = await User.findOne(
-    { _id: userId },
-    "username email accessToken"
-  ).exec();
+  const user = await User.findOne({ _id: userId }, "username email accessToken")
+    .populate("cartItems")
+    .populate("favoriteTemplates")
+    .exec();
   res.status(200).json({
     message: user,
     success: true,
   });
+});
+
+export const handleCart = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+  const { productId, remove } = req.body;
+  if (remove) {
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { $pull: { cartItems: productId } },
+      { new: true }
+    )
+      .select("cartItems -_id")
+      // .populate("cartItems", " -__v")
+      .exec();
+    res.status(200).json(user);
+  } else {
+    const product = await Product.findOne({ _id: productId }).exec();
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { $addToSet: { cartItems: product } },
+      {
+        new: true,
+      }
+    )
+      .select("cartItems -_id")
+      // .populate("cartItems", "-__v")
+      .exec();
+    res.status(200).json(user);
+  }
+});
+
+export const handleFavorite = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+  const { productId, remove } = req.body;
+  if (remove) {
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { $pull: { favoriteTemplates: productId } },
+      { new: true }
+    )
+      .select("favoriteTemplates -_id")
+      // .populate("favoriteTemplates", " -__v")
+      .exec();
+    res.status(200).json(user);
+  } else {
+    const product = await Product.findOne({ _id: productId }).exec();
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { $addToSet: { favoriteTemplates: product } },
+      {
+        new: true,
+      }
+    )
+      .select("favoriteTemplates -_id")
+      // .populate("favoriteTemplates", " -__v")
+      .exec();
+    res.status(200).json(user);
+  }
 });

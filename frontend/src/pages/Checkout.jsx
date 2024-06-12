@@ -5,8 +5,12 @@ import { Dropdown } from "../components/Dropdown";
 import { Form } from "../components/Form";
 import { PaymentForm } from "../components/PaymentForm";
 import { ShippingForm } from "../components/ShippingForm";
+import { useProductStore } from "../stores/useProductStore";
+import { useUserStore } from "../stores/useUserStore";
 
 export const Checkout = () => {
+  const cart = useUserStore((state) => state.cart);
+  const products = useProductStore((state) => state.products);
   return (
     <div>
       <Breadcrumb />
@@ -19,9 +23,18 @@ export const Checkout = () => {
         <Dropdown text="DELIVERY DETAILS" content={<ShippingForm />} />
         <Dropdown
           text="YOUR ORDER"
-          content={
-            <CartItem className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4" />
-          }
+          content={products
+            .filter((product) => cart.includes(product._id))
+            .map((product) => (
+              <CartItem
+                key={product._id}
+                name={product.templateName}
+                id={product._id}
+                image={product.image}
+                price={product.price}
+                className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+              />
+            ))}
         />
         <Dropdown text="PAYMENT METHOD" content={<PaymentForm />} />
         <div className="flex flex-col items-center gap-8">

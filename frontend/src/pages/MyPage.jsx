@@ -8,8 +8,11 @@ import { useNavigate } from "react-router-dom";
 import avatar from "../assets/avatar.png";
 import { ProductCard } from "../components/ProductCard";
 import { useUserStore } from "../stores/useUserStore";
+import { useProductStore } from "../stores/useProductStore";
 
 export const MyPage = () => {
+  const products = useProductStore((state) => state.products);
+  const favorite = useUserStore((state) => state.favorite);
   const navigate = useNavigate();
   const { userId, username, email, displayUserInfo, loading, deleteAccount } =
     useUserStore();
@@ -65,20 +68,19 @@ export const MyPage = () => {
 
       <div className="my-12 flex w-5/6 flex-col items-center gap-6">
         <h2 className="mb-4 font-bold">Your Favorite Items</h2>
-        <ProductCard
-          templateImg="https://res.cloudinary.com/ddpsnaef5/image/upload/v1717358234/cld-sample-5.jpg"
-          tags="Health, Wellness, Holistic"
-          name="Health and Wellness"
-          price={34.99}
-          category="Health and Wellness"
-        />
-        <ProductCard
-          templateImg="https://res.cloudinary.com/ddpsnaef5/image/upload/v1717358234/cld-sample-5.jpg"
-          tags="Health, Wellness, Holistic"
-          name="Health and Wellness"
-          price={34.99}
-          category="Health and Wellness"
-        />
+        {products
+          .filter((product) => favorite.includes(product._id))
+          .map((product) => (
+            <ProductCard
+              id={product._id}
+              key={product._id}
+              templateImg={product.image}
+              tags={product.tags}
+              name={product.templateName}
+              price={product.price}
+              category={product.category}
+            />
+          ))}
       </div>
     </div>
   );

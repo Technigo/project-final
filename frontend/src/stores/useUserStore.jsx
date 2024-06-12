@@ -13,6 +13,8 @@ export const useUserStore = create(
       email: null,
       loading: false,
       error: null,
+      cart: [],
+      favorite: [],
       logInUser: async (formData) => {
         set({ loading: true, error: null });
         try {
@@ -122,8 +124,64 @@ export const useUserStore = create(
           set({ loading: false });
         }
       },
+      saveFavorites: async (productId, action) => {
+        try {
+          const response = await fetch(
+            `${BACKEND_URL}/users/${get().userId}/favorites`,
+            {
+              method: "POST",
+              headers: {
+                "Access-Control-Allow-Origin": FRONTEND_URL,
+                "Content-Type": "application/json",
+                withCredentials: true,
+                Authorization: get().accessToken,
+              },
+              body: JSON.stringify({
+                productId: productId,
+                remove: action ? true : false,
+              }),
+            },
+          );
+          if (!response.ok) {
+            throw new Error("Save favorites error");
+          }
+          const data = await response.json();
+          console.log("Save favorites successfully", data);
+          set({ favorite: data.favoriteTemplates });
+        } catch (error) {
+          set({ error: error });
+        }
+      },
+      handleCart: async (productId, action) => {
+        try {
+          const response = await fetch(
+            `${BACKEND_URL}/users/${get().userId}/cart`,
+            {
+              method: "POST",
+              headers: {
+                "Access-Control-Allow-Origin": FRONTEND_URL,
+                "Content-Type": "application/json",
+                withCredentials: true,
+                Authorization: get().accessToken,
+              },
+              body: JSON.stringify({
+                productId: productId,
+                remove: action ? true : false,
+              }),
+            },
+          );
+          if (!response.ok) {
+            throw new Error("Add to cart error");
+          }
+          const data = await response.json();
+          console.log("Add to cart successfully", data);
+          set({ cart: data.cartItems });
+        } catch (error) {
+          set({ error: error });
+        }
+      },
     }),
-    
+
     {
       name: "user-storage", // name of the item in the storage (must be unique)
       storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used

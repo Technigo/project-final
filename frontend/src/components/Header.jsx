@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../stores/useUserStore";
 
 import cart from "../assets/cart.svg";
 import user from "../assets/human-icon.svg";
@@ -16,7 +17,10 @@ const navigation = [
 
 export const Header = () => {
   const navigate = useNavigate();
-
+  const { shoppingCart, accessToken } = useUserStore((state) => ({
+    shoppingCart: state.cart,
+    accessToken: state.accessToken,
+  }));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -48,7 +52,7 @@ export const Header = () => {
             src={user}
             alt="user account"
             onClick={() => {
-              navigate("/login");
+              accessToken ? navigate("/mypage") : navigate("/login");
             }}
           />
           <div
@@ -57,7 +61,7 @@ export const Header = () => {
           >
             <img src={cart} alt="shopping cart" />
             <div className="absolute -top-2 left-3 flex h-4 w-4 items-center justify-center rounded-[50%] bg-red">
-              <p className="text-[10px]">0</p>
+              <p className="text-[10px]">{shoppingCart.length}</p>
             </div>
           </div>
           <div className="flex lg:hidden">
