@@ -27,7 +27,7 @@ export const AboutUs = () => {
               role="Frontend Developer"
               githubUrl="https://github.com/wwenzz"
               linkedinUrl="https://www.linkedin.com/in/wendywenzhao/"
-              email="wen@gmail.com"
+              email="wendy.w.zhao@outlook.com"
             />
             <ProfileCard
               image={sofieImage}
@@ -35,7 +35,7 @@ export const AboutUs = () => {
               role="Frontend Developer"
               githubUrl="https://github.com/SofieFerrari"
               linkedinUrl="https://www.linkedin.com/in/sofie-ferrari-strahl-495486214/"
-              email="sofie@gmail.com"
+              email="sofiestrahl@gmail.com"
             />
             <ProfileCard
               image={maiImage}
