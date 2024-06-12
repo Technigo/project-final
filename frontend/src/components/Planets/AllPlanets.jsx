@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-
 import styled from "styled-components"
 import mercuryImg from "../../assets/images/mercury.png"
 import venusImg from "../../assets/images/venus.png"
@@ -11,34 +10,66 @@ import saturnImg from "../../assets/images/saturn.png"
 import uranusImg from "../../assets/images/uranus.png"
 import neptuneImg from "../../assets/images/neptune.png"
 import plutoImg from "../../assets/images/pluto.png"
-import sunImg from "../../assets/images/sun.png"
-import moonImg from "../../assets/images/moon.png"
 
 const PlanetsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 50px);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
   grid-column-gap: 20px;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
-  width: 1000px;
-`
+  margin: 40px;
 
-const PlanetLink = styled(Link)`
-  margin: 10px;
-  text-decoration: none;
-  color: inherit;
-`
-
-const PlanetCard = styled.div`
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.5);
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
   }
 `
 
+const PlanetLink = styled(Link)`
+  text-decoration: none;
+`
+
+const PlanetCard = styled.div`
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  &:hover {
+    transform: scale(1.2);
+    color: #cf4b14;
+  }
+`
+
+const PlanetInfo = styled.p`
+  font-family: var(--font-family-headlines);
+  font-size: var(--font-size-h2-mob);
+  color: var(--headline-color);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+
+  &:hover {
+    color: #cf4b14;
+  }
+
+  ${(props) =>
+    props.isSaturn &&
+    `
+    margin-top: 80px; 
+  `}
+`
+
 const PlanetImage = styled.img`
-  width: 50px;
+  width: ${(props) => (props.isSaturn ? "350px" : "200px")};
 `
 
 export const AllPlanets = () => {
@@ -80,8 +111,6 @@ export const AllPlanets = () => {
   // Function to get the image source based on the planet name
   const getImageSrc = (planetName) => {
     switch (planetName.toLowerCase()) {
-      case "sun":
-        return sunImg
       case "mercury":
         return mercuryImg
       case "venus":
@@ -100,8 +129,6 @@ export const AllPlanets = () => {
         return neptuneImg
       case "pluto":
         return plutoImg
-      case "moon":
-        return moonImg
       default:
         return ""
     }
@@ -140,7 +167,14 @@ export const AllPlanets = () => {
           }
         >
           <PlanetCard>
-            <PlanetImage src={getImageSrc(planet.name)} alt={planet.name} />
+            <PlanetImage
+              src={getImageSrc(planet.name)}
+              alt={planet.name}
+              isSaturn={planet.name.toLowerCase() === "saturn"}
+            />
+            <PlanetInfo isSaturn={planet.name.toLowerCase() === "saturn"}>
+              {planet.name.toUpperCase()}
+            </PlanetInfo>
           </PlanetCard>
         </PlanetLink>
       ))}
