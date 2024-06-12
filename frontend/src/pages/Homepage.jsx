@@ -55,7 +55,7 @@ export const Homepage = () => {
       },
     },
   };
-// Speficy Products for carousel by Id
+  // Speficy Products for carousel by Id
   const specificIds = [
     "665dbd9941d34485c8a0e4d5",
     "665dbd9941d34485c8a0e4d6",
@@ -193,7 +193,7 @@ export const Homepage = () => {
           <Testimonial />
         </div>
       </section>
-      <section className="px-6 h-[400px] flex flex-col items-center justify-center space-y-9 bg-[url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-bottom text-center text-white lg:h-[670px]">
+      <section className="flex h-[400px] flex-col items-center justify-center space-y-9 bg-[url('/src/assets/homepage-cta-bg.jpg')] bg-cover bg-bottom px-6 text-center text-white lg:h-[670px]">
         <p className="mb-5 font-montserrat font-bold">
           Explore our collection of customizable templates
         </p>
