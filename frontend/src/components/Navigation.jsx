@@ -14,7 +14,7 @@ import animation from "../assets/animation-loading-stars.json";
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
-  const { email, password, loginUser, loggedIn, loadingUser } = useUserStore();
+  const { email, password, loginUser, loggedIn, loadingUser, logoutUser } = useUserStore();
   const [open, setOpen] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -23,6 +23,7 @@ export const Navigation = ({ data }) => {
   const btnRef = useRef();
   const overlayRef = useRef();
   const modalContentRef = useRef();
+  const logoutTimeoutRef = useRef(null);
   const navigate = useNavigate();
 
   const showNavbar = () => {
@@ -59,8 +60,21 @@ export const Navigation = ({ data }) => {
       setTimeout(() => {
         setShowWelcomePopup(false)
       }, 1500); 
+      // Set a timeout to log out the user after 15 minutes 
+      logoutTimeoutRef.current = setTimeout(() => {
+        logoutUser();
+        navigate("/")
+      }, 900000); //  15 minutes
+    } else {
+      // Clear the timeout if the user logs out
+      if (logoutTimeoutRef.current) {
+        clearTimeout(logoutTimeoutRef.current);
+        logoutTimeoutRef.current = null;
+      }
     }
   }, [loggedIn]);
+  // add a message for user to know theyve been logged out (welcome message comp could maybe be reused? but it should have the click outside func that the login box has.. would be nice)
+
 
   const toggleLogin = () => {
     setOpen(!open);
@@ -171,7 +185,7 @@ export const Navigation = ({ data }) => {
               <NavLink to="/signup">
                 <button
                   onClick={() => setOpen(false)}
-                  className="bg-main-red hover:bg-strong-yellow transition duration-300 mb-4 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
+                  className="bg-main-red hover:bg-button-varm-medium hover:text-text-light transition duration-300 mb-4 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
                 >
                   Sign up
                 </button>

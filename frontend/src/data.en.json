@@ -32,7 +32,9 @@
   "homepage": {
     "hero": {
       "ctaText": "Join us on a skincare journey, uniquely crafted just for you.",
-      "ctaButton": "Sign up"
+      "ctaButton": "Sign up",
+        "ctaTextLoggedIn": "We have uniqely recommended products just for you, ",
+      "ctaButtonLoggedIn": "See products"
     },
     "products": {
       "title": "Products",
