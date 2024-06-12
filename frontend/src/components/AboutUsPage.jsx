@@ -36,7 +36,7 @@ export const AboutUsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-light font-sans">
+    <div className="min-h-screen bg-light">
       <Menu />
       <header
         className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-center"
@@ -44,28 +44,28 @@ export const AboutUsPage = () => {
       >
         <div className="absolute inset-0 bg-primary bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-light">
-            <h1 className="text-4xl font-bold font-serif">About Us</h1>
+            <h1 className="text-4xl font-bold">About Us</h1>
           </div>
         </div>
       </header>
 
       <section className="px-4 py-8 md:py-16 lg:px-32 xl:px-64">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-serif text-dark">Mission</h2>
+          <h2 className="text-3xl  text-dark">Mission</h2>
           <p className="mt-2 md:mt-4 text-lg text-dark">
             We aim to support and empower individuals with ADHD by providing a
             safe space and understanding community
           </p>
         </div>
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-serif text-dark">Values</h2>
+          <h2 className="text-3xl  text-dark">Values</h2>
           <p className="mt-2 md:mt-4 text-lg text-dark">
             We believe in inclusivity, empathy, and the power of community. Our
             value guide us in creating a welcoming environment for everyone
           </p>
         </div>
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-serif text-dark">Team</h2>
+          <h2 className="text-3xl  text-dark">Team</h2>
           <p className="mt-2 md:mt-4 text-lg text-dark">
             Our team is dedicated to providing resources, support, and events
             that cater to the unique needs of those with ADHD.
@@ -75,7 +75,7 @@ export const AboutUsPage = () => {
 
       <section className="bg-white py-8 md:py-16 md:px-16 lg:px-32 xl:px-64">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-serif text-dark">Join Our Community</h2>
+          <h2 className="text-3xl  text-dark">Join Our Community</h2>
           <p className="mt-2 md:mt-4 text-lg text-dark">
             Become part of our community and connect with others who understand
             your journey. Toghether, we can achieve more.
@@ -93,7 +93,7 @@ export const AboutUsPage = () => {
       {/* FAQ Section */}
       <section className="bg-light py-8 md:py-16 md:px-16 lg:px-32 xl:px-64">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center text-dark">FAQs</h2>
+          <h2 className="text-3xl  text-center text-dark">FAQs</h2>
           <div className="mt-8 space-y-4">
             <FAQItem
               question="What is ADHD?"
@@ -121,9 +121,7 @@ export const AboutUsPage = () => {
 
       <section className="bg-white px-4 py-8 md:py-16 md:px-16 lg:px-32 xl:px-64">
         <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-serif text-dark">
-            Contact Us
-          </h2>
+          <h2 className="text-2xl md:text-3xl  text-dark">Contact Us</h2>
           <p className="mt-2 md:mt-4 text-lg text-dark">
             If you have any questions or need support, feel free to reach out to
             us at{" "}

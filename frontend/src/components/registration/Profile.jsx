@@ -1,30 +1,31 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { getProfile, updateProfile, logout } from "../registration/authService";
-import Menu from "../../utilities/Menu";
-import bgImage from "/images/profile-bg.jpg";
-import defaultProfilePicture from "/icons/profile.png";
 import gearIcon from "/icons/gear.svg";
-import { ProfileForm } from "./ProfileForm";
+import defaultProfilePicture from "/icons/profile.png";
+import bgImage from "/images/profile-bg.jpg";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { Button } from "../../utilities/Button";
+import Footer from "../../utilities/Footer";
+import Menu from "../../utilities/Menu";
+import { getProfile, logout, updateProfile } from "../registration/authService";
 import { useModal } from "../registration/ModalContext";
 import { AuthForm } from "./AuthForm";
-import Footer from "../../utilities/Footer";
-import { Button } from "../../utilities/Button";
 import { Community } from "./Community";
+import { ProfileForm } from "./ProfileForm";
 
 export const Profile = () => {
   const [userData, setUserData] = useState({
     username: "",
     bio: "",
     hobby: "",
-    role: "",
   });
+  const [role, setRole] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [notification, setNotification] = useState("");
   const navigate = useNavigate();
-  const { showModal, hideModal } = useModal();
+  const { showModal } = useModal();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -52,8 +53,8 @@ export const Profile = () => {
           username: profileData.username || "",
           bio: profileData.bio || "",
           hobby: profileData.hobby || "",
-          role: profileData.role || "",
         });
+        setRole(profileData.role || ""); // Set role separately
       } catch (error) {
         console.error("Error fetching profile:", error);
         if (error.response?.status === 401) {
@@ -72,7 +73,7 @@ export const Profile = () => {
     };
 
     fetchProfile();
-  }, [navigate, showModal]);
+  }, [navigate.showModal]);
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
@@ -94,12 +95,10 @@ export const Profile = () => {
     }
   };
 
-  const handleLogout = async () => {
-    hideModal();
+  const handleLogout = () => {
     logout();
-    showModal(
-      <AuthForm type="login" onSuccess={() => navigate("/find-out-more")} />
-    );
+    navigate("/find-out-more");
+    <AuthForm type="login" onSuccess={() => navigate("/profile")} />;
   };
 
   if (loading) {
@@ -137,7 +136,7 @@ export const Profile = () => {
               <h1 className="text-2xl font-bold mb-2">
                 Hello, {userData.username}
               </h1>
-              <p className="text-secondary">Role: {userData.role || "User"}</p>
+              <p className="text-secondary">Role: {role || "User"}</p>
               <p className="text-secondary">Bio: {userData.bio || ""}</p>
               <p className="text-secondary">I like: {userData.hobby || ""}</p>
             </div>

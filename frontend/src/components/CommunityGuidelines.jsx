@@ -4,7 +4,7 @@ import guideImage from "/images/guidelines.jpg";
 
 export const CommunityGuidelines = () => {
   return (
-    <div className="min-h-screen bg-light font-sans">
+    <div className="min-h-screen bg-light ">
       <Menu />
       <header
         className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-center"
@@ -12,14 +12,14 @@ export const CommunityGuidelines = () => {
       >
         <div className="absolute inset-0 bg-primary bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-light">
-            <h1 className="text-4xl font-bold font-serif">Good Vibes Only</h1>
+            <h1 className="text-4xl font-bold ">Good Vibes Only</h1>
           </div>
         </div>
       </header>
 
       <section className="py-20 px-4 lg:px-32">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold font-serif text-dark mb-8">
+          <h2 className="text-3xl font-bold  text-dark mb-8">
             Community Guidelines
           </h2>
           <p className="text-lg text-dark text-left mb-8">

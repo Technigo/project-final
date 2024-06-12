@@ -8,10 +8,10 @@ export const Button = ({
   variant = "primary",
 }) => {
   const baseClasses =
-    "px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg";
+    "px-4 py-2 md:px-6 md:py-3 rounded-full text-md md:text-lg";
   const variantClasses = {
-    primary: "bg-primary text-light hover:bg-secondary",
-    light: "bg-light text-primary hover:bg-lighter",
+    primary: "bg-dark text-white hover:bg-secondary",
+    light: "bg-light text-dark hover:bg-lighter",
   };
   return (
     <Link

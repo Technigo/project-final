@@ -1,10 +1,11 @@
 import heroImage from "/images/hero-image.jpg";
-import Menu from "../utilities/Menu";
-import Footer from "../utilities/Footer";
 import { useNavigate } from "react-router-dom";
-import { useModal } from "./registration/ModalContext";
-import { AuthForm } from "./registration/AuthForm";
+
 import { Button } from "../utilities/Button";
+import Footer from "../utilities/Footer";
+import Menu from "../utilities/Menu";
+import { AuthForm } from "./registration/AuthForm";
+import { useModal } from "./registration/ModalContext";
 
 export const HomePage = () => {
   const { showModal } = useModal();
@@ -17,7 +18,7 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
+    <div className="min-h-screen bg-gray-100 ">
       <Menu />
       <header
         className="relative h-screen bg-cover bg-center"
@@ -25,7 +26,7 @@ export const HomePage = () => {
       >
         <div className="absolute inset-0 bg-primary bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-light">
-            <h1 className="text-4xl font-bold font-serif">
+            <h1 className="text-4xl font-bold ">
               Welcome to the ADHD Community
             </h1>
             <p className="mt-4 text-xl">
@@ -33,9 +34,9 @@ export const HomePage = () => {
             </p>
             <div className="mt-8">
               <Button
-                text="Fint Out More"
+                text="Find Out More"
                 link="/find-out-more"
-                variant="light"
+                variant="primary"
               />
             </div>
           </div>
@@ -44,9 +45,7 @@ export const HomePage = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-serif text-dark">
-            Why Join us?
-          </h2>
+          <h2 className="text-3xl font-bold  text-dark">Why Join us?</h2>
           <p className="mt-4 text-lg text-dark">
             Connect with others who understand your journey
           </p>
@@ -54,7 +53,7 @@ export const HomePage = () => {
             <Button
               text="Get Started"
               onClick={handleGetStartedClick}
-              variant="primary"
+              variant="light"
             />
           </div>
         </div>
@@ -62,7 +61,7 @@ export const HomePage = () => {
 
       <section className="bg-light py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold font-serif text-center text-dark">
+          <h2 className="text-3xl font-bold  text-center text-dark">
             Testimonials
           </h2>
           <div className="mt-8 space-y-8">
@@ -86,7 +85,7 @@ export const HomePage = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-serif text-dark">
+          <h2 className="text-3xl font-bold  text-dark">
             Join Our Upcoming Events
           </h2>
           <p className="mt-4 text-lg text-dark">

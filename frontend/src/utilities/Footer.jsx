@@ -6,11 +6,11 @@ const Footer = () => {
     <footer className="bg-dark text-light p-4 text-sm">
       <div className="container mx-auto flex flex-col md:flex-row md:justify-between md:items-start md:text-left space-y-4 md:space-y-0 text-center">
         <div className="w-full md:w-auto md:flex-1 md:text-left md:mt-0">
-          <h2 className="text-lg font-serif">ADHD Community</h2>
+          <h2 className="text-lg ">ADHD Community</h2>
           <p>Connecting and supporting through shared experiences</p>
         </div>
         <div className="w-full md:w-auto md:flex-1 md:ml-8 lg:ml-16 space-y-2">
-          <h3 className="text-base font-sans">Quick Links</h3>
+          <h3 className="text-base">Quick Links</h3>
           <ul className="list-none space-y-1">
             <li>
               <Link to="/about" className="text-accent hover:text-primary">
@@ -32,9 +32,9 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-full md:w-auto md:ml-8 lg:ml-16 md:flex-1">
-          <h3 className="text-base font-sans">Follow Us</h3>
-          <ul className="list-none space-y-1 md:space-y-2">
+        <div className="w-full md:w-auto md:ml-8 lg:ml-16 md:flex-1 space-y-2">
+          <h3 className="text-base">Follow Us</h3>
+          <ul className="list-none space-y-1">
             <li>
               <a
                 href="https://twitter.com"

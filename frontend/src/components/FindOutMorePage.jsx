@@ -1,10 +1,11 @@
-import { Button } from "../utilities/Button";
-import Menu from "../utilities/Menu";
-import Footer from "../utilities/Footer";
-import { useModal } from "./registration/ModalContext";
-import { AuthForm } from "./registration/AuthForm";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+
+import { Button } from "../utilities/Button";
+import Footer from "../utilities/Footer";
+import Menu from "../utilities/Menu";
+import { AuthForm } from "./registration/AuthForm";
+import { useModal } from "./registration/ModalContext";
 
 export const FindOutMorePage = () => {
   const { showModal } = useModal();
@@ -35,11 +36,11 @@ export const FindOutMorePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
+    <div className="min-h-screen bg-gray-100">
       <Menu />
       <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif text-dark mb-8">Did You Know?</h2>
+        <div className="container mx-auto px-4 text-center my-8">
+          <h2 className="text-3xl  text-dark mb-8">Did You Know?</h2>
           <div className="flex justify-center">
             <div className="relative w-full md:w-2/3 lg:w-1/2 p-6 transition-transform transform duration-500 hover:scale-105">
               <p className="text-2xl md:text-3xl text-dark">
@@ -52,11 +53,9 @@ export const FindOutMorePage = () => {
 
       <section className="bg-light py-20">
         <div className="container mx-auto px-4 text-left md:text-center">
-          <h2 className="text-3xl font-serif text-dark mb-8">
-            Roles in Our Community
-          </h2>
+          <h2 className="text-3xl text-dark mb-8">Roles in Our Community</h2>
 
-          <div className="flex flex-col md:flex-row justify-center items-start gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-start gap-10 ">
             <div className="w-full md:w-1/2 text-left">
               <h2 className="text-2xl font-bold text-primary mb-4">
                 Help Someone
