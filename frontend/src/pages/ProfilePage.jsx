@@ -113,7 +113,7 @@ export const ProfilePage = () => {
                   <ul className="text-sm">
                     {isEditing ? (
                       <input
-                        className=" border-red-700 border-2 rounded"
+                        className="border-red-700 border-2 rounded"
                         value={profile.hair.shape}
                         onChange={handleInputChange}
                       ></input>
@@ -122,7 +122,7 @@ export const ProfilePage = () => {
                     )}
                     {isEditing ? (
                       <input
-                        className=" border-red-700 border-2 rounded"
+                        className="border-red-700 border-2 rounded"
                         value={profile.hair.moisture}
                         onChange={handleInputChange}
                       ></input>
@@ -216,46 +216,78 @@ export const ProfilePage = () => {
             </h2>
             <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">First name:</h4>
-              <p>{profile.firstname}</p>
-              <input
-                value={profile.firstname}
-                onChange={handleInputChange}
-              ></input>
+              {isEditing ? (
+                <input
+                  className="border-red-700 border-2 rounded"
+                  value={profile.firstname}
+                  onChange={handleInputChange}
+                ></input>
+              ) : (
+                <p>{profile.firstname}</p>
+              )}
               <h4 className="font-bold">Surname:</h4>
-              <p>{profile.lastname}</p>
-              <input
-                value={profile.lastname}
-                onChange={handleInputChange}
-              ></input>
+              {isEditing ? (
+                <input
+                  className="border-red-700 border-2 rounded"
+                  value={profile.lastname}
+                  onChange={handleInputChange}
+                ></input>
+              ) : (
+                <p>{profile.lastname}</p>
+              )}
+
               {/* <h4 className="font-bold">Name:</h4> */}
               <h4 className="font-bold">Adress:</h4>
               <ul className="text-sm">
-                <li>{profile.address.street}</li>
-                <input
-                  value={profile.address.street}
-                  onChange={handleInputChange}
-                ></input>
-                <li>{profile.address.postalCode}</li>
-                <input
-                  value={profile.address.postalCode}
-                  onChange={handleInputChange}
-                ></input>
-                <li>{profile.address.city}</li>
-                <input
-                  value={profile.address.city}
-                  onChange={handleInputChange}
-                ></input>
-                <li>{profile.address.country}</li>
-                <input
-                  value={profile.address.country}
-                  onChange={handleInputChange}
-                ></input>
+                {isEditing ? (
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    value={profile.address.street}
+                    onChange={handleInputChange}
+                  ></input>
+                ) : (
+                  <li>{profile.address.street}</li>
+                )}
+                {isEditing ? (
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    value={profile.address.postalCode}
+                    onChange={handleInputChange}
+                  ></input>
+                ) : (
+                  <li>{profile.address.postalCode}</li>
+                )}
+                {isEditing ? (
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    value={profile.address.city}
+                    onChange={handleInputChange}
+                  ></input>
+                ) : (
+                  <li>{profile.address.city}</li>
+                )}
+                {isEditing ? (
+                  <input
+                    className="border-red-700 border-2 rounded"
+                    value={profile.address.country}
+                    onChange={handleInputChange}
+                  ></input>
+                ) : (
+                  <li>{profile.address.country}</li>
+                )}
               </ul>
             </div>
             <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">Email:</h4>
-              <p>{profile.email}</p>
-              <input value={profile.email} onChange={handleInputChange}></input>
+              {isEditing ? (
+                <input
+                  className="border-red-700 border-2 rounded"
+                  value={profile.email}
+                  onChange={handleInputChange}
+                ></input>
+              ) : (
+                <p>{profile.email}</p>
+              )}
             </div>
           </div>
         </section>
