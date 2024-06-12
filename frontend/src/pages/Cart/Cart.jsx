@@ -78,18 +78,20 @@ export const Cart = () => {
             {CartItems.map((item) => (
               <div key={item._id} className="cart-item">
                 <div className="cart-product-details">
+                  <h6 className="text-xs">{item.name}</h6>
+                  <button onClick={() => handleRemove(item._id, item.size)}>
+                    <Image src={cross} alt="cross-icon" className="remove" />
+                  </button>
+                </div>
+                <div className="cart-product-info">
                   <Image
                     src={item.image_url}
                     alt={item.name}
                     className="cart-product"
                   />
-                  <div className="cart-product-info">
-                    <h3>{item.name}</h3>
-                    <button onClick={() => handleRemove(item._id, item.size)}>
-                      <Image src={cross} alt="cross-icon" className="remove" />
-                    </button>
-                    <p>Color: {item.color}</p>
-                    <p>Size: {item.size}</p>
+                  <div className="cart-product-text">
+                    <p className="text-xs">Color: {item.color}</p>
+                    <p className="text-xs">Size: {item.size}</p>
                     <div className="item-quantity-wrapper">
                       <button
                         onClick={() => handleDecrease(item._id, item.size)}
@@ -109,8 +111,11 @@ export const Cart = () => {
                         />
                       </button>
                     </div>
-                    <p>Price: {item.price} SEK </p>
                   </div>
+
+                  <h6 className="text-xs cart-product-price">
+                    {item.price} SEK{" "}
+                  </h6>
                 </div>
               </div>
             ))}
