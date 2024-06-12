@@ -68,47 +68,60 @@ export const Cart = () => {
   };
 
   return (
-    <div className="cart-container">
-      <h4>Cart({getTotalItems()})</h4>
+    <div className="cart-page">
+      <h4 className="cart-heading">Cart({getTotalItems()})</h4>
       {CartItems.length === 0 ? (
         <h4>Your cart is empty</h4>
       ) : (
-        <div className="cart-content">
-          {CartItems.map((item) => (
-            <div key={item._id} className="cart-item">
-              <div className="cart-product-details">
-                <Image
-                  src={item.image_url}
-                  alt={item.name}
-                  className="cart-product"
-                />
-                <div className="cart-product-info">
-                  <h3>{item.name}</h3>
+        <div className="cart-container">
+          <section className="cart-list">
+            {CartItems.map((item) => (
+              <div key={item._id} className="cart-item">
+                <div className="cart-product-details">
+                  <h6 className="text-xs">{item.name}</h6>
                   <button onClick={() => handleRemove(item._id, item.size)}>
                     <Image src={cross} alt="cross-icon" className="remove" />
                   </button>
-                  <p>Color: {item.color}</p>
-                  <p>Size: {item.size}</p>
-                  <div className="item-quantity-wrapper">
-                    <button onClick={() => handleDecrease(item._id, item.size)}>
-                      <Image
-                        src={minus}
-                        alt="minus-icon"
-                        className="decrease"
-                      />
-                    </button>
-                    <h6 className="text-xs">{item.quantity}</h6>
-                    <button onClick={() => handleIncrease(item, item.size)}>
-                      <Image src={plus} alt="plus-icon" className="increase" />
-                    </button>
+                </div>
+                <div className="cart-product-info">
+                  <Image
+                    src={item.image_url}
+                    alt={item.name}
+                    className="cart-product"
+                  />
+                  <div className="cart-product-text">
+                    <p className="text-xs">Color: {item.color}</p>
+                    <p className="text-xs">Size: {item.size}</p>
+                    <div className="item-quantity-wrapper">
+                      <button
+                        onClick={() => handleDecrease(item._id, item.size)}
+                      >
+                        <Image
+                          src={minus}
+                          alt="minus-icon"
+                          className="decrease"
+                        />
+                      </button>
+                      <h6 className="text-xs">{item.quantity}</h6>
+                      <button onClick={() => handleIncrease(item, item.size)}>
+                        <Image
+                          src={plus}
+                          alt="plus-icon"
+                          className="increase"
+                        />
+                      </button>
+                    </div>
                   </div>
-                  <p>Price: {item.price} SEK </p>
+
+                  <h6 className="text-xs cart-product-price">
+                    {item.price} SEK{" "}
+                  </h6>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </section>
 
-          <div className="cart-summary">
+          <section className="cart-summary">
             <div className="shipping">
               <h6 className="text-xs">Shipping</h6>
               <h6 className="text-xs">0.00 SEK</h6>
@@ -123,14 +136,14 @@ export const Cart = () => {
               label="Clear cart"
               onClick={handleClearCart}
             />
-          </div>
+            <Button
+              variant="shop"
+              label="Checkout"
+              onClick={handleCheckout}
+              className="checkout"
+            />
+          </section>
 
-          <Button
-            variant="shop"
-            label="Checkout"
-            onClick={handleCheckout}
-            className="checkout"
-          />
           <DeliveryStatements variant="white" />
         </div>
       )}
