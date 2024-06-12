@@ -21,31 +21,18 @@
   left: 0;
 }
 
-/* .bm-menu-item {
-  color: #000000;
-  margin-bottom: 10px;
-  border: 1px solid red;
- } */
-
 .bm-menu-item:hover {
   color: white;
 }
 
 .bm-cross-button {
-  /* background-color: black; */
   height: 29px;
   width: 29px;
   left: 20px;
 }
 
-/* .bm-cross {
-  background: #bdc3c7;
-} */
-
 .bm-item-list {
   color: var(--black);
-  /* position: fixed; */
-  /* margin-top: 118px; */
 }
 
 .bm-overlay {

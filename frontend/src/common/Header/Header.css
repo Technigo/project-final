@@ -2,15 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Update left and right margin in media queries on desktop when single product page and all-products page styling is done. Logo and cart icon should be aligned with product images.*/
 }
-
-/* .hamburger-menu-image {
-  width: 24px;
-  object-fit: contain;
-} */
-
-/* margin: 15px 20px 10px 20px; */
 
 .nav-logo {
   width: 90px;
