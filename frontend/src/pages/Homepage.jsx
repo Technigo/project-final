@@ -98,6 +98,7 @@ export const Homepage = () => {
                         activeIndex === i ? "w-8 bg-blue" : "w-4 bg-white"
                       }`}
                       onClick={() => setActiveIndex(i)}
+                      // aria-label="Click here"
                     />
                   ))}
                 </div>
@@ -163,6 +164,7 @@ export const Homepage = () => {
           <img
             className="h-full w-full object-cover object-center"
             src={ctaImg}
+            alt="image of tablet in a working environment"
           />
         </div>
       </section>

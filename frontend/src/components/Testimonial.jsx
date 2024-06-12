@@ -70,16 +70,19 @@ export const Testimonial = () => {
       </div>
       <span className="mt-5 flex flex-row place-content-center gap-4 lg:hidden">
         <button
+          aria-label="click here"
           className={`h-5 w-5 rounded-full ${page == 1 ? "bg-blue" : "bg-white"}`}
           onClick={changePage}
           value={1}
         ></button>
         <button
+          aria-label="click here"
           className={`h-5 w-5 rounded-full ${page == 2 ? "bg-blue" : "bg-white"}`}
           onClick={changePage}
           value={2}
         ></button>
         <button
+          aria-label="click here"
           className={`h-5 w-5 rounded-full ${page == 3 ? "bg-blue" : "bg-white"}`}
           onClick={changePage}
           value={3}
