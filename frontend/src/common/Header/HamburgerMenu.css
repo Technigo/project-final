@@ -9,24 +9,23 @@
 
 .cross-icon-image {
   width: 29px;
-  /* margin: -10px 0 0 20px; */
 }
 
 .bm-menu {
   background: #ffffff;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
+  padding: 50px 20px 0;
+  font-size: 16px;
   margin-top: 44px;
   width: 100%; /* Increase the width of the menu */
   position: fixed;
   left: 0;
 }
 
-.bm-menu-item {
-  /* display: inline-block; */
+/* .bm-menu-item {
   color: #000000;
   margin-bottom: 10px;
-}
+  border: 1px solid red;
+ } */
 
 .bm-menu-item:hover {
   color: white;
@@ -44,7 +43,7 @@
 } */
 
 .bm-item-list {
-  color: #000000;
+  color: var(--black);
   /* position: fixed; */
   /* margin-top: 118px; */
 }
@@ -60,7 +59,7 @@
 }
 
 .menu-categories li {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 @media (min-width: 668px) {
