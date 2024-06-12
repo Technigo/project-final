@@ -13,13 +13,6 @@
   width: 100%;
 }
 
-/* Media Quieries for tablet*/
-@media (min-width: 668px) {
-  .product-card:hover {
-    transform: scale(1.02);
-  }
-}
-
 /* Media Quieries for desktop*/
 @media (min-width: 1024px) {
   .product-card {
@@ -30,9 +23,5 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  .product-card:hover {
-    transform: scale(1.04);
   }
 }

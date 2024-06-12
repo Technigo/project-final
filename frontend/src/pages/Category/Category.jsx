@@ -50,7 +50,7 @@ export const Category = () => {
   }
 
   return (
-    <div className="category-page">
+    <div className="allproducts-page">
       {isLoading && <Loader />}
 
       {!isLoading && !error && (
