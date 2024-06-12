@@ -28,7 +28,7 @@ export const Cart = () => {
       <Breadcrumb />
       <div className="flex w-full justify-center lg:justify-start">
         <div className="mx-auto flex w-full flex-col items-center justify-center lg:max-w-screen-md">
-          <div className="lg:items-start flex w-full flex-col items-center lg:max-w-screen-md">
+          <div className="flex w-full flex-col items-center lg:max-w-screen-md lg:items-start">
             <h1 className="my-10 font-poppins font-bold lg:my-20">
               Your cart items
             </h1>
@@ -51,8 +51,7 @@ export const Cart = () => {
             ) : (
               <EmptyCart />
             )}
-            <div className="text-md mx-6 my-10 flex w-[300px] flex-col font-bold leading-8 before:font-montserrat">
-              <div></div>
+            <div className="text-md my-10 flex w-[300px] flex-col px-6 font-bold leading-8 before:font-montserrat">
               <div className="flex justify-between">
                 <span>Order Value</span>
                 <span>€{orderValue.toFixed(2)}</span>
