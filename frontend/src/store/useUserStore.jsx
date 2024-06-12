@@ -106,7 +106,6 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error("Could not fetch user");
           }
-          console.log();
           const data = await response.json();
           console.log(data);
           set({
@@ -151,6 +150,43 @@ export const useUserStore = create(
         } finally {
           /*  fetchUser(userId, accessToken); */
           set({ loadingUser: false });
+        }
+      },
+
+      updateUser: async (id, accessToken) => {
+        /* set({ loadingUser: true }); */
+        const URL = `https://project-final-glim.onrender.com/users/profile/${id}`;
+        try {
+          const response = await fetch(URL, {
+            method: "PATCH",
+            body: JSON.stringify({
+              firstname: firstName,
+              lastname: lastName,
+              email: email,
+              address: address,
+              allergies: allergies,
+              pros: pros,
+              hair: hair,
+              skin: skinType,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: accessToken,
+            },
+          });
+          if (!response.ok) {
+            throw new Error("Could not update User.");
+          }
+          const data = await response.json();
+          console.log(data);
+          set({
+            user: data,
+          });
+        } catch (error) {
+          console.error("error updating user:", error);
+          set({ error: error });
+        } finally {
+          /*  set({ loadingUser: false }); */
         }
       },
 
