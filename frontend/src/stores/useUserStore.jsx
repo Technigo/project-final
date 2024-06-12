@@ -15,6 +15,15 @@ export const useUserStore = create(
       error: null,
       cart: [],
       favorite: [],
+      logout: () =>
+        set({
+          userId: null,
+          accessToken: null,
+          username: null,
+          email: null,
+          cart: [],
+          favorite: [],
+        }),
       logInUser: async (formData) => {
         set({ loading: true, error: null });
         try {

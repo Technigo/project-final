@@ -9,10 +9,14 @@ import avatar from "../assets/avatar.png";
 import { ProductCard } from "../components/ProductCard";
 import { useUserStore } from "../stores/useUserStore";
 import { useProductStore } from "../stores/useProductStore";
+import { Button } from "../components/Button";
 
 export const MyPage = () => {
   const products = useProductStore((state) => state.products);
-  const favorite = useUserStore((state) => state.favorite);
+  const { favorite, logout } = useUserStore((state) => ({
+    favorite: state.favorite,
+    logout: state.logout,
+  }));
   const navigate = useNavigate();
   const { userId, username, email, displayUserInfo, loading, deleteAccount } =
     useUserStore();
@@ -31,10 +35,11 @@ export const MyPage = () => {
       {!loading ? (
         <div className="my-6 grid w-5/6 grid-cols-1 gap-6 text-base text-blue">
           <h1 className="text-center font-bold text-black">My Account</h1>
-          <div className="mb-4 flex flex-row items-center gap-4">
+          <div className="mb-4 flex flex-col items-center justify-center gap-4">
             <Avatar src={avatar} alt="avatar" size="xl" />
             <p className="font-montserrat text-xl font-bold">{username}</p>
           </div>
+
           <div className="flex flex-row items-center justify-between">
             <div className="flex flex-row items-center gap-2">
               <FaUserLock className="h-7 w-8 text-blue" />
@@ -60,6 +65,9 @@ export const MyPage = () => {
             >
               Delete your account
             </button>
+          </div>
+          <div className="mt-6 flex w-full items-center justify-center">
+            <Button text="LOG OUT" navTo="/" onClickFunc={logout} />
           </div>
         </div>
       ) : (

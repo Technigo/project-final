@@ -29,7 +29,7 @@ export const Footer = () => {
   const myAccount = [
     { name: "MY PAGE", to: "/mypage" },
     { name: "LOGIN", to: "/login" },
-    { name: "LOGOUT", to: "/" },
+    { name: "REGISTER", to: "/signup" },
   ];
 
   return (
@@ -109,9 +109,7 @@ export const Footer = () => {
             This site was designed and developed by Mai, Sofie and Wen for our
             final project of the Web Development Bootcamp at Technigo
             <div className="mt-3 text-center">
-              <Link>
-                <Button text="Click to read more about us" />
-              </Link>
+                <Button text="Click to read more about us" navTo="/about-us" />
             </div>
           </p>
         )}

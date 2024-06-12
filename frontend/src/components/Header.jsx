@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../stores/useUserStore";
 
@@ -11,8 +11,8 @@ import user from "../assets/human-icon.svg";
 const navigation = [
   { name: "Home", to: "/" },
   { name: "Shop", to: "/products" },
-  { name: "Blog", to: "#" },
-  { name: "About", to: "#" },
+  // { name: "Blog", to: "#" },
+  { name: "About", to: "/about-us" },
 ];
 
 export const Header = () => {
@@ -30,10 +30,10 @@ export const Header = () => {
         aria-label="Global"
       >
         <div className="flex">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Webify</span>
             <h3 className="font-bold">Webify</h3>
-          </a>
+          </Link>
         </div>
         <div className="hidden lg:flex lg:gap-x-14">
           {navigation.map((item) => (
@@ -75,29 +75,14 @@ export const Header = () => {
             </button>
           </div>
         </div>
-
-        {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-gray-900 text-sm font-semibold leading-6">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div> */}
       </nav>
       <Dialog
         className="lg:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        {/* <div className="fixed inset-0 z-50" /> */}
         <DialogPanel className="fixed right-0 top-[80px] z-50 w-full overflow-y-auto bg-light-gray px-6 py-6">
           <div className="flex items-center justify-end">
-            {/* <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a> */}
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5"
@@ -123,14 +108,6 @@ export const Header = () => {
                   </NavLink>
                 ))}
               </div>
-              {/* <div className="py-6">
-                <a
-                  href="#"
-                  className="text-gray-900 hover:bg-gray-50 -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7"
-                >
-                  Log in
-                </a>
-              </div> */}
             </div>
           </div>
         </DialogPanel>
