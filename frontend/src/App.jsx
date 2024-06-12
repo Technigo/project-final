@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       const [noteId, setNoteId] = useState("");
 
       useEffect(() => {
-        const url = "http://localhost:8080/notes";
+        const url = `${import.meta.env.VITE_BACKEND_URL}/notes`;
         fetch(url)
           .then((response) => response.json())
           .then((data) => setNotes(data));

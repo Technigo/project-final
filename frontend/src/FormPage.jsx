@@ -19,7 +19,7 @@ export const FormPage = () => {
       longitude: location.lng,
       text: formData.get("text"),
     };
-    fetch("http://localhost:8080/notes", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/notes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
