@@ -5,6 +5,7 @@ import { HeartButton } from "./HeartButton";
 import { useUserStore } from "../stores/useUserStore";
 import { useState } from "react";
 import { SideDrawer } from "./SideDrawer";
+import { Loading } from "./Loading";
 
 export const ProductDetailsCard = ({
   numOfLikes,
@@ -16,16 +17,25 @@ export const ProductDetailsCard = ({
   category,
   id,
 }) => {
-  const { accessToken, handleCart } = useUserStore((state) => ({
+  const { accessToken, handleCart, loading } = useUserStore((state) => ({
     accessToken: state.accessToken,
     handleCart: state.handleCart,
+    loading: state.loading,
   }));
   const [openDrawer, setOpenDrawer] = useState(false);
-  const addToCart = () => {
+  const addToCart = async () => {
     if (!accessToken) {
       setOpenDrawer(true);
     } else {
-      handleCart(id);
+      loading(true);
+
+      try {
+        await handleCart(id);
+      } catch (error) {
+        console.error("Error adding cart", error);
+      } finally {
+        loading(false);
+      }
     }
   };
 
@@ -60,7 +70,11 @@ export const ProductDetailsCard = ({
         <p className="text-sm">€{price}</p>
         <p>{description}</p>
         <div className="mt-6 w-fit self-center lg:self-start">
-          <Button text="ADD TO CART" onClickFunc={addToCart} />
+          {loading ? (
+            <Loading />
+          ) : (
+            <Button text="ADD TO CART" onClickFunc={addToCart} />
+          )}
         </div>
       </div>
       <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />

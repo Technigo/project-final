@@ -7,6 +7,7 @@ import { Button } from "../components/Button";
 import { CartItem } from "../components/CartItem";
 import { Dropdown } from "../components/Dropdown";
 import { EmptyCart } from "../components/EmptyCart";
+import { Loading } from "../components/Loading";
 import { Form } from "../components/Form";
 import { PaymentForm } from "../components/PaymentForm";
 import { ShippingForm } from "../components/ShippingForm";
@@ -14,9 +15,10 @@ import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 
 export const Checkout = () => {
-  const { cart, clearCart } = useUserStore((state) => ({
+  const { cart, clearCart, loading } = useUserStore((state) => ({
     cart: state.cart,
     clearCart: state.clearCart,
+    loading: state.loading,
   }));
   const products = useProductStore((state) => state.products);
 
@@ -26,10 +28,17 @@ export const Checkout = () => {
     formState: { errors },
     formState: { isSubmitting, isDirty, isValid }, // check if data fulfills the requirements and filled
   } = useForm();
-  const onSubmit = (data) => {
-    clearCart();
+
+  const onSubmit = async (data) => {
+    try { 
+    loading(true)
+    await clearCart();
     console.log(data);
-  };
+  } catch (error) {
+    console.error("Error submittning form", error)
+  } finally {
+    loading(false)
+  }
   return (
     <div>
       <Breadcrumb />

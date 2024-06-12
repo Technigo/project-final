@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Loading } from "../components/Loading";
 import { ProductDetailsCard } from "../components/ProductDetailsCard";
 import { useProductStore } from "../stores/useProductStore";
 
@@ -14,7 +15,7 @@ export const ProductDetail = () => {
   }, [Id, getSingleProduct]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

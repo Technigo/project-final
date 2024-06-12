@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Loading } from "../components/Loading";
 import { Pagination } from "../components/Pagination";
 import searchIcon from "../assets/search-icon-blue.svg";
 import { useProductStore } from "../stores/useProductStore";
@@ -126,7 +127,7 @@ export const ProductList = () => {
   }, [searchTemplate, sortType, sortCategory]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
