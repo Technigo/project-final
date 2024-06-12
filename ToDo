@@ -45,6 +45,7 @@ Other things:
 
 More things:
 
+- Hero images loading too slowly... can we preload images?
 - If user cant' delete comment from their userpage, X should not show
 - Make sure GoBack button is everywhere we need it + is visible
 - Active styling on where we are in the navbar

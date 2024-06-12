@@ -37,6 +37,11 @@ export const NavBar = () => {
               </StyledLink>
             </DropdownListItem>
             <DropdownListItem>
+              <StyledLink to={"/museums"} onClick={closeMenu}>
+                Museums
+              </StyledLink>
+            </DropdownListItem>
+            <DropdownListItem>
               <StyledLink to={"/about"} onClick={closeMenu}>
                 About
               </StyledLink>
@@ -65,6 +70,7 @@ export const NavBar = () => {
       <NavSectionTablet>
         <NavSectionLeft>
           <StyledLink to={"/"}>Home</StyledLink>
+          <StyledLink to={"/museums"}>Museums</StyledLink>
           <StyledLink to={"/about"}>About</StyledLink>
         </NavSectionLeft>
 

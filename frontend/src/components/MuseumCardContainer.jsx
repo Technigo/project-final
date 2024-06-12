@@ -6,7 +6,7 @@ import styled from "styled-components"
 export const MuseumCardContainer = ({ results }) => {
   const [amountToShow, setAmountToShow] = useState(8)
 
-  const showMore = () => setAmountToShow(amountToShow + 4)
+  const showMore = () => setAmountToShow(amountToShow + 8)
 
   const showMuseums = () =>
     results
@@ -39,7 +39,7 @@ const MuseumCardGrid = styled.div`
 
   @media (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
-    padding: 0 100px; 
+    padding: 0 100px;
   }
 `
 

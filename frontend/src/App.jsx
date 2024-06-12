@@ -9,9 +9,9 @@ import { AboutPage } from "./pages/AboutPage"
 import { ContactPage } from "./pages/ContactPage"
 import { ReferencePage } from "./pages/ReferencePage"
 import { ShopPage } from "./pages/ShopPage"
+import { MuseumPage } from "./pages/MuseumPage"
 import Layout from "./Layout"
-import 'leaflet/dist/leaflet.css';
-
+import "leaflet/dist/leaflet.css"
 
 export const App = () => {
   return (
@@ -21,6 +21,7 @@ export const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="/:slug" element={<DetailPage />} />
           <Route path="/not-found" element={<NotFoundPage />} />
+          <Route path="/museums" element={<MuseumPage />} />
           <Route path="/user-page" element={<UserPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />

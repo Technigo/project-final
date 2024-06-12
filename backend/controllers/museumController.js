@@ -1,5 +1,4 @@
 import { Museum } from "../models/Museum.js"
-import mongoose from "mongoose"
 
 // Get list of all museums
 export const getMuseums = async (req, res) => {

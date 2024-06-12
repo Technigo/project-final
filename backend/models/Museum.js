@@ -16,6 +16,7 @@ const museumSchema = new Schema({
   opening_hours: [{ type: Schema.Types.Mixed }],
   id: { type: Number },
   url: { type: String },
+  category: { type: String },
 })
 
 // Create model with mongoose
