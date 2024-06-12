@@ -13,6 +13,19 @@ export const FilterBar = ({ setFilters }) => {
     setFilters({ country, category, hasCafe, ticketPriceFree })
   }
 
+  const handleClearFilters = () => {
+    setCountry("")
+    setCategory("")
+    setHasCafe(false)
+    setTicketPriceFree(false)
+    setFilters({
+      country: "",
+      category: "",
+      hasCafe: false,
+      ticketPriceFree: false,
+    })
+  }
+
   const countryOptions = [
     { value: "", label: "Select Country" },
     { value: "France", label: "France" },
@@ -116,6 +129,9 @@ export const FilterBar = ({ setFilters }) => {
           <StyledButton onClick={handleFilterChange}>
             Apply filters
           </StyledButton>
+          <StyledButton onClick={handleClearFilters}>
+            Clear filters
+          </StyledButton>
         </ButtonContainer>
       </SelectContainer>
     </FilterBarContainer>
@@ -154,7 +170,7 @@ const StyledSelect = styled(Select)`
 
 const CheckboxContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
   align-items: center;
   margin: 20px 0;
 `
@@ -172,6 +188,7 @@ const Checkbox = styled.input`
 
 const ButtonContainer = styled.div`
   display: flex;
+  gap: 20px;
   justify-content: center;
   padding: 10px 0;
 `

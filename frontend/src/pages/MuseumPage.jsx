@@ -15,6 +15,7 @@ export const MuseumPage = () => {
     hasCafe: false,
     ticketPriceFree: false,
   })
+  const [noResults, setNoResults] = useState(false)
 
   useEffect(() => {
     const fetchMuseums = async () => {
@@ -55,6 +56,15 @@ export const MuseumPage = () => {
     })
   }
 
+  useEffect(() => {
+    const checkNoResults = () => {
+      const filteredMuseums = filterMuseums(museums)
+      setNoResults(filteredMuseums.length === 0)
+    }
+
+    checkNoResults()
+  }, [filters, museums, results])
+
   const showMore = () => setAmountToShow(amountToShow + 8)
 
   const museumsToShow =
@@ -65,15 +75,23 @@ export const MuseumPage = () => {
       <Background />
       <SearchBar setResults={setResults} />
       <FilterBar setFilters={setFilters} />
-      <MuseumCardContainer
-        results={museumsToShow}
-        amountToShow={amountToShow}
-      />
-      <ButtonContainer>
-        {amountToShow < museumsToShow.length && (
-          <StyledButton onClick={showMore}>Show more</StyledButton>
-        )}{" "}
-      </ButtonContainer>
+      {noResults ? (
+        <NoResultsMessage>
+          No results found for the selected filters.
+        </NoResultsMessage>
+      ) : (
+        <>
+          <MuseumCardContainer
+            results={museumsToShow}
+            amountToShow={amountToShow}
+          />
+          <ButtonContainer>
+            {amountToShow < museumsToShow.length && (
+              <StyledButton onClick={showMore}>Show more</StyledButton>
+            )}
+          </ButtonContainer>
+        </>
+      )}
     </MuseumPageContainer>
   )
 }
@@ -95,4 +113,10 @@ const ButtonContainer = styled.div`
   justify-content: center;
   background-color: #333333;
   padding: 50px 0;
+`
+const NoResultsMessage = styled.p`
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
 `
