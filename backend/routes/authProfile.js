@@ -1,7 +1,9 @@
 import express from "express";
-import passport from "../config/passport";
 import jwt from "jsonwebtoken";
+
+import passport from "../config/passport";
 import User from "../models/User";
+
 /* import { upload } from "../config/multer"; */
 /* import { authenticate } from "passport"; */
 
@@ -139,8 +141,8 @@ router.put(
   authenticateToken,
   async (req, res) => {
     try {
-      const { username, bio, hobby } = req.body;
-      const updatedData = { username, bio, hobby };
+      const { name, bio, hobby } = req.body;
+      const updatedData = { name, bio, hobby };
 
       // Log the update data to debug
       console.log("Updating user profile with data:", updatedData);
