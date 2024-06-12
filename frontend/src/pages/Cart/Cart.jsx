@@ -9,6 +9,7 @@ import { DeliveryStatements } from "../Home/components/DeliveryStatements/Delive
 
 import "./Cart.css";
 import { useBagStore } from "../../stores/useBagStore";
+import { BACKEND_URL } from "../../config";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -42,21 +43,18 @@ export const Cart = () => {
   const handleCheckout = async () => {
     const stripe = await stripePromise;
 
-    const response = await fetch(
-      "https://cones-and-stones-ppnudpghiq-lz.a.run.app/create-checkout-session",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          items: CartItems.map((item) => ({
-            id: item._id,
-            quantity: item.quantity,
-          })),
-        }),
-      }
-    );
+    const response = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: CartItems.map((item) => ({
+          id: item._id,
+          quantity: item.quantity,
+        })),
+      }),
+    });
 
     const session = await response.json();
 

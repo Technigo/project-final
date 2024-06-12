@@ -4,6 +4,7 @@ import { ProductCard } from "./ProductCard";
 import { CategoryIcons } from "../../common/ReusableComponents/CategoryIcons/CategoryIcons";
 import { Loader } from "../../common/ReusableComponents/Loader/Loader";
 import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
+import { BACKEND_URL } from "../../config";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -18,9 +19,7 @@ export const AllProducts = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(
-        `https://cones-and-stones-ppnudpghiq-lz.a.run.app/products`
-      );
+      const response = await fetch(`${BACKEND_URL}/products`);
 
       const data = await response.json();
       if (data.success) {
