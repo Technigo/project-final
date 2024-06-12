@@ -12,20 +12,20 @@ export const CartItem = ({ id, image, name, price }) => {
     handleCart(id, "remove");
   };
   return (
-    <div className="flex h-[180px] w-auto max-w-[500px] flex-col justify-center p-3 shadow-md">
-      <div className="mx-2 flex flex-row">
+    <div className="flex w-auto max-w-[500px] flex-col justify-center mx-6 shadow-lg mb-6">
+      <div className="m-3 flex flex-row">
         <img
-          className="h-[130px] self-center"
+          className="h-[80px] self-center"
           src={image}
           alt="image of our template"
         />
-        <div className="flex w-60 flex-col gap-3">
-          <p className="pb-3 pl-2 font-montserrat text-base font-bold">
+        <div className="flex w-60 m-3 flex-col">
+          <p className="pb-3 font-montserrat text-base font-bold">
             {name}
           </p>
-          <p className="pb-8 pl-2 font-montserrat text-sm">{price}</p>
+          <p className="pb-4 font-montserrat text-sm">{price}</p>
           <button
-            className="text flex flex-row self-end pr-2 font-montserrat text-xs text-blue"
+            className="text flex flex-row self-end font-montserrat text-xs text-blue"
             onClick={removeCart}
           >
             Remove item
