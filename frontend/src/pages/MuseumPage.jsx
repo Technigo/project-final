@@ -3,10 +3,12 @@ import styled from "styled-components"
 import { MuseumCardContainer } from "../components/MuseumCardContainer"
 import { SearchBar } from "../components/SearchBar"
 import { FilterBar } from "../components/FilterBar"
+import StyledButton from "../components/styled/Button.styled"
 
 export const MuseumPage = () => {
   const [museums, setMuseums] = useState([])
   const [results, setResults] = useState([])
+  const [amountToShow, setAmountToShow] = useState(8)
   const [filters, setFilters] = useState({
     country: "",
     category: "",
@@ -53,6 +55,8 @@ export const MuseumPage = () => {
     })
   }
 
+  const showMore = () => setAmountToShow(amountToShow + 8)
+
   const museumsToShow =
     results.length === 0 ? filterMuseums(museums) : filterMuseums(results)
 
@@ -61,7 +65,15 @@ export const MuseumPage = () => {
       <Background />
       <SearchBar setResults={setResults} />
       <FilterBar setFilters={setFilters} />
-      <MuseumCardContainer results={museumsToShow} />
+      <MuseumCardContainer
+        results={museumsToShow}
+        amountToShow={amountToShow}
+      />
+      <ButtonContainer>
+        {amountToShow < museumsToShow.length && (
+          <StyledButton onClick={showMore}>Show more</StyledButton>
+        )}{" "}
+      </ButtonContainer>
     </MuseumPageContainer>
   )
 }
@@ -75,6 +87,12 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #232222;
+  background-color: #333333;
   z-index: -1;
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: #333333;
+  padding: 50px 0;
 `
