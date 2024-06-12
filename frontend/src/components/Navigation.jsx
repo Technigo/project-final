@@ -130,18 +130,18 @@ export const Navigation = ({ data }) => {
                 <img
                   src={userIcon}
                   alt="Profile"
-                  className="h-4 ml-2 mt-2 tablet:h-5 tablet:m-3"
+                  className="h-6 m-3 tablet:h-7 tablet:m-3"
                 />
               </NavLink>
             ) : (
               <div
                 onClick={toggleLogin}
-                className="text-white m-2 cursor-pointer laptop:hidden"
+                className="text-white cursor-pointer laptop:hidden"
               >
                 <img
                   src={userIcon}
                   alt="Profile"
-                  className="h-4 ml-2 mt-1 tablet:h-5 tablet:m-3"
+                  className="h-6 m-3 tablet:h-7 tablet:m-3"
                 />
               </div>
             )}
@@ -149,7 +149,7 @@ export const Navigation = ({ data }) => {
               <img
                 src={shoppingCart}
                 alt="Shopping cart"
-                className="h-4 m-2 tablet:h-6"
+                className="h-6 my-3 tablet:h-7 tablet:m-3"
               />
             </NavLink>
           </div>
@@ -181,7 +181,7 @@ export const Navigation = ({ data }) => {
               <img
                 src={shoppingCart}
                 alt="Shopping cart"
-                className="h-6 m-2 hidden tablet:block laptop:h-8 laptop:m-4"
+                className="h-7 m-2 hidden tablet:block laptop:h-8 laptop:m-4"
               />
             </NavLink>
 
@@ -191,7 +191,7 @@ export const Navigation = ({ data }) => {
                 ref={navRef}
               >
                 <button className="" ref={burgerRef} onClick={toggleBurger}>
-                  <img src={xMark} alt="Menu" className="h-4 mb-4" />
+                  <img src={xMark} alt="Menu" className="h-6 mb-4" />
                 </button>
                 {loggedIn ? (
                   <NavLink
@@ -203,7 +203,9 @@ export const Navigation = ({ data }) => {
                   </NavLink>
                 ) : (
                   <div>
-                    <p className="cursor-pointer" onClick={toggleLogin}>Login</p>
+                    <p className="cursor-pointer" onClick={toggleLogin}>
+                      Login
+                    </p>
                     <NavLink
                       className="nav-link"
                       onClick={toggleBurger}
@@ -225,13 +227,16 @@ export const Navigation = ({ data }) => {
                 ))}
               </div>
             ) : (
-              <button ref={btnRef} className="flex" onClick={toggleBurger}>
-                <img
-                  src={burgerMenu}
-                  alt="Menu"
-                  className="h-4 m-2 justify-start tablet:h-6 laptop:hidden"
-                />
-              </button>
+              <>
+                  <button ref={btnRef} className="flex" onClick={toggleBurger}>
+                    <img
+                      src={burgerMenu}
+                      alt="Menu"
+                      className="h-7 m-2 justify-start laptop:hidden"
+                    />
+                  </button>
+                
+              </>
             )}
           </div>
         </div>
