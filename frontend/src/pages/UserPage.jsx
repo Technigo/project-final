@@ -6,7 +6,7 @@ import { LogoutButton } from "../components/LogoutButton";
 import { ToHomepageBtn } from "../components/ToHomepageBtn";
 import LikedMuseums from "../components/LikedMuseums";
 import { UserReviews } from "../components/UserReviews";
-import { ExtraMuseums } from "../components/ExtraMuseums";
+import { SuggestedMuseums } from "../components/SuggestedMuseums";
 
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
@@ -15,9 +15,22 @@ import { ExtraMuseums } from "../components/ExtraMuseums";
 export const UserPage = () => {
   const { authState, logout } = useContext(AuthContext);
   const { isAuthenticated, accessToken } = authState;
-
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState();
+  const [likedMuseumsData, setLikedMuseumsData] = useState([]);
+
+  useEffect(() => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ accessToken }),
+    };
+    fetch(`http://localhost:3000/favorites`, options)
+      .then((response) => response.json())
+      .then((response) => setLikedMuseumsData(response.likedMuseums));
+  }, []);
 
   useEffect(() => {
     const fetchUserPage = async () => {
@@ -41,7 +54,10 @@ export const UserPage = () => {
     };
 
     if (isAuthenticated) {
+      setLoading(true);
       fetchUserPage();
+    } else {
+      setLoading(false);
     }
   }, [isAuthenticated, accessToken, logout]);
 
@@ -67,14 +83,14 @@ export const UserPage = () => {
       <UserContainer>
         <ToHomepageBtn />
         <WelcomeMessage>
-          Welcome to your personal page, {user.name}
+          Welcome to your personal page, {user === undefined ? "" : user.name}
         </WelcomeMessage>
         <FeatureList>
-          <LikedMuseums />
+          <LikedMuseums likedMuseumsData={likedMuseumsData} />
           <FeatureItem>
             <UserReviews />
           </FeatureItem>
-          <ExtraMuseums />
+          <SuggestedMuseums likedMuseumsData={likedMuseumsData} />
         </FeatureList>
         <LogoutButton />
       </UserContainer>
