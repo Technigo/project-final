@@ -309,7 +309,7 @@ app.post("/create-checkout-session", async (req, res) => {
       line_items: lineItems,
       mode: "payment",
       success_url: `${process.env.VITE_CLIENT_URL}/success`,
-      cancel_url: `${process.env.VITE_CLIENT_URL}/cancel`,
+      cancel_url: `${process.env.VITE_CLIENT_URL}/cart`,
     });
 
     res.status(200).json({ id: session.id });
