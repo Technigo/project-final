@@ -8,6 +8,7 @@ import { Category } from "./pages/Category/Category";
 import { Home } from "./pages/Home/Home";
 import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+import { OrderConfirmation } from "./pages/OrderConfirmation/OrderConfirmation";
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<AllProducts />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/success" element={<OrderConfirmation />} />
             <Route path="/products/category/:category" element={<Category />} />
             <Route path="/products/:productId" element={<SingleProduct />} />
             <Route
