@@ -6,7 +6,7 @@ const FRONTEND_URL = import.meta.env.FRONTEND_ORIGIN;
 
 export const useProductStore = create(
   persist(
-    (set, get) => ({
+    (set) => ({
       products: [],
       loading: false,
       error: null,

@@ -64,12 +64,18 @@ export const ProductList = () => {
   }, [products, searchTemplate, sortType, sortCategory, itemsPerPage]);
 
   const filteredProducts = products.filter((product) => {
-    if (!searchParams.get("selectedTag")) return true;
+    if (!searchParams.get("tag") && !searchParams.get("category")) return true;
 
-    return (
-      product.tags.split(", ").includes(searchParams.get("selectedTag")) &&
-      product.templateName.toLowerCase().includes(searchTemplate.toLowerCase())
-    );
+    if (searchParams.get("tag")) {
+      return (
+        product.tags.split(", ").includes(searchParams.get("tag")) &&
+        product.templateName
+          .toLowerCase()
+          .includes(searchTemplate.toLowerCase())
+      );
+    } else if (searchParams.get("category")) {
+      return product.category === searchParams.get("category");
+    }
   });
 
   const sortedProducts = filteredProducts.sort((a, b) => {
@@ -100,7 +106,12 @@ export const ProductList = () => {
 
   // tag
   const handleTagClick = (tag) => {
-    setSearchParams({ selectedTag: tag });
+    setSearchParams({ tag: tag });
+  };
+
+  // category
+  const handleCategoryClick = (category) => {
+    setSearchParams({ category: category });
   };
 
   // Pagination function
@@ -203,6 +214,7 @@ export const ProductList = () => {
                   category={product.category}
                   Id={product._id}
                   onTagClick={handleTagClick}
+                  onCategoryClick={handleCategoryClick}
                 />
               ))}
             </div>

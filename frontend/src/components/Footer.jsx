@@ -3,12 +3,15 @@ import { Link, NavLink } from "react-router-dom";
 import { Button } from "./Button";
 
 import dropdown from "../assets/dropdown.svg";
+import { useProductStore } from "../stores/useProductStore";
 
 export const Footer = () => {
   const [shopIsOpen, setShopIsOpen] = useState(false);
   const [accountIsOpen, setAccountIsOpen] = useState(false);
   const [customerIsOpen, setCustomerIsOpen] = useState(false);
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
+
+  const categories = useProductStore((state) => state.categories);
 
   const toggelShop = () => {
     setShopIsOpen(!shopIsOpen);
@@ -22,19 +25,6 @@ export const Footer = () => {
   const toggleAbout = () => {
     setAboutIsOpen(!aboutIsOpen);
   };
-
-  const categories = [
-    "ARTISTIC",
-    "BEAUTY",
-    "BUSINESS",
-    "COLOR",
-    "FASHION & STYLE",
-    "HEALTH & WELLNESS",
-    "RESTAURANTS & FOOD",
-    "SPORTS",
-    "TECH",
-    "TRAVEL & ADVENTURE",
-  ];
 
   const myAccount = [
     { name: "MY PAGE", to: "/mypage" },
@@ -57,7 +47,8 @@ export const Footer = () => {
             {categories.map((category, index) => (
               <li key={index}>
                 <NavLink
-                  to={`/products/${category.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
+                  to={`/products?category=${category}`}
+                  className="cursor-pointer"
                 >
                   {category}
                 </NavLink>
@@ -98,8 +89,8 @@ export const Footer = () => {
         </button>
         {customerIsOpen && (
           <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
-            This is not a real web shop, but if it was, we'd proably have the
-            best customer service in the world!
+            This is not a real web shop, but if it was, we&apos;d proably have
+            the best customer service in the world!
           </p>
         )}
       </div>
@@ -137,5 +128,3 @@ export const Footer = () => {
     </footer>
   );
 };
-
-//border-b-white
