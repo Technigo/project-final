@@ -1,10 +1,9 @@
-import { Button } from "./Button";
 import PropTypes from "prop-types";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
 import { useUserStore } from "../stores/useUserStore";
+import { Button } from "./Button";
+import { AnimationSuccess } from "./AnimationSuccess";
 
 export const Form = ({ isLogin }) => {
   const navigate = useNavigate();
@@ -15,6 +14,8 @@ export const Form = ({ isLogin }) => {
     email: "",
     password: "",
   });
+
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -29,13 +30,20 @@ export const Form = ({ isLogin }) => {
     const response = isLogin
       ? await logInUser(formData)
       : await registerUser(formData);
-    if (response) navigate(`${isLogin ? "/mypage" : "/login"}`);
+    if (response) {
+      setShowSuccess(true);
+      setTimeout(() => {
+        navigate(`${isLogin ? "/mypage" : "/login"}`);
+      }, 4000);
+    }
   };
 
   return (
     <div className="mb-20 mt-10 flex items-center justify-center lg:mb-32 lg:mt-20">
       {loading ? (
         <p>Loading...</p>
+      ) : showSuccess ? (
+        <AnimationSuccess isVisible={showSuccess} />
       ) : (
         <form onSubmit={handleSubmit} className="w-80 max-w-sm lg:w-96">
           <div className="mb-6 lg:mb-8">
