@@ -119,7 +119,7 @@ export const PlanetsCarousel = () => {
     ],
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    beforeChange: (next) => setCurrentSlide(next),
+    beforeChange: (current, next) => setCurrentSlide(next),
   }
 
   // Override aria-hidden attribute set by slick-carousel
