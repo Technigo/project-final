@@ -39,9 +39,11 @@ const HeaderContent = styled.div`
 const Logo = styled.img`
   width: 60px;
   padding: 0px 20px;
+  margin-top: 15px;
 
   @media (min-width: 768px) {
     width: 100px;
+    margin-top: 0px;
   }
 `
 
