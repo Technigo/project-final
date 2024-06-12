@@ -1,0 +1,22 @@
+{
+  "name": "rental-api",
+  "version": "1.0.0",
+  "description": "Rental API for project-final-backend",
+  "scripts": {
+    "start": "babel-node rentalServer.js",
+    "dev": "nodemon rentalServer.js --exec babel-node"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-list-endpoints": "^7.1.0",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^3.0.1"
+  }
+}
