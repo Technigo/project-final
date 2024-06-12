@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Slider from "react-slick"
 import styled from "styled-components"
@@ -119,8 +119,18 @@ export const PlanetsCarousel = () => {
     ],
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    beforeChange: (current, next) => setCurrentSlide(next),
+    beforeChange: (next) => setCurrentSlide(next),
   }
+
+  // Override aria-hidden attribute set by slick-carousel
+  useEffect(() => {
+    const slides = document.querySelectorAll(".slick-slide")
+    slides.forEach((slide) => {
+      if (slide.getAttribute("aria-hidden") === "true") {
+        slide.setAttribute("aria-hidden", "false")
+      }
+    })
+  }, [currentSlide])
 
   return (
     <CarouselContainer>
@@ -133,6 +143,7 @@ export const PlanetsCarousel = () => {
                   ? `/celestial/${planet.name}`
                   : `/planets/${planet.name}`
               }
+              tabIndex={index === currentSlide ? "0" : "-1"}
             >
               <PlanetImage
                 src={planet.image}

@@ -8,8 +8,9 @@ import { Button } from "./Navigation/Button.jsx"
 // import { Loading } from "../components/Loading.jsx"
 
 const FeedContainer = styled.div`
-  width: 100%;
-  margin: 200px 200px;
+  width: calc(100% - 40px);
+  max-width: 100%;
+  margin: 200px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,6 +79,7 @@ const StyledTextarea = styled.textarea`
   padding: 16px;
   box-sizing: border-box;
   font-size: 16px;
+  position: relative;
 
   @media (max-width: 768px) {
     height: 140px;
@@ -86,10 +88,10 @@ const StyledTextarea = styled.textarea`
 
 const CharacterCount = styled.div`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 12px;
-  color: grey;
+  bottom: 20px;
+  right: 5px;
+  font-size: 14px;
+  color: #555555;
 
   @media (min-width: 768px) {
     font-size: 14px;
