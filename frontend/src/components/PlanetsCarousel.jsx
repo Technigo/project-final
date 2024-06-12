@@ -47,9 +47,10 @@ const Slide = styled.div`
 `
 
 const PlanetImage = styled.img`
-  width: ${(props) => (props.saturnimg ? "120%" : "100%")};
 
+  width: ${(props) => (props.saturnimg ? "120%" : "100%")};
   margin: ${(props) => (props.saturnimg ? "80px 0px 0px 0px" : "0 auto")};
+  
   transition: transform 0.5s;
   transform: ${({ isCenter }) => (isCenter ? "scale(1.0)" : "scale(0.9)")};
 
