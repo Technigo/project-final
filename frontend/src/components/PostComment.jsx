@@ -12,8 +12,10 @@ export const PostComment = ({ museumId, onNewComment }) => {
   const [message, setMessage] = useState("");
   const [count, setCount] = useState(0);
   const [rating, setRating] = useState(0);
+  const [errorMessage, setErrorMessage] = useState();
 
   const changeRating = (updatedRating) => {
+    setErrorMessage(undefined);
     setRating(updatedRating);
   };
 
@@ -22,6 +24,15 @@ export const PostComment = ({ museumId, onNewComment }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (message.length < 10) {
+      setErrorMessage("Your comment should be longer than 10 characters.");
+      return;
+    }
+
+    if (rating === 0) {
+      setErrorMessage("Please provide a rating");
+      return;
+    }
 
     try {
       const response = await fetch("https://museek-2ejb.onrender.com/reviews", {
@@ -60,6 +71,7 @@ export const PostComment = ({ museumId, onNewComment }) => {
         id="review-form"
         value={message}
         onChange={(e) => {
+          setErrorMessage(undefined);
           setMessage(e.target.value);
           setCount(e.target.value.length);
         }}
@@ -85,6 +97,11 @@ export const PostComment = ({ museumId, onNewComment }) => {
           starSpacing="4px"
         />
       </div>
+      {errorMessage !== undefined ? (
+        <div>
+          <i>{errorMessage}</i>
+        </div>
+      ) : undefined}
       <StyledButton type="submit">Submit</StyledButton>
     </CommentForm>
   );
