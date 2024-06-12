@@ -1,11 +1,21 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/images/logo.png";
+import { useModal } from "../components/registration/ModalContext";
+import { AuthForm } from "../components/registration/AuthForm";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { showModal } = useModal();
+  const navigate = useNavigate();
+
   const handleLinkClick = () => {
     setIsOpen(false);
+  };
+
+  const handleLoginClick = () => {
+    showModal(<AuthForm type="login" onSuccess={() => navigate("/profile")} />);
   };
 
   return (
@@ -27,12 +37,15 @@ const Menu = () => {
           <Link to="/events" className="link">
             Events
           </Link>
-          <Link to="/community-guidelines" className="link link">
+          <Link to="/community-guidelines" className="link">
             Community Guidelines
           </Link>
           <Link to="/about" className="link">
             About Us
           </Link>
+          <button onClick={handleLoginClick} className="link">
+            Login
+          </button>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -73,6 +86,15 @@ const Menu = () => {
           >
             Community Guidelines
           </Link>
+          <button
+            onClick={() => {
+              handleLinkClick();
+              handleLoginClick();
+            }}
+            className="block w-full text-left px-4 py-2 text-dark hover:text-secondary focus:outline-none"
+          >
+            Login
+          </button>
         </div>
       )}
     </nav>
