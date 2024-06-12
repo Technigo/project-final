@@ -1,7 +1,8 @@
-import { User } from "../models/User";
-import asyncHandler from "express-async-handler";
 import bcrypt from "bcrypt";
+import asyncHandler from "express-async-handler";
+
 import { Product } from "../models/Product";
+import { User } from "../models/User";
 
 export const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
@@ -39,7 +40,6 @@ export const loginUser = asyncHandler(async (req, res) => {
 export const deleteUser = asyncHandler(async (req, res) => {
   const { userId } = req.params;
   const user = await User.deleteOne({ _id: userId });
-  console.log(user);
   res.status(200).json({
     message: "Delete Successful.",
     success: true,
