@@ -10,12 +10,12 @@ export const ProfileForm = ({ userData, setUserData, handleUpdateProfile }) => {
   return (
     <form onSubmit={handleUpdateProfile} className="space-y-4 flex-1">
       <div>
-        <label className="block text-sm font-bold mb-2">Name</label>
+        <label className="block text-sm font-bold mb-2">Nickname</label>
         <input
           type="text"
-          name="username"
+          name="name"
           placeholder="How should we call you..."
-          value={userData.username || ""}
+          value={userData.name || ""}
           onChange={handleChange}
           className="block w-full mb-4 px-4 py-2 rounded border border-gray-300"
         />

@@ -1,7 +1,6 @@
 import api from "../../axiosConfig";
 
 const setAuthToken = (token) => {
-  console.log("Setting auth token:", token); // Debug log
   localStorage.setItem("authToken", token);
 };
 
@@ -67,8 +66,6 @@ export const getProfile = async () => {
 export const updateProfile = async (userData) => {
   try {
     const token = localStorage.getItem("authToken");
-    /*   const formData = new FormData();
-    Object.keys(userData).forEach((key) => formData.append(key, userData[key])); */
 
     const response = await api.put("/profile", userData, {
       headers: {

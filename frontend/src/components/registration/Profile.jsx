@@ -1,13 +1,13 @@
 import gearIcon from "/icons/gear.svg";
 import defaultProfilePicture from "/icons/profile.png";
 import bgImage from "/images/profile-bg.jpg";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import Menu from "../../utilities/Menu";
 import { Button } from "../../utilities/Button";
 import Footer from "../../utilities/Footer";
-import Menu from "../../utilities/Menu";
-import { getProfile, logout, updateProfile } from "../registration/authService";
+
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getProfile, updateProfile, logout } from "../registration/authService";
 import { useModal } from "../registration/ModalContext";
 import { AuthForm } from "./AuthForm";
 import { Community } from "./Community";
@@ -16,6 +16,7 @@ import { ProfileForm } from "./ProfileForm";
 export const Profile = () => {
   const [userData, setUserData] = useState({
     username: "",
+    name: "",
     bio: "",
     hobby: "",
   });
@@ -27,53 +28,43 @@ export const Profile = () => {
   const navigate = useNavigate();
   const { showModal } = useModal();
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem("authToken");
-      if (!token) {
-        showModal(
-          <AuthForm
-            type="login"
-            onSuccess={() => {
-              setLoading(true);
-              fetchProfile();
-            }}
-            navigate={navigate}
-          />
+  const fetchProfile = async () => {
+    try {
+      const profileData = await getProfile();
+      console.log("Fetched profile data:", profileData);
+      setUserData({
+        username: profileData.username || "",
+        name: profileData.name || "",
+        bio: profileData.bio || "",
+        hobby: profileData.hobby || "",
+      });
+      setRole(profileData.role || ""); // Set role separately
+    } catch (error) {
+      console.error("Error fetching profile:", error);
+      if (error.response?.status === 401) {
+        localStorage.removeItem("authToken");
+        setError("Unauthorized. Please log in again.");
+        showModal(<AuthForm type="login" onSuccess={fetchProfile} />);
+      } else {
+        setError(
+          error.response?.data?.error ||
+            "An error occurred while fetching profile."
         );
-        setLoading(false);
-        return;
       }
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      try {
-        console.log("Token being sent:", token); // Debug log
-        const profileData = await getProfile(token);
-        console.log("Fetched profile data:", profileData); // Debug log
-        setUserData({
-          username: profileData.username || "",
-          bio: profileData.bio || "",
-          hobby: profileData.hobby || "",
-        });
-        setRole(profileData.role || ""); // Set role separately
-      } catch (error) {
-        console.error("Error fetching profile:", error);
-        if (error.response?.status === 401) {
-          localStorage.removeItem("authToken");
-          setError("Unauthorized. Please log in again.");
-          showModal(<AuthForm type="login" />);
-        } else {
-          setError(
-            error.response?.data?.error ||
-              "An error occurred while fetching profile."
-          );
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProfile();
-  }, [navigate.showModal]);
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      fetchProfile();
+    } else {
+      showModal(<AuthForm type="login" onSuccess={fetchProfile} />);
+      setLoading(false);
+    }
+  }, []);
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
@@ -96,9 +87,12 @@ export const Profile = () => {
   };
 
   const handleLogout = () => {
+    console.log("Logging out");
     logout();
-    navigate("/find-out-more");
-    <AuthForm type="login" onSuccess={() => navigate("/profile")} />;
+    console.log("Token after logout:", localStorage.getItem("authToken"));
+    navigate("/", { replace: true });
+    window.location.reload();
+    console.log("Navigated to home");
   };
 
   if (loading) {
@@ -134,8 +128,11 @@ export const Profile = () => {
             />
             <div className="order-2 lg:order-1 text-center lg:text-left lg:p-6">
               <h1 className="text-2xl font-bold mb-2">
-                Hello, {userData.username}
+                Hello, {userData.name || userData.username}
               </h1>
+              {/*   {userData.name && (
+                <p className="text-secondary">Nickname: {userData.name}</p>
+              )} */}
               <p className="text-secondary">Role: {role || "User"}</p>
               <p className="text-secondary">Bio: {userData.bio || ""}</p>
               <p className="text-secondary">I like: {userData.hobby || ""}</p>
@@ -164,9 +161,9 @@ export const Profile = () => {
         <Button
           onClick={handleLogout}
           text="Log Out"
-          varian="primary"
+          variant="primary"
           className="mt-6"
-        ></Button>
+        />
       </div>
       <div className="w-full">
         <Community />
