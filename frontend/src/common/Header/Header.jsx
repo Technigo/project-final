@@ -1,7 +1,3 @@
-/* import { Image } from "../../stores/useCartStore"; */
-/* import { useCartStore } from "../../stores/useCartStore"; */
-// import search from "/assets/icons/search.svg";
-// import user from "/assets/icons/user.svg";
 import { Image } from "../ReusableComponents/Image/Image";
 import { HamburgerMenu } from "./HamburgerMenu";
 import cart from "/assets/icons/cart.svg";
@@ -56,12 +52,6 @@ export const Header = () => {
           </Link>
         </div>
         <ul className="nav-icons">
-          {/* <button className="search-button">
-            <Image src={search} alt="search" className="search" />
-          </button> */}
-          {/* <Link to="/">
-            <Image src={user} alt="my-account" className="user" />
-          </Link> */}
           <div className="shopping-cart-wrapper">
             <Link to="/cart">
               <Image src={cart} alt="shopping-cart" className="cart" />
