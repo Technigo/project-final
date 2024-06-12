@@ -38,8 +38,6 @@ export const HamburgerMenu = () => {
             <Image src={CrossIcon} alt="Close icon" className="cross-icon" />
           ) : null
         }
-        // outerContainerId="outer-container"
-        // pageWrapId="page-wrap"
       >
         <ul className="menu-categories">
           <li>
