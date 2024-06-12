@@ -1,9 +1,10 @@
-import { FaAddressCard } from "react-icons/fa";
-import { IconContext } from "react-icons";
-import { IoLockClosed } from "react-icons/io5";
 import { Radio } from "@material-tailwind/react";
+import { IconContext } from "react-icons";
+import { FaAddressCard } from "react-icons/fa";
+import { IoLockClosed } from "react-icons/io5";
+import PropTypes from "prop-types";
 
-export const PaymentForm = () => {
+export const PaymentForm = ({ register }) => {
   return (
     <div className="my-5 grid grid-cols-2 gap-y-4 font-montserrat">
       <p className="col-span-2 my-2 font-lato">
@@ -44,15 +45,16 @@ export const PaymentForm = () => {
         />
       </div>
       <div className="relative col-span-2">
-        <label htmlFor="card-holder" className="hidden">
+        <label htmlFor="cardHolder" className="hidden">
           Card Holder
         </label>
         <input
           type="text"
-          id="card-holder"
-          name="card-holder"
+          id="cardHolder"
+          name="cardHolder"
           className="focus:border-blue-500 focus:ring-blue-500 w-full rounded-md border border-light-blue px-10 py-3 text-sm uppercase shadow-sm outline-none focus:z-10"
           placeholder="Your full name here"
+          {...register("cardHolder", { required: true })}
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
           <IconContext.Provider value={{ className: "text-blue text-lg" }}>
@@ -61,15 +63,16 @@ export const PaymentForm = () => {
         </div>
       </div>
       <div className="relative col-span-2">
-        <label htmlFor="card-holder" className="hidden">
+        <label htmlFor="cardNumber" className="hidden">
           Credit Card Number
         </label>
         <input
           type="text"
-          id="card-holder"
-          name="card-holder"
+          id="cardNumber"
+          name="cardNumber"
           className="focus:border-blue-500 focus:ring-blue-500 w-full rounded-md border border-light-blue px-10 py-3 text-sm uppercase shadow-sm outline-none focus:z-10"
           placeholder="xxxx-xxxx-xxxx-xxxx"
+          {...register("cardNumber", { required: true })}
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
           <IconContext.Provider value={{ className: "text-blue text-lg" }}>
@@ -80,17 +83,22 @@ export const PaymentForm = () => {
       <div className="col-span-2 flex flex-row gap-4">
         <input
           type="text"
-          name="credit-expiry"
+          name="expiry"
           className="focus:border-blue-500 focus:ring-blue-500 w-full rounded-md border border-light-blue px-4 py-3 text-sm uppercase shadow-sm outline-none focus:z-10"
           placeholder="MM/YY"
+          {...register("expiry", { required: true })}
         />
         <input
           type="text"
-          name="credit-cvc"
+          name="cvc"
           className="focus:border-blue-500 focus:ring-blue-500 w-full rounded-md border border-light-blue px-4 py-3 text-sm uppercase shadow-sm outline-none focus:z-10"
           placeholder="CVC"
+          {...register("cvc", { required: true })}
         />
       </div>
     </div>
   );
+};
+PaymentForm.propTypes = {
+  register: PropTypes.func.isRequired,
 };
