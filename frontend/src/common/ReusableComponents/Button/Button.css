@@ -52,16 +52,12 @@ button {
 
 /* hover states */
 
-.hero-button:hover,
-.add-to-cart-button:hover {
-  background-color: var(--black);
-}
-
-/* active states  */
-/* .size-button:focus {
+.shop-button:hover,
+.add-to-cart-button:hover,
+.clear-cart-button:hover {
   background-color: var(--black);
   color: var(--white);
-} */
+}
 
 /* disabled states */
 
