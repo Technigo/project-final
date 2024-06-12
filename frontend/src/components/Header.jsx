@@ -17,9 +17,10 @@ const navigation = [
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { shoppingCart, accessToken } = useUserStore((state) => ({
+  const { shoppingCart, accessToken, loading } = useUserStore((state) => ({
     shoppingCart: state.cart,
     accessToken: state.accessToken,
+    loading: state.loading,
   }));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

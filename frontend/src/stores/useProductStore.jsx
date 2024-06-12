@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { Loading } from "../components/Loading";
+// import { Loading } from "./Loading";
 
 const BACKEND_URL = import.meta.env.VITE_API_URL;
 const FRONTEND_URL = import.meta.env.FRONTEND_ORIGIN;

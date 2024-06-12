@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { Loading } from "./Loading";
 import { useUserStore } from "../stores/useUserStore";
 
 export const Form = ({ isLogin }) => {
@@ -16,6 +16,8 @@ export const Form = ({ isLogin }) => {
     password: "",
   });
 
+  // const [loadingForm, setLoadingForm] = useState(false);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({
@@ -26,16 +28,24 @@ export const Form = ({ isLogin }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = isLogin
-      ? await logInUser(formData)
-      : await registerUser(formData);
-    if (response) navigate(`${isLogin ? "/mypage" : "/login"}`);
+    loading(true);
+    // setLoadingForm(true)
+    try {
+      const response = isLogin
+        ? await logInUser(formData)
+        : await registerUser(formData);
+      if (response) navigate(`${isLogin ? "/mypage" : "/login"}`);
+    } catch (error) {
+      console.error("Error submitting form", error);
+    } finally {
+      loading(false);
+    }
   };
 
   return (
     <div className="mb-20 mt-10 flex items-center justify-center lg:mb-32 lg:mt-20">
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <form onSubmit={handleSubmit} className="w-80 max-w-sm lg:w-96">
           <div className="mb-6 lg:mb-8">

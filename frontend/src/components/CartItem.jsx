@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Loading } from "../components/Loading"
+import { Loading } from "./Loading"
 import rubbish from "../assets/rubbish-bin-blue.svg";
 import { useUserStore } from "../stores/useUserStore";
 import { useState } from "react";
