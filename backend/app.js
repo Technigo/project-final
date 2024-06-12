@@ -6,6 +6,7 @@ import seedDatabase from "./config/seeddatabase";
 import documentationRoutes from "./routes/documentation";
 import productsRoutes from "./routes/products";
 import reviewRoutes from "./routes/reviews";
+import stripeRoutes from "./routes/stripe"
 import userRoutes from "./routes/users";
 
 const app = express();
@@ -18,5 +19,6 @@ app.use("/", documentationRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", userRoutes);
 app.use("/reviews", reviewRoutes);
+app.use("/stripe", stripeRoutes)
 
 export default app;
