@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Button } from "./Button";
 
 import dropdown from "../assets/dropdown.svg";
 
@@ -34,7 +36,11 @@ export const Footer = () => {
     "TRAVEL & ADVENTURE",
   ];
 
-  const myAccount = ["MY PAGE", "LOGIN", "LOGOUT"];
+  const myAccount = [
+    { name: "MY PAGE", to: "/mypage" },
+    { name: "LOGIN", to: "/login" },
+    { name: "LOGOUT", to: "/" },
+  ];
 
   return (
     <footer className="inset-x-0 bottom-0 flex flex-col items-center bg-blue pt-6 font-montserrat leading-9 text-white">
@@ -49,7 +55,13 @@ export const Footer = () => {
         {shopIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
             {categories.map((category, index) => (
-              <li key={index}>{category}</li>
+              <li key={index}>
+                <NavLink
+                  to={`/products/${category.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
+                >
+                  {category}
+                </NavLink>
+              </li>
             ))}
           </ul>
         )}
@@ -67,7 +79,9 @@ export const Footer = () => {
         {accountIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
             {myAccount.map((account, index) => (
-              <li key={index}>{account}</li>
+              <li key={index}>
+                <NavLink to={account.to}>{account.name}</NavLink>
+              </li>
             ))}
           </ul>
         )}
@@ -103,12 +117,17 @@ export const Footer = () => {
           <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
             This site was designed and developed by Mai, Sofie and Wen for our
             final project of the Web Development Bootcamp at Technigo
+            <div className="mt-3 text-center">
+              <Link>
+                <Button text="Click to read more about us" />
+              </Link>
+            </div>
           </p>
         )}
       </div>
       <div>
         <h1 className="py-7 text-center font-poppins text-5xl font-bold tracking-wider">
-          webify
+          Webify
         </h1>
         <p className="py-7 text-center font-lato text-xs">
           Copyright 2024 © Wen Z & Sofie FS & Mai K <br /> Technigo Bootcamp
