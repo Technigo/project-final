@@ -32,6 +32,37 @@ export const ShippingForm = ({ register }) => {
             {...register("lastName", { required: true })}
           />
         </div>
+        <div className="col-span-2 mt-4 grid grid-cols-2 gap-4">
+          <div>
+            <label
+              htmlFor="email"
+              className="mb-1 block font-bold text-gray-700 dark:text-white"
+            >
+              Email
+            </label>
+            <input
+              type="text"
+              id="email"
+              className="w-full rounded-md border border-light-blue px-3 py-2"
+              {...register("email", { required: true })}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="phone"
+              className="mb-1 block font-bold text-gray-700 dark:text-white"
+            >
+              Phone Number
+            </label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              className="w-full rounded-md border border-light-blue px-3 py-2"
+              {...register("phone", { required: true })}
+            />
+          </div>
+        </div>
         <div className="col-span-2 mt-4">
           <label
             htmlFor="address"
@@ -63,16 +94,16 @@ export const ShippingForm = ({ register }) => {
         <div className="col-span-2 mt-4 grid grid-cols-2 gap-4">
           <div>
             <label
-              htmlFor="state"
+              htmlFor="country"
               className="mb-1 block font-bold text-gray-700 dark:text-white"
             >
-              State
+              Country
             </label>
             <input
               type="text"
-              id="state"
+              id="country"
               className="w-full rounded-md border border-light-blue px-3 py-2"
-              {...register("state", { required: true })}
+              {...register("country", { required: true })}
             />
           </div>
           <div>
@@ -87,7 +118,7 @@ export const ShippingForm = ({ register }) => {
               id="zipCode"
               name="zipCode"
               className="w-full rounded-md border border-light-blue px-3 py-2"
-              {...register("zipCode", { pattern: /\d+/ })}
+              {...register("zipCode", { required: true })}
             />
           </div>
         </div>
