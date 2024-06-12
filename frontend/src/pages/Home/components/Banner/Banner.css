@@ -1,11 +1,16 @@
 .banner-container {
-  padding: 30px 0;
+  background-color: var(--purple);
+  padding: 20px;
 }
 
 .banner-image {
   width: 100%;
   max-height: 450px;
   object-fit: scale-down;
+}
+
+.banner-container h1 {
+  color: var(--yellow);
 }
 
 /* Media Queries for tablet */
