@@ -1,14 +1,17 @@
-// //importera pcl när den är välkommen tillbaka in i main.
 import { Link } from "react-router-dom";
-import { Button } from "../components/Button";
-import { Breadcrumb } from "../components/Breadcrumb";
-import { CartItem } from "../components/CartItem";
-import { useUserStore } from "../stores/useUserStore";
-import { useProductStore } from "../stores/useProductStore";
 
-// eslint-disable-next-line react/prop-types
+import emptyCart from "../assets/empty-cart.png";
+import { Breadcrumb } from "../components/Breadcrumb";
+import { Button } from "../components/Button";
+import { CartItem } from "../components/CartItem";
+import { useProductStore } from "../stores/useProductStore";
+import { useUserStore } from "../stores/useUserStore";
+
 export const Cart = () => {
-  const cart = useUserStore((state) => state.cart);
+  const { cart, clearCart } = useUserStore((state) => ({
+    cart: state.cart,
+    clearCart: state.clearCart,
+  }));
   const products = useProductStore((state) => state.products);
   const calculateOrderValue = () => {
     return products
@@ -27,18 +30,31 @@ export const Cart = () => {
         <h3 className="mb-5 font-montserrat font-bold sm:self-center lg:ml-5 lg:self-start">
           Your cart items
         </h3>
-        {products
-          .filter((product) => cart.includes(product._id))
-          .map((product) => (
-            <CartItem
-              key={product._id}
-              name={product.templateName}
-              id={product._id}
-              image={product.image}
-              price={product.price}
-              className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-            />
-          ))}
+        {cart.length > 0 ? (
+          products
+            .filter((product) => cart.includes(product._id))
+            .map((product) => (
+              <CartItem
+                key={product._id}
+                name={product.templateName}
+                id={product._id}
+                image={product.image}
+                price={product.price}
+                className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+              />
+            ))
+        ) : (
+          <div className="flex flex-col items-center gap-5">
+            <div className="w-28">
+              <img
+                src={emptyCart}
+                alt="no items in the cart"
+                className="object-cover"
+              />
+            </div>
+            <p className="font-lato text-base">No items in the cart</p>
+          </div>
+        )}
         <div className="mt-5 flex h-[120px] min-w-[300px] flex-col text-sm font-bold leading-8 before:font-montserrat">
           <div className="flex justify-between">
             <span>Order Value</span>
@@ -55,12 +71,12 @@ export const Cart = () => {
         </div>
         <div className="mb-10 flex flex-col items-center gap-5">
           <Link to="/checkout">
-            <Button text={"CONTINUE"} style="submit" />
+            <Button text="CONTINUE" style="button" />
           </Link>
           <Link to="/products">
-            <Button text={"CONTINUE SHOPPING"} style="submit" />
+            <Button text="CONTINUE SHOPPING" style="button" />
           </Link>
-          <Button text={"CLEAR CART"} style="submit" />
+          <Button text="CLEAR CART" style="button" onClickFunc={clearCart} />
         </div>
         <div className="flex justify-center">
           <p className="mb-10 w-[300px] p-3 text-center font-lato">

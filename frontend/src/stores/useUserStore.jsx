@@ -24,6 +24,30 @@ export const useUserStore = create(
           cart: [],
           favorite: [],
         }),
+      clearCart: async () => {
+        try {
+          const response = await fetch(
+            `${BACKEND_URL}/users/${get().userId}/cart`,
+            {
+              method: "DELETE",
+              headers: {
+                "Access-Control-Allow-Origin": FRONTEND_URL,
+                "Content-Type": "application/json",
+                withCredentials: true,
+                Authorization: get().accessToken,
+              },
+            },
+          );
+          if (!response.ok) {
+            throw new Error("Add to cart error");
+          }
+          const data = await response.json();
+          console.log("Clear cart successfully", data);
+          set({ cart: data.cartItems });
+        } catch (error) {
+          set({ error: error });
+        }
+      },
       logInUser: async (formData) => {
         set({ loading: true, error: null });
         try {
