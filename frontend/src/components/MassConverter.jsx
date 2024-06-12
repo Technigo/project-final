@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
 import { Button } from "../components/Navigation/Button.jsx"
+import { Loading } from "./Loading.jsx"
 
 const MassConverterFont = styled.div`
   font-family: var(--font-family-main);
@@ -109,36 +110,38 @@ export const MassConverter = () => {
   }, [results])
 
   return (
-    <MassConverterFont>
-      <Heading>THE MASS C0NVERTER</Heading>
-      <Description>
-        Have you ever wondered how much you or your belongings would weigh on
-        different planets? With the Mass Converter, you can explore the
-        fascinating variations in weight caused by the different gravitational
-        forces of each celestial body in our solar system. Simply enter the
-        weight of any object in kilograms, and instantly find out its equivalent
-        weight on the planets in our solar system. Whether it's your pet, a
-        favorite item, or just your curiosity, this tool provides a fun and
-        educational way to understand the effects of gravity beyond Earth. Try
-        it now and see how your weight changes across the cosmos!
-      </Description>
-      <Input
-        type="number"
-        value={weight}
-        onChange={handleChange}
-        placeholder="Enter kilograms here"
-      />
-      <Button onClick={handleCalculate}>CALCULATE</Button>
-      {Object.keys(results).length > 0 && ( // Conditionally render Results if results is not empty
-        <Results ref={resultsRef}>
-          <EnteredWeight>Entered Weight: {weight} kilos</EnteredWeight>
-          {Object.entries(results).map(([planet, weight]) => (
-            <div key={planet}>
-              {planet}: {weight} kilos
-            </div>
-          ))}
-        </Results>
-      )}
-    </MassConverterFont>
+    <Loading>
+      <MassConverterFont>
+        <Heading>THE MASS C0NVERTER</Heading>
+        <Description>
+          Have you ever wondered how much you or your belongings would weigh on
+          different planets? With the Mass Converter, you can explore the
+          fascinating variations in weight caused by the different gravitational
+          forces of each celestial body in our solar system. Simply enter the
+          weight of any object in kilograms, and instantly find out its
+          equivalent weight on the planets in our solar system. Whether it's
+          your pet, a favorite item, or just your curiosity, this tool provides
+          a fun and educational way to understand the effects of gravity beyond
+          Earth. Try it out and see how weight changes across the cosmos!
+        </Description>
+        <Input
+          type="number"
+          value={weight}
+          onChange={handleChange}
+          placeholder="Enter kilograms here..."
+        />
+        <Button onClick={handleCalculate}>CALCULATE</Button>
+        {Object.keys(results).length > 0 && ( // Conditionally render Results if results is not empty
+          <Results ref={resultsRef}>
+            <EnteredWeight>Entered Weight: {weight} kilos</EnteredWeight>
+            {Object.entries(results).map(([planet, weight]) => (
+              <div key={planet}>
+                {planet}: {weight} kilos
+              </div>
+            ))}
+          </Results>
+        )}
+      </MassConverterFont>
+    </Loading>
   )
 }

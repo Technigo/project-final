@@ -34,17 +34,15 @@ export const Planet = () => {
     fetchOnePlanet()
   }, [planet])
 
-  if (loading) {
-    return <Loading />
-  }
-
   if (error) {
     return <p>{error.message}</p>
   }
 
   return (
     <>
-      <PlanetContent onePlanet={onePlanet} />
+      <Loading>
+        <PlanetContent onePlanet={onePlanet} />
+      </Loading>
     </>
   )
 }
