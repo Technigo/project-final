@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 import favorite from "../assets/favorite-icon.svg";
 import { Button } from "./Button";
 import { HeartButton } from "./HeartButton";
@@ -23,10 +22,10 @@ export const ProductDetailsCard = ({
   }));
   const [openDrawer, setOpenDrawer] = useState(false);
   const addToCart = () => {
-    if (accessToken) {
-      handleCart(id);
-    } else {
+    if (!accessToken) {
       setOpenDrawer(true);
+    } else {
+      handleCart(id);
     }
   };
 
@@ -45,6 +44,7 @@ export const ProductDetailsCard = ({
         <HeartButton
           style="absolute bottom-5 right-5 h-8 w-8 rounded-full bg-white p-[5px] hover:bg-light-gray"
           id={id}
+          setOpenDrawer={setOpenDrawer}
         />
       </div>
       <div className="flex w-full flex-col gap-3 lg:w-96 lg:flex-none lg:justify-between">
@@ -76,4 +76,5 @@ ProductDetailsCard.propTypes = {
   numOfLikes: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };

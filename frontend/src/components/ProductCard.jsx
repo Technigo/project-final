@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import cart from "../assets/cart-blue.svg";
 import { useState } from "react";
 import { HeartButton } from "./HeartButton";
+import { CartButton } from "./CartButton";
 import { SideDrawer } from "./SideDrawer";
-import { useUserStore } from "../stores/useUserStore";
 
 export const ProductCard = ({
   id,
@@ -17,17 +16,7 @@ export const ProductCard = ({
   onCategoryClick,
 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { accessToken, handleCart } = useUserStore((state) => ({
-    accessToken: state.accessToken,
-    handleCart: state.handleCart,
-  }));
-  const addToCart = () => {
-    if (accessToken) {
-      handleCart(id);
-    } else {
-      setOpenDrawer(true);
-    }
-  };
+
   return (
     <div className="flex flex-col">
       <Link to={`/products/${id}`} className="text-black no-underline">
@@ -61,9 +50,7 @@ export const ProductCard = ({
             id={id}
             setOpenDrawer={setOpenDrawer}
           />
-          <button className="h-6 w-6 lg:h-4 lg:w-4" onClick={addToCart}>
-            <img src={cart} alt="add to cart button" />
-          </button>
+          <CartButton id={id} setOpenDrawer={setOpenDrawer} />
         </div>
       </div>
       <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
@@ -78,7 +65,6 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
-  Id: PropTypes.string.isRequired,
   onTagClick: PropTypes.func.isRequired,
   onCategoryClick: PropTypes.func.isRequired,
 };
