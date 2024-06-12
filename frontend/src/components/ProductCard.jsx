@@ -13,6 +13,7 @@ export const ProductCard = ({
   name,
   price,
   category,
+  onTagClick,
 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const { accessToken, handleCart } = useUserStore((state) => ({
@@ -33,7 +34,7 @@ export const ProductCard = ({
       </Link>
       <span className="mb-1 mt-2 flex flex-row">
         {tags.split(", ").map((tag) => (
-          <button key={tag} className="mr-2 text-sm text-blue lg:text-xs">
+          <button key={tag} className="mr-2 text-sm text-blue lg:text-xs" onClick={() => onTagClick(tag)}>
             #{tag}
           </button>
         ))}
@@ -52,7 +53,6 @@ export const ProductCard = ({
             id={id}
             setOpenDrawer={setOpenDrawer}
           />
-
           <button className="h-6 w-6 lg:h-4 lg:w-4" onClick={addToCart}>
             <img src={cart} alt="add to cart button" />
           </button>
@@ -71,4 +71,5 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   Id: PropTypes.string.isRequired,
+  onTagClick: PropTypes.func.isRequired,
 };
