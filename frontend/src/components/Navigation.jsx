@@ -4,7 +4,7 @@ import glimLogo from "/glimSmall.svg";
 import shoppingCart from "/cart-shopping-solid.svg";
 import userIcon from "/user-solid.svg";
 import burgerMenu from "/bars-solid.svg";
-import xMark from "/square-xmark-solid.svg";
+import xMark from "/xmark-solid.svg";
 import swoop from "/nav-swoop2.svg";
 import { useUserStore } from "../store/useUserStore";
 import { WelcomeMessage } from "./WelcomeMessage";
@@ -191,7 +191,7 @@ export const Navigation = ({ data }) => {
                 ref={navRef}
               >
                 <button className="" ref={burgerRef} onClick={toggleBurger}>
-                  <img src={xMark} alt="Menu" className="h-4" />
+                  <img src={xMark} alt="Menu" className="h-4 mb-4" />
                 </button>
                 {loggedIn ? (
                   <NavLink
