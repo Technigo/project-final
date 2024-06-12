@@ -199,7 +199,7 @@ export const useUserStore = create(
               },
               body: JSON.stringify({
                 productId: productId,
-                remove: action ? true : false,
+                remove: action === 'remove',
               }),
             },
           );
