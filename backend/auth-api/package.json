@@ -1,0 +1,24 @@
+{
+  "name": "auth-api",
+  "version": "1.0.0",
+  "description": "Authentication API for project-final-backend",
+  "scripts": {
+    "start": "babel-node authServer.js",
+    "dev": "nodemon authServer.js --exec babel-node"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-list-endpoints": "^7.1.0",
+    "mongoose": "^8.4.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^3.0.1"
+  }
+}
