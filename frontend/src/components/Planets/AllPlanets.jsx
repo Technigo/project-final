@@ -6,7 +6,7 @@ import venusImg from "../../assets/images/venus.png"
 import tellusImg from "../../assets/images/tellus.png"
 import marsImg from "../../assets/images/mars.png"
 import jupiterImg from "../../assets/images/jupiter.png"
-import saturnImg from "../../assets/images/saturn.png"
+import saturnImg from "../../assets/images/saturnNew.png"
 import uranusImg from "../../assets/images/uranus.png"
 import neptuneImg from "../../assets/images/neptune.png"
 import plutoImg from "../../assets/images/pluto.png"
@@ -56,20 +56,15 @@ const PlanetInfo = styled.p`
   justify-content: center;
   align-items: center;
   margin-bottom: 150px;
+  margin-top: 40px;
 
   &:hover {
     color: #cf4b14;
   }
-
-  ${(props) =>
-    props.isSaturn &&
-    `
-    margin-top: 80px; 
-  `}
 `
 
 const PlanetImage = styled.img`
-  width: ${(props) => (props.isSaturn ? "350px" : "200px")};
+  width: ${(props) => (props.isSaturn ? "450px" : "200px")};
 `
 
 export const AllPlanets = () => {

@@ -8,7 +8,7 @@ import leftArrow from "../../assets/icons/leftarrow.png"
 
 const BackLink = styled(NavLink)`
   position: absolute;
-  top: 20px;
+  top: 100px;
   left: 20px;
   color: var(--text-color-primary);
   text-decoration: none;
@@ -46,6 +46,7 @@ const CelestialPage = styled.div`
     font-weight: 300;
     text-align: center;
     margin-top: 0px;
+    color: #cf4b14;
   }
 `
 

@@ -32,7 +32,7 @@ const Description = styled.p`
 const Input = styled.input`
   font-family: "Roboto Mono", monospace;
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px 0 20px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 280px;
