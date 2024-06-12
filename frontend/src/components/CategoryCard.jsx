@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const category = [
   {
@@ -22,12 +23,15 @@ const category = [
 ];
 
 export const CategoryCard = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       {category.map((item) => (
         <div
           key={item.name}
-          className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
+          className="relative flex h-80 cursor-pointer items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
+          onClick={() => navigate(`/products?category=${item.name}`)}
         >
           <div
             className={`absolute inset-0 bg-${item.bgName} bg-cover bg-center`}

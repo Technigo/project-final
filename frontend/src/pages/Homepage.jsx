@@ -172,10 +172,10 @@ export const Homepage = () => {
             </div>
           ))} */}
           <CategoryCard />
-          <div className="bg-health hidden"></div>
+          {/* <div className="bg-health hidden"></div>
           <div className="bg-business hidden"></div>
           <div className="bg-color hidden"></div>
-          <div className="bg-travel hidden"></div>
+          <div className="bg-travel hidden"></div> */}
         </div>
       </section>
       <section className="mt-20 flex flex-col items-center gap-9 bg-light-blue py-14">
