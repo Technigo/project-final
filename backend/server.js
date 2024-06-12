@@ -294,7 +294,6 @@ app.post("/create-checkout-session", async (req, res) => {
           currency: "sek",
           product_data: {
             name: product.name,
-            description: product.description,
             images: [product.image_url],
           },
           unit_amount: product.price * 100, // price in cents
@@ -306,7 +305,7 @@ app.post("/create-checkout-session", async (req, res) => {
     const lineItems = await Promise.all(lineItemsPromises);
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
+      // payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
       success_url: `${process.env.VITE_CLIENT_URL}/success`,
