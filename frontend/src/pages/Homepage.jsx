@@ -105,12 +105,12 @@ export const Homepage = () => {
             >
               {filteredProducts.map((product) => (
                 <Link key={product._id} to={`/products/${product._id}`}>
-                <img
-                  key={product._id}
-                  src={product.image}
-                  alt={product.templateName}
-                  className="h-full w-full object-cover"
-                />
+                  <img
+                    key={product._id}
+                    src={product.image}
+                    alt={product.templateName}
+                    className="h-full w-full object-cover"
+                  />
                 </Link>
               ))}
             </Carousel>
@@ -166,12 +166,12 @@ export const Homepage = () => {
           />
         </div>
       </section>
-      <section className="my-20 flex flex-col items-center justify-center gap-6">
+      <section className="my-20 flex flex-col items-center justify-center gap-6 px-6">
         <h2 className="font-bold">By Categories</h2>
         <p className="font-lato">
           Explore our most popular products! Tried, tested, and loved by many.
         </p>
-        <div className="mt-8 grid w-full grid-cols-2 gap-6 px-6 lg:w-fit lg:grid-cols-[repeat(4,_minmax(0,_320px))] lg:gap-8">
+        <div className="mt-8 grid w-full grid-cols-1 gap-8 lg:w-fit lg:grid-cols-[repeat(4,_minmax(0,_320px))] lg:gap-8">
           {/* {category.map((item) => (
             <div
               key={item.name}
@@ -188,12 +188,12 @@ export const Homepage = () => {
         </div>
       </section>
       <section className="mt-20 flex flex-col items-center gap-9 bg-light-blue py-14">
-        <h2 className="font-bold">What Our Customers Say</h2>
+        <h2 className="mx-6 font-bold">What Our Customers Say</h2>
         <div className="mx-6 rounded-sm">
           <Testimonial />
         </div>
       </section>
-      <section className="flex h-[400px] flex-col items-center justify-center space-y-9 bg-[url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-bottom text-center text-white lg:h-[670px]">
+      <section className="px-6 h-[400px] flex flex-col items-center justify-center space-y-9 bg-[url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-bottom text-center text-white lg:h-[670px]">
         <p className="mb-5 font-montserrat font-bold">
           Explore our collection of customizable templates
         </p>
