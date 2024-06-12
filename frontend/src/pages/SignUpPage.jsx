@@ -44,6 +44,18 @@ export const SignUpPage = () => {
 
   const passwordRef = useRef();
 
+  const checkSection = () => {
+    if (activeSection === "sectionthree") {
+      return (
+        <img
+          className="bg-light-yellow w-full laptop:hidden"
+          src={swoopBottom}
+          alt="Section border"
+        />
+      );
+    }
+  };
+
   useEffect(() => {
     setAllergies(selectedAllergies);
   }, [selectedAllergies, setAllergies]);
@@ -652,11 +664,13 @@ export const SignUpPage = () => {
           </form>
         </section>
       )}
-      <img
+
+      {checkSection}
+      {/* <img
         className="bg-light-yellow w-full laptop:hidden"
         src={swoopBottom}
         alt="Section border"
-      />
+      /> */}
       <Footer aboveColor={"red"} />
     </>
   );
