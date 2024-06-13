@@ -10,8 +10,8 @@ import dataEn from "./data.en.json";
 import { GlimRoutes } from "./routes/GlimRoutes";
 
 /* dotenv.config(); */
-/* const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
-const stripePromise = loadStripe(apiKey); */
+const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = loadStripe(apiKey); 
 
 export const App = () => {
   const data = dataEn;

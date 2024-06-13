@@ -19,6 +19,7 @@ const CheckoutForm = ({ totalPrice }) => {
     price: totalPrice,
   };
 
+
   /* const calculateTotalCost = (item) => {
     const totalCost = item.quantity * item.product.price;
     const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
@@ -118,6 +119,11 @@ const CheckoutForm = ({ totalPrice }) => {
     await handlePayment(event, stripe, elements, product);
   };
 
+  const calculateTotalCost = (item) => {
+    const totalCost = item.quantity * item.product.price;
+    const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
+    return `${roundedPrice}`;
+  };
   // Then, you can pass this wrapper function to onSubmit
 
   console.log("Payment status:", paymentStatus);
@@ -150,7 +156,7 @@ const CheckoutForm = ({ totalPrice }) => {
                   <div className="max-w-max">
                     <div className="flex gap-6 tablet:justify-end">
                       <div className="flex h-6">
-                        <span className="bg-text-light text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
+                        <span className="bg-text-light rounded-full text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
                           {item.quantity}
                         </span>
                       </div>
@@ -167,12 +173,17 @@ const CheckoutForm = ({ totalPrice }) => {
             ))}
         </ul>
       </div>
-      <p>{product.description}</p>
-      <p>Price: EUR {product.price}</p>
-      <CardElement options={cardElementOptions} />
-      <button type="submit" disabled={!stripe || isLoading}>
-        {isLoading ? "Processing..." : "Buy Now"}
-      </button>
+      <div className="flex flex-col items-end">
+        <p>Price: EUR {product.price}</p>
+        <CardElement options={cardElementOptions} />
+        <button
+          type="submit"
+          className="bg-cta-blue rounded-full px-5 p-2"
+          disabled={!stripe || isLoading}
+        >
+          {isLoading ? "Processing..." : "Buy Now"}
+        </button>
+      </div>
 
       <div
    className={`payment-status ${

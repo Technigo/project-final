@@ -9,10 +9,6 @@ import { NavLink } from "react-router-dom";
 import CheckoutForm from "../components/CheckoutForm";
 import { useProductsStore } from "../store/useProductsStore";
 
-/* dotenv.config(); */
-const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
-const stripePromise = loadStripe(apiKey);
-
 export const ShoppingCart = () => {
   const {
     shoppingCart,
@@ -23,6 +19,11 @@ export const ShoppingCart = () => {
   } = useProductsStore();
   const [newQuantity, setNewQuantity] = useState(0);
   const recommended = false;
+  const [checkout, setCheckout] = useState(false);
+
+  /* dotenv.config(); */
+  const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+  const stripePromise = loadStripe(apiKey);
 
   const handleIncrement = (prevQuantity, id) => {
     setNewQuantity((currentQuantity) => {
@@ -48,6 +49,10 @@ export const ShoppingCart = () => {
     const totalCost = item.quantity * item.product.price;
     const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
     return `${roundedPrice}`;
+  };
+
+  const openCheckout = () => {
+    setCheckout(!checkout);
   };
 
   console.log("shopping cart :", shoppingCart);
@@ -166,12 +171,23 @@ export const ShoppingCart = () => {
             </h3>
           </div>
         )}
-        <div className="font-body text-text-light">
-          <h1>Stripe Payment Integration</h1>
-          <Elements stripe={stripePromise}>
-            <CheckoutForm totalPrice={totalPrice} />
-          </Elements>
-        </div>
+      </div>
+      <div className="flex flex-col w-3/4 m-auto">
+        <button
+          onClick={openCheckout}
+          className="bg-cta-blue text-text-light text-sm p-5 px-10 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:m-0 tablet:mb-8 tablet:ml-auto gap-2"
+        >
+          {checkout ? <ImCross /> : "Checkout!"}
+        </button>
+        {checkout ? (
+          <div className="font-body text-text-light">
+            <h1>Stripe Payment Integration</h1>
+            <Elements stripe={stripePromise}>
+              <CheckoutForm totalPrice={totalPrice}/>
+            </Elements>
+          </div>
+        ) : null}
+
       </div>
     </section>
   );
