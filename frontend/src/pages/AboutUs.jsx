@@ -19,7 +19,7 @@ export const AboutUs = () => {
           We are the ones that made this crazy website. It was made during three weeks as a final
           project for the Technigo bootcamp.
         </p>
-        <p className="font-body my-4">If you are interested in getting in contact with us you van do so below.</p>
+        <p className="font-body my-4">If you are interested in getting in contact with us you can do so below.</p>
         <div className="flex m-10 justify-around">
           <div>
             <img
