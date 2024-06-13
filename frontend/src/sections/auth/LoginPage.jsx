@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../../styling/sectionsStyling/authPages/AuthPages.css";
-import { LOGIN_URL } from "../../apis/authApi";
+// import { LOGIN_URL } from "../../apis/authApi";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const LoginPage = () => {
       return;
     }
     try {
-      const response = await axios.post(LOGIN_URL, {
+      const response = await axios.post("http://localhost:8080/api/login", {
         email,
         password,
       });

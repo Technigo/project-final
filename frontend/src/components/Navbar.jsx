@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import "../styling/componentsStyling/Navbar.css";
 
 const Navbar = () => {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   return (
     <nav className="navbar">

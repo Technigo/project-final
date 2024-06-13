@@ -15,6 +15,14 @@ const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/auth-users";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
+mongoose.connection.on("Error", (err) => {
+  console.error("MongoDB connection error", err);
+});
+
+mongoose.connection.once("open", () => {
+  console.log("MongoDB connected");
+});
+
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
@@ -35,19 +43,29 @@ app.get("/", (req, res) => {
 app.post("/api/register", async (req, res) => {
   const { name, email, password } = req.body;
 
+  console.log("Received request body:", req.body);
+
+  if (!name || !email || !password) {
+    console.error("Missing fields in request body:", req.body);
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
   try {
     // Check if user with the same email already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
+      console.log("User already exists with email:", email);
       return res.status(400).json({ error: "User already exists" });
     }
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log("Password hashed successfully");
 
     // Create new user
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
+    console.log("User registered successfully");
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
@@ -59,11 +77,13 @@ app.post("/api/register", async (req, res) => {
 // Login endpoint
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log("Received login request:", req.body);
 
   try {
     // check if user exists
     const user = await User.findOne({ email });
     if (!user) {
+      console.log("User not found with email");
       return res.status(404).json({ error: "User not found" });
     }
 

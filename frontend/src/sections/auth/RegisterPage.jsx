@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "../../styling/sectionsStyling/authPages/AuthPages.css";
 import { useNavigate } from "react-router-dom";
-import { REGISTER_URL } from "../../apis/authApi";
+// import { REGISTER_URL } from "../../apis/authApi";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
@@ -20,7 +20,7 @@ const RegisterPage = () => {
       return;
     }
     try {
-      const response = await axios.post(REGISTER_URL, {
+      const response = await axios.post("http://localhost:8080/api/register", {
         name,
         email,
         password,
