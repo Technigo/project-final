@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams, Navigate, Link } from "react-router-dom"
 import { IoRestaurantOutline } from "react-icons/io5"
 import { BackButton } from "../components/BackButton"
@@ -8,21 +8,50 @@ import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
 import { MuseumMap } from "../components/MuseumMap"
 
-import museumList from "../../../backend/data/museums.json"
 import StyledButton from "../components/styled/Button.styled"
 import { getOptimizedUrl } from "../util/UrlUtil"
 
 export const DetailPage = () => {
   const { authState } = useContext(AuthContext)
   const { isAuthenticated } = authState
+  const [museum, setMuseum] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  const params = useParams()
+  const museumId = params.slug
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [])
 
-  const params = useParams()
-  const museumId = params.slug
-  const museum = museumList.find((museum) => museum.id === +museumId)
+  useEffect(() => {
+    const fetchMuseum = async () => {
+      try {
+        const response = await fetch("https://museek-2ejb.onrender.com/museums")
+        if (!response.ok) {
+          throw new Error("Failed to fetch data")
+        }
+        const data = await response.json()
+        const foundMuseum = data.find((museum) => museum.id === +museumId)
+        setMuseum(foundMuseum)
+        setLoading(false)
+      } catch (err) {
+        setError(err.message)
+        setLoading(false)
+      }
+    }
+
+    fetchMuseum()
+  }, [museumId])
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
 
   if (!museum) {
     return <Navigate to="/not-found" />
@@ -220,7 +249,7 @@ const TextContainer = styled.div`
 `
 
 const Title = styled.h3`
-  font-size: 32px;
+  font-size: 30px;
   margin: 18px 0;
   padding-right: 50px;
 `

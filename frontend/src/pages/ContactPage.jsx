@@ -83,7 +83,7 @@ const StyledContactPage = styled.div`
   text-align: center;
 
   h3 {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
     color: #333;
   }

@@ -45,7 +45,7 @@ const Content = styled.div`
   margin-top: 20px;
 
   h3 {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
     color: #007bff;
   }

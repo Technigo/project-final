@@ -1,7 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-import { MuseumCard } from "./MuseumCard";
-import styled from "styled-components";
+import { MuseumCard } from "./MuseumCard"
+import styled from "styled-components"
 
 const LikedMuseumCardGrid = styled.div`
   display: grid;
@@ -9,13 +7,10 @@ const LikedMuseumCardGrid = styled.div`
   grid-gap: 10px;
 `
 
-const LikedMuseums = ({likedMuseumsData}) => {
-  const { authState } = useContext(AuthContext);
-  const { accessToken } = authState;
-
+export const LikedMuseums = ({ likedMuseumsData }) => {
   return (
     <>
-      <h3>Liked museums</h3>
+      <h3>Your saved museums</h3>
       {likedMuseumsData.length > 0 ? (
         <LikedMuseumCardGrid>
           {likedMuseumsData.map((likedMuseum) => (
@@ -28,5 +23,3 @@ const LikedMuseums = ({likedMuseumsData}) => {
     </>
   )
 }
-
-export default LikedMuseums

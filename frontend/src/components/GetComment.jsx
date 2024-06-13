@@ -1,5 +1,6 @@
 import moment from "moment"
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 import { useContext, useState } from "react"
 import { RxCross2 } from "react-icons/rx"
 import { AuthContext } from "../contexts/AuthContext"
@@ -57,7 +58,17 @@ export const GetComment = ({ comments, showMuseumName, hideDeleteBtn }) => {
                   starSpacing="3px"
                 />
               </div>
-              <p>{showMuseumName ? comment.museumName : comment.userName}</p>
+              {showMuseumName ? (
+                <p>
+                  <LinkContainer>
+                    <Link to={`/${comment.museumId}`} key={comment.museumId}>
+                      {comment.museumName}
+                    </Link>
+                  </LinkContainer>
+                </p>
+              ) : (
+                <p>{comment.userName}</p>
+              )}{" "}
             </Comment>
           )
       )}
@@ -98,5 +109,19 @@ const StyledRxCrossIcon = styled(RxCross2)`
 
   &:hover {
     color: red;
+  }
+`
+const LinkContainer = styled.div`
+  a {
+    color: black;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: black;
   }
 `
