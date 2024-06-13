@@ -31,14 +31,13 @@ export const Profile = () => {
   const fetchProfile = async () => {
     try {
       const profileData = await getProfile();
-      console.log("Fetched profile data:", profileData);
       setUserData({
         username: profileData.username || "",
         name: profileData.name || "",
         bio: profileData.bio || "",
         hobby: profileData.hobby || "",
       });
-      setRole(profileData.role || ""); // Set role separately
+      setRole(profileData.role || "");
     } catch (error) {
       console.error("Error fetching profile:", error);
       if (error.response?.status === 401) {
@@ -72,9 +71,7 @@ export const Profile = () => {
     setNotification("");
 
     try {
-      console.log("Updating profile with data:", userData); //debug
       const updatedData = await updateProfile(userData);
-      console.log("Updated profile data:", updatedData); // Debug log
       setUserData(updatedData);
       setEditMode(false);
       setNotification("Profile updated successfully!");
@@ -87,12 +84,9 @@ export const Profile = () => {
   };
 
   const handleLogout = () => {
-    console.log("Logging out");
     logout();
-    console.log("Token after logout:", localStorage.getItem("authToken"));
     navigate("/", { replace: true });
     window.location.reload();
-    console.log("Navigated to home");
   };
 
   if (loading) {
@@ -130,9 +124,6 @@ export const Profile = () => {
               <h1 className="text-2xl font-bold mb-2">
                 Hello, {userData.name || userData.username}
               </h1>
-              {/*   {userData.name && (
-                <p className="text-secondary">Nickname: {userData.name}</p>
-              )} */}
               <p className="text-secondary">Role: {role || "User"}</p>
               <p className="text-secondary">Bio: {userData.bio || ""}</p>
               <p className="text-secondary">I like: {userData.hobby || ""}</p>

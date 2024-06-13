@@ -29,7 +29,6 @@ export const AuthForm = ({ type, onSuccess }) => {
       hideModal();
       onSuccess();
     } catch (error) {
-      console.error("Authentication error:", error); // Debug log
       setError(
         error.response?.data?.message ||
           "An error occurred during the authentication process."
