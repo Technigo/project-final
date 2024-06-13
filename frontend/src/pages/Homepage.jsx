@@ -11,7 +11,6 @@ import pen from "../assets/pen-icon.svg";
 import { Button } from "../components/Button";
 import { Testimonial } from "../components/Testimonial";
 import { CategoryCard } from "../components/CategoryCard";
-import { Loading } from "../components/Loading";
 
 // const category = [
 //   {
@@ -34,10 +33,9 @@ import { Loading } from "../components/Loading";
 
 export const Homepage = () => {
   // Getting product data for carosel
-  const { products, getAllProducts, loading } = useProductStore((state) => ({
+  const { products, getAllProducts } = useProductStore((state) => ({
     products: state.products,
     getAllProducts: state.getAllProducts,
-    loading: state.loading,
   }));
 
   useEffect(() => {
@@ -71,9 +69,6 @@ export const Homepage = () => {
 
   return (
     <main>
-      {loading ? (
-        <Loading />
-      ) : (
         <>
           <section className="flex h-[500px] flex-col items-center justify-center gap-7 bg-[url('/src/assets/heroBg.jpg')] bg-cover bg-right-top bg-no-repeat">
             <h1 className="w-3/4 px-2 text-center font-bold">
@@ -217,7 +212,6 @@ export const Homepage = () => {
             <Button text="LOG IN" navTo="login" />
           </section>
         </>
-      )}
     </main>
   );
 };

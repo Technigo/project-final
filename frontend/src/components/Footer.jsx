@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "./Button";
-import { Loading } from "./Loading";
 import dropdown from "../assets/dropdown.svg";
 import { useProductStore } from "../stores/useProductStore";
 import Lottie from "lottie-react";
@@ -12,7 +11,6 @@ export const Footer = () => {
   const [accountIsOpen, setAccountIsOpen] = useState(false);
   const [customerIsOpen, setCustomerIsOpen] = useState(false);
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
-  const [loadingCategories, setLoadingCategories] = useState(false);
 
   const categories = useProductStore((state) => state.categories);
 
@@ -43,24 +41,20 @@ export const Footer = () => {
           onClick={toggelShop}
         >
           <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">SHOP</h4>
-          <img src={dropdown} alt="dropdown icon" className="h-2 self-center" />
+          <img src={dropdown} className="h-2 self-center" />
         </button>
         {shopIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
-            {loadingCategories ? (
-              <Loading />
-            ) : (
-              categories.map((category, index) => (
-                <li key={index}>
-                  <NavLink
-                    to={`/products?category=${category}`}
-                    className="cursor-pointer"
-                  >
-                    {category}
-                  </NavLink>
-                </li>
-              ))
-            )}
+            {categories.map((category, index) => (
+              <li key={index}>
+                <NavLink
+                  to={`/products?category=${category}`}
+                  className="cursor-pointer"
+                >
+                  {category}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         )}
       </div>
@@ -72,7 +66,7 @@ export const Footer = () => {
           <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">
             MY ACCOUNT
           </h4>
-          <img src={dropdown} alt="dropdown icon" className="h-2 self-center" />
+          <img src={dropdown} className="h-2 self-center" />
         </button>
         {accountIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
@@ -92,7 +86,7 @@ export const Footer = () => {
           <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">
             CUSTOMER SERVICE
           </h4>
-          <img src={dropdown} alt="dropdown icon" className="h-2 self-center" />
+          <img src={dropdown} className="h-2 self-center" />
         </button>
         {customerIsOpen && (
           <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
@@ -109,7 +103,7 @@ export const Footer = () => {
           <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">
             ABOUT US
           </h4>
-          <img src={dropdown} alt="dropdown icon" className="h-2 self-center" />
+          <img src={dropdown} className="h-2 self-center" />
         </button>
         {aboutIsOpen && (
           <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
