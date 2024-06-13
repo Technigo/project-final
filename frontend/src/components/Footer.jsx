@@ -2,9 +2,10 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "./Button";
 import { Loading } from "./Loading";
-
 import dropdown from "../assets/dropdown.svg";
 import { useProductStore } from "../stores/useProductStore";
+import Lottie from "lottie-react";
+import toTop from "../assets/animation/lottie-to-top.json";
 
 export const Footer = () => {
   const [shopIsOpen, setShopIsOpen] = useState(false);
@@ -35,7 +36,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="inset-x-0 bottom-0 flex flex-col items-center bg-blue pt-6 font-montserrat leading-9 text-white">
+    <footer className="relative inset-x-0 bottom-0 flex flex-col items-center bg-blue pb-12 pt-10 font-montserrat leading-9 text-white">
       <div>
         <button
           className="ml-3 flex w-[300px] flex-row justify-between border-b"
@@ -121,14 +122,26 @@ export const Footer = () => {
         )}
       </div>
       <div>
-        <h1 className="py-7 text-center font-poppins text-5xl font-bold tracking-wider">
+        <h1 className="pt-10 text-center font-poppins text-5xl font-bold tracking-wider">
           Webify
         </h1>
-        <p className="py-7 text-center font-lato text-xs">
+        <p className="py-10 text-center font-lato text-xs">
           Copyright 2024 © Wen Z & Sofie FS & Mai K <br /> Technigo Bootcamp
           Final Project
         </p>
       </div>
+      <Lottie
+        animationData={toTop}
+        loop={true}
+        className="absolute bottom-3 right-3 h-16 w-16 cursor-pointer lg:bottom-6 lg:right-6 lg:h-20 lg:w-20"
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+        title="Back to top"
+      />
     </footer>
   );
 };

@@ -25,6 +25,7 @@ export const Checkout = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     formState: { isSubmitting, isDirty, isValid }, // check if data fulfills the requirements and filled
   } = useForm();
@@ -39,12 +40,33 @@ export const Checkout = () => {
   } finally {
     loading(false)
   }
+  };
+  const fillDummyData = () => {
+    reset(
+      {
+        firstName: "Alice",
+        lastName: "Test",
+        email: "customer@email.se",
+        phone: "+46701740615",
+        address: "Södra Blasieholmshamnen 2",
+        zipCode: "11 148",
+        city: "Stockholm",
+        country: "SE",
+        cardHolder: "Alice Test",
+        cardNumber: "4111 1111 1111 1111",
+        expiry: "12/28",
+        cvc: "123",
+      },
+      { keepTouched: false },
+      // { keepIsSubmitted: true, keepDirtyValues: false },
+    );
+  };
   return (
     <div>
       <Breadcrumb />
       <form
         className="mx-auto my-4 flex w-fit flex-col items-center gap-8 text-center"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="font-bold">Checkout</h1>
         <h2 className="w-3/4 text-xl">
@@ -83,10 +105,15 @@ export const Checkout = () => {
 
         <div className="flex flex-col items-center gap-8">
           <Button
+            text="Use Dummy Data"
+            type="button"
+            onClickFunc={fillDummyData}
+          />
+          <Button
             text="PAY NOW"
             onClickFunc={handleSubmit(onSubmit)}
             navTo="/order-confirmation"
-            disabled={cart.length === 0 || !isDirty || !isValid}
+            disabled={cart.length === 0 || !isValid}
           />
           <Button
             text="CONTINUE SHOPPING"

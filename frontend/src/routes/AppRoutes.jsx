@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
+import { AboutUs } from "../pages/AboutUs";
 import { Cart } from "../pages/Cart";
 import { Checkout } from "../pages/Checkout";
 import { Homepage } from "../pages/Homepage";
@@ -10,9 +11,9 @@ import { OrderConfirmation } from "../pages/OrderConfirmation";
 import { ProductDetail } from "../pages/ProductDetail";
 import { ProductList } from "../pages/ProductList";
 import { Signup } from "../pages/Signup";
-import { AboutUs } from "../pages/AboutUs";
+import { ProtectedRoute } from "./ProtectedRoute";
 
-export const AppRoute = () => {
+export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
@@ -20,12 +21,15 @@ export const AppRoute = () => {
       <Route path="/products/:Id" element={<ProductDetail />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/mypage" element={<MyPage />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/order-confirmation" element={<OrderConfirmation />} />
-      <Route path="/checkout" element={<Checkout />} />
+
       <Route path="/not-found" element={<NotFound />} />
       <Route path="/about-us" element={<AboutUs />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/mypage" element={<MyPage />} />
+      </Route>
     </Routes>
   );
 };
