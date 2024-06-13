@@ -7,7 +7,7 @@ import { FavoriteButton } from "../components/FavoriteButton"
 import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
 import { MuseumMap } from "../components/MuseumMap"
-
+import { LoginModal } from "../components/LoginModal"
 import StyledButton from "../components/styled/Button.styled"
 import { getOptimizedUrl } from "../util/UrlUtil"
 
@@ -17,6 +17,7 @@ export const DetailPage = () => {
   const [museum, setMuseum] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [isModalOpen, setModalOpen] = useState(false)
 
   const params = useParams()
   const museumId = params.slug
@@ -63,7 +64,7 @@ export const DetailPage = () => {
       : "Buy ticket"
 
   return (
-    <Container>
+    <Container className={isModalOpen ? 'blurred' : ''}>
       <Background />
       <ImageContainerPhone>
         <BackButton />
@@ -128,8 +129,12 @@ export const DetailPage = () => {
             </>
           ) : (
             <p>
-              <Link to={"/login"}>Log in</Link> to leave a review or read what
-              visitors liked about this museum.
+              <span
+                onClick={() => setModalOpen(true)}
+                style={{ cursor: "pointer", color: "blue" }}>
+                Log in
+              </span>{" "}
+              to leave a review or read what visitors liked about this museum.
             </p>
           )}
         </CommentContainer>
@@ -139,6 +144,13 @@ export const DetailPage = () => {
           center={[museum.lat, museum.lon]}
         />
       </ContentContainer>
+      <LoginModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setModalOpen(false)}
+        onLoginSuccess={() => {
+          setModalOpen(false)
+        }}
+      />
     </Container>
   )
 }
@@ -150,6 +162,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  &.blurred {
+    filter: blur(5px);
+  }
 
   @media (min-width: 768px) {
     padding-top: 80px;

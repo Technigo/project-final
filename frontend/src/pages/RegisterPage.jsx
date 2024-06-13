@@ -114,6 +114,12 @@ export const RegisterPage = () => {
               <StyledButton className="full-width" type="submit">
                 Register
               </StyledButton>
+              <RedirectMessage>
+                <p>
+                  Are you already part of the community? Log in{" "}
+                  <StyledLink to="/login"> here</StyledLink>
+                </p>{" "}
+              </RedirectMessage>
             </form>
 
             {loading ? (
@@ -151,4 +157,13 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
+`
+const RedirectMessage = styled.div`
+  a {
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `

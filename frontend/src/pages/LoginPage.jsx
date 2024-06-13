@@ -8,7 +8,7 @@ import InputBox from "../components/styled/InputBox.styled.jsx"
 import { LogoutButton } from "../components/LogoutButton"
 import styled from "styled-components"
 
-export const LoginPage = () => {
+export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errorMessage, setErrorMessage] = useState(null)
@@ -35,7 +35,12 @@ export const LoginPage = () => {
       if (response.ok) {
         //Login the user and navigate to login page
         login(data.user, data.accessToken)
-        navigate("/user-page")
+
+        if (redirectOnLogin) {
+          navigate("/user-page")
+        } else if (onLoginSuccess) {
+          onLoginSuccess()
+        }
       } else {
         if (response.status === 400) {
           setErrorMessage("Incorrect password, try again")
@@ -88,6 +93,12 @@ export const LoginPage = () => {
               <StyledButton className="full-width" type="submit">
                 Log in
               </StyledButton>
+              <RedirectMessage>
+                <p>
+                  Don't have profile yet? Register{" "}
+                  <Link to="/register">here</Link>
+                </p>
+              </RedirectMessage>
             </form>
 
             {loading ? (
@@ -112,4 +123,14 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
+`
+
+const RedirectMessage = styled.div`
+  a {
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const InputBox = styled.div`
   background: #83828b;
@@ -16,6 +16,6 @@ const InputBox = styled.div`
     padding: 2px 8px;
     font-size: 15px;
   }
-`;
+`
 
-export default InputBox;
+export default InputBox
