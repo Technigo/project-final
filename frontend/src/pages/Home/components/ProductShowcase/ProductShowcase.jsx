@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Image } from "../../../../common/ReusableComponents/Image/Image";
+import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -70,6 +71,11 @@ export const ProductShowcase = () => {
         "https://res.cloudinary.com/dftguo4fa/image/upload/c_fill,ar_1:1,g_auto/v1716975476/openart-image_CpTkYdts_1716974741673_raw_ybgqhu.jpg",
     },
   ];
+
+  useEffect(() => {
+    const clonedSlides = document.querySelectorAll(".slick-cloned a");
+    clonedSlides.forEach((link) => link.setAttribute("tabindex", "-1"));
+  }, []);
 
   return (
     <section className="carousel-container">
