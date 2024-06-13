@@ -29,8 +29,10 @@ export const useUserStore = create(
       signedUp: false,
       loadingUser: false,
       loggedIn: false,
-      logOut: false,
+      showWelcomePopup: false,
+      loggedOut: false,
       automaticLogOut: false,
+     
 
       //Functions to update userInfo
       setFirstName: (Input) => set({ firstName: Input }),
@@ -44,9 +46,12 @@ export const useUserStore = create(
       // setHairShape: (Input) => set({ hairShape: Input }),
       // setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
-      setSignedUp: (input) => set({ signedUp: input}),
-      setLogOut: (input) => set({ logOut: input }),
-      //add setLogout in profile page to display logout message
+      //messages
+      setSignedUp: (input) => set({ signedUp: input }),
+      setShowWelcomePopup: (input) => set({ showWelcomePopup: input }),
+      setLoggedOut: (input) => set({ loggedOut: input }),
+      setAutomaticLogOut: (input) => set({ automaticLogOut: false }),
+
 
       //Register user
       registerUser: async (
@@ -118,6 +123,7 @@ export const useUserStore = create(
           set({
             user: data,
             loggedIn: true,
+            showWelcomePopup: true,
           });
         } catch (error) {
           console.error("error:", error);
@@ -203,6 +209,7 @@ export const useUserStore = create(
           userId: "",
           accessToken: "",
           loggedIn: false,
+          loggedOut: true,
         });
       },
     }),
