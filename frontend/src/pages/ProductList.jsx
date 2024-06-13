@@ -36,24 +36,19 @@ export const ProductList = () => {
   const [sortCategory, setSortCategory] = useState(
     searchParams.get("category") || "",
   );
-  const [sortTag, setSortTag] = useState(searchParams.get("sortTag") || "");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
   const [displayedProducts, setDisplayedProducts] = useState(products);
-  // useEffect
-  useEffect(() => {
-    !products && getAllProducts();
-  }, [getAllProducts, products, displayedProducts, itemsPerPage, currentPage]);
 
+  //tag
+  const tag = searchParams.get("tag");
   // Pagination
   const updateSearchParams = (paramName, value) => {
     // Add the new query param value to the queryString
     searchParams.set(paramName, value);
-
     // Enqueue navigation action that updates the queryString
     setSearchParams(searchParams);
-    console.log(Object.fromEntries([...searchParams]));
   };
 
   // Pagination function
@@ -62,17 +57,23 @@ export const ProductList = () => {
       setCurrentPage(pageNumber);
     }
   };
+  // useEffect 1: fetch products if null
+  useEffect(() => {
+    !products && getAllProducts();
+  }, [getAllProducts, products, displayedProducts, itemsPerPage, currentPage]);
 
+  // useEffect 2: set current page as 1 when category, sort by and search fields change
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTemplate, sortType, sortCategory]);
 
+  // useEffect 3: filter the products based on the user actions
   useEffect(() => {
     const filterProducts = () => {
       let finalProduct = products;
-      if (sortTag) {
+      if (tag) {
         finalProduct = finalProduct.filter((product) =>
-          product.tags.split(", ").includes(sortTag),
+          product.tags.split(", ").includes(tag),
         );
       }
       if (sortCategory) {
@@ -108,7 +109,7 @@ export const ProductList = () => {
     };
     filterProducts();
   }, [
-    sortTag,
+    tag,
     sortCategory,
     sortType,
     searchTemplate,
@@ -117,11 +118,6 @@ export const ProductList = () => {
     currentPage,
     setTotalPages,
   ]);
-
-  // if (sortTag) {
-  //   setDisplayedProducts(displayedProducts.filter(product => product.tags.split(", ").includes(sortTag)))
-  //   setSortTag
-  // }
 
   if (loading) {
     return <Loading />;
@@ -135,7 +131,6 @@ export const ProductList = () => {
           <h1 className="my-10 font-poppins font-bold lg:my-20">
             Shop our templates
           </h1>
-
           <div className="mb-10 flex flex-col items-center lg:w-full lg:flex-row lg:justify-between">
             <div className="flex gap-4 pb-6 lg:pb-0">
               <div className="border border-blue p-2">
@@ -155,7 +150,6 @@ export const ProductList = () => {
                   ))}
                 </select>
               </div>
-
               <div className="border border-blue p-2">
                 <select
                   className="max-w-[110px] font-montserrat text-sm text-blue"

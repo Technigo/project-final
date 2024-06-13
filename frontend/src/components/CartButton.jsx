@@ -13,7 +13,6 @@ export const CartButton = ({ id, setOpenDrawer }) => {
   const isInCart = cart.includes(id);
 
   const handleCartItem = () => {
-    console.log({ accessToken, isInCart });
     if (!accessToken) {
       setOpenDrawer(true);
     } else {

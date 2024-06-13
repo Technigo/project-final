@@ -9,7 +9,6 @@ import { Error } from "../components/Error";
 export const ProductDetail = () => {
   const { getSingleProduct, loading, error, product } = useProductStore();
   const { Id } = useParams();
-  console.log("Id:", Id);
 
   useEffect(() => {
     getSingleProduct(Id);

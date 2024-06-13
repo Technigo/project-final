@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+// import { useProductStore } from "../stores/useProductStore";
 
 export const TagButton = ({ tags }) => {
+  // const { setTag } = useProductStore((state) => state.setTag);
   const navigate = useNavigate();
   const handleTagClick = (tag) => {
     navigate(`/products?tag=${tag}`);
@@ -12,7 +14,9 @@ export const TagButton = ({ tags }) => {
         <button
           key={tag}
           className="mr-2 text-sm text-blue lg:text-xs"
-          onClick={() => handleTagClick(tag)}
+          onClick={() => {
+            handleTagClick(tag);
+          }}
         >
           #{tag}
         </button>

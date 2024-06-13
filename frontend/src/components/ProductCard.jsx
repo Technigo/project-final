@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { HeartButton } from "./HeartButton";
 import { CartButton } from "./CartButton";
-import { SideDrawer } from "./SideDrawer";
 import { TagButton } from "./TagButton";
 import { CategoryButton } from "./CategoryButton";
 
@@ -14,9 +12,8 @@ export const ProductCard = ({
   name,
   price,
   category,
-  setOpenDrawer
+  setOpenDrawer,
 }) => {
-
   return (
     <div className="flex flex-col">
       <Link to={`/products/${id}`} className="text-black no-underline">
@@ -34,6 +31,7 @@ export const ProductCard = ({
             style="h-8 w-8"
             id={id}
             setOpenDrawer={setOpenDrawer}
+            aria-label="like the product"
           />
           <CartButton id={id} setOpenDrawer={setOpenDrawer} />
         </div>
@@ -49,5 +47,5 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
-  setOpenDrawer: PropTypes.func
+  setOpenDrawer: PropTypes.func,
 };

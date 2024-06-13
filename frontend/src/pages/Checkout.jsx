@@ -21,8 +21,7 @@ export const Checkout = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-    formState: { isSubmitting, isDirty, isValid }, // check if data fulfills the requirements and filled
+    formState: { isValid }, // check if data fulfills the requirements
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
