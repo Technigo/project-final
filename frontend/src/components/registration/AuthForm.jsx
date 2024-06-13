@@ -10,6 +10,7 @@ export const AuthForm = ({ type, onSuccess }) => {
   const passwordInputRef = useRef(null);
   const [error, setError] = useState(null);
   const [role, setRole] = useState("Listener");
+  const [loading, setLoading] = useState(false);
 
   const handleRoleChange = (e) => {
     setRole(e.target.value);
@@ -19,6 +20,9 @@ export const AuthForm = ({ type, onSuccess }) => {
     e.preventDefault();
     const username = usernameInputRef.current.value;
     const password = passwordInputRef.current.value;
+
+    setLoading(true);
+    setError(null);
 
     try {
       if (formMode === "signup") {
@@ -33,6 +37,8 @@ export const AuthForm = ({ type, onSuccess }) => {
         error.response?.data?.message ||
           "An error occurred during the authentication process."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -61,6 +67,7 @@ export const AuthForm = ({ type, onSuccess }) => {
               aria-label="Username"
               placeholder="Username"
               ref={usernameInputRef}
+              disabled={loading}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <input
@@ -68,6 +75,7 @@ export const AuthForm = ({ type, onSuccess }) => {
               aria-label="Password"
               placeholder="Password"
               ref={passwordInputRef}
+              disabled={loading}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
             {formMode === "signup" && (
@@ -77,6 +85,7 @@ export const AuthForm = ({ type, onSuccess }) => {
                   aria-label="Select role"
                   value={role}
                   onChange={handleRoleChange}
+                  disabled={loading}
                   className="block w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="Listener">Listener</option>
@@ -86,9 +95,14 @@ export const AuthForm = ({ type, onSuccess }) => {
             )}
             <button
               type="submit"
+              disabled={loading}
               className="bg-primary text-light px-4 py-2 rounded hover:bg-secondary w-full"
             >
-              {formMode === "signup" ? "Sign Up" : "Log In"}
+              {loading
+                ? "Processing..."
+                : formMode === "signup"
+                ? "Sign Up"
+                : "Log In"}
             </button>
           </form>
           <p className="mt-4 text-center md:text-left">
@@ -100,6 +114,7 @@ export const AuthForm = ({ type, onSuccess }) => {
                 setFormMode(formMode === "signup" ? "login" : "signup")
               }
               className="text-primary underline focus:outline-none"
+              disabled={loading}
             >
               {formMode === "signup" ? "Login" : "Sign Up"}
             </button>
