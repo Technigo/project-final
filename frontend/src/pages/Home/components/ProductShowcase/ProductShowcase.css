@@ -16,7 +16,7 @@
 }
 
 .slick-next {
-  right: 20px;
+  right: 40px;
   z-index: 1;
 }
 
@@ -27,4 +27,8 @@
 
 .slick-next:hover:before {
   opacity: 1;
+}
+
+.slick-prev:before {
+  font-size: 40px;
 }
