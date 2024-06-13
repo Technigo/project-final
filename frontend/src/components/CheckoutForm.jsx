@@ -8,8 +8,8 @@ const CheckoutForm = ({ totalPrice }) => {
     useProductsStore();
   const stripe = useStripe();
   const elements = useElements();
-  /*   const [paymentStatus, setPaymentStatus] = useState("");
-  const [isLoading, setIsLoading] = useState(false); */
+  // const [paymentStatus, setPaymentStatus] = useState("");
+  const [showMessage, setShowMessage] = useState(false); 
 
   console.log("totalprice in checkoutform: ", totalPrice);
   // Define the product details
@@ -18,80 +18,6 @@ const CheckoutForm = ({ totalPrice }) => {
     /* description: "High-quality cotton t-shirt", */
     price: totalPrice,
   };
-
-
-  /* const calculateTotalCost = (item) => {
-    const totalCost = item.quantity * item.product.price;
-    const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
-    return `${roundedPrice}`;
-  }; */
-
-  /* const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!stripe || !elements) {
-      console.error("Stripe.js has not loaded yet.");
-      return;
-    }
-
-    const cardElement = elements.getElement(CardElement);
-    setIsLoading(true);
-
-    try {
-      const response = await fetch(
-        "https://project-final-glim.onrender.com/stripe/create-payment-intent",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            amount: product.price * 100, // Convert price to cents
-            productName: product.name,
-            productDescription: product.description,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-      console.log("Response from server:", data);
-
-      const { clientSecret } = data;
-
-      const result = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: cardElement,
-        },
-      });
-
-      if (result.error) {
-        console.error(result.error.message);
-        setPaymentStatus(result.error.message);
-      } else {
-        if (result.paymentIntent.status === "succeeded") {
-          console.log("Payment succeeded!");
-          setPaymentStatus("Payment successful!");
-        } else {
-          console.error(
-            "Unexpected payment status:",
-            result.paymentIntent.status
-          );
-          setPaymentStatus(
-            `Unexpected payment status: ${result.paymentIntent.status}`
-          );
-        }
-      }
-    } catch (error) {
-      console.error("Error during payment:", error);
-      setPaymentStatus(`Error: ${error.message}`);
-    }
-
-    setIsLoading(false);
-  }; */
 
   const cardElementOptions = {
     style: {
@@ -116,7 +42,9 @@ const CheckoutForm = ({ totalPrice }) => {
   // }
 
   const handleSubmit = async (event) => {
+
     await handlePayment(event, stripe, elements, product);
+        setShowMessage(true);
   };
 
   const calculateTotalCost = (item) => {
@@ -130,8 +58,34 @@ const CheckoutForm = ({ totalPrice }) => {
 
   return (
     <form onSubmit={handleSubmit} className="checkout-form">
+     
+      <div className="bg-main-white text-text-dark max-w-[500px] mx-auto max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm ">
+        <p className="text-2xl my-2">Price: € {product.price}</p>
+        <p>Enter your card details to order:</p>
+        <CardElement options={cardElementOptions} />
+        <button
+          type="submit"
+          className="bg-cta-blue text-text-light m-auto w-full mt-8 rounded-full px-5 p-2"
+          disabled={!stripe || isLoading}
+        >
+          {isLoading ? "Processing..." : "Buy Now"}
+        </button>
+        {showMessage ?    <div
+          className={`payment-status ${
+            paymentStatus === "Payment successful!"
+              ? "text-green-500 text-center mt-6"
+              : "text-red-500text-center mt-6"
+          }`}
+        >
+          {paymentStatus}
+        </div> : null }
+     
+      </div>
       {/* Product details */}
-      <div>
+      <div className="mx-10 tablet:max-w-[500px] tablet:m-auto">
+        <h2 className="text-2xl mt-8 mb-4 laptop:text-4xl laptop:mb-4">
+          What you are buying:
+        </h2>
         <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
           {product.items &&
             product.items.map((item, index) => (
@@ -172,27 +126,6 @@ const CheckoutForm = ({ totalPrice }) => {
               </li>
             ))}
         </ul>
-      </div>
-      <div >
-        <p>Price: EUR {product.price}</p>
-        <CardElement options={cardElementOptions} />
-        <button
-          type="submit"
-          className="bg-cta-blue rounded-full px-5 p-2"
-          disabled={!stripe || isLoading}
-        >
-          {isLoading ? "Processing..." : "Buy Now"}
-        </button>
-      </div>
-
-      <div
-   className={`payment-status ${
-          paymentStatus === "Payment successful!"
-            ? "text-green-500"
-            : "text-red-500"
-        }`}
-      >
-        {product.price}
       </div>
     </form>
   );
