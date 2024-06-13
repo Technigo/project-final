@@ -3,7 +3,6 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../../styling/sectionsStyling/authPages/AuthPages.css";
-// import { LOGIN_URL } from "../../apis/authApi";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -19,10 +18,13 @@ const LoginPage = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8080/api/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://project-final-auth-api.onrender.com/api/login",
+        {
+          email,
+          password,
+        }
+      );
       console.log("Login successfull:", response.data);
 
       const token = response.data.token;

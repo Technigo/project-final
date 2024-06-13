@@ -11,7 +11,9 @@ import User from "./models/User";
 dotenv.config();
 
 // MongoDB connection setup
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/auth-users";
+const mongoUrl =
+  process.env.MONGO_URL ||
+  "mongodb+srv://paula010514:uVSJuieDMQhHDeV4@paula.5q34khs.mongodb.net/?retryWrites=true&w=majority&appName=Paula";
 mongoose.connect(mongoUrl);
 mongoose.Promise = global.Promise;
 
@@ -49,6 +51,11 @@ app.post("/api/register", async (req, res) => {
     // Create new user
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
+
+    // Generate JWT
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {

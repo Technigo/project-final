@@ -3,10 +3,9 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "../../styling/sectionsStyling/authPages/AuthPages.css";
 import { useNavigate } from "react-router-dom";
-// import { REGISTER_URL } from "../../apis/authApi";
 
 const RegisterPage = () => {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,22 +14,29 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !email || !password) {
+    if (!username || !email || !password) {
       setError("Please fill in all fields");
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8080/api/register", {
-        name,
-        email,
-        password,
-      });
-      console.log("Registration successfull:", response.data);
+      const response = await axios.post(
+        "https://project-final-auth-api.onrender.com/api/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
+      console.log("Registration successfull:", response);
 
-      const token = response.data.token;
-      if (token) {
-        login(token);
-        navigate("/rentals");
+      if (response.data.message === "User registered successfully") {
+        const token = response.data.token;
+        if (token) {
+          login(token);
+          navigate("/rentals");
+        }
+      } else {
+        setError("Registration failed. Please try again");
       }
     } catch (error) {
       setError("Registration failed. Please try again.");
@@ -44,13 +50,13 @@ const RegisterPage = () => {
         <h2 className="authTitle">Register</h2>
         {error && <p className="authError">{error}</p>}
         <label className="authLabel">
-          Name:
+          Username:
           <input
             type="text"
             required
             className="authInput"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </label>
 
