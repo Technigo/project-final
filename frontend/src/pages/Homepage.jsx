@@ -82,7 +82,7 @@ export const Homepage = () => {
           <Button text="SHOP NOW" navTo="/products" />
         </section>
         <section className="my-20 flex flex-col items-center justify-normal space-y-3 text-center">
-          <h2 className="font-bold">Best sellers</h2>
+          <h2 className="font-poppins font-bold">Best sellers</h2>
           <p className="mx-6 font-lato">
             Explore our most popular products! Tried, tested, and loved by many.
           </p>
@@ -155,7 +155,9 @@ export const Homepage = () => {
         </section>
         <section className="my-20 flex flex-col items-center justify-center">
           <div className="flex w-2/3 flex-col items-center justify-center gap-6 pb-8 text-center">
-            <h2 className="font-bold">Build Your Dream Website Today!</h2>
+            <h2 className="font-poppins font-bold">
+              Build Your Dream Website Today!
+            </h2>
             <p className="font-lato">
               Transform your vision into reality with our templates. Designed
               for success, these templates offer sleek designs and seamless
@@ -172,7 +174,7 @@ export const Homepage = () => {
           </div>
         </section>
         <section className="my-20 flex flex-col items-center justify-center gap-6 px-6">
-          <h2 className="font-bold">By Categories</h2>
+          <h2 className="font-poppins font-bold">By Categories</h2>
           <p className="font-lato">
             Explore our most popular products! Tried, tested, and loved by many.
           </p>
@@ -193,7 +195,9 @@ export const Homepage = () => {
           </div>
         </section>
         <section className="mt-20 flex flex-col items-center gap-9 bg-light-blue py-14">
-          <h2 className="mx-6 font-bold">What Our Customers Say</h2>
+          <h2 className="mx-6 font-poppins font-bold">
+            What Our Customers Say
+          </h2>
           <div className="mx-6 rounded-sm md:max-w-screen-sm lg:max-w-none">
             <Testimonial />
           </div>
@@ -202,7 +206,9 @@ export const Homepage = () => {
           <p className="mb-5 font-montserrat font-bold">
             Explore our collection of customizable templates
           </p>
-          <h2 className="font-bold pb-4">Create Beautiful Websites Effortlessly</h2>
+          <h2 className="pb-4 font-poppins font-bold">
+            Create Beautiful Websites Effortlessly
+          </h2>
           <Button text="LOG IN" navTo="login" />
         </section>
       </>
