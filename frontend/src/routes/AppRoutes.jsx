@@ -7,22 +7,29 @@ import FaqPage from "../sections/faqPage/FaqPage";
 import ProfilePage from "../sections/profilePage/ProfilePage";
 import LoginPage from "../sections/auth/LoginPage";
 import RegisterPage from "../sections/auth/RegisterPage";
+import { AuthProvider } from "../context/AuthContext";
+import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
   return (
-    <>
+    <AuthProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/rentals" element={<RentalPage />} />
-        <Route path="/faq" element={<FaqPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/rentals"
+          element={<ProtectedRoute element={<RentalPage />} />}
+        />
+        <Route path="/faq" element={<ProtectedRoute element={<FaqPage />} />} />
+        <Route
+          path="/profile"
+          element={<ProtectedRoute element={<ProfilePage />} />}
+        />
       </Routes>
       <Footer />
-    </>
+    </AuthProvider>
   );
 };
 

@@ -1,14 +1,23 @@
 import { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 import "../../styling/sectionsStyling/authPages/AuthPages.css";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!name || !email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
     try {
       const response = await axios.post("http://localhost:8080/api/register", {
         name,
@@ -16,7 +25,14 @@ const RegisterPage = () => {
         password,
       });
       console.log("Registration successfull:", response.data);
+
+      const token = response.data.token;
+      if (token) {
+        login(token);
+        navigate("/rentals");
+      }
     } catch (error) {
+      setError("Registration failed. Please try again.");
       console.error("Registration failed:", error);
     }
   };
@@ -25,6 +41,7 @@ const RegisterPage = () => {
     <div className="authContainer">
       <form className="authForm" onSubmit={handleSubmit}>
         <h2 className="authTitle">Register</h2>
+        {error && <p className="authError">{error}</p>}
         <label className="authLabel">
           Name:
           <input

@@ -1,6 +1,16 @@
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import "../../styling/sectionsStyling/profilePage/ProfileSection.css";
 
 const ProfileSection = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <div className="profileContainer">
       <form className="profileForm">
@@ -22,7 +32,9 @@ const ProfileSection = () => {
           <div className="profileButtonsWrapper">
             <button className="changeEmailButton">Change</button>
             <div className="logoutButtonWrapper">
-              <button className="logoutButton">Log out</button>
+              <button className="logoutButton" onClick={handleLogout}>
+                Log out
+              </button>
             </div>
           </div>
         </div>
