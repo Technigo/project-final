@@ -40,6 +40,7 @@ const PlanetContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
 `
 
 const PlanetPage = styled.div`
@@ -57,6 +58,7 @@ const PlanetPage = styled.div`
     font-weight: 300;
     text-align: center;
     margin-top: 0px;
+    margin-bottom: 40px;
   }
 `
 
@@ -78,7 +80,7 @@ const ImageContainer = styled.div`
   margin-bottom: 20px;
   grid-column: 1 / 3;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 830px) {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     margin-bottom: 0;
@@ -90,19 +92,17 @@ const PlanetImgMob = styled.img`
   max-width: 400px;
   margin: 20px auto;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 830px) {
     display: none;
   }
 `
 
 const PlanetImg = styled.img`
   width: 100%;
-  max-width: 400px;
-  margin: 20px auto;
+  max-width: 280px;
+  margin: 20px;
 
-  margin-right: 20px;
-
-  @media (max-width: 1001px) {
+  @media (max-width: 830px) {
     display: none;
   }
 `
@@ -117,7 +117,6 @@ const PlanetDetails = styled.div`
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: auto auto;
-    gap: 20px;
   }
 
   h3 {
@@ -153,6 +152,7 @@ const TextBoxContainer = styled.div`
     grid-column: 1 / 4;
     display: contents;
     justify-content: space-between;
+    align-items: center;
   }
 `
 
@@ -161,8 +161,15 @@ const TextBox = styled.div`
   padding: 16px 24px;
   margin-bottom: 16px;
   border-radius: 8px;
-  width: 100%;
   width: 280px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 20px;
+  }
 `
 
 const CuriosaContainer = styled.div`
@@ -173,12 +180,14 @@ const CuriosaTextBox = styled.div`
   background-color: var(--textbox-background);
   padding: 16px 24px;
   border-radius: 8px;
-  margin-bottom: 40px;
+  margin-top: 16px;
+  margin-bottom: 60px;
   width: 280px;
 
   @media (min-width: 768px) {
     width: auto;
     max-width: 1100px;
+    text-align: center;
   }
 `
 
@@ -192,13 +201,15 @@ const LeftColumn = styled.div`
   @media (min-width: 768px) {
     grid-column: 1 / 2;
     grid-row: 1;
-    align-items: flex-start;
+    display: flex;
+    align-items: center;
   }
 `
 
 const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 320px;
 

@@ -33,6 +33,7 @@ const BreadcrumbsContainer = styled.nav`
     text-decoration: none;
     color: #ffffff;
     font-family: var(--font-family-text);
+    justify-content: flex-start;
   }
 
   ul li a.active {
