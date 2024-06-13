@@ -1,7 +1,7 @@
-import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io"
-import { useContext, useEffect, useState } from "react"
-import styled from "styled-components"
-import { AuthContext } from "../contexts/AuthContext"
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
+import { useContext, useEffect, useState } from "react";
+import styled from "styled-components";
+import { AuthContext } from "../contexts/AuthContext";
 
 //In this component, user should be able to click on the icon
 //I think we can only create this once we have global state of authorization set up as the program needs to know whether user is logged in
@@ -9,9 +9,9 @@ import { AuthContext } from "../contexts/AuthContext"
 //If user is not logged in, they should be redirected to register/login page
 
 export const FavoriteButton = ({ museumId, inCard }) => {
-  const [isFavorite, setIsFavorite] = useState(false)
-  const { authState } = useContext(AuthContext)
-  const { accessToken } = authState
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { authState } = useContext(AuthContext);
+  const { accessToken } = authState;
 
   const checkIfFavorite = async () => {
     const options = {
@@ -20,15 +20,15 @@ export const FavoriteButton = ({ museumId, inCard }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ accessToken }),
-    }
+    };
     fetch(`https://museek-2ejb.onrender.com/favorites/${museumId}`, options)
       .then((response) => response.json())
-      .then((response) => setIsFavorite(response.savedAsFavorite))
-  }
+      .then((response) => setIsFavorite(response.savedAsFavorite));
+  };
 
   useEffect(() => {
-    checkIfFavorite()
-  }, [])
+    checkIfFavorite();
+  }, []);
 
   const handleFavoriteToggle = async () => {
     const options = {
@@ -37,13 +37,13 @@ export const FavoriteButton = ({ museumId, inCard }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ museumId, accessToken }),
-    }
+    };
     fetch("https://museek-2ejb.onrender.com/favorites/toggle", options)
       .then((response) => response.json())
       .then((response) => {
-        setIsFavorite(response.savedAsFavorite)
-      })
-  }
+        setIsFavorite(response.savedAsFavorite);
+      });
+  };
 
   return (
     <FavoriteButtonWrapper inCard={inCard}>
@@ -51,15 +51,15 @@ export const FavoriteButton = ({ museumId, inCard }) => {
         {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
       </Button>
     </FavoriteButtonWrapper>
-  )
-}
+  );
+};
 
 //Styled components
 const FavoriteButtonWrapper = styled.div`
   position: ${({ inCard }) => (inCard ? "static" : "absolute")};
   top: ${({ inCard }) => (inCard ? "0" : "20px")};
   right: ${({ inCard }) => (inCard ? "0" : "20px")};
-`
+`;
 
 const Button = styled.button`
   border: none;
@@ -72,4 +72,4 @@ const Button = styled.button`
   &:hover {
     transform: scale(1.1);
   }
-`
+`;

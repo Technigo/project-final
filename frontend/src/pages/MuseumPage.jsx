@@ -9,6 +9,7 @@ export const MuseumPage = () => {
   const [museums, setMuseums] = useState([])
   const [results, setResults] = useState([])
   const [amountToShow, setAmountToShow] = useState(8)
+
   const [filters, setFilters] = useState({
     country: "",
     category: "",
@@ -17,44 +18,47 @@ export const MuseumPage = () => {
   })
   const [noResults, setNoResults] = useState(false)
 
+
   useEffect(() => {
     const fetchMuseums = async () => {
       try {
-        const response = await fetch("https://museek-2ejb.onrender.com/museums")
+        const response = await fetch(
+          "https://museek-2ejb.onrender.com/museums"
+        );
         if (!response.ok) {
-          throw new Error("Error fetching museums")
+          throw new Error("Error fetching museums");
         }
-        const data = await response.json()
-        setMuseums(data)
+        const data = await response.json();
+        setMuseums(data);
       } catch (error) {
-        console.error("There was en error fetching data:", error)
+        console.error("There was en error fetching data:", error);
       }
-    }
+    };
 
-    fetchMuseums()
-  }, [])
+    fetchMuseums();
+  }, []);
 
   const filterMuseums = (museums) => {
     return museums.filter((museum) => {
       const matchesCountry = filters.country
         ? museum.location.toLowerCase().includes(filters.country.toLowerCase())
-        : true
+        : true;
       const matchesCategory = filters.category
         ? museum.category === filters.category
-        : true
-      const matchesHasCafe = filters.hasCafe ? museum.has_cafe : true
+        : true;
+      const matchesHasCafe = filters.hasCafe ? museum.has_cafe : true;
       const matchesTicketPriceFree = filters.ticketPriceFree
         ? museum.ticket_price.toLowerCase() === "free"
-        : true
+        : true;
 
       return (
         matchesCountry &&
         matchesCategory &&
         matchesHasCafe &&
         matchesTicketPriceFree
-      )
-    })
-  }
+      );
+    });
+  };
 
   useEffect(() => {
     const checkNoResults = () => {
@@ -68,7 +72,7 @@ export const MuseumPage = () => {
   const showMore = () => setAmountToShow(amountToShow + 8)
 
   const museumsToShow =
-    results.length === 0 ? filterMuseums(museums) : filterMuseums(results)
+    results.length === 0 ? filterMuseums(museums) : filterMuseums(results);
 
   return (
     <MuseumPageContainer>
@@ -93,12 +97,12 @@ export const MuseumPage = () => {
         </>
       )}
     </MuseumPageContainer>
-  )
-}
+  );
+};
 
 const MuseumPageContainer = styled.div`
   padding-top: 80px;
-`
+`;
 const Background = styled.div`
   position: absolute;
   top: 0;

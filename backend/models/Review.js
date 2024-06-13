@@ -13,6 +13,7 @@ const reviewSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   userId: { type: String, required: true },
   userName: { type: String, required: true },
+  rating: { type: Number, required: true, default: 4 },
 });
 
 // Create model with mongoose

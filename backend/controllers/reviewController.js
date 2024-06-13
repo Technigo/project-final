@@ -33,6 +33,7 @@ export const getReviewsForUser = async (req, res) => {
           userName: review.userName,
           message: review.message,
           museumName: museumInfo.name,
+          rating: review.rating,
         };
       })
     );
@@ -48,7 +49,7 @@ export const getReviewsForUser = async (req, res) => {
 };
 
 export const postReviews = async (req, res) => {
-  const { museumId, message, accessToken } = req.body;
+  const { museumId, message, accessToken, rating } = req.body;
 
   if (isNaN(museumId)) {
     return res.status(400).json({
@@ -64,6 +65,7 @@ export const postReviews = async (req, res) => {
       message,
       userId: user.id,
       userName: user.name,
+      rating: rating,
     });
     res.status(201).json(review);
   } catch (error) {

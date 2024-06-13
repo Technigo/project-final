@@ -13,24 +13,27 @@ export const LandingPage = () => {
   const [results, setResults] = useState([])
   const [amountToShow, setAmountToShow] = useState(8)
 
+
   useEffect(() => {
     const fetchMuseums = async () => {
       try {
-        const response = await fetch("https://museek-2ejb.onrender.com/museums")
+        const response = await fetch(
+          "https://museek-2ejb.onrender.com/museums"
+        );
         if (!response.ok) {
-          throw new Error("Error fetching museums")
+          throw new Error("Error fetching museums");
         }
-        const data = await response.json()
-        setMuseums(data)
+        const data = await response.json();
+        setMuseums(data);
       } catch (error) {
-        console.error("There was en error fetching data:", error)
+        console.error("There was en error fetching data:", error);
       }
-    }
+    };
 
-    fetchMuseums()
-  }, [])
+    fetchMuseums();
+  }, []);
 
-  const museumsToShow = results.length === 0 ? museums : results
+  const museumsToShow = results.length === 0 ? museums : results;
 
   return (
     <div>
@@ -57,8 +60,8 @@ export const LandingPage = () => {
         <Newsletter />
       </LandingPageContainer>
     </div>
-  )
-}
+  );
+};
 
 const LandingPageContainer = styled.div`
   display: flex;
@@ -79,3 +82,4 @@ const ButtonContainer = styled.div`
   background-color: #333333;
   padding: 50px 0;
 `
+
