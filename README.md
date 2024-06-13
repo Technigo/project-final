@@ -1,12 +1,10 @@
-# Final Project
+# Angry Happy Note
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Final project for Technigo web developer bootcamp 2024. Angry Happy Note is a full-stack web app where users can leave angry (or happy) notes at their current location on a public map.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The app is built using Google Maps, React, Vite, and Mongo DB. It's hosted on Netlify, Render, and Mongo DB Atlas.
 
 ## View it live
 
