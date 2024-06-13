@@ -14,7 +14,6 @@ export const useProductStore = create(
       error: null,
       categories: [],
       product: null,
-      // favoriteProducts: [],
       getAllProducts: async () => {
         set({ loading: true, error: null });
         try {
@@ -55,7 +54,7 @@ export const useProductStore = create(
           const data = await response.json();
           set({ product: data });
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         } finally {
           set({ loading: false });
         }
@@ -73,13 +72,9 @@ export const useProductStore = create(
           if (!response.ok) {
             throw new Error("Unable to like this product error");
           }
-          // const data = await response.json();
-          // set((state) => ({
-          //   favoriteProducts: [...state.favoriteProducts, id],
-          // }));
           console.log("like successful!");
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         }
       },
       unlikeProduct: async (id) => {
@@ -95,22 +90,15 @@ export const useProductStore = create(
           if (!response.ok) {
             throw new Error("Unable to like this product error");
           }
-          // const data = await response.json();
-          // set({ product: data });
-          // set((state) => ({
-          //   favoriteProducts: [
-          //     ...state.favoriteProducts.filter((productID) => productID !== id),
-          //   ],
-          // }));
           console.log("Unlike successful!");
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         }
       },
     }),
     {
-      name: "product-storage", // name of the item in the storage (must be unique)
-      storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+      name: "product-storage",
+      storage: createJSONStorage(() => sessionStorage),
     },
   ),
 );

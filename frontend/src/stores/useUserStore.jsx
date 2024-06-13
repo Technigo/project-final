@@ -45,7 +45,7 @@ export const useUserStore = create(
           console.log("Clear cart successfully", data);
           set({ cart: data.cartItems });
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         }
       },
       logInUser: async (formData) => {
@@ -102,8 +102,6 @@ export const useUserStore = create(
       displayUserInfo: async () => {
         set({ loading: true, error: null });
         try {
-          // const id = await get().userId;
-          // console.log("trying to connect with backend");
           const response = await fetch(`${BACKEND_URL}/users/${get().userId}`, {
             method: "GET",
             headers: {
@@ -116,13 +114,11 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error("Display user info error");
           }
-          // console.log(response);
           const data = await response.json();
           set({ username: data.message.username, email: data.message.email });
           console.log("user info displayed successfully!");
-          // console.log(data);
         } catch (error) {
-          set({ error: error, username: null, email: null });
+          set({ error: error.message, username: null, email: null });
         } finally {
           set({ loading: false });
         }
@@ -130,8 +126,6 @@ export const useUserStore = create(
       deleteAccount: async () => {
         set({ loading: true, error: null });
         try {
-          // const id = await get().userId;
-          // console.log("trying to connect with backend");
           const response = await fetch(`${BACKEND_URL}/users/${get().userId}`, {
             method: "DELETE",
             headers: {
@@ -144,15 +138,13 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error("Delete user  error");
           }
-          // console.log(response);
           const data = await response.json();
           if (!data.success) throw new Error("Delete user failed!");
           console.log("user deleted  successfully!");
           set({ userId: null, username: null, email: null, accessToken: null });
           return true;
-          // console.log(data);
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         } finally {
           set({ loading: false });
         }
@@ -182,11 +174,11 @@ export const useUserStore = create(
           console.log("Save favorites successfully", data);
           set({ favorite: data.favoriteTemplates });
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         }
       },
       handleCart: async (productId, action) => {
-        set({ loading: true, error: null })
+        set({ loading: true, error: null });
         try {
           const response = await fetch(
             `${BACKEND_URL}/users/${get().userId}/cart`,
@@ -200,7 +192,7 @@ export const useUserStore = create(
               },
               body: JSON.stringify({
                 productId: productId,
-                remove: action === 'remove',
+                remove: action === "remove",
               }),
             },
           );
@@ -211,16 +203,16 @@ export const useUserStore = create(
           console.log("Add to cart successfully", data);
           set({ cart: data.cartItems });
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         } finally {
-          set({ loading: false })
+          set({ loading: false });
         }
       },
     }),
 
     {
-      name: "user-storage", // name of the item in the storage (must be unique)
-      storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+      name: "user-storage",
+      storage: createJSONStorage(() => sessionStorage),
     },
   ),
 );
