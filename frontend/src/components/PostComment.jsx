@@ -1,37 +1,34 @@
-import { useContext, useState } from "react";
-import styled from "styled-components";
-import StyledButton from "./styled/Button.styled";
-import { AuthContext } from "../contexts/AuthContext";
-import StarRatings from "react-star-ratings";
-
-// import { AuthContext } from "../contexts/AuthContext"
+import { useContext, useState } from "react"
+import styled from "styled-components"
+import StyledButton from "./styled/Button.styled"
+import { AuthContext } from "../contexts/AuthContext"
+import StarRatings from "react-star-ratings"
 
 export const PostComment = ({ museumId, onNewComment }) => {
-  const { authState } = useContext(AuthContext);
-  const { accessToken } = authState;
-  const [message, setMessage] = useState("");
-  const [count, setCount] = useState(0);
-  const [rating, setRating] = useState(0);
-  const [errorMessage, setErrorMessage] = useState();
+  const { authState } = useContext(AuthContext)
+  const { accessToken } = authState
+  const [message, setMessage] = useState("")
+  const [count, setCount] = useState(0)
+  const [rating, setRating] = useState(0)
+  const [errorMessage, setErrorMessage] = useState()
 
   const changeRating = (updatedRating) => {
-    setErrorMessage(undefined);
-    setRating(updatedRating);
-  };
+    setErrorMessage(undefined)
+    setRating(updatedRating)
+  }
 
   // Get the logged-in user info
-  // const { user } = useContext(AuthContext)
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (message.length < 10) {
-      setErrorMessage("Your comment should be longer than 10 characters.");
-      return;
+      setErrorMessage("Your comment should be longer than 10 characters.")
+      return
     }
 
     if (rating === 0) {
-      setErrorMessage("Please provide a rating");
-      return;
+      setErrorMessage("Please provide a rating")
+      return
     }
 
     try {
@@ -46,23 +43,24 @@ export const PostComment = ({ museumId, onNewComment }) => {
           accessToken,
           rating,
         }),
-      });
+      })
 
       if (!response.ok) {
-        throw new Error("Failed to submit review");
+        throw new Error("Failed to submit review")
       }
 
-      const newReview = await response.json();
-      console.log("Review submitted:", newReview);
-      setMessage("");
-      setCount(0);
+      const newReview = await response.json()
+      console.log("Review submitted:", newReview)
+      setMessage("")
+      setCount(0)
+      setRating(0)
 
       // Update the comments in the parent component
-      onNewComment(newReview);
+      onNewComment(newReview)
     } catch (error) {
-      console.error("Error submitting review:", error.message);
+      console.error("Error submitting review:", error.message)
     }
-  };
+  }
 
   return (
     <CommentForm onSubmit={handleSubmit}>
@@ -71,9 +69,9 @@ export const PostComment = ({ museumId, onNewComment }) => {
         id="review-form"
         value={message}
         onChange={(e) => {
-          setErrorMessage(undefined);
-          setMessage(e.target.value);
-          setCount(e.target.value.length);
+          setErrorMessage(undefined)
+          setMessage(e.target.value)
+          setCount(e.target.value.length)
         }}
         required
         minLength={10}
@@ -104,15 +102,15 @@ export const PostComment = ({ museumId, onNewComment }) => {
       ) : undefined}
       <StyledButton type="submit">Submit</StyledButton>
     </CommentForm>
-  );
-};
+  )
+}
 
 const CommentForm = styled.form`
   margin-top: 20px;
   position: relative;
   width: 100%;
   max-width: 600px;
-`;
+`
 
 const TextArea = styled.textarea`
   width: 100%;
@@ -122,7 +120,7 @@ const TextArea = styled.textarea`
   border-radius: 5px;
   resize: none;
   box-sizing: border-box;
-`;
+`
 
 const CharacterCount = styled.span`
   position: absolute;
@@ -130,4 +128,4 @@ const CharacterCount = styled.span`
   right: 10px;
   color: #6c757d;
   font-size: 0.8rem;
-`;
+`

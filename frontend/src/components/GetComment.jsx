@@ -1,15 +1,13 @@
-import moment from "moment";
-import styled from "styled-components";
-import { useContext, useState } from "react";
-import { RxCross2 } from "react-icons/rx";
-import { AuthContext } from "../contexts/AuthContext";
-import StarRatings from "react-star-ratings";
-
-//TO UPDATE: add user name
+import moment from "moment"
+import styled from "styled-components"
+import { useContext, useState } from "react"
+import { RxCross2 } from "react-icons/rx"
+import { AuthContext } from "../contexts/AuthContext"
+import StarRatings from "react-star-ratings"
 
 export const GetComment = ({ comments, showMuseumName, hideDeleteBtn }) => {
-  const { authState } = useContext(AuthContext);
-  const [deletedComments, setDeletedComments] = useState([]);
+  const { authState } = useContext(AuthContext)
+  const [deletedComments, setDeletedComments] = useState([])
 
   const deleteComment = async (commentId) => {
     try {
@@ -21,18 +19,18 @@ export const GetComment = ({ comments, showMuseumName, hideDeleteBtn }) => {
             "Content-Type": "application/json",
           },
         }
-      );
+      )
 
       if (response.ok) {
         // If the comment was successfully deleted on the server, update the state
-        setDeletedComments([...deletedComments, commentId]);
+        setDeletedComments([...deletedComments, commentId])
       } else {
-        console.error("Failed to delete comment");
+        console.error("Failed to delete comment")
       }
     } catch (error) {
-      console.error("Failed to delete comment:", error);
+      console.error("Failed to delete comment:", error)
     }
-  };
+  }
 
   return (
     <CommentContainer>
@@ -64,13 +62,13 @@ export const GetComment = ({ comments, showMuseumName, hideDeleteBtn }) => {
           )
       )}
     </CommentContainer>
-  );
-};
+  )
+}
 
 const CommentContainer = styled.div`
   margin-top: 20px;
   max-width: 600px;
-`;
+`
 
 const Comment = styled.div`
   background-color: #f8f9fa;
@@ -78,17 +76,17 @@ const Comment = styled.div`
   position: relative;
   padding: 5px 15px;
   margin-bottom: 20px;
-`;
+`
 
 const CommentText = styled.p`
   word-wrap: break-word;
   margin-bottom: 5px;
-`;
+`
 
 const CommentDate = styled.span`
   font-size: 0.8rem;
   color: #6c757d;
-`;
+`
 
 const StyledRxCrossIcon = styled(RxCross2)`
   cursor: pointer;
@@ -101,4 +99,4 @@ const StyledRxCrossIcon = styled(RxCross2)`
   &:hover {
     color: red;
   }
-`;
+`
