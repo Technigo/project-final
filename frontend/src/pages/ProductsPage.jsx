@@ -94,7 +94,7 @@ export const ProductsPage = () => {
   console.log("added", addedProduct)
   console.log(filterValue)
   console.log(sortValue)
-  console.log(profile.skin, profile.allergies)
+ 
 
 
   return (
