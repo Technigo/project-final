@@ -50,7 +50,7 @@ export const useUserStore = create(
       setSignedUp: (input) => set({ signedUp: input }),
       setShowWelcomePopup: (input) => set({ showWelcomePopup: input }),
       setLoggedOut: (input) => set({ loggedOut: input }),
-      setAutomaticLogOut: (input) => set({ automaticLogOut: false }),
+      setAutomaticLogOut: (input) => set({ automaticLogOut: input }),
 
 
       //Register user
