@@ -238,46 +238,6 @@ app.get("/products/category/:category", async (req, res) => {
   }
 });
 
-// GET a single product within a category by id
-// http://localhost:8080/products/category/:category/productId
-app.get("/products/category/:category/:productId", async (req, res) => {
-  const { category, productId } = req.params;
-  const validCategories = ["bottoms", "tops", "dresses", "accessories"];
-
-  if (!validCategories.includes(category)) {
-    return res.status(400).json({
-      success: false,
-      error: {
-        message: "Invalid category",
-      },
-    });
-  }
-
-  try {
-    const product = await Product.findById(productId);
-    if (!product || product.category !== category) {
-      return res.status(404).json({
-        success: false,
-        error: {
-          message: "Product not found in specified category",
-        },
-      });
-    }
-    return res.status(200).json({
-      success: true,
-      response: product,
-      message: "Product retrieved successfully",
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: {
-        message: "Internal server error",
-      },
-    });
-  }
-});
-
 // Stripe Checkout Session creation endpoint
 app.post("/create-checkout-session", async (req, res) => {
   const { items } = req.body;
