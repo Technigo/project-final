@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 import { Loading } from "./Loading";
-import { Error } from "./Error"
 
 export const HeartButton = ({ style, id, setOpenDrawer }) => {
   const { accessToken, saveFavorites, favorite, loading } = useUserStore(
@@ -13,10 +12,9 @@ export const HeartButton = ({ style, id, setOpenDrawer }) => {
       loading: state.loading,
     }),
   );
-  const { unlikeProduct, likeProduct, error } = useProductStore((state) => ({
+  const { unlikeProduct, likeProduct } = useProductStore((state) => ({
     unlikeProduct: state.unlikeProduct,
     likeProduct: state.likeProduct,
-    error: state.error
     // favoriteProducts: state.favoriteProducts,
   }));
   const handleLike = () => {
@@ -34,8 +32,7 @@ export const HeartButton = ({ style, id, setOpenDrawer }) => {
       setOpenDrawer(true);
       loading(false);
     }
-    }
-  };
+    }s
   return (
   
   <button className={style} onClick={handleLike}>
