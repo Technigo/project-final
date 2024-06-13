@@ -13,13 +13,15 @@ const Menu = styled.ul`
   @media (max-width: 768px) {
     display: none;
   }
-  @media (min-width: 768px) and (max-width: 860px) {
-    font-size: 16px;
-  }
 `
 
 const MenuItem = styled.li`
   margin-left: 40px;
+
+  @media (min-width: 768px) and (max-width: 860px) {
+    margin-left: 16px;
+    font-size: 16px;
+  }
 `
 
 export const MainMenu = () => {

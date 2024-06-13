@@ -158,6 +158,10 @@ const TextBox = styled.div`
   border-radius: 8px;
   width: 100%;
   width: 280px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 const CuriosaContainer = styled.div`
@@ -168,12 +172,14 @@ const CuriosaTextBox = styled.div`
   background-color: var(--textbox-background);
   padding: 16px 24px;
   border-radius: 8px;
-  margin-bottom: 40px;
+  margin-top: 16px;
+  margin-bottom: 60px;
   width: 280px;
 
   @media (min-width: 768px) {
     width: auto;
     max-width: 1100px;
+    text-align: center;
   }
 `
 
