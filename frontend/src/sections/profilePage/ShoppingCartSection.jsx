@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import axios from "axios";
+import { IoTrashOutline } from "react-icons/io5";
 import "../../styling/sectionsStyling/profilePage/ShoppingCartSection.css";
 
 const ShoppingCartSection = () => {
@@ -82,8 +83,11 @@ const ShoppingCartSection = () => {
                 <div className="cartItemDetails">
                   <p className="cartItemName">{item.name}</p>
                   <h3 className="cartItemPrice">{item.price}</h3>
-                  <button onClick={() => handleRemoveFromCart(item._id)}>
-                    Remove
+                  <button
+                    onClick={() => handleRemoveFromCart(item._id)}
+                    className="removeButton"
+                  >
+                    <IoTrashOutline />
                   </button>
                 </div>
               </div>

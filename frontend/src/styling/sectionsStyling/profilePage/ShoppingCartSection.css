@@ -19,6 +19,38 @@
   width: 90px;
 }
 
+.cartItem {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid var(--dark-button-color);
+}
+
+.cartItemDetails {
+  display: flex;
+  position: relative;
+}
+
+.cartItemName {
+  padding-left: 40px;
+}
+
+.cartItemPrice {
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+}
+
+.removeButton {
+  height: 30px;
+  width: 34px;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  background-color: white;
+}
+
 .shoppingCartTitle {
   font-weight: 600;
   text-align: center;
@@ -156,6 +188,30 @@
 
   .deliveryTitle {
     font-size: 42px;
+  }
+
+  .shoppingCartItems {
+    grid-column: span 2;
+  }
+
+  .cartItem {
+    margin-bottom: 20px;
+    width: 450px;
+  }
+
+  .cartItemName {
+    padding-left: 60px;
+    font-size: 20px;
+  }
+
+  .cartItemPrice {
+    font-size: 20px;
+  }
+
+  .removeButton {
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
   }
 
   .rentalDateLabel {
