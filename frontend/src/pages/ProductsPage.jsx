@@ -1,6 +1,6 @@
 import { useProductsStore } from "../store/useProductsStore";
 import { useUserStore } from "../store/useUserStore";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
@@ -32,62 +32,70 @@ export const ProductsPage = () => {
     fetchProducts();
   }, []);
 
+  // Filter products based on category and filter values
   useEffect(() => {
-    let sortedProducts = [...filteredProducts];
+    let newFilteredProducts = productsData.products || [];
 
-    if (sortValue === "top rated") {
-      sortedProducts.sort((a, b) => a.rating - b.rating);
-    } else if (sortValue === "lowest price") {
-      sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (sortValue === "highest price") {
-      sortedProducts.sort((a, b) => b.price - a.price);
+    if (loggedIn && filterValue !== "all") {
+      setFilterValue("recommended")
     }
 
-    setFilteredProducts(sortedProducts);
-  }, [sortValue]);
-
-  useEffect(() => {
-    let newFilteredProducts = productsData.products;
-  
     if (categoryValue !== "category" && categoryValue !== "all") {
       newFilteredProducts = newFilteredProducts.filter(
         (product) => product.category && product.category === categoryValue
       );
     }
-  
-    if (filterValue !== "filter" && filterValue !== "all" && filterValue !== "recommended") {
-      newFilteredProducts = newFilteredProducts.filter(
-        (product) => product.pros && product.pros.includes(filterValue)
-      );
-    }
 
-    if (loggedIn && filterValue === "recommended") {
-      newFilteredProducts = newFilteredProducts.filter((product) => {
+    if (filterValue !== "filter" && filterValue !== "all") {
+      if (filterValue === "recommended" && loggedIn) {
+        newFilteredProducts = newFilteredProducts.filter((product) => {
+          const isMatchingProfile =
+          (product.skin && profile.skin.some(skinType => product.skin.includes(skinType))) ||
+            (product.hair &&
+              (product.hair.moisture === profile.hair.moisture ||
+                product.hair.shape === profile.hair.shape));
 
-        return (
-          !product.skin ||
-          product.skin.includes(profile.skin) ||
-          (product.hair &&
-            (product.hair.moisture === profile.hair.moisture ||
-              product.hair.shape === profile.hair.shape))
+          const isMatchingPros = 
+            (profile.pros && product.category === "Nail care" || product.category === "Beard care") &&
+            product.pros &&
+            product.pros.some(pro => profile.pros.includes(pro));
+
+            const isNotAllergic = 
+            !profile.allergies ||
+            (product.allergies && profile.allergies.every(allergy => !product.allergies.includes(allergy)));
+
+
+          return isMatchingProfile || isMatchingPros && isNotAllergic;
+        });
+      } else {
+        newFilteredProducts = newFilteredProducts.filter(
+          (product) => product.pros && product.pros.includes(filterValue)
         );
-      });
+      }
     }
-  
-    // Apply previous filters if they exist
-    if (sortValue === "top rated") {
-      newFilteredProducts.sort((a, b) => a.rating - b.rating);
-    } else if (sortValue === "lowest price") {
-      newFilteredProducts.sort((a, b) => a.price - b.price);
-    } else if (sortValue === "highest price") {
-      newFilteredProducts.sort((a, b) => b.price - a.price);
-    }
-  
+
     setFilteredProducts(newFilteredProducts);
-  }, [categoryValue, filterValue, productsData.products, sortValue]);
+  }, [categoryValue, filterValue, productsData.products, loggedIn, profile]);
+
+  // Sort filtered products based on sort value
+  const sortedProducts = useMemo(() => {
+    let sorted = [...filteredProducts];
+
+    if (sortValue === "lowest price") {
+      sorted.sort((a, b) => a.price - b.price);
+    } else if (sortValue === "highest price") {
+      sorted.sort((a, b) => b.price - a.price);
+    }
+
+    return sorted;
+  }, [sortValue, filteredProducts]);
 
   console.log("Filtered Product:", filteredProducts);
   console.log("added", addedProduct)
+  console.log(filterValue)
+  console.log(sortValue)
+  console.log(profile.skin, profile.allergies)
+
 
   return (
     <>
@@ -95,9 +103,38 @@ export const ProductsPage = () => {
       <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
         <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row">
           <h2 className="text-text-light text-2xl  tablet:text-3xl laptop:text-3xl text-center mb-6 desktop:mb-0">
-            {loggedIn ? "Recommended Products" : "Products"}
+            {loggedIn && filterValue === "recommended" ? "Recommended Products" : "Products"}
           </h2>
           <div className="flex flex-col gap-2 tablet:gap-2 tablet:flex-row ">
+          <form>
+              <select
+                name="Filter"
+                value={filterValue}
+                onChange={handleFilterChange}
+                className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
+              >
+
+                {loggedIn ?  ( <option value="recommended" className="bg-button-light">
+                  Recommended
+                </option> ) : ( <option value="filter" disabled hidden>
+                  Filter
+                </option> )}
+              
+                <option value="organic" className="bg-button-light">
+                  Organic
+                </option>
+                <option value="crueltyfree" className="bg-button-light">
+                  {" "}
+                  Cruelty free
+                </option>
+                <option value="vegan" className="bg-button-light">
+                  Vegan
+                </option>
+                <option value="all" className="bg-button-light">
+                  Show all
+                </option>
+              </select>
+            </form>
             <form>
               <select
                 name="category-filter"
@@ -135,43 +172,11 @@ export const ProductsPage = () => {
                 <option value="sort" disabled hidden>
                   Sort
                 </option>
-                <option value="top rated" className="bg-button-light">
-                  Top rated
-                </option>
                 <option value="lowest price" className="bg-button-light">
                   Lowest price
                 </option>
                 <option value="highest price" className="bg-button-light">
                   Highest price
-                </option>
-              </select>
-            </form>
-            <form>
-              <select
-                name="Filter"
-                value={filterValue}
-                onChange={handleFilterChange}
-                className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
-              >
-                <option value="filter" disabled hidden>
-                  Filter
-                </option>
-                {loggedIn ?   <option value="recommended" className="bg-button-light">
-                  Recommended for you
-                </option> : null}
-              
-                <option value="organic" className="bg-button-light">
-                  Organic
-                </option>
-                <option value="crueltyfree" className="bg-button-light">
-                  {" "}
-                  Cruelty free
-                </option>
-                <option value="vegan" className="bg-button-light">
-                  Vegan
-                </option>
-                <option value="all" className="bg-button-light">
-                  Show all
                 </option>
               </select>
             </form>
@@ -181,8 +186,8 @@ export const ProductsPage = () => {
           <Loading />
         ) : (
           <ul className=" w-11/12 m-auto grid grid-cols-2 gap-6 tablet:grid-cols-4 tablet:w-9/12 laptop:grid-cols-5 desktop:grid-cols-6">
-            {filteredProducts &&
-              filteredProducts.map((item, index) => (
+            {sortedProducts &&
+              sortedProducts.map((item, index) => (
                 <li key={index} className="w-full">
                   <ProductCard data={item} />
                 </li>

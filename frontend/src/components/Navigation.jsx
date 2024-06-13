@@ -14,7 +14,7 @@ import animation from "../assets/Circle-loading-Animation.json";
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
-  const { email, password, loginUser, loggedIn, showWelcomePopup, setShowWelcomePopup, loadingUser, logoutUser } =
+  const { email, password, loginUser, loggedIn, showWelcomePopup, setShowWelcomePopup, setAutomaticLogOut, loadingUser, logoutUser } =
     useUserStore();
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
@@ -77,7 +77,7 @@ export const Navigation = ({ data }) => {
   useEffect(() => {
     if (showWelcomePopup) {
       setOpen(false);
-      navigate("/profile");
+      navigate("/");
       setTimeout(() => {
         setShowWelcomePopup(false);
       }, 1500);

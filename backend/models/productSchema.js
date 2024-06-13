@@ -11,7 +11,12 @@ const allergyEnum = [
   "parabens",
 ];
 
+
 const prosEnum = ["organic", "vegan", "crueltyfree"];
+
+const moistureEnum = ["dry", "oily", "normal"];
+
+const shapeEnum = ["straight", "wavy", "curly", "coils"];
 
 const skinEnum = ["dry", "oily", "combination", "sensitive", "acne"];
 
@@ -35,8 +40,14 @@ const productSchema = new Schema({
     default: [], // Default to an empty array for users with no allergies
   },
   hair: {
-    moisture: String,
-    shape: String,
+    moisture: {
+      type: [{ type: String, enum: moistureEnum }],
+      default: [], // Default to an empty array for products with no specified hair moisture
+    },
+    shape: {
+      type: [{ type: String, enum: shapeEnum }],
+      default: [], // Default to an empty array for products with no specified hair shape
+    },
   },
   skin: {
     type: [{ type: String, enum: skinEnum }],

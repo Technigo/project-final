@@ -277,7 +277,7 @@ export const SignUpPage = () => {
                 <input
                   value={email}
                   type="email"
-                  className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full"
+                  className="rounded-xl h-10 bg-bg-input tablet:block tablet:w-full pl-4"
                   id="email"
                   onChange={handleEmail}
                 />
@@ -293,7 +293,7 @@ export const SignUpPage = () => {
                   <input
                     value={password}
                     type="password"
-                    className="rounded-xl h-10 bg-bg-input"
+                    className="rounded-xl h-10 bg-bg-input pl-4"
                     id="password"
                     onChange={handlePassword}
                   />
@@ -308,7 +308,7 @@ export const SignUpPage = () => {
                   <input
                     value={confirmPassword}
                     type="password"
-                    className="rounded-xl h-10 bg-bg-input"
+                    className="rounded-xl h-10 bg-bg-input pl-4"
                     id="confirm"
                     onChange={handleComparePassword}
                   />
@@ -345,7 +345,7 @@ export const SignUpPage = () => {
                   </label>
                   <input
                     value={firstName}
-                    className="rounded-xl h-10 bg-bg-input"
+                    className="rounded-xl h-10 bg-bg-input pl-4"
                     id="firstname"
                     onChange={handleFirstName}
                   />
@@ -360,7 +360,7 @@ export const SignUpPage = () => {
                   <input
                     value={lastName}
                     id="lastname"
-                    className="rounded-xl h-10 bg-bg-input"
+                    className="rounded-xl h-10 bg-bg-input pl-4"
                     onChange={handleLastName}
                   />
                 </div>
@@ -378,7 +378,7 @@ export const SignUpPage = () => {
                       <input
                         value={address.street}
                         id="address"
-                        className="rounded-xl h-10 bg-bg-input"
+                        className="rounded-xl h-10 bg-bg-input pl-4"
                         onChange={handleAddress}
                       />
                     </div>
@@ -392,7 +392,7 @@ export const SignUpPage = () => {
                       <input
                         value={address.postalCode}
                         id="postal code"
-                        className="rounded-xl h-10 bg-bg-input"
+                        className="rounded-xl h-10 bg-bg-input pl-4"
                         onChange={handlePostalCode}
                       />
                     </div>
@@ -408,7 +408,7 @@ export const SignUpPage = () => {
                       <input
                         value={address.city}
                         id="city"
-                        className="rounded-xl h-10 bg-bg-input"
+                        className="rounded-xl h-10 bg-bg-input pl-4"
                         onChange={handleCity}
                       />
                     </div>
@@ -422,7 +422,7 @@ export const SignUpPage = () => {
                       <input
                         value={address.country}
                         id="country"
-                        className="rounded-xl h-10 bg-bg-input"
+                        className="rounded-xl h-10 bg-bg-input pl-4"
                         onChange={handleCountry}
                       />
                     </div>
@@ -615,7 +615,7 @@ export const SignUpPage = () => {
                 </select>
               </div>
             </div>
-            <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
+            <div className="flex flex-col tablet:flex-row tablet:justify-between laptop:w-2/3 latop:m-auto laptop:justify-start laptop:gap-24">
               <div className="flex flex-col mt-8 tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
                 <div className="flex">
                   <img
@@ -643,7 +643,7 @@ export const SignUpPage = () => {
                 ))}
               </div>
 
-              <div className="flex flex-col w-full mt-10">
+              <div className="flex flex-col mt-10">
                 <div className="flex">
                   <img src="preferences02.svg" alt="Icon of a heart" />
                   <label
