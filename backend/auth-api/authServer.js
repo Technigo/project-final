@@ -13,15 +13,7 @@ dotenv.config();
 // MongoDB connection setup
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/auth-users";
 mongoose.connect(mongoUrl);
-mongoose.Promise = Promise;
-
-mongoose.connection.on("Error", (err) => {
-  console.error("MongoDB connection error", err);
-});
-
-mongoose.connection.once("open", () => {
-  console.log("MongoDB connected");
-});
+mongoose.Promise = global.Promise;
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -41,20 +33,12 @@ app.get("/", (req, res) => {
 
 // Registration endpoint
 app.post("/api/register", async (req, res) => {
-  const { name, email, password } = req.body;
-
-  console.log("Received request body:", req.body);
-
-  if (!name || !email || !password) {
-    console.error("Missing fields in request body:", req.body);
-    return res.status(400).json({ error: "All fields are required" });
-  }
+  const { username, email, password } = req.body;
 
   try {
     // Check if user with the same email already exists
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
     if (existingUser) {
-      console.log("User already exists with email:", email);
       return res.status(400).json({ error: "User already exists" });
     }
 
@@ -63,9 +47,8 @@ app.post("/api/register", async (req, res) => {
     console.log("Password hashed successfully");
 
     // Create new user
-    const newUser = new User({ name, email, password: hashedPassword });
+    const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
-    console.log("User registered successfully");
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
@@ -77,13 +60,11 @@ app.post("/api/register", async (req, res) => {
 // Login endpoint
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
-  console.log("Received login request:", req.body);
 
   try {
     // check if user exists
     const user = await User.findOne({ email });
     if (!user) {
-      console.log("User not found with email");
       return res.status(404).json({ error: "User not found" });
     }
 
