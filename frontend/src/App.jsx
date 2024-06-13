@@ -10,8 +10,8 @@ import dataEn from "./data.en.json";
 import { GlimRoutes } from "./routes/GlimRoutes";
 
 /* dotenv.config(); */
-const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
-const stripePromise = loadStripe(apiKey);
+/* const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = loadStripe(apiKey); */
 
 export const App = () => {
   const data = dataEn;
@@ -36,12 +36,12 @@ export const App = () => {
         <Navigation data={data["navbar"]} />
         <GlimRoutes data={data} />
       </div>
-      <div>
+     {/*  <div>
         <h1>Stripe Payment Integration</h1>
         <Elements stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
-      </div>
+      </div> */}
     </>
   );
 };

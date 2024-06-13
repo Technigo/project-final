@@ -1,9 +1,17 @@
-import { useProductsStore } from "../store/useProductsStore";
-import { NavLink } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
-import { useState, useEffect } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { useEffect, useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
+import { IoIosArrowBack } from "react-icons/io";
+import { NavLink } from "react-router-dom";
+
+import CheckoutForm from "../components/CheckoutForm";
+import { useProductsStore } from "../store/useProductsStore";
+
+/* dotenv.config(); */
+const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = loadStripe(apiKey);
 
 export const ShoppingCart = () => {
   const {
@@ -74,7 +82,10 @@ export const ShoppingCart = () => {
         <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
           {shoppingCart &&
             shoppingCart.map((item, index) => (
-              <li key={index} className=" flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light">
+              <li
+                key={index}
+                className=" flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light"
+              >
                 <img
                   src={item.product.image.url}
                   alt={item.product.title}
@@ -86,7 +97,9 @@ export const ShoppingCart = () => {
                       <h4 className="font-black">{item.product.title}</h4>
                       <h4>{item.product.brand}</h4>
                       <p>{item.product.size}</p>
-                      <h3 className="mt-4 desktop:text-xl">{item.product.price} €</h3>
+                      <h3 className="mt-4 desktop:text-xl">
+                        {item.product.price} €
+                      </h3>
                     </NavLink>
                     {recommended && (
                       <div className="bg-cta-blue w-fit p-2 rounded-lg">
@@ -153,6 +166,12 @@ export const ShoppingCart = () => {
             </h3>
           </div>
         )}
+        <div className="font-body text-text-light">
+          <h1>Stripe Payment Integration</h1>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm totalPrice={totalPrice} />
+          </Elements>
+        </div>
       </div>
     </section>
   );
