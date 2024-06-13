@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 export const Home = ({ data }) => {
 
-  const { signedUp, setSignedUp } = useUserStore()
+  const { signedUp, setSignedUp, loggedOut, setLoggedOut, automaticLogOut, setAutomaticLogout } = useUserStore()
 
   useEffect(() => {
     if (signedUp) {
@@ -20,11 +20,29 @@ export const Home = ({ data }) => {
     }
   }, [signedUp]);
 
+  useEffect(() => {
+    if (loggedOut) {
+      setTimeout(() => {
+        setLoggedOut(false);
+      }, 1500);
+    }
+  }, [loggedOut]);
+
+  useEffect(() => {
+    if (automaticLogOut) {
+      setTimeout(() => {
+        setAutomaticLogout(false);
+      }, 1500);
+    }
+  }, [automaticLogOut]);
+
 
   return (
     <>
       <main className="flex flex-col bg-main-red">
       {signedUp && <WelcomeMessage />}
+      {loggedOut && <WelcomeMessage />}
+      {automaticLogOut && <WelcomeMessage />}
       < ShoppingCartPopup />
         <Hero data={data["hero"]} />
         <Carousel />

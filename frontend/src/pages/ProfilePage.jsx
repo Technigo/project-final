@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
+import { WelcomeMessage } from "../components/WelcomeMessage"
 
 import { Footer } from "../components/Footer";
 // User needs to be logged in to see Profile page,
@@ -13,6 +14,8 @@ export const ProfilePage = () => {
     user,
     logoutUser,
     updateUser,
+    loggedOut,
+    setLoggedOut,
     // firstname,
     // lastname,
     // email,
@@ -74,6 +77,14 @@ export const ProfilePage = () => {
     console.log("updated profile", user);
     updateUser(user);
   };
+
+  useEffect(() => {
+    if (loggedOut) {
+      navigate("/");
+    }
+  }, [loggedOut]);
+
+  console.log("logged out", loggedOut)
 
   return (
     <>

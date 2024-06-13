@@ -1,4 +1,9 @@
-import { CardElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import {
+  CardElement,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -19,7 +24,9 @@ export const useProductsStore = create(
 
       handlePayment: async (event, stripe, elements, product) => {
         event.preventDefault();
-        /* const stripe = useStripe();
+
+        console.log("Handlepayment: ", product.price);
+        /* const stripe = useStripe(); 
         const elements = useElements(); */
 
         if (!stripe || !elements) {
@@ -39,9 +46,9 @@ export const useProductsStore = create(
               },
               body: JSON.stringify({
                 //TODO Check how to connect to our products
-                amount: totalPrice * 100, // Convert price to cents
-                productName: product.name,
-                productDescription: product.description,
+                amount: product.price * 100, // Convert price to cents
+                //   productName: product.title,
+                /*     productDescription: product.description, */
               }),
             }
           );

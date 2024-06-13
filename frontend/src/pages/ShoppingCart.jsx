@@ -183,10 +183,11 @@ export const ShoppingCart = () => {
           <div className="font-body text-text-light">
             <h1>Stripe Payment Integration</h1>
             <Elements stripe={stripePromise}>
-              <CheckoutForm />
+              <CheckoutForm totalPrice={totalPrice}/>
             </Elements>
           </div>
         ) : null}
+
       </div>
     </section>
   );
