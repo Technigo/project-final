@@ -4,6 +4,8 @@ import { useState } from "react";
 import { HeartButton } from "./HeartButton";
 import { CartButton } from "./CartButton";
 import { SideDrawer } from "./SideDrawer";
+import { TagButton } from "./TagButton";
+import { CategoryButton } from "./CategoryButton";
 
 export const ProductCard = ({
   id,
@@ -12,8 +14,6 @@ export const ProductCard = ({
   name,
   price,
   category,
-  onTagClick,
-  onCategoryClick,
 }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -22,25 +22,10 @@ export const ProductCard = ({
       <Link to={`/products/${id}`} className="text-black no-underline">
         <img src={templateImg} alt="image of the template" />
       </Link>
-      <span className="mb-1 mt-2 flex flex-row">
-        {tags.split(", ").map((tag) => (
-          <button
-            key={tag}
-            className="mr-2 text-sm text-blue lg:text-xs"
-            onClick={() => onTagClick(tag)}
-          >
-            #{tag}
-          </button>
-        ))}
-      </span>
+      <TagButton tags={tags} />
       <div className="flex flex-row justify-between font-montserrat">
         <div className="flex flex-col">
-          <button
-            className="w-fit text-sm font-bold text-blue lg:text-xs"
-            onClick={() => onCategoryClick(category)}
-          >
-            {category}
-          </button>
+          <CategoryButton category={category} />
           <p className="font-montserrat text-lg font-bold lg:text-sm">{name}</p>
           <p className="mt-1 text-sm lg:text-xs">€{price}</p>
         </div>
@@ -65,6 +50,4 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
-  onTagClick: PropTypes.func.isRequired,
-  onCategoryClick: PropTypes.func.isRequired,
 };

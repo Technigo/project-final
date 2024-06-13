@@ -33,7 +33,7 @@ export const ProductList = () => {
   const [itemsPerPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   // useEffect
   useEffect(() => {
@@ -112,16 +112,6 @@ export const ProductList = () => {
     indexOfLastProduct,
   );
 
-  // tag
-  const handleTagClick = (tag) => {
-    setSearchParams({ tag: tag });
-  };
-
-  // category
-  const handleCategoryClick = (category) => {
-    setSearchParams({ category: category });
-  };
-
   // Pagination function
   const paginate = (pageNumber) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
@@ -136,10 +126,6 @@ export const ProductList = () => {
   if (loading) {
     return <Loading />;
   }
-
-  // if (error) {
-  //   return <Error error={error} />;
-  // }
 
   return (
     <>
@@ -222,8 +208,6 @@ export const ProductList = () => {
                   price={product.price}
                   category={product.category}
                   Id={product._id}
-                  onTagClick={handleTagClick}
-                  onCategoryClick={handleCategoryClick}
                 />
               ))}
             </div>

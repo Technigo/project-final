@@ -1,12 +1,9 @@
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 const category = [
   {
     name: "Business",
     bgName: "business",
-    // bgName:
-    //   "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Travel and Adventure",
@@ -30,7 +27,7 @@ export const CategoryCard = () => {
       {category.map((item) => (
         <div
           key={item.name}
-          className="relative px-2 flex h-80 cursor-pointer items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
+          className="relative flex h-80 cursor-pointer items-center justify-center rounded-md px-2 shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
           onClick={() => navigate(`/products?category=${item.name}`)}
         >
           <div
@@ -46,9 +43,4 @@ export const CategoryCard = () => {
       ))}
     </>
   );
-};
-
-CategoryCard.propTypes = {
-  category: PropTypes.string.isRequired,
-  bgName: PropTypes.string.isRequired,
 };
