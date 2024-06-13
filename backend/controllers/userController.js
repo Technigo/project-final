@@ -48,10 +48,10 @@ export const deleteUser = asyncHandler(async (req, res) => {
 
 export const displayUser = asyncHandler(async (req, res) => {
   const { userId } = req.params;
-  const user = await User.findOne({ _id: userId }, "username email accessToken")
-    .populate("cartItems")
-    .populate("favoriteTemplates")
-    .exec();
+  const user = await User.findOne(
+    { _id: userId },
+    "-__v -password -accessToken"
+  ).exec();
   res.status(200).json({
     message: user,
     success: true,

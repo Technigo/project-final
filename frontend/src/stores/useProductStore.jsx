@@ -1,8 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-// import { Loading } from "./Loading";
-
 const BACKEND_URL = import.meta.env.VITE_API_URL;
 const FRONTEND_URL = import.meta.env.FRONTEND_ORIGIN;
 
@@ -24,16 +22,21 @@ export const useProductStore = create(
               "Content-Type": "application/json",
             },
           });
-          if (!response.ok) {
-            throw new Error("Fetching network error");
-          }
           const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           const uniqueCategories = [
             ...new Set(data.map((product) => product.category)),
           ].sort();
           set({ products: data, categories: uniqueCategories });
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to fetch all the templates"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
@@ -48,13 +51,18 @@ export const useProductStore = create(
               "Content-Type": "application/json",
             },
           });
-          if (!response.ok) {
-            throw new Error("Fetching single product error");
-          }
           const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           set({ product: data });
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to fetch this template"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
@@ -70,14 +78,21 @@ export const useProductStore = create(
             },
           });
           if (!response.ok) {
-            throw new Error("Unable to like this product error");
+            const data = await response.json();
+            throw new Error(data.message);
           }
           console.log("like successful!");
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to save favorite"
+                : error.message,
+          });
         }
       },
       unlikeProduct: async (id) => {
+        set({ error: null });
         try {
           const response = await fetch(`${BACKEND_URL}/products/${id}`, {
             method: "PATCH",
@@ -88,11 +103,17 @@ export const useProductStore = create(
             body: JSON.stringify({ unlike: true }),
           });
           if (!response.ok) {
-            throw new Error("Unable to like this product error");
+            const data = await response.json();
+            throw new Error(data.message);
           }
           console.log("Unlike successful!");
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to remove from the favorite"
+                : error.message,
+          });
         }
       },
     }),

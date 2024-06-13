@@ -5,11 +5,13 @@ import { Loading } from "./Loading";
 import { useUserStore } from "../stores/useUserStore";
 import { Button } from "./Button";
 import { AnimationSuccess } from "./AnimationSuccess";
+import { Error } from "./Error";
 
 export const Form = ({ isLogin }) => {
   const navigate = useNavigate();
 
-  const { logInUser, registerUser, loading } = useUserStore();
+  const { logInUser, registerUser, loading, error, resetError } =
+    useUserStore();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -19,6 +21,7 @@ export const Form = ({ isLogin }) => {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (event) => {
+    resetError();
     const { name, value } = event.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -46,7 +49,7 @@ export const Form = ({ isLogin }) => {
       ) : showSuccess ? (
         <AnimationSuccess isVisible={showSuccess} />
       ) : (
-        <form onSubmit={handleSubmit} className="px-6 max-w-sm w-80 lg:w-96">
+        <form onSubmit={handleSubmit} className="w-80 max-w-sm px-6 lg:w-96">
           <div className="mb-6 lg:mb-8">
             <input
               type="text"
@@ -90,6 +93,8 @@ export const Form = ({ isLogin }) => {
           <div className="flex justify-center p-10 lg:p-16">
             <Button text={isLogin ? "LOG IN" : "SIGN UP"} />
           </div>
+          {error && <Error error={error} />}
+
           <div className="mt-4 text-center">
             {isLogin ? (
               <div className="font-montserrat font-bold text-blue">

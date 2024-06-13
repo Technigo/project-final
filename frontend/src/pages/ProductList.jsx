@@ -8,17 +8,22 @@ import { Loading } from "../components/Loading";
 import { Pagination } from "../components/Pagination";
 import { ProductCard } from "../components/ProductCard";
 import { useProductStore } from "../stores/useProductStore";
+import { useUserStore } from "../stores/useUserStore";
 
 export const ProductList = () => {
   // use this mapping to only fetch the specific states from zustand
-  const { products, loading, error, getAllProducts, categories } =
+  const { products, loading, errorProduct, getAllProducts, categories } =
     useProductStore((state) => ({
       products: state.products,
       loading: state.loading,
-      error: state.error,
+      errorProduct: state.error,
       getAllProducts: state.getAllProducts,
       categories: state.categories,
     }));
+
+  const { errorUser } = useUserStore((state) => ({
+    errorUser: state.error,
+  }));
 
   // useState
   const [searchTemplate, setSearchTemplate] = useState("");
@@ -32,8 +37,8 @@ export const ProductList = () => {
 
   // useEffect
   useEffect(() => {
-    getAllProducts();
-  }, [getAllProducts]);
+    !products && getAllProducts();
+  }, [getAllProducts, products]);
 
   useEffect(() => {
     // Search feature
@@ -132,9 +137,9 @@ export const ProductList = () => {
     return <Loading />;
   }
 
-  if (error) {
-    return <Error error={error} />;
-  }
+  // if (error) {
+  //   return <Error error={error} />;
+  // }
 
   return (
     <>
@@ -192,7 +197,8 @@ export const ProductList = () => {
           </div>
         </div>
       </div>
-
+      {errorProduct ||
+        (errorUser && <Error error={errorProduct || errorUser} />)}
       {!finalProducts.length ? (
         <div className="flex items-center justify-center p-6">
           <div className="text-blue-500 pb-20 text-lg">

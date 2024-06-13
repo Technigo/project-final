@@ -15,6 +15,7 @@ export const useUserStore = create(
       error: null,
       cart: [],
       favorite: [],
+      resetError: () => set({ error: null }),
       logout: () =>
         set({
           userId: null,
@@ -38,14 +39,19 @@ export const useUserStore = create(
               },
             },
           );
-          if (!response.ok) {
-            throw new Error("Add to cart error");
-          }
           const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           console.log("Clear cart successfully", data);
           set({ cart: data.cartItems });
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to clear cart"
+                : error.message,
+          });
         }
       },
       logInUser: async (formData) => {
@@ -59,17 +65,23 @@ export const useUserStore = create(
             },
             body: JSON.stringify(formData),
           });
-          if (!response.ok) {
-            throw new Error("Login error");
-          }
-
           const data = await response.json();
-          set({ userId: data.id, accessToken: data.accessToken });
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
+          set({
+            userId: data.id,
+            accessToken: data.accessToken,
+          });
           console.log("login successfully!");
-          console.log(data);
           return true;
         } catch (error) {
-          set({ error: error, userId: null, accessToken: null });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to log in"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
@@ -85,16 +97,20 @@ export const useUserStore = create(
             },
             body: JSON.stringify(formData),
           });
-          if (!response.ok) {
-            throw new Error("Signup error");
-          }
-          console.log("Sign up successfully!");
 
           const data = await response.json();
-          console.log(data);
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
+          console.log("Sign up successfully!");
           return true;
         } catch (error) {
-          set({ error: error });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to sign up"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
@@ -111,14 +127,24 @@ export const useUserStore = create(
               Authorization: get().accessToken,
             },
           });
-          if (!response.ok) {
-            throw new Error("Display user info error");
-          }
           const data = await response.json();
-          set({ username: data.message.username, email: data.message.email });
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
+          set({
+            username: data.message.username,
+            email: data.message.email,
+            favorite: data.message.favoriteTemplates,
+            cart: data.message.cartItems,
+          });
           console.log("user info displayed successfully!");
         } catch (error) {
-          set({ error: error.message, username: null, email: null });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to display your account"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
@@ -135,16 +161,21 @@ export const useUserStore = create(
               Authorization: get().accessToken,
             },
           });
-          if (!response.ok) {
-            throw new Error("Delete user  error");
-          }
+
           const data = await response.json();
-          if (!data.success) throw new Error("Delete user failed!");
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           console.log("user deleted  successfully!");
           set({ userId: null, username: null, email: null, accessToken: null });
           return true;
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to delete your account"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
@@ -167,14 +198,19 @@ export const useUserStore = create(
               }),
             },
           );
-          if (!response.ok) {
-            throw new Error("Save favorites error");
-          }
           const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           console.log("Save favorites successfully", data);
           set({ favorite: data.favoriteTemplates });
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to save favorite"
+                : error.message,
+          });
         }
       },
       handleCart: async (productId, action) => {
@@ -196,14 +232,19 @@ export const useUserStore = create(
               }),
             },
           );
-          if (!response.ok) {
-            throw new Error("Add to cart error");
-          }
           const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
           console.log("Add to cart successfully", data);
           set({ cart: data.cartItems });
         } catch (error) {
-          set({ error: error.message });
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to modify the cart"
+                : error.message,
+          });
         } finally {
           set({ loading: false });
         }
