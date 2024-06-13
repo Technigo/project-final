@@ -59,6 +59,19 @@
   font-size: 16px;
 }
 
+.emailText {
+  margin-bottom: 20px;
+}
+
+.emailInput {
+  margin-top: 10px;
+  width: 285px;
+  padding: 10px;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 .totalPrice {
   font-size: 16px;
   font-weight: 600;
@@ -163,6 +176,17 @@
   }
 
   .deliveryAdress {
+    margin-top: 15px;
+    width: 365px;
+    padding: 15px;
+  }
+
+  .emailText {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .emailInput {
     margin-top: 15px;
     width: 365px;
     padding: 15px;
