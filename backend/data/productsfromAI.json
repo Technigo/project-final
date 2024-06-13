@@ -42,7 +42,7 @@
     "description": "A non-toxic nail polish free from harmful metals like lead and nickel. Available in vibrant shades.",
     "price": 7.99,
     "allergies": ["latex"],
-    "pros": ["vegan", "crueltyfree"],
+    "pros": ["vegan", "crueltyfree","organic"],
     "instructions": "Apply two coats for best results.",
     "size": "10ml",
     "image": {
@@ -57,7 +57,7 @@
     "description": "A semi-natural polish without dangerous toxins. Available in vibrant shades.",
     "price": 7.99,
     "allergies": ["latex"],
-    "pros": ["vegan", "crueltyfree"],
+    "pros": ["vegan", "crueltyfree","organic"],
     "instructions": "Use on clean nails. Apply two coats for best results.",
     "size": "10ml",
     "image": {
