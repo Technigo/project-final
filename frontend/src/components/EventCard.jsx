@@ -9,8 +9,8 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
       style={{ perspective: "1000px" }}
     >
       <div
-        className={`relative w-full h-full flex flex-col md:flex-row justify-center items-center md:items-start md:justify-start rounded-lg${
-          isFlipped ? "flipped" : ""
+        className={`relative w-full h-full flex flex-col md:flex-row justify-center items-center md:items-start md:justify-start rounded-lg ${
+          isFlipped ? "animate-flip-scale-down-ver" : ""
         }`}
         style={{
           transformStyle: "preserve-3d",
@@ -20,15 +20,13 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
       >
         {/* Front Side */}
         <div
-          className="w-full h-full flex flex-col justify-center md:justify-start items-center md:items-start p-4 md:p-6"
+          className={`w-full h-full flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start p-4 md:p-6${
+            isFlipped ? "hidden" : "flex"
+          }`}
           style={{
-            transform: "rotateY(180deg)",
+            transform: "rotateY(0deg)",
             backfaceVisibility: "hidden",
           }}
-          /*  style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(0deg)",
-          }} */
         >
           <img
             src={event.imageUrl}
@@ -38,21 +36,20 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
               maxHeight: "350px",
             }}
           />
-          <div className="mt-4 md:mt-0 w-full">
+          <div className="mt-4 md:mt-0 md:ml-6 w-full">
             <h3 className="text-2xl font-bold text-primary">{event.title}</h3>
             <p className="mt-4 text-dark">{event.description}</p>
           </div>
         </div>
         {/* Back Side */}
         <div
-          className="absolute w-full h-full flex flex-col justify-center items-center p-4 md:p-6"
+          className={`absolute inset-0 w-full h-full flex flex-col justify-center items-center p-4 md:p-6 ${
+            isFlipped ? "flex" : "hidden"
+          }`}
           style={{
             backfaceVisibility: "hidden",
+            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
           }}
-          /*   style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }} */
         >
           <h3 className="text-2xl font-bold text-primary">{event.title}</h3>
           <div className="mt-4 text-dark text-left md:text-left">

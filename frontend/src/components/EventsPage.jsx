@@ -33,8 +33,8 @@ export const EventsPage = () => {
 
       {/* Showcasing an Event Section */}
       <section className="py-20 bg-gray-100">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl  text-dark">Next Event</h2>
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl text-center text-dark">Next Event</h2>
           <div className="mt-8">
             <EventCard
               event={nextEvent}
@@ -49,7 +49,7 @@ export const EventsPage = () => {
       {/* Upcoming Events Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl  text-center text-dark">Upcoming Events</h2>
+          <h2 className="text-3xl text-center text-dark">Upcoming Events</h2>
           <div className="mt-8 space-y-8">
             {eventsData.slice(1).map((event, index) => (
               <EventCard
