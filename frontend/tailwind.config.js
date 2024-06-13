@@ -27,13 +27,13 @@ export default withMT({
     extend: {
       backgroundImage: {
         health:
-          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/f_webp,fl_awebp,q_auto/v1717588806/mockups/ta9gbwyxaaqeekzcroya')",
+          "url('src/assets/bg/health.jpg')",
         business:
-          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/v1717589290/mockups/upjlenilirfukk6k3nrs.webp')",
+          "url('src/assets/bg/business.jpg')",
         color:
-          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588974/mockups/tlsk4tsiin3uesyr094k.webp')",
+          "url('src/assets/bg/color.jpg')",
         travel:
-          "url('https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588831/mockups/u2xtb6q0aedxthqn2d88.webp')",
+          "url('src/assets/bg/travel.jpg')",
       },
     },
   },
