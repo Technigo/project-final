@@ -6,12 +6,12 @@ import PropTypes from "prop-types";
 
 export const PaymentForm = ({ register }) => {
   return (
-    <div className="my-5 grid grid-cols-2 gap-y-4 font-montserrat">
+    <div className="my-5 grid gap-y-4 font-montserrat">
       <p className="col-span-2 my-2 font-lato">
         *These inputs are already filled in and can&apos;t be changed, since
         this is not a real web shop.
       </p>
-      <div className="flex flex-col gap-2 font-bold">
+      <div className="flex flex-col gap-2 font-bold w-full">
         <Radio
           name="payment"
           label="Pay with Klarna"
