@@ -55,13 +55,6 @@ export const Footer = () => {
             </li>
           </ul>
         </Toggle>
-        {/* <Toggle title="My account">
-        <ul className="footer-categories">
-          <li>Dashboard</li>
-          <li>Login</li>
-          <li>Register</li>
-        </ul>
-      </Toggle> */}
         <Toggle title="Customer service">
           <ul className="footer-categories">
             <li>
@@ -76,9 +69,6 @@ export const Footer = () => {
               This page was developed by Erica Mechler, Frida Svensson & Johanna
               Billingskog Nyberg for our final project of the Web Development
               Bootcamp at Technigo.
-            </li>
-            <li>
-              Visit our about page to read more about us and this project!
             </li>
           </ul>
         </Toggle>
