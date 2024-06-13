@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
 // import { Loading } from "./Loading";
 
 const BACKEND_URL = import.meta.env.VITE_API_URL;
@@ -33,7 +34,7 @@ export const useProductStore = create(
           ].sort();
           set({ products: data, categories: uniqueCategories });
         } catch (error) {
-          set({ error: error });
+          set({ error: error.message });
         } finally {
           set({ loading: false });
         }

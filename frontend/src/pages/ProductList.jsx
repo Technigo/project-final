@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import { ProductCard } from "../components/ProductCard";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
+import searchIcon from "../assets/search-icon-blue.svg";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Error } from "../components/Error";
 import { Loading } from "../components/Loading";
 import { Pagination } from "../components/Pagination";
-import searchIcon from "../assets/search-icon-blue.svg";
+import { ProductCard } from "../components/ProductCard";
 import { useProductStore } from "../stores/useProductStore";
-import { useSearchParams } from "react-router-dom";
 
 export const ProductList = () => {
   // use this mapping to only fetch the specific states from zustand
@@ -131,7 +133,7 @@ export const ProductList = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <Error error={error} />;
   }
 
   return (

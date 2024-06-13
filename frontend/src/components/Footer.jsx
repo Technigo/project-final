@@ -35,9 +35,9 @@ export const Footer = () => {
 
   return (
     <footer className="relative inset-x-0 bottom-0 flex flex-col items-center bg-blue pb-12 pt-10 font-montserrat leading-9 text-white">
-      <div>
+      <div className="w-5/6 max-w-[300px]">
         <button
-          className="ml-3 flex w-[300px] flex-row justify-between border-b"
+          className="flex w-full flex-row justify-between border-b"
           onClick={toggelShop}
         >
           <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">SHOP</h4>
@@ -58,12 +58,12 @@ export const Footer = () => {
           </ul>
         )}
       </div>
-      <div>
+      <div className="w-5/6 max-w-[300px]">
         <button
-          className="ml-3 flex w-[300px] flex-row justify-between border-b"
+          className="flex w-full flex-row justify-between border-b"
           onClick={toggelAccount}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">
+          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wide">
             MY ACCOUNT
           </h4>
           <img src={dropdown} className="h-2 self-center" />
@@ -78,41 +78,43 @@ export const Footer = () => {
           </ul>
         )}
       </div>
-      <div>
+      <div className="w-5/6 max-w-[300px]">
         <button
-          className="ml-3 flex w-[300px] flex-row justify-between border-b"
+          className="flex w-full flex-row justify-between border-b"
           onClick={toggelCustomerService}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">
+          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wide">
             CUSTOMER SERVICE
           </h4>
           <img src={dropdown} className="h-2 self-center" />
         </button>
         {customerIsOpen && (
-          <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
+          <p className="w-full py-3 leading-6 tracking-wide">
             This is not a real web shop, but if it was, we&apos;d proably have
             the best customer service in the world!
           </p>
         )}
       </div>
-      <div>
+      <div className="w-5/6 max-w-[300px]">
         <button
-          className="ml-3 flex w-[300px] flex-row justify-between border-b"
+          className="flex w-full flex-row justify-between border-b"
           onClick={toggleAbout}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">
+          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wide">
             ABOUT US
           </h4>
           <img src={dropdown} className="h-2 self-center" />
         </button>
         {aboutIsOpen && (
-          <p className="ml-6 w-[280px] py-3 leading-6 tracking-wide">
-            This site was designed and developed by Mai, Sofie and Wen for our
-            final project of the Web Development Bootcamp at Technigo
+          <>
+            <p className="w-full py-3 leading-6 tracking-wide">
+              This site was designed and developed by Mai, Sofie and Wen for our
+              final project of the Web Development Bootcamp at Technigo
+            </p>
             <div className="mt-3 text-center">
-              <Button text="Click to read more about us" navTo="/about-us" />
+              <Button text="About us" navTo="/about-us" />
             </div>
-          </p>
+          </>
         )}
       </div>
       <div>
