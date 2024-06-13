@@ -15,7 +15,10 @@ export const OrderConfirmation = () => {
       <h2>
         Thank you <br></br>for your order!
       </h2>
-      <p>A confirmation of your order has been sent to your email.</p>
+      <p>
+        A confirmation of your order has NOT been sent to your email, since this
+        is not a real webshop! 😉
+      </p>
     </div>
   );
 };
