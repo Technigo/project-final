@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from "react"
+import styled from "styled-components"
 //import StyledHero from "./styled/Hero.styled";
 
 export const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   const museumImages = [
     "museum1.jpg",
@@ -12,35 +12,36 @@ export const Carousel = () => {
     "museum4.jpg",
     "museum5.jpg",
     "museum6.jpg",
-  ];
+    "museum7.jpg",
+  ]
 
-  const autoScroll = true;
-  let intervalTime = 8000;
-  let slideInterval;
+  const autoScroll = true
+  let intervalTime = 8000
+  let slideInterval
 
   const nextSlide = () => {
     setCurrentSlide(
       currentSlide === museumImages.length - 1 ? 0 : currentSlide + 1
-    );
-  };
+    )
+  }
 
   const auto = () => {
-    slideInterval = setInterval(nextSlide, intervalTime);
-  };
+    slideInterval = setInterval(nextSlide, intervalTime)
+  }
 
   useEffect(() => {
     if (autoScroll) {
-      auto();
+      auto()
     }
-    return () => clearInterval(slideInterval);
-  }, [currentSlide]);
+    return () => clearInterval(slideInterval)
+  }, [currentSlide])
 
   return (
     <CarouselContainer>
       <StyledHero src={museumImages[currentSlide]} />
     </CarouselContainer>
-  );
-};
+  )
+}
 
 const CarouselContainer = styled.div`
   width: 100%;
@@ -49,10 +50,10 @@ const CarouselContainer = styled.div`
   top: 0;
   left: 0;
   z-index: -2; /* Ensure the carousel is behind everything */
-`;
+`
 
 const StyledHero = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-`;
+`

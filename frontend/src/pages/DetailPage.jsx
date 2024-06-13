@@ -277,6 +277,8 @@ const CafeIconContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  font-size: 24px;
+  margin-top: 8px;
 
   svg {
     margin-right: 8px;

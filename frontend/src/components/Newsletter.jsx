@@ -1,25 +1,25 @@
-import StyledButton from "./styled/Button.styled";
+import StyledButton from "./styled/Button.styled"
 // import StyledNewsletter from "./styled/Newsletter.styled";
-import { AlertMessage } from "./AlertMessage";
-import { useRef, useState } from "react";
-import styled from "styled-components";
+import { AlertMessage } from "./AlertMessage"
+import { useRef, useState } from "react"
+import styled from "styled-components"
 
 export const Newsletter = () => {
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const inputRef = useRef("");
+  const [showErrorMessage, setShowErrorMessage] = useState(false)
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const inputRef = useRef("")
 
   const signUp = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     if (inputRef.current.value === "") {
-      setShowErrorMessage(true);
-      setShowSuccessMessage(false);
+      setShowErrorMessage(true)
+      setShowSuccessMessage(false)
     } else {
-      setShowErrorMessage(false);
-      setShowSuccessMessage(true);
-      inputRef.current.value = "";
+      setShowErrorMessage(false)
+      setShowSuccessMessage(true)
+      inputRef.current.value = ""
     }
-  };
+  }
 
   return (
     <StyledNewsletter onSubmit={signUp}>
@@ -44,15 +44,18 @@ export const Newsletter = () => {
           />
         )}
         {showSuccessMessage === true && (
-          <AlertMessage type="success" message="Thank you! Email registered" />
+          <AlertMessage
+            type="success"
+            message="Thank you! We will be in touch shortly!"
+          />
         )}
       </NewsletterDiv>
       <Logo>
         <img src="icon4-blue-slogan.png" />
       </Logo>
     </StyledNewsletter>
-  );
-};
+  )
+}
 
 const StyledNewsletter = styled.form`
   display: flex;
@@ -85,7 +88,7 @@ const StyledNewsletter = styled.form`
     padding: 8px;
     margin-bottom: 8px;
   }
-`;
+`
 
 const SignupContainer = styled.div`
   display: flex;
@@ -113,12 +116,12 @@ const SignupContainer = styled.div`
       width: 45%;
     }
   }
-`;
+`
 
-const NewsletterDiv = styled.div``;
+const NewsletterDiv = styled.div``
 
 const Logo = styled.div`
   img {
     max-width: 250px;
   }
-`;
+`
