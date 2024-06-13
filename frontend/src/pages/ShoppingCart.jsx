@@ -172,7 +172,7 @@ export const ShoppingCart = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-col w-3/4 m-auto">
+      <div>
         <button
           onClick={openCheckout}
           className="bg-cta-blue text-text-light text-sm p-5 px-10 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:m-0 tablet:mb-8 tablet:ml-auto gap-2"

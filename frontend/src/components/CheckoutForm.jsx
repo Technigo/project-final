@@ -173,7 +173,7 @@ const CheckoutForm = ({ totalPrice }) => {
             ))}
         </ul>
       </div>
-      <div className="flex flex-col items-end">
+      <div >
         <p>Price: EUR {product.price}</p>
         <CardElement options={cardElementOptions} />
         <button
