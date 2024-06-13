@@ -1,0 +1,27 @@
+.product-card {
+  margin-bottom: 10px;
+  transition: 0.15s;
+}
+
+.product-card:hover {
+  transform: scale(1.01);
+}
+
+.product-card-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Media Quieries for desktop*/
+@media (min-width: 1024px) {
+  .product-card {
+    width: 100%;
+  }
+
+  .product-card-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

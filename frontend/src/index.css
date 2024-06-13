@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --darkgrey: #575757;
+  --lightgrey: #e6e6e6;
+  --pink: #ff826d;
+  --yellow: #fcba4d;
+  --green: #186354;
+  --blue: #1673c3;
+  --purple: #7f6ab9;
+
+  font-family: "Lato", sans-serif;
+  color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  color: var(--darkgrey);
+}
+
+/* remove all text decoration on links  */
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+/* When the navlink is used, it gets an active-class, which we can use to highlight the link that has been pressed */
+a.active {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+/* For extra small text */
+.text-xs {
+  font-size: 12px;
+}
+
+/* Media Queries for tablet */
+@media screen and (min-width: 667px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+/* Media Queries for desktop */
+@media screen and (min-width: 1024px) {
+}

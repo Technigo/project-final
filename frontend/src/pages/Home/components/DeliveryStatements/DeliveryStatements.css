@@ -1,0 +1,89 @@
+.delivery-statements-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 5px;
+  padding: 30px 20px;
+}
+
+.delivery-statements-container.pink {
+  background-color: var(--pink);
+}
+
+.delivery-statements-container.white {
+  justify-content: center;
+  gap: 14px;
+}
+
+.delivery-statement {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 30px 0;
+}
+
+.delivery-statement.white {
+  width: auto;
+}
+
+.delivery-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.delivery-text {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  color: var(--black);
+  font-size: 16px;
+}
+
+.delivery-text.white {
+  font-size: 16px;
+}
+/* white & pink
+white: 16px
+pink: 20px, backgrund: pink */
+
+/* Media Queries for tablet */
+@media screen and (min-width: 667px) {
+  .delivery-statements-container,
+  .delivery-statements-container.white {
+    gap: 32px;
+  }
+  .delivery-image {
+    width: 55px;
+    height: 55px;
+  }
+
+  .delivery-statement {
+    gap: 32px;
+  }
+}
+
+/* Media Queries for desktop */
+@media screen and (min-width: 1024px) {
+  .delivery-image {
+    width: 65px;
+    height: 65px;
+  }
+}
+/* .delivery-statements {
+  --mask: radial-gradient(34.99px at 50% 48px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0/120px 51% repeat-x,
+    radial-gradient(34.99px at 50% -18px, #0000 99%, #000 101%) 50% 30px/120px
+      calc(51% - 30px) repeat-x,
+    radial-gradient(34.99px at 50% calc(100% - 48px), #000 99%, #0000 101%) 50%
+      100%/120px 51% repeat-x,
+    radial-gradient(34.99px at 50% calc(100% + 18px), #0000 99%, #000 101%)
+      calc(50% - 60px) calc(100% - 30px) / 120px calc(51% - 30px) repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+ */

@@ -1,0 +1,44 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.loader {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--darkgrey);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media Queries for tablet */
+@media screen and (min-width: 667px) {
+  .loader-container {
+    padding: 100px 0;
+  }
+  .loader {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Media Queries for desktop */
+@media screen and (min-width: 1024px) {
+
+  
+  .loader {
+    width: 80px;
+    height: 80px;
+  }
+}
