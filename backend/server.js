@@ -16,16 +16,10 @@ mongoose.Promise = global.Promise;
 const port = process.env.PORT || 9000;
 const app = express();
 
-/* // Middleware to log every incoming request
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-}); */
-
-// Add middlewares to enable cors and json body parsing¨
+// middlewares to enable cors and json body parsing
 const corsOptions = {
-  origin: "https://adhd-connect.netlify.app", // Change this to match your frontend origin
-  credentials: true, // Allow cookies to be sent
+  origin: "https://adhd-connect.netlify.app",
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
@@ -34,7 +28,6 @@ app.use(passport.initialize());
 
 app.use("/api", authProfileRoutes);
 
-// Start defining your routes here
 app.get("/", (req, res) => {
   const endpoints = expressListEndpoints(app);
   res.json(endpoints);

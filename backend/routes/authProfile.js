@@ -1,11 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-
 import passport from "../config/passport";
 import User from "../models/User";
-
-/* import { upload } from "../config/multer"; */
-/* import { authenticate } from "passport"; */
 
 const router = express.Router();
 
@@ -26,9 +22,6 @@ const authenticateToken = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  console.log("Authorization header:", authHeader);
-  console.log("Token:", token);
-
   if (token == null) {
     return res.status(401).json({ error: "Token is missing" });
   }
@@ -44,7 +37,6 @@ const authenticateToken = async (req, res, next) => {
 
 // Route to register a new user
 router.post("/users", async (req, res) => {
-  console.log("POST /users called");
   const { username, password, role } = req.body;
 
   // Check if the password meets the minimum length requirement
@@ -69,9 +61,8 @@ router.post("/users", async (req, res) => {
   }
 });
 
+// Route to log in a user
 router.post("/sessions", async (req, res, next) => {
-  console.log("Incoming login request:", req.body);
-
   passport.authenticate("local", { session: false }, (err, user, info) => {
     if (err || !user) {
       console.log("Error during authentication:", err);
@@ -81,18 +72,12 @@ router.post("/sessions", async (req, res, next) => {
     }
     req.login(user, { session: false }, async (err) => {
       if (err) {
-        console.log("Login error:", err);
         return res.send(err);
       }
-
-      const token = generateAccessToken(user._id); // Generating token here
-
-      // Remove accessToken from user object
+      const token = generateAccessToken(user._id);
       const userWithoutAccessToken = user.toObject();
       delete userWithoutAccessToken.accessToken;
-
-      console.log("Login successful:", user.username);
-      return res.json({ user: userWithoutAccessToken, token });  // Sending token in response
+      return res.json({ user: userWithoutAccessToken, token });
     });
   })(req, res, next);
 });
@@ -101,18 +86,11 @@ router.post("/sessions", async (req, res, next) => {
 // Route for the current session (logged-in user)
 router.get("/session", authenticateToken, async (req, res) => {
   try {
-    // Retrieve user information from the request object
     const user = req.user;
-
-    // Fetch user data from the database
     const loggedInUser = await User.findById(user.userId).select("-password");
-
-    // Check if the user exists
     if (!loggedInUser) {
       return res.status(404).json({ error: "User not found" });
     }
-
-    // Respond with user data
     res.json(loggedInUser);
   } catch (error) {
     console.error("Error fetching logged-in user:", error);
@@ -135,36 +113,24 @@ router.get("/profile", authenticateToken, async (req, res) => {
   }
 });
 
-//Update user profile
-router.put(
-  "/profile",
-  authenticateToken,
-  async (req, res) => {
-    try {
-      const { name, bio, hobby } = req.body;
-      const updatedData = { name, bio, hobby };
+//Route to update user profile
+router.put("/profile", authenticateToken, async (req, res) => {
+  const { name, bio, hobby } = req.body;
+  const updatedData = { name, bio, hobby };
 
-      // Log the update data to debug
-      console.log("Updating user profile with data:", updatedData);
-
-      const user = await User.findByIdAndUpdate(req.user.userId, updatedData, {
-        new: true,
-      });
-      // Log the updated user to debug
-      console.log("Updated user profile:", user);
-
-
-      if (!user) {
-        return res.status(404).json({ error: "User not found" });
-      }
-
-      res.json(user);
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      res.status(500).json({ error: "Failed to update profile" });
+  try {
+    const user = await User.findByIdAndUpdate(req.user.userId, updatedData, {
+      new: true,
+    });
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
     }
+    res.json(user);
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(500).json({ error: "Failed to update profile" });
   }
-);
+});
 
 // Authenticated endpoint
 router.get("/secrets", authenticateToken, (req, res) => {
