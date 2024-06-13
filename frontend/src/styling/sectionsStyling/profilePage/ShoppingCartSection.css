@@ -165,14 +165,6 @@
 
   .shoppingCartWrapper {
     width: 840px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .cartIconWrapper {
-    grid-column: span 2;
   }
 
   .cartIcon {
@@ -183,7 +175,6 @@
   .shoppingCartTitle {
     font-size: 42px;
     text-align: start;
-    grid-column: 1 / 2;
   }
 
   .deliveryTitle {
@@ -191,7 +182,6 @@
   }
 
   .shoppingCartItems {
-    grid-column: span 2;
   }
 
   .cartItem {
