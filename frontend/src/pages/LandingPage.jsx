@@ -12,7 +12,7 @@ export const LandingPage = () => {
   const [museums, setMuseums] = useState([])
   const [results, setResults] = useState([])
   const [amountToShow, setAmountToShow] = useState(8)
-  const [isLoading, setIsLoading] = useState(true) // Add loading state
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchMuseums = async () => {
