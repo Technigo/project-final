@@ -32,7 +32,7 @@ export const HeartButton = ({ style, id, setOpenDrawer }) => {
       setOpenDrawer(true);
       loading(false);
     }
-    }s
+    }
   return (
   
   <button className={style} onClick={handleLike}>
