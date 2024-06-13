@@ -1,27 +1,29 @@
-import {
-  CardElement,
-  PaymentElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { CardElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
 
 import { useProductsStore } from "../store/useProductsStore";
 
-const CheckoutForm = () => {
-  const { handlePayment, paymentStatus, isLoading, totalPrice, shoppingCart } =
+const CheckoutForm = ({ totalPrice }) => {
+  const { handlePayment, paymentStatus, isLoading, shoppingCart } =
     useProductsStore();
   const stripe = useStripe();
   const elements = useElements();
   /*   const [paymentStatus, setPaymentStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false); */
 
+  console.log("totalprice in checkoutform: ", totalPrice);
   // Define the product details
   const product = {
     items: shoppingCart,
-    description: "High-quality cotton t-shirt",
+    /* description: "High-quality cotton t-shirt", */
     price: totalPrice,
   };
+
+  /* const calculateTotalCost = (item) => {
+    const totalCost = item.quantity * item.product.price;
+    const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
+    return `${roundedPrice}`;
+  }; */
 
   /* const handleSubmit = async (event) => {
     event.preventDefault();
@@ -118,13 +120,15 @@ const CheckoutForm = () => {
 
   // Then, you can pass this wrapper function to onSubmit
 
+  console.log("Payment status:", paymentStatus);
+
   return (
     <form onSubmit={handleSubmit} className="checkout-form">
       {/* Product details */}
       <div>
         <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
-          {items &&
-            items.map((item, index) => (
+          {product.items &&
+            product.items.map((item, index) => (
               <li
                 key={index}
                 className=" flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light"
@@ -154,7 +158,7 @@ const CheckoutForm = () => {
                     <p className="font-header text-text-light text-sm mt-4 tablet:mt-8 laptop:mt-14 ">
                       subtotal:{" "}
                       <span className="bg-main-yellow rounded-xl p-1 px-2 tablet:p-2 tracking-widest font-bold text-text-dark">
-                        {calculateTotalCost(item)} €{" "}
+                        {totalPrice} €{" "}
                       </span>
                     </p>
                   </div>
@@ -171,14 +175,18 @@ const CheckoutForm = () => {
       </button>
 
       <div
-        className={`payment-status ${
-          paymentStatus === "Payment successful!" ? "success" : ""
+   className={`payment-status ${
+          paymentStatus === "Payment successful!"
+            ? "text-green-500"
+            : "text-red-500"
         }`}
       >
-        {paymentStatus}
+        {product.price}
       </div>
     </form>
   );
 };
+
+
 
 export default CheckoutForm;
