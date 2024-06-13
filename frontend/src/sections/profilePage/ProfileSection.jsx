@@ -1,15 +1,19 @@
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import "../../styling/sectionsStyling/profilePage/ProfileSection.css";
 
 const ProfileSection = () => {
-  const { logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     navigate("/");
   };
+
+  if (!isAuthenticated) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="profileContainer">
@@ -25,17 +29,10 @@ const ProfileSection = () => {
         <div className="profileContent">
           <h3 className="customerEmailTitle">Your Email:</h3>
           <p className="customerEmail">paula010514@hotmail.com</p>
-          <label className="changeEmailLabel">
-            Change Email: <br />
-            <input type="email" className="changeEmailInput" />
-          </label>
-          <div className="profileButtonsWrapper">
-            <button className="changeEmailButton">Change</button>
-            <div className="logoutButtonWrapper">
-              <button className="logoutButton" onClick={handleLogout}>
-                Log out
-              </button>
-            </div>
+          <div className="logoutButtonWrapper">
+            <button className="logoutButton" onClick={handleLogout}>
+              Log out
+            </button>
           </div>
         </div>
       </form>
