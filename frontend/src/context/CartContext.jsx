@@ -11,7 +11,9 @@ export const CartProvider = ({ children }) => {
 
   const fetchCartItems = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/cart");
+      const response = await axios.get(
+        "https://project-final-rentals-api.onrender.com/api/cart"
+      );
       setCartItems(response.data.cart);
       setTotalPrice(response.data.totalPrice);
     } catch (error) {
@@ -21,7 +23,10 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (item) => {
     try {
-      await axios.post("http://localhost:8080/api/cart", { id: item._id });
+      await axios.post(
+        "https://project-final-rentals-api.onrender.com/api/cart",
+        { id: item._id }
+      );
       fetchCartItems();
     } catch (error) {
       console.error("Error adding to cart:", error);
@@ -31,7 +36,7 @@ export const CartProvider = ({ children }) => {
   const handleRemoveFromCart = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/api/cart/${id}`
+        `https://project-final-rentals-api.onrender.com/api/cart/${id}`
       );
       setCartItems(response.data.cart);
       setTotalPrice(response.data.totalPrice);
@@ -42,7 +47,9 @@ export const CartProvider = ({ children }) => {
 
   const handleClearCart = async () => {
     try {
-      const response = await axios.delete("http://localhost:8080/api/cart");
+      const response = await axios.delete(
+        "https://project-final-rentals-api.onrender.com/api/cart"
+      );
       setCartItems(response.data.cart);
       setTotalPrice(0);
     } catch (error) {

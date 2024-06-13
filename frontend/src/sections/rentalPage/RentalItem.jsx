@@ -12,7 +12,9 @@ const RentalItem = () => {
 
   const fetchRentals = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/rentals");
+      const response = await axios.get(
+        "https://project-final-rentals-api.onrender.com/api/rentals"
+      );
       setRentals(response.data);
     } catch (error) {
       console.error("Error fetching rentals:", error);

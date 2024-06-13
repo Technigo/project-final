@@ -44,7 +44,7 @@ const ShoppingCartSection = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8080/api/orders",
+        "https://project-final-rentals-api.onrender.com/api/orders",
         orderDetails
       );
       console.log("Order placed successfully", response.data);
