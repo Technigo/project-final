@@ -30,7 +30,7 @@ export const Testimonial = () => {
           </p>
         </div>
         <div
-          className={`${page == 2 ? "flex" : "hidden"} h-full flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
+          className={`${page == 2 ? "flex" : "hidden"}  h-full flex-row items-center gap-5 rounded-md bg-white px-5 py-8 lg:flex`}
         >
           <div className="flex flex-col items-center gap-2">
             <div className="w-16 overflow-clip rounded-full">

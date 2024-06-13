@@ -46,7 +46,7 @@ export const Form = ({ isLogin }) => {
       ) : showSuccess ? (
         <AnimationSuccess isVisible={showSuccess} />
       ) : (
-        <form onSubmit={handleSubmit} className="w-80 max-w-sm lg:w-96">
+        <form onSubmit={handleSubmit} className="px-6 max-w-sm w-80 lg:w-96">
           <div className="mb-6 lg:mb-8">
             <input
               type="text"

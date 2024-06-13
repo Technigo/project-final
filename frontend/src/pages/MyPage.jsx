@@ -39,7 +39,7 @@ export const MyPage = () => {
 
       <div className="mx-6 mb-20 flex flex-col items-center">
         {!loading ? (
-          <div className="grid w-5/6 grid-cols-1 gap-6 text-base text-blue lg:w-full lg:max-w-screen-md lg:gap-8">
+          <div className="grid w-5/6 grid-cols-1 gap-6 text-base text-blue lg:w-full md:max-w-screen-sm lg:gap-8">
             <h1 className="my-10 text-center font-poppins font-bold text-black lg:my-20">
               My Account
             </h1>
@@ -48,21 +48,21 @@ export const MyPage = () => {
               <p className="font-montserrat text-xl font-bold">{username}</p>
             </div>
 
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-col items-center justify-between lg:flex-row">
               <div className="flex flex-row items-center gap-2">
                 <FaUserLock className="h-7 w-8 text-blue" />
                 <p className="font-montserrat text-base font-bold">ID</p>
               </div>
               <p className="font-lato text-base">{userId}</p>
             </div>
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-col items-center justify-between lg:flex-row">
               <div className="flex flex-row items-center gap-2">
                 <MdOutlineMail className="h-8 w-8 text-blue" />
                 <p className="font-montserrat text-base font-bold">Email</p>
               </div>
               <p className="font-lato text-base">{email}</p>
             </div>
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-col items-center justify-between lg:flex-row">
               <div className="flex flex-row items-center gap-2">
                 <MdDelete className="h-8 w-8 text-blue" />
                 <p className="font-montserrat font-bold">Delete account</p>

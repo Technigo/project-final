@@ -30,7 +30,7 @@ export const CategoryCard = () => {
       {category.map((item) => (
         <div
           key={item.name}
-          className="relative flex h-80 cursor-pointer items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
+          className="relative px-2 flex h-80 cursor-pointer items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
           onClick={() => navigate(`/products?category=${item.name}`)}
         >
           <div
