@@ -1,7 +1,7 @@
 .new-arrivals-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 5px;
   padding: 30px 0;
 }
 
