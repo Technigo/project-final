@@ -1,22 +1,29 @@
-import { useState, useEffect } from "react";
-import { ProductCard } from "../components/ProductCard";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
+import searchIcon from "../assets/search-icon-blue.svg";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Error } from "../components/Error";
 import { Loading } from "../components/Loading";
 import { Pagination } from "../components/Pagination";
-import searchIcon from "../assets/search-icon-blue.svg";
+import { ProductCard } from "../components/ProductCard";
 import { useProductStore } from "../stores/useProductStore";
-import { useSearchParams } from "react-router-dom";
+import { useUserStore } from "../stores/useUserStore";
 
 export const ProductList = () => {
   // use this mapping to only fetch the specific states from zustand
-  const { products, loading, error, getAllProducts, categories } =
+  const { products, loading, errorProduct, getAllProducts, categories } =
     useProductStore((state) => ({
       products: state.products,
       loading: state.loading,
-      error: state.error,
+      errorProduct: state.error,
       getAllProducts: state.getAllProducts,
       categories: state.categories,
     }));
+
+  const { errorUser } = useUserStore((state) => ({
+    errorUser: state.error,
+  }));
 
   // useState
   const [searchTemplate, setSearchTemplate] = useState("");
@@ -26,12 +33,12 @@ export const ProductList = () => {
   const [itemsPerPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   // useEffect
   useEffect(() => {
-    getAllProducts();
-  }, [getAllProducts]);
+    !products && getAllProducts();
+  }, [getAllProducts, products]);
 
   useEffect(() => {
     // Search feature
@@ -105,16 +112,6 @@ export const ProductList = () => {
     indexOfLastProduct,
   );
 
-  // tag
-  const handleTagClick = (tag) => {
-    setSearchParams({ tag: tag });
-  };
-
-  // category
-  const handleCategoryClick = (category) => {
-    setSearchParams({ category: category });
-  };
-
   // Pagination function
   const paginate = (pageNumber) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
@@ -128,10 +125,6 @@ export const ProductList = () => {
 
   if (loading) {
     return <Loading />;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
   }
 
   return (
@@ -190,7 +183,8 @@ export const ProductList = () => {
           </div>
         </div>
       </div>
-
+      {errorProduct ||
+        (errorUser && <Error error={errorProduct || errorUser} />)}
       {!finalProducts.length ? (
         <div className="flex items-center justify-center p-6">
           <div className="text-blue-500 pb-20 text-lg">
@@ -214,8 +208,6 @@ export const ProductList = () => {
                   price={product.price}
                   category={product.category}
                   Id={product._id}
-                  onTagClick={handleTagClick}
-                  onCategoryClick={handleCategoryClick}
                 />
               ))}
             </div>

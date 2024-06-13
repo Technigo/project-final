@@ -12,13 +12,15 @@ import { useProductStore } from "../stores/useProductStore";
 import { Button } from "../components/Button";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { Loading } from "../components/Loading";
+import { Error } from "../components/Error";
 
 export const MyPage = () => {
   const products = useProductStore((state) => state.products);
-  const { favorite, logout, loading } = useUserStore((state) => ({
+  const { favorite, logout, loading, error } = useUserStore((state) => ({
     favorite: state.favorite,
     logout: state.logout,
     loading: state.loading,
+    error: state.error,
   }));
   const navigate = useNavigate();
   const { userId, username, email, displayUserInfo, deleteAccount } =
@@ -38,8 +40,9 @@ export const MyPage = () => {
       <Breadcrumb />
 
       <div className="mx-6 mb-20 flex flex-col items-center">
+        {error && <Error error={error} />}
         {!loading ? (
-          <div className="grid w-5/6 grid-cols-1 gap-6 text-base text-blue lg:w-full md:max-w-screen-sm lg:gap-8">
+          <div className="grid w-5/6 grid-cols-1 gap-6 text-base text-blue md:max-w-screen-sm lg:w-full lg:gap-8">
             <h1 className="my-10 text-center font-poppins font-bold text-black lg:my-20">
               My Account
             </h1>
@@ -86,19 +89,20 @@ export const MyPage = () => {
           <h2 className="mt-10 font-bold">Your Favorite Items</h2>
         </div>
         <div className="my-10 grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
-          {products
-            .filter((product) => favorite.includes(product._id))
-            .map((product) => (
-              <ProductCard
-                id={product._id}
-                key={product._id}
-                templateImg={product.image}
-                tags={product.tags}
-                name={product.templateName}
-                price={product.price}
-                category={product.category}
-              />
-            ))}
+          {favorite.length > 0 &&
+            products
+              .filter((product) => favorite.includes(product._id))
+              .map((product) => (
+                <ProductCard
+                  id={product._id}
+                  key={product._id}
+                  templateImg={product.image}
+                  tags={product.tags}
+                  name={product.templateName}
+                  price={product.price}
+                  category={product.category}
+                />
+              ))}
         </div>
       </div>
     </>

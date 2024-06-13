@@ -30,4 +30,5 @@ Button.propTypes = {
   navTo: PropTypes.string,
   onClickFunc: PropTypes.func,
   disabled: PropTypes.bool,
+  type: PropTypes.string,
 };

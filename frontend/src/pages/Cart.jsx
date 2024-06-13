@@ -84,6 +84,7 @@ export const Cart = () => {
                 text="CLEAR CART"
                 style="button"
                 onClickFunc={clearCart}
+                disabled={cart.length === 0}
               />
             </div>
             <div className="flex justify-center">
