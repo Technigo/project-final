@@ -1,13 +1,7 @@
-import { useState } from "react"
 import { MuseumCard } from "./MuseumCard"
-import StyledButton from "./styled/Button.styled"
 import styled from "styled-components"
 
-export const MuseumCardContainer = ({ results }) => {
-  const [amountToShow, setAmountToShow] = useState(8)
-
-  const showMore = () => setAmountToShow(amountToShow + 8)
-
+export const MuseumCardContainer = ({ results, amountToShow }) => {
   const showMuseums = () =>
     results
       .slice(0, amountToShow)
@@ -16,9 +10,6 @@ export const MuseumCardContainer = ({ results }) => {
   return (
     <StyledMuseumCardContainer>
       <MuseumCardGrid>{showMuseums()}</MuseumCardGrid>
-      {amountToShow <= results.length && (
-        <StyledButton onClick={showMore}> Show more...</StyledButton>
-      )}
     </StyledMuseumCardContainer>
   )
 }
@@ -47,7 +38,7 @@ const StyledMuseumCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px 0;
-  background-color: #161515;
+  background-color: #333333;
 
   button {
     margin: 20px auto 0 auto;

@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { MuseumCardContainer } from "../components/MuseumCardContainer";
-import { SearchBar } from "../components/SearchBar";
-import { FilterBar } from "../components/FilterBar";
+import { useEffect, useState } from "react"
+import styled from "styled-components"
+import { MuseumCardContainer } from "../components/MuseumCardContainer"
+import { SearchBar } from "../components/SearchBar"
+import { FilterBar } from "../components/FilterBar"
+import StyledButton from "../components/styled/Button.styled"
 
 export const MuseumPage = () => {
-  const [museums, setMuseums] = useState([]);
-  const [results, setResults] = useState([]);
+  const [museums, setMuseums] = useState([])
+  const [results, setResults] = useState([])
+  const [amountToShow, setAmountToShow] = useState(8)
+
   const [filters, setFilters] = useState({
     country: "",
     category: "",
     hasCafe: false,
     ticketPriceFree: false,
-  });
+  })
+  const [noResults, setNoResults] = useState(false)
+
 
   useEffect(() => {
     const fetchMuseums = async () => {
@@ -55,6 +60,17 @@ export const MuseumPage = () => {
     });
   };
 
+  useEffect(() => {
+    const checkNoResults = () => {
+      const filteredMuseums = filterMuseums(museums)
+      setNoResults(filteredMuseums.length === 0)
+    }
+
+    checkNoResults()
+  }, [filters, museums, results])
+
+  const showMore = () => setAmountToShow(amountToShow + 8)
+
   const museumsToShow =
     results.length === 0 ? filterMuseums(museums) : filterMuseums(results);
 
@@ -63,7 +79,23 @@ export const MuseumPage = () => {
       <Background />
       <SearchBar setResults={setResults} />
       <FilterBar setFilters={setFilters} />
-      <MuseumCardContainer results={museumsToShow} />
+      {noResults ? (
+        <NoResultsMessage>
+          No results found for the selected filters.
+        </NoResultsMessage>
+      ) : (
+        <>
+          <MuseumCardContainer
+            results={museumsToShow}
+            amountToShow={amountToShow}
+          />
+          <ButtonContainer>
+            {amountToShow < museumsToShow.length && (
+              <StyledButton onClick={showMore}>Show more</StyledButton>
+            )}
+          </ButtonContainer>
+        </>
+      )}
     </MuseumPageContainer>
   );
 };
@@ -77,6 +109,18 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #232222;
+  background-color: #333333;
   z-index: -1;
-`;
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: #333333;
+  padding: 50px 0;
+`
+const NoResultsMessage = styled.p`
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+`

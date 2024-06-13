@@ -57,28 +57,27 @@ export const SearchBar = ({ setResults }) => {
   )
 }
 
+const SearchBarContainer = styled.form`
+  padding: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #333333;
+  button {
+    margin: 0 5px;
+  }
+`
+
 const StyledSearchBar = styled.input`
   border: 1px solid grey;
   border-radius: 4px;
   height: 10px;
   width: 250px;
-  padding: 2px 23px 2px 30px;
   outline: 0;
   background-color: #f5f5f5;
   font-size: 16px;
   padding: 14px;
-`
-
-const SearchBarContainer = styled.form`
-padding-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #161515;
-  button {
-    margin: 0 5px;
-  }
 `
 
 const InputWrapper = styled.div`

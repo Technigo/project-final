@@ -106,8 +106,12 @@ export const DetailPage = () => {
             </p>
           )}
         </CommentContainer>
-        <MuseumMap museums={[museum]} showLink={false} center={[museum.lat, museum.lon]} />
-        </ContentContainer>
+        <MuseumMap
+          museums={[museum]}
+          showLink={false}
+          center={[museum.lat, museum.lon]}
+        />
+      </ContentContainer>
     </Container>
   )
 }
@@ -131,7 +135,7 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #232222;
+  background-color: #333333;
   z-index: -1;
 `
 
@@ -255,6 +259,4 @@ const VisitWebsite = styled.p`
 
 const CommentContainer = styled.div`
   padding: 20px;
-
- 
 `

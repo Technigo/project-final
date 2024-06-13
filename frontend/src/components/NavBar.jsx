@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { LuUser2 } from "react-icons/lu"
 import { RiCloseLine, RiMenuLine } from "react-icons/ri"
 import { useState } from "react"
@@ -6,6 +6,7 @@ import styled from "styled-components"
 
 export const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false)
+  const location = useLocation()
 
   const toggleMenu = () => {
     console.log("Menu is toggled")
@@ -69,9 +70,17 @@ export const NavBar = () => {
       {/* Tablet Section */}
       <NavSectionTablet>
         <NavSectionLeft>
-          <StyledLink to={"/"}>Home</StyledLink>
-          <StyledLink to={"/museums"}>Museums</StyledLink>
-          <StyledLink to={"/about"}>About</StyledLink>
+          <StyledLink to={"/"} isActive={location.pathname === "/"}>
+            Home
+          </StyledLink>
+          <StyledLink
+            to={"/museums"}
+            isActive={location.pathname === "/museums"}>
+            Museums
+          </StyledLink>
+          <StyledLink to={"/about"} isActive={location.pathname === "/about"}>
+            About
+          </StyledLink>
         </NavSectionLeft>
 
         <NavBarImageContainer>
@@ -79,9 +88,17 @@ export const NavBar = () => {
         </NavBarImageContainer>
 
         <NavSectionRight>
-          <StyledLink to={"/register"}>Register</StyledLink>
-          <StyledLink to={"/login"}>Login</StyledLink>
-          <StyledLink to={"/user-page"}>
+          <StyledLink
+            to={"/register"}
+            isActive={location.pathname === "/register"}>
+            Register
+          </StyledLink>
+          <StyledLink to={"/login"} isActive={location.pathname === "/login"}>
+            Login
+          </StyledLink>
+          <StyledLink
+            to={"/user-page"}
+            isActive={location.pathname === "/user-page"}>
             <LuUser2 />
           </StyledLink>
         </NavSectionRight>
@@ -143,6 +160,7 @@ const StyledLink = styled(Link)`
   margin: 0 10px;
   display: flex;
   align-items: center;
+  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
 
   &:hover {
     text-decoration: underline;

@@ -1,14 +1,29 @@
 import { useState } from "react"
 import Select from "react-select"
+import styled from "styled-components"
+import StyledButton from "../components/styled/Button.styled"
 
 export const FilterBar = ({ setFilters }) => {
   const [country, setCountry] = useState("")
-  const [theme, setTheme] = useState("")
+  const [category, setCategory] = useState("")
   const [hasCafe, setHasCafe] = useState(false)
   const [ticketPriceFree, setTicketPriceFree] = useState(false)
 
   const handleFilterChange = () => {
-    setFilters({ country, theme, hasCafe, ticketPriceFree })
+    setFilters({ country, category, hasCafe, ticketPriceFree })
+  }
+
+  const handleClearFilters = () => {
+    setCountry("")
+    setCategory("")
+    setHasCafe(false)
+    setTicketPriceFree(false)
+    setFilters({
+      country: "",
+      category: "",
+      hasCafe: false,
+      ticketPriceFree: false,
+    })
   }
 
   const countryOptions = [
@@ -73,44 +88,107 @@ export const FilterBar = ({ setFilters }) => {
   ]
 
   return (
-    <div>
-      <div>
-        <Select
+    <FilterBarContainer>
+      <SelectContainer>
+        <StyledSelect
           options={countryOptions}
-          value={{ value: country, label: country }}
+          value={{ value: country, label: country || "Select Country" }}
           onChange={(selectedOption) => setCountry(selectedOption.value)}
           placeholder="Select Country"
           isSearchable
         />
 
-        <Select
+        <StyledSelect
           options={categoryOptions}
-          value={{ value: category, label: category }}
+          value={{ value: category, label: category || "Select Category" }}
           onChange={(selectedOption) => setCategory(selectedOption.value)}
           placeholder="Select Category"
           isSearchable
         />
 
-        <label>
-          <input
-            type="checkbox"
-            checked={hasCafe}
-            onChange={(e) => setHasCafe(e.target.checked)}
-          />
-          Has Cafe
-        </label>
+        <CheckboxContainer>
+          <CheckboxLabel>
+            <Checkbox
+              type="checkbox"
+              checked={hasCafe}
+              onChange={(e) => setHasCafe(e.target.checked)}
+            />
+            Has Cafe
+          </CheckboxLabel>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={ticketPriceFree}
-            onChange={(e) => setTicketPriceFree(e.target.checked)}
-          />
-          Free Admission
-        </label>
-
-        <button onClick={handleFilterChange}>Apply Filters</button>
-      </div>
-    </div>
+          <CheckboxLabel>
+            <Checkbox
+              type="checkbox"
+              checked={ticketPriceFree}
+              onChange={(e) => setTicketPriceFree(e.target.checked)}
+            />
+            Free Admission
+          </CheckboxLabel>
+        </CheckboxContainer>
+        <ButtonContainer>
+          <StyledButton onClick={handleFilterChange}>
+            Apply filters
+          </StyledButton>
+          <StyledButton onClick={handleClearFilters}>
+            Clear filters
+          </StyledButton>
+        </ButtonContainer>
+      </SelectContainer>
+    </FilterBarContainer>
   )
 }
+
+const FilterBarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #333333;
+`
+
+const SelectContainer = styled.div`
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`
+
+const StyledSelect = styled(Select)`
+  .react-select__control {
+    border-color: #ccc;
+  }
+
+  .react-select__control:hover {
+    border-color: #888;
+  }
+
+  .react-select__menu {
+    z-index: 10;
+  }
+`
+
+const CheckboxContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 20px 0;
+`
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+`
+
+const Checkbox = styled.input`
+  margin-right: 8px;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 0;
+`
