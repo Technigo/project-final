@@ -8,7 +8,6 @@ import { RegisterPage } from "./pages/RegisterPage"
 import { AboutPage } from "./pages/AboutPage"
 import { ContactPage } from "./pages/ContactPage"
 import { ReferencePage } from "./pages/ReferencePage"
-import { ShopPage } from "./pages/ShopPage"
 import { MuseumPage } from "./pages/MuseumPage"
 import Layout from "./Layout"
 import "leaflet/dist/leaflet.css"
@@ -28,7 +27,6 @@ export const App = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/references" element={<ReferencePage />} />
-          <Route path="/shop" element={<ShopPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

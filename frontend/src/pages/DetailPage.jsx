@@ -57,6 +57,11 @@ export const DetailPage = () => {
     return <Navigate to="/not-found" />
   }
 
+  const buttonText =
+    museum.ticket_price === "Free" || museum.ticket_price === "Donations"
+      ? "Visit website"
+      : "Buy ticket"
+
   return (
     <Container>
       <Background />
@@ -102,19 +107,12 @@ export const DetailPage = () => {
                 )
               })}
             </OpeningHours>
-            <VisitWebsite>
-              Visit the official website{" "}
-              <a
-                href={museum.website}
-                target="_blank"
-                rel="noopener noreferrer">
-                here
-              </a>
-            </VisitWebsite>
+
             <TicketPrice>Ticket price: {museum.ticket_price}</TicketPrice>
-            <Link to={"/shop"}>
-              <StyledButton>Buy a ticket</StyledButton>{" "}
-            </Link>
+
+            <a href={museum.website} target="_blank" rel="noopener noreferrer">
+              <StyledButton>{buttonText}</StyledButton>{" "}
+            </a>
           </TextContainer>
         </Content>
 
@@ -275,15 +273,6 @@ const OpeningHours = styled.div`
 `
 const TicketPrice = styled.p`
   margin-bottom: 5px;
-`
-
-const VisitWebsite = styled.p`
-  margin-bottom: 5px;
-
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
 `
 
 const CommentContainer = styled.div`

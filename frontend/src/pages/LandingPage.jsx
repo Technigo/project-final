@@ -1,39 +1,39 @@
 import styled from "styled-components"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { SearchBar } from "../components/SearchBar"
 import { MuseumCardContainer } from "../components/MuseumCardContainer"
 import { HeroSection } from "../components/HeroSection"
 import { Newsletter } from "../components/Newsletter"
 import { MuseumMap } from "../components/MuseumMap"
 import StyledButton from "../components/styled/Button.styled"
-import { Link } from "react-router-dom"
 
 export const LandingPage = () => {
   const [museums, setMuseums] = useState([])
   const [results, setResults] = useState([])
   const [amountToShow, setAmountToShow] = useState(8)
-
+  const [isLoading, setIsLoading] = useState(true) // Add loading state
 
   useEffect(() => {
     const fetchMuseums = async () => {
       try {
-        const response = await fetch(
-          "https://museek-2ejb.onrender.com/museums"
-        );
+        const response = await fetch("https://museek-2ejb.onrender.com/museums")
         if (!response.ok) {
-          throw new Error("Error fetching museums");
+          throw new Error("Error fetching museums")
         }
-        const data = await response.json();
-        setMuseums(data);
+        const data = await response.json()
+        setMuseums(data)
+        setIsLoading(false)
       } catch (error) {
-        console.error("There was en error fetching data:", error);
+        console.error("There was an error fetching data:", error)
+        setIsLoading(false)
       }
-    };
+    }
 
-    fetchMuseums();
-  }, []);
+    fetchMuseums()
+  }, [])
 
-  const museumsToShow = results.length === 0 ? museums : results;
+  const museumsToShow = results.length === 0 ? museums : results
 
   return (
     <div>
@@ -42,10 +42,18 @@ export const LandingPage = () => {
 
         <HeroSection />
         <SearchBar setResults={setResults} />
-        <MuseumCardContainer
-          results={museumsToShow}
-          amountToShow={amountToShow}
-        />
+
+        {isLoading ? (
+          <LoadingContainer>
+            Searching for museums worldwide...
+          </LoadingContainer>
+        ) : (
+          <MuseumCardContainer
+            results={museumsToShow}
+            amountToShow={amountToShow}
+          />
+        )}
+
         <ButtonContainer>
           {" "}
           <Link to="/museums">
@@ -60,8 +68,8 @@ export const LandingPage = () => {
         <Newsletter />
       </LandingPageContainer>
     </div>
-  );
-};
+  )
+}
 
 const LandingPageContainer = styled.div`
   display: flex;
@@ -82,4 +90,10 @@ const ButtonContainer = styled.div`
   background-color: #333333;
   padding: 50px 0;
 `
-
+const LoadingContainer = styled.div`
+  font-size: 20px;
+  text-align: center;
+  padding-top: 20px;
+  background-color: #333333;
+  color: white;
+`
