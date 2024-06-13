@@ -14,8 +14,8 @@ export const ProductCard = ({
   name,
   price,
   category,
+  setOpenDrawer
 }) => {
-  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <div className="flex flex-col">
@@ -31,14 +31,13 @@ export const ProductCard = ({
         </div>
         <div className="flex flex-row items-center gap-6 lg:gap-4">
           <HeartButton
-            style="h-8 w-8 lg:h-5 lg:w-5"
+            style="h-8 w-8"
             id={id}
             setOpenDrawer={setOpenDrawer}
           />
           <CartButton id={id} setOpenDrawer={setOpenDrawer} />
         </div>
       </div>
-      <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
     </div>
   );
 };
@@ -50,4 +49,5 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
+  setOpenDrawer: PropTypes.func
 };

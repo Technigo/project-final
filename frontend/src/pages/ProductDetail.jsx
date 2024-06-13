@@ -21,7 +21,9 @@ export const ProductDetail = () => {
 
   return (
     <>
-      <Breadcrumb lastBreadcrumbOverride={product.templateName.toUpperCase()} />
+      <Breadcrumb
+        lastBreadcrumbOverride={product && product.templateName.toUpperCase()}
+      />
       <div className="mx-6 mb-20 mt-10 lg:my-20">
         {error && <Error error={error} />}
         {product && (

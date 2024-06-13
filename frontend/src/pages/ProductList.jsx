@@ -9,6 +9,7 @@ import { Pagination } from "../components/Pagination";
 import { ProductCard } from "../components/ProductCard";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
+import { SideDrawer } from "../components/SideDrawer";
 
 export const ProductList = () => {
   // use this mapping to only fetch the specific states from zustand
@@ -24,93 +25,36 @@ export const ProductList = () => {
   const { errorUser } = useUserStore((state) => ({
     errorUser: state.error,
   }));
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // useState
-  const [searchTemplate, setSearchTemplate] = useState("");
-  const [sortType, setSortType] = useState("");
-  const [sortCategory, setSortCategory] = useState("");
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [searchTemplate, setSearchTemplate] = useState(
+    searchParams.get("q") || "",
+  );
+  const [sortType, setSortType] = useState(searchParams.get("sort") || "");
+  const [sortCategory, setSortCategory] = useState(
+    searchParams.get("category") || "",
+  );
+  const [sortTag, setSortTag] = useState(searchParams.get("sortTag") || "");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
-
-  const [searchParams] = useSearchParams();
-
+  const [displayedProducts, setDisplayedProducts] = useState(products);
   // useEffect
   useEffect(() => {
     !products && getAllProducts();
-  }, [getAllProducts, products]);
+  }, [getAllProducts, products, displayedProducts, itemsPerPage, currentPage]);
 
-  useEffect(() => {
-    // Search feature
-    const filteredProducts = products.filter((product) =>
-      product.templateName.toLowerCase().includes(searchTemplate.toLowerCase()),
-    );
+  // Pagination
+  const updateSearchParams = (paramName, value) => {
+    // Add the new query param value to the queryString
+    searchParams.set(paramName, value);
 
-    // Sorting
-    const sortedProducts = filteredProducts.sort((a, b) => {
-      switch (sortType) {
-        case "price_asc":
-          return a.price - b.price;
-        case "price_desc":
-          return b.price - a.price;
-        case "name_asc":
-          return a.templateName.localeCompare(b.templateName);
-        case "name_desc":
-          return b.templateName.localeCompare(a.templateName);
-        default:
-          return 0;
-      }
-    });
-
-    // Filter by category
-    const finalProducts = sortCategory
-      ? sortedProducts.filter((product) => product.category === sortCategory)
-      : sortedProducts;
-
-    // Pagination
-    setTotalPages(Math.ceil(finalProducts.length / itemsPerPage));
-  }, [products, searchTemplate, sortType, sortCategory, itemsPerPage]);
-
-  const filteredProducts = products.filter((product) => {
-    if (!searchParams.get("tag") && !searchParams.get("category")) return true;
-
-    if (searchParams.get("tag")) {
-      return (
-        product.tags.split(", ").includes(searchParams.get("tag")) &&
-        product.templateName
-          .toLowerCase()
-          .includes(searchTemplate.toLowerCase())
-      );
-    } else if (searchParams.get("category")) {
-      return product.category === searchParams.get("category");
-    }
-  });
-
-  const sortedProducts = filteredProducts.sort((a, b) => {
-    switch (sortType) {
-      case "price_asc":
-        return a.price - b.price;
-      case "price_desc":
-        return b.price - a.price;
-      case "name_asc":
-        return a.templateName.localeCompare(b.templateName);
-      case "name_desc":
-        return b.templateName.localeCompare(a.templateName);
-      default:
-        return 0;
-    }
-  });
-
-  const finalProducts = sortCategory
-    ? sortedProducts.filter((product) => product.category === sortCategory)
-    : sortedProducts;
-
-  const indexOfLastProduct = currentPage * itemsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
-  const currentProducts = finalProducts.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  );
+    // Enqueue navigation action that updates the queryString
+    setSearchParams(searchParams);
+    console.log(Object.fromEntries([...searchParams]));
+  };
 
   // Pagination function
   const paginate = (pageNumber) => {
@@ -123,6 +67,62 @@ export const ProductList = () => {
     setCurrentPage(1);
   }, [searchTemplate, sortType, sortCategory]);
 
+  useEffect(() => {
+    const filterProducts = () => {
+      let finalProduct = products;
+      if (sortTag) {
+        finalProduct = finalProduct.filter((product) =>
+          product.tags.split(", ").includes(sortTag),
+        );
+      }
+      if (sortCategory) {
+        finalProduct = finalProduct.filter(
+          (product) => product.category === sortCategory,
+        );
+      }
+      if (searchTemplate) {
+        finalProduct = finalProduct.filter((product) =>
+          product.templateName
+            .toLowerCase()
+            .includes(searchTemplate.toLowerCase()),
+        );
+      }
+      if (sortType) {
+        finalProduct = finalProduct.sort((a, b) => {
+          switch (sortType) {
+            case "price_asc":
+              return a.price - b.price;
+            case "price_desc":
+              return b.price - a.price;
+            case "name_asc":
+              return a.templateName.localeCompare(b.templateName);
+            case "name_desc":
+              return b.templateName.localeCompare(a.templateName);
+            default:
+              return 0;
+          }
+        });
+      }
+      setDisplayedProducts(finalProduct);
+      setTotalPages(Math.ceil(finalProduct.length / itemsPerPage));
+    };
+    filterProducts();
+  }, [
+    sortTag,
+    sortCategory,
+    sortType,
+    searchTemplate,
+    products,
+    itemsPerPage,
+    currentPage,
+    setTotalPages,
+  ]);
+
+  // if (sortTag) {
+  //   setDisplayedProducts(displayedProducts.filter(product => product.tags.split(", ").includes(sortTag)))
+  //   setSortTag
+  // }
+
   if (loading) {
     return <Loading />;
   }
@@ -131,7 +131,7 @@ export const ProductList = () => {
     <>
       <Breadcrumb />
       <div className="flex w-full justify-center lg:justify-start">
-        <div className="mx-auto flex w-full flex-col items-center lg:max-w-screen-md lg:flex-initial lg:items-start">
+        <div className="mx-auto flex w-full flex-col items-center p-6 lg:max-w-screen-md lg:flex-initial lg:items-start">
           <h1 className="my-10 font-poppins font-bold lg:my-20">
             Shop our templates
           </h1>
@@ -140,9 +140,12 @@ export const ProductList = () => {
             <div className="flex gap-4 pb-6 lg:pb-0">
               <div className="border border-blue p-2">
                 <select
-                  className="max-w-[140px] font-montserrat text-sm text-blue"
+                  className="w-[110px] font-montserrat text-sm text-blue"
                   value={sortCategory}
-                  onChange={(event) => setSortCategory(event.target.value)}
+                  onChange={(event) => {
+                    updateSearchParams("category", event.target.value);
+                    setSortCategory(event.target.value);
+                  }}
                 >
                   <option value="">Category</option>
                   {categories.map((category) => (
@@ -155,9 +158,12 @@ export const ProductList = () => {
 
               <div className="border border-blue p-2">
                 <select
-                  className="max-w-[140px] font-montserrat text-sm text-blue"
+                  className="max-w-[110px] font-montserrat text-sm text-blue"
                   value={sortType}
-                  onChange={(event) => setSortType(event.target.value)}
+                  onChange={(event) => {
+                    updateSearchParams("sort", event.target.value);
+                    setSortType(event.target.value);
+                  }}
                 >
                   <option value="">Sort by</option>
                   <option value="price_asc">Price: Low to High</option>
@@ -176,7 +182,10 @@ export const ProductList = () => {
                   type="text"
                   placeholder="Search"
                   value={searchTemplate}
-                  onChange={(event) => setSearchTemplate(event.target.value)}
+                  onChange={(event) => {
+                    setSearchTemplate(event.target.value);
+                    updateSearchParams("q", event.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -185,7 +194,7 @@ export const ProductList = () => {
       </div>
       {errorProduct ||
         (errorUser && <Error error={errorProduct || errorUser} />)}
-      {!finalProducts.length ? (
+      {!displayedProducts.length ? (
         <div className="flex items-center justify-center p-6">
           <div className="text-blue-500 pb-20 text-lg">
             <h2 className="mb-10 font-poppins font-bold">
@@ -198,22 +207,29 @@ export const ProductList = () => {
         <>
           <div className="mb-10 flex w-auto flex-col items-center px-8 lg:mb-20">
             <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:w-full lg:max-w-screen-md lg:grid-cols-3">
-              {currentProducts.map((product) => (
-                <ProductCard
-                  key={product._id}
-                  id={product._id}
-                  templateImg={product.image}
-                  tags={product.tags}
-                  name={product.templateName}
-                  price={product.price}
-                  category={product.category}
-                  Id={product._id}
-                />
-              ))}
+              {displayedProducts
+                .slice(
+                  currentPage * itemsPerPage - itemsPerPage,
+                  currentPage * itemsPerPage,
+                )
+                .map((product) => (
+                  <ProductCard
+                    key={product._id}
+                    id={product._id}
+                    templateImg={product.image}
+                    tags={product.tags}
+                    name={product.templateName}
+                    price={product.price}
+                    category={product.category}
+                    Id={product._id}
+                    setOpenDrawer={setOpenDrawer}
+                  />
+                ))}
             </div>
+            <SideDrawer openRight={openDrawer} setOpenRight={setOpenDrawer} />
           </div>
           <Pagination
-            totalItems={finalProducts.length}
+            totalItems={displayedProducts.length}
             itemsPerPage={itemsPerPage}
             paginate={paginate}
             currentPage={currentPage}

@@ -6,12 +6,12 @@ export const NotFound = () => {
   return (
     <>
       <Breadcrumb />
-      <div className="mx-auto flex justify-center">
+      <div className="flex max-w-md justify-center">
         <div className="mx-6 my-10">
           <img
             src={notFoundImage}
             alt="Page Not Found"
-            className="mx-auto w-full max-w-md"
+            className="w-full"
           />
           <div>
             <h1 className="mb-6 mt-10 font-poppins font-bold text-black">

@@ -12,29 +12,9 @@ import { Button } from "../components/Button";
 import { Testimonial } from "../components/Testimonial";
 import { CategoryCard } from "../components/CategoryCard";
 
-// const category = [
-//   {
-//     name: "Business",
-//     bgName: "business",
-//   },
-//   {
-//     name: "Travel and Adventure",
-//     bgName: "travel",
-//   },
-//   {
-//     name: "Color",
-//     bgName: "color",
-//   },
-//   {
-//     name: "Health and Wellness",
-//     bgName: "health",
-//   },
-// ];
-
 export const Homepage = () => {
   // Getting product data for carosel
-  const { products, getAllProducts } = useProductStore((state) => ({
-    products: state.products,
+  const { getAllProducts } = useProductStore((state) => ({
     getAllProducts: state.getAllProducts,
   }));
 
@@ -55,17 +35,35 @@ export const Homepage = () => {
       },
     },
   };
-  // Speficy Products for carousel by Id
-  const specificIds = [
-    "665dbd9941d34485c8a0e4d5",
-    "665dbd9941d34485c8a0e4d6",
-    "665dbd9941d34485c8a0e4cf",
-    "665dbd9941d34485c8a0e4d3",
-    "665dbd9941d34485c8a0e4d4",
+
+  const carouselImgs = [
+    {
+      _id: "665dbd9941d34485c8a0e4d5",
+      templateName: "Fitness Fanatic",
+      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588956/mockups/mv7tzdlx7gjj6ccdvjsx.webp",
+    },
+    {
+      _id: "665dbd9941d34485c8a0e4d6",
+      templateName: "Blue",
+      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588974/mockups/tlsk4tsiin3uesyr094k.webp",
+    },
+    {
+      _id: "665dbd9941d34485c8a0e4cf",
+      templateName: "Health and Wellness",
+      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588806/mockups/ta9gbwyxaaqeekzcroya.webp",
+    },
+    {
+      _id: "665dbd9941d34485c8a0e4d3",
+      templateName: "Tech Hub",
+      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588911/mockups/qqxyy2cftoghdle6n00r.webp",
+    },
+    {
+      _id: "665dbd9941d34485c8a0e4d4",
+      templateName: "Pet Paradise",
+      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588929/mockups/pzszcjtpoyjfpxub9v9n.webp",
+    },
   ];
-  const filteredProducts = products.filter((product) =>
-    specificIds.includes(product._id),
-  );
+
 
   return (
     <main>
@@ -99,17 +97,15 @@ export const Homepage = () => {
                           activeIndex === i ? "w-8 bg-blue" : "w-4 bg-white"
                         }`}
                         onClick={() => setActiveIndex(i)}
-                        // aria-label="Click here"
                       />
                     ))}
                   </div>
                 )}
               >
-                {filteredProducts.map((product) => (
+                {carouselImgs.map((product) => (
                   <Link key={product._id} to={`/products/${product._id}`}>
                     <img
-                      key={product._id}
-                      src={product.image}
+                      src={product.src}
                       alt={product.templateName}
                       className="h-full w-full object-cover"
                     />
@@ -179,19 +175,7 @@ export const Homepage = () => {
             Explore our most popular products! Tried, tested, and loved by many.
           </p>
           <div className="mt-8 grid w-full grid-cols-1 gap-8 lg:w-fit lg:grid-cols-[repeat(4,_minmax(0,_320px))] lg:gap-8">
-            {/* {category.map((item) => (
-            <div
-              key={item.name}
-              className="relative flex h-80 items-center justify-center rounded-md shadow-[2px_2px_2px_rgba(0,_0,_0,_0.25)] lg:h-96"
-            >
-              <CategoryCard category={item.name} bgName={item.bgName} />
-            </div>
-          ))} */}
             <CategoryCard />
-            {/* <div className="bg-health hidden"></div>
-          <div className="bg-business hidden"></div>
-          <div className="bg-color hidden"></div>
-          <div className="bg-travel hidden"></div> */}
           </div>
         </section>
         <section className="mt-20 flex flex-col items-center gap-9 bg-light-blue py-14">

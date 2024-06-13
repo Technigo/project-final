@@ -254,6 +254,14 @@ export const useUserStore = create(
     {
       name: "user-storage",
       storage: createJSONStorage(() => sessionStorage),
+      partialize: (state) => ({
+        userId: state.userId,
+        accessToken: state.accessToken,
+        username: state.username,
+        email: state.email,
+        cart: state.cart,
+        favorite: state.favorite,
+      }),
     },
   ),
 );

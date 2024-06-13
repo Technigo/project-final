@@ -10,7 +10,17 @@ export const useProductStore = create(
       products: [],
       loading: false,
       error: null,
-      categories: [],
+      categories: [
+        "Artistic",
+        "Beauty",
+        "Business",
+        "Color",
+        "Fashion and Style",
+        "Health and Wellness",
+        "Restaurants and Food",
+        "Tech",
+        "Travel and Adventure",
+      ],
       product: null,
       getAllProducts: async () => {
         set({ loading: true, error: null });
@@ -26,10 +36,7 @@ export const useProductStore = create(
           if (!response.ok) {
             throw new Error(data.message);
           }
-          const uniqueCategories = [
-            ...new Set(data.map((product) => product.category)),
-          ].sort();
-          set({ products: data, categories: uniqueCategories });
+          set({ products: data });
         } catch (error) {
           set({
             error:
@@ -120,6 +127,11 @@ export const useProductStore = create(
     {
       name: "product-storage",
       storage: createJSONStorage(() => sessionStorage),
+      partialize: (state) => ({
+        products: state.products,
+        categories: state.categories,
+        product: state.product,
+      }),
     },
   ),
 );
