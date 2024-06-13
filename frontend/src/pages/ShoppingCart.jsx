@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 
 import CheckoutForm from "../components/CheckoutForm";
 import { useProductsStore } from "../store/useProductsStore";
+import { useUserStore } from "../store/useUserStore";
 
 export const ShoppingCart = () => {
   const {
@@ -17,9 +18,13 @@ export const ShoppingCart = () => {
     removeAllFromCart,
     totalPrice,
   } = useProductsStore();
+  const { user } = useUserStore();
   const [newQuantity, setNewQuantity] = useState(0);
   const recommended = false;
   const [checkout, setCheckout] = useState(false);
+
+  console.log("User: ", user.user);
+  const profile = user.user;
 
   /* dotenv.config(); */
   const apiKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
@@ -65,113 +70,7 @@ export const ShoppingCart = () => {
           <IoIosArrowBack /> Continue shopping
         </button>
       </NavLink>
-      <div className="flex flex-col gap-4 w-11/12 desktop:w-6/12 m-auto text-center font-heading text-text-light">
-        <h2 className="text-2xl laptop:text-4xl laptop:mb-4">Shopping cart</h2>
-        <h3>
-          {shoppingCart.length > 0
-            ? `${shoppingCart.length} product${
-                shoppingCart.length > 1 ? "s" : ""
-              }`
-            : "Your cart is empty"}
-        </h3>
-        {shoppingCart.length > 0 && (
-          <button
-            onClick={removeAllFromCart}
-            className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:m-0 tablet:mb-8 tablet:ml-auto gap-2"
-          >
-            <ImCross /> Empty cart
-          </button>
-        )}
-      </div>
-      <div className="flex flex-col w-11/12 tablet:flex-row desktop:w-6/12 gap-8 desktop:gap-20 m-auto laptop:px-18">
-        <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
-          {shoppingCart &&
-            shoppingCart.map((item, index) => (
-              <li
-                key={index}
-                className=" flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light"
-              >
-                <img
-                  src={item.product.image.url}
-                  alt={item.product.title}
-                  className="rounded-xl w-4/12 tablet:aspect-square tablet:w-2/12  object-cover"
-                />
-                <div className=" w-6/12 tablet:w-full flex-col tablet:flex-row justify-between flex">
-                  <div className="flex flex-col gap-2 text-xs tablet:text-sm desktop:text-base ">
-                    <NavLink to={`/products/${item.product._id}`}>
-                      <h4 className="font-black">{item.product.title}</h4>
-                      <h4>{item.product.brand}</h4>
-                      <p>{item.product.size}</p>
-                      <h3 className="mt-4 desktop:text-xl">
-                        {item.product.price} €
-                      </h3>
-                    </NavLink>
-                    {recommended && (
-                      <div className="bg-cta-blue w-fit p-2 rounded-lg">
-                        Recommended for you
-                      </div>
-                    )}
-                  </div>
 
-                  <div className="max-w-max">
-                    <div className="flex gap-6 tablet:justify-end">
-                      <div className="flex h-6">
-                        <button
-                          onClick={() =>
-                            handleDecrement(item.quantity, item.product._id)
-                          }
-                          className="bg-text-light text-text-dark w-5 rounded-l-xl"
-                        >
-                          -
-                        </button>
-                        <span className="bg-text-light text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
-                          {item.quantity}
-                        </span>
-                        <button
-                          onClick={() =>
-                            handleIncrement(item.quantity, item.product._id)
-                          }
-                          className="bg-text-light text-text-dark w-5 rounded-r-xl"
-                        >
-                          +
-                        </button>
-                      </div>
-                      <button
-                        onClick={() => removeAllByIdFromCart(item.product._id)}
-                        className="transparent"
-                      >
-                        {" "}
-                        <FaTrashCan />
-                      </button>
-                    </div>
-                    <p className="font-header text-text-light text-sm mt-4 tablet:mt-8 laptop:mt-14 ">
-                      subtotal:{" "}
-                      <span className="bg-main-yellow rounded-xl p-1 px-2 tablet:p-2 tracking-widest font-bold text-text-dark">
-                        {calculateTotalCost(item)} €{" "}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-        </ul>
-        {totalPrice > 0 && (
-          <div className="bg-main-white m-auto max-w-fit max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm flex flex-col">
-            <div>
-              <p>Victoria Olofsdottir</p>
-              <p>Perstorpsvägen 129</p>
-              <p>178 98 Linköping</p>
-              <p>Sweden</p>
-            </div>
-            <h3 className="text-lg desktop:text-2xl font-bold">
-              Total price:{" "}
-              <span className="bg-main-yellow rounded-xl p-2 tracking-widest">
-                {totalPrice} €
-              </span>
-            </h3>
-          </div>
-        )}
-      </div>
       <div>
         <button
           onClick={openCheckout}
@@ -183,11 +82,138 @@ export const ShoppingCart = () => {
           <div className="font-body text-text-light">
             <h1>Stripe Payment Integration</h1>
             <Elements stripe={stripePromise}>
-              <CheckoutForm totalPrice={totalPrice}/>
+              <CheckoutForm totalPrice={totalPrice} />
             </Elements>
           </div>
-        ) : null}
+        ) : (
+          <>
+            <div className="flex flex-col gap-4 w-11/12 desktop:w-6/12 m-auto text-center font-heading text-text-light">
+              <h2 className="text-2xl laptop:text-4xl laptop:mb-4">
+                Shopping cart
+              </h2>
+              <h3>
+                {shoppingCart.length > 0
+                  ? `${shoppingCart.length} product${
+                      shoppingCart.length > 1 ? "s" : ""
+                    }`
+                  : "Your cart is empty"}
+              </h3>
+              {shoppingCart.length > 0 && (
+                <button
+                  onClick={removeAllFromCart}
+                  className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:m-0 tablet:mb-8 tablet:ml-auto gap-2"
+                >
+                  <ImCross /> Empty cart
+                </button>
+              )}
+            </div>
+            <div className="flex flex-col w-11/12 tablet:flex-row desktop:w-6/12 gap-8 desktop:gap-20 m-auto laptop:px-18">
+              <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
+                {shoppingCart &&
+                  shoppingCart.map((item, index) => (
+                    <li
+                      key={index}
+                      className=" flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light"
+                    >
+                      <img
+                        src={item.product.image.url}
+                        alt={item.product.title}
+                        className="rounded-xl w-4/12 tablet:aspect-square tablet:w-2/12  object-cover"
+                      />
+                      <div className=" w-6/12 tablet:w-full flex-col tablet:flex-row justify-between flex">
+                        <div className="flex flex-col gap-2 text-xs tablet:text-sm desktop:text-base ">
+                          <NavLink to={`/products/${item.product._id}`}>
+                            <h4 className="font-black">{item.product.title}</h4>
+                            <h4>{item.product.brand}</h4>
+                            <p>{item.product.size}</p>
+                            <h3 className="mt-4 desktop:text-xl">
+                              {item.product.price} €
+                            </h3>
+                          </NavLink>
+                          {recommended && (
+                            <div className="bg-cta-blue w-fit p-2 rounded-lg">
+                              Recommended for you
+                            </div>
+                          )}
+                        </div>
 
+                        <div className="max-w-max">
+                          <div className="flex gap-6 tablet:justify-end">
+                            <div className="flex h-6">
+                              <button
+                                onClick={() =>
+                                  handleDecrement(
+                                    item.quantity,
+                                    item.product._id
+                                  )
+                                }
+                                className="bg-text-light text-text-dark w-5 rounded-l-xl"
+                              >
+                                -
+                              </button>
+                              <span className="bg-text-light text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
+                                {item.quantity}
+                              </span>
+                              <button
+                                onClick={() =>
+                                  handleIncrement(
+                                    item.quantity,
+                                    item.product._id
+                                  )
+                                }
+                                className="bg-text-light text-text-dark w-5 rounded-r-xl"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <button
+                              onClick={() =>
+                                removeAllByIdFromCart(item.product._id)
+                              }
+                              className="transparent"
+                            >
+                              {" "}
+                              <FaTrashCan />
+                            </button>
+                          </div>
+                          <p className="font-header text-text-light text-sm mt-4 tablet:mt-8 laptop:mt-14 ">
+                            subtotal:{" "}
+                            <span className="bg-main-yellow rounded-xl p-1 px-2 tablet:p-2 tracking-widest font-bold text-text-dark">
+                              {calculateTotalCost(item)} €{" "}
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+              </ul>
+              {totalPrice > 0 && (
+                <div className="bg-main-white m-auto max-w-fit max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm flex flex-col">
+                  {user ? (
+                    <div>
+                      <span>{profile.firstname}</span>
+                      <span> {profile.lastname}</span>
+                      <p className="mt-2">{profile.address.street}</p>
+                      <p>
+                        {" "}
+                        <span>{profile.address.postalCode}</span>
+                        <span> {profile.address.city}</span>
+                      </p>
+                      <p>{profile.address.country}</p>
+                    </div>
+                  ) : null}
+
+                  <h3 className="text-lg desktop:text-2xl font-bold">
+                    Total price:{" "}
+                    <span className="bg-main-yellow rounded-xl p-2 tracking-widest">
+                      {totalPrice} €
+                    </span>
+                  </h3>
+                </div>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
