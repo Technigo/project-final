@@ -23,6 +23,8 @@ const CheckoutForm = () => {
     price: totalPrice,
   };
 
+  console.log(product.items);
+
   /* const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -116,6 +118,11 @@ const CheckoutForm = () => {
     await handlePayment(event, stripe, elements, product);
   };
 
+  const calculateTotalCost = (item) => {
+    const totalCost = item.quantity * item.product.price;
+    const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
+    return `${roundedPrice}`;
+  };
   // Then, you can pass this wrapper function to onSubmit
 
   return (
@@ -123,8 +130,8 @@ const CheckoutForm = () => {
       {/* Product details */}
       <div>
         <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
-          {items &&
-            items.map((item, index) => (
+          {product &&
+            product.items.map((item, index) => (
               <li
                 key={index}
                 className=" flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light"
@@ -146,7 +153,7 @@ const CheckoutForm = () => {
                   <div className="max-w-max">
                     <div className="flex gap-6 tablet:justify-end">
                       <div className="flex h-6">
-                        <span className="bg-text-light text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
+                        <span className="bg-text-light rounded-full text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
                           {item.quantity}
                         </span>
                       </div>
@@ -163,12 +170,17 @@ const CheckoutForm = () => {
             ))}
         </ul>
       </div>
-      <p>{product.description}</p>
-      <p>Price: EUR {product.price}</p>
-      <CardElement options={cardElementOptions} />
-      <button type="submit" disabled={!stripe || isLoading}>
-        {isLoading ? "Processing..." : "Buy Now"}
-      </button>
+      <div className="flex flex-col items-end">
+        <p>Price: EUR {product.price}</p>
+        <CardElement options={cardElementOptions} />
+        <button
+          type="submit"
+          className="bg-cta-blue rounded-full px-5 p-2"
+          disabled={!stripe || isLoading}
+        >
+          {isLoading ? "Processing..." : "Buy Now"}
+        </button>
+      </div>
 
       <div
         className={`payment-status ${
