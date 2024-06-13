@@ -19,14 +19,15 @@ export const OrderConfirmation = () => {
             </div>
             <div>
               <h2 className="mb-6 font-poppins font-bold text-blue">
-                Well... You won’t get your product
+                But... you won&apos;t get your product
               </h2>
               <p className="mb-20 font-lato text-sm lg:text-lg">
                 Thanks for Playing Along!
                 <br />
                 Your checkout process was just a simulation—no money was
                 withdrawn and no products will be shipped. <br />
-                We'd love to hear any feedback you have about your experience.
+                We&apos;d love to hear any feedback you have about your
+                experience.
               </p>
             </div>
           </div>

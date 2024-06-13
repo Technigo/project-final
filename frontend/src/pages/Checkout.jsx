@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-
 import { AccountInfo } from "../components/AccountInfo";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { Button } from "../components/Button";
@@ -10,11 +9,11 @@ import { PaymentForm } from "../components/PaymentForm";
 import { ShippingForm } from "../components/ShippingForm";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
+import { OrderValue } from "../components/OrderValue";
 
 export const Checkout = () => {
-  const { cart, clearCart } = useUserStore((state) => ({
+  const { cart } = useUserStore((state) => ({
     cart: state.cart,
-    clearCart: state.clearCart,
   }));
   const products = useProductStore((state) => state.products);
 
@@ -26,7 +25,6 @@ export const Checkout = () => {
     formState: { isSubmitting, isDirty, isValid }, // check if data fulfills the requirements and filled
   } = useForm();
   const onSubmit = (data) => {
-    clearCart();
     console.log(data);
   };
   const fillDummyData = () => {
@@ -92,12 +90,15 @@ export const Checkout = () => {
             content={<PaymentForm register={register} />}
           />
 
+          <Button
+            text="Use Dummy Data"
+            type="button"
+            onClickFunc={fillDummyData}
+          />
+
+          <OrderValue cart={cart} products={products} />
+
           <div className="flex flex-col items-center gap-8">
-            <Button
-              text="Use Dummy Data"
-              type="button"
-              onClickFunc={fillDummyData}
-            />
             <Button
               text="PAY NOW"
               onClickFunc={handleSubmit(onSubmit)}
