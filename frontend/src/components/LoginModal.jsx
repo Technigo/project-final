@@ -19,7 +19,6 @@ export const LoginModal = ({
         <Overlay {...props}>{contentElement}</Overlay>
       )}>
       {" "}
-      <h4>Login required</h4>
       {modalMessage && <p>{modalMessage}</p>}
       <LoginPage redirectOnLogin={false} onLoginSuccess={onLoginSuccess} />
     </Modal>
@@ -34,6 +33,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    
   },
 }
 

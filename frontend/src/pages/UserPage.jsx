@@ -8,8 +8,6 @@ import { UserReviews } from "../components/UserReviews"
 import { SuggestedMuseums } from "../components/SuggestedMuseums"
 import StyledButton from "../components/styled/Button.styled.jsx"
 
-//features that should be displayed here: liked museums, written comments, purchased tickets...
-
 //Authorize with access token from /user-page
 
 export const UserPage = () => {
@@ -74,8 +72,8 @@ export const UserPage = () => {
       <UserContainer>
         <LoginMessage>
           <p>
-            You are not authorized to view this page. Please log in or create a
-            user account.
+            You need to be logged in to view your personal page. Please log in
+            or create a user account to get started.
           </p>
           <ButtonContainer>
             <Link to="/login">

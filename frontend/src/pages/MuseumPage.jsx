@@ -4,6 +4,8 @@ import { MuseumCardContainer } from "../components/MuseumCardContainer"
 // import { SearchBar } from "../components/SearchBar"
 import { FilterBar } from "../components/FilterBar"
 import StyledButton from "../components/styled/Button.styled"
+import { MuseumMap } from "../components/MuseumMap"
+
 
 export const MuseumPage = () => {
   const [museums, setMuseums] = useState([])
@@ -93,6 +95,14 @@ export const MuseumPage = () => {
           </ButtonContainer>
         </>
       )}
+
+<MuseumMap
+  museums={museumsToShow}
+  showLink={true}
+  center={[51.5074, -0.1278]}
+/>
+
+
     </MuseumPageContainer>
   )
 }
@@ -106,13 +116,13 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333333;
+  background-color: #222222;
   z-index: -1;
 `
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #333333;
+  background-color: #222222;
   padding: 50px 0;
 `
 const NoResultsMessage = styled.p`

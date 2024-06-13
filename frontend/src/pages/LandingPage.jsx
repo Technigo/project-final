@@ -7,6 +7,7 @@ import { HeroSection } from "../components/HeroSection"
 import { Newsletter } from "../components/Newsletter"
 import { MuseumMap } from "../components/MuseumMap"
 import StyledButton from "../components/styled/Button.styled"
+import { CTA } from "../components/CTA"
 
 export const LandingPage = () => {
   const [museums, setMuseums] = useState([])
@@ -41,6 +42,7 @@ export const LandingPage = () => {
         <Background />
 
         <HeroSection />
+        <CTA />
         <SearchBar setResults={setResults} />
 
         {isLoading ? (
@@ -81,19 +83,19 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333333;
+  background-color: #222222;
   z-index: -999;
 `
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #333333;
-  padding: 50px 0;
+  background-color: #222222;
+  padding: 30px 0 50px 0;
 `
 const LoadingContainer = styled.div`
   font-size: 20px;
   text-align: center;
   padding-top: 20px;
-  background-color: #333333;
+  background-color: #222222;
   color: white;
 `

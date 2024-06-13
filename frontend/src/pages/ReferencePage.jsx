@@ -1,31 +1,35 @@
 import styled from "styled-components"
+import StyledLoginPage from "../components/styled/LoginPage.styled.jsx"
 
 export const ReferencePage = () => {
   return (
     <>
       <StyledReferencePage>
-        <h4>Licenses</h4>
-        <ul>
-          {" "}
-          <li>
-            <span>Museum icon by</span>
-            <a target="_blank" href="https://icons8.com">
-              Icons 8
-            </a>
-          </li>
-          <li>All other icons from React Icons</li>
-          <li>
-            Images from <a href="https://www.pexels.com/">Pexels</a> and{" "}
-            <a href="https://unsplash.com/">Unsplash</a>
-          </li>
-        </ul>
+        <Background />
+
+        <StyledLoginPage>
+          <h4>Licenses</h4>
+          <ul>
+            {" "}
+            <li>
+              <span>Logos from</span>
+              <a target="_blank" href="https://logo.com/">
+                LOGO.com{" "}
+              </a>
+            </li>
+            <li>All other icons from React Icons</li>
+            <li>
+              Images from <a href="https://www.pexels.com/">Pexels</a> and{" "}
+              <a href="https://unsplash.com/">Unsplash</a>
+            </li>
+          </ul>
+        </StyledLoginPage>
       </StyledReferencePage>
     </>
   )
 }
 
 const StyledReferencePage = styled.div`
-  padding: 80px 20px 20px 20px;
   text-align: center;
 
   h4 {
@@ -47,7 +51,6 @@ const StyledReferencePage = styled.div`
   }
 
   span {
-    font-weight: bold;
     margin-right: 5px;
   }
 
@@ -60,4 +63,13 @@ const StyledReferencePage = styled.div`
   a:hover {
     color: #0056b3;
   }
+`
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dee0e2;
+  z-index: -999;
 `

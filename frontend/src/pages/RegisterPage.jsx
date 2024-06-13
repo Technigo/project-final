@@ -2,7 +2,6 @@ import { useState, useContext } from "react"
 import { Link } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io"
 import { AlertMessage } from "../components/AlertMessage"
-import InputBox from "../components/styled/InputBox.styled"
 import StyledButton from "../components/styled/Button.styled"
 import StyledLoginPage from "../components/styled/LoginPage.styled"
 import { AuthContext } from "../contexts/AuthContext"
@@ -66,93 +65,97 @@ export const RegisterPage = () => {
 
   return (
     <StyledLoginPage>
-      <InputBox>
-        {isAuthenticated ? (
-          <>
-            You are already logged in.
-            <ButtonContainer>
-              {" "}
-              <Link to="/user-page">
-                <StyledButton>User page</StyledButton>{" "}
-              </Link>
-              <LogoutButton />
-            </ButtonContainer>
-          </>
-        ) : (
-          <>
-            <h2 className="title">Register here!</h2>
-            <form className="form-container" onSubmit={handleSubmit}>
-              <div className="input-wrapper">
-                <label htmlFor="name">Name:</label>
-                <input
-                  required={true}
-                  type="text"
-                  id="name"
-                  placeholder="Name McName"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}></input>
-              </div>
-              <div className="input-wrapper">
-                <label htmlFor="email">Email adress:</label>
-                <input
-                  required={true}
-                  type="email"
-                  id="email"
-                  placeholder="example@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}></input>
-              </div>
-              <div className="input-wrapper">
-                <label htmlFor="password">Password:</label>
-                <input
-                  required={true}
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}></input>
-              </div>
-              <StyledButton className="full-width" type="submit">
-                Register
-              </StyledButton>
-              <RedirectMessage>
-                <p>
-                  Are you already part of the community? Log in{" "}
-                  <Link to="/login"> here</Link>
-                </p>{" "}
-              </RedirectMessage>
-            </form>
+      <Background />
 
-            {loading ? (
-              <div>
-                <p className="user-loading"> User being created...</p>
-              </div>
-            ) : (
-              <>
-                {registrationStatus.success && (
-                  <AlertMessage
-                    type="success"
-                    message="User has been created"
-                  />
-                )}
-                {registrationStatus.error != null && (
-                  <AlertMessage type="error" message={getErrorMessage()} />
-                )}
-              </>
-            )}
+      {isAuthenticated ? (
+        <InfoBox>
+          You are already logged in.
+          <ButtonContainer>
+            {" "}
+            <Link to="/user-page">
+              <StyledButton>User page</StyledButton>{" "}
+            </Link>
+            <LogoutButton />
+          </ButtonContainer>
+        </InfoBox>
+      ) : (
+        <>
+          <h2 className="title">Register here!</h2>
+          <form className="form-container" onSubmit={handleSubmit}>
+            <div className="input-wrapper">
+              <label htmlFor="name">Name:</label>
+              <input
+                required={true}
+                type="text"
+                id="name"
+                placeholder="Name McName"
+                value={name}
+                onChange={(e) => setName(e.target.value)}></input>
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="email">Email adress:</label>
+              <input
+                required={true}
+                type="email"
+                id="email"
+                placeholder="example@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}></input>
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="password">Password:</label>
+              <input
+                required={true}
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}></input>
+            </div>
+            <StyledButton type="submit">Register</StyledButton>
+            <RedirectMessage>
+              <p>
+                Are you already part of the community? Log in{" "}
+                <Link to="/login"> here</Link>
+              </p>{" "}
+            </RedirectMessage>
+          </form>
 
-            {registrationStatus.success && (
-              <Link to={"/login"}>
-                Go to login
-                <IoIosArrowForward />
-              </Link>
-            )}
-          </>
-        )}
-      </InputBox>
+          {loading ? (
+            <div>
+              <p className="user-loading"> User being created...</p>
+            </div>
+          ) : (
+            <>
+              {registrationStatus.success && (
+                <AlertMessage type="success" message="User has been created" />
+              )}
+              {registrationStatus.error != null && (
+                <AlertMessage type="error" message={getErrorMessage()} />
+              )}
+            </>
+          )}
+
+          {registrationStatus.success && (
+            <Link to={"/login"}>
+              Go to login
+              <IoIosArrowForward />
+            </Link>
+          )}
+        </>
+      )}
     </StyledLoginPage>
   )
 }
 
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dee0e2;
+  z-index: -999;
+`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -166,4 +169,8 @@ const RedirectMessage = styled.div`
   a:hover {
     text-decoration: underline;
   }
+`
+
+const InfoBox = styled.div`
+  padding-top: 50px;
 `

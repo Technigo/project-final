@@ -1,9 +1,10 @@
-//import StyledAboutPage from "../components/styled/AboutPage.styled";
 import styled from "styled-components"
 
 export const AboutPage = () => {
   return (
     <StyledAboutPage>
+      <Background />
+
       <Content>
         <h3>About MuSeek</h3>
         <p>
@@ -31,8 +32,20 @@ export const AboutPage = () => {
   )
 }
 
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dee0e2;
+  z-index: -999;
+`
+
 const StyledAboutPage = styled.div`
-  padding: 80px 20px 20px 20px;
+  background-color: #dee0e2;
+
+  padding: 100px 20px 20px 20px;
   margin: 0 auto;
   max-width: 800px;
 `
@@ -40,20 +53,29 @@ const StyledAboutPage = styled.div`
 const Content = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 
   h3 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #222;
   }
 
   p {
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: #333;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 450px) {
+    padding: 15px;
+    margin-top: 10px;
   }
 `

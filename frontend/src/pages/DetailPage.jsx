@@ -179,7 +179,7 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333333;
+  background-color: #222222;
   z-index: -1;
 `
 

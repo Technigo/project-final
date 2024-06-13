@@ -5,7 +5,6 @@ import { AlertMessage } from "../components/AlertMessage"
 import { AuthContext } from "../contexts/AuthContext"
 import StyledLoginPage from "../components/styled/LoginPage.styled.jsx"
 import StyledButton from "../components/styled/Button.styled.jsx"
-import InputBox from "../components/styled/InputBox.styled.jsx"
 import { LogoutButton } from "../components/LogoutButton"
 
 export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
@@ -18,7 +17,6 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
   const { isAuthenticated } = authState
   const navigate = useNavigate()
 
-  //"handlelogin" function where we use login from the global state
   const handleLogin = async (event) => {
     event.preventDefault()
     setLoading(true)
@@ -56,10 +54,11 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
   }
 
   return (
-    <StyledLoginPage>
-      <InputBox>
+    <>
+      <StyledLoginPage>
+        <Background />
         {isAuthenticated ? (
-          <>
+          <InfoBox>
             You are already logged in.
             <ButtonContainer>
               {" "}
@@ -68,34 +67,36 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
               </Link>
               <LogoutButton />
             </ButtonContainer>
-          </>
+          </InfoBox>
         ) : (
           <>
-            <h2 className="title">Log in to your personal page </h2>
+            <h2 className="title">Log in to your personal page</h2>
             <form className="form-container" onSubmit={handleLogin}>
               <div className="input-wrapper">
-                <label htmlFor="user-email"> Email adress: </label>
+                <label htmlFor="user-email">Email address:</label>
                 <input
                   type="text"
                   id="user-email"
                   placeholder="example@email.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}></input>
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="input-wrapper">
-                <label htmlFor="user-password">Password: </label>
+                <label htmlFor="user-password">Password:</label>
                 <input
                   type="password"
                   id="user-password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}></input>
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
               <StyledButton className="full-width" type="submit">
                 Log in
               </StyledButton>
               <RedirectMessage>
                 <p>
-                  Don't have profile yet? Register{" "}
+                  Don't have a profile yet? Register{" "}
                   <Link to="/register">here</Link>
                 </p>
               </RedirectMessage>
@@ -103,22 +104,29 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
 
             {loading ? (
               <div>
-                <p className="user-loading"> Logging in...</p>
+                <p className="user-loading">Logging in...</p>
               </div>
             ) : (
-              <>
-                {errorMessage != null && (
-                  <AlertMessage type="error" message={errorMessage} />
-                )}
-              </>
+              errorMessage != null && (
+                <AlertMessage type="error" message={errorMessage} />
+              )
             )}
           </>
         )}
-      </InputBox>
-    </StyledLoginPage>
+      </StyledLoginPage>
+    </>
   )
 }
 
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dee0e2;
+  z-index: -999;
+`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -133,4 +141,8 @@ const RedirectMessage = styled.div`
   a:hover {
     text-decoration: underline;
   }
+`
+
+const InfoBox = styled.div`
+  padding-top: 50px;
 `
