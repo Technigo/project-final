@@ -1,5 +1,5 @@
 .footer-container {
-  padding: 30px 0;
+  padding: 60px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -52,7 +52,7 @@
   .footer-container {
     flex-direction: row;
     border-top: 1px solid var(--lightgrey);
-    margin-top: 30px;
+    margin: 60px 0;
     justify-content: start;
   }
 
