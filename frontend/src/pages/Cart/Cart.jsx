@@ -71,7 +71,10 @@ export const Cart = () => {
     <div className="cart-page">
       <h4 className="cart-heading">Cart({getTotalItems()})</h4>
       {CartItems.length === 0 ? (
-        <h4>Your cart is empty</h4>
+        <div className="empty-cart-container">
+          <h4>Your cart is empty</h4>
+          <Button variant="shop" label="Start shopping" to="/products" />
+        </div>
       ) : (
         <div className="cart-container">
           <section className="cart-list">
