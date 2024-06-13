@@ -4,7 +4,12 @@ import { LoginPage } from "../pages/LoginPage"
 
 Modal.setAppElement("#root")
 
-export const LoginModal = ({ isOpen, onRequestClose, onLoginSuccess }) => {
+export const LoginModal = ({
+  isOpen,
+  onRequestClose,
+  onLoginSuccess,
+  modalMessage,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -13,6 +18,9 @@ export const LoginModal = ({ isOpen, onRequestClose, onLoginSuccess }) => {
       overlayElement={(props, contentElement) => (
         <Overlay {...props}>{contentElement}</Overlay>
       )}>
+      {" "}
+      <h4>Login required</h4>
+      {modalMessage && <p>{modalMessage}</p>}
       <LoginPage redirectOnLogin={false} onLoginSuccess={onLoginSuccess} />
     </Modal>
   )

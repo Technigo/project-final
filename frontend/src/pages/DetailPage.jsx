@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useContext, useEffect, useState } from "react"
-import { useParams, Navigate, Link } from "react-router-dom"
+import { useParams, Navigate } from "react-router-dom"
 import { IoRestaurantOutline } from "react-icons/io5"
 import { BackButton } from "../components/BackButton"
 import { FavoriteButton } from "../components/FavoriteButton"
@@ -18,6 +18,7 @@ export const DetailPage = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [isModalOpen, setModalOpen] = useState(false)
+  const [modalMessage, setModalMessage] = useState("")
 
   const params = useParams()
   const museumId = params.slug
@@ -64,7 +65,7 @@ export const DetailPage = () => {
       : "Buy ticket"
 
   return (
-    <Container className={isModalOpen ? 'blurred' : ''}>
+    <Container className={isModalOpen ? "blurred" : ""}>
       <Background />
       <ImageContainerPhone>
         <BackButton />
@@ -150,6 +151,7 @@ export const DetailPage = () => {
         onLoginSuccess={() => {
           setModalOpen(false)
         }}
+        modalMessage={modalMessage}
       />
     </Container>
   )

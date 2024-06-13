@@ -7,6 +7,7 @@ import { LoginModal } from "./LoginModal"
 export const FavoriteButton = ({ museumId, inCard }) => {
   const [isFavorite, setIsFavorite] = useState(false)
   const [isModalOpen, setModalOpen] = useState(false)
+  const [modalMessage, setModalMessage] = useState("");
   const { authState } = useContext(AuthContext)
   const { accessToken, isAuthenticated } = authState
 
@@ -71,6 +72,7 @@ export const FavoriteButton = ({ museumId, inCard }) => {
         isOpen={isModalOpen}
         onRequestClose={() => setModalOpen(false)}
         onLoginSuccess={handleLoginSuccess}
+        modalMessage={modalMessage} 
       />
     </>
   )
