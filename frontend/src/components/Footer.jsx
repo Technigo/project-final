@@ -8,13 +8,15 @@ import Lottie from "lottie-react";
 import toTop from "../assets/animation/lottie-to-top.json";
 
 export const Footer = () => {
+  const { categories, loading } = useProductStore((state) => ({
+    categories: state.categories,
+    loading: state.loading,
+  }));
+
   const [shopIsOpen, setShopIsOpen] = useState(false);
   const [accountIsOpen, setAccountIsOpen] = useState(false);
   const [customerIsOpen, setCustomerIsOpen] = useState(false);
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
-  const [loadingCategories, setLoadingCategories] = useState(false);
-
-  const categories = useProductStore((state) => state.categories);
 
   const toggelShop = () => {
     setShopIsOpen(!shopIsOpen);
@@ -47,8 +49,8 @@ export const Footer = () => {
         </button>
         {shopIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
-            {loadingCategories ? (
-              <Loading />
+            {loading ? (
+              <Loading isVisible={loading} />
             ) : (
               categories.map((category, index) => (
                 <li key={index}>
