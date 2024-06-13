@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { MuseumCardContainer } from "../components/MuseumCardContainer"
-import { SearchBar } from "../components/SearchBar"
+// import { SearchBar } from "../components/SearchBar"
 import { FilterBar } from "../components/FilterBar"
 import StyledButton from "../components/styled/Button.styled"
+import { MuseumMap } from "../components/MuseumMap"
+
 
 export const MuseumPage = () => {
   const [museums, setMuseums] = useState([])
@@ -18,47 +20,44 @@ export const MuseumPage = () => {
   })
   const [noResults, setNoResults] = useState(false)
 
-
   useEffect(() => {
     const fetchMuseums = async () => {
       try {
-        const response = await fetch(
-          "https://museek-2ejb.onrender.com/museums"
-        );
+        const response = await fetch("https://museek-2ejb.onrender.com/museums")
         if (!response.ok) {
-          throw new Error("Error fetching museums");
+          throw new Error("Error fetching museums")
         }
-        const data = await response.json();
-        setMuseums(data);
+        const data = await response.json()
+        setMuseums(data)
       } catch (error) {
-        console.error("There was en error fetching data:", error);
+        console.error("There was en error fetching data:", error)
       }
-    };
+    }
 
-    fetchMuseums();
-  }, []);
+    fetchMuseums()
+  }, [])
 
   const filterMuseums = (museums) => {
     return museums.filter((museum) => {
       const matchesCountry = filters.country
         ? museum.location.toLowerCase().includes(filters.country.toLowerCase())
-        : true;
+        : true
       const matchesCategory = filters.category
         ? museum.category === filters.category
-        : true;
-      const matchesHasCafe = filters.hasCafe ? museum.has_cafe : true;
+        : true
+      const matchesHasCafe = filters.hasCafe ? museum.has_cafe : true
       const matchesTicketPriceFree = filters.ticketPriceFree
         ? museum.ticket_price.toLowerCase() === "free"
-        : true;
+        : true
 
       return (
         matchesCountry &&
         matchesCategory &&
         matchesHasCafe &&
         matchesTicketPriceFree
-      );
-    });
-  };
+      )
+    })
+  }
 
   useEffect(() => {
     const checkNoResults = () => {
@@ -72,12 +71,12 @@ export const MuseumPage = () => {
   const showMore = () => setAmountToShow(amountToShow + 8)
 
   const museumsToShow =
-    results.length === 0 ? filterMuseums(museums) : filterMuseums(results);
+    results.length === 0 ? filterMuseums(museums) : filterMuseums(results)
 
   return (
     <MuseumPageContainer>
       <Background />
-      <SearchBar setResults={setResults} />
+      {/* <SearchBar setResults={setResults} /> */}
       <FilterBar setFilters={setFilters} />
       {noResults ? (
         <NoResultsMessage>
@@ -96,26 +95,34 @@ export const MuseumPage = () => {
           </ButtonContainer>
         </>
       )}
+
+<MuseumMap
+  museums={museumsToShow}
+  showLink={true}
+  center={[51.5074, -0.1278]}
+/>
+
+
     </MuseumPageContainer>
-  );
-};
+  )
+}
 
 const MuseumPageContainer = styled.div`
   padding-top: 80px;
-`;
+`
 const Background = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333333;
+  background-color: #222222;
   z-index: -1;
 `
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #333333;
+  background-color: #222222;
   padding: 50px 0;
 `
 const NoResultsMessage = styled.p`

@@ -31,7 +31,7 @@ export const SuggestedMuseums = ({ likedMuseumsData }) => {
 
   return (
     <>
-      <h3>Maybe you will like this museums as well...</h3>
+      <h3>Maybe you will like these museums too...</h3>
       <SuggestedMuseumCardGrid>
         {suggestedMuseums.map((museum) => (
           <MuseumCard museum={museum} key={museum.id} />

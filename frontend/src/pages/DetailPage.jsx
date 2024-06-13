@@ -179,7 +179,7 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333333;
+  background-color: #222222;
   z-index: -1;
 `
 
@@ -277,6 +277,8 @@ const CafeIconContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  font-size: 24px;
+  margin-top: 8px;
 
   svg {
     margin-right: 8px;

@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
 const StyledAlertMessage = styled.div`
-  padding: 8px 12px;
+  padding: 5px;
   display: block;
-  width: fit-content;
-  padding: 5px 20px;
+  width: 275px;
   border-radius: 4px;
-  margin: 6px auto;
+  margin: 6px 0 0 30px;
   background-color: ${(props) =>
     props.type === "success"
       ? "rgba(7, 153, 146,1.0)"
       : "rgba(149, 175, 192, 1)"};
 
   p {
-    font-size: 16px;
+    font-size: 12px;
   }
 `;
 

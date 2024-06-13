@@ -58,12 +58,12 @@ export const SearchBar = ({ setResults }) => {
 }
 
 const SearchBarContainer = styled.form`
-  padding: 50px 0;
+  padding: 50px 0 20px 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: #333333;
+  background-color: #222222;
   button {
     margin: 0 5px;
   }

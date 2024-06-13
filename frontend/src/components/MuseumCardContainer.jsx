@@ -38,7 +38,7 @@ const StyledMuseumCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px 0;
-  background-color: #333333;
+  background-color: #222222;
 
   button {
     margin: 20px auto 0 auto;

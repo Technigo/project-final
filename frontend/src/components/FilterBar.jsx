@@ -139,11 +139,11 @@ export const FilterBar = ({ setFilters }) => {
 }
 
 const FilterBarContainer = styled.div`
+  padding: 80px 0 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: #333333;
+  background-color: #222222;
 `
 
 const SelectContainer = styled.div`
