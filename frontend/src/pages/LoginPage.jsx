@@ -1,3 +1,4 @@
+import styled from "styled-components"
 import { useState, useContext } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { AlertMessage } from "../components/AlertMessage"
@@ -6,7 +7,6 @@ import StyledLoginPage from "../components/styled/LoginPage.styled.jsx"
 import StyledButton from "../components/styled/Button.styled.jsx"
 import InputBox from "../components/styled/InputBox.styled.jsx"
 import { LogoutButton } from "../components/LogoutButton"
-import styled from "styled-components"
 
 export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
   const [email, setEmail] = useState("")

@@ -117,7 +117,7 @@ export const RegisterPage = () => {
               <RedirectMessage>
                 <p>
                   Are you already part of the community? Log in{" "}
-                  <StyledLink to="/login"> here</StyledLink>
+                  <Link to="/login"> here</Link>
                 </p>{" "}
               </RedirectMessage>
             </form>

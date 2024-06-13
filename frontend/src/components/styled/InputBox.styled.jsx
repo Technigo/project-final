@@ -2,14 +2,14 @@ import styled from "styled-components"
 
 const InputBox = styled.div`
   background: #83828b;
-  width: 500px;
+  max-width: 500px;
   margin: auto;
-  border-radius: 35px;
+  border-radius: 5px;
   padding: 20px 0;
   margin-top: 20px;
 
   input {
-    border-radius: 10px;
+    border-radius: 4px;
     border: none;
     margin: 10px 8px;
     height: 20px;

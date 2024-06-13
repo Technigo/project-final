@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import L from "leaflet"
+import styled from "styled-components"
 
 export const MuseumMap = ({ museums, showLink, center }) => {
   const customIcon = new L.Icon({
@@ -33,12 +34,12 @@ export const MuseumMap = ({ museums, showLink, center }) => {
               <h3>{museum.name}</h3>
               <p>{museum.location}</p>
               {showLink && (
-                <p>
+                <LinkDiv>
                   Discover{" "}
                   <Link to={`/${museum.id}`} key={museum.id}>
                     here
                   </Link>
-                </p>
+                </LinkDiv>
               )}
             </div>
           </Popup>
@@ -47,3 +48,9 @@ export const MuseumMap = ({ museums, showLink, center }) => {
     </MapContainer>
   )
 }
+
+const LinkDiv = styled.div`
+  a {
+    color: rgba(60, 99, 130, 1);
+  }
+`
