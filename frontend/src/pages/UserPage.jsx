@@ -6,6 +6,7 @@ import { LogoutButton } from "../components/LogoutButton"
 import { LikedMuseums } from "../components/LikedMuseums"
 import { UserReviews } from "../components/UserReviews"
 import { SuggestedMuseums } from "../components/SuggestedMuseums"
+import StyledButton from "../components/styled/Button.styled.jsx"
 
 //features that should be displayed here: liked museums, written comments, purchased tickets...
 
@@ -71,9 +72,20 @@ export const UserPage = () => {
   if (!isAuthenticated) {
     return (
       <UserContainer>
-        <p>You are not authorized to view this page. Please log in.</p>
-        <AuthLink to={"/login"}>Log in </AuthLink> or
-        <AuthLink to={"/register"}> sign up</AuthLink>
+        <LoginMessage>
+          <p>
+            You are not authorized to view this page. Please log in or create a
+            user account.
+          </p>
+          <ButtonContainer>
+            <Link to="/login">
+              <StyledButton>Log in</StyledButton>{" "}
+            </Link>
+            <Link to="/register">
+              <StyledButton>Register</StyledButton>{" "}
+            </Link>{" "}
+          </ButtonContainer>
+        </LoginMessage>
       </UserContainer>
     )
   }
@@ -122,13 +134,20 @@ const FeatureItem = styled.li`
   color: #666;
 `
 
-const AuthLink = styled(Link)`
-  color: #007bff;
-  text-decoration: none;
-  margin-left: 5px;
-`
-
 const Loading = styled.div`
   color: #333;
   font-size: 1.2em;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+`
+
+const LoginMessage = styled.div`
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
 `
