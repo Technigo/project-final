@@ -11,15 +11,17 @@ import { useUserStore } from "../stores/useUserStore";
 import { useProductStore } from "../stores/useProductStore";
 import { Button } from "../components/Button";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Loading } from "../components/Loading";
 
 export const MyPage = () => {
   const products = useProductStore((state) => state.products);
-  const { favorite, logout } = useUserStore((state) => ({
+  const { favorite, logout, loading } = useUserStore((state) => ({
     favorite: state.favorite,
     logout: state.logout,
+    loading: state.loading,
   }));
   const navigate = useNavigate();
-  const { userId, username, email, displayUserInfo, loading, deleteAccount } =
+  const { userId, username, email, displayUserInfo, deleteAccount } =
     useUserStore();
 
   useEffect(() => {
@@ -72,12 +74,12 @@ export const MyPage = () => {
                 Delete your account
               </button>
             </div>
-            <div className="my-6 flex w-full items-center justify-center lg:mt-10 lg:mb-20">
+            <div className="my-6 flex w-full items-center justify-center lg:mb-20 lg:mt-10">
               <Button text="LOG OUT" navTo="/" onClickFunc={logout} />
             </div>
           </div>
         ) : (
-          <p>Loading...</p>
+          <Loading />
         )}
 
         <div>

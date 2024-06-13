@@ -186,6 +186,7 @@ export const useUserStore = create(
         }
       },
       handleCart: async (productId, action) => {
+        set({ loading: true, error: null })
         try {
           const response = await fetch(
             `${BACKEND_URL}/users/${get().userId}/cart`,
@@ -211,6 +212,8 @@ export const useUserStore = create(
           set({ cart: data.cartItems });
         } catch (error) {
           set({ error: error });
+        } finally {
+          set({ loading: false })
         }
       },
     }),

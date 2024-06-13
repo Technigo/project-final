@@ -1,19 +1,24 @@
 import PropTypes from "prop-types";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
+import { Loading } from "./Loading";
 
 export const HeartButton = ({ style, id, setOpenDrawer }) => {
-  const { accessToken, saveFavorites, favorite } = useUserStore((state) => ({
-    accessToken: state.accessToken,
-    saveFavorites: state.saveFavorites,
-    favorite: state.favorite,
-  }));
+  const { accessToken, saveFavorites, favorite, loading } = useUserStore(
+    (state) => ({
+      accessToken: state.accessToken,
+      saveFavorites: state.saveFavorites,
+      favorite: state.favorite,
+      loading: state.loading,
+    }),
+  );
   const { unlikeProduct, likeProduct } = useProductStore((state) => ({
     unlikeProduct: state.unlikeProduct,
     likeProduct: state.likeProduct,
     // favoriteProducts: state.favoriteProducts,
   }));
   const handleLike = () => {
+    loading(true);
     if (accessToken) {
       // favoriteProducts.includes(id) ? unlikeProduct(id) : likeProduct(id);
       if (favorite.includes(id)) {
@@ -25,10 +30,14 @@ export const HeartButton = ({ style, id, setOpenDrawer }) => {
       }
     } else {
       setOpenDrawer(true);
+      loading(false);
     }
   };
   return (
     <button className={style} onClick={handleLike}>
+      {loading ? (
+        <Loading /> 
+      ) : (
       <svg
         viewBox="0 0 24 24"
         fill={favorite.includes(id) ? "#3D52A0" : "none"}
@@ -49,6 +58,7 @@ export const HeartButton = ({ style, id, setOpenDrawer }) => {
           ></path>
         </g>
       </svg>
+      )}
     </button>
   );
 };

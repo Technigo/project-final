@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Loading } from "./Loading";
 import { useUserStore } from "../stores/useUserStore";
 import { Button } from "./Button";
 import { AnimationSuccess } from "./AnimationSuccess";
@@ -27,6 +30,17 @@ export const Form = ({ isLogin }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    loading(true);
+    // setLoadingForm(true)
+    try {
+      const response = isLogin
+        ? await logInUser(formData)
+        : await registerUser(formData);
+      if (response) navigate(`${isLogin ? "/mypage" : "/login"}`);
+    } catch (error) {
+      console.error("Error submitting form", error);
+    } finally {
+      loading(false);
     const response = isLogin
       ? await logInUser(formData)
       : await registerUser(formData);
@@ -41,7 +55,8 @@ export const Form = ({ isLogin }) => {
   return (
     <div className="mb-20 mt-10 flex items-center justify-center lg:mb-32 lg:mt-20">
       {loading ? (
-        <p>Loading...</p>
+
+        <Loading />
       ) : showSuccess ? (
         <AnimationSuccess isVisible={showSuccess} />
       ) : (

@@ -4,13 +4,15 @@ import { Breadcrumb } from "../components/Breadcrumb";
 import { Button } from "../components/Button";
 import { CartItem } from "../components/CartItem";
 import { EmptyCart } from "../components/EmptyCart";
+import { Loading } from "../components/Loading";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 
 export const Cart = () => {
-  const { cart, clearCart } = useUserStore((state) => ({
+  const { cart, clearCart, loading } = useUserStore((state) => ({
     cart: state.cart,
     clearCart: state.clearCart,
+    loading: state.loading,
   }));
   const products = useProductStore((state) => state.products);
   const calculateOrderValue = () => {
@@ -35,7 +37,9 @@ export const Cart = () => {
           </div>
 
           <div className="mx-auto flex flex-col items-center">
-            {cart.length > 0 ? (
+            {loading ? (
+              <Loading />
+            ) : cart.length > 0 ? (
               products
                 .filter((product) => cart.includes(product._id))
                 .map((product) => (
@@ -84,7 +88,7 @@ export const Cart = () => {
             </div>
             <div className="flex justify-center">
               <p className="mb-20 p-3 text-center font-lato">
-                *Please remember, this is not an actual shop, no money will be
+                *Please remember, this is not an actual shop, no money will be
                 drawn, and unfortunately no products will be sent*.
               </p>
             </div>
