@@ -14,6 +14,10 @@
   border: none;
 }
 
+.seeRentalsButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
 @media (min-width: 745px) {
   .seeRentalsContainer {
     margin: 150px auto;

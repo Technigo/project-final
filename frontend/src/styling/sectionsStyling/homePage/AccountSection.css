@@ -54,6 +54,10 @@
   margin: 14px 0;
 }
 
+.loginButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
 .createAccountButton {
   height: 40px;
   width: 160px;
@@ -64,6 +68,10 @@
   font-size: 16px;
   font-weight: bold;
   margin: 14px 0;
+}
+
+.createAccountButton:hover {
+  background-color: var(--dark-button-hover-color);
 }
 
 @media (min-width: 745px) {

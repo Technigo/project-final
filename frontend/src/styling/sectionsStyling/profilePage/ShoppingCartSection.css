@@ -74,6 +74,10 @@
   font-weight: bold;
 }
 
+.sendOrderButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
 .shoppingCartQuestionsText {
   margin-top: 80px;
   text-align: center;
@@ -83,6 +87,10 @@
   font-weight: 600;
   color: var(--dark-color);
   text-decoration: none;
+}
+
+.faqLink:hover {
+  text-decoration: solid;
 }
 
 @media (min-width: 745px) {

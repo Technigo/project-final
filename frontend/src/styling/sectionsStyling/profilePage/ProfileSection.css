@@ -40,36 +40,6 @@
   margin: 5px 0 20px 0;
 }
 
-.changeEmailLabel {
-  font-weight: 600;
-}
-
-.changeEmailInput {
-  width: 220px;
-  height: 40px;
-  margin: 5px 0;
-  border-radius: 5px;
-  border: 1px solid var(--dark-color);
-}
-
-.profileButtonsWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.changeEmailButton {
-  width: 130px;
-  height: 40px;
-  background-color: var(--light-button-color);
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--dark-color);
-  margin: 10px 0;
-}
-
 .logoutButton {
   width: 130px;
   height: 40px;
@@ -79,6 +49,10 @@
   font-size: 16px;
   font-weight: bold;
   color: var(--dark-color);
+}
+
+.logoutButton:hover {
+  background-color: var(--light-button-hover-color);
 }
 
 @media (min-width: 745px) {
@@ -133,34 +107,6 @@
   .customerEmail {
     margin: 5px 0 40px 0;
     font-size: 20px;
-  }
-
-  .changeEmailLabel {
-    font-size: 20px;
-  }
-
-  .changeEmailInput {
-    width: 280px;
-    margin: 10px 0;
-  }
-
-  .profileButtonsWrapper {
-    flex-direction: row;
-    margin-top: 10px;
-  }
-
-  .logoutButtonWrapper {
-    display: flex;
-    width: 400px;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .changeEmailButton {
-    width: 150px;
-    height: 60px;
-    font-size: 20px;
-    margin: 0;
   }
 
   .logoutButton {

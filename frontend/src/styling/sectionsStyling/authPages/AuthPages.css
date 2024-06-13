@@ -45,6 +45,10 @@
   border: none;
 }
 
+.authButton:hover {
+  background-color: var(--light-button-hover-color);
+}
+
 @media (min-width: 745px) {
   .authContainer {
     margin: 150px auto;

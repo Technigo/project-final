@@ -63,6 +63,10 @@
   font-weight: bold;
 }
 
+.sendFormButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
 @media (min-width: 745px) {
   .requestContainer {
     width: 610px;

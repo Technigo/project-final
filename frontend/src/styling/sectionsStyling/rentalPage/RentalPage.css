@@ -50,6 +50,24 @@
   bottom: 10px;
 }
 
+.addToCartButton {
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--dark-color);
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--dark-button-color);
+  color: var(--light-color);
+  position: absolute;
+  top: 150px;
+  right: 0px;
+}
+
+.addToCartButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
 @media (min-width: 745px) {
   .rentalListContainer {
     width: 600px;
@@ -74,6 +92,10 @@
     padding: 20px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0;
+  }
+
+  .addToCartButton {
+    top: 235px;
   }
 }
 
@@ -117,5 +139,9 @@
 
   .rentalItemPrice {
     font-size: 20px;
+  }
+
+  .addToCartButton {
+    top: 225px;
   }
 }
