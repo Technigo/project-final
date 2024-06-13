@@ -41,7 +41,7 @@
 @media screen and (min-width: 1024px) {
   .toggle-wrapper {
     padding: 0;
-    max-width: 250px;
+    /* max-width: 250px; */
   }
 
   .toggle-title {

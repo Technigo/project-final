@@ -77,4 +77,8 @@
     height: 60px;
     width: auto;
   }
+
+  .footer-categories {
+    max-width: 200px;
+  }
 }
