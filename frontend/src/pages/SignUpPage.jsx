@@ -1,12 +1,11 @@
 import { Footer } from "../components/Footer";
 import { useState, useRef, useEffect } from "react";
 import { useUserStore } from "../store/useUserStore";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
 import Lottie from "lottie-react";
 import animation from "../assets/Circle-loading-Animation.json";
-
 
 export const SignUpPage = () => {
   const {
@@ -36,7 +35,7 @@ export const SignUpPage = () => {
     loadingUser,
     signedUp,
     loggedIn,
-    setSignedUp
+    setSignedUp,
   } = useUserStore();
   const [activeSection, setActiveSection] = useState("sectionone");
 
@@ -48,21 +47,18 @@ export const SignUpPage = () => {
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [sectionCheck, setSectionCheck] = useState(false);
 
   const navigate = useNavigate();
   const passwordRef = useRef();
 
-  const checkSection = () => {
-    if (activeSection === "sectionthree") {
-      return (
-        <img
-          className="bg-light-yellow w-full laptop:hidden"
-          src={swoopBottom}
-          alt="Section border"
-        />
-      );
-    }
-  };
+  useEffect(() => {
+  if (activeSection === "sectionthree") {
+    setSectionCheck(true);
+  } else {
+    setSectionCheck(false);
+  }
+  }, [activeSection])
 
   useEffect(() => {
     setAllergies(selectedAllergies);
@@ -237,8 +233,7 @@ export const SignUpPage = () => {
     }
   }, [signedUp]);
 
-
-  console.log("signed up", signedUp)
+  console.log("signed up", signedUp);
 
   return (
     <>
@@ -701,12 +696,12 @@ export const SignUpPage = () => {
         </section>
       )}
 
-      {checkSection}
-      {/* <img
-        className="bg-light-yellow w-full laptop:hidden"
-        src={swoopBottom}
-        alt="Section border"
-      /> */}
+      {sectionCheck ? (
+        <img
+          className="bg-light-yellow w-full"
+          src={swoopBottom}
+          alt="Section border"
+        /> ) : null       }
       <Footer aboveColor={"red"} />
     </>
   );
