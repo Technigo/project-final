@@ -6,6 +6,7 @@ import path from "path";
 import fs from "fs";
 
 import Rental from "./models/Rental";
+import Order from "./models/Order";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/rental-items";
 mongoose.connect(mongoUrl);
@@ -36,13 +37,10 @@ const seedDB = async () => {
     );
     const rentals = JSON.parse(data).rentals;
 
-    console.log("Parsed Rentals Data:", rentals);
-
     await Rental.deleteMany();
     console.log("Existing rentals deleted");
 
     const insertedRentals = await Rental.insertMany(rentals);
-    console.log("Inserted rentals:", insertedRentals);
 
     console.log("Database seeded successfully");
   } catch (err) {
@@ -115,6 +113,40 @@ app.delete("/api/cart/:id", (req, res) => {
 app.delete("/api/cart", (req, res) => {
   cart = [];
   res.json({ message: "Cart cleared", cart });
+});
+
+// Handle orders
+app.post("/api/orders", async (req, res) => {
+  const { startDate, endDate, deliveryAddress, customerEmail, items } =
+    req.body;
+
+  try {
+    const orderItems = items.map((item) => ({
+      rental: item.rental,
+    }));
+
+    // Create a new instance of Order
+    const newOrder = new Order({
+      startDate,
+      endDate,
+      deliveryAddress,
+      customerEmail,
+      items: orderItems,
+    });
+
+    // Save the order to MongoDB
+    const savedOrder = await newOrder.save();
+    console.log("Order placed successfully", savedOrder);
+
+    cart = [];
+
+    res
+      .status(201)
+      .json({ message: "Order placed successfully", order: savedOrder });
+  } catch (error) {
+    console.error("Error placing order", error);
+    res.status(500).json({ error: "Failed to place order" });
+  }
 });
 
 // Start the server

@@ -1,20 +1,65 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import axios from "axios";
 import "../../styling/sectionsStyling/profilePage/ShoppingCartSection.css";
 
 const ShoppingCartSection = () => {
-  const {
-    cartItems,
-    totalPrice,
-    handleRemoveFromCart,
-    handleClearCart,
-    fetchCartItems,
-  } = useCart();
+  const { cartItems, totalPrice, handleRemoveFromCart, fetchCartItems } =
+    useCart();
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetchCartItems();
   }, [fetchCartItems]);
+
+  const handleSubmitOrder = async (e) => {
+    e.preventDefault();
+    if (
+      !startDate ||
+      !endDate ||
+      !deliveryAddress ||
+      !customerEmail ||
+      cartItems.length === 0
+    ) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const orderItems = cartItems.map((item) => ({
+        rental: item._id,
+      }));
+
+      const orderDetails = {
+        startDate,
+        endDate,
+        deliveryAddress,
+        customerEmail,
+        items: orderItems,
+      };
+
+      const response = await axios.post(
+        "http://localhost:8080/api/orders",
+        orderDetails
+      );
+      console.log("Order placed successfully", response.data);
+      // Clear cart
+      fetchCartItems();
+      setStartDate("");
+      setEndDate("");
+      setDeliveryAddress("");
+      setCustomerEmail("");
+      setError("");
+    } catch (error) {
+      setError("Failed to place order. Please try again.");
+      console.error("Error placing order:", error);
+    }
+  };
 
   return (
     <div className="shoppingCartContainer">
@@ -46,26 +91,58 @@ const ShoppingCartSection = () => {
           )}
         </div>
 
-        <form className="shoppingCartForm">
+        <form className="shoppingCartForm" onSubmit={handleSubmitOrder}>
           <h2 className="deliveryTitle">Delivery</h2>
+          {error && <p className="errorMessage">{error}</p>}
           <label className="rentalDateLabel">
             Fill in the date when you want to start renting the items: <br />
-            <input type="date" required className="dateInput" />
+            <input
+              type="date"
+              required
+              className="dateInput"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
           </label>
 
           <label className="rentalDateLabel">
             When do you want to return the items? <br />
-            <input type="date" required className="dateInput" />
+            <input
+              type="date"
+              required
+              className="dateInput"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
           </label>
 
           <label className="deliveryAdressText">
             Delivery adress: <br />
-            <input type="text" required className="deliveryAdress" />
+            <input
+              type="text"
+              required
+              className="deliveryAdress"
+              value={deliveryAddress}
+              onChange={(e) => setDeliveryAddress(e.target.value)}
+            />
+          </label>
+
+          <label className="emailText">
+            Your Email: <br />
+            <input
+              type="email"
+              required
+              className="emailInput"
+              value={customerEmail}
+              onChange={(e) => setCustomerEmail(e.target.value)}
+            />
           </label>
 
           <h3 className="totalPrice">Total: €{totalPrice}</h3>
 
-          <button className="sendOrderButton">Send Order</button>
+          <button type="submit" className="sendOrderButton">
+            Send Order
+          </button>
         </form>
 
         <p className="shoppingCartQuestionsText">
