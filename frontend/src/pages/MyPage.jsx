@@ -60,14 +60,17 @@ export const MyPage = () => {
             </div>
             <div className="flex flex-col items-center justify-between lg:flex-row">
               <div className="flex flex-row items-center gap-2">
-                <MdOutlineMail className="h-8 w-8 text-blue" />
+                <MdOutlineMail
+                  className="h-8 w-8 text-blue"
+                  aria-label="send email"
+                />
                 <p className="font-montserrat text-base font-bold">Email</p>
               </div>
               <p className="font-lato text-base">{email}</p>
             </div>
             <div className="flex flex-col items-center justify-between lg:flex-row">
               <div className="flex flex-row items-center gap-2">
-                <MdDelete className="h-8 w-8 text-blue" />
+                <MdDelete className="h-8 w-8 text-blue" aria-label="delete product" />
                 <p className="font-montserrat font-bold">Delete account</p>
               </div>
               <button

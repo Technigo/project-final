@@ -35,7 +35,12 @@ export const ProductDetailsCard = ({
     <div className="mx-auto flex w-4/5 min-w-[300px] flex-col gap-3 font-montserrat lg:flex-row lg:place-content-center lg:gap-10">
       <div className="relative lg:h-fit">
         <span className="absolute left-5 top-5 flex h-8 w-fit flex-row items-center gap-2 rounded-3xl border-none bg-light-gray p-3 font-bold text-blue">
-          <img className="h-3 w-3" src={favorite} alt="favorite icon" />
+          <img
+            className="h-3 w-3"
+            src={favorite}
+            alt="favorite icon"
+            aria-label="likes"
+          />
           <p>{numOfLikes} likes</p>
         </span>
         <img
@@ -47,6 +52,7 @@ export const ProductDetailsCard = ({
           style="absolute bottom-5 right-5 h-8 w-8 rounded-full bg-white p-[5px] hover:bg-light-gray"
           id={id}
           setOpenDrawer={setOpenDrawer}
+          aria-label="like the product"
         />
       </div>
       <div className="flex w-full flex-col gap-3 lg:w-96 lg:flex-none lg:justify-between">

@@ -40,17 +40,18 @@ export const Footer = () => {
           className="flex w-full flex-row justify-between border-b"
           onClick={toggelShop}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wider">SHOP</h4>
-          <img src={dropdown} className="h-2 self-center" />
+          <p className="mb-1 mt-2 text-xl font-bold tracking-wider">SHOP</p>
+          <img
+            src={dropdown}
+            alt="Open dropdown menu"
+            className="h-2 self-center"
+          />
         </button>
         {shopIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
             {categories.map((category, index) => (
-              <li key={index}>
-                <NavLink
-                  to={`/products?category=${category}`}
-                  className="cursor-pointer"
-                >
+              <li key={index} className="cursor-pointer">
+                <NavLink to={`/products?category=${category}`}>
                   {category}
                 </NavLink>
               </li>
@@ -63,10 +64,14 @@ export const Footer = () => {
           className="flex w-full flex-row justify-between border-b"
           onClick={toggelAccount}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wide">
+          <p className="mb-1 mt-2 text-xl font-bold tracking-wide">
             MY ACCOUNT
-          </h4>
-          <img src={dropdown} className="h-2 self-center" />
+          </p>
+          <img
+            src={dropdown}
+            alt="Open dropdown menu"
+            className="h-2 self-center"
+          />
         </button>
         {accountIsOpen && (
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
@@ -83,10 +88,14 @@ export const Footer = () => {
           className="flex w-full flex-row justify-between border-b"
           onClick={toggelCustomerService}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wide">
+          <p className="mb-1 mt-2 text-xl font-bold tracking-wide">
             CUSTOMER SERVICE
-          </h4>
-          <img src={dropdown} className="h-2 self-center" />
+          </p>
+          <img
+            src={dropdown}
+            alt="Open dropdown menu"
+            className="h-2 self-center"
+          />
         </button>
         {customerIsOpen && (
           <p className="w-full py-3 leading-6 tracking-wide">
@@ -100,10 +109,12 @@ export const Footer = () => {
           className="flex w-full flex-row justify-between border-b"
           onClick={toggleAbout}
         >
-          <h4 className="mb-1 mt-2 text-xl font-bold tracking-wide">
-            ABOUT US
-          </h4>
-          <img src={dropdown} className="h-2 self-center" />
+          <p className="mb-1 mt-2 text-xl font-bold tracking-wide">ABOUT US</p>
+          <img
+            src={dropdown}
+            alt="Open dropdown menu"
+            className="h-2 self-center"
+          />
         </button>
         {aboutIsOpen && (
           <>

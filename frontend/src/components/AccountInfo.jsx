@@ -27,7 +27,7 @@ export const AccountInfo = () => {
       </div>
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-3">
-          <MdOutlineMail className="h-8 w-8 text-blue" />
+          <MdOutlineMail className="h-8 w-8 text-blue" aria-label="send email" />
           <p className="font-montserrat text-sm font-bold lg:text-lg">Email</p>
         </div>
         <p className="font-lato text-sm lg:text-lg">{email}</p>
