@@ -6,7 +6,6 @@ import { FilterBar } from "../components/FilterBar"
 import StyledButton from "../components/styled/Button.styled"
 import { MuseumMap } from "../components/MuseumMap"
 
-
 export const MuseumPage = () => {
   const [museums, setMuseums] = useState([])
   const [results, setResults] = useState([])
@@ -96,13 +95,11 @@ export const MuseumPage = () => {
         </>
       )}
 
-<MuseumMap
-  museums={museumsToShow}
-  showLink={true}
-  center={[51.5074, -0.1278]}
-/>
-
-
+      <MuseumMap
+        museums={museumsToShow}
+        showLink={true}
+        center={[51.5074, -0.1278]}
+      />
     </MuseumPageContainer>
   )
 }
@@ -130,4 +127,5 @@ const NoResultsMessage = styled.p`
   text-align: center;
   margin-top: 10px;
   font-size: 20px;
+  padding-bottom: 100px;
 `
