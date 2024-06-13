@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import Lottie from "lottie-react";
-import loading from "../assets/animation/lottie-loading.json";
+import error from "../assets/animation/lottie-err.json";
 
-export const Loading = ({ isVisible }) => {
+export const Error = ({ isVisible }) => {
   return (
     <div className={`flex justify-center ${isVisible ? "" : "hidden"}`}>
       <Lottie
-        animationData={loading}
+        animationData={error}
         loop={true}
         style={{ width: 300, height: 300 }}
       />
@@ -14,6 +14,6 @@ export const Loading = ({ isVisible }) => {
   );
 };
 
-Loading.propTypes = {
+Error.propTypes = {
   isVisible: PropTypes.bool.isRequired,
 };
