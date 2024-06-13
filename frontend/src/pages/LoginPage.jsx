@@ -8,9 +8,6 @@ import InputBox from "../components/styled/InputBox.styled.jsx"
 import { LogoutButton } from "../components/LogoutButton"
 import styled from "styled-components"
 
-//An idea about this page is to display it "on top up" the page where the user is, almost like a pop up box
-//So when the user is logged in, the popup disappears and they go back to the page where they were before
-
 export const LoginPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
