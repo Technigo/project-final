@@ -15,3 +15,7 @@ export const Error = ({ error }) => {
     </div>
   );
 };
+
+Error.propTypes = {
+  error: PropTypes.string.isRequired,
+};
