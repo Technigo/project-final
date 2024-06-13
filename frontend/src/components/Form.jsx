@@ -38,7 +38,7 @@ export const Form = ({ isLogin }) => {
       setShowSuccess(true);
       setTimeout(() => {
         navigate(`${isLogin ? "/mypage" : "/login"}`);
-      }, 4000);
+      }, 2000);
     }
   };
 
