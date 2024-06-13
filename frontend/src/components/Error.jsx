@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import Lottie from "lottie-react";
-import error from "../assets/animation/lottie-error.json";
+import error from "../assets/animation/lottie-err.json";
 
-export const Error = () => {
+export const Error = ({ isVisible }) => {
   return (
-    <div className="flex justify-center">
+    <div className={`flex justify-center ${isVisible ? "" : "hidden"}`}>
       <Lottie
         animationData={error}
         loop={true}
@@ -11,4 +12,8 @@ export const Error = () => {
       />
     </div>
   );
+};
+
+Error.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
 };
