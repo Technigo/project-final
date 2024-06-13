@@ -57,7 +57,7 @@ app.post("/api/register", async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ message: "User registered successfully", token });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ error: "Registration failed" });
