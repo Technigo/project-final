@@ -35,7 +35,11 @@ export const CategoryCard = () => {
           onClick={() => navigate(`/products?category=${item.name}`)}
         >
           <div className={`absolute inset-0 bg-cover bg-center`}>
-            <img className="h-full w-full object-cover" src={item.bg} />
+            <img
+              className="h-full w-full object-cover"
+              src={item.bg}
+              alt={`image of ${item.name} category`}
+            />
             <div className="w-ful absolute inset-0 h-full w-full bg-gradient-to-t from-black/70 via-black/50"></div>
           </div>
           <div className="z-50 space-y-6 text-center font-montserrat font-bold text-white">

@@ -24,18 +24,6 @@ export default withMT({
       black: "#000000",
       white: "#FFFFFF",
     },
-    extend: {
-      backgroundImage: {
-        health:
-          "url('src/assets/bg/health.jpg')",
-        business:
-          "url('src/assets/bg/business.jpg')",
-        color:
-          "url('src/assets/bg/color.jpg')",
-        travel:
-          "url('src/assets/bg/travel.jpg')",
-      },
-    },
   },
   plugins: [],
 });
