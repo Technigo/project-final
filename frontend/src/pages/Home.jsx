@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 export const Home = ({ data }) => {
 
-  const { signedUp, setSignedUp, loggedOut, setLoggedOut, automaticLogOut, setAutomaticLogout } = useUserStore()
+  const { signedUp, setSignedUp, loggedOut, setLoggedOut, automaticLogOut, setAutomaticLogOut } = useUserStore()
 
   useEffect(() => {
     if (signedUp) {
@@ -31,7 +31,7 @@ export const Home = ({ data }) => {
   useEffect(() => {
     if (automaticLogOut) {
       setTimeout(() => {
-        setAutomaticLogout(false);
+        setAutomaticLogOut(false);
       }, 1500);
     }
   }, [automaticLogOut]);
