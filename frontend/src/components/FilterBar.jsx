@@ -113,7 +113,7 @@ export const FilterBar = ({ setFilters }) => {
               checked={hasCafe}
               onChange={(e) => setHasCafe(e.target.checked)}
             />
-            Has Cafe
+            Restaurant on premises{" "}
           </CheckboxLabel>
 
           <CheckboxLabel>
