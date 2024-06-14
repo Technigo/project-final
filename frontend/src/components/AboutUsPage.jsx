@@ -93,7 +93,7 @@ export const AboutUsPage = () => {
       {/* FAQ Section */}
       <section className="bg-light py-8 md:py-16 md:px-16 lg:px-32 xl:px-64">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl  text-center text-dark">FAQs</h2>
+          <h2 className="text-3xl  text-center text-dark">FQAs</h2>
           <div className="mt-8 space-y-4">
             <FAQItem
               question="What is ADHD?"

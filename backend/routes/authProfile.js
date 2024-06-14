@@ -38,8 +38,6 @@ const authenticateToken = async (req, res, next) => {
 // Route to register a new user
 router.post("/users", async (req, res) => {
   const { username, password, role } = req.body;
-
-  // Check if the password meets the minimum length requirement
   if (password.length < 6) {
     return res
       .status(400)

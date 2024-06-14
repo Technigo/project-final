@@ -69,7 +69,6 @@ export const Profile = () => {
     e.preventDefault();
     setError("");
     setNotification("");
-
     try {
       const updatedData = await updateProfile(userData);
       setUserData(updatedData);
