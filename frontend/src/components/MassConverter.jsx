@@ -30,6 +30,12 @@ const Description = styled.p`
   max-width: 1000px;
 `
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const Input = styled.input`
   font-family: "Roboto Mono", monospace;
   padding: 10px;
@@ -86,7 +92,8 @@ export const MassConverter = () => {
     setWeight(e.target.value)
   }
 
-  const handleCalculate = () => {
+  const handleCalculate = (e) => {
+    e.preventDefault()
     const weightInKilos = weight
     if (weightInKilos === null || weightInKilos <= 0) {
       alert("Please enter any item's weight in kilos, perhaps your pet? 🐩 🐾")
@@ -124,13 +131,15 @@ export const MassConverter = () => {
           a fun and educational way to understand the effects of gravity beyond
           Earth. Try it out and see how weight changes across the cosmos!
         </Description>
-        <Input
-          type="number"
-          value={weight}
-          onChange={handleChange}
-          placeholder="Enter kilograms here..."
-        />
-        <Button onClick={handleCalculate}>CALCULATE</Button>
+        <Form onSubmit={handleCalculate}>
+          <Input
+            type="number"
+            value={weight}
+            onChange={handleChange}
+            placeholder="Enter kilograms here..."
+          />
+          <Button onClick={handleCalculate}>CALCULATE</Button>
+        </Form>
         {Object.keys(results).length > 0 && ( // Conditionally render Results if results is not empty
           <Results ref={resultsRef}>
             <EnteredWeight>Entered Weight: {weight} kilos</EnteredWeight>
