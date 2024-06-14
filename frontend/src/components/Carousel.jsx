@@ -70,8 +70,10 @@ export const Carousel = () => {
         <Loading />
       ) : (
         <>
-          <h2 className="font-heading text-xl desktop:text-3xl text-center text-white font-light">
-            Products
+
+          <h2 className="font-heading text-xl text-center text-white font-light">
+           Featured Products
+
           </h2>
           <ul className="flex snap-x snap-mandatory whitespace-nowrap scroll-m-[50] mx-auto gap-4 p-6 overflow-hidden">
             {selectedProducts.map((item, index) => (
