@@ -20,6 +20,10 @@ export const MuseumPage = () => {
   const [noResults, setNoResults] = useState(false)
 
   useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
+
+  useEffect(() => {
     const fetchMuseums = async () => {
       try {
         const response = await fetch("https://museek-2ejb.onrender.com/museums")
