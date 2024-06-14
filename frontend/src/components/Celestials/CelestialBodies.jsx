@@ -33,13 +33,13 @@ export const CelestialBodies = () => {
     fetchOneBody()
   }, [name])
 
+  if (loading) {
+    return <Loading />
+  }
+
   if (error) {
     return <p>{error.message}</p>
   }
 
-  return (
-    <Loading>
-      <CelestialContent oneBody={oneBody} />
-    </Loading>
-  )
+  return <CelestialContent oneBody={oneBody} />
 }

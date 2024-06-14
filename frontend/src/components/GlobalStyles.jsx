@@ -12,7 +12,7 @@ body {
 
 :root {
   --text-color-primary: #FFFFFF;
-  --text-color-secondary: #FFEDD8;
+  --text-color-secondary: #f7dbb8;
   --headline-color: #FFFFFF;
   --background-color: #030401;
   --textbox-background: #161822;

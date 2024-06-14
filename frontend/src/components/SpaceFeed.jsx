@@ -2,13 +2,12 @@ import { useEffect, useState } from "react"
 import { useSpaceFeedStore } from "../stores/useSpaceFeedStore"
 import { formatDistanceToNow } from "date-fns"
 import { Button } from "./Navigation/Button.jsx"
+import { Loading } from "../components/Loading.jsx"
 import Lottie from "lottie-react"
 import styled from "styled-components"
 import rocketIcon from "./../assets/icons/rocket.png"
 import rocketIconLiked from "./../assets/icons/rocket-filled.png"
 import animationData from "./../assets/animations/scrollDown.json"
-
-// import { Loading } from "../components/Loading.jsx"
 
 const FeedContainer = styled.div`
   width: calc(100% - 40px);
@@ -150,6 +149,7 @@ const MessageContainer = styled.div`
     }
   }
 `
+
 const Details = styled.div`
   display: flex;
   justify-content: space-between;
@@ -262,42 +262,40 @@ export const SpaceFeed = () => {
         {messageError && <p>{messageError}</p>}
       </Form>
 
-      {messageError && <p>{messageError}</p>}
-
-      {loading}
+      {loading && <Loading />}
 
       <MessageContainer>
         <ul>
-          {spaceFeed && spaceFeed.length > 0 ? (
-            spaceFeed.map((message) => (
-              <li key={message._id}>
-                <p>{message.message}</p>
-                <Details>
-                  <LikeButton onClick={() => handleLike(message._id)}>
-                    <Icon
-                      src={
-                        likedMessages[message._id]
-                          ? rocketIconLiked
-                          : rocketIcon
-                      }
-                      alt="Like Icon"
-                    />{" "}
-                    x{message.likes}
-                  </LikeButton>
-                  {formatDistanceToNow(new Date(message.createdAt), {
-                    addSuffix: true,
-                  })}
-                </Details>
-              </li>
-            ))
-          ) : (
-            <p>No messages to display</p>
-          )}
+          {spaceFeed && spaceFeed.length > 0
+            ? spaceFeed.map((message) => (
+                <li key={message._id}>
+                  <p>{message.message}</p>
+                  <Details>
+                    <LikeButton onClick={() => handleLike(message._id)}>
+                      <Icon
+                        src={
+                          likedMessages[message._id]
+                            ? rocketIconLiked
+                            : rocketIcon
+                        }
+                        alt="Like Icon"
+                      />{" "}
+                      x{message.likes}
+                    </LikeButton>
+                    {formatDistanceToNow(new Date(message.createdAt), {
+                      addSuffix: true,
+                    })}
+                  </Details>
+                </li>
+              ))
+            : !loading && <p>No messages to display</p>}
         </ul>
       </MessageContainer>
-      <AnimationContainer>
-        <Lottie animationData={animationData} />
-      </AnimationContainer>
+      {!loading && spaceFeed && spaceFeed.length > 0 && (
+        <AnimationContainer>
+          <Lottie animationData={animationData} />
+        </AnimationContainer>
+      )}
     </FeedContainer>
   )
 }

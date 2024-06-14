@@ -34,6 +34,7 @@ const CelestialContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
 `
 
 const CelestialPage = styled.div`
@@ -97,7 +98,7 @@ const CelestialImg = styled.img`
 
   margin-right: 20px;
 
-  @media (max-width: 1001px) {
+  @media (max-width: 999px) {
     display: none;
   }
 `
@@ -112,7 +113,6 @@ const CelestialDetails = styled.div`
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: auto auto;
-    gap: 20px;
   }
 
   h3 {
@@ -148,6 +148,7 @@ const TextBoxContainer = styled.div`
     grid-column: 1 / 4;
     display: contents;
     justify-content: space-between;
+    align-items: center;
   }
 `
 
@@ -156,11 +157,13 @@ const TextBox = styled.div`
   padding: 16px 24px;
   margin-bottom: 16px;
   border-radius: 8px;
-  width: 100%;
   width: 280px;
 
   &:last-child {
     margin-bottom: 0;
+  }
+  @media (min-width: 768px) {
+    margin-left: 20px;
   }
 `
 
@@ -193,7 +196,7 @@ const LeftColumn = styled.div`
   @media (min-width: 768px) {
     grid-column: 1 / 2;
     grid-row: 1;
-    align-items: flex-start;
+    align-items: center;
   }
 `
 
@@ -206,7 +209,7 @@ const RightColumn = styled.div`
   @media (min-width: 768px) {
     grid-column: 3 / 4;
     grid-row: 1;
-    align-items: flex-end;
+    align-items: center;
     margin-left: 20px;
   }
 `
