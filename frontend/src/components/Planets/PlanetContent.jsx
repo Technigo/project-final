@@ -80,7 +80,7 @@ const ImageContainer = styled.div`
   margin-bottom: 20px;
   grid-column: 1 / 3;
 
-  @media (min-width: 830px) {
+  @media (min-width: 1000px) {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     margin-bottom: 0;
@@ -92,17 +92,17 @@ const PlanetImgMob = styled.img`
   max-width: 400px;
   margin: 20px auto;
 
-  @media (min-width: 830px) {
+  @media (min-width: 1000px) {
     display: none;
   }
 `
 
 const PlanetImg = styled.img`
   width: 100%;
-  max-width: 280px;
+  max-width: 400px;
   margin: 20px;
 
-  @media (max-width: 830px) {
+  @media (max-width: 999px) {
     display: none;
   }
 `
@@ -201,7 +201,6 @@ const LeftColumn = styled.div`
   @media (min-width: 768px) {
     grid-column: 1 / 2;
     grid-row: 1;
-    display: flex;
     align-items: center;
   }
 `
@@ -209,14 +208,13 @@ const LeftColumn = styled.div`
 const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 320px;
 
   @media (min-width: 768px) {
     grid-column: 3 / 4;
     grid-row: 1;
-    align-items: flex-end;
+    align-items: center;
     margin-left: 20px;
   }
 `

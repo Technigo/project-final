@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-secondary);
   font-family: var(--font-family-main);
   box-sizing: border-box;
 
