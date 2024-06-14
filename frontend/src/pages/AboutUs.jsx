@@ -19,13 +19,13 @@ export const AboutUs = () => {
           We are the ones that made this crazy website. It was made during three weeks as a final
           project for the Technigo bootcamp.
         </p>
-        <p className="font-body my-4">If you are interested in getting in contact with us you van do so below.</p>
+        <p className="font-body my-14 text-center">If you are interested in getting in contact with us you van do so below.</p>
         <div className="flex m-10 justify-around">
           <div>
             <img
               src={linda}
               alt="Backend Extraordinair"
-              className="w-20 rounded-full border-2 border-main-yellow"
+              className="w-20 rounded-full"
             />
             <h3 className="font-heading text-center text-xl my-2">Linda</h3>
             <div className="flex flex-col text-center">
@@ -56,7 +56,7 @@ export const AboutUs = () => {
             <img
               src={izabel}
               alt="Designer Extraordinair"
-              className="w-20 rounded-full border-2 border-main-yellow"
+              className="w-20 rounded-full "
             />
             <h3 className="font-heading text-center text-xl my-2">Izabel</h3>
             <div className="flex flex-col text-center">
@@ -87,7 +87,7 @@ export const AboutUs = () => {
             <img
               src={martin}
               alt="Jack of all trades"
-              className="w-20 rounded-full border-2 border-main-yellow"
+              className="w-20 rounded-full"
             />
             <h3 className="font-heading text-center text-xl my-2">Martin</h3>
             <div className="flex flex-col text-center">

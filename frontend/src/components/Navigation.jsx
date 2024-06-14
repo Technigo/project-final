@@ -86,7 +86,7 @@ export const Navigation = ({ data }) => {
         logoutUser();
         setAutomaticLogOut(true)
         navigate("/");
-      }, 900000); //  15 minutes
+      }, 1800000); //  900000 15 minutes
     } else {
       // Clear the timeout if the user logs out
       if (logoutTimeoutRef.current) {
@@ -96,6 +96,7 @@ export const Navigation = ({ data }) => {
     }
   }, [loggedIn]);
   // add a message for user to know theyve been logged out (welcome message comp could maybe be reused? but it should have the click outside func that the login box has.. would be nice)
+
 
   const toggleLogin = () => {
     setOpen(!open);
