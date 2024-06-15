@@ -207,6 +207,7 @@ export const useUserStore = create(
       deleteUser: async (userId, accessToken) => {
         /* set({ loadingUser: true }); */
         const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;
+        console.log("Inside the delete user path", accessToken, userId);
         try {
           const response = await fetch(URL, {
             method: "DELETE",
