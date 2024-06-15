@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
-// User needs to be logged in to se Profile page,
-// send user to Log in/ Sign up if not logged in.
-import { useParams } from "react-router-dom";
-import { NavLink, useNavigate } from "react-router-dom";
-
+import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { WelcomeMessage } from "../components/WelcomeMessage";
 // User needs to be logged in to see Profile page,
@@ -14,15 +10,17 @@ import { useUserStore } from "../store/useUserStore";
 
 export const ProfilePage = () => {
   const {
-    user,
-    /*   userId, */
+    user, 
     logoutUser,
     updateUser,
     loggedOut,
     accessToken,
     deleteUser,
   } = useUserStore();
+
   const { userId } = useParams();
+
+  console.log("Profile:", userId);
 
   const profile = user.user;
   const navigate = useNavigate();
