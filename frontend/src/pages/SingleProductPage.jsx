@@ -63,8 +63,8 @@ export const SingleProductPage = () => {
   console.log("singleproduct", singleProduct);
   return (
     <>
-    < ShoppingCartPopup />
-      <section className="bg-main-red h-full min-h-screen pt-4 laptop:pt-12 w-full font-heading ">
+      <ShoppingCartPopup />
+      <section className="bg-main-red pt-4 laptop:pt-12 w-full font-heading ">
         <NavLink to="/products">
           <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
             <IoIosArrowBack />
@@ -79,75 +79,89 @@ export const SingleProductPage = () => {
           </div>
         ) : (
           <div className="flex flex-col">
-          <div className="w-full tablet:w-11/12 tablet:m-auto tablet:flex pb-12 desktop:w-9/12 relative">
-            <img
-              src={product.image.url}
-              alt={product.description}
-              className="w-full tablet:w-7/12 desktop:w-5/12 object-cover aspect-square tablet:rounded-xl"
-            />
-            {allergyAlert.length > 0 && (
-              <div className="absolute top-10 left-0 right-0 flex justify-center w-36  items-center bg-cta-blue text-white py-2 px-4 rounded-r-xl">
-                Allergies: {allergyAlert.join(", ")}
-              </div>
-            )}
-            
-            <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light tablet:pl-8 desktop:pl-16">
-              <h2 className="font-light text-lg tablet:text-xl mb-2">
-                {product.brand}
-              </h2>
-              <h3 className="text-xl tablet:text-3xl mb-8">{product.title}</h3>
-              <p className="mb-8 leading-loose">{product.description}</p>
-              <div className="mb-12 flex">
-                <MdOutlineStar />
-                <MdOutlineStar />
-                <MdOutlineStar />
-                <MdOutlineStar />
-                <MdOutlineStar />
-              </div>
-              <h3 className="text-3xl mb-8">{product.price} €</h3>
-              <div className="flex gap-6">
-                <div className="flex">
+            <div className="w-full tablet:w-11/12 tablet:m-auto tablet:flex pb-12 desktop:w-9/12 relative">
+              <img
+                src={product.image.url}
+                alt={product.description}
+                className="w-full tablet:w-7/12 desktop:w-5/12 object-cover aspect-square tablet:rounded-xl"
+              />
+              {allergyAlert.length > 0 && (
+                <div className="absolute top-10 left-0 right-0 flex justify-center w-36  items-center bg-black text-white py-2 px-4 rounded-r-xl">
+                  Allergies: {allergyAlert.join(", ")}
+                </div>
+              )}
+
+              <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light tablet:pl-8 desktop:pl-16">
+                <h2 className="font-light text-lg tablet:text-xl mb-2">
+                  {product.brand}
+                </h2>
+                <h3 className="text-xl tablet:text-3xl mb-8">
+                  {product.title}
+                </h3>
+                <p className="mb-8 leading-loose">{product.description}</p>
+                <div className="mb-12 flex">
+                  <MdOutlineStar />
+                  <MdOutlineStar />
+                  <MdOutlineStar />
+                  <MdOutlineStar />
+                  <MdOutlineStar />
+                </div>
+                <h3 className="text-3xl mb-8">{product.price} €</h3>
+                <div className="flex gap-6">
+                  <div className="flex">
+                    <button
+                      onClick={handleDecrement}
+                      className="bg-text-light text-text-dark w-5 rounded-l-xl"
+                    >
+                      -
+                    </button>
+                    <span className="bg-text-light text-text-dark w-12 flex items-center justify-center text-sm">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={handleIncrement}
+                      className="bg-text-light text-text-dark w-5 rounded-r-xl"
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
-                    onClick={handleDecrement}
-                    className="bg-text-light text-text-dark w-5 rounded-l-xl"
+                    onClick={handleAddToCart}
+                    className="w-24 h-6 text-xs bg-strong-yellow p-1 rounded-full text-text-dark hover:bg-main-yellow"
                   >
-                    -
-                  </button>
-                  <span className="bg-text-light text-text-dark w-12 flex items-center justify-center text-sm">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={handleIncrement}
-                    className="bg-text-light text-text-dark w-5 rounded-r-xl"
-                  >
-                    +
+                    {addToCart}
                   </button>
                 </div>
-                <button onClick={handleAddToCart} className="w-24 h-6 text-xs bg-strong-yellow p-1 rounded-full text-text-dark hover:bg-main-yellow">
-                  {addToCart}
-                </button>
               </div>
             </div>
-            </div>
-           {/*  Needs more styling, thinking its good to have some info even if its not recommended for you */}
-            { !loggedIn && product.skin.length > 0 && 
+            {/*  Needs more styling, thinking its good to have some info even if its not recommended for you */}
+            {!loggedIn && product.skin.length > 0 && (
               <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
-              <h4>Recommended for: </h4>
-              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
-              {product.skin.map((item, index) => (
-                <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl"> {item}</li>
-              ))}
-              </ul>
+                <h4>Recommended for: </h4>
+                <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
+                  {product.skin.map((item, index) => (
+                    <li
+                      key={index}
+                      className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl"
+                    >
+                      {" "}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              }
+            )}
           </div>
-          
         )}
-        <SimilarProducts
-          subcategory={product.subcategory}
-          currentProductId={product._id}
-        />
       </section>
+      <section>
+
+      <SimilarProducts
+        subcategory={product.subcategory}
+        currentProductId={product._id}
+        />
+
+        </section>
       <ReviewForm />
 
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}

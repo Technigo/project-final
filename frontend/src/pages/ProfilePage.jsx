@@ -1,31 +1,54 @@
-
-// User needs to be logged in to se Profile page,
-// send user to Log in/ Sign up if not logged in.
-
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
-import { NavLink, useNavigate } from "react-router-dom";
-
+import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { WelcomeMessage } from "../components/WelcomeMessage";
 // User needs to be logged in to see Profile page,
 // send user to Log in/ Sign up if not logged in.
 
 import { useUserStore } from "../store/useUserStore";
+import { Loading } from "../components/Loading";
+import { NotFound } from "./NotFound";
 
 export const ProfilePage = () => {
   const {
     user,
     logoutUser,
+    fetchUser,
     updateUser,
     loggedOut,
     accessToken,
-    userId,
+    deleteUser,
   } = useUserStore();
 
-  const profile = user.user;
+  const { userId } = useParams();
   const navigate = useNavigate();
+  const [profile, setProfile] = useState(user.user);
+
+  // useEffect(() => {
+  //   // Fetch the user profile using the userId
+  //   const fetchUserProfile = async () => {
+  //     if (!user) {
+  //       navigate("/");
+  //     } else {
+   
+  //     }
+  //   };
+
+  //   fetchUserProfile();
+  // }, [userId, fetchUser, navigate]);
+
+  useEffect(() => {
+    if (loggedOut) {
+      navigate("/");
+    }
+  }, [loggedOut, navigate]);
+
+  if (!profile) {
+    return <NotFound reason="profile" />;
+  }
+
+  console.log("Profile:", userId);
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -57,7 +80,7 @@ export const ProfilePage = () => {
   //When user press log out button
   const handleLogout = () => {
     logoutUser();
-    navigate("/"); 
+    navigate("/");
   };
 
   //NOT working yet. Still chatting with AI:)
@@ -71,8 +94,8 @@ export const ProfilePage = () => {
       // Initialize inputValues[name] as an array if it's undefined
       const updatedValue = checked
         ? [...(inputValues[name] || []), value]
-        : inputValues[name].filter(item => item !== value);
-  
+        : inputValues[name].filter((item) => item !== value);
+
       setInputValues({
         ...inputValues,
         [name]: updatedValue,
@@ -97,19 +120,20 @@ export const ProfilePage = () => {
     // Make update request with updatedFields
     updateUser(userId, accessToken, updatedFields);
   };
-  
+
+  const handleDeletingUser = () => {
+    deleteUser(userId, accessToken);
+  };
 
   useEffect(() => {
-    if (loggedOut ) {
+    if (loggedOut) {
       navigate("/");
     }
   }, [loggedOut]);
 
-
-
   return (
     <>
-    {loggedOut && navigate("/")}
+      {loggedOut && navigate("/")}
       <button
         onClick={handleLogout}
         className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20"
@@ -131,7 +155,7 @@ export const ProfilePage = () => {
             <ul className="flex flex-col tablet:grid tablet:grid-cols-2 gap-6">
               <li className="flex gap-4">
                 <img
-                  src="skintype-icon-white.svg"
+                  src="/skintype-icon-white.svg"
                   alt="Icon of a face"
                   className="w-14"
                 />
@@ -190,7 +214,7 @@ export const ProfilePage = () => {
               </li>
               <li className="col-start-1 flex gap-4">
                 <img
-                  src="hairtype-icon-white.svg"
+                  src="/hairtype-icon-white.svg"
                   alt="Icon of hair"
                   className="w-14"
                 />
@@ -282,7 +306,7 @@ export const ProfilePage = () => {
               </li>
               <li className=" col-start-1 col-end-3 flex gap-4">
                 <img
-                  src="allergies-icon-white.svg"
+                  src="/allergies-icon-white.svg"
                   alt="Icon of hand with allergies"
                   className="w-14"
                 />
@@ -294,7 +318,9 @@ export const ProfilePage = () => {
                           <input
                             type="checkbox"
                             value={option.toLowerCase()}
-                            checked={inputValues.allergies.includes(option.toLowerCase())}
+                            checked={inputValues.allergies.includes(
+                              option.toLowerCase()
+                            )}
                             onChange={handleInputChange}
                             // checked={inputValues.allergies}
                           />
@@ -310,7 +336,7 @@ export const ProfilePage = () => {
               </li>
               <li className="col-start-2 row-start-1 row-end-3 flex tablet:flex-row-reverse gap-4 w-full">
                 <img
-                  src="preferences-icon-white.svg"
+                  src="/preferences-icon-white.svg"
                   alt="Icon of a heart"
                   className="w-14 tablet:hidden"
                 />
@@ -323,7 +349,9 @@ export const ProfilePage = () => {
                             <input
                               type="checkbox"
                               value={option.toLowerCase()}
-                              checked={inputValues.pros.includes(option.toLowerCase())}
+                              checked={inputValues.pros.includes(
+                                option.toLowerCase()
+                              )}
                               onChange={handleInputChange}
                               // checked={inputValues.pros}
                             />
@@ -337,7 +365,7 @@ export const ProfilePage = () => {
                         ))}
 
                     <img
-                      src="preferences02.svg"
+                      src="/preferences02.svg"
                       alt="Icon of a heart"
                       className="w-14 hidden tablet:flex self-end mb-6"
                     />
@@ -356,7 +384,7 @@ export const ProfilePage = () => {
         </section>
         <section className="w-full bg-main-yellow ">
           <img
-            src="User-page.svg"
+            src="/User-page.svg"
             alt="hands holding skinproducts"
             className="w-full object-fit"
           />
@@ -467,6 +495,12 @@ export const ProfilePage = () => {
                 <p>{profile.email}</p>
               )}
             </div>
+            <button
+              onClick={handleDeletingUser}
+              className="bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
+            >
+              ! Delete User !
+            </button>
           </div>
           <button
             onClick={handleUpdateProfile}

@@ -3,7 +3,6 @@ import swoop from "/hero-swoop.svg";
 import { NavLink } from "react-router-dom";
 
 import { useUserStore } from "../store/useUserStore"
-import { Button } from "./Button";
 import { Navigation } from "./Navigation";
 
 export const Hero = ({ data }) => {

@@ -18,6 +18,7 @@ export const Navigation = ({ data }) => {
   const {
     email,
     password,
+    userId,
     loginUser,
     loggedIn,
     showWelcomePopup,
@@ -136,7 +137,7 @@ export const Navigation = ({ data }) => {
               </p>
             </NavLink>
             {loggedIn ? (
-              <NavLink to="/profile" className="laptop:hidden">
+              <NavLink to={`/profile/${userId}`} className="laptop:hidden">
                 <img
                   src={userIcon}
                   alt="Profile"
@@ -170,7 +171,7 @@ export const Navigation = ({ data }) => {
           </div>
           <div className="right-nav flex flex-row justify-end">
             {loggedIn ? (
-              <NavLink to="/profile">
+              <NavLink to={`/profile/${userId}`}>
                 <img
                   src={userIcon}
                   alt="Profile"
@@ -207,7 +208,7 @@ export const Navigation = ({ data }) => {
                   <NavLink
                     className="nav-link"
                     onClick={toggleBurger}
-                    to="/profile"
+                    to={`/profile/${userId}`}
                   >
                     <p className="my-2">Profile</p>
                   </NavLink>
