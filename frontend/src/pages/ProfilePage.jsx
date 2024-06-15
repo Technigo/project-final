@@ -1,12 +1,14 @@
+
 // User needs to be logged in to se Profile page,
 // send user to Log in/ Sign up if not logged in.
 
 import { useState, useEffect } from "react";
+
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
-import { WelcomeMessage } from "../components/WelcomeMessage"
 
 import { Footer } from "../components/Footer";
+import { WelcomeMessage } from "../components/WelcomeMessage";
 // User needs to be logged in to see Profile page,
 // send user to Log in/ Sign up if not logged in.
 
@@ -102,6 +104,7 @@ export const ProfilePage = () => {
       navigate("/");
     }
   }, [loggedOut]);
+
 
 
   return (

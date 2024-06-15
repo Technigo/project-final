@@ -1,21 +1,31 @@
-import { useEffect, useState, useRef } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import glimLogo from "/glimSmall.svg";
-import shoppingCart from "/cart-shopping-solid.svg";
-import userIcon from "/user-solid.svg";
 import burgerMenu from "/bars-solid.svg";
-import xMark from "/xmark-solid.svg";
+import shoppingCart from "/cart-shopping-solid.svg";
+import glimLogo from "/glimSmall.svg";
 import swoop from "/nav-swoop2.svg";
+import userIcon from "/user-solid.svg";
+import xMark from "/xmark-solid.svg";
+import Lottie from "lottie-react";
+import { useEffect, useRef, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import animation from "../assets/Circle-loading-Animation.json";
 import { useUserStore } from "../store/useUserStore";
 import { WelcomeMessage } from "./WelcomeMessage";
-import Lottie from "lottie-react";
-import animation from "../assets/Circle-loading-Animation.json";
 
 //If signed in Sign in should display username/firstname
 
 export const Navigation = ({ data }) => {
-  const { email, password, loginUser, loggedIn, showWelcomePopup, setShowWelcomePopup, setAutomaticLogOut, loadingUser, logoutUser } =
-    useUserStore();
+  const {
+    email,
+    password,
+    loginUser,
+    loggedIn,
+    showWelcomePopup,
+    setShowWelcomePopup,
+    setAutomaticLogOut,
+    loadingUser,
+    logoutUser,
+  } = useUserStore();
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [emailInput, setEmailInput] = useState("");
@@ -84,7 +94,7 @@ export const Navigation = ({ data }) => {
       // Set a timeout to log out the user after 15 minutes
       logoutTimeoutRef.current = setTimeout(() => {
         logoutUser();
-        setAutomaticLogOut(true)
+        setAutomaticLogOut(true);
         navigate("/");
       }, 1800000); //  900000 15 minutes
     } else {
@@ -190,7 +200,7 @@ export const Navigation = ({ data }) => {
                 className=" absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg border-main-red text-white bg-strong-red"
                 ref={navRef}
               >
-                <button className="" ref={burgerRef} onClick={toggleBurger}>
+                <button ref={burgerRef} onClick={toggleBurger}>
                   <img src={xMark} alt="Menu" className="h-6 mb-4" />
                 </button>
                 {loggedIn ? (
@@ -228,14 +238,13 @@ export const Navigation = ({ data }) => {
               </div>
             ) : (
               <>
-                  <button ref={btnRef} className="flex" onClick={toggleBurger}>
-                    <img
-                      src={burgerMenu}
-                      alt="Menu"
-                      className="h-7 m-2 justify-start laptop:hidden"
-                    />
-                  </button>
-                
+                <button ref={btnRef} className="flex" onClick={toggleBurger}>
+                  <img
+                    src={burgerMenu}
+                    alt="Menu"
+                    className="h-7 m-2 justify-start laptop:hidden"
+                  />
+                </button>
               </>
             )}
           </div>
