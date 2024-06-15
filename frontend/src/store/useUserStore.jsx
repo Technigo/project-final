@@ -32,7 +32,7 @@ export const useUserStore = create(
       showWelcomePopup: false,
       loggedOut: false,
       automaticLogOut: false,
-     
+
       //Functions to update userInfo
       setFirstName: (Input) => set({ firstName: Input }),
       setLastName: (Input) => set({ lastName: Input }),
@@ -50,7 +50,6 @@ export const useUserStore = create(
       setShowWelcomePopup: (input) => set({ showWelcomePopup: input }),
       setLoggedOut: (input) => set({ loggedOut: input }),
       setAutomaticLogOut: (input) => set({ automaticLogOut: input }),
-
 
       //Register user
       registerUser: async (
@@ -173,7 +172,6 @@ export const useUserStore = create(
             method: "PATCH",
             body: JSON.stringify({
               firstname: firstname,
-              
             }),
             headers: {
               "Content-Type": "application/json",
@@ -204,6 +202,39 @@ export const useUserStore = create(
           loggedIn: false,
           loggedOut: true,
         });
+      },
+
+      deleteUser: async (userId, accessToken) => {
+        /* set({ loadingUser: true }); */
+        const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;
+        try {
+          const response = await fetch(URL, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: accessToken,
+            },
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text(); // Get the error message
+            throw new Error(errorText);
+
+            /*  throw new Error("Could not fetch user"); */
+          }
+
+          const data = await response.json();
+          console.log(data);
+          set({
+            loggedIn: false,
+            loggedOut: true,
+          });
+        } catch (error) {
+          console.error("error:", error);
+          set({ error: error });
+        } finally {
+          /*  set({ loadingUser: false }); */
+        }
       },
     }),
     {

@@ -1,9 +1,7 @@
-
 // User needs to be logged in to se Profile page,
 // send user to Log in/ Sign up if not logged in.
 
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -22,6 +20,7 @@ export const ProfilePage = () => {
     loggedOut,
     accessToken,
     userId,
+    deleteUser,
   } = useUserStore();
 
   const profile = user.user;
@@ -57,7 +56,7 @@ export const ProfilePage = () => {
   //When user press log out button
   const handleLogout = () => {
     logoutUser();
-    navigate("/"); 
+    navigate("/");
   };
 
   //NOT working yet. Still chatting with AI:)
@@ -71,8 +70,8 @@ export const ProfilePage = () => {
       // Initialize inputValues[name] as an array if it's undefined
       const updatedValue = checked
         ? [...(inputValues[name] || []), value]
-        : inputValues[name].filter(item => item !== value);
-  
+        : inputValues[name].filter((item) => item !== value);
+
       setInputValues({
         ...inputValues,
         [name]: updatedValue,
@@ -97,19 +96,20 @@ export const ProfilePage = () => {
     // Make update request with updatedFields
     updateUser(userId, accessToken, updatedFields);
   };
-  
+
+  const handleDeletingUser = () => {
+    deleteUser(userId, accessToken);
+  };
 
   useEffect(() => {
-    if (loggedOut ) {
+    if (loggedOut) {
       navigate("/");
     }
   }, [loggedOut]);
 
-
-
   return (
     <>
-    {loggedOut && navigate("/")}
+      {loggedOut && navigate("/")}
       <button
         onClick={handleLogout}
         className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20"
@@ -294,7 +294,9 @@ export const ProfilePage = () => {
                           <input
                             type="checkbox"
                             value={option.toLowerCase()}
-                            checked={inputValues.allergies.includes(option.toLowerCase())}
+                            checked={inputValues.allergies.includes(
+                              option.toLowerCase()
+                            )}
                             onChange={handleInputChange}
                             // checked={inputValues.allergies}
                           />
@@ -323,7 +325,9 @@ export const ProfilePage = () => {
                             <input
                               type="checkbox"
                               value={option.toLowerCase()}
-                              checked={inputValues.pros.includes(option.toLowerCase())}
+                              checked={inputValues.pros.includes(
+                                option.toLowerCase()
+                              )}
                               onChange={handleInputChange}
                               // checked={inputValues.pros}
                             />
@@ -467,6 +471,12 @@ export const ProfilePage = () => {
                 <p>{profile.email}</p>
               )}
             </div>
+            <button
+              onClick={handleDeletingUser}
+              className="bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
+            >
+              ! Delete User !
+            </button>
           </div>
           <button
             onClick={handleUpdateProfile}
