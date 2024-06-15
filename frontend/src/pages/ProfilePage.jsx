@@ -7,11 +7,14 @@ import { WelcomeMessage } from "../components/WelcomeMessage";
 // send user to Log in/ Sign up if not logged in.
 
 import { useUserStore } from "../store/useUserStore";
+import { Loading } from "../components/Loading";
+import { NotFound } from "./NotFound";
 
 export const ProfilePage = () => {
   const {
-    user, 
+    user,
     logoutUser,
+    fetchUser,
     updateUser,
     loggedOut,
     accessToken,
@@ -19,11 +22,33 @@ export const ProfilePage = () => {
   } = useUserStore();
 
   const { userId } = useParams();
+  const navigate = useNavigate();
+  const [profile, setProfile] = useState(user.user);
+
+  // useEffect(() => {
+  //   // Fetch the user profile using the userId
+  //   const fetchUserProfile = async () => {
+  //     if (!user) {
+  //       navigate("/");
+  //     } else {
+   
+  //     }
+  //   };
+
+  //   fetchUserProfile();
+  // }, [userId, fetchUser, navigate]);
+
+  useEffect(() => {
+    if (loggedOut) {
+      navigate("/");
+    }
+  }, [loggedOut, navigate]);
+
+  if (!profile) {
+    return <NotFound reason="profile" />;
+  }
 
   console.log("Profile:", userId);
-
-  const profile = user.user;
-  const navigate = useNavigate();
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -130,7 +155,7 @@ export const ProfilePage = () => {
             <ul className="flex flex-col tablet:grid tablet:grid-cols-2 gap-6">
               <li className="flex gap-4">
                 <img
-                  src="skintype-icon-white.svg"
+                  src="/skintype-icon-white.svg"
                   alt="Icon of a face"
                   className="w-14"
                 />
@@ -189,7 +214,7 @@ export const ProfilePage = () => {
               </li>
               <li className="col-start-1 flex gap-4">
                 <img
-                  src="hairtype-icon-white.svg"
+                  src="/hairtype-icon-white.svg"
                   alt="Icon of hair"
                   className="w-14"
                 />
@@ -281,7 +306,7 @@ export const ProfilePage = () => {
               </li>
               <li className=" col-start-1 col-end-3 flex gap-4">
                 <img
-                  src="allergies-icon-white.svg"
+                  src="/allergies-icon-white.svg"
                   alt="Icon of hand with allergies"
                   className="w-14"
                 />
@@ -311,7 +336,7 @@ export const ProfilePage = () => {
               </li>
               <li className="col-start-2 row-start-1 row-end-3 flex tablet:flex-row-reverse gap-4 w-full">
                 <img
-                  src="preferences-icon-white.svg"
+                  src="/preferences-icon-white.svg"
                   alt="Icon of a heart"
                   className="w-14 tablet:hidden"
                 />
@@ -340,7 +365,7 @@ export const ProfilePage = () => {
                         ))}
 
                     <img
-                      src="preferences02.svg"
+                      src="/preferences02.svg"
                       alt="Icon of a heart"
                       className="w-14 hidden tablet:flex self-end mb-6"
                     />
@@ -359,7 +384,7 @@ export const ProfilePage = () => {
         </section>
         <section className="w-full bg-main-yellow ">
           <img
-            src="User-page.svg"
+            src="/User-page.svg"
             alt="hands holding skinproducts"
             className="w-full object-fit"
           />
