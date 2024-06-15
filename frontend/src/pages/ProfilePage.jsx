@@ -84,7 +84,6 @@ export const ProfilePage = () => {
     navigate("/");
   };
 
-  //NOT working yet. Still chatting with AI:)
   const toggleChangeProfile = () => {
     setIsEditing(!isEditing);
   };
@@ -165,7 +164,7 @@ export const ProfilePage = () => {
                   {isEditing ? (
                     <select
                       defaultValue={inputValues.skin}
-                      name="skintype"
+                      name="skin"
                       id="skin"
                       onChange={handleInputChange}
                       className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
@@ -225,7 +224,7 @@ export const ProfilePage = () => {
                     {isEditing ? (
                       <select
                         defaultValue={inputValues.moisture}
-                        name="hair-moisture"
+                        name="moisture"
                         id="moisture"
                         onChange={handleInputChange}
                         className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
@@ -262,7 +261,7 @@ export const ProfilePage = () => {
                     {isEditing ? (
                       <select
                         defaultValue={inputValues.shape}
-                        name="hair-shape"
+                        name="shape"
                         id="shape"
                         onChange={handleInputChange}
                         className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"

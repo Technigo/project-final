@@ -164,42 +164,25 @@ export const useUserStore = create(
         }
       },
 
-      updateUser: async (
-        userId,
-        accessToken,
-        firstName
-        /* lastname,
-        email,
-        address,
-        allergies,
-        pros,
-        hair,
-        skin */
-      ) => {
+      updateUser: async (userId, accessToken, updatedFields) => {
         /* set({ loadingUser: true }); */
         const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;
-        console.log(
-          firstName
-          /*  lastname,
-          email,
-          address,
-          allergies,
-          pros,
-          hair,
-          skin */
-        );
+        console.log("Updated Fields", updatedFields);
         try {
           const response = await fetch(URL, {
             method: "PATCH",
             body: JSON.stringify({
-              firstname: firstName,
-              /* lastname: lastname,
-              email: email,
-              address: address,
-              allergies: allergies,
-              pros: pros,
-              hair: hair,
-              skin: skin, */
+              firstname: updatedFields.firstname,
+              lastname: updatedFields.lastname,
+              email: updatedFields.email,
+              /* street: updatedFields.street, */
+              /*postalCode: updatedFields.postalCode,
+              city: updatedFields.city,
+              country: updatedFields.country,
+              allergies: updatedFields.allergies,
+              pros: updatedFields.pros,
+              moisture: updatedFields.moisture,
+              skin: updatedFields.skin, */
             }),
             headers: {
               "Content-Type": "application/json",
