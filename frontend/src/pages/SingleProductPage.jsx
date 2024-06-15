@@ -67,7 +67,7 @@ export const SingleProductPage = () => {
   return (
     <>
     < ShoppingCartPopup />
-      <section className="bg-main-red h-full min-h-screen pt-4 laptop:pt-12 w-full font-heading ">
+      <section className="bg-main-red pt-4 laptop:pt-12 w-full font-heading ">
         <NavLink to="/products">
           <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
             <IoIosArrowBack />
@@ -151,7 +151,7 @@ export const SingleProductPage = () => {
           currentProductId={product._id}
         />
       </section>
-      <ReviewForm />
+      {/* <ReviewForm /> */}
 
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />
