@@ -1,4 +1,9 @@
-import { useEffect, useState } from "react";
+
+// User needs to be logged in to se Profile page,
+// send user to Log in/ Sign up if not logged in.
+
+import { useState, useEffect } from "react";
+
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -15,27 +20,23 @@ export const ProfilePage = () => {
     logoutUser,
     updateUser,
     loggedOut,
-    setLoggedOut,
-    // firstname,
-    // lastname,
-    // email,
-    // address,
-    // allergies,
-    // pros,
-    // hair,
-    // skinType,
+    accessToken,
+    userId,
   } = useUserStore();
+
   const profile = user.user;
   const navigate = useNavigate();
+
   const [isEditing, setIsEditing] = useState(false);
+
   const [inputValues, setInputValues] = useState({
     firstname: profile.firstname,
     lastname: profile.lastname,
+    email: profile.email,
     street: profile.address.street,
     postalCode: profile.address.postalCode,
     city: profile.address.city,
     country: profile.address.country,
-    email: profile.email,
     skin: profile.skin,
     shape: profile.hair.shape,
     moisture: profile.hair.moisture,
@@ -53,41 +54,62 @@ export const ProfilePage = () => {
   ];
   const preferenceOptions = ["Organic", "Vegan", "Crueltyfree"];
 
+  //When user press log out button
   const handleLogout = () => {
     logoutUser();
-    navigate("/"); // Redirect to the main page after logout
+    navigate("/"); 
   };
 
   //NOT working yet. Still chatting with AI:)
-  const handleButtonClick = () => {
-    setIsEditing(true);
+  const toggleChangeProfile = () => {
+    setIsEditing(!isEditing);
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setInputValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if (type === "checkbox") {
+      // Initialize inputValues[name] as an array if it's undefined
+      const updatedValue = checked
+        ? [...(inputValues[name] || []), value]
+        : inputValues[name].filter(item => item !== value);
+  
+      setInputValues({
+        ...inputValues,
+        [name]: updatedValue,
+      });
+    } else {
+      setInputValues({
+        ...inputValues,
+        [name]: value,
+      });
+    }
   };
 
   const handleUpdateProfile = () => {
-    // Assuming 'inputValues' is an object containing all input values
-    const user = { ...profile, ...inputValues };
-    console.log("updated profile", user);
-    updateUser(user);
+    // Filter out unchanged fields
+    const updatedFields = Object.keys(inputValues).reduce((acc, key) => {
+      if (inputValues[key] !== profile[key]) {
+        acc[key] = inputValues[key];
+      }
+      return acc;
+    }, {});
+
+    // Make update request with updatedFields
+    updateUser(userId, accessToken, updatedFields);
   };
+  
 
   useEffect(() => {
-    if (loggedOut) {
+    if (loggedOut ) {
       navigate("/");
     }
   }, [loggedOut]);
 
-  console.log("logged out", loggedOut);
+
 
   return (
     <>
+    {loggedOut && navigate("/")}
       <button
         onClick={handleLogout}
         className="bg-button-varm-light text-text-dark w-24 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-24 mt-20"
@@ -102,7 +124,7 @@ export const ProfilePage = () => {
             </h2>
             <div className="w-full flex justify-between mb-4">
               <h3>Profile</h3>
-              <button onClick={handleButtonClick}>
+              <button className="hidden" onClick={toggleChangeProfile}>
                 <FaUserEdit className="w-6 h-6 fill-button-varm-light" />
               </button>
             </div>
@@ -120,6 +142,7 @@ export const ProfilePage = () => {
                       defaultValue={inputValues.skin}
                       name="skintype"
                       id="skin"
+                      onChange={handleInputChange}
                       className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                     >
                       <option
@@ -179,6 +202,7 @@ export const ProfilePage = () => {
                         defaultValue={inputValues.moisture}
                         name="hair-moisture"
                         id="moisture"
+                        onChange={handleInputChange}
                         className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                       >
                         <option
@@ -215,6 +239,7 @@ export const ProfilePage = () => {
                         defaultValue={inputValues.shape}
                         name="hair-shape"
                         id="shape"
+                        onChange={handleInputChange}
                         className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                       >
                         <option
@@ -269,6 +294,7 @@ export const ProfilePage = () => {
                           <input
                             type="checkbox"
                             value={option.toLowerCase()}
+                            checked={inputValues.allergies.includes(option.toLowerCase())}
                             onChange={handleInputChange}
                             // checked={inputValues.allergies}
                           />
@@ -297,6 +323,7 @@ export const ProfilePage = () => {
                             <input
                               type="checkbox"
                               value={option.toLowerCase()}
+                              checked={inputValues.pros.includes(option.toLowerCase())}
                               onChange={handleInputChange}
                               // checked={inputValues.pros}
                             />
@@ -424,7 +451,7 @@ export const ProfilePage = () => {
                 )}
               </ul>
             </div>
-            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
+            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl mb-6">
               <h4 className="font-bold">Email:</h4>
               {isEditing ? (
                 <form>
@@ -443,7 +470,7 @@ export const ProfilePage = () => {
           </div>
           <button
             onClick={handleUpdateProfile}
-            className="bg-button-varm-light text-text-dark w-32 h-8 rounded-full align-center ml-6 desktop:ml-24 mt-20"
+            className="hidden bg-button-varm-light text-text-dark w-32 h-8 rounded-full align-center ml-6 desktop:ml-24 mt-20"
           >
             Save Changes
           </button>

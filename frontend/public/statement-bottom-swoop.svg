@@ -1,1 +1,48 @@
-<svg id="visual" viewBox="0 0 960 150" width="960" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="960" height="150" fill="#FFFDF6"></rect><path d="M0 56L22.8 53C45.7 50 91.3 44 137 49.7C182.7 55.3 228.3 72.7 274 88.3C319.7 104 365.3 118 411.2 111.5C457 105 503 78 548.8 76.8C594.7 75.7 640.3 100.3 686 111.7C731.7 123 777.3 121 823 110C868.7 99 914.3 79 937.2 69L960 59L960 151L937.2 151C914.3 151 868.7 151 823 151C777.3 151 731.7 151 686 151C640.3 151 594.7 151 548.8 151C503 151 457 151 411.2 151C365.3 151 319.7 151 274 151C228.3 151 182.7 151 137 151C91.3 151 45.7 151 22.8 151L0 151Z" fill="#FFDE68" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="visual"
+   viewBox="0 0 960 150"
+   width="960"
+   height="150"
+   version="1.1"
+   sodipodi:docname="statement-bottom-swoop.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.90104167"
+     inkscape:cx="480"
+     inkscape:cy="74.913295"
+     inkscape:window-width="1392"
+     inkscape:window-height="1212"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="visual" />
+  <rect
+     x="0"
+     y="0"
+     width="960"
+     height="150"
+     fill="#FFFDF6"
+     id="rect1" />
+  <path
+     d="m 0,56.463975 22.8,-3.160584 c 22.9,-3.160584 68.5,-9.481752 114.2,-3.476642 45.7,5.899757 91.3,24.231143 137,40.66618 45.7,16.540391 91.3,31.289781 137.2,24.441851 45.8,-6.84793 91.8,-35.293189 137.6,-36.557423 45.9,-1.158881 91.5,24.757903 137.2,36.768123 45.7,11.90487 91.3,9.79781 137,-1.79099 45.7,-11.58881 91.3,-32.659371 114.2,-43.194651 L 960,59.624559 v 96.924571 h -22.8 c -22.9,0 -68.5,0 -114.2,0 -45.7,0 -91.3,0 -137,0 -45.7,0 -91.3,0 -137.2,0 -45.8,0 -91.8,0 -137.6,0 -45.9,0 -91.5,0 -137.2,0 -45.7,0 -91.3,0 -137,0 -45.7,0 -91.3,0 -114.2,0 H 0 Z"
+     fill="#ffde68"
+     stroke-linecap="round"
+     stroke-linejoin="miter"
+     id="path1"
+     style="stroke-width:1.02642" />
+</svg>

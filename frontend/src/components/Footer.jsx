@@ -1,9 +1,5 @@
 import swoop from "/footer-swoop.svg";
 import swoop2 from "/footer-swoop2.svg";
-import instagram from "/soMeIcons/instagram.svg";
-import facebook from "/soMeIcons/facebook.svg";
-import github from "/soMeIcons/github.svg";
-import linkedin from "/soMeIcons/linkedin.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
 import { Slideshow } from "./WhyUsSlideshow";
 import data2 from "../data.en.json";
@@ -53,7 +49,7 @@ export const Footer = ({ providedData, aboveColor }) => {
           </div>
         </div>
         <img
-          className="w-3/4 h-2 m-auto object-cover bg-main-green"
+          className="w-3/4 h-0.5 m-auto object-cover bg-main-green"
           src={dottedLine}
           alt="Section border"
         />
@@ -64,7 +60,7 @@ export const Footer = ({ providedData, aboveColor }) => {
           {contact.title}
         </h2>
 
-        <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around gap-4 align-center my-10">
+        <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around laptop:w-2/3 laptop: m-auto gap-4 align-center my-10">
           {contact.contactRoute.map((item, index) => (
             <div key={index} className="flex flex-col items-center w-1/5 my-6">
               <img className="w-12 my-4" src={item.icon} alt={item.altText} />

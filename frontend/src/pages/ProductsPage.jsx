@@ -4,17 +4,17 @@ import { useEffect, useState, useMemo } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
-import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
+import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 
 export const ProductsPage = () => {
-  const { productsData, fetchProducts, loadingProduct, addedProduct } = useProductsStore();
+  const { productsData, fetchProducts, loadingProduct, addedProduct } =
+    useProductsStore();
   const { loggedIn, user } = useUserStore();
   const [categoryValue, setCategoryValue] = useState("category");
   const [sortValue, setSortValue] = useState("sort");
   const [filterValue, setFilterValue] = useState("filter");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const profile = user.user;
-
 
   const handleSortChange = (e) => {
     setSortValue(e.target.value);
@@ -37,7 +37,7 @@ export const ProductsPage = () => {
     let newFilteredProducts = productsData.products || [];
 
     if (loggedIn && filterValue !== "all") {
-      setFilterValue("recommended")
+      setFilterValue("recommended");
     }
 
     if (categoryValue !== "category" && categoryValue !== "all") {
@@ -50,22 +50,32 @@ export const ProductsPage = () => {
       if (filterValue === "recommended" && loggedIn) {
         newFilteredProducts = newFilteredProducts.filter((product) => {
           const isMatchingProfile =
-          (product.skin && profile.skin.some(skinType => product.skin.includes(skinType))) ||
+            (product.skin &&
+              profile.skin.some((skinType) =>
+                product.skin.includes(skinType)
+              )) ||
             (product.hair &&
-              (product.hair.moisture === profile.hair.moisture ||
-                product.hair.shape === profile.hair.shape));
+              (product.hair.moisture.some((moistureType) =>
+                profile.hair.moisture.includes(moistureType)
+              ) ||
+                product.hair.shape.some((shapeType) =>
+                  profile.hair.shape.includes(shapeType)
+                )));
 
-          const isMatchingPros = 
-            (profile.pros && product.category === "Nail care" || product.category === "Beard care") &&
+          const isMatchingPros =
+            ((profile.pros && product.category === "Nail care") ||
+              product.category === "Beard care") &&
             product.pros &&
-            product.pros.some(pro => profile.pros.includes(pro));
+            product.pros.some((pro) => profile.pros.includes(pro));
 
-            const isNotAllergic = 
+          const isNotAllergic =
             !profile.allergies ||
-            (product.allergies && profile.allergies.every(allergy => !product.allergies.includes(allergy)));
+            (product.allergies &&
+              profile.allergies.every(
+                (allergy) => !product.allergies.includes(allergy)
+              ));
 
-
-          return isMatchingProfile || isMatchingPros && isNotAllergic;
+          return isMatchingProfile || (isMatchingPros && isNotAllergic);
         });
       } else {
         newFilteredProducts = newFilteredProducts.filter(
@@ -91,11 +101,9 @@ export const ProductsPage = () => {
   }, [sortValue, filteredProducts]);
 
   console.log("Filtered Product:", filteredProducts);
-  console.log("added", addedProduct)
-  console.log(filterValue)
-  console.log(sortValue)
- 
-
+  console.log("added", addedProduct);
+  console.log(filterValue);
+  console.log(sortValue);
 
   return (
     <>
@@ -103,36 +111,47 @@ export const ProductsPage = () => {
       <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
         <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row">
           <h2 className="text-text-light text-2xl  tablet:text-3xl laptop:text-3xl text-center mb-6 desktop:mb-0">
-            {loggedIn && filterValue === "recommended" ? "Recommended Products" : "Products"}
+            {loggedIn && filterValue === "recommended"
+              ? "Recommended Products"
+              : "Products"}
           </h2>
           <div className="flex flex-col gap-2 tablet:gap-2 tablet:flex-row ">
-          <form>
+            <form>
               <select
                 name="Filter"
                 value={filterValue}
                 onChange={handleFilterChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
               >
-
-                {loggedIn ?  ( <option value="recommended" className="bg-button-light">
-                  Recommended
-                </option> ) : ( <option value="filter" disabled hidden>
-                  Filter
-                </option> )}
-              
-                <option value="organic" className="bg-button-light">
-                  Organic
-                </option>
-                <option value="crueltyfree" className="bg-button-light">
-                  {" "}
-                  Cruelty free
-                </option>
-                <option value="vegan" className="bg-button-light">
-                  Vegan
-                </option>
-                <option value="all" className="bg-button-light">
-                  Show all
-                </option>
+                {loggedIn ? (
+                  <>
+                    <option value="recommended" className="bg-button-light">
+                      Recommended
+                    </option>
+                    <option value="all" className="bg-button-light">
+                      Show all
+                    </option>
+                  </>
+                ) : (
+                  <>
+                    <option value="filter" disabled hidden>
+                      Filter
+                    </option>
+                    <option value="organic" className="bg-button-light">
+                      Organic
+                    </option>
+                    <option value="crueltyfree" className="bg-button-light">
+                      {" "}
+                      Cruelty free
+                    </option>
+                    <option value="vegan" className="bg-button-light">
+                      Vegan
+                    </option>
+                    <option value="all" className="bg-button-light">
+                      Show all
+                    </option>
+                  </>
+                )}
               </select>
             </form>
             <form>

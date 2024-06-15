@@ -33,7 +33,6 @@ export const useUserStore = create(
       loggedOut: false,
       automaticLogOut: false,
      
-
       //Functions to update userInfo
       setFirstName: (Input) => set({ firstName: Input }),
       setLastName: (Input) => set({ lastName: Input }),
@@ -50,7 +49,7 @@ export const useUserStore = create(
       setSignedUp: (input) => set({ signedUp: input }),
       setShowWelcomePopup: (input) => set({ showWelcomePopup: input }),
       setLoggedOut: (input) => set({ loggedOut: input }),
-      setAutomaticLogOut: (input) => set({ automaticLogOut: false }),
+      setAutomaticLogOut: (input) => set({ automaticLogOut: input }),
 
 
       //Register user
@@ -166,21 +165,15 @@ export const useUserStore = create(
         }
       },
 
-      updateUser: async (id, accessToken) => {
+      updateUser: async (userId, accessToken, firstname) => {
         /* set({ loadingUser: true }); */
-        const URL = `https://project-final-glim.onrender.com/users/profile/${id}`;
+        const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;
         try {
           const response = await fetch(URL, {
             method: "PATCH",
             body: JSON.stringify({
-              firstname: firstName,
-              lastname: lastName,
-              email: email,
-              address: address,
-              allergies: allergies,
-              pros: pros,
-              hair: hair,
-              skin: skinType,
+              firstname: firstname,
+              
             }),
             headers: {
               "Content-Type": "application/json",

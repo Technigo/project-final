@@ -33,8 +33,8 @@ export const Hero = ({ data }) => {
         src="splash-glim.png"
         alt="background image" />
 
-      <div className="absolute top-2/3 right-0 transform tablet:transform-none -translate-x-1/2 tablet:translate-none -translate-y-1/2 z-40 tablet:right-0 tablet:top-0 w-44 tablet:w-72 laptop:w-96 tablet:m-20 laptop:m-40 text-right text-white font-body">
-        <p className="py-4 text-xl tablet:text-2xl laptop:text-4xl">{data.ctaTextLoggedIn}{user.user.firstname}</p>
+      <div className="absolute bottom-0 right-0 transform tablet:transform-none -translate-x-2/3 tablet:-translate-y-none -translate-y-1/2 z-40 tablet:right-0 tablet:top-0 w-44 tablet:w-72 laptop:w-96 tablet:m-20 laptop:m-40 text-right text-white font-body">
+        <p className="py-4 text-xl tablet:text-2xl laptop:text-4xl">{data.ctaTextLoggedIn}<span className="text-2xl tablet:text-4xl font-black">{user.user.firstname}</span></p>
         <NavLink to="/products" >
           <button className="bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover">
             {data.ctaButtonLoggedIn}

@@ -1,12 +1,11 @@
 import { Footer } from "../components/Footer";
 import { useState, useRef, useEffect } from "react";
 import { useUserStore } from "../store/useUserStore";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
 import Lottie from "lottie-react";
 import animation from "../assets/Circle-loading-Animation.json";
-
 
 export const SignUpPage = () => {
   const {
@@ -26,17 +25,13 @@ export const SignUpPage = () => {
     setPros,
     hair,
     setHair,
-    // hairShape,
-    // setHairShape,
-    // hairMoisture,
-    // setHairMoisture,
     skinType,
     setSkinType,
     registerUser,
     loadingUser,
     signedUp,
     loggedIn,
-    setSignedUp
+    setSignedUp,
   } = useUserStore();
   const [activeSection, setActiveSection] = useState("sectionone");
 
@@ -48,21 +43,18 @@ export const SignUpPage = () => {
   const [fetchStatus, setFetchStatus] = useState("");
   const [successStatus, setSuccessStatus] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [sectionCheck, setSectionCheck] = useState(false);
 
   const navigate = useNavigate();
   const passwordRef = useRef();
 
-  const checkSection = () => {
-    if (activeSection === "sectionthree") {
-      return (
-        <img
-          className="bg-light-yellow w-full laptop:hidden"
-          src={swoopBottom}
-          alt="Section border"
-        />
-      );
-    }
-  };
+  useEffect(() => {
+  if (activeSection === "sectionthree") {
+    setSectionCheck(true);
+  } else {
+    setSectionCheck(false);
+  }
+  }, [activeSection])
 
   useEffect(() => {
     setAllergies(selectedAllergies);
@@ -237,8 +229,7 @@ export const SignUpPage = () => {
     }
   }, [signedUp]);
 
-
-  console.log("signed up", signedUp)
+  console.log("signed up", signedUp);
 
   return (
     <>
@@ -476,10 +467,16 @@ export const SignUpPage = () => {
                     Skin:
                   </label>
                 </div>
+                <label
+                  htmlFor="skintype"
+                  className="font-heading font-bold text-xl mt-5 mb-0"
+                >
+                  Type
+                </label>
                 <select
                   name="skintype"
                   id="skin"
-                  className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                  className="mt-2 h-8 rounded-md font-heading font-bold text-sm pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                   onChange={handleSkin}
                 >
                   <option
@@ -488,7 +485,7 @@ export const SignUpPage = () => {
                     disabled
                     className="font-heading font-bold bg-bg-input"
                   >
-                    -- Choose skin type
+                    - Choose skin type
                   </option>
                   <option
                     value="sensitive"
@@ -538,7 +535,7 @@ export const SignUpPage = () => {
                 <select
                   name="hair-moisture"
                   id="moisture"
-                  className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                  className="mt-2 h-8 rounded-md font-heading font-bold text-sm pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                   onChange={handleHairMoisture}
                 >
                   <option
@@ -547,7 +544,7 @@ export const SignUpPage = () => {
                     disabled
                     className="font-heading font-bold bg-bg-input"
                   >
-                    -- Choose hair moisture level
+                    - Choose hair moisture level
                   </option>
                   <option
                     value="dry"
@@ -577,7 +574,7 @@ export const SignUpPage = () => {
                 <select
                   name="hair-shape"
                   id="shape"
-                  className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
+                  className="mt-2 h-8 rounded-md font-heading font-bold pl-4 text-sm bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
                   onChange={handleHairShape}
                 >
                   <option
@@ -586,7 +583,7 @@ export const SignUpPage = () => {
                     disabled
                     className="font-heading font-bold bg-bg-input"
                   >
-                    -- Choose hair shape
+                    - Choose hair shape
                   </option>
                   <option
                     value="straight"
@@ -679,25 +676,28 @@ export const SignUpPage = () => {
             >
               {loadingUser ? (
                 <div className="flex items-center justify-center">
-                <span>Creating user...</span>
-                <Lottie
-                  animationData={animation}
-                  loop={true}
-                  autoPlay
-                  style={{ width: 30, height: 30, marginLeft: 8 }}
-                />
-              </div>) : ( "Create Profile" )}
+                  <span>Creating user...</span>
+                  <Lottie
+                    animationData={animation}
+                    loop={true}
+                    autoPlay
+                    style={{ width: 30, height: 30, marginLeft: 8 }}
+                  />
+                </div>
+              ) : (
+                "Create Profile"
+              )}
             </button>
           </form>
         </section>
       )}
 
-      {checkSection}
-      {/* <img
-        className="bg-light-yellow w-full laptop:hidden"
-        src={swoopBottom}
-        alt="Section border"
-      /> */}
+      {sectionCheck ? (
+        <img
+          className="bg-light-yellow w-full"
+          src={swoopBottom}
+          alt="Section border"
+        /> ) : null       }
       <Footer aboveColor={"red"} />
     </>
   );
