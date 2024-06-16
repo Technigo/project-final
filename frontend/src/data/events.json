@@ -1,42 +1,42 @@
 [
 	{
 		"title": "How to Plan Your Days with ADHD",
-		"description": "Join us for an interactive session on strategies and tools to help plan and organize your days more effectively.",
+		"description": "Join us for an interactive session where we'll explore various strategies and tools to help you plan and organize your days more effectively with ADHD.",
 		"imageUrl": "/images/plan-event.jpg",
 		"details": {
 			"time": "2:00 PM - 4:00 PM",
 			"place": "Conference Room A",
-			"info": "Learn effective planning strategies tailored for ADHD."
+			"info": "This workshop is ideal for anyone struggling with time management due to ADHD. We'll cover planning methods that accommodate impulsivity and fluctuating motivation."
 		}
 	},
 	{
 		"title": "Social Activities for ADHD",
-		"description": "Engage in fun and supportive social activities designed for individuals with ADHD. Meet new friends and build a community.",
+		"description": "Engage in fun and supportive social activities specifically designed for individuals with ADHD. Meet new friends, build a community, and enjoy a relaxed, understanding environment where you can be yourself. Activities are structured to foster connections without overwhelming participants.",
 		"imageUrl": "/images/social-event.jpg",
 		"details": {
 			"time": "10:00 AM - 12:00 PM",
 			"place": "Community Center",
-			"info": "Join us for various social activities and make new friends."
+			"info": "Our event features team games, creative workshops, and discussions that are tailored to encourage interaction in a pressure-free setting."
 		}
 	},
 	{
 		"title": "Mindfulness and ADHD",
-		"description": "Explore mindfulness techniques to help manage ADHD symptoms and improve focus and emotional regulation.",
+		"description": "Explore mindfulness techniques to help manage ADHD symptoms more effectively. This session will guide you through methods to improve your focus, emotional regulation, and overall mental well-being. Learn to navigate daily challenges with a mindful approach that can be integrated seamlessly into your lifestyle.",
 		"imageUrl": "/images/mindful-event.jpg",
 		"details": {
 			"time": "2:00 PM - 4:00 PM",
 			"place": "Yoga Studio",
-			"info": "Learn mindfulness techniques to manage ADHD symptoms."
+			"info": "Participants will learn grounding techniques, breathing exercises, and daily mindfulness practices suited for managing impulsivity and anxiety."
 		}
 	},
 	{
 		"title": "ADHD Support Group",
-		"description": "Join our support group to share experiences, tips, and support with others living with ADHD.",
+		"description": "Join our support group to share experiences, tips, and support with others living with ADHD. This regular meeting offers a safe space to discuss challenges, celebrate achievements, and learn from each other in a supportive and non-judgmental environment.",
 		"imageUrl": "/images/support-event.jpg",
 		"details": {
 			"time": "5:00 PM - 7:00 PM",
 			"place": "Library Hall",
-			"info": "Share experiences and get support from others living with ADHD."
+			"info": "The group is facilitated by experienced counselors who specialize in ADHD, providing insights into coping strategies and behavioral techniques."
 		}
 	}
 ]

@@ -18,14 +18,14 @@ export const EventsPage = () => {
     <div className="min-h-screen bg-light ">
       <Menu />
       <header
-        className="relative h-96 md:h-96 lg:h-96 xl:h-96 bg-cover bg-top"
+        className="relative h-96 bg-cover bg-top"
         style={{ backgroundImage: `url(${heroEventImage})` }}
       >
         <div className="absolute inset-0 bg-primary bg-opacity-40 flex items-center justify-center p-4 md:p-10">
           <div className="text-center text-light">
             <h1 className="text-4xl font-bold ">Join Us for The Next Event</h1>
             <p className="mt-2 md:mt-4 text-xl">
-              Learn, connect, and support each other in our upcoming event
+              Learn, connect, and support each other in our upcoming event.
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ export const EventsPage = () => {
       {/* Showcasing an Event Section */}
       <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl text-center text-dark">Next Event</h2>
+          <h2 className="text-3xl text-dark text-center">Next Event</h2>
           <div className="mt-8">
             <EventCard
               event={nextEvent}

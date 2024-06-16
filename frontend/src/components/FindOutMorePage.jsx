@@ -40,7 +40,7 @@ export const FindOutMorePage = () => {
       <Menu />
       <section className="py-20">
         <div className="container mx-auto px-4 text-center my-8">
-          <h2 className="text-3xl  text-dark mb-8">Did You Know?</h2>
+          <h2 className="text-3xl text-dark mb-8">Did You Know?</h2>
           <div className="flex justify-center">
             <div className="relative w-full md:w-2/3 lg:w-1/2 p-6 transition-transform transform duration-500 hover:scale-105">
               <p className="text-2xl md:text-3xl text-dark">
