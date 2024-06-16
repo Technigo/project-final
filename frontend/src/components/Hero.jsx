@@ -3,8 +3,6 @@ import swoop from "/hero-swoop.svg";
 import { NavLink } from "react-router-dom";
 import { useUserStore } from "../store/useUserStore";
 
-
-
 export const Hero = ({ data }) => {
 
   const { loggedIn, user } = useUserStore();
@@ -38,7 +36,7 @@ export const Hero = ({ data }) => {
             alt="background image"
           />
 
-          <div className="absolute bottom-0 right-0 transform tablet:transform-none -translate-x-2/3 tablet:-translate-y-none -translate-y-1/2 z-40 tablet:right-0 tablet:top-0 w-44 tablet:w-72 laptop:w-96 tablet:m-20 laptop:m-40 text-right text-white font-body">
+          <div className="absolute bottom-0 right-0 transform tablet:transform-none -translate-x-2/3 tablet:-translate-y-none -translate-y-1/2 z-10 tablet:right-0 tablet:top-0 w-44 tablet:w-72 laptop:w-96 tablet:m-20 laptop:m-40 text-right text-white font-body">
             <p className="py-4 text-xl tablet:text-2xl laptop:text-4xl">
               {data.ctaTextLoggedIn}
               <span className="text-2xl tablet:text-4xl font-black">
