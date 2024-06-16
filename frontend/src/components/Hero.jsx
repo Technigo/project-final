@@ -1,12 +1,11 @@
 import heroImage from "/hero-image.png";
 import swoop from "/hero-swoop.svg";
 import { NavLink } from "react-router-dom";
-
 import { useUserStore } from "../store/useUserStore";
-import { Navigation } from "./Navigation";
+
+
 
 export const Hero = ({ data }) => {
-  console.log(data.ctaText);
 
   const { loggedIn, user } = useUserStore();
 

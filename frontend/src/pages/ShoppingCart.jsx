@@ -18,7 +18,7 @@ export const ShoppingCart = () => {
     removeAllFromCart,
     totalPrice,
   } = useProductsStore();
-  const { user } = useUserStore();
+  const { user, loggedIn } = useUserStore();
   const [newQuantity, setNewQuantity] = useState(0);
   const recommended = false;
   const [checkout, setCheckout] = useState(false);
@@ -72,7 +72,7 @@ export const ShoppingCart = () => {
       </NavLink>
       {checkout ? <div className="flex flex-col ">
         <div className="bg-main-white max-w-fit mx-auto max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm flex flex-col">
-          {user && checkout ? (
+          {loggedIn && checkout ? (
             <div>
               <h2 className="text-2xl mb-4">Shipping to:</h2>
               <p className="text-lg">

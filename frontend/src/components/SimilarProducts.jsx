@@ -9,6 +9,7 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
   const { productsData } = useProductsStore();
   const [similarProducts, setSimilarProducts] = useState([]);
   const [numProductsToShow, setNumProductsToShow] = useState(6);
+  const [isSimilarProducts, setIsSimilarProducts] = useState(false);
 
   const aboveColor = "red";
 
@@ -23,6 +24,14 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
       setNumProductsToShow(4);
     }
   };
+
+  useEffect(() => {
+    if (similarProducts.length > 0) {
+      setIsSimilarProducts(true);
+    } else {
+      setIsSimilarProducts(false);
+    }
+  }, [similarProducts]);
 
   useEffect(() => {
     console.log(currentProductId);
@@ -45,37 +54,45 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
   }, []);
 
   return (
-    <div className="relative">
-      <img
-        className="bg-main-white w-full"
-        src={swoopTop}
-        alt="Section border"
-      />
-      {similarProducts.length > 0 && (
-        <div className="bg-main-white py-8 flex flex-col items-center">
-          <h3 className="py-8 text-center font-heading text-text-dark text-xl ">
-            Similar products
-          </h3>
-          <ul className="w-9/12 m-auto grid grid-cols-2 gap-6 tablet:grid-cols-4 tablet:w-9/12 laptop:grid-cols-5 desktop:grid-cols-6">
-            {similarProducts.slice(0, numProductsToShow).map((item, index) => (
-              <li key={index} className="w-full">
-                <ProductCard data={item} />
-              </li>
-            ))}
-          </ul>
-          <NavLink to="/products">
-            <button className="w-24 h-6 my-12 text-xs bg-main-yellow p-1 rounded-full text-text-dark  hover:bg-button-light ">
-              All products
-            </button>
-          </NavLink>
+    <>
+      {isSimilarProducts ? (
+        <div className="relative">
+          <img
+            className="bg-main-white w-full"
+            src={swoopTop}
+            alt="Section border"
+          />
+          {similarProducts.length > 0 && (
+            <div className="bg-main-white py-8 flex flex-col items-center">
+              <h3 className="py-8 text-center font-heading text-text-dark text-xl ">
+                Similar products
+              </h3>
+              <ul className="w-9/12 m-auto grid grid-cols-2 gap-6 tablet:grid-cols-4 tablet:w-9/12 laptop:grid-cols-5 desktop:grid-cols-6">
+                {similarProducts
+                  .slice(0, numProductsToShow)
+                  .map((item, index) => (
+                    <li key={index} className="w-full">
+                      <ProductCard data={item} />
+                    </li>
+                  ))}
+              </ul>
+              <NavLink to="/products">
+                <button className="w-24 h-6 my-12 text-xs bg-main-yellow p-1 rounded-full text-text-dark  hover:bg-button-light ">
+                  All products
+                </button>
+              </NavLink>
+            </div>
+          )}
+          <img
+            className="bg-main-white w-full "
+            src={swoopBottom}
+            alt="Section border"
+          />
         </div>
+      ) : (
+        null
       )}
-      <img
-        className="bg-main-white w-full "
-        src={swoopBottom}
-        alt="Section border"
-      />
-    </div>
+    </>
   );
 };
 
