@@ -25,7 +25,7 @@ Other:
 GitHub
 Figma
 VScode
-Cloudify
+Cloudinary
 Netlify
 Render
 Notion
