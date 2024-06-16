@@ -8,7 +8,6 @@ As part of the Technigo Web Dev Bootcamp, this project was created as the Final 
 Technologies Used
 
 Frontend:
-
 React
 Vite
 Zustand
@@ -17,7 +16,6 @@ React Icons
 Tailwind CSS
 
 Backend:
-
 Node.js
 Express
 MongoDB
@@ -25,7 +23,6 @@ Mongoose
 Nodemon
 
 Other:
-
 GitHub
 Figma
 VScode
@@ -55,6 +52,7 @@ View It Live
 
 Frontend:
 https://webify-templates.netlify.app/
+
 Backend:
 https://webify-peace.onrender.com 
 
