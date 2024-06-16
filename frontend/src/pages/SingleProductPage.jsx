@@ -1,5 +1,5 @@
 import { useProductsStore } from "../store/useProductsStore";
-//import { useUserStore } from "../store/useUserStore"
+import { useUserStore } from "../store/useUserStore"
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -19,12 +19,15 @@ export const SingleProductPage = () => {
   const { id } = useParams();
   const { fetchSingleProduct, loadingProduct, singleProduct, shoppingCart, setShoppingCart } =
     useProductsStore();
+  const { user } = useUserStore();
   const loggedIn = true
   const [quantity, setQuantity] = useState(1);
+  const allergies = user.user.allergies;
+  console.log("Allergies:", user.user.allergies)
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
-    const userAllergy ="fragrances"  //replace with userdata from store
+  const userAllergy = allergies;  //replace with userdata from store
    const [allergyAlert, setAllergyAlert] = useState([]); 
 
   // Adding quantity of items to add to cart
@@ -55,7 +58,7 @@ export const SingleProductPage = () => {
       );
       setAllergyAlert(matchingAllergies);
     }
-  }, [singleProduct, userAllergy]);
+  }, [product, userAllergy]);
 
 
   console.log("Product:", product);
@@ -63,7 +66,9 @@ export const SingleProductPage = () => {
   console.log("singleproduct", singleProduct);
   return (
     <>
+
       <ShoppingCartPopup />
+
       <section className="bg-main-red pt-4 laptop:pt-12 w-full font-heading ">
         <NavLink to="/products">
           <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
@@ -163,6 +168,7 @@ export const SingleProductPage = () => {
 
         </section>
       <ReviewForm />
+
 
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />

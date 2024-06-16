@@ -20,7 +20,7 @@ export const AboutUs = () => {
           project for the Technigo bootcamp.
         </p>
 
-        <p className="font-body my-14 text-center">If you are interested in getting in contact with us you van do so below.</p>
+        <p className="font-body my-14 text-center">If you are interested in getting in contact with us you can do so below.</p>
 
         <div className="flex m-10 justify-around">
           <div>
