@@ -51,9 +51,13 @@ More things:
 ✅ Should they be able to save museums from the grid view? 🐱
 
 
-- Make sure GoBack button is everywhere we need it + is visible 🦀
-- Loginpage and register page are not responsive 🦀
-- Login popup 🦀
-- Need to fix styling of about, contact, licenses, notfound 🦀
+✅- Make sure GoBack button is everywhere we need it + is visible 🦀
+✅- Loginpage and register page are not responsive 🦀
+✅- Login popup 🦀
+✅- Need to fix styling of about, contact, licenses, notfound 🦀
 
+
+- Organize styled components:
+Used only in 1 file - keep it there
+Used in more than 1 file - keep it in a separate file
 

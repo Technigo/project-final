@@ -6,7 +6,8 @@ import { MuseumCardContainer } from "../components/MuseumCardContainer"
 import { HeroSection } from "../components/HeroSection"
 import { Newsletter } from "../components/Newsletter"
 import { MuseumMap } from "../components/MuseumMap"
-import StyledButton from "../components/styled/Button.styled"
+import { StyledButton } from "../components/styled/Button.styled"
+import { Background } from "../components/styled/Background.styled"
 import { CTA } from "../components/CTA"
 
 export const LandingPage = () => {
@@ -43,7 +44,7 @@ export const LandingPage = () => {
   return (
     <div>
       <LandingPageContainer>
-        <Background />
+        <Background bgColor="#222222" />
 
         <HeroSection />
         <CTA />
@@ -80,15 +81,6 @@ export const LandingPage = () => {
 const LandingPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-`
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #222222;
-  z-index: -999;
 `
 const ButtonContainer = styled.div`
   display: flex;

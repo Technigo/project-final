@@ -1,6 +1,6 @@
+import styled from "styled-components"
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io"
 import { useContext, useEffect, useState } from "react"
-import styled from "styled-components"
 import { AuthContext } from "../contexts/AuthContext"
 import { LoginModal } from "./LoginModal"
 

@@ -3,8 +3,9 @@ import { useState, useContext } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { AlertMessage } from "../components/AlertMessage"
 import { AuthContext } from "../contexts/AuthContext"
-import StyledLoginPage from "../components/styled/LoginPage.styled.jsx"
-import StyledButton from "../components/styled/Button.styled.jsx"
+import { StyledContainer } from "../components/styled/LoginPage.styled.jsx"
+import { StyledButton } from "../components/styled/Button.styled.jsx"
+import { Background } from "../components/styled/Background.styled.jsx"
 import { LogoutButton } from "../components/LogoutButton"
 
 export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
@@ -55,8 +56,8 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
 
   return (
     <>
-      <StyledLoginPage>
-        <Background />
+      <StyledContainer>
+        <Background bgColor="#dee0e2" />
         {isAuthenticated ? (
           <InfoBox>
             You are already logged in.
@@ -91,9 +92,7 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <StyledButton className="full-width" type="submit">
-                Log in
-              </StyledButton>
+              <StyledButton type="submit">Log in</StyledButton>
               <RedirectMessage>
                 <p>
                   Don't have a profile yet? Register{" "}
@@ -113,20 +112,11 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
             )}
           </>
         )}
-      </StyledLoginPage>
+      </StyledContainer>
     </>
   )
 }
 
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #dee0e2;
-  z-index: -999;
-`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;

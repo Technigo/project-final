@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { MuseumCardContainer } from "../components/MuseumCardContainer"
-// import { SearchBar } from "../components/SearchBar"
 import { FilterBar } from "../components/FilterBar"
-import StyledButton from "../components/styled/Button.styled"
+import { StyledButton } from "../components/styled/Button.styled"
+import { Background } from "../components/styled/Background.styled"
 import { MuseumMap } from "../components/MuseumMap"
 
 export const MuseumPage = () => {
   const [museums, setMuseums] = useState([])
-  const [results, setResults] = useState([])
   const [amountToShow, setAmountToShow] = useState(8)
 
   const [filters, setFilters] = useState({
@@ -69,17 +68,15 @@ export const MuseumPage = () => {
     }
 
     checkNoResults()
-  }, [filters, museums, results])
+  }, [filters, museums])
 
   const showMore = () => setAmountToShow(amountToShow + 8)
 
-  const museumsToShow =
-    results.length === 0 ? filterMuseums(museums) : filterMuseums(results)
+  const museumsToShow = filterMuseums(museums)
 
   return (
     <MuseumPageContainer>
-      <Background />
-      {/* <SearchBar setResults={setResults} /> */}
+      <Background bgColor="#222222" />
       <FilterBar setFilters={setFilters} />
       {noResults ? (
         <NoResultsMessage>
@@ -111,15 +108,7 @@ export const MuseumPage = () => {
 const MuseumPageContainer = styled.div`
   padding-top: 80px;
 `
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #222222;
-  z-index: -1;
-`
+
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;

@@ -6,7 +6,7 @@ import { LogoutButton } from "../components/LogoutButton"
 import { LikedMuseums } from "../components/LikedMuseums"
 import { UserReviews } from "../components/UserReviews"
 import { SuggestedMuseums } from "../components/SuggestedMuseums"
-import StyledButton from "../components/styled/Button.styled.jsx"
+import { StyledButton } from "../components/styled/Button.styled.jsx"
 
 //Authorize with access token from /user-page
 

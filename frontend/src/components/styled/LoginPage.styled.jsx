@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const StyledLoginPage = styled.div`
+export const StyledContainer = styled.div`
   padding: 80px 20px;
   background-color: #dee0e2;
   color: #333;
@@ -50,5 +50,3 @@ const StyledLoginPage = styled.div`
     color: #555;
   }
 `
-
-export default StyledLoginPage

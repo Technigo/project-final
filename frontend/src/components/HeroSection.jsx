@@ -1,6 +1,4 @@
 import { Carousel } from "./Carousel"
-//import HeroContainer from "./styled/HeroContainer.styled"
-//import Overlay from "./styled/Overlay.styled"
 import styled from "styled-components"
 
 export const HeroSection = () => {

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Select from "react-select"
 import styled from "styled-components"
-import StyledButton from "../components/styled/Button.styled"
+import { StyledButton } from "../components/styled/Button.styled"
 
 export const FilterBar = ({ setFilters }) => {
   const [country, setCountry] = useState("")
@@ -26,6 +26,7 @@ export const FilterBar = ({ setFilters }) => {
     })
   }
 
+  // Define options array for each country and category
   const countryOptions = [
     { value: "", label: "Select Country" },
     { value: "France", label: "France" },
@@ -70,7 +71,6 @@ export const FilterBar = ({ setFilters }) => {
     { value: "New Zealand", label: "New Zealand" },
   ]
 
-  // Define options array for each category
   const categoryOptions = [
     { value: "", label: "Select Category" },
     { value: "Art movements", label: "Art movements" },

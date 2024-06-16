@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import { Background } from "../components/styled/Background.styled"
 
 export const AboutPage = () => {
   return (
     <StyledAboutPage>
-      <Background />
+      <Background bgColor="#dee0e2" />
 
       <Content>
         <h3>About MuSeek</h3>
@@ -31,16 +32,6 @@ export const AboutPage = () => {
     </StyledAboutPage>
   )
 }
-
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #dee0e2;
-  z-index: -999;
-`
 
 const StyledAboutPage = styled.div`
   background-color: #dee0e2;
