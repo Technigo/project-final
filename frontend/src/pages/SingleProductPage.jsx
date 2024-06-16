@@ -26,7 +26,8 @@ export const SingleProductPage = () => {
   const { user } = useUserStore();
   const loggedIn = true;
   const [quantity, setQuantity] = useState(1);
-  const [allergies, setAllergies] = useState([""]);
+  const [allergies, setAllergies] = useState([]);
+  console.log(allergies)
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
@@ -50,7 +51,9 @@ export const SingleProductPage = () => {
 
  useEffect(() => {
    if (user) {
-     setAllergies(user.allergies || [""]);
+     setAllergies(user.user.allergies);
+   } else {
+     setAllergies([""])
    }
  }, [user]);
 
