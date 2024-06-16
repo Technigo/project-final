@@ -1,7 +1,5 @@
-import teamImage from "/images/team.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { Button } from "../utilities/Button";
 import Footer from "../utilities/Footer";
 import Menu from "../utilities/Menu";
@@ -45,7 +43,7 @@ export const AboutUsPage = () => {
         className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-center lg:bg-inherit"
       />
 
-      <section className="px-4 md:py-16 relative">
+      <section className="px-4s py-20 relative">
         <div className="text-center mb-8 max-w-4xl mx-auto space-y-4 md:space-y-0 md:flex md:justify-between md:items-start">
           <div className="note mx-auto md:transform md:-rotate-12 xl:translate-x-[-50px] md:mb-8 z-10">
             <h2 className="text-3xl text-dark">Mission</h2>
@@ -72,7 +70,7 @@ export const AboutUsPage = () => {
         </div>
       </section>
 
-      <section className="bg-white py-8 md:py-16 md:px-16 lg:px-32 xl:px-64">
+      <section className="bg-white py-20 md:px-16 lg:px-32 xl:px-64">
         <div className="text-center mb-8">
           <h2 className="text-3xl text-dark">Join Our Community</h2>
           <p className="mt-2 md:mt-4 text-lg text-dark">

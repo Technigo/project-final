@@ -1,11 +1,11 @@
 import heroImage from "/images/hero-image.jpg";
 import { useNavigate } from "react-router-dom";
-
 import { Button } from "../utilities/Button";
 import Footer from "../utilities/Footer";
 import Menu from "../utilities/Menu";
 import { AuthForm } from "./registration/AuthForm";
 import { useModal } from "./registration/ModalContext";
+import Testimonials from "./Testimonials";
 
 export const HomePage = () => {
   const { showModal } = useModal();
@@ -60,11 +60,23 @@ export const HomePage = () => {
       </section>
 
       <section className="bg-light py-20">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center justify-center">
+          <h2 className="text-3xl font-bold tracking-tight text-center text-dark sm:text-4xl">
+            Don't just take our word for it...
+          </h2>
+          {/*   <p className="mt-4 text-secondary">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+            veritatis illo placeat harum porro optio fugit a culpa sunt id!
+          </p> */}
+          <Testimonials />
+        </div>
+      </section>
+      {/*   <section className="bg-light py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-dark">
             Testimonials
           </h2>
-          <div className="mt-8 space-y-8">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-4">
             <div className="bg-white shadow p-6 rounded-lg">
               <p className="text-dark">
                 "This community has been a lifesaver. Connecting with others who
@@ -81,7 +93,7 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
