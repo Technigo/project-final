@@ -27,7 +27,6 @@ export const SingleProductPage = () => {
   // const loggedIn = true;
   const [quantity, setQuantity] = useState(1);
   const [allergies, setAllergies] = useState([]);
-  console.log("Single Product User:", user);
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
@@ -46,22 +45,17 @@ export const SingleProductPage = () => {
   // Adding product to the cart
   const handleAddToCart = () => {
     setShoppingCart(product, quantity);
-    console.log("shopping cart", shoppingCart);
   };
 
   useEffect(() => {
-      console.log("Single Product User:", user.user);
     if (user.user) {
-            console.log("Single Product Yes");
       setAllergies(user.user.allergies);
     } else {
-            console.log("Single Product No");
       setAllergies([""]);
     }
   }, [user]);
 
   useEffect(() => {
-    console.log("id inside useeffect:", id);
     fetchSingleProduct(id);
   }, [id]);
 
@@ -75,9 +69,6 @@ export const SingleProductPage = () => {
     }
   }, [product, userAllergy]);
 
-  console.log("Product:", product);
-  console.log("param ID:", id);
-  console.log("singleproduct", singleProduct);
   return (
     <>
       <ShoppingCartPopup />
