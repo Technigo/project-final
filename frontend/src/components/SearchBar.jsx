@@ -3,8 +3,7 @@ import { FaSearch } from "react-icons/fa"
 import { useState } from "react"
 import museumList from "../../../backend/data/museums.json"
 import { AlertMessage } from "./AlertMessage"
-import StyledButton from "./styled/Button.styled"
-//import StyledSearchBar from "./styled/SearchBar.styled"
+import { StyledButton } from "./styled/Button.styled"
 
 export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("")

@@ -2,10 +2,11 @@ import { useState, useContext } from "react"
 import { Link } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io"
 import { AlertMessage } from "../components/AlertMessage"
-import StyledButton from "../components/styled/Button.styled"
-import StyledLoginPage from "../components/styled/LoginPage.styled"
+import { StyledButton } from "../components/styled/Button.styled"
+import { StyledContainer } from "../components/styled/LoginPage.styled"
 import { AuthContext } from "../contexts/AuthContext"
 import { LogoutButton } from "../components/LogoutButton"
+import { Background } from "../components/styled/Background.styled"
 import styled from "styled-components"
 
 export const RegisterPage = () => {
@@ -64,8 +65,8 @@ export const RegisterPage = () => {
   }
 
   return (
-    <StyledLoginPage>
-      <Background />
+    <StyledContainer>
+      <Background bgColor="#dee0e2" />
 
       {isAuthenticated ? (
         <InfoBox>
@@ -143,19 +144,10 @@ export const RegisterPage = () => {
           )}
         </>
       )}
-    </StyledLoginPage>
+    </StyledContainer>
   )
 }
 
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #dee0e2;
-  z-index: -999;
-`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
-//import StyledHero from "./styled/Hero.styled";
 
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -49,7 +48,7 @@ const CarouselContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -2; /* Ensure the carousel is behind everything */
+  z-index: -2;
 `
 
 const StyledHero = styled.img`

@@ -1,13 +1,13 @@
 import styled from "styled-components"
-import StyledLoginPage from "../components/styled/LoginPage.styled.jsx"
+import { StyledContainer } from "../components/styled/LoginPage.styled.jsx"
+import { Background } from "../components/styled/Background.styled.jsx"
 
 export const ReferencePage = () => {
   return (
     <>
       <StyledReferencePage>
-        <Background />
-
-        <StyledLoginPage>
+        <Background bgColor="#dee0e2" />
+        <StyledContainer>
           <h4>Licenses</h4>
           <ul>
             {" "}
@@ -23,7 +23,7 @@ export const ReferencePage = () => {
               <a href="https://unsplash.com/">Unsplash</a>
             </li>
           </ul>
-        </StyledLoginPage>
+        </StyledContainer>
       </StyledReferencePage>
     </>
   )
@@ -63,13 +63,4 @@ const StyledReferencePage = styled.div`
   a:hover {
     color: #0056b3;
   }
-`
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #dee0e2;
-  z-index: -999;
 `

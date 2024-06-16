@@ -2,12 +2,13 @@ import styled from "styled-components"
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa"
 import EtnaImage from "/etna.jpeg"
 import AlmaImage from "/alma.png"
-import StyledLoginPage from "../components/styled/LoginPage.styled.jsx"
+import { StyledContainer } from "../components/styled/LoginPage.styled.jsx"
+import { Background } from "../components/styled/Background.styled.jsx"
 
 export const ContactPage = () => {
   return (
-    <StyledLoginPage>
-      <Background />
+    <StyledContainer>
+      <Background bgColor="#dee0e2" />
       <ContentWrapper>
         <Title>Meet the developers behind MuSeek</Title>
         <Subtitle>Connect with us to learn more about our journey!</Subtitle>
@@ -76,19 +77,9 @@ export const ContactPage = () => {
           </DeveloperInfo>
         </DeveloperContainer>
       </ContentWrapper>
-    </StyledLoginPage>
+    </StyledContainer>
   )
 }
-
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #dee0e2;
-  z-index: -999;
-`
 
 const ContentWrapper = styled.div`
   padding: 40px 20px;
@@ -120,8 +111,13 @@ const DeveloperContainer = styled.div`
 
 const DeveloperInfo = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+    gap: 20px;
+  }
 `
 
 const DeveloperImage = styled.img`
@@ -137,6 +133,7 @@ const DeveloperDetails = styled.div`
 const DeveloperName = styled.h4`
   font-size: 18px;
   color: #222;
+  margin-bottom: 0;
 `
 
 const DeveloperBio = styled.p`

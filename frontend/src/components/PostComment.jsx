@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import StyledButton from "./styled/Button.styled"
+import { StyledButton } from "./styled/Button.styled"
 import { AuthContext } from "../contexts/AuthContext"
 import StarRatings from "react-star-ratings"
 

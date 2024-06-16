@@ -8,7 +8,8 @@ import { CommentSection } from "../components/CommentSection"
 import { AuthContext } from "../contexts/AuthContext"
 import { MuseumMap } from "../components/MuseumMap"
 import { LoginModal } from "../components/LoginModal"
-import StyledButton from "../components/styled/Button.styled"
+import { StyledButton } from "../components/styled/Button.styled"
+import { Background } from "../components/styled/Background.styled"
 import { getOptimizedUrl } from "../util/UrlUtil"
 
 export const DetailPage = () => {
@@ -66,7 +67,7 @@ export const DetailPage = () => {
 
   return (
     <Container className={isModalOpen ? "blurred" : ""}>
-      <Background />
+      <Background bgColor="#222222" />
       <ImageContainerPhone>
         <BackButton />
         <StyledImagePhone
@@ -171,16 +172,6 @@ const Container = styled.div`
   @media (min-width: 768px) {
     padding-top: 80px;
   }
-`
-
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #222222;
-  z-index: -1;
 `
 
 const ContentContainer = styled.div`
