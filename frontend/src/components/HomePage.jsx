@@ -60,44 +60,21 @@ export const HomePage = () => {
       </section>
 
       <section className="bg-light py-20">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center justify-center">
-          <h2 className="text-3xl font-bold tracking-tight text-center text-dark sm:text-4xl">
-            Don't just take our word for it...
-          </h2>
-          {/*   <p className="mt-4 text-secondary">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-            veritatis illo placeat harum porro optio fugit a culpa sunt id!
-          </p> */}
-          <Testimonials />
-        </div>
-      </section>
-      {/*   <section className="bg-light py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-dark">
-            Testimonials
-          </h2>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-4">
-            <div className="bg-white shadow p-6 rounded-lg">
-              <p className="text-dark">
-                "This community has been a lifesaver. Connecting with others who
-                understand ADHD has made such a difference in my life."
-              </p>
-              <p className="mt-4 text-right text-secondary">- Jane Doe</p>
-            </div>
-            <div className="bg-white shadow p-6 rounded-lg">
-              <p className="text-dark">
-                "Finding someone to talk to when I'm having a hard day has been
-                invaluable. Thank you for creating this space."
-              </p>
-              <p className="mt-4 text-right text-secondary">- John Smith</p>
+          <div className="flex flex-col items-center text-center space-y-8 lg:flex-row lg:space-y-0 lg:space-x-8 lg:justify-center">
+            <div className="lg:w-2/3">
+              <h2 className="text-2xl md:text-3xl py-6 font-bold text-dark">
+                Don't just take our word for it...
+              </h2>
+              <Testimonials />
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold  text-dark">
+          <h2 className="text-3xl font-bold text-dark">
             Join Our Upcoming Events
           </h2>
           <p className="mt-4 text-lg text-dark">
