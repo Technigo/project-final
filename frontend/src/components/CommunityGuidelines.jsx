@@ -1,21 +1,17 @@
 import Footer from "../utilities/Footer";
+import HeroSection from "../utilities/HeroSection";
 import Menu from "../utilities/Menu";
-import guideImage from "/images/guidelines.jpg";
 
 export const CommunityGuidelines = () => {
   return (
     <div className="min-h-screen bg-light ">
       <Menu />
-      <header
-        className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-center"
-        style={{ backgroundImage: `url(${guideImage})` }}
-      >
-        <div className="absolute inset-0 bg-primary bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-light">
-            <h1 className="text-4xl font-bold ">Good Vibes Only</h1>
-          </div>
-        </div>
-      </header>
+      <HeroSection
+        imageUrl="/images/guidelines.jpg"
+        title="Good Vibes Only"
+        subtitle="Stay respectful and kind in all interactions."
+        className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-center"
+      />
 
       <section className="py-20 px-4 lg:px-32">
         <div className="container mx-auto text-center">

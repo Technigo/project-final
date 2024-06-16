@@ -29,5 +29,44 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        '.quotation': {
+          position: 'relative',
+          padding: '1rem',
+          '&:before, &:after': {
+            fontSize: '4rem',
+            color: 'gray',
+            position: 'absolute',
+            zIndex: 2,
+          },
+          '&:before': {
+            top: '-10px',
+            left: '-10px',
+            content: '"“"',
+          },
+          '&:after': {
+            bottom: '-10px',
+            right: '-10px',
+            content: '"”"',
+          }
+        },
+        '.note': {
+          position: 'relative',
+          backgroundColor: '#D8BFAF',
+          padding: '1rem',
+          margin: '1rem',
+          borderRadius: '0.25rem',
+          boxShadow: '4px 4px 10px rgba(0, 0, 0, 0.5)',
+          width: '250px',
+          height: '300px',
+          '&:hover': {
+            transform: 'scale(1.07)',
+            transition: 'transform 0.3s ease-in-out',
+          },
+        },
+      });
+    },
+  ],
 };

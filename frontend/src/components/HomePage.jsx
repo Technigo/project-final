@@ -61,7 +61,7 @@ export const HomePage = () => {
 
       <section className="bg-light py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold  text-center text-dark">
+          <h2 className="text-3xl font-bold text-center text-dark">
             Testimonials
           </h2>
           <div className="mt-8 space-y-8">

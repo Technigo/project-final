@@ -1,6 +1,6 @@
 import Footer from "../utilities/Footer";
 import Menu from "../utilities/Menu";
-import heroEventImage from "/images/event-hero.jpg";
+import HeroSection from "../utilities/HeroSection";
 import eventsData from "../data/events.json";
 import { useState } from "react";
 import EventCard from "../components/EventCard";
@@ -17,19 +17,13 @@ export const EventsPage = () => {
   return (
     <div className="min-h-screen bg-light ">
       <Menu />
-      <header
-        className="relative h-96 bg-cover bg-top"
-        style={{ backgroundImage: `url(${heroEventImage})` }}
-      >
-        <div className="absolute inset-0 bg-primary bg-opacity-40 flex items-center justify-center p-4 md:p-10">
-          <div className="text-center text-light">
-            <h1 className="text-4xl font-bold ">Join Us for The Next Event</h1>
-            <p className="mt-2 md:mt-4 text-xl">
-              Learn, connect, and support each other in our upcoming event.
-            </p>
-          </div>
-        </div>
-      </header>
+      <HeroSection
+        imageUrl="/images/event-hero.jpg"
+        title="Join Our Events"
+        subtitle=" Learn, connect, and support each other in our upcoming event."
+        className="h-96 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] bg-cover bg-top"
+        style={{ objectPosition: "top center" }}
+      />
 
       {/* Showcasing an Event Section */}
       <section className="py-20 bg-gray-100">
