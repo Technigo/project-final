@@ -45,16 +45,16 @@ export const AboutUsPage = () => {
         className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-center lg:bg-inherit"
       />
 
-      <section className="px-4 py-8 md:py-16 relative">
+      <section className="px-4 md:py-16 relative">
         <div className="text-center mb-8 max-w-4xl mx-auto space-y-4 md:space-y-0 md:flex md:justify-between md:items-start">
-          <div className="note mx-auto md:transform md:-rotate-12 md:translate-x-[-50px] md:mb-8">
+          <div className="note mx-auto md:transform md:-rotate-12 xl:translate-x-[-50px] md:mb-8 z-10">
             <h2 className="text-3xl text-dark">Mission</h2>
             <p className="mt-2 md:mt-4 text-lg text-dark">
               We aim to support and empower individuals with ADHD by providing a
               safe space and understanding community
             </p>
           </div>
-          <div className="note mx-auto md:transform md:rotate-6 md:translate-x-[50px] md:mt-12">
+          <div className="note mx-auto md:transform md:rotate-6 xl:translate-x-[60px] md:-mt-10 z-20">
             <h2 className="text-3xl text-dark">Values</h2>
             <p className="mt-2 md:mt-4 text-lg text-dark">
               We believe in inclusivity, empathy, and the power of community.
@@ -62,7 +62,7 @@ export const AboutUsPage = () => {
               everyone
             </p>
           </div>
-          <div className="note mx-auto md:transform md:-rotate-12 md:translate-x-[50px] xl:translate-x-[150px] md:mt-8 lg:mt-20">
+          <div className="note mx-auto md:transform md:-rotate-12 xl:translate-x-[150px] md:mt-8 lg:mt-20 z-30">
             <h2 className="text-3xl text-dark">Team</h2>
             <p className="mt-2 md:mt-4 text-lg text-dark">
               Our team is dedicated to providing resources, support, and events
