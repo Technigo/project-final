@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
@@ -148,7 +148,7 @@ export const ProfilePage = () => {
             </h2>
             <div className="w-full flex justify-between mb-4">
               <h3>Profile</h3>
-              <button className="hidden" onClick={toggleChangeProfile}>
+              <button onClick={toggleChangeProfile}>
                 <FaUserEdit className="w-6 h-6 fill-button-varm-light" />
               </button>
             </div>
@@ -479,7 +479,7 @@ export const ProfilePage = () => {
                 )}
               </ul>
             </div>
-            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl mb-6">
+            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">Email:</h4>
               {isEditing ? (
                 <form>
@@ -504,7 +504,7 @@ export const ProfilePage = () => {
           </div>
           <button
             onClick={handleUpdateProfile}
-            className="hidden bg-button-varm-light text-text-dark w-32 h-8 rounded-full align-center ml-6 desktop:ml-24 mt-20"
+            className="bg-button-varm-light text-text-dark w-32 h-8 rounded-full align-center ml-6 desktop:ml-24 mt-20"
           >
             Save Changes
           </button>

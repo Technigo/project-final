@@ -1,6 +1,11 @@
-import { CardElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import {
+  CardElement,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 import { useState } from "react";
-
+import { WelcomeMessage } from "./WelcomeMessage";
 import { useProductsStore } from "../store/useProductsStore";
 
 const CheckoutForm = ({ totalPrice }) => {
@@ -9,7 +14,8 @@ const CheckoutForm = ({ totalPrice }) => {
   const stripe = useStripe();
   const elements = useElements();
   // const [paymentStatus, setPaymentStatus] = useState("");
-  const [showMessage, setShowMessage] = useState(false); 
+  const [showMessage, setShowMessage] = useState(false);
+  const [showCardDetails, setShowCardDetails] = useState(false);
 
   console.log("totalprice in checkoutform: ", totalPrice);
   // Define the product details
@@ -27,7 +33,7 @@ const CheckoutForm = ({ totalPrice }) => {
         fontSmoothing: "antialiased",
         fontSize: "16px",
         "::placeholder": {
-          color: "#aab7c4",
+          color: "#9f2409",
         },
       },
       invalid: {
@@ -42,9 +48,8 @@ const CheckoutForm = ({ totalPrice }) => {
   // }
 
   const handleSubmit = async (event) => {
-
     await handlePayment(event, stripe, elements, product);
-        setShowMessage(true);
+    setShowMessage(true);
   };
 
   const calculateTotalCost = (item) => {
@@ -52,41 +57,71 @@ const CheckoutForm = ({ totalPrice }) => {
     const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
     return `${roundedPrice}`;
   };
-  // Then, you can pass this wrapper function to onSubmit
+
+  const toggleShowCardDetails = () => {
+    setShowCardDetails(!showCardDetails);
+  };
 
   console.log("Payment status:", paymentStatus);
 
   return (
-    <form onSubmit={handleSubmit} className="checkout-form">
-     
-      <div className="bg-main-white text-text-dark max-w-[500px] mx-auto max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm ">
-        <p className="text-2xl my-2">Price: € {product.price}</p>
-        <p>Enter your card details to order:</p>
-        <CardElement options={cardElementOptions} />
+    <>
+      <div className="flex flex-col bg-main-white text-text-dark max-w-[600px] mx-auto max-h-100 rounded-xl p-6 px-8 desktop:p-10 mb-12 gap-4 font-heading text-xs desktop:text-sm ">
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          <p className="text-2xl my-2">Payment</p>
+          <p className="mb-10">Enter your card details to order:</p>
+          <CardElement options={cardElementOptions} />
+          {showMessage && (
+            <div
+              className={`payment-status ${
+                paymentStatus === "Payment successful!"
+                  ? "text-green-500 text-center mt-4"
+                  : "text-red-500text-center mt-4"
+              }`}
+            >
+              {paymentStatus}
+            </div>
+          )}
+          <button
+            type="submit"
+            className="bg-cta-blue text-text-light m-auto w-[180px] rounded-full px-5 p-2 mt-8"
+            disabled={!stripe || isLoading}
+          >
+            {isLoading ? "Processing..." : "Buy Now"}
+          </button>
+        </form>
         <button
-          type="submit"
-          className="bg-cta-blue text-text-light m-auto w-full mt-8 rounded-full px-5 p-2"
-          disabled={!stripe || isLoading}
+          className="bg-cta-blue text-text-light m-auto w-[180px] rounded-full px-5 p-2"
+          onClick={toggleShowCardDetails}
         >
-          {isLoading ? "Processing..." : "Buy Now"}
+          Default card info
         </button>
-        {showMessage ?    <div
-          className={`payment-status ${
-            paymentStatus === "Payment successful!"
-              ? "text-green-500 text-center mt-6"
-              : "text-red-500text-center mt-6"
-          }`}
-        >
-          {paymentStatus}
-        </div> : null }
-     
+        {showCardDetails && (
+          <div className="flex flex-col gap-1">
+            <p className="text-base my-2">This is not a real purchase</p>
+            <p className="mb-4">
+              {" "}
+              Copy paste the card number below and press "Buy Now"
+            </p>{" "}
+            <p>
+              Number: <span className="font-black">4242 4242 4242 4242</span>
+            </p>
+            <p>
+              {" "}
+              MM/ÅÅ: <span className="font-black">2425</span>
+            </p>
+            <p>
+              CVC, postal <span className="font-black"> 424, 4242</span>
+            </p>
+          </div>
+        )}
       </div>
       {/* Product details */}
-      <div className="mx-10 tablet:max-w-[500px] tablet:m-auto">
-        <h2 className="text-2xl mt-8 mb-4 laptop:text-4xl laptop:mb-4">
-          What you are buying:
+      <div className="tablet:max-w-[600px] tablet:m-auto">
+        <h2 className="text-2xl mt-8 mb-8 laptop:text-3xl laptop:mb-12 text-center">
+          Your cart:
         </h2>
-        <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
+        <ul className=" w-full flex flex-col gap-8">
           {product.items &&
             product.items.map((item, index) => (
               <li
@@ -103,22 +138,20 @@ const CheckoutForm = ({ totalPrice }) => {
                     <h4 className="font-black">{item.product.title}</h4>
                     <h4>{item.product.brand}</h4>
                     <p>{item.product.size}</p>
-                    <h3 className="mt-4 desktop:text-xl">
+                    <h3 className="mt-4 text-lg desktop:text-xl">
                       {item.product.price} €
                     </h3>
                   </div>
-                  <div className="max-w-max">
+                  <div className="max-w-max ">
                     <div className="flex gap-6 tablet:justify-end">
-                      <div className="flex h-6">
-                        <span className="bg-text-light rounded-full text-text-dark w-6 tablet:w-8 desktop:w-12 flex items-center justify-center text-xs tablet:text-sm">
-                          {item.quantity}
-                        </span>
+                      <div className="bg-text-light rounded-full text-text-dark w-6 tablet:w-8 flex items-center justify-center text-xs tablet:text-sm">
+                        {item.quantity}
                       </div>
                     </div>
                     <p className="font-header text-text-light text-sm mt-4 tablet:mt-8 laptop:mt-14 ">
                       subtotal:{" "}
                       <span className="bg-main-yellow rounded-xl p-1 px-2 tablet:p-2 tracking-widest font-bold text-text-dark">
-                        {totalPrice} €{" "}
+                        {calculateTotalCost(item)} €{" "}
                       </span>
                     </p>
                   </div>
@@ -127,10 +160,8 @@ const CheckoutForm = ({ totalPrice }) => {
             ))}
         </ul>
       </div>
-    </form>
+    </>
   );
 };
-
-
 
 export default CheckoutForm;

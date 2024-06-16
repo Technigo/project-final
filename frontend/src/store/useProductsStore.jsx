@@ -19,12 +19,16 @@ export const useProductsStore = create(
       totalPrice: 0,
       addedProduct: [],
       popupIsVisible: false,
+      checkout: false,
       paymentStatus: "",
       isLoading: false,
+      paymentSuccessful: false,
+
+      setPaymentSuccessful: (input) => set({ paymentSuccessful: input }),
+      setCheckout: (input) => set({ checkout: input }),
 
       handlePayment: async (event, stripe, elements, product) => {
         event.preventDefault();
-
         console.log("Handlepayment: ", product.price);
         /* const stripe = useStripe(); 
         const elements = useElements(); */
@@ -75,6 +79,9 @@ export const useProductsStore = create(
             if (result.paymentIntent.status === "succeeded") {
               console.log("Payment succeeded!");
               set({ paymentStatus: "Payment successful!" });
+              get().setPaymentSuccessful(true);
+              get().setCheckout(false); 
+              
             } else {
               console.error(
                 "Unexpected payment status:",

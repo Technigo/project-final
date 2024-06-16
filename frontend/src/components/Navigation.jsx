@@ -1,5 +1,5 @@
 import burgerMenu from "/bars-solid.svg";
-import shoppingCart from "/cart-shopping-solid.svg";
+import shoppingCartsvg from "/cart-shopping-solid.svg";
 import glimLogo from "/glimSmall.svg";
 import swoop from "/nav-swoop2.svg";
 import userIcon from "/user-solid.svg";
@@ -10,6 +10,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import animation from "../assets/Circle-loading-Animation.json";
 import { useUserStore } from "../store/useUserStore";
+import { useProductsStore } from "../store/useProductsStore"
 import { WelcomeMessage } from "./WelcomeMessage";
 
 //If signed in Sign in should display username/firstname
@@ -27,6 +28,7 @@ export const Navigation = ({ data }) => {
     loadingUser,
     logoutUser,
   } = useUserStore();
+  const { shoppingCart } = useProductsStore()
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [loginMessage, setLoginMessage] = useState("")
@@ -154,11 +156,16 @@ export const Navigation = ({ data }) => {
             )}
             <NavLink to="/cart" className="text-white tablet:hidden">
               <img
-                src={shoppingCart}
+                src={shoppingCartsvg}
                 alt="Shopping cart"
                 className="h-6 my-3 tablet:h-7 tablet:m-3"
               />
             </NavLink>
+            {shoppingCart.length > 0 && (
+    <div className="tablet:hidden absolute top-1 border border-dark-red2 left-16 bg-main-white text-text-dark rounded-full w-4 h-4 flex items-center justify-center text-xs ">
+      <span>{shoppingCart.length}</span>
+    </div>
+  )}
           </div>
           <div className="center-nav flex m-auto">
             <NavLink to="/" className="text-white">
@@ -186,10 +193,15 @@ export const Navigation = ({ data }) => {
             )}
             <NavLink to="/cart" className="text-white">
               <img
-                src={shoppingCart}
+                src={shoppingCartsvg}
                 alt="Shopping cart"
-                className="h-7 m-2 hidden tablet:block laptop:h-8 laptop:m-4"
+                className="h-7 m-4 mx-2 hidden tablet:block laptop:h-8 laptop:m-4"
               />
+                {shoppingCart.length > 0 && (
+    <div className="hidden tablet:block border border-dark-red2 bg-main-white text-text-dark absolute tablet:top-1 desktop:top-2 tablet:right-10 desktop:right-2 text-center rounded-full w-4 h-4 flex items-center justify-center text-xs">
+      <span>{shoppingCart.length}</span>
+    </div>
+  )}
             </NavLink>
 
             {openBurger ? (
