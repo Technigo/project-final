@@ -30,7 +30,7 @@ export const FlickCarousel = (product) => {
     <div className="overflow:hidden">
       <Flickity options={flickityOptions}>
         {selectedProducts.map((item, index) => (
-          <div className="snap-center m-2 w-40 min-w-[200px]" key={index}>
+          <div className="snap-center m-2 w-40 min-w-[200px] tablet:min-w-[400px]" key={index}>
             <ProductCard data={item} />
           </div>
         ))}
