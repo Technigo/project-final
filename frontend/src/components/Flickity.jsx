@@ -1,17 +1,14 @@
+import Flickity from "react-flickity-component";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useProductsStore } from "../store/useProductsStore";
 import { ProductCard } from "./ProductCard";
 import { Loading } from "../components/Loading";
-import { FlickCarousel } from "./Flickity";
+import "flickity/css/flickity.css";
 
-export const Carousel = () => {
+export const FlickCarousel = (product) => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const displayedItemNumber = 3;
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+  const displayedItemNumber = 6;
 
   useEffect(() => {
     if (productsData.products) {
@@ -21,23 +18,19 @@ export const Carousel = () => {
     }
   }, [productsData]);
 
+  const flickityOptions = {
+    wrapAround: false,
+  };
 
   return (
-    <div className="w-full m-auto my-8">
-      {loadingProduct ? (
-        <Loading />
-      ) : (
-        <>
-
-          <h2 className="font-heading text-xl text-center text-white font-light">
-           Featured Products
-
-          </h2>
-
-          <FlickCarousel />
-  
-        </>
-      )}
+    <div className="overflow:hidden">
+      <Flickity options={flickityOptions}>
+        {selectedProducts.map((item, index) => (
+          <div className="snap-center m-2 w-40 min-w-[200px]" key={index}>
+            <ProductCard data={item} />
+          </div>
+        ))}
+      </Flickity>
     </div>
   );
 };
