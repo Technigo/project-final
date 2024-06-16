@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 import { useUserStore } from "../store/useUserStore";
 
 
+
 export const Hero = ({ data }) => {
+
   const { loggedIn, user } = useUserStore();
 
   return (
