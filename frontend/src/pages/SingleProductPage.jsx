@@ -23,11 +23,11 @@ export const SingleProductPage = () => {
     shoppingCart,
     setShoppingCart,
   } = useProductsStore();
-  const { user } = useUserStore();
-  const loggedIn = true;
+  const { user, loggedIn } = useUserStore();
+  // const loggedIn = true;
   const [quantity, setQuantity] = useState(1);
   const [allergies, setAllergies] = useState([]);
-  console.log(allergies)
+  console.log("Single Product User:", user);
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
@@ -49,13 +49,16 @@ export const SingleProductPage = () => {
     console.log("shopping cart", shoppingCart);
   };
 
- useEffect(() => {
-   if (user) {
-     setAllergies(user.user.allergies);
-   } else {
-     setAllergies([""])
-   }
- }, [user]);
+  useEffect(() => {
+      console.log("Single Product User:", user.user);
+    if (user.user) {
+            console.log("Single Product Yes");
+      setAllergies(user.user.allergies);
+    } else {
+            console.log("Single Product No");
+      setAllergies([""]);
+    }
+  }, [user]);
 
   useEffect(() => {
     console.log("id inside useeffect:", id);
