@@ -28,6 +28,7 @@ export const Navigation = ({ data }) => {
   } = useUserStore();
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
+  const [loginMessage, setLoginMessage] = useState("")
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const navRef = useRef();
@@ -38,15 +39,10 @@ export const Navigation = ({ data }) => {
   const logoutTimeoutRef = useRef(null);
   const navigate = useNavigate();
 
-  const showNavbar = (e) => {
-    // navRef.current.classList.toggle("hidden");
-    // btnRef.current.classList.toggle("invisible");
-    // handleClickOutsideBurger(e);
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     await loginUser(emailInput, passwordInput);
+    console.log("loginUser:",loginUser)
   };
 
   const handleClickOutside = (event) => {
@@ -307,7 +303,9 @@ export const Navigation = ({ data }) => {
                 ) : (
                   "Login"
                 )}
+                
               </button>
+              {loginMessage ? loginMessage : "null"}
             </form>
             <p className="absolute text-text-light -bottom-10 tablet:-bottom-8 z-0  text-xs">
               Press outside of the box to close the window
