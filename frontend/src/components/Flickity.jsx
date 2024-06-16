@@ -8,7 +8,7 @@ import "flickity/css/flickity.css";
 export const FlickCarousel = (product) => {
   const { productsData, fetchProducts, loadingProduct } = useProductsStore();
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const displayedItemNumber = 6;
+  const displayedItemNumber = 7;
 
   useEffect(() => {
     if (productsData.products) {
@@ -19,7 +19,11 @@ export const FlickCarousel = (product) => {
   }, [productsData]);
 
   const flickityOptions = {
-    wrapAround: false,
+    wrapAround: false, //true will wraparound from start
+    autoPlay: 3000, //set milliseconds
+    selectedAttraction: 0.01,
+    friction: 0.15,
+    initialIndex: 3,
   };
 
   return (
