@@ -1,16 +1,23 @@
 import { Carousel } from "../components/Carousel";
 import { Hero } from "../components/Hero";
 import { Footer } from "../components/Footer";
-import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
+import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { ReviewCard } from "../components/ReviewCard";
 import { Statements } from "../components/Statements";
-import { WelcomeMessage } from "../components/WelcomeMessage"
-import { useUserStore } from "../store/useUserStore"
+import { WelcomeMessage } from "../components/WelcomeMessage";
+import { useUserStore } from "../store/useUserStore";
 import { useEffect } from "react";
+// import Flickity from "flickity";
 
 export const Home = ({ data }) => {
-
-  const { signedUp, setSignedUp, loggedOut, setLoggedOut, automaticLogOut, setAutomaticLogOut } = useUserStore()
+  const {
+    signedUp,
+    setSignedUp,
+    loggedOut,
+    setLoggedOut,
+    automaticLogOut,
+    setAutomaticLogOut,
+  } = useUserStore();
 
   useEffect(() => {
     if (signedUp) {
@@ -36,14 +43,13 @@ export const Home = ({ data }) => {
     }
   }, [automaticLogOut]);
 
-
   return (
     <>
       <main className="flex flex-col bg-main-red">
-      {signedUp && <WelcomeMessage />}
-      {loggedOut && <WelcomeMessage />}
-      {automaticLogOut && <WelcomeMessage />}
-      < ShoppingCartPopup />
+        {signedUp && <WelcomeMessage />}
+        {loggedOut && <WelcomeMessage />}
+        {automaticLogOut && <WelcomeMessage />}
+        <ShoppingCartPopup />
         <Hero data={data["hero"]} />
         <Carousel />
         <Statements data={data["atGlim"]} />

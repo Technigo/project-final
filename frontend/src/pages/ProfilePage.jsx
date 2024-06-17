@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { FaUserEdit } from "react-icons/fa";
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+
 import { Footer } from "../components/Footer";
+import { Loading } from "../components/Loading";
 import { WelcomeMessage } from "../components/WelcomeMessage";
 // User needs to be logged in to see Profile page,
 // send user to Log in/ Sign up if not logged in.
 
 import { useUserStore } from "../store/useUserStore";
-import { Loading } from "../components/Loading";
 import { NotFound } from "./NotFound";
 
 export const ProfilePage = () => {
@@ -31,7 +32,7 @@ export const ProfilePage = () => {
   //     if (!user) {
   //       navigate("/");
   //     } else {
-   
+
   //     }
   //   };
 
@@ -83,7 +84,6 @@ export const ProfilePage = () => {
     navigate("/");
   };
 
-  //NOT working yet. Still chatting with AI:)
   const toggleChangeProfile = () => {
     setIsEditing(!isEditing);
   };
@@ -164,7 +164,7 @@ export const ProfilePage = () => {
                   {isEditing ? (
                     <select
                       defaultValue={inputValues.skin}
-                      name="skintype"
+                      name="skin"
                       id="skin"
                       onChange={handleInputChange}
                       className="mt-8 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
@@ -224,7 +224,7 @@ export const ProfilePage = () => {
                     {isEditing ? (
                       <select
                         defaultValue={inputValues.moisture}
-                        name="hair-moisture"
+                        name="moisture"
                         id="moisture"
                         onChange={handleInputChange}
                         className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
@@ -261,7 +261,7 @@ export const ProfilePage = () => {
                     {isEditing ? (
                       <select
                         defaultValue={inputValues.shape}
-                        name="hair-shape"
+                        name="shape"
                         id="shape"
                         onChange={handleInputChange}
                         className="mt-2 h-8 rounded-md font-heading font-bold pl-4 bg-bg-input appearance-none bg-no-repeat bg-arrow-select bg-right"
@@ -495,12 +495,15 @@ export const ProfilePage = () => {
                 <p>{profile.email}</p>
               )}
             </div>
-            <button
-              onClick={handleDeletingUser}
-              className="bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
-            >
-              ! Delete User !
-            </button>
+            {isEditing ? null : (
+              <button
+                onClick={handleDeletingUser}
+                className="bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light"
+              >
+                {" "}
+                ! Delete User !
+              </button>
+            )}
           </div>
           <button
             onClick={handleUpdateProfile}

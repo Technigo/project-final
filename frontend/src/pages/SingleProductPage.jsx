@@ -1,5 +1,5 @@
 import { useProductsStore } from "../store/useProductsStore";
-import { useUserStore } from "../store/useUserStore"
+import { useUserStore } from "../store/useUserStore";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -10,25 +10,28 @@ import SimilarProducts from "../components/SimilarProducts";
 /* import { NotFound } from "./NotFound"; */
 import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
-import { ShoppingCartPopup } from "../components/ShoppingCartPopup"
+import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
 
-
 export const SingleProductPage = () => {
   const { id } = useParams();
-  const { fetchSingleProduct, loadingProduct, singleProduct, shoppingCart, setShoppingCart } =
-    useProductsStore();
-  const { user } = useUserStore();
-  const loggedIn = true
+  const {
+    fetchSingleProduct,
+    loadingProduct,
+    singleProduct,
+    shoppingCart,
+    setShoppingCart,
+  } = useProductsStore();
+  const { user, loggedIn } = useUserStore();
+  // const loggedIn = true;
   const [quantity, setQuantity] = useState(1);
-  const allergies = user.user.allergies;
-  console.log("Allergies:", user.user.allergies)
+  const [allergies, setAllergies] = useState([]);
 
   const addToCart = "Add to Cart"; //productLangData.add-to-cart
   const product = singleProduct?.product || {};
-  const userAllergy = allergies;  //replace with userdata from store
-   const [allergyAlert, setAllergyAlert] = useState([]); 
+  const userAllergy = allergies; //replace with userdata from store
+  const [allergyAlert, setAllergyAlert] = useState([]);
 
   // Adding quantity of items to add to cart
   const handleIncrement = () => {
@@ -42,11 +45,17 @@ export const SingleProductPage = () => {
   // Adding product to the cart
   const handleAddToCart = () => {
     setShoppingCart(product, quantity);
-    console.log("shopping cart", shoppingCart)
   };
 
   useEffect(() => {
-    console.log("id inside useeffect:", id);
+    if (user.user) {
+      setAllergies(user.user.allergies);
+    } else {
+      setAllergies([""]);
+    }
+  }, [user]);
+
+  useEffect(() => {
     fetchSingleProduct(id);
   }, [id]);
 
@@ -60,13 +69,8 @@ export const SingleProductPage = () => {
     }
   }, [product, userAllergy]);
 
-
-  console.log("Product:", product);
-  console.log("param ID:", id);
-  console.log("singleproduct", singleProduct);
   return (
     <>
-
       <ShoppingCartPopup />
 
       <section className="bg-main-red pt-4 laptop:pt-12 w-full font-heading ">
@@ -160,15 +164,12 @@ export const SingleProductPage = () => {
         )}
       </section>
       <section>
-
-      <SimilarProducts
-        subcategory={product.subcategory}
-        currentProductId={product._id}
+        <SimilarProducts
+          subcategory={product.subcategory}
+          currentProductId={product._id}
         />
-
-        </section>
+      </section>
       <ReviewForm />
-
 
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />

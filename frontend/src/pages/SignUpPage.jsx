@@ -1,11 +1,12 @@
-import { Footer } from "../components/Footer";
-import { useState, useRef, useEffect } from "react";
-import { useUserStore } from "../store/useUserStore";
-import { useNavigate } from "react-router-dom";
-import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+import swoopTop from "/swoops/swoop-similar-top.svg";
 import Lottie from "lottie-react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import animation from "../assets/Circle-loading-Animation.json";
+import { Footer } from "../components/Footer";
+import { useUserStore } from "../store/useUserStore";
 
 export const SignUpPage = () => {
   const {
@@ -49,12 +50,12 @@ export const SignUpPage = () => {
   const passwordRef = useRef();
 
   useEffect(() => {
-  if (activeSection === "sectionthree") {
-    setSectionCheck(true);
-  } else {
-    setSectionCheck(false);
-  }
-  }, [activeSection])
+    if (activeSection === "sectionthree") {
+      setSectionCheck(true);
+    } else {
+      setSectionCheck(false);
+    }
+  }, [activeSection]);
 
   useEffect(() => {
     setAllergies(selectedAllergies);
@@ -697,7 +698,8 @@ export const SignUpPage = () => {
           className="bg-light-yellow w-full"
           src={swoopBottom}
           alt="Section border"
-        /> ) : null       }
+        />
+      ) : null}
       <Footer aboveColor={"red"} />
     </>
   );
