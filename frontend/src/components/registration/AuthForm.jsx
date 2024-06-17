@@ -16,19 +16,41 @@ export const AuthForm = ({ type, onSuccess }) => {
     setRole(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const validateInputs = () => {
     const username = usernameInputRef.current.value;
     const password = passwordInputRef.current.value;
+    if (username.length < 3) {
+      return "Username must be at least 3 characters long";
+    }
+    if (password.length < 6) {
+      return "Pasword must be at least 6 characters long";
+    }
+    return null;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationError = validateInputs();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
 
     setLoading(true);
     setError(null);
 
     try {
       if (formMode === "signup") {
-        await signup(username, password, role);
+        await signup(
+          usernameInputRef.current.value,
+          passwordInputRef.current.value,
+          role
+        );
       } else {
-        await login(username, password);
+        await login(
+          usernameInputRef.current.value,
+          passwordInputRef.current.value
+        );
       }
       hideModal();
       onSuccess();
