@@ -105,7 +105,7 @@ export const ReviewForm = () => {
                 </div>
                 <div className="flex flex-col gap-2 justify-items-center">
                   <button
-                    className="send-button bg-cta-blue px-6 py-2 rounded-full hover:bg-cta-blue-hover"
+                    className="send-button bg-button-light text-text-dark px-6 py-2 rounded-full hover:bg-button-varm-light hover:cursor-pointer"
                     onClick={handleSend}
                     disabled={charCheck}
                   >

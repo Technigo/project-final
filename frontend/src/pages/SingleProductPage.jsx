@@ -11,6 +11,7 @@ import SimilarProducts from "../components/SimilarProducts";
 import { Footer } from "../components/Footer";
 import { ReviewForm } from "../components/ReviewForm";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
+import { StickyButton } from "../components/StickyButton"
 import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
 
@@ -72,7 +73,7 @@ export const SingleProductPage = () => {
   return (
     <>
       <ShoppingCartPopup />
-
+      {!loggedIn && <StickyButton />}
       <section className="bg-main-red pt-4 laptop:pt-12 w-full font-heading ">
         <NavLink to="/products">
           <button className="bg-button-varm-light text-text-dark w-8 h-8 rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8">
@@ -141,6 +142,22 @@ export const SingleProductPage = () => {
                     {addToCart}
                   </button>
                 </div>
+                {product.pros.length > 0 && (
+  <div className="flex my-8 gap-2">
+    {product.pros.includes("crueltyfree") && (
+      // Content for cruelty-free products
+      <img src="/crueltyfree.svg" alt="cruelty free" className="w-14 h-14" />
+    )}
+    {product.pros.includes("organic") && (
+      // Content for organic products
+      <img src="/organic.svg" alt="organic" className="w-14 h-14" />
+    )}
+     {product.pros.includes("vegan") && (
+      // Content for organic products
+      <img src="/vegan.svg" alt="vegan" className="w-14 h-14" />
+    )}
+  </div>
+)}
               </div>
             </div>
             {/*  Needs more styling, thinking its good to have some info even if its not recommended for you */}
@@ -160,6 +177,35 @@ export const SingleProductPage = () => {
                 </ul>
               </div>
             )}
+            {!loggedIn && product.hair && Object.keys(product.hair).length > 0 && Object.values(product.hair).some(arr => arr.length > 0) &&  (
+              <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
+              <h4>Recommended for: </h4>
+              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
+              {Object.keys(product.hair).map((key) =>
+        product.hair[key].map((item, index) => (
+          <li key={`${key}-${index}`} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl">
+            {item}
+          </li>
+        ))
+      )}
+              </ul>
+            </div>
+            )}
+
+            {!loggedIn && product.allergies.length > 0 &&(
+              <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
+              <h4>Allergens: </h4>
+              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
+              {product.allergies.map((item, index) => (
+          <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl">
+            {item}
+          </li>
+        ))
+            }
+              </ul>
+            </div>
+            )
+             }
           </div>
         )}
       </section>
