@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
@@ -479,7 +479,7 @@ export const ProfilePage = () => {
                 )}
               </ul>
             </div>
-            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl mb-6">
+            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">Email:</h4>
               {isEditing ? (
                 <form>

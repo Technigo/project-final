@@ -16,15 +16,23 @@ export const useProductsStore = create(
       singleProduct: {},
       loadingProduct: false,
       shoppingCart: [],
+      orderHistory: [],
+      priceHistory: 0,
       totalPrice: 0,
       addedProduct: [],
       popupIsVisible: false,
       paymentStatus: "",
       isLoading: false,
+      paymentSuccessful: false,
 
-      handlePayment: async (event, stripe, elements, product) => {
+      setPaymentSuccessful: (input) => set({ paymentSuccessful: input }),
+      setCheckout: (input) => set({ checkout: input }),
+      setOrderHistory: (input) => set({ orderHistory: input }),
+      setTotalPrice: (input) => set({ totalPrice: input }),
+      setPriceHistory: (input) => set({ priceHistory: input }),
+
+      handlePayment: async (event, stripe, elements, product, shoppingCart, totalPrice ) => {
         event.preventDefault();
-
         console.log("Handlepayment: ", product.price);
         /* const stripe = useStripe(); 
         const elements = useElements(); */
@@ -74,7 +82,11 @@ export const useProductsStore = create(
           } else {
             if (result.paymentIntent.status === "succeeded") {
               console.log("Payment succeeded!");
-              set({ paymentStatus: "Payment successful!" });
+              set({ paymentStatus: "Payment successful!"});
+              get().setOrderHistory(shoppingCart)
+              get().setPriceHistory(totalPrice)
+              get().setPaymentSuccessful(true);
+              
             } else {
               console.error(
                 "Unexpected payment status:",
@@ -88,9 +100,10 @@ export const useProductsStore = create(
         } catch (error) {
           console.error("Error during payment:", error);
           set({ paymentStatus: `Error: ${error.message}` });
+        }  finally {
+          set({ isLoading: false });
+          get().removeAllFromCart()
         }
-
-        set({ isLoading: false });
       },
 
       setShoppingCart: (product, quantity) => {
@@ -176,6 +189,7 @@ export const useProductsStore = create(
       removeAllFromCart: () => {
         set({ shoppingCart: [], totalPrice: 0 });
       },
+    
 
       fetchProducts: async () => {
         set({ loadingProduct: true });

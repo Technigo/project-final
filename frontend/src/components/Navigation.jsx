@@ -1,5 +1,5 @@
 import burgerMenu from "/bars-solid.svg";
-import shoppingCart from "/cart-shopping-solid.svg";
+import shoppingCartsvg from "/cart-shopping-solid.svg";
 import glimLogo from "/glimSmall.svg";
 import swoop from "/nav-swoop2.svg";
 import userIcon from "/user-solid.svg";
@@ -10,6 +10,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import animation from "../assets/Circle-loading-Animation.json";
 import { useUserStore } from "../store/useUserStore";
+import { useProductsStore } from "../store/useProductsStore"
 import { WelcomeMessage } from "./WelcomeMessage";
 
 //If signed in Sign in should display username/firstname
@@ -27,6 +28,7 @@ export const Navigation = ({ data }) => {
     loadingUser,
     logoutUser,
   } = useUserStore();
+  const { shoppingCart } = useProductsStore()
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
   const [loginMessage, setLoginMessage] = useState("")
@@ -113,17 +115,19 @@ export const Navigation = ({ data }) => {
     setOpenBurger(!openBurger);
   };
 
+  const totalQuantity = shoppingCart.reduce((total, product) => total + product.quantity, 0);
+
   return (
     <>
       {showWelcomePopup && <WelcomeMessage />}
       <nav className="sticky top-0 w-full z-20">
         <div className="grid grid-cols-3 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
-          <div className="left-nav flex">
+          <div className="left-nav flex tablet:ml-2">
             <NavLink
               to="/products"
               className="text-white m-4 hidden laptop:block"
             >
-              <p className="font-body text-white font-extralight text-lg hidden tablet:block">
+              <p className="font-body text-white text-lg hidden tablet:block font-bold">
                 {data.products}
               </p>
             </NavLink>
@@ -154,11 +158,16 @@ export const Navigation = ({ data }) => {
             )}
             <NavLink to="/cart" className="text-white tablet:hidden">
               <img
-                src={shoppingCart}
+                src={shoppingCartsvg}
                 alt="Shopping cart"
                 className="h-6 my-3 tablet:h-7 tablet:m-3"
               />
             </NavLink>
+            {shoppingCart.length > 0 && (
+    <div className="tablet:hidden absolute top-1 border border-dark-red2 left-16 bg-main-white text-text-dark rounded-full w-4 h-4 flex items-center justify-center text-xs ">
+      <span>{totalQuantity}</span>
+    </div>
+  )}
           </div>
           <div className="center-nav flex m-auto">
             <NavLink to="/" className="text-white">
@@ -184,21 +193,28 @@ export const Navigation = ({ data }) => {
                 </p>
               </div>
             )}
-            <NavLink to="/cart" className="text-white">
+            { !openBurger && (
+            <NavLink to="/cart" className="relative z-40">
               <img
-                src={shoppingCart}
+                src={shoppingCartsvg}
                 alt="Shopping cart"
-                className="h-7 m-2 hidden tablet:block laptop:h-8 laptop:m-4"
+                className="h-7 m-3 hidden tablet:block laptop:h-8 laptop:m-4"
               />
+                {shoppingCart.length > 0 && (
+    <div className="hidden tablet:block border border-main-red bg-main-white text-text-dark absolute z-30 tablet:top-1 laptop:top-2 tablet:right-0 laptop:right-2 text-center rounded-full w-5 h-5 flex items-center justify-center text-xs">
+      <span>{totalQuantity}</span>
+    </div>
+  )}
             </NavLink>
+            )}
 
             {openBurger ? (
               <div
-                className=" absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-4 rounded-bl-lg border-main-red text-white bg-strong-red"
+                className=" absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-6 rounded-bl-xl border-main-red text-white bg-strong-red"
                 ref={navRef}
               >
                 <button ref={burgerRef} onClick={toggleBurger}>
-                  <img src={xMark} alt="Menu" className="h-6 mb-4" />
+                  <img src={xMark} alt="Menu" className="h-6 mb-4 " />
                 </button>
                 {loggedIn ? (
                   <NavLink

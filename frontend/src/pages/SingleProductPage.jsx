@@ -95,7 +95,7 @@ export const SingleProductPage = () => {
                 className="w-full tablet:w-7/12 desktop:w-5/12 object-cover aspect-square tablet:rounded-xl"
               />
               {allergyAlert.length > 0 && (
-                <div className="absolute top-10 left-0 right-0 flex justify-center w-36  items-center bg-black text-white py-2 px-4 rounded-r-xl">
+                <div className="absolute top-10 left-0 right-0 flex justify-center w-36  items-center bg-strong-red2 text-white py-2 px-4 rounded-r-xl">
                   Allergies: {allergyAlert.join(", ")}
                 </div>
               )}

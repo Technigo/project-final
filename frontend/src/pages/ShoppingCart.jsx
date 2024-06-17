@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import { IoIosArrowBack } from "react-icons/io";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { WelcomeMessage } from "../components/WelcomeMessage"
+import { OrderHistory } from "../components/OrderHistory"
 import CheckoutForm from "../components/CheckoutForm";
 import { useProductsStore } from "../store/useProductsStore";
 import { useUserStore } from "../store/useUserStore";
+
 
 export const ShoppingCart = () => {
   const {
@@ -17,11 +19,19 @@ export const ShoppingCart = () => {
     removeAllByIdFromCart,
     removeAllFromCart,
     totalPrice,
+    paymentSuccessful,
+    setPaymentSuccessful,
+    orderHistory,
+
+
   } = useProductsStore();
   const { user, loggedIn } = useUserStore();
   const [newQuantity, setNewQuantity] = useState(0);
   const recommended = false;
-  const [checkout, setCheckout] = useState(false);
+  const [ checkout, setCheckout ] = useState(false)
+  const [ displayHistory, setDisplayHistory ] = useState(false)
+
+  const navigate = useNavigate();
 
   console.log("User: ", user.user);
   const profile = user.user;
@@ -56,26 +66,54 @@ export const ShoppingCart = () => {
     return `${roundedPrice}`;
   };
 
-  const openCheckout = () => {
+  const totalQuantity = shoppingCart.reduce((total, product) => total + product.quantity, 0);
+
+  const toggleCheckout = () => {
     setCheckout(!checkout);
+    scrollToTop()
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', 
+    })
+  };
+
+  useEffect(() => {
+    if (paymentSuccessful) {
+      setTimeout(() => {
+        setPaymentSuccessful(false)
+      }, 4000)
+      setCheckout(false)
+    }
+  }, [paymentSuccessful])
 
   console.log("shopping cart :", shoppingCart);
   console.log("total price", totalPrice);
+  console.log("success", paymentSuccessful)
+  console.log("history", orderHistory)
 
   return (
-    <section className="bg-main-red h-full min-h-screen pt-4 pb-20 laptop:pt-12 w-full ">
+    <>
+    {paymentSuccessful && <WelcomeMessage />}
+    <section className="bg-main-red h-full min-h-screen pt-4 pb-20 laptop:pt-12 w-full flex flex-col gap-8 ">
       <NavLink to="/products">
-        <button className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center ml-6 desktop:ml-12 mb-8 gap-2">
+        <button className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center ml-6 desktop:ml-12 gap-2">
           <IoIosArrowBack /> Continue shopping
         </button>
       </NavLink>
-      {checkout ? <div className="flex flex-col ">
-        <div className="bg-main-white max-w-fit mx-auto max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm flex flex-col">
-          {loggedIn && checkout ? (
-            <div>
-              <h2 className="text-2xl mb-4">Shipping to:</h2>
-              <p className="text-lg">
+      {orderHistory.length > 0 && <OrderHistory />}
+      {checkout && <>
+        <h2 className="text-2xl laptop:text-4xl laptop:mb-4 text-center font-heading text-text-light">
+              The final hurdle!
+            </h2>
+      <>
+        <div className="bg-main-white text-text-dark w-11/12 max-w-[600px] m-auto rounded-xl p-6 desktop:p-10 font-heading text-xs desktop:text-sm flex flex-col laptop:flex-row justify-evenly">
+          {loggedIn && 
+            <div className="flex flex-col w-fit m-auto tablet:m-0">
+              <h2 className="text-xl mb-4 font-bold">Shipping to:</h2>
+              <p className="text-base">
                 {profile.firstname} {profile.lastname}
               </p>
               <p className="mt-2">{profile.address.street}</p>
@@ -84,46 +122,43 @@ export const ShoppingCart = () => {
                 <span>{profile.address.postalCode}</span>
                 <span> {profile.address.city}</span>
               </p>
-              <p>{profile.address.country}</p>
+              <p className="mb-10">{profile.address.country}</p>
             </div>
-          ) : null}
-
+          }
+        <div className="flex items-center flex-col">
           <h3 className="text-lg desktop:text-2xl font-bold">
-            Total price:{" "}
-            <span className="bg-main-yellow rounded-xl p-2 tracking-widest">
+            Total price:</h3>
+            <h3 className=" text-lg desktop:text-2xl font-bold bg-main-yellow rounded-xl py-1 px-2 tracking-widest">
               {totalPrice} €
-            </span>
           </h3>
-        </div>
-        <div>
+          {orderHistory.length === 0 &&
           <button
-            onClick={openCheckout}
-            className="bg-cta-blue text-text-light text-sm p-5 px-10 mt-4 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:mb-8 tablet:ml-auto gap-2"
+            onClick={toggleCheckout}
+            className="bg-strong-red2 text-text-light text-sm p-2 px-4 mt-4 rounded-full flex m-auto tablet:ml-auto"
           >
             {checkout ? "Change cart" : "Checkout!"}
-          </button>
+          </button>}
+          </div>
         </div>
-      </div> : null} 
-        
-      
-      {checkout ? (
-        <div className="font-body text-text-light">
-          <h1 className="text-2xl laptop:text-4xl laptop:mb-4 text-center">
-            The final hurdle!
-          </h1>
+        <div>
+        <div className="font-body text-text-light w-11/12 m-auto ">
           <Elements stripe={stripePromise}>
             <CheckoutForm totalPrice={totalPrice} />
           </Elements>
         </div>
-      ) : (
+        </div>
+      </> </>} 
+        
+      
+      {!checkout && orderHistory.length === 0 &&
         <>
-          <div className="flex flex-col gap-4 w-11/12 desktop:w-6/12 m-auto text-center font-heading text-text-light">
+          <div className="flex flex-col gap-4 w-11/12 desktop:w-6/12 m-auto my-0 text-center font-heading text-text-light">
             <h2 className="text-2xl laptop:text-4xl laptop:mb-4">
               Shopping cart
             </h2>
             <h3>
               {shoppingCart.length > 0
-                ? `${shoppingCart.length} product${
+                ? `${totalQuantity} product${
                     shoppingCart.length > 1 ? "s" : ""
                   }`
                 : "Your cart is empty"}
@@ -131,13 +166,13 @@ export const ShoppingCart = () => {
             {shoppingCart.length > 0 && (
               <button
                 onClick={removeAllFromCart}
-                className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:m-0 tablet:mb-8 tablet:ml-auto gap-2"
+                className="bg-button-varm-light text-text-dark text-xs p-2 px-3 laptop:text-sm rounded-full flex justify-center items-center m-auto tablet:m-0 tablet:ml-auto gap-2"
               >
                 <ImCross /> Empty cart
               </button>
             )}
           </div>
-          <div className="flex flex-col w-11/12 tablet:flex-row desktop:w-6/12 gap-8 desktop:gap-20 m-auto laptop:px-18">
+          <div className="flex flex-col w-11/12 tablet:flex-row laptop:w-8/12 desktop:w-6/12 gap-8 laptop:gap-20 mx-auto">
             <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
               {shoppingCart &&
                 shoppingCart.map((item, index) => (
@@ -149,9 +184,11 @@ export const ShoppingCart = () => {
                       src={item.product.image.url}
                       alt={item.product.title}
                       className="rounded-xl w-4/12 tablet:aspect-square tablet:w-2/12  object-cover"
+                      onClick={() => navigate(`/products/${item.product._id}`)} 
+                      style={{ cursor: 'pointer' }}
                     />
                     <div className=" w-6/12 tablet:w-full flex-col tablet:flex-row justify-between flex">
-                      <div className="flex flex-col gap-2 text-xs tablet:text-sm desktop:text-base ">
+                      <div className="flex flex-col min-w-fit gap-2 text-xs tablet:text-sm desktop:text-base ">
                         <NavLink to={`/products/${item.product._id}`}>
                           <h4 className="font-black">{item.product.title}</h4>
                           <h4>{item.product.brand}</h4>
@@ -214,20 +251,6 @@ export const ShoppingCart = () => {
             {totalPrice > 0 && (
               <div className="flex flex-col justify-start">
                 <div className="bg-main-white max-w-fit mx-auto max-h-80 rounded-xl p-6 desktop:p-10  gap-4 font-heading text-xs desktop:text-sm flex flex-col">
-                  {user && checkout ? (
-                    <div>
-                      <span>{profile.firstname}</span>
-                      <span> {profile.lastname}</span>
-                      <p className="mt-2">{profile.address.street}</p>
-                      <p>
-                        {" "}
-                        <span>{profile.address.postalCode}</span>
-                        <span> {profile.address.city}</span>
-                      </p>
-                      <p>{profile.address.country}</p>
-                    </div>
-                  ) : null}
-
                   <h3 className="text-lg desktop:text-2xl font-bold">
                     Total price:{" "}
                     <span className="bg-main-yellow rounded-xl p-2 tracking-widest">
@@ -235,19 +258,18 @@ export const ShoppingCart = () => {
                     </span>
                   </h3>
                 </div>
-                <div>
-                  <button
-                    onClick={openCheckout}
-                    className="bg-cta-blue text-text-light text-sm p-5 px-10 mt-4 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:mb-8 tablet:ml-auto gap-2"
+          <button
+                    onClick={toggleCheckout}
+                    className="bg-cta-blue text-text-light text-sm p-2 px-4 mt-4 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:mb-8 tablet:ml-auto gap-2"
                   >
                     {checkout ? <ImCross /> : "Checkout!"}
                   </button>
-                </div>
               </div>
             )}
           </div>
         </>
-      )}
+      }
     </section>
+    </>
   );
-};
+  }
