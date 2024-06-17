@@ -17,10 +17,10 @@ export const useProductsStore = create(
       loadingProduct: false,
       shoppingCart: [],
       orderHistory: [],
+      priceHistory: 0,
       totalPrice: 0,
       addedProduct: [],
       popupIsVisible: false,
-      checkout: false,
       paymentStatus: "",
       isLoading: false,
       paymentSuccessful: false,
@@ -28,8 +28,10 @@ export const useProductsStore = create(
       setPaymentSuccessful: (input) => set({ paymentSuccessful: input }),
       setCheckout: (input) => set({ checkout: input }),
       setOrderHistory: (input) => set({ orderHistory: input }),
+      setTotalPrice: (input) => set({ totalPrice: input }),
+      setPriceHistory: (input) => set({ priceHistory: input }),
 
-      handlePayment: async (event, stripe, elements, product, shoppingCart ) => {
+      handlePayment: async (event, stripe, elements, product, shoppingCart, totalPrice ) => {
         event.preventDefault();
         console.log("Handlepayment: ", product.price);
         /* const stripe = useStripe(); 
@@ -80,7 +82,9 @@ export const useProductsStore = create(
           } else {
             if (result.paymentIntent.status === "succeeded") {
               console.log("Payment succeeded!");
-              set({ paymentStatus: "Payment successful!", orderHistory: shoppingCart, shoppingCart: []});
+              set({ paymentStatus: "Payment successful!"});
+              get().setOrderHistory(shoppingCart)
+              get().setPriceHistory(totalPrice)
               get().setPaymentSuccessful(true);
               
             } else {
@@ -96,9 +100,10 @@ export const useProductsStore = create(
         } catch (error) {
           console.error("Error during payment:", error);
           set({ paymentStatus: `Error: ${error.message}` });
+        }  finally {
+          set({ isLoading: false });
+          get().removeAllFromCart()
         }
-
-        set({ isLoading: false });
       },
 
       setShoppingCart: (product, quantity) => {

@@ -48,7 +48,7 @@ const CheckoutForm = ({ totalPrice }) => {
   // }
 
   const handleSubmit = async (event) => {
-    await handlePayment(event, stripe, elements, product, shoppingCart);
+    await handlePayment(event, stripe, elements, product, shoppingCart, totalPrice);
     setShowMessage(true);
   };
 

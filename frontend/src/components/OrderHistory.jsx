@@ -1,40 +1,37 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useProductsStore } from "../store/useProductsStore"
-import { useNavigate } from 'react-router-dom';
 
 export const OrderHistory = () => {
 
-    const { orderHistory, setOrderHistory } = useProductsStore()
+    const { orderHistory, setOrderHistory, priceHistory, setPriceHistory } = useProductsStore()
 
-    const navigate = useNavigate();
-    const initialRender = useRef(true);
 
     useEffect(() => {
-        if (initialRender.current) {
-            initialRender.current = false;
-            return;
-        }
-        // Clear orderHistory when navigating away
-        const unlisten = navigate((location) => {
-            setOrderHistory([]);
-        });
-        return () => {
-            unlisten();
-        };
-    }, [navigate, setOrderHistory]);
+        setTimeout(() => {
+            setOrderHistory([])
+            setPriceHistory(0)
+        } , 10000)
+    }, [])
+
+
+    const calculateTotalCost = (item) => {
+        const totalCost = item.quantity * item.product.price;
+        const roundedPrice = Math.ceil(totalCost * 100) / 100; // Round up to 2 decimal places
+        return `${roundedPrice}`;
+      };
 
   return (
     <>
-    {orderHistory > 0 && (
-    <div className="tablet:max-w-[600px] tablet:m-auto">
-    <h2 className="text-2xl mt-8 mb-8 laptop:text-3xl laptop:mb-12 text-center">
+    <div className="tablet:max-w-[600px] tablet:mx-auto text-text-light flex flex-col gap-8">
+    <h2 className="text-2xl mt-8 mb-8 laptop:text-3xl laptop:4 text-center font-heading">
      Thank you for your purchase!
     </h2>
+    <p className="font-heading text-xl text-center">Total payment: {priceHistory} €</p>
     <ul className="w-full flex flex-col gap-8">
       {orderHistory.map((item, index) => (
         <li
           key={index}
-          className="flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6 text-text-light"
+          className="flex font-heading justify-center tablet:justify-left gap-4 m-auto tablet:gap-6"
         >
           <img
             src={item.product.image.url}
@@ -59,7 +56,7 @@ export const OrderHistory = () => {
               <p className="font-header text-text-light text-sm mt-4 tablet:mt-8 laptop:mt-14">
                 subtotal:{" "}
                 <span className="bg-main-yellow rounded-xl p-1 px-2 tablet:p-2 tracking-widest font-bold text-text-dark">
-                  {calculateTotalCost(item)} €
+                 {calculateTotalCost(item)} €
                 </span>
               </p>
             </div>
@@ -68,7 +65,6 @@ export const OrderHistory = () => {
       ))}
     </ul>
   </div>
-  )}
   </>
   )
 }

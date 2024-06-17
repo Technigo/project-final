@@ -23,6 +23,7 @@ export const ShoppingCart = () => {
     setPaymentSuccessful,
     orderHistory,
 
+
   } = useProductsStore();
   const { user, loggedIn } = useUserStore();
   const [newQuantity, setNewQuantity] = useState(0);
@@ -83,16 +84,15 @@ export const ShoppingCart = () => {
     if (paymentSuccessful) {
       setTimeout(() => {
         setPaymentSuccessful(false)
-      }, 8000)
+      }, 4000)
       setCheckout(false)
     }
   }, [paymentSuccessful])
 
-
-
   console.log("shopping cart :", shoppingCart);
   console.log("total price", totalPrice);
   console.log("success", paymentSuccessful)
+  console.log("history", orderHistory)
 
   return (
     <>
@@ -103,7 +103,7 @@ export const ShoppingCart = () => {
           <IoIosArrowBack /> Continue shopping
         </button>
       </NavLink>
-      {orderHistory > 0 && <OrderHistory />}
+      {orderHistory.length > 0 && <OrderHistory />}
       {checkout && <>
         <h2 className="text-2xl laptop:text-4xl laptop:mb-4 text-center font-heading text-text-light">
               The final hurdle!
@@ -131,12 +131,13 @@ export const ShoppingCart = () => {
             <h3 className=" text-lg desktop:text-2xl font-bold bg-main-yellow rounded-xl py-1 px-2 tracking-widest">
               {totalPrice} €
           </h3>
+          {orderHistory.length === 0 &&
           <button
             onClick={toggleCheckout}
             className="bg-strong-red2 text-text-light text-sm p-2 px-4 mt-4 rounded-full flex m-auto tablet:ml-auto"
           >
             {checkout ? "Change cart" : "Checkout!"}
-          </button>
+          </button>}
           </div>
         </div>
         <div>
@@ -149,7 +150,7 @@ export const ShoppingCart = () => {
       </> </>} 
         
       
-      {!checkout &&
+      {!checkout && orderHistory.length === 0 &&
         <>
           <div className="flex flex-col gap-4 w-11/12 desktop:w-6/12 m-auto my-0 text-center font-heading text-text-light">
             <h2 className="text-2xl laptop:text-4xl laptop:mb-4">
