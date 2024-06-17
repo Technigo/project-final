@@ -16,6 +16,7 @@ export const useProductsStore = create(
       singleProduct: {},
       loadingProduct: false,
       shoppingCart: [],
+      orderHistory: [],
       totalPrice: 0,
       addedProduct: [],
       popupIsVisible: false,
@@ -26,8 +27,9 @@ export const useProductsStore = create(
 
       setPaymentSuccessful: (input) => set({ paymentSuccessful: input }),
       setCheckout: (input) => set({ checkout: input }),
+      setOrderHistory: (input) => set({ orderHistory: input }),
 
-      handlePayment: async (event, stripe, elements, product) => {
+      handlePayment: async (event, stripe, elements, product, shoppingCart ) => {
         event.preventDefault();
         console.log("Handlepayment: ", product.price);
         /* const stripe = useStripe(); 
@@ -78,9 +80,8 @@ export const useProductsStore = create(
           } else {
             if (result.paymentIntent.status === "succeeded") {
               console.log("Payment succeeded!");
-              set({ paymentStatus: "Payment successful!" });
+              set({ paymentStatus: "Payment successful!", orderHistory: shoppingCart, shoppingCart: []});
               get().setPaymentSuccessful(true);
-              get().setCheckout(false); 
               
             } else {
               console.error(
@@ -183,6 +184,7 @@ export const useProductsStore = create(
       removeAllFromCart: () => {
         set({ shoppingCart: [], totalPrice: 0 });
       },
+    
 
       fetchProducts: async () => {
         set({ loadingProduct: true });

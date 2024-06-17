@@ -5,6 +5,7 @@ import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
+import { StickyButton } from "../components/StickyButton"
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct, addedProduct } =
@@ -107,6 +108,7 @@ export const ProductsPage = () => {
 
   return (
     <>
+      {!loggedIn && <StickyButton />}
       <ShoppingCartPopup />
       <section className="bg-main-red h-full min-h-screen w-full pt-12 laptop:pt-28">
         <div className="font-heading flex flex-col items-center justify-between w-11/12 m-auto mb-8 tablet:w-9/12 desktop:flex-row">

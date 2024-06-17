@@ -6,7 +6,7 @@ import { ImCross } from "react-icons/im";
 import { IoIosArrowBack } from "react-icons/io";
 import { NavLink, useNavigate } from "react-router-dom";
 import { WelcomeMessage } from "../components/WelcomeMessage"
-
+import { OrderHistory } from "../components/OrderHistory"
 import CheckoutForm from "../components/CheckoutForm";
 import { useProductsStore } from "../store/useProductsStore";
 import { useUserStore } from "../store/useUserStore";
@@ -21,12 +21,14 @@ export const ShoppingCart = () => {
     totalPrice,
     paymentSuccessful,
     setPaymentSuccessful,
+    orderHistory,
 
   } = useProductsStore();
   const { user, loggedIn } = useUserStore();
   const [newQuantity, setNewQuantity] = useState(0);
   const recommended = false;
   const [ checkout, setCheckout ] = useState(false)
+  const [ displayHistory, setDisplayHistory ] = useState(false)
 
   const navigate = useNavigate();
 
@@ -82,6 +84,7 @@ export const ShoppingCart = () => {
       setTimeout(() => {
         setPaymentSuccessful(false)
       }, 8000)
+      setCheckout(false)
     }
   }, [paymentSuccessful])
 
@@ -100,6 +103,7 @@ export const ShoppingCart = () => {
           <IoIosArrowBack /> Continue shopping
         </button>
       </NavLink>
+      {orderHistory > 0 && <OrderHistory />}
       {checkout && <>
         <h2 className="text-2xl laptop:text-4xl laptop:mb-4 text-center font-heading text-text-light">
               The final hurdle!
@@ -167,7 +171,7 @@ export const ShoppingCart = () => {
               </button>
             )}
           </div>
-          <div className="flex flex-col w-11/12 tablet:flex-row desktop:w-6/12 gap-8 desktop:gap-20 m-auto ">
+          <div className="flex flex-col w-11/12 tablet:flex-row laptop:w-8/12 desktop:w-6/12 gap-8 laptop:gap-20 mx-auto">
             <ul className=" w-full flex flex-col gap-4 tablet:gap-8">
               {shoppingCart &&
                 shoppingCart.map((item, index) => (
@@ -183,7 +187,7 @@ export const ShoppingCart = () => {
                       style={{ cursor: 'pointer' }}
                     />
                     <div className=" w-6/12 tablet:w-full flex-col tablet:flex-row justify-between flex">
-                      <div className="flex flex-col gap-2 text-xs tablet:text-sm desktop:text-base ">
+                      <div className="flex flex-col min-w-fit gap-2 text-xs tablet:text-sm desktop:text-base ">
                         <NavLink to={`/products/${item.product._id}`}>
                           <h4 className="font-black">{item.product.title}</h4>
                           <h4>{item.product.brand}</h4>
