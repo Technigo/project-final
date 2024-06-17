@@ -29,7 +29,7 @@ export const Navigation = ({ data }) => {
   } = useUserStore();
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
-  const [loginMessage, setLoginMessage] = useState("")
+  const [loginMessage, setLoginMessage] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const navRef = useRef();
@@ -43,7 +43,7 @@ export const Navigation = ({ data }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     await loginUser(emailInput, passwordInput);
-    console.log("loginUser:",loginUser)
+    console.log("loginUser:", loginUser);
   };
 
   const handleClickOutside = (event) => {
@@ -104,7 +104,6 @@ export const Navigation = ({ data }) => {
   }, [loggedIn]);
   // add a message for user to know theyve been logged out (welcome message comp could maybe be reused? but it should have the click outside func that the login box has.. would be nice)
 
-
   const toggleLogin = () => {
     setOpen(!open);
   };
@@ -120,6 +119,7 @@ export const Navigation = ({ data }) => {
         <div className="grid grid-cols-3 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
           <div className="left-nav flex">
             <NavLink
+              aria-label="Link to products"
               to="/products"
               className="text-white m-4 hidden laptop:block"
             >
@@ -127,13 +127,21 @@ export const Navigation = ({ data }) => {
                 {data.products}
               </p>
             </NavLink>
-            <NavLink to="/about" className="text-white m-4 hidden laptop:block">
+            <NavLink
+              to="/about"
+              className="text-white m-4 hidden laptop:block"
+              aria-label="Link to About us"
+            >
               <p className="font-body text-white font-extralight text-lg hidden tablet:block">
                 {data.about}
               </p>
             </NavLink>
             {loggedIn ? (
-              <NavLink to={`/profile/${userId}`} className="laptop:hidden">
+              <NavLink
+                to={`/profile/${userId}`}
+                className="laptop:hidden"
+                aria-label="Link to Profile"
+              >
                 <img
                   src={userIcon}
                   alt="Profile"
@@ -152,7 +160,11 @@ export const Navigation = ({ data }) => {
                 />
               </div>
             )}
-            <NavLink to="/cart" className="text-white tablet:hidden">
+            <NavLink
+              to="/cart"
+              className="text-white tablet:hidden"
+              aria-label="Link to Shopping Cart"
+            >
               <img
                 src={shoppingCart}
                 alt="Shopping cart"
@@ -161,13 +173,17 @@ export const Navigation = ({ data }) => {
             </NavLink>
           </div>
           <div className="center-nav flex m-auto">
-            <NavLink to="/" className="text-white">
+            <NavLink
+              to="/"
+              className="text-white"
+              aria-label="Link to Homepage"
+            >
               <img className="w-40 my-4" src={glimLogo} alt="glim logo" />
             </NavLink>
           </div>
           <div className="right-nav flex flex-row justify-end">
             {loggedIn ? (
-              <NavLink to={`/profile/${userId}`}>
+              <NavLink to={`/profile/${userId}`} aria-label="Link to Profile">
                 <img
                   src={userIcon}
                   alt="Profile"
@@ -184,7 +200,11 @@ export const Navigation = ({ data }) => {
                 </p>
               </div>
             )}
-            <NavLink to="/cart" className="text-white">
+            <NavLink
+              to="/cart"
+              className="text-white"
+              aria-label="Link to Shopping Cart"
+            >
               <img
                 src={shoppingCart}
                 alt="Shopping cart"
@@ -202,6 +222,7 @@ export const Navigation = ({ data }) => {
                 </button>
                 {loggedIn ? (
                   <NavLink
+                    aria-label="Link to BurgerMenu"
                     className="nav-link"
                     onClick={toggleBurger}
                     to={`/profile/${userId}`}
@@ -214,6 +235,7 @@ export const Navigation = ({ data }) => {
                       Login
                     </p>
                     <NavLink
+                      aria-label="Link to Sign Up"
                       className="nav-link"
                       onClick={toggleBurger}
                       to="/signup"
@@ -224,6 +246,7 @@ export const Navigation = ({ data }) => {
                 )}
                 {data.burger.map((link, index) => (
                   <NavLink
+                    aria-label="Link to Burger Menu"
                     className="nav-link"
                     onClick={toggleBurger}
                     key={index}
@@ -264,6 +287,7 @@ export const Navigation = ({ data }) => {
               </h1>
               <NavLink to="/signup">
                 <button
+                  aria-label="Link to SignUp"
                   onClick={() => setOpen(false)}
                   className="bg-main-red hover:bg-button-varm-medium hover:text-text-light transition duration-300 mb-4 justify-self-center px-6 py-2 rounded-full text-sm text-text-light"
                 >
@@ -304,7 +328,6 @@ export const Navigation = ({ data }) => {
                 ) : (
                   "Login"
                 )}
-                
               </button>
               {loginMessage ? loginMessage : "null"}
             </form>

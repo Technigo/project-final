@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+
 import { useProductsStore } from "../store/useProductsStore";
 
 export const ProductCard = ({ data }) => {
@@ -21,13 +22,13 @@ export const ProductCard = ({ data }) => {
 
   return (
     <div className="bg-strong-red m-auto w-full h-full rounded-xl pb-5">
-      <NavLink to={`/products/${id}`}>
+      <NavLink to={`/products/${id}`} aria-label="Link to Product">
         <div>
           <img className="w-full rounded-t-xl" src={image} alt="" />
         </div>
       </NavLink>
       <div className="m-4 flex flex-col items-center h-28 text-white">
-        <NavLink to={`/products/${id}`}>
+        <NavLink to={`/products/${id}`} aria-label="Link to Product">
           <h3 className="font-heading text-xs hover:opacity-75 active:opacity-50 laptop:text-sm  ">
             {productName}
           </h3>
