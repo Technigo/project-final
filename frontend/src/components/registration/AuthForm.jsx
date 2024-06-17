@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useModal } from "./ModalContext";
 import { signup, login } from "../registration/authService";
 import signUpImage from "/images/signUp.jpg";
@@ -6,8 +6,10 @@ import signUpImage from "/images/signUp.jpg";
 export const AuthForm = ({ type, onSuccess }) => {
   const { hideModal } = useModal();
   const [formMode, setFormMode] = useState(type);
-  const usernameInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [error, setError] = useState(null);
   const [role, setRole] = useState("Listener");
   const [loading, setLoading] = useState(false);
@@ -16,23 +18,30 @@ export const AuthForm = ({ type, onSuccess }) => {
     setRole(e.target.value);
   };
 
-  const validateInputs = () => {
-    const username = usernameInputRef.current.value;
-    const password = passwordInputRef.current.value;
-    if (username.length < 3) {
-      return "Username must be at least 3 characters long";
+  const handleUsernameChange = (e) => {
+    const newUsername = e.target.value;
+    setUsername(newUsername);
+    if (newUsername.length < 3) {
+      setUsernameError("Username must be at least 3 characters long.");
+    } else {
+      setUsernameError("");
     }
-    if (password.length < 6) {
-      return "Pasword must be at least 6 characters long";
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    if (newPassword.length < 6) {
+      setPasswordError("Password must be at least 6 characters long.");
+    } else {
+      setPasswordError("");
     }
-    return null;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationError = validateInputs();
-    if (validationError) {
-      setError(validationError);
+    if (usernameError || passwordError) {
+      setError("Please fix the errors before submitting.");
       return;
     }
 
@@ -41,23 +50,16 @@ export const AuthForm = ({ type, onSuccess }) => {
 
     try {
       if (formMode === "signup") {
-        await signup(
-          usernameInputRef.current.value,
-          passwordInputRef.current.value,
-          role
-        );
+        await signup(username, password, role);
       } else {
-        await login(
-          usernameInputRef.current.value,
-          passwordInputRef.current.value
-        );
+        await login(username, password);
       }
       hideModal();
       onSuccess();
     } catch (error) {
       setError(
-        error.response?.data?.message ||
-          "An error occurred during the authentication process."
+        error.response?.data?.error ||
+          "An error occurred during the authentication process.Try Again!"
       );
     } finally {
       setLoading(false);
@@ -88,18 +90,28 @@ export const AuthForm = ({ type, onSuccess }) => {
               type="text"
               aria-label="Username"
               placeholder="Username"
-              ref={usernameInputRef}
+              value={username}
+              onChange={handleUsernameChange}
               disabled={loading}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
+            {usernameError && (
+              <div className="text-red-500 text-sm mb-3">{usernameError}</div>
+            )}
+
             <input
               type="password"
               aria-label="Password"
               placeholder="Password"
-              ref={passwordInputRef}
+              value={password}
+              onChange={handlePasswordChange}
               disabled={loading}
               className="block w-full mb-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
             />
+            {passwordError && (
+              <div className="text-red-500 text-sm mb-3">{passwordError}</div>
+            )}
+
             {formMode === "signup" && (
               <div className="mb-4">
                 <label className="block mb-2 font-bold">Role</label>
