@@ -9,6 +9,9 @@
   background: rgba(240, 237, 25, 0.91);
   color: #000000;
   font-size: 12px;
+  text-align: center;
+  display: grid;
+  place-items: center;
 }
 
 .HomePage-text p {
