@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Loading } from "./Loading";
+import { Link, useNavigate } from "react-router-dom";
+
 import { useUserStore } from "../stores/useUserStore";
-import { Button } from "./Button";
 import { AnimationSuccess } from "./AnimationSuccess";
+import { Button } from "./Button";
 import { Error } from "./Error";
+import { Loading } from "./Loading";
 
 export const Form = ({ isLogin }) => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ export const Form = ({ isLogin }) => {
     if (response) {
       setShowSuccess(true);
       setTimeout(() => {
-        navigate(`${isLogin ? "/mypage" : "/login"}`);
+        navigate("/mypage");
       }, 2000);
     }
   };

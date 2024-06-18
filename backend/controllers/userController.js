@@ -12,7 +12,12 @@ export const registerUser = asyncHandler(async (req, res) => {
     password: bcrypt.hashSync(password, 10),
   });
   await user.save();
-  res.status(201).json({ message: "Sign up successfully", success: true });
+  res.status(201).json({
+    message: "Sign up successfully.",
+    success: true,
+    accessToken: user.accessToken,
+    id: user.id,
+  });
 });
 
 export const loginUser = asyncHandler(async (req, res) => {
