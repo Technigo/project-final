@@ -131,11 +131,9 @@ export const AllPlanets = () => {
 
   // Array to define the order of planets based on the switch statement
   const planetOrder = [
-    "sun",
     "mercury",
     "venus",
     "tellus",
-    "moon",
     "mars",
     "jupiter",
     "saturn",
