@@ -1,8 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
-import breadcrumbIcon from "../assets/icon-breadcrumb.svg";
 import PropTypes from "prop-types";
+import { Link, useLocation } from "react-router-dom";
 
-export const Breadcrumb = ({ lastBreadcrumbOverride }) => {
+import breadcrumbIcon from "../assets/icon-breadcrumb.svg";
+
+export const Breadcrumb = ({ lastBreadcrumbOverride, notFound }) => {
   const { pathname } = useLocation();
   const pathnames = pathname.split("/").filter((x) => x);
 
@@ -17,31 +18,35 @@ export const Breadcrumb = ({ lastBreadcrumbOverride }) => {
             <img src={breadcrumbIcon} alt="breadcrumb icon" className="mx-4" />
           )}
         </li>
-
-        {pathnames.map((name, position) => {
-          const goTo = `/${pathnames.slice(0, position + 1).join("/")}`;
-          const positionIsLast = position === pathnames.length - 1;
-          const displayPathName = name.toUpperCase().replace(/-/g, " ");
-
-          return (
-            <li key={name} className="flex items-center text-sm text-blue">
-              {positionIsLast ? (
-                <span>{lastBreadcrumbOverride || displayPathName}</span>
-              ) : (
-                <>
-                  <Link to={goTo} className="cursor-pointer">
-                    {displayPathName}
-                  </Link>
-                  <img
-                    src={breadcrumbIcon}
-                    alt="breadcrumb icon"
-                    className="mx-4"
-                  />
-                </>
-              )}
-            </li>
-          );
-        })}
+        {notFound && (
+          <li className="flex items-center text-sm text-blue">
+            <span>NOT FOUND</span>
+          </li>
+        )}
+        {!notFound &&
+          pathnames.map((name, position) => {
+            const goTo = `/${pathnames.slice(0, position + 1).join("/")}`;
+            const positionIsLast = position === pathnames.length - 1;
+            const displayPathName = name.toUpperCase().replace(/-/g, " ");
+            return (
+              <li key={name} className="flex items-center text-sm text-blue">
+                {positionIsLast ? (
+                  <span>{lastBreadcrumbOverride || displayPathName}</span>
+                ) : (
+                  <>
+                    <Link to={goTo} className="cursor-pointer">
+                      {displayPathName}
+                    </Link>
+                    <img
+                      src={breadcrumbIcon}
+                      alt="breadcrumb icon"
+                      className="mx-4"
+                    />
+                  </>
+                )}
+              </li>
+            );
+          })}
       </ol>
     </nav>
   );
@@ -49,4 +54,5 @@ export const Breadcrumb = ({ lastBreadcrumbOverride }) => {
 
 Breadcrumb.propTypes = {
   lastBreadcrumbOverride: PropTypes.string,
+  notFound: PropTypes.bool,
 };

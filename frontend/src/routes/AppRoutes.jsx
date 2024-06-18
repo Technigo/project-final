@@ -18,13 +18,11 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/products" element={<ProductList />} />
+      <Route exact path="/products" element={<ProductList />} />
       <Route path="/products/:Id" element={<ProductDetail />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
-
-      <Route path="/not-found" element={<NotFound />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route element={<AuthRoute />}>
         <Route path="/mypage" element={<MyPage />} />
@@ -33,6 +31,7 @@ export const AppRoutes = () => {
           <Route path="/checkout" element={<Checkout />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
