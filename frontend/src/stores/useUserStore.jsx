@@ -121,6 +121,10 @@ export const useUserStore = create(
             throw new Error(data.message);
           }
           console.log("Sign up successfully!");
+          set({
+            userId: data.id,
+            accessToken: data.accessToken,
+          });
           return true;
         } catch (error) {
           set({
