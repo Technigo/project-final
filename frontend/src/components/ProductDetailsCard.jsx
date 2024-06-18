@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
-import favorite from "../assets/favorite-icon.svg";
-import { Button } from "./Button";
-import { HeartButton } from "./HeartButton";
-import { useUserStore } from "../stores/useUserStore";
 import { useState } from "react";
+
+import favorite from "../assets/favorite-icon.svg";
+import { useUserStore } from "../stores/useUserStore";
+import { Button } from "./Button";
+import { CategoryButton } from "./CategoryButton";
+import { HeartButton } from "./HeartButton";
 import { SideDrawer } from "./SideDrawer";
 import { TagButton } from "./TagButton";
-import { CategoryButton } from "./CategoryButton";
 
 export const ProductDetailsCard = ({
   numOfLikes,
@@ -18,14 +19,17 @@ export const ProductDetailsCard = ({
   category,
   id,
 }) => {
-  const { accessToken, handleCart } = useUserStore((state) => ({
-    accessToken: state.accessToken,
-    handleCart: state.handleCart,
-  }));
+  const { accessToken, handleCart, handleNonLoginCart } = useUserStore(
+    (state) => ({
+      accessToken: state.accessToken,
+      handleCart: state.handleCart,
+      handleNonLoginCart: state.handleNonLoginCart,
+    }),
+  );
   const [openDrawer, setOpenDrawer] = useState(false);
   const addToCart = () => {
     if (!accessToken) {
-      setOpenDrawer(true);
+      handleNonLoginCart(id);
     } else {
       handleCart(id);
     }

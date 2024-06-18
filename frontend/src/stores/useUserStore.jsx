@@ -15,6 +15,21 @@ export const useUserStore = create(
       error: null,
       cart: [],
       favorite: [],
+      handleNonLoginCart: (productId, action) => {
+        switch (action) {
+          case "remove":
+            set((state) => ({
+              cart: state.cart.filter((itemId) => itemId !== productId),
+            }));
+            break;
+          default:
+            set((state) => ({
+              cart: [...state.cart, productId],
+            }));
+            break;
+        }
+      },
+      clearNonLoginCart: () => set({ cart: [] }),
       resetError: () => set({ error: null }),
       logout: () =>
         set({
@@ -22,8 +37,8 @@ export const useUserStore = create(
           accessToken: null,
           username: null,
           email: null,
-          cart: [],
           favorite: [],
+          cart: [],
         }),
       clearCart: async () => {
         try {
@@ -63,7 +78,10 @@ export const useUserStore = create(
               "Access-Control-Allow-Origin": FRONTEND_URL,
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify({
+              ...formData,
+              cartItems: get().cart,
+            }),
           });
           const data = await response.json();
           if (!response.ok) {

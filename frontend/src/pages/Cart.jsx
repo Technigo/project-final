@@ -5,18 +5,20 @@ import { Button } from "../components/Button";
 import { CartItem } from "../components/CartItem";
 import { EmptyCart } from "../components/EmptyCart";
 import { Loading } from "../components/Loading";
+import { OrderValue } from "../components/OrderValue";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
-import { OrderValue } from "../components/OrderValue";
 
 export const Cart = () => {
-  const { cart, clearCart, loading } = useUserStore((state) => ({
-    cart: state.cart,
-    clearCart: state.clearCart,
-    loading: state.loading,
-  }));
+  const { accessToken, cart, clearCart, clearNonLoginCart, loading } =
+    useUserStore((state) => ({
+      accessToken: state.accessToken,
+      cart: state.cart,
+      clearCart: state.clearCart,
+      clearNonLoginCart: state.clearNonLoginCart,
+      loading: state.loading,
+    }));
   const products = useProductStore((state) => state.products);
-
   return (
     <>
       <Breadcrumb />
@@ -66,7 +68,9 @@ export const Cart = () => {
               <Button
                 text="CLEAR CART"
                 style="button"
-                onClickFunc={clearCart}
+                onClickFunc={() => {
+                  accessToken ? clearCart() : clearNonLoginCart();
+                }}
                 disabled={cart.length === 0}
               />
             </div>

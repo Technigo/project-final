@@ -1,20 +1,24 @@
 import PropTypes from "prop-types";
-import { useUserStore } from "../stores/useUserStore";
+
 import cartIconBlue from "../assets/cart-blue.svg";
 import cartIconFilled from "../assets/cart-icon-filled.svg";
+import { useUserStore } from "../stores/useUserStore";
 
-export const CartButton = ({ id, setOpenDrawer }) => {
-  const { accessToken, cart, handleCart } = useUserStore((state) => ({
-    accessToken: state.accessToken,
-    cart: state.cart,
-    handleCart: state.handleCart,
-  }));
+export const CartButton = ({ id }) => {
+  const { accessToken, cart, handleCart, handleNonLoginCart } = useUserStore(
+    (state) => ({
+      accessToken: state.accessToken,
+      cart: state.cart,
+      handleCart: state.handleCart,
+      handleNonLoginCart: state.handleNonLoginCart,
+    }),
+  );
 
   const isInCart = cart.includes(id);
 
   const handleCartItem = () => {
     if (!accessToken) {
-      setOpenDrawer(true);
+      handleNonLoginCart(id, isInCart ? "remove" : "add");
     } else {
       handleCart(id, isInCart ? "remove" : "add");
     }
@@ -36,5 +40,4 @@ export const CartButton = ({ id, setOpenDrawer }) => {
 
 CartButton.propTypes = {
   id: PropTypes.string.isRequired,
-  setOpenDrawer: PropTypes.func.isRequired,
 };
