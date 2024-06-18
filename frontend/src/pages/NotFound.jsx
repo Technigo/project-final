@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
+
 import notFoundImage from "../assets/not-found.jpg";
 import { Breadcrumb } from "../components/Breadcrumb";
 
 export const NotFound = () => {
   return (
     <>
-      <Breadcrumb />
-      <div className="flex max-w-md justify-center">
-        <div className="mx-6 my-10">
-          <img
-            src={notFoundImage}
-            alt="Page Not Found"
-            className="w-full"
-          />
+      <Breadcrumb notFound={true} />
+      <div className="flex justify-center">
+        <div className="mx-6 my-10 max-w-md">
+          <img src={notFoundImage} alt="Page Not Found" className="w-full" />
           <div>
             <h1 className="mb-6 mt-10 font-poppins font-bold text-black">
               Oops!
