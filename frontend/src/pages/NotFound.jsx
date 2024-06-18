@@ -5,7 +5,7 @@ import { Breadcrumb } from "../components/Breadcrumb";
 
 export const NotFound = () => {
   return (
-    <>
+    <main>
       <Breadcrumb notFound={true} />
       <div className="flex justify-center">
         <div className="mx-6 my-10 max-w-md">
@@ -40,6 +40,6 @@ export const NotFound = () => {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };

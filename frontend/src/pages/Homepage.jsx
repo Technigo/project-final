@@ -1,16 +1,16 @@
-import { useEffect } from "react";
-import { useProductStore } from "../stores/useProductStore";
-import { Link } from "react-router-dom";
 import { Carousel } from "@material-tailwind/react";
 import { ThemeProvider } from "@material-tailwind/react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import arrowUp from "../assets/arrow-up-icon.svg";
 import checkMark from "../assets/check-icon.svg";
 import ctaImg from "../assets/ctaImg.jpg";
 import pen from "../assets/pen-icon.svg";
 import { Button } from "../components/Button";
-import { Testimonial } from "../components/Testimonial";
 import { CategoryCard } from "../components/CategoryCard";
+import { Testimonial } from "../components/Testimonial";
+import { useProductStore } from "../stores/useProductStore";
 
 export const Homepage = () => {
   // Getting product data for carosel

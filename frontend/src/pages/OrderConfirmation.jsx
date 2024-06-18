@@ -1,9 +1,14 @@
+import { Navigate } from "react-router-dom";
+
 import thankYouImage from "../assets/thank-you.jpg";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { useProductStore } from "../stores/useProductStore";
 
 export const OrderConfirmation = () => {
+  const checkoutComplete = useProductStore((state) => state.checkoutComplete);
+  if (!checkoutComplete) return <Navigate to="/checkout" replace />;
   return (
-    <>
+    <main>
       <Breadcrumb />
       <div className="flex w-full justify-center lg:justify-start">
         <div className="mx-6 flex flex-col items-center lg:mx-auto lg:max-w-screen-lg lg:flex-initial lg:items-start">
@@ -33,6 +38,6 @@ export const OrderConfirmation = () => {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };

@@ -20,7 +20,7 @@ export const Cart = () => {
     }));
   const products = useProductStore((state) => state.products);
   return (
-    <>
+    <main>
       <Breadcrumb />
       <div className="flex w-full justify-center lg:justify-start">
         <div className="mx-auto flex w-full flex-col items-center justify-center lg:max-w-screen-md">
@@ -83,6 +83,6 @@ export const Cart = () => {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };

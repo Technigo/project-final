@@ -6,13 +6,13 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 import avatar from "../assets/avatar.png";
-import { ProductCard } from "../components/ProductCard";
-import { useUserStore } from "../stores/useUserStore";
-import { useProductStore } from "../stores/useProductStore";
-import { Button } from "../components/Button";
 import { Breadcrumb } from "../components/Breadcrumb";
-import { Loading } from "../components/Loading";
+import { Button } from "../components/Button";
 import { Error } from "../components/Error";
+import { Loading } from "../components/Loading";
+import { ProductCard } from "../components/ProductCard";
+import { useProductStore } from "../stores/useProductStore";
+import { useUserStore } from "../stores/useUserStore";
 
 export const MyPage = () => {
   const products = useProductStore((state) => state.products);
@@ -36,9 +36,8 @@ export const MyPage = () => {
   };
 
   return (
-    <>
+    <main>
       <Breadcrumb />
-
       <div className="mx-6 mb-20 flex flex-col items-center">
         {error && <Error error={error} />}
         {!loading ? (
@@ -70,7 +69,10 @@ export const MyPage = () => {
             </div>
             <div className="flex flex-col items-center justify-between lg:flex-row">
               <div className="flex flex-row items-center gap-2">
-                <MdDelete className="h-8 w-8 text-blue" aria-label="delete product" />
+                <MdDelete
+                  className="h-8 w-8 text-blue"
+                  aria-label="delete product"
+                />
                 <p className="font-montserrat font-bold">Delete account</p>
               </div>
               <button
@@ -108,6 +110,6 @@ export const MyPage = () => {
               ))}
         </div>
       </div>
-    </>
+    </main>
   );
 };

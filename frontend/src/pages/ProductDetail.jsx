@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Error } from "../components/Error";
 import { Loading } from "../components/Loading";
 import { ProductDetailsCard } from "../components/ProductDetailsCard";
 import { useProductStore } from "../stores/useProductStore";
-import { Error } from "../components/Error";
 
 export const ProductDetail = () => {
   const { getSingleProduct, loading, error, product } = useProductStore();
@@ -19,11 +20,11 @@ export const ProductDetail = () => {
   }
 
   return (
-    <>
+    <main>
       <Breadcrumb
         lastBreadcrumbOverride={product && product.templateName.toUpperCase()}
       />
-      <div className="mx-6 mb-20 mt-10 lg:my-20">
+      <div className="mx-6 mb-20 mt-10 place-content-center lg:my-20">
         {error && <Error error={error} />}
         {product && (
           <ProductDetailsCard
@@ -38,6 +39,6 @@ export const ProductDetail = () => {
           />
         )}
       </div>
-    </>
+    </main>
   );
 };

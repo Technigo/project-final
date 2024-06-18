@@ -1,9 +1,9 @@
-import { Form } from "../components/Form";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { Form } from "../components/Form";
 
 export const Signup = () => {
   return (
-    <>
+    <main>
       <Breadcrumb />
       <div className="flex w-full justify-center lg:justify-start">
         <div className="mx-auto flex w-full flex-col items-center lg:max-w-screen-md lg:flex-initial lg:items-start">
@@ -13,6 +13,6 @@ export const Signup = () => {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };

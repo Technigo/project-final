@@ -1,21 +1,25 @@
 import { useForm } from "react-hook-form";
+
 import { AccountInfo } from "../components/AccountInfo";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { Button } from "../components/Button";
 import { CartItem } from "../components/CartItem";
 import { Dropdown } from "../components/Dropdown";
 import { EmptyCart } from "../components/EmptyCart";
+import { OrderValue } from "../components/OrderValue";
 import { PaymentForm } from "../components/PaymentForm";
 import { ShippingForm } from "../components/ShippingForm";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
-import { OrderValue } from "../components/OrderValue";
 
 export const Checkout = () => {
   const { cart } = useUserStore((state) => ({
     cart: state.cart,
   }));
-  const products = useProductStore((state) => state.products);
+  const { products, handleCheckOut } = useProductStore((state) => ({
+    products: state.products,
+    handleCheckOut: state.handleCheckOut,
+  }));
 
   const {
     register,
@@ -25,6 +29,7 @@ export const Checkout = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    handleCheckOut();
   };
   const fillDummyData = () => {
     reset(
@@ -43,11 +48,10 @@ export const Checkout = () => {
         cvc: "123",
       },
       { keepTouched: false },
-      // { keepIsSubmitted: true, keepDirtyValues: false },
     );
   };
   return (
-    <>
+    <main>
       <Breadcrumb />
       <div className="mb-20 mt-10">
         <form
@@ -118,6 +122,6 @@ export const Checkout = () => {
           </p>
         </form>
       </div>
-    </>
+    </main>
   );
 };

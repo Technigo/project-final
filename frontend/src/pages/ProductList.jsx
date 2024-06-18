@@ -7,9 +7,9 @@ import { Error } from "../components/Error";
 import { Loading } from "../components/Loading";
 import { Pagination } from "../components/Pagination";
 import { ProductCard } from "../components/ProductCard";
+import { SideDrawer } from "../components/SideDrawer";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
-import { SideDrawer } from "../components/SideDrawer";
 
 export const ProductList = () => {
   // use this mapping to only fetch the specific states from zustand
@@ -22,8 +22,9 @@ export const ProductList = () => {
       categories: state.categories,
     }));
 
-  const { errorUser } = useUserStore((state) => ({
+  const { errorUser, resetError } = useUserStore((state) => ({
     errorUser: state.error,
+    resetError: state.resetError,
   }));
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -60,7 +61,15 @@ export const ProductList = () => {
   // useEffect 1: fetch products if null
   useEffect(() => {
     !products && getAllProducts();
-  }, [getAllProducts, products, displayedProducts, itemsPerPage, currentPage]);
+    resetError();
+  }, [
+    getAllProducts,
+    products,
+    displayedProducts,
+    itemsPerPage,
+    currentPage,
+    resetError,
+  ]);
 
   // useEffect 2: set current page as 1 when category, sort by and search fields change
   useEffect(() => {
@@ -124,7 +133,7 @@ export const ProductList = () => {
   }
 
   return (
-    <>
+    <main>
       <Breadcrumb />
       <div className="flex w-full justify-center lg:justify-start">
         <div className="mx-auto flex w-full flex-col items-center p-6 lg:max-w-screen-md lg:flex-initial lg:items-start">
@@ -230,6 +239,6 @@ export const ProductList = () => {
           />
         </>
       )}
-    </>
+    </main>
   );
 };

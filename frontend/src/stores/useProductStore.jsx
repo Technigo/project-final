@@ -22,6 +22,8 @@ export const useProductStore = create(
         "Travel and Adventure",
       ],
       product: null,
+      checkoutComplete: false,
+      handleCheckOut: () => set({ checkoutComplete: true }),
       getAllProducts: async () => {
         set({ loading: true, error: null });
         try {
@@ -130,7 +132,6 @@ export const useProductStore = create(
       partialize: (state) => ({
         products: state.products,
         categories: state.categories,
-        product: state.product,
       }),
     },
   ),

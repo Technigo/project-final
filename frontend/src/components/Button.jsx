@@ -11,8 +11,8 @@ export const Button = ({ text, style, navTo, onClickFunc, disabled, type }) => {
 
   return (
     <button
-      onClick={() => {
-        onClickFunc && onClickFunc();
+      onClick={async () => {
+        onClickFunc && (await onClickFunc());
         navigate(navTo);
       }}
       className={`${style === "white" ? whiteStyle : blueStyle} min-h-12 min-w-48 rounded px-4 font-montserrat text-base font-bold hover:bg-button-hover`}
