@@ -7,10 +7,10 @@ export default {
         "cta-blue": "#002795",
         "cta-blue-hover": "#1138a6",
 
-        "main-green": "#97a65D",
+        "main-green": "rgba(132, 150, 77, 0.8)",
 
         "main-yellow-check": "#FFE486",
-        "strong-yellow": "#FFDE68",
+        "strong-yellow": "rgba(255, 215, 51, 0.8)",
         "main-yellow": "#FFDE68",
 
         "main-white": "#FFFDF6",

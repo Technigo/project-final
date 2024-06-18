@@ -70,7 +70,7 @@ export const ReviewForm = () => {
 
   const characterLimit = () => {
     if (charCheck) {
-      return "transition-opacity duration-500 opacity-100 text-text-dark text-right";
+      return " transition-opacity duration-500 opacity-100 text-text-dark text-right";
     } else {
       return "transition-opacity duration-500 opacity-0 text-text-dark text-right ";
     }
@@ -81,8 +81,8 @@ export const ReviewForm = () => {
       {loadingProduct ? (
         <Loading />
       ) : (
-        <div className="w-full">
-          <div className="w-9/12 m-auto text-text-light font-heading">
+        <>
+          <div className="w-9/12 max-w-[700px] m-auto text-text-light font-heading">
             <h2>Write review for {product.title}</h2>
 
             <form id="reviewForm">
@@ -97,26 +97,24 @@ export const ReviewForm = () => {
                 onChange={handleMessage}
               ></textarea>
               <div className="lower-info flex justify-between align-center my-2">
-                <div className="stars">
-                  <StarRating
+                 <p className={characterLimit()}>{characters}/140</p>
+                <div className="flex gap-2 justify-items-center gap-12">
+                <StarRating
                     selectedStars={selectedStars}
                     setSelectedStars={setSelectedStars}
                   />
-                </div>
-                <div className="flex flex-col gap-2 justify-items-center">
                   <button
-                    className="send-button bg-button-light text-text-dark px-6 py-2 rounded-full hover:bg-button-varm-light hover:cursor-pointer"
+                    className="send-button bg-main-yellow text-text-dark px-6 py-2 rounded-full hover:bg-strong-yellow hover:cursor-pointer"
                     onClick={handleSend}
                     disabled={charCheck}
                   >
                     Send review
                   </button>
-                  <p className={characterLimit()}>{characters}/140</p>
                 </div>
               </div>
             </form>
           </div>
-        </div>
+        </>
       )}
     </section>
   );

@@ -109,6 +109,8 @@ export const SingleProductPage = () => {
                   {product.title}
                 </h3>
                 <p className="mb-8 leading-loose">{product.description}</p>
+                <div className="flex flex-col desktop:flex-row">
+                <div>
                 <div className="mb-12 flex">
                   <MdOutlineStar />
                   <MdOutlineStar />
@@ -146,24 +148,84 @@ export const SingleProductPage = () => {
   <div className="flex my-8 gap-2">
     {product.pros.includes("crueltyfree") && (
       // Content for cruelty-free products
-      <img src="/crueltyfree.svg" alt="cruelty free" className="w-14 h-14" />
+     <img src="/crueltyfree.svg" alt="cruelty free" title="Cruelty free" className="w-14 h-14" />
+      
     )}
     {product.pros.includes("organic") && (
       // Content for organic products
-      <img src="/organic.svg" alt="organic" className="w-14 h-14" />
+      <img src="/organic.svg" alt="organic" title="Organic" className="w-14 h-14" />
     )}
      {product.pros.includes("vegan") && (
       // Content for organic products
-      <img src="/vegan.svg" alt="vegan" className="w-14 h-14" />
+      <img src="/vegan.svg" alt="vegan" title="Vegan" className="w-14 h-14" />
     )}
   </div>
-)}
+)}</div>
+<div className="tablet:hidden desktop:flex text-text-dark flex-col ml-20 gap-10">
+{!loggedIn && product.skin.length > 0 && (
+              <div className="w-11/12 m-auto desktop:w-9/12 relative">
+                <h4 className="text-text-light font-bold">Recommended for skintypes: </h4>
+                <ul className="list-none flex flex-col laptop:flex-row flex-wrap justify-evenly gap-4">
+                  {product.skin.map((item, index) => (
+                    <li
+                      key={index}
+                      className="bg-button-varm-light w-36 text-center p-2 rounded-xl"
+                    >
+                      {" "}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+               {!loggedIn && product.hair.moisture.length > 0 &&  (
+              <div className= "w-11/12 m-auto laptop:w-full relative flex flex-col gap-2">
+              <h4 className="text-text-light font-bold">Recommended for hair moisture level: </h4>
+              <ul className="list-none flex flex-col laptop:flex-row flex-wrap gap-4">
+              {product.hair.moisture.map((item, index) => (
+          <li key={index} className="bg-button-varm-light w-20 text-center  p-2 rounded-xl">
+            {item}
+          </li>
+        ))}
+              </ul>
+            </div>
+            )}
+                  {!loggedIn && product.hair.shape.length > 0 &&  (
+              <div className="w-11/12 m-auto laptop:w-full relative flex flex-col gap-2">
+              <h4 className="text-text-light font-bold">Recommended for hairshape: </h4>
+              <ul className="list-none flex flex-col laptop:flex-row flex-wrap gap-4">
+              {product.hair.shape.map((item, index) => (
+          <li key={index} className="bg-button-varm-light w-24 p-2 text-center rounded-xl">
+            {item}
+          </li>
+        ))}
+              </ul>
+            </div>
+            )}
+
+            {!loggedIn && product.allergies.length > 0 &&(
+              <div className="w-11/12 m-auto desktop:w-full justify-evenly relative flex flex-col gap-2">
+              <h4 className="text-text-light font-bold">Allergens: </h4>
+              <ul className="list-none flex flex-col laptop:flex-row flex-wrap gap-4 items-center">
+              {product.allergies.map((item, index) => (
+          <li key={index} className="bg-button-varm-light w-fit p-2 text-center rounded-xl">
+            {item}
+          </li>
+        ))
+            }
+              </ul>
+            </div>
+            )
+             }
+</div>
+</div>
               </div>
             </div>
-            {/*  Needs more styling, thinking its good to have some info even if its not recommended for you */}
-            {!loggedIn && product.skin.length > 0 && (
+            {/* Different position of the same content for tablet */}
+            <div className="hidden tablet:block desktop:hidden">
+{!loggedIn && product.skin.length > 0 && (
               <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
-                <h4>Recommended for: </h4>
+                <h4 className="text-text-light font-bold">Recommended for skintype: </h4>
                 <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
                   {product.skin.map((item, index) => (
                     <li
@@ -177,27 +239,37 @@ export const SingleProductPage = () => {
                 </ul>
               </div>
             )}
-            {!loggedIn && product.hair && Object.keys(product.hair).length > 0 && Object.values(product.hair).some(arr => arr.length > 0) &&  (
+            {!loggedIn && product.hair.moisture.length > 0 &&  (
               <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
-              <h4>Recommended for: </h4>
+              <h4 className="text-text-light font-bold">Recommended for hairtype: </h4>
               <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
-              {Object.keys(product.hair).map((key) =>
-        product.hair[key].map((item, index) => (
-          <li key={`${key}-${index}`} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl">
+              {product.hair.moisture.map((item, index) => (
+          <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl">
             {item}
           </li>
-        ))
-      )}
+        ))}
+              </ul>
+            </div>
+            )}
+                  {!loggedIn && product.hair.shape.length > 0 &&  (
+              <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
+              <h4 className="text-text-light font-bold">Recommended for hairshape: </h4>
+              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
+              {product.hair.shape.map((item, index) => (
+          <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl">
+            {item}
+          </li>
+        ))}
               </ul>
             </div>
             )}
 
             {!loggedIn && product.allergies.length > 0 &&(
               <div className="w-11/12 m-auto tablet:flex pb-12 desktop:w-9/12 relative">
-              <h4>Allergens: </h4>
-              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly gap-4">
+              <h4 className="text-text-light font-bold">Allergens: </h4>
+              <ul className="list-none flex flex-col tablet:flex-row flex-wrap justify-evenly items-center gap-4">
               {product.allergies.map((item, index) => (
-          <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 rounded-xl">
+          <li key={index} className="ml-4 bg-button-varm-light w-36 p-2 justify-self-center rounded-xl">
             {item}
           </li>
         ))
@@ -206,6 +278,7 @@ export const SingleProductPage = () => {
             </div>
             )
              }
+</div>
           </div>
         )}
       </section>

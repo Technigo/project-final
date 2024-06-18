@@ -20,15 +20,15 @@ const Star = ({ filled, onClick }) => {
     <FontAwesomeIcon
       icon={filled ? filledStar : emptyStar}
       onClick={onClick}
-          style={filled ? {color: "gold" } : { color: "grey"}}
+          style={filled ? {color: "gold" } : { color: "white"}}
           className="cursor-pointer hover:opacity-75 text-main-yellow"
     />
   );
 };
 
   return (
-    <>
-      <div className="flex">
+    <div className="flex flex-col gap-2">
+      <div className="flex gap-1">
         {[...Array(totalStars)].map((_, index) => (
           <Star
             key={index}
@@ -37,10 +37,10 @@ const Star = ({ filled, onClick }) => {
           />
         ))}
       </div>
-      <p>
+      <p className="text-center">
         {selectedStars} of {totalStars} stars
       </p>
-    </>
+    </div>
   );
 };
 
