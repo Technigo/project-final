@@ -1,2 +1,17 @@
-.HomePage {
+.HomePage-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background: rgba(240, 237, 25, 0.91);
+  color: #000000;
+  font-size: 12px;
+}
+
+.HomePage-text p {
+  max-width: 400px;
+  margin: 10px;
 }
