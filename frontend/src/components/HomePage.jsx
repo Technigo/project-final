@@ -20,10 +20,13 @@ export const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-100 ">
       <Menu />
-      <header
-        className="relative h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <header className="relative h-screen">
+        <img
+          src={heroImage}
+          alt="Community Background"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
         <div className="absolute inset-0 bg-primary bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-light">
             <h1 className="text-4xl font-bold ">
