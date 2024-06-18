@@ -16,10 +16,16 @@ export const registerUser = asyncHandler(async (req, res) => {
 });
 
 export const loginUser = asyncHandler(async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, cartItems } = req.body;
   const user = await User.findOne({ username }).exec();
 
   if (user && bcrypt.compareSync(password, user.password)) {
+    if (cartItems) {
+      await User.updateOne(
+        { username: username },
+        { $addToSet: { cartItems: { $each: cartItems } } }
+      );
+    }
     res.status(200).json({
       message: "Login Successful.",
       success: true,
@@ -68,7 +74,6 @@ export const handleCart = asyncHandler(async (req, res) => {
       { new: true }
     )
       .select("cartItems -_id")
-      // .populate("cartItems", " -__v")
       .exec();
     res.status(200).json(user);
   } else {
@@ -81,7 +86,6 @@ export const handleCart = asyncHandler(async (req, res) => {
       }
     )
       .select("cartItems -_id")
-      // .populate("cartItems", "-__v")
       .exec();
     res.status(200).json(user);
   }
@@ -97,7 +101,6 @@ export const handleFavorite = asyncHandler(async (req, res) => {
       { new: true }
     )
       .select("favoriteTemplates -_id")
-      // .populate("favoriteTemplates", " -__v")
       .exec();
     res.status(200).json(user);
   } else {
@@ -110,7 +113,6 @@ export const handleFavorite = asyncHandler(async (req, res) => {
       }
     )
       .select("favoriteTemplates -_id")
-      // .populate("favoriteTemplates", " -__v")
       .exec();
     res.status(200).json(user);
   }

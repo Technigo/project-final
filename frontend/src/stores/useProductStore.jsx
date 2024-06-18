@@ -22,8 +22,6 @@ export const useProductStore = create(
         "Travel and Adventure",
       ],
       product: null,
-      // tag: null,
-      // setTag: (tag) => set({ tag: tag }),
       getAllProducts: async () => {
         set({ loading: true, error: null });
         try {
