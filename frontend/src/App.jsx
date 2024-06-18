@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// here i imported the router ... https://github.com/remix-run/react-router/tree/dev/examples/view-transitions 
+// here i imported the router ... https://github.com/remix-run/react-router/tree/dev/examples/view-transitions
 import {
   createBrowserRouter,
   Link,
@@ -8,14 +8,14 @@ import {
   useLocation,
 } from "react-router-dom";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
-import { Note } from "./Note";
-import { HomePage } from "./HomePage";
-import { FormPage } from "./FormPage";
+import { Note } from "./components/Note";
+import { HomePage } from "./components/HomePage";
+import { FormPage } from "./components/FormPage";
 import { LocationContext } from "./LocationContext";
 import "./App.css";
 
 const sweden = { lat: 62.3875, lng: 16.325556 };
-// https://github.com/remix-run/react-router/blob/dev/examples/view-transitions/src/main.tsx 
+// https://github.com/remix-run/react-router/blob/dev/examples/view-transitions/src/main.tsx
 // https://stackblitz.com/github/remix-run/react-router/tree/main/examples/view-transitions?file=README.md this is how to make the note slide in and out
 const router = createBrowserRouter([
   {
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
 
           <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
             <Map
-            // here we choose from where on the map we want to start
+              // here we choose from where on the map we want to start
               className="App-map"
               defaultCenter={sweden}
               defaultZoom={5}

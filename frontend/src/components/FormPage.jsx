@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import Button from "@mui/material/Button";
-import { LocationContext } from "./LocationContext";
+import { LocationContext } from "../LocationContext";
 import "./FormPage.css";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
