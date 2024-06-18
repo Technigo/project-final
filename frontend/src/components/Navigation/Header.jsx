@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  color: var(--text-color-secondary);
+  color: var(--text-color);
   font-family: var(--font-family-main);
   box-sizing: border-box;
 
@@ -87,6 +87,12 @@ const MobileMenuWrapper = styled.div`
 
 const BreadcrumbContainer = styled.div`
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 `
 
 export const Header = () => {
