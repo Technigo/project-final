@@ -4,7 +4,7 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { WelcomeMessage } from "./WelcomeMessage";
 import { useProductsStore } from "../store/useProductsStore";
 
@@ -16,6 +16,7 @@ const CheckoutForm = ({ totalPrice }) => {
   // const [paymentStatus, setPaymentStatus] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [showCardDetails, setShowCardDetails] = useState(false);
+  const [isCardComplete, setIsCardComplete] = useState(false);
 
   console.log("totalprice in checkoutform: ", totalPrice);
   // Define the product details
@@ -42,6 +43,25 @@ const CheckoutForm = ({ totalPrice }) => {
       },
     },
   };
+
+  useEffect(() => {
+    if (!elements) return;
+
+    const cardElement = elements.getElement(CardElement);
+
+    if (cardElement) {
+      const handleChange = (event) => {
+        setIsCardComplete(event.complete);
+      };
+
+      cardElement.on('change', handleChange);
+
+      return () => {
+        cardElement.off('change', handleChange);
+      };
+    }
+  }, [elements]);
+
 
   // function handlePaymentWrapper(stripe, elements) {
   //   handlePayment(stripe, elements);
@@ -89,7 +109,7 @@ const CheckoutForm = ({ totalPrice }) => {
             <button
               type="submit"
               className="bg-cta-blue text-text-light m-auto w-[180px] rounded-full px-5 p-2 mt-8"
-              disabled={!stripe || isLoading}
+              disabled={!stripe || isLoading  || !isCardComplete}
             >
               {isLoading ? "Processing..." : "Buy Now"}
             </button>
@@ -110,10 +130,10 @@ const CheckoutForm = ({ totalPrice }) => {
                 Number: <span className="font-black">4242 4242 4242 4242</span>
               </p>
               <p>
-                MM/ÅÅ: <span className="font-black">0225</span>
+                MM/ÅÅ: <span className="font-black">ANY (future)</span>
               </p>
               <p>
-                CVC, postal <span className="font-black">424, 42424</span>
+                CVC, postal <span className="font-black">ANY</span>
               </p>
             </div>
           )}

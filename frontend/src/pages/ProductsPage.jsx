@@ -69,14 +69,19 @@ export const ProductsPage = () => {
             product.pros &&
             product.pros.some((pro) => profile.pros.includes(pro));
 
-          const isNotAllergic =
-            !profile.allergies ||
-            (product.allergies &&
-              profile.allergies.every(
-                (allergy) => !product.allergies.includes(allergy)
-              ));
+            const isNotAllergic =
+            !profile.allergies.length || 
+            !product.allergies.length || 
+            !product.allergies.some(
+              (allergy) => profile.allergies.includes(allergy)
+            );
 
-          return isMatchingProfile || (isMatchingPros && isNotAllergic);
+            console.log("Product:", product.title);
+            console.log("Profile Allergies:", profile.allergies);
+            console.log("Product Allergies:", product.allergies);
+            console.log("isNotAllergic:", isNotAllergic);
+
+          return isNotAllergic && isMatchingProfile || isMatchingPros
         });
       } else {
         newFilteredProducts = newFilteredProducts.filter(
@@ -101,10 +106,7 @@ export const ProductsPage = () => {
     return sorted;
   }, [sortValue, filteredProducts]);
 
-  console.log("Filtered Product:", filteredProducts);
-  console.log("added", addedProduct);
-  console.log(filterValue);
-  console.log(sortValue);
+
 
   return (
     <>
