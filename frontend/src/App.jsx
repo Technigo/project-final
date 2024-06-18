@@ -1,8 +1,9 @@
-export const App = () => {
+import { Home } from "../src/pages/Home";
 
+export const App = () => {
   return (
     <>
-      <h1>Welcome to Final Project!</h1>
+      <Home />
     </>
   );
 };
