@@ -174,7 +174,7 @@ router.patch("/profile/:userId", async (req, res) => {
     if (updatedUser) {
       res
         .status(200)
-        .json({ updatedUser: updatedUser, message: "User was updated" });
+        .json({ user: updatedUser, message: "User was updated" });
     } else {
       res.status(404).json({ message: "There is no User with that ID." });
     }
