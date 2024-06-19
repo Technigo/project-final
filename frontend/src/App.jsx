@@ -7,11 +7,13 @@ import {
   RouterProvider,
   useLocation,
 } from "react-router-dom";
-import { APIProvider, Map } from "@vis.gl/react-google-maps";
-import { Note } from "./components/Note";
+
 import { HomePage } from "./components/HomePage";
 import { FormPage } from "./components/FormPage";
 import { LocationContext } from "./LocationContext";
+import { Map } from "./components/Map";
+import { Note } from "./components/Note";
+
 import "./App.css";
 
 const sweden = { lat: 62.3875, lng: 16.325556 };
@@ -60,18 +62,13 @@ const AppLayout = () => {
         </ul>
       </header>
 
-      <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-        <Map
-          // here we choose from where on the map we want to start
-          className="App-map"
-          defaultCenter={sweden}
-          defaultZoom={5}
-          center={pathname === "/new" && location.lat && location}
-          zoom={pathname === "/new" && location.lat !== sweden.lat && 16}
-          gestureHandling="greedy"
-          disableDefaultUI
-          mapId="happyangrynote"
-        >
+      <Map
+        defaultCenter={sweden}
+        defaultZoom={5}
+        center={pathname === "/new" && location.lat && location}
+        zoom={pathname === "/new" && location.lat !== sweden.lat && 16}
+      >
+        <>
           {pathname === "/" &&
             // this is so the user can open one note at a time
             notes.map((note) => (
@@ -88,9 +85,8 @@ const AppLayout = () => {
                 }}
               />
             ))}
-        </Map>
-      </APIProvider>
-
+        </>
+      </Map>
       <div className="App-outlet">
         <LocationContext.Provider value={location}>
           <Outlet />
