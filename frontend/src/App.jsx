@@ -65,7 +65,7 @@ const AppLayout = () => {
           // here we choose from where on the map we want to start
           className="App-map"
           defaultCenter={sweden}
-          defaultZoom={4}
+          defaultZoom={5}
           center={pathname === "/new" && location.lat && location}
           zoom={pathname === "/new" && location.lat !== sweden.lat && 16}
           gestureHandling="greedy"
