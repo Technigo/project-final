@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import EventCard from "../components/EventCard";
-import eventsData from "../data/events.json";
-import Footer from "../utilities/Footer";
-import HeroSection from "../utilities/HeroSection";
-import Menu from "../utilities/Menu";
+import EventCard from "./EventCard";
+import eventsData from "../../data/events.json";
+import Footer from "../../utilities/Footer";
+import HeroSection from "../../utilities/HeroSection";
+import Menu from "../../utilities/Menu";
 
 export const EventsPage = () => {
   const [flipped, setFlipped] = useState(null);

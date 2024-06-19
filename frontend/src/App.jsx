@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage } from "./components/HomePage";
-import { EventsPage } from "./components/EventsPage";
+import { EventsPage } from "./components/eventPage/EventsPage";
 import { AboutUsPage } from "./components/AboutUsPage";
 import { CommunityGuidelines } from "./components/CommunityGuidelines";
-import { FindOutMorePage } from "./components/FindOutMorePage";
 import { Profile } from "./components/registration/Profile";
 import { ModalProvider } from "./components/registration/ModalContext";
+import { FindOutMorePage } from "./mainPage/FindOutMorePage";
+import { HomePage } from "./mainPage/HomePage";
 
 export const App = () => {
   return (

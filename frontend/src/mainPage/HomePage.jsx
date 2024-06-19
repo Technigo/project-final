@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../utilities/Button";
 import Footer from "../utilities/Footer";
 import Menu from "../utilities/Menu";
-import { AuthForm } from "./registration/AuthForm";
-import { useModal } from "./registration/ModalContext";
+import { AuthForm } from "../components/registration/AuthForm";
+import { useModal } from "../components/registration/ModalContext";
 import Testimonials from "./Testimonials";
 
 export const HomePage = () => {
