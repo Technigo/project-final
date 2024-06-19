@@ -139,7 +139,7 @@ export const FilterBar = ({ setFilters }) => {
 }
 
 const FilterBarContainer = styled.div`
-  padding: 80px 0 20px 0;
+  padding: 80px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

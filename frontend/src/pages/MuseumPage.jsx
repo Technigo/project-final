@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { MuseumCardContainer } from "../components/MuseumCardContainer"
 import { FilterBar } from "../components/FilterBar"
 import { StyledButton } from "../components/styled/Button.styled"
-import { Background } from "../components/styled/Background.styled"
 import { MuseumMap } from "../components/MuseumMap"
 
 export const MuseumPage = () => {
@@ -76,7 +75,6 @@ export const MuseumPage = () => {
 
   return (
     <MuseumPageContainer>
-      <Background bgColor="#222222" />
       <FilterBar setFilters={setFilters} />
       {noResults ? (
         <NoResultsMessage>

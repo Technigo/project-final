@@ -257,7 +257,7 @@ const TextContainer = styled.div`
 const Title = styled.h3`
   font-size: 30px;
   margin: 18px 0;
-  padding-right: 50px;
+  padding-right: 70px;
 `
 
 const Description = styled.p`

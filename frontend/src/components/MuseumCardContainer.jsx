@@ -1,5 +1,6 @@
 import { MuseumCard } from "./MuseumCard"
 import styled from "styled-components"
+import { Background } from "./styled/Background.styled"
 
 export const MuseumCardContainer = ({ results, amountToShow }) => {
   const showMuseums = () =>
@@ -9,6 +10,7 @@ export const MuseumCardContainer = ({ results, amountToShow }) => {
 
   return (
     <StyledMuseumCardContainer>
+      <Background />
       <MuseumCardGrid>{showMuseums()}</MuseumCardGrid>
     </StyledMuseumCardContainer>
   )
