@@ -8,10 +8,10 @@ import {
   useLocation,
 } from "react-router-dom";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
-import { Note } from "./Note";
-import { HomePage } from "./HomePage";
-import { FormPage } from "./FormPage";
-import { LocationContext } from "../LocationContext";
+import { Note } from "./components/Note";
+import { HomePage } from "./components/HomePage";
+import { FormPage } from "./components/FormPage";
+import { LocationContext } from "./LocationContext";
 import "./App.css";
 
 const sweden = { lat: 62.3875, lng: 16.325556 };
