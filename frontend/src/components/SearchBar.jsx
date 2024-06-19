@@ -1,38 +1,38 @@
-import styled from "styled-components"
-import { FaSearch } from "react-icons/fa"
-import { useState } from "react"
-import museumList from "../../../backend/data/museums.json"
-import { AlertMessage } from "./AlertMessage"
-import { StyledButton } from "./styled/Button.styled"
+import styled from "styled-components";
+import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
+import museumList from "../../../backend/data/museums.json";
+import { AlertMessage } from "./AlertMessage";
+import { StyledButton } from "./styled/Button.styled";
 
 export const SearchBar = ({ setResults }) => {
-  const [input, setInput] = useState("")
-  const [showErrorMessage, setShowErrorMessage] = useState(false)
+  const [input, setInput] = useState("");
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const handleChange = (value) => {
-    setInput(value)
-    setShowErrorMessage(false)
-  }
+    setInput(value);
+    setShowErrorMessage(false);
+  };
 
   const search = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (input === "") {
-      setShowErrorMessage(true)
+      setShowErrorMessage(true);
     } else {
       const results = museumList.filter((museum) => {
-        const searchInput = input.toLowerCase()
+        const searchInput = input.toLowerCase();
 
         return (
           museum.name.toLowerCase().includes(searchInput) ||
           museum.location.toLowerCase().includes(searchInput) ||
           museum.theme.toLowerCase().includes(searchInput)
-        )
-      })
-      console.log(results)
-      setResults(results)
-      setInput("")
+        );
+      });
+
+      setResults(results);
+      setInput("");
     }
-  }
+  };
 
   return (
     <SearchBarContainer onSubmit={search}>
@@ -53,8 +53,8 @@ export const SearchBar = ({ setResults }) => {
         <AlertMessage type="text" message="Search field cannot be empty" />
       )}
     </SearchBarContainer>
-  )
-}
+  );
+};
 
 const SearchBarContainer = styled.form`
   padding: 50px 0 20px 0;
@@ -66,7 +66,7 @@ const SearchBarContainer = styled.form`
   button {
     margin: 0 5px;
   }
-`
+`;
 
 const StyledSearchBar = styled.input`
   border: 1px solid grey;
@@ -77,7 +77,7 @@ const StyledSearchBar = styled.input`
   background-color: #f5f5f5;
   font-size: 16px;
   padding: 14px;
-`
+`;
 
 const InputWrapper = styled.div`
   position: relative;
@@ -93,9 +93,9 @@ const InputWrapper = styled.div`
     margin: auto 0;
     color: grey;
   }
-`
+`;
 
 const ButtonWrapper = styled.div`
   display: flex;
   margin-top: 5px;
-`
+`;

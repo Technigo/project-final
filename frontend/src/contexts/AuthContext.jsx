@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
       user,
       accessToken,
     });
-    console.log("User is logged in");
   };
 
   const logout = () => {
@@ -27,7 +26,6 @@ export const AuthProvider = ({ children }) => {
       user: null,
       accessToken: null,
     });
-    console.log("User is logged out");
   };
 
   useEffect(() => {

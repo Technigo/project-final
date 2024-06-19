@@ -50,7 +50,7 @@ export const PostComment = ({ museumId, onNewComment }) => {
       }
 
       const newReview = await response.json()
-      console.log("Review submitted:", newReview)
+      
       setMessage("")
       setCount(0)
       setRating(0)

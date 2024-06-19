@@ -9,12 +9,12 @@ export const NavBar = () => {
   const location = useLocation()
 
   const toggleMenu = () => {
-    console.log("Menu is toggled")
+    
     setShowMenu(!showMenu)
   }
 
   const closeMenu = () => {
-    console.log("Menu is closed")
+    
 
     setShowMenu(false)
   }
