@@ -1,14 +1,23 @@
 import PropTypes from "prop-types";
+
 import rubbish from "../assets/rubbish-bin-blue.svg";
 import { useUserStore } from "../stores/useUserStore";
 
 export const CartItem = ({ id, image, name, price }) => {
-  const { handleCart } = useUserStore((state) => ({
-    handleCart: state.handleCart,
-  }));
+  const { accessToken, handleCart, handleNonLoginCart } = useUserStore(
+    (state) => ({
+      accessToken: state.accessToken,
+      handleCart: state.handleCart,
+      handleNonLoginCart: state.handleNonLoginCart,
+    }),
+  );
 
   const removeCart = () => {
-    handleCart(id, "remove");
+    if (accessToken) {
+      handleCart(id, "remove");
+    } else {
+      handleNonLoginCart(id, "remove");
+    }
   };
   return (
     <div className="mx-6 mb-6 flex w-auto max-w-[500px] flex-col justify-center shadow-lg">
