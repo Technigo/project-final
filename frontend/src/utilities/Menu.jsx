@@ -25,7 +25,7 @@ const Menu = () => {
           <Link to="/" className="flex items-center">
             <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
             <div className="text-2xl font-bold text-primary hidden lg:block">
-              ADHD Community
+              ADHD Connect
             </div>
           </Link>
         </div>

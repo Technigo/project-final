@@ -29,9 +29,7 @@ export const HomePage = () => {
         />
         <div className="absolute inset-0 bg-primary bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-light">
-            <h1 className="text-4xl font-bold ">
-              Welcome to the ADHD Community
-            </h1>
+            <h1 className="text-4xl font-bold ">Welcome to the ADHD Connect</h1>
             <p className="mt-4 text-xl">
               A safe space to share, connect, and find support
             </p>
