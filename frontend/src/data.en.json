@@ -90,22 +90,22 @@
           {
             "icon": "/soMeIcons/instagram.svg",
             "altText": "Instagram",
-            "link": ""
+            "link": "https://www.instagram.com"
           },
           {
             "icon": "/soMeIcons/facebook.svg",
             "altText": "Facebook",
-            "link": ""
+            "link": "https://www.facebook.com"
           },
           {
             "icon": "/soMeIcons/linkedin.svg",
             "altText": "LinkedIn",
-            "link": ""
+            "link": "https://www.linkedin.com"
           },
           {
             "icon": "/soMeIcons/github.svg",
             "altText": "GitHub",
-            "link": ""
+            "link": "https://github.com/Izzibizz/project-final"
           }
         ]
       }
