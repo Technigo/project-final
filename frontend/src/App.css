@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+
+.App-header {
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background: rgba(240, 237, 25, 0.91);
+  color: #000000;
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.App-header a {
+  color: #1334ef;
+  text-decoration: underline;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.App-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.App-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 15px;
+}
+
+
+/* https://github.com/remix-run/react-router/blob/dev/examples/view-transitions/src/index.css this is about the view transitions that ive added. */
+.App-outlet {
+  view-transition-name: outlet;
+}
+
+::view-transition-old(outlet) {
+  animation: 500ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    500ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(outlet) {
+  animation: 500ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    500ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(500px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-500px);
+  }
+}
