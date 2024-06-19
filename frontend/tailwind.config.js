@@ -7,7 +7,7 @@ export default {
         "cta-blue": "#002795",
         "cta-blue-hover": "#1138a6",
 
-        "main-green": "rgba(132, 150, 77, 0.8)",
+        "main-green": "#86884b",
 
         "main-yellow-check": "#FFE486",
         "strong-yellow": "rgba(255, 215, 51, 0.8)",
@@ -18,6 +18,7 @@ export default {
 
         "main-red": "#E48d6A",
         "strong-red": "rgba(159, 36, 9, 0.41)",
+        "red-burger": "rgba(193, 96, 65, 0.8)",
         "strong-red2": "#9f2409",
         "strong-green": "#475318",
 

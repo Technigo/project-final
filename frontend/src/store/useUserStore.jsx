@@ -132,7 +132,7 @@ export const useUserStore = create(
       },
 
       loginUser: async (email, password) => {
-        set({ loadingUser: true });
+        set({ loadingUser: true, loginError: false });
         const URL_login = "https://project-final-glim.onrender.com/users/login";
         try {
           const response = await fetch(URL_login, {
@@ -157,7 +157,7 @@ export const useUserStore = create(
           }
         } catch (error) {
           console.error("error in login:", error);
-          set({ error: error });
+          set({ error: error, loginError: true });
         } finally {
           /*  fetchUser(userId, accessToken); */
           set({ loadingUser: false });

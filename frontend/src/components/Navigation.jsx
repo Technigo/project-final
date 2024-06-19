@@ -10,7 +10,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import animation from "../assets/Circle-loading-Animation.json";
 import { useUserStore } from "../store/useUserStore";
-import { useProductsStore } from "../store/useProductsStore"
+import { useProductsStore } from "../store/useProductsStore";
 import { WelcomeMessage } from "./WelcomeMessage";
 
 //If signed in Sign in should display username/firstname
@@ -27,11 +27,11 @@ export const Navigation = ({ data }) => {
     setAutomaticLogOut,
     loadingUser,
     logoutUser,
+    loginError,
   } = useUserStore();
-  const { shoppingCart } = useProductsStore()
+  const { shoppingCart } = useProductsStore();
   const [open, setOpen] = useState(false);
   const [openBurger, setOpenBurger] = useState(false);
-  const [loginMessage, setLoginMessage] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const navRef = useRef();
@@ -114,7 +114,10 @@ export const Navigation = ({ data }) => {
     setOpenBurger(!openBurger);
   };
 
-  const totalQuantity = shoppingCart.reduce((total, product) => total + product.quantity, 0);
+  const totalQuantity = shoppingCart.reduce(
+    (total, product) => total + product.quantity,
+    0
+  );
 
   return (
     <>
@@ -122,15 +125,6 @@ export const Navigation = ({ data }) => {
       <nav className="sticky top-0 w-full z-20">
         <div className="grid grid-cols-3 bg-strong-red border-b-2 border-main-red border-opacity-35 backdrop-blur-xl justify-between">
           <div className="left-nav flex tablet:ml-2">
-            <NavLink
-              aria-label="Link to products"
-              to="/products"
-              className="text-white m-4 hidden laptop:block"
-            >
-              <p className="font-body text-white text-lg hidden tablet:block font-bold">
-                {data.products}
-              </p>
-            </NavLink>
             <NavLink
               to="/about"
               className="text-white m-4 hidden laptop:block"
@@ -140,28 +134,53 @@ export const Navigation = ({ data }) => {
                 {data.about}
               </p>
             </NavLink>
+            <NavLink
+              aria-label="Link to products"
+              to="/products"
+              className="text-white m-4 hidden laptop:block"
+            >
+              <p className="font-body text-white text-xl hidden tablet:block font-bold">
+                {data.products}
+              </p>
+            </NavLink>
             {loggedIn ? (
-              <NavLink
-                to={`/profile/${userId}`}
-                className="laptop:hidden"
-                aria-label="Link to Profile"
-              >
-                <img
-                  src={userIcon}
-                  alt="Profile"
-                  className="h-6 m-3 tablet:h-7 tablet:m-3"
-                />
-              </NavLink>
+              <>
+                <NavLink
+                  to={`/profile/${userId}`}
+                  className="laptop:hidden"
+                  aria-label="Link to Profile"
+                >
+                  <img
+                    src={userIcon}
+                    alt="Profile"
+                    className="h-6 m-3 tablet:h-7 tablet:m-3"
+                  />
+                </NavLink>
+                <NavLink
+                  to="/products"
+                  aria-label="link to products"
+                  className="hidden tablet:block laptop:hidden"
+                >
+                  <img src="/products.svg" className="h-9 w-9 mt-2 ml-1" />
+                </NavLink>
+              </>
             ) : (
               <div
                 onClick={toggleLogin}
-                className="text-white cursor-pointer laptop:hidden"
+                className="text-white cursor-pointer laptop:hidden flex"
               >
                 <img
                   src={userIcon}
                   alt="Profile"
                   className="h-6 m-3 tablet:h-7 tablet:m-3"
                 />
+                <NavLink
+                  to="/products"
+                  aria-label="link to products"
+                  className="hidden tablet:block laptop:hidden"
+                >
+                  <img src="/products.svg" className="h-9 w-9 mt-2 mr-2" />
+                </NavLink>
               </div>
             )}
             <NavLink
@@ -176,10 +195,10 @@ export const Navigation = ({ data }) => {
               />
             </NavLink>
             {shoppingCart.length > 0 && (
-    <div className="tablet:hidden absolute top-1 border border-dark-red2 left-16 bg-main-white text-text-dark rounded-full w-4 h-4 flex items-center justify-center text-xs ">
-      <span>{totalQuantity}</span>
-    </div>
-  )}
+              <div className="tablet:hidden absolute top-1 border border-dark-red2 left-16 bg-main-white text-text-dark rounded-full w-4 h-4 flex items-center justify-center text-xs ">
+                <span>{totalQuantity}</span>
+              </div>
+            )}
           </div>
           <div className="center-nav flex m-auto">
             <NavLink
@@ -210,25 +229,37 @@ export const Navigation = ({ data }) => {
               </div>
             )}
 
-            { !openBurger && (
-            <NavLink to="/cart" className="relative z-40" aria-label="Link to Shopping Cart">
-
-              <img
-                src={shoppingCartsvg}
-                alt="Shopping cart"
-                className="h-7 m-3 hidden tablet:block laptop:h-8 laptop:m-4"
-              />
-                {shoppingCart.length > 0 && (
-    <div className="hidden tablet:block border border-main-red bg-main-white text-text-dark absolute z-30 tablet:top-1 laptop:top-2 tablet:right-0 laptop:right-2 text-center rounded-full w-5 h-5 flex items-center justify-center text-xs">
-      <span>{totalQuantity}</span>
-    </div>
-  )}
-            </NavLink>
+            {!openBurger && (
+              <>
+                <NavLink
+                  to="/cart"
+                  className="relative z-40"
+                  aria-label="Link to Shopping Cart"
+                >
+                  <img
+                    src={shoppingCartsvg}
+                    alt="Shopping cart"
+                    className="h-7 m-3 hidden tablet:block laptop:h-8 laptop:m-4"
+                  />
+                  {shoppingCart.length > 0 && (
+                    <div className="hidden tablet:block border border-main-red bg-main-white text-text-dark absolute z-30 tablet:top-1 laptop:top-2 tablet:right-0 laptop:right-2 text-center rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                      <span>{totalQuantity}</span>
+                    </div>
+                  )}
+                </NavLink>
+                <NavLink
+                  to="/products"
+                  aria-label="link to products"
+                  className="tablet:hidden"
+                >
+                  <img src="/products.svg" className="h-7 w-7 mt-2 mr-1" />
+                </NavLink>
+              </>
             )}
 
             {openBurger ? (
               <div
-                className=" absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-6 rounded-bl-xl border-main-red text-white bg-strong-red"
+                className=" font-heading absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-8 rounded-bl-xl border-main-red text-white bg-red-burger text-xl laptop:hidden"
                 ref={navRef}
               >
                 <button ref={burgerRef} onClick={toggleBurger}>
@@ -276,7 +307,7 @@ export const Navigation = ({ data }) => {
                   <img
                     src={burgerMenu}
                     alt="Menu"
-                    className="h-7 m-2 justify-start laptop:hidden"
+                    className="h-7 m-2 justify-start tablet:h-8 tablet:mt-3 tablet:mr-4 laptop:hidden"
                   />
                 </button>
               </>
@@ -293,7 +324,7 @@ export const Navigation = ({ data }) => {
         >
           <div
             ref={modalContentRef}
-            className="w-2/3 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-login border-main-red border-opacity-50 backdrop-blur-sm px-4 py-2 relative"
+            className="w-2/3 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-login border-main-red border-opacity-50 backdrop-blur-sm p-4 relative"
           >
             <div className="flex justify-between">
               <h1 className="font-heading text-text-light text-2xl my-4">
@@ -343,7 +374,11 @@ export const Navigation = ({ data }) => {
                   "Login"
                 )}
               </button>
-              {loginMessage ? loginMessage : "null"}
+              {loginError && (
+                <p className="text-center text-text-dark font-heading font-bold pb-4">
+                  The email or password is incorrect, please try again.
+                </p>
+              )}
             </form>
             <p className="absolute text-text-light -bottom-10 tablet:-bottom-8 z-0  text-xs">
               Press outside of the box to close the window
