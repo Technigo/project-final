@@ -11,7 +11,7 @@ export const BackButton = () => {
 
   return (
     <ToHomepageBtnStyled>
-      <a onClick={goBack}>
+      <a aria-label="Go back to previous page" onClick={goBack}>
         <IconContainer>
           <LuArrowLeftCircle />
         </IconContainer>

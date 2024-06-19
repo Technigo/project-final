@@ -64,7 +64,7 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
             <ButtonContainer>
               {" "}
               <Link to="/user-page">
-                <StyledButton>User page</StyledButton>{" "}
+                <StyledButton aria-label="Go to user page">User page</StyledButton>{" "}
               </Link>
               <LogoutButton />
             </ButtonContainer>
@@ -92,7 +92,7 @@ export const LoginPage = ({ redirectOnLogin = true, onLoginSuccess }) => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <StyledButton type="submit">Log in</StyledButton>
+              <StyledButton aria-label="Log in" type="submit">Log in</StyledButton>
               <RedirectMessage>
                 <p>
                   Don't have a profile yet? Register{" "}

@@ -7,7 +7,7 @@ import { LoginModal } from "./LoginModal"
 export const FavoriteButton = ({ museumId, inCard }) => {
   const [isFavorite, setIsFavorite] = useState(false)
   const [isModalOpen, setModalOpen] = useState(false)
-  const [modalMessage, setModalMessage] = useState("");
+  const [modalMessage, setModalMessage] = useState("")
   const { authState } = useContext(AuthContext)
   const { accessToken, isAuthenticated } = authState
 
@@ -64,7 +64,7 @@ export const FavoriteButton = ({ museumId, inCard }) => {
   return (
     <>
       <FavoriteButtonWrapper inCard={inCard}>
-        <Button onClick={handleFavoriteToggle}>
+        <Button onClick={handleFavoriteToggle} aria-label="Save as favorite">
           {isFavorite ? <IoMdHeart /> : <IoMdHeartEmpty />}
         </Button>
       </FavoriteButtonWrapper>
@@ -72,7 +72,7 @@ export const FavoriteButton = ({ museumId, inCard }) => {
         isOpen={isModalOpen}
         onRequestClose={() => setModalOpen(false)}
         onLoginSuccess={handleLoginSuccess}
-        modalMessage={modalMessage} 
+        modalMessage={modalMessage}
       />
     </>
   )

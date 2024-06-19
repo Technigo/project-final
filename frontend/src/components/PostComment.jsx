@@ -100,7 +100,7 @@ export const PostComment = ({ museumId, onNewComment }) => {
           <i>{errorMessage}</i>
         </div>
       ) : undefined}
-      <StyledButton type="submit">Submit</StyledButton>
+      <StyledButton aria-label="Submit review" type="submit">Submit</StyledButton>
     </CommentForm>
   )
 }

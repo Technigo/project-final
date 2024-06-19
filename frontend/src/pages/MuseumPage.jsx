@@ -88,7 +88,7 @@ export const MuseumPage = () => {
           />
           <ButtonContainer>
             {amountToShow < museumsToShow.length && (
-              <StyledButton onClick={showMore}>Show more</StyledButton>
+              <StyledButton onClick={showMore} aria-label="Display more museums" >Show more</StyledButton>
             )}
           </ButtonContainer>
         </>

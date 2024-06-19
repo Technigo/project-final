@@ -8,7 +8,7 @@ export const LogoutButton = () => {
 
   return (
     <Link to={"/"} onClick={logout}>
-      <StyledButton>Log out</StyledButton>{" "}
+      <StyledButton aria-label="Log out">Log out</StyledButton>{" "}
     </Link>
   )
 }

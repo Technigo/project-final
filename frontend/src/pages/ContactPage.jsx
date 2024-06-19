@@ -15,7 +15,7 @@ export const ContactPage = () => {
 
         <DeveloperContainer>
           <DeveloperInfo>
-            <DeveloperImage src={EtnaImage} alt="Etna Zuñiga" />
+            <DeveloperImage src={EtnaImage} alt="Image of Etna" />
             <DeveloperDetails>
               <DeveloperName>Etna Zuñiga</DeveloperName>
               <DeveloperBio>
@@ -46,7 +46,7 @@ export const ContactPage = () => {
           </DeveloperInfo>
 
           <DeveloperInfo>
-            <DeveloperImage src={AlmaImage} alt="Alma Herrström" />
+            <DeveloperImage src={AlmaImage} alt="Image of Alma" />
             <DeveloperDetails>
               <DeveloperName>Alma Herrström</DeveloperName>
               <DeveloperBio>

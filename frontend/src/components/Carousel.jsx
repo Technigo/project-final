@@ -37,7 +37,10 @@ export const Carousel = () => {
 
   return (
     <CarouselContainer>
-      <StyledHero src={museumImages[currentSlide]} />
+      <StyledHero
+        src={museumImages[currentSlide]}
+        alt="background image of different musuems"
+      />
     </CarouselContainer>
   )
 }

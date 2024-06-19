@@ -64,7 +64,7 @@ export const LandingPage = () => {
         <ButtonContainer>
           {" "}
           <Link to="/museums">
-            <StyledButton>Discover more...</StyledButton>
+            <StyledButton aria-label="Discover more musuems">Discover more...</StyledButton>
           </Link>
         </ButtonContainer>
         <MuseumMap

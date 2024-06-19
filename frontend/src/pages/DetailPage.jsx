@@ -114,7 +114,7 @@ export const DetailPage = () => {
             <TicketPrice>Ticket price: {museum.ticket_price}</TicketPrice>
 
             <a href={museum.website} target="_blank" rel="noopener noreferrer">
-              <StyledButton>{buttonText}</StyledButton>{" "}
+              <StyledButton aria-label="Visit official museum website">{buttonText}</StyledButton>{" "}
             </a>
           </TextContainer>
         </Content>

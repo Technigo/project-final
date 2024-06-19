@@ -34,7 +34,7 @@ export const Newsletter = () => {
             type="email"
             placeholder="Enter your e-mail address here."
           />
-          <StyledButton>Sign up</StyledButton>
+          <StyledButton aria-label="Sign up for newsletter">Sign up</StyledButton>
         </SignupContainer>
         {showErrorMessage === true && (
           <AlertMessage
@@ -50,7 +50,7 @@ export const Newsletter = () => {
         )}
       </NewsletterDiv>
       <Logo>
-        <img src="icon4-blue-slogan.png" />
+        <img src="icon4-blue-slogan.png" alt="Museek Logo"/>
       </Logo>
     </StyledNewsletter>
   )

@@ -46,8 +46,8 @@ export const SearchBar = ({ setResults }) => {
         />
       </InputWrapper>
       <ButtonWrapper>
-        <StyledButton type="submit">Search</StyledButton>
-        <StyledButton onClick={() => setResults([])}>Clear</StyledButton>
+        <StyledButton type="submit" aria-label="Search">Search</StyledButton>
+        <StyledButton onClick={() => setResults([])} aria-label="Clear search field">Clear</StyledButton>
       </ButtonWrapper>
       {showErrorMessage === true && (
         <AlertMessage type="text" message="Search field cannot be empty" />

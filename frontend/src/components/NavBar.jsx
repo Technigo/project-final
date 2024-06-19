@@ -64,7 +64,7 @@ export const NavBar = () => {
             </DropdownListItem>
           </DropdownList>
         </DropdownMenu>
-        <MobileLogo onClick={goToTop} src="icon4-white.png" />
+        <MobileLogo onClick={goToTop} src="icon4-white.png" alt="Museek Logo" />
       </NavSectionPhone>
 
       {/* Tablet Section */}
@@ -84,7 +84,7 @@ export const NavBar = () => {
         </NavSectionLeft>
 
         <NavBarImageContainer>
-          <NavBarImage onClick={goToTop} src="icon4-white.png" />
+          <NavBarImage onClick={goToTop} src="icon4-white.png" alt="Museek Logo" />
         </NavBarImageContainer>
 
         <NavSectionRight>

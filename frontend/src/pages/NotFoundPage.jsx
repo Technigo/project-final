@@ -17,7 +17,7 @@ export const NotFoundPage = () => {
           explore!
         </p>{" "}
         <Link to="/museums">
-          <StyledButton>Keep exploring</StyledButton>
+          <StyledButton aria-label="See all musuems">Keep exploring</StyledButton>
         </Link>
       </StyledContainer>
     </NotFoundContainer>

@@ -14,7 +14,7 @@ export const CTA = () => {
       </TextContainer>
       <ContentContainer>
         <Link to="/register">
-          <StyledButton>Register</StyledButton>{" "}
+          <StyledButton aria-label="Register">Register</StyledButton>{" "}
         </Link>{" "}
       </ContentContainer>
     </CTAContainer>

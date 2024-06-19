@@ -77,10 +77,12 @@ export const UserPage = () => {
           </p>
           <ButtonContainer>
             <Link to="/login">
-              <StyledButton>Log in</StyledButton>{" "}
+              <StyledButton aria-label="Go to login page">Log in</StyledButton>{" "}
             </Link>
             <Link to="/register">
-              <StyledButton>Register</StyledButton>{" "}
+              <StyledButton aria-label="Go to register page">
+                Register
+              </StyledButton>{" "}
             </Link>{" "}
           </ButtonContainer>
         </LoginMessage>

@@ -72,7 +72,7 @@ export const RegisterPage = () => {
           <ButtonContainer>
             {" "}
             <Link to="/user-page">
-              <StyledButton>User page</StyledButton>{" "}
+              <StyledButton aria-label="Go to user page">User page</StyledButton>{" "}
             </Link>
             <LogoutButton />
           </ButtonContainer>
@@ -113,7 +113,7 @@ export const RegisterPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
-            <StyledButton type="submit">Register</StyledButton>
+            <StyledButton aria-label="Register" type="submit">Register</StyledButton>
             <RedirectMessage>
               <p>
                 Are you already part of the community? Log in{" "}
@@ -138,7 +138,7 @@ export const RegisterPage = () => {
           )}
 
           {registrationStatus.success && (
-            <Link to={"/login"}>
+            <Link aria-label="Go to login page" to={"/login"}>
               Go to login
               <IoIosArrowForward />
             </Link>

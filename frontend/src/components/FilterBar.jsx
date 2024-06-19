@@ -126,10 +126,10 @@ export const FilterBar = ({ setFilters }) => {
           </CheckboxLabel>
         </CheckboxContainer>
         <ButtonContainer>
-          <StyledButton onClick={handleFilterChange}>
+          <StyledButton onClick={handleFilterChange} aria-label="Apply filters">
             Apply filters
           </StyledButton>
-          <StyledButton onClick={handleClearFilters}>
+          <StyledButton onClick={handleClearFilters} aria-label="Clear filters">
             Clear filters
           </StyledButton>
         </ButtonContainer>
