@@ -21,21 +21,17 @@ export const Carousel = () => {
     }
   }, [productsData]);
 
-
   return (
     <div className="w-full m-auto my-8">
       {loadingProduct ? (
         <Loading />
       ) : (
         <>
-
           <h2 className="font-heading text-xl text-center text-white font-light">
-           Featured Products
-
+            Featured Products
           </h2>
 
           <FlickCarousel />
-  
         </>
       )}
     </div>
