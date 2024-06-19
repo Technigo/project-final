@@ -4,13 +4,13 @@ import Menu from "../utilities/Menu";
 
 export const CommunityGuidelines = () => {
   return (
-    <div className="min-h-screen bg-light ">
+    <div className="min-h-screen bg-light">
       <Menu />
       <HeroSection
         imageUrl="/images/guidelines.jpg"
         title="Good Vibes Only"
         subtitle="Stay respectful and kind in all interactions."
-        className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-center"
+        className="h-96 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-center"
       />
 
       <section className="py-20 px-4 lg:px-32">

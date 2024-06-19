@@ -16,13 +16,13 @@ export const EventsPage = () => {
   const nextEvent = eventsData[0];
 
   return (
-    <div className="min-h-screen bg-light ">
+    <div className="min-h-screen bg-light">
       <Menu />
       <HeroSection
         imageUrl="/images/event-hero.jpg"
         title="Join Our Events"
         subtitle=" Learn, connect, and support each other in our upcoming event."
-        className="h-96 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] bg-cover bg-top"
+        className="h-96 lg:h-[28rem] xl:h-[32rem] bg-cover bg-top"
         style={{ objectPosition: "top center" }}
       />
 

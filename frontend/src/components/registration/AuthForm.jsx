@@ -68,7 +68,7 @@ export const AuthForm = ({ type, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 items-center justify-center bg-dark bg-opacity-50 z-50 flex">
-      <div className="relative bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-3xl flex flex-col md:flex-row">
+      <div className="relative bg-light rounded-lg shadow-lg overflow-hidden w-2xl max-w-3xl flex flex-col md:flex-row p-4">
         <button
           aria-label="Close"
           className="absolute top-4 right-4 text-2xl font-bold text-primary hover:text-secondary"

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { Button } from "../utilities/Button";
 import Footer from "../utilities/Footer";
+import HeroSection from "../utilities/HeroSection";
 import Menu from "../utilities/Menu";
 import { AuthForm } from "./registration/AuthForm";
 import { useModal } from "./registration/ModalContext";
-import HeroSection from "../utilities/HeroSection";
 
 export const AboutUsPage = () => {
   const { showModal } = useModal();
@@ -40,7 +41,7 @@ export const AboutUsPage = () => {
       <HeroSection
         imageUrl="/images/team.jpg"
         title="About Us"
-        className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-center lg:bg-inherit"
+        className="h-96 lg:h-[28rem] xl:h-[30rem] bg-cover bg-top lg:bg-inherit"
       />
 
       <section className="px-4s py-20 relative">
