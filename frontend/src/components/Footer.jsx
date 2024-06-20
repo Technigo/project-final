@@ -1,10 +1,11 @@
+import Lottie from "lottie-react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "./Button";
+
+import toTop from "../assets/animation/lottie-to-top.json";
 import dropdown from "../assets/dropdown.svg";
 import { useProductStore } from "../stores/useProductStore";
-import Lottie from "lottie-react";
-import toTop from "../assets/animation/lottie-to-top.json";
+import { Button } from "./Button";
 
 export const Footer = () => {
   const [shopIsOpen, setShopIsOpen] = useState(false);
@@ -51,7 +52,15 @@ export const Footer = () => {
           <ul className="ml-6 space-y-2 py-3 text-sm leading-7 tracking-wide">
             {categories.map((category, index) => (
               <li key={index} className="cursor-pointer">
-                <NavLink to={`/products?category=${category}`}>
+                <NavLink
+                  to={`/products?category=${category}`}
+                  onClick={() => {
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
                   {category}
                 </NavLink>
               </li>
