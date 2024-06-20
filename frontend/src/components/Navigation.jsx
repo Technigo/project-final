@@ -126,10 +126,10 @@ export const Navigation = ({ data }) => {
           <div className="left-nav flex tablet:ml-2">
             <NavLink
               to="/about"
-              className="text-white m-4 hidden laptop:block"
+              className="text-text-light m-4 hidden laptop:block"
               aria-label="Link to About us"
             >
-              <p className="font-body text-white font-extralight text-lg hidden tablet:block">
+              <p className="font-body text-text-light font-extralight text-lg hidden tablet:block">
                 {data.about}
               </p>
             </NavLink>
@@ -138,7 +138,7 @@ export const Navigation = ({ data }) => {
               to="/products"
               className="text-white m-4 hidden laptop:block"
             >
-              <p className="font-body text-white text-xl hidden tablet:block font-bold">
+              <p className="font-body text-text-light text-lg hidden tablet:block font-extralight">
                 {data.products}
               </p>
             </NavLink>
@@ -160,13 +160,11 @@ export const Navigation = ({ data }) => {
                   aria-label="link to products"
                   className="hidden tablet:block laptop:hidden"
                 >
-
                   <img
                     src="/products.svg"
                     alt="link to products"
                     className="h-9 w-9 mt-2 ml-1"
                   />
-
                 </NavLink>
               </>
             ) : (
@@ -184,13 +182,11 @@ export const Navigation = ({ data }) => {
                   aria-label="link to products"
                   className="hidden tablet:block laptop:hidden"
                 >
-
                   <img
                     src="/products.svg"
                     alt="link to products"
                     className="h-9 w-9 mt-2 mr-2"
                   />
-
                 </NavLink>
               </div>
             )}
@@ -263,13 +259,11 @@ export const Navigation = ({ data }) => {
                   aria-label="link to products"
                   className="tablet:hidden"
                 >
-
                   <img
                     src="/products.svg"
                     alt="link to products"
                     className="h-7 w-7 mt-2 mr-1"
                   />
-
                 </NavLink>
               </>
             )}
