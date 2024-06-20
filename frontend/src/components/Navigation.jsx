@@ -161,7 +161,7 @@ export const Navigation = ({ data }) => {
                   aria-label="link to products"
                   className="hidden tablet:block laptop:hidden"
                 >
-                  <img src="/products.svg" className="h-9 w-9 mt-2 ml-1" />
+                  <img src="/products.svg" alt="products" className="h-9 w-9 mt-2 ml-1" />
                 </NavLink>
               </>
             ) : (
@@ -179,7 +179,7 @@ export const Navigation = ({ data }) => {
                   aria-label="link to products"
                   className="hidden tablet:block laptop:hidden"
                 >
-                  <img src="/products.svg" className="h-9 w-9 mt-2 mr-2" />
+                  <img src="/products.svg" alt="products" className="h-9 w-9 mt-2 mr-2" />
                 </NavLink>
               </div>
             )}
@@ -252,7 +252,7 @@ export const Navigation = ({ data }) => {
                   aria-label="link to products"
                   className="tablet:hidden"
                 >
-                  <img src="/products.svg" className="h-7 w-7 mt-2 mr-1" />
+                  <img src="/products.svg" className="h-7 w-7 mt-2 mr-1" alt="products"/>
                 </NavLink>
               </>
             )}

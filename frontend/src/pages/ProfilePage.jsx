@@ -393,17 +393,18 @@ export const ProfilePage = () => {
             </NavLink>)}
           </div>
         </section>
-        <section className="w-full bg-main-yellow p-12">
-          <img
+        <section className="w-full bg-main-yellow">
+          <div className=" w-11/12 tablet:w-10/12 mx-auto gap-8 p-12 tablet:flex tablet:justify-around">
+            <img
             src="/User-page.svg"
             alt="hands holding skinproducts"
-            className="w-full object-fit tablet:w-8/12 rounded-xl"
+            className="w-full object-fit tablet:w-8/12 laptop:w-6/12 rounded-xl"
           />
-          <div className="flex flex-col gap-6 w-8/12 laptop:w-6/12 m-auto font-heading text-text-dark mt-16 laptop:mt-28">
+          <div className="flex flex-col gap-6 font-heading tablet:w-4/12 text-text-dark mt-16 laptop:mt-28">
             <h2 className="text-xl laptop:text-4xl text-center">
               Personal info
             </h2>
-            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
+            <div className="bg-main-white w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">First name:</h4>
               {isEditing ? (
                 <form>
@@ -515,6 +516,7 @@ export const ProfilePage = () => {
                 ! Delete User !
               </button>
             )}
+          </div>
           </div>
         </section>
       </div>
