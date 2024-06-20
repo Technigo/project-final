@@ -1,7 +1,4 @@
-import { Carousel } from "@material-tailwind/react";
-import { ThemeProvider } from "@material-tailwind/react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import arrowUp from "../assets/arrow-up-icon.svg";
 import checkMark from "../assets/check-icon.svg";
@@ -9,6 +6,7 @@ import ctaImg from "../assets/ctaImg.jpg";
 import pen from "../assets/pen-icon.svg";
 import { Button } from "../components/Button";
 import { CategoryCard } from "../components/CategoryCard";
+import { ImgCarousel } from "../components/ImgCarousel";
 import { Testimonial } from "../components/Testimonial";
 import { useProductStore } from "../stores/useProductStore";
 
@@ -21,48 +19,6 @@ export const Homepage = () => {
   useEffect(() => {
     getAllProducts();
   }, [getAllProducts]);
-
-  const customTheme = {
-    carousel: {
-      defaultProps: {
-        autoplay: true,
-        autoplayDelay: 5000,
-        transition: {
-          type: "tween",
-          duration: 0.5,
-        },
-        loop: true,
-      },
-    },
-  };
-
-  const carouselImgs = [
-    {
-      _id: "665dbd9941d34485c8a0e4d5",
-      templateName: "Fitness Fanatic",
-      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588956/mockups/mv7tzdlx7gjj6ccdvjsx.webp",
-    },
-    {
-      _id: "665dbd9941d34485c8a0e4d6",
-      templateName: "Blue",
-      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588974/mockups/tlsk4tsiin3uesyr094k.webp",
-    },
-    {
-      _id: "665dbd9941d34485c8a0e4cf",
-      templateName: "Health and Wellness",
-      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588806/mockups/ta9gbwyxaaqeekzcroya.webp",
-    },
-    {
-      _id: "665dbd9941d34485c8a0e4d3",
-      templateName: "Tech Hub",
-      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588911/mockups/qqxyy2cftoghdle6n00r.webp",
-    },
-    {
-      _id: "665dbd9941d34485c8a0e4d4",
-      templateName: "Pet Paradise",
-      src: "https://res.cloudinary.com/ddpsnaef5/image/upload/v1717588929/mockups/pzszcjtpoyjfpxub9v9n.webp",
-    },
-  ];
 
   return (
     <main>
@@ -83,36 +39,8 @@ export const Homepage = () => {
           <p className="mx-6 font-lato">
             Explore our most popular products! Tried, tested, and loved by many.
           </p>
-          <div className="w-3/4 pt-4">
-            <ThemeProvider value={customTheme}>
-              <Carousel
-                className="rounded-xl"
-                navigation={({ setActiveIndex, activeIndex, length }) => (
-                  <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-                    {new Array(length).fill("").map((_, i) => (
-                      <button
-                        key={i}
-                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                          activeIndex === i ? "w-8 bg-blue" : "w-4 bg-white"
-                        }`}
-                        onClick={() => setActiveIndex(i)}
-                        aria-label={`Move to slide ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                )}
-              >
-                {carouselImgs.map((product) => (
-                  <Link key={product._id} to={`/products/${product._id}`}>
-                    <img
-                      src={product.src}
-                      alt={product.templateName}
-                      className="h-full w-full object-cover"
-                    />
-                  </Link>
-                ))}
-              </Carousel>
-            </ThemeProvider>
+          <div className="w-full pt-4 lg:w-3/4">
+            <ImgCarousel />
           </div>
         </section>
         <section className="lg:gap-auto mx-auto my-20 flex flex-col items-center justify-center gap-6 bg-blue py-20 lg:flex-row lg:gap-4">
