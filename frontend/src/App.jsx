@@ -1,8 +1,26 @@
-export const App = () => {
+import React, { useState } from "react"
+import { BrowserRouter as Router } from "react-router-dom"
+import Navbar from "./home/Navbar"
+import AppRoutes from "./AppRoutes"
+
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleLogin = (token) => {
+    setIsLoggedIn(!!token)
+  }
+
+  const handleRegister = (token) => {
+    setIsLoggedIn(!!token)
+  }
 
   return (
-    <>
-      <h1>Welcome to Final Project!</h1>
-    </>
-  );
-};
+    <Router>
+      <Navbar isLoggedIn={isLoggedIn} updateIsLoggedIn={setIsLoggedIn} />
+      <AppRoutes onLogin={handleLogin} onRegister={handleRegister} />
+    </Router>
+  )
+}
+
+export default App
