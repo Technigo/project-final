@@ -48,10 +48,10 @@ export const Slideshow = ({ items }) => {
           <div
             key={index}
             ref={(el) => (slideRefs.current[index] = el)}
-            className="mySlides fade w-2/3 m-auto leading-loose"
+            className="mySlides fade w-3/4 m-auto leading-loose"
             style={{ display: index + 1 === slideIndex ? "block" : "none" }}
           >
-            <h2 className="numbertext font-heading font-bold my-4 mb-8 tablet:mb-0 text-lg tablet:text-2xl text-center">
+            <h2 className="numbertext font-heading my-4 text-xl text-center tablet:text-2xl">
               {item.perk}
             </h2>
             <p className="text font-body text-center">{item.comment}</p>
