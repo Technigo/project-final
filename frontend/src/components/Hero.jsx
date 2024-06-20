@@ -1,5 +1,5 @@
 import heroImage from "/hero-image.png";
-import swoop from "/hero-swoop.svg";
+import swoop from "/swoops/hero-swoop.svg";
 import { NavLink } from "react-router-dom";
 
 import { useUserStore } from "../store/useUserStore";

@@ -1,7 +1,6 @@
 import burgerMenu from "/bars-solid.svg";
 import shoppingCartsvg from "/cart-shopping-solid.svg";
 import glimLogo from "/glimSmall.svg";
-import swoop from "/nav-swoop2.svg";
 import userIcon from "/user-solid.svg";
 import xMark from "/xmark-solid.svg";
 import Lottie from "lottie-react";

@@ -1,5 +1,5 @@
-import swoop from "/footer-swoop.svg";
-import swoop2 from "/footer-swoop2.svg";
+import swoop from "/swoops/footer-swoop.svg";
+import swoop2 from "/swoops/footer-swoop2.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
 import { Slideshow } from "./WhyUsSlideshow";
 import data2 from "../data.en.json";
