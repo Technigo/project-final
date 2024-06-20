@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="OBJECTS" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 251.74 159.4">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        stroke-width: 8px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g>
+    <line class="cls-3" x1="13.96" y1="43.21" x2="12.14" y2="40.64"/>
+    <line class="cls-3" x1="20.1" y1="40.49" x2="19.32" y2="37.44"/>
+    <line class="cls-3" x1="9.36" y1="48.1" x2="6.75" y2="46.34"/>
+  </g>
+  <path class="cls-2" d="M62.93,4.36l-39.65-.34-5.41,5.12v21.5h31.16l.19-11.29c.16-1.19.77-2.27,1.71-3.02l4.98-2.62h6.88l.15-9.35Z"/>
+  <polygon class="cls-1" points="17.14 31.37 14.07 31.37 5 45.85 5 147.23 8.84 149.9 9.02 154.4 58.58 154.4 58.87 150.93 62.93 147.53 62.93 45.63 53.86 31.37 17.14 31.37"/>
+</svg>
