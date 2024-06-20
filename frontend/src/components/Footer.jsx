@@ -1,4 +1,3 @@
-import swoop from "/swoops/footer-swoop.svg";
 import swoop2 from "/swoops/footer-swoop2.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
 import { Slideshow } from "./WhyUsSlideshow";
