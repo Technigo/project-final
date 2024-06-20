@@ -58,7 +58,6 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error(data.message);
           }
-          console.log("Clear cart successfully", data);
           set({ cart: data.cartItems });
         } catch (error) {
           set({
@@ -91,7 +90,6 @@ export const useUserStore = create(
             userId: data.id,
             accessToken: data.accessToken,
           });
-          console.log("login successfully!");
           return true;
         } catch (error) {
           set({
@@ -120,7 +118,6 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error(data.message);
           }
-          console.log("Sign up successfully!");
           set({
             userId: data.id,
             accessToken: data.accessToken,
@@ -159,7 +156,6 @@ export const useUserStore = create(
             favorite: data.message.favoriteTemplates,
             cart: data.message.cartItems,
           });
-          console.log("user info displayed successfully!");
         } catch (error) {
           set({
             error:
@@ -188,7 +184,6 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error(data.message);
           }
-          console.log("user deleted  successfully!");
           set({ userId: null, username: null, email: null, accessToken: null });
           return true;
         } catch (error) {
@@ -224,7 +219,6 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error(data.message);
           }
-          console.log("Save favorites successfully", data);
           set({ favorite: data.favoriteTemplates });
         } catch (error) {
           set({
@@ -258,7 +252,6 @@ export const useUserStore = create(
           if (!response.ok) {
             throw new Error(data.message);
           }
-          console.log("Add to cart successfully", data);
           set({ cart: data.cartItems });
         } catch (error) {
           set({

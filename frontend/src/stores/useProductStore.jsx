@@ -90,7 +90,6 @@ export const useProductStore = create(
             const data = await response.json();
             throw new Error(data.message);
           }
-          console.log("like successful!");
         } catch (error) {
           set({
             error:
@@ -115,7 +114,6 @@ export const useProductStore = create(
             const data = await response.json();
             throw new Error(data.message);
           }
-          console.log("Unlike successful!");
         } catch (error) {
           set({
             error:

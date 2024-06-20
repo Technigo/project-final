@@ -27,8 +27,7 @@ export const Checkout = () => {
     reset,
     formState: { isValid }, // check if data fulfills the requirements
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     handleCheckOut();
   };
   const fillDummyData = () => {
