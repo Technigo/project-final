@@ -148,7 +148,7 @@ export const ProfilePage = () => {
             </h2>
             <div className="w-full flex justify-between mb-4">
               <h3>Profile</h3>
-              <button onClick={toggleChangeProfile}>
+              <button aria-label="Edit profile" onClick={toggleChangeProfile}>
                 <FaUserEdit className="w-6 h-6 fill-button-varm-light" />
               </button>
             </div>
@@ -389,9 +389,9 @@ export const ProfilePage = () => {
             className="w-full object-fit"
           />
           <div className="flex flex-col gap-6 w-8/12 laptop:w-6/12 m-auto font-heading text-text-dark mt-16 laptop:mt-28">
-            <h2 className="text-xl laptop:text-4xl text-center">
+            <h3 className="text-xl laptop:text-4xl text-center">
               Personal info
-            </h2>
+            </h3>
             <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
               <h4 className="font-bold">First name:</h4>
               {isEditing ? (
