@@ -154,9 +154,10 @@ export const ProfilePage = () => {
             </h2>
             <div className="w-full flex justify-between mb-4">
               <h3>Profile</h3>
-              <button onClick={toggleChangeProfile}>
+              {/* Will put edit button back when we finished the edit user functions */}
+             {/*  <button onClick={toggleChangeProfile}>
                 <FaUserEdit className="w-6 h-6 fill-button-varm-light" />
-              </button>
+              </button> */}
             </div>
             <ul className="flex flex-col tablet:grid tablet:grid-cols-2 gap-6">
               <li className="flex gap-4">
@@ -394,13 +395,13 @@ export const ProfilePage = () => {
           </div>
         </section>
         <section className="w-full bg-main-yellow">
-          <div className=" w-11/12 tablet:w-10/12 mx-auto gap-8 p-12 tablet:flex tablet:justify-around">
+          <div className=" w-11/12 tablet:w-10/12 py-12 mx-auto gap-8 tablet:flex ">
             <img
             src="/User-page.svg"
             alt="hands holding skinproducts"
-            className="w-full object-fit tablet:w-8/12 laptop:w-6/12 rounded-xl"
+            className="w-full object-fit tablet:w-6/12 laptop:w-6/12 rounded-xl"
           />
-          <div className="flex flex-col gap-6 font-heading tablet:w-4/12 text-text-dark mt-16 laptop:mt-28">
+          <div className="flex flex-col gap-6 font-heading tablet:w-6/12 text-text-dark mt-16 laptop:mt-28">
             <h2 className="text-xl laptop:text-4xl text-center">
               Personal info
             </h2>
@@ -507,15 +508,13 @@ export const ProfilePage = () => {
                 <p>{profile.email}</p>
               )}
             </div>
-            {isEditing && (
               <button
                 onClick={handleDeletingUser}
-                className="bg-strong-red2 px-6 py-2 rounded-full w-48 hover:bg-cta-blue-hover text-text-light"
+                className="bg-strong-red2 px-4 py-2 rounded-full w-48 hover:bg-text-dark text-text-light ml-auto"
               >
                 {" "}
                 ! Delete User !
               </button>
-            )}
           </div>
           </div>
         </section>
