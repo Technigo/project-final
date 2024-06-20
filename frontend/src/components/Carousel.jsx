@@ -27,7 +27,7 @@ export const Carousel = () => {
         <Loading />
       ) : (
         <>
-          <h2 className="font-heading text-xl text-center text-white font-light">
+          <h2 className="font-heading text-2xl text-center text-white font-light">
             Featured Products
           </h2>
 

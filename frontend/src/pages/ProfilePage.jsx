@@ -154,8 +154,10 @@ export const ProfilePage = () => {
             </h2>
             <div className="w-full flex justify-between mb-4">
               <h3>Profile</h3>
+
               {/* Will put edit button back when we finished the edit user functions */}
-             {/*  <button onClick={toggleChangeProfile}>
+             {/*  <button aria-label="Edit profile" onClick={toggleChangeProfile}>
+
                 <FaUserEdit className="w-6 h-6 fill-button-varm-light" />
               </button> */}
             </div>
@@ -401,11 +403,13 @@ export const ProfilePage = () => {
             alt="hands holding skinproducts"
             className="w-full object-fit tablet:w-6/12 laptop:w-6/12 rounded-xl"
           />
+
           <div className="flex flex-col gap-6 font-heading tablet:w-6/12 text-text-dark mt-16 laptop:mt-28">
-            <h2 className="text-xl laptop:text-4xl text-center">
+            <h3 className="text-xl laptop:text-4xl text-center">
               Personal info
-            </h2>
+            </h3>
             <div className="bg-main-white w-full p-4 pl-6 text-text-dark rounded-xl">
+
               <h4 className="font-bold">First name:</h4>
               {isEditing ? (
                 <form>
