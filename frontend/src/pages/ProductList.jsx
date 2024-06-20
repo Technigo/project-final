@@ -34,9 +34,6 @@ export const ProductList = () => {
     searchParams.get("q") || "",
   );
   const [sortType, setSortType] = useState(searchParams.get("sort") || "");
-  const [sortCategory, setSortCategory] = useState(
-    searchParams.get("category") || "",
-  );
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [totalPages, setTotalPages] = useState(0);
@@ -44,6 +41,8 @@ export const ProductList = () => {
 
   //tag
   const tag = searchParams.get("tag");
+  //category
+  const category = searchParams.get("category");
   // Pagination
   const updateSearchParams = (paramName, value) => {
     // Add the new query param value to the queryString
@@ -74,7 +73,7 @@ export const ProductList = () => {
   // useEffect 2: set current page as 1 when category, sort by and search fields change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTemplate, sortType, sortCategory]);
+  }, [searchTemplate, sortType, category]);
 
   // useEffect 3: filter the products based on the user actions
   useEffect(() => {
@@ -85,9 +84,9 @@ export const ProductList = () => {
           product.tags.split(", ").includes(tag),
         );
       }
-      if (sortCategory) {
+      if (category) {
         finalProduct = finalProduct.filter(
-          (product) => product.category === sortCategory,
+          (product) => product.category === category,
         );
       }
       if (searchTemplate) {
@@ -119,7 +118,7 @@ export const ProductList = () => {
     filterProducts();
   }, [
     tag,
-    sortCategory,
+    category,
     sortType,
     searchTemplate,
     products,
@@ -145,10 +144,9 @@ export const ProductList = () => {
               <div className="border border-blue p-2">
                 <select
                   className="w-[110px] font-montserrat text-sm text-blue"
-                  value={sortCategory}
+                  value={category}
                   onChange={(event) => {
                     updateSearchParams("category", event.target.value);
-                    setSortCategory(event.target.value);
                   }}
                 >
                   <option value="">Category</option>
