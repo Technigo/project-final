@@ -16,7 +16,6 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
           transformStyle: "preserve-3d",
           transition: "transform 0.5s",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-          height: "350px",
         }}
       >
         {/* Front Side */}
@@ -32,12 +31,7 @@ const EventCard = ({ event, index, flipped, handleFlip }) => {
           <img
             src={event.imageUrl}
             alt={event.title}
-            loading="lazy"
             className="w-full md:w-1/2 h-48 md:h-full object-cover rounded-lg"
-            style={{
-              maxHeight: "350px",
-              objectFit: "cover",
-            }}
           />
           <div className="mt-4 md:mt-0 md:ml-6 w-full">
             <h3 className="text-2xl font-bold text-primary">{event.title}</h3>
