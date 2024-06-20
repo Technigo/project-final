@@ -5,7 +5,7 @@ import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Loading";
 import { Footer } from "../components/Footer";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
-import { StickyButton } from "../components/StickyButton"
+import { StickyButton } from "../components/StickyButton";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct, addedProduct } =
@@ -69,19 +69,19 @@ export const ProductsPage = () => {
             product.pros &&
             product.pros.some((pro) => profile.pros.includes(pro));
 
-            const isNotAllergic =
-            !profile.allergies.length || 
-            !product.allergies.length || 
-            !product.allergies.some(
-              (allergy) => profile.allergies.includes(allergy)
+          const isNotAllergic =
+            !profile.allergies.length ||
+            !product.allergies.length ||
+            !product.allergies.some((allergy) =>
+              profile.allergies.includes(allergy)
             );
 
-            console.log("Product:", product.title);
-            console.log("Profile Allergies:", profile.allergies);
-            console.log("Product Allergies:", product.allergies);
-            console.log("isNotAllergic:", isNotAllergic);
+          console.log("Product:", product.title);
+          console.log("Profile Allergies:", profile.allergies);
+          console.log("Product Allergies:", product.allergies);
+          console.log("isNotAllergic:", isNotAllergic);
 
-          return isNotAllergic && isMatchingProfile || isMatchingPros
+          return (isNotAllergic && isMatchingProfile) || isMatchingPros;
         });
       } else {
         newFilteredProducts = newFilteredProducts.filter(
@@ -106,8 +106,6 @@ export const ProductsPage = () => {
     return sorted;
   }, [sortValue, filteredProducts]);
 
-
-
   return (
     <>
       {!loggedIn && <StickyButton />}
@@ -123,6 +121,7 @@ export const ProductsPage = () => {
             <form>
               <select
                 name="Filter"
+                aria-label="Filter"
                 value={filterValue}
                 onChange={handleFilterChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
@@ -161,6 +160,7 @@ export const ProductsPage = () => {
             <form>
               <select
                 name="category-filter"
+                aria-label="Category"
                 value={categoryValue}
                 onChange={handleCategoryChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
@@ -188,6 +188,7 @@ export const ProductsPage = () => {
             <form>
               <select
                 name="Sort"
+                aria-label="Sort"
                 value={sortValue}
                 onChange={handleSortChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
