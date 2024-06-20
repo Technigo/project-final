@@ -26,7 +26,7 @@ export const Footer = ({ providedData, aboveColor }) => {
         <div className=" text-text-light">
           <div className="p-6 tablet:p-10 laptop:p-20">
             <div className="flex mb-8 items-end justify-center">
-              <h2 className="font-heading text-4xl">
+              <h2 className="font-heading text-center text-4xl">
                 {missionStatement.title}
               </h2>
             </div>
