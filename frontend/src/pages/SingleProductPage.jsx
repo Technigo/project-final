@@ -402,7 +402,9 @@ export const SingleProductPage = () => {
           currentProductId={product._id}
         />
       </section>
-      <ReviewForm />
+      
+      {/* Will be implemented later */}
+      {/* <ReviewForm /> */}
 
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />
