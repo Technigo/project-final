@@ -8,8 +8,6 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export const useProductsStore = create(
-  /*   (stripe = useStripe()),
-  (elements = useElements()), */
   persist(
     (set, get) => ({
       productsData: {},
@@ -31,11 +29,15 @@ export const useProductsStore = create(
       setTotalPrice: (input) => set({ totalPrice: input }),
       setPriceHistory: (input) => set({ priceHistory: input }),
 
-      handlePayment: async (event, stripe, elements, product, shoppingCart, totalPrice ) => {
+      handlePayment: async (
+        event,
+        stripe,
+        elements,
+        product,
+        shoppingCart,
+        totalPrice
+      ) => {
         event.preventDefault();
-        console.log("Handlepayment: ", product.price);
-        /* const stripe = useStripe(); 
-        const elements = useElements(); */
 
         if (!stripe || !elements) {
           console.error("Stripe.js has not loaded yet.");
@@ -43,7 +45,6 @@ export const useProductsStore = create(
         }
         const cardElement = elements.getElement(CardElement);
         set({ isLoading: true });
-
         try {
           const response = await fetch(
             "https://project-final-glim.onrender.com/stripe/create-payment-intent",
@@ -66,7 +67,6 @@ export const useProductsStore = create(
           }
 
           const data = await response.json();
-          console.log("Response from server:", data);
 
           const { clientSecret } = data;
 
@@ -81,12 +81,10 @@ export const useProductsStore = create(
             set({ paymentStatus: result.error.message });
           } else {
             if (result.paymentIntent.status === "succeeded") {
-              console.log("Payment succeeded!");
-              set({ paymentStatus: "Payment successful!"});
-              get().setOrderHistory(shoppingCart)
-              get().setPriceHistory(totalPrice)
+              set({ paymentStatus: "Payment successful!" });
+              get().setOrderHistory(shoppingCart);
+              get().setPriceHistory(totalPrice);
               get().setPaymentSuccessful(true);
-              
             } else {
               console.error(
                 "Unexpected payment status:",
@@ -100,9 +98,9 @@ export const useProductsStore = create(
         } catch (error) {
           console.error("Error during payment:", error);
           set({ paymentStatus: `Error: ${error.message}` });
-        }  finally {
+        } finally {
           set({ isLoading: false });
-          get().removeAllFromCart()
+          get().removeAllFromCart();
         }
       },
 
@@ -189,7 +187,6 @@ export const useProductsStore = create(
       removeAllFromCart: () => {
         set({ shoppingCart: [], totalPrice: 0 });
       },
-    
 
       fetchProducts: async () => {
         set({ loadingProduct: true });
@@ -203,7 +200,6 @@ export const useProductsStore = create(
             throw new Error("Could not fetch");
           }
           const data = await response.json();
-          console.log(data);
           set({ productsData: data });
         } catch (error) {
           console.error("error:", error);
@@ -226,7 +222,6 @@ export const useProductsStore = create(
             throw new Error("Could not fetch");
           }
           const data = await response.json();
-          console.log("Fetch single product", data);
           set({ singleProduct: data });
         } catch (error) {
           console.error("error:", error);

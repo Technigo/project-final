@@ -1,37 +1,37 @@
-import { useUserStore } from "../store/useUserStore"
+import { useUserStore } from "../store/useUserStore";
 import { useProductsStore } from "../store/useProductsStore";
-import { useState } from "react"
+import { useState } from "react";
 import Lottie from "lottie-react";
-import animation from "../assets/animation-success.json"
+import animation from "../assets/animation-success.json";
 
 export const WelcomeMessage = () => {
+  const { user, loggedIn, signedUp, automaticLogOut, loggedOut } =
+    useUserStore();
+  const { paymentSuccessful } = useProductsStore();
 
-const { user, loggedIn, signedUp, automaticLogOut, loggedOut } = useUserStore()
-const { paymentSuccessful } = useProductsStore()
+  //const [ open, setOpen ] = useState(true)
 
-//const [ open, setOpen ] = useState(true)
-
-const getTitleMessage = () => {
-    if (paymentSuccessful) return "Woho! Great success."
+  const getTitleMessage = () => {
+    if (paymentSuccessful) return "Woho! Great success.";
     if (loggedIn && user) return `Welcome ${user.user.firstname}`;
     if (signedUp) return "Your signup was successful";
     if (loggedOut) return "You have been logged out";
     if (automaticLogOut) return "You have been automatically logged out";
-   
+
     return "";
   };
 
   const getDescriptionMessage = () => {
-    if (paymentSuccessful) return "This website is a test e-commerce, thank you for trying it out."
+    if (paymentSuccessful)
+      return "This website is a test e-commerce, thank you for trying it out.";
     if (loggedIn) return "You have been successfully logged in";
-    if (signedUp) return "Proceed to login to see your personal recommendations";
+    if (signedUp)
+      return "Proceed to login to see your personal recommendations";
     if (loggedOut) return `See you later!`;
-    if (automaticLogOut) return "Please log in again if you want your personal recommendations";
-
+    if (automaticLogOut)
+      return "Please log in again if you want your personal recommendations";
     return "";
   };
-
-  console.log("message comp", paymentSuccessful)
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-overlay backdrop-blur-sm flex items-center justify-center z-50">
@@ -39,11 +39,6 @@ const getTitleMessage = () => {
         <div className="font-heading text-text-light">
           <h2 className="text-xl mb-4">{getTitleMessage()}</h2>
           <p className="text-sm">{getDescriptionMessage()}</p>
-{/*           {(signedUp || automaticLogOut) && (
-            <button className="bg-cta-blue my-4 px-6 py-2 rounded-full hover:bg-cta-blue-hover text-text-light">
-              Log in
-            </button>
-          )}  This code doesnt work since the login popup is inside of the nav comp atm*/}
         </div>
         <Lottie
           animationData={animation}

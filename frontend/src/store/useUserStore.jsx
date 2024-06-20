@@ -42,8 +42,6 @@ export const useUserStore = create(
       setAllergies: (Input) => set({ allergies: Input }),
       setPros: (Input) => set({ pros: Input }),
       setHair: (Input) => set({ hair: Input }),
-      // setHairShape: (Input) => set({ hairShape: Input }),
-      // setHairMoisture: (Input) => set({ hairMoisture: Input }),
       setSkinType: (Input) => set({ skinType: Input }),
       //messages
       setSignedUp: (input) => set({ signedUp: input }),
@@ -61,8 +59,6 @@ export const useUserStore = create(
         allergies,
         pros,
         hair,
-        // hairShape,
-        // hairMoisture,
         skinType
       ) => {
         set({ loadingUser: true });
@@ -80,8 +76,6 @@ export const useUserStore = create(
               allergies: allergies,
               pros: pros,
               hair: hair,
-              // hairShape: hairShape,
-              // hairMoisture: hairMoisture,
               skin: skinType,
             }),
             headers: { "Content-Type": "application/json" },
@@ -90,7 +84,6 @@ export const useUserStore = create(
             throw new Error("Could not fetch");
           }
           const data = await response.json();
-          console.log(data);
           set({ accessToken: data.accessToken });
         } catch (error) {
           console.error("error:", error);
@@ -112,12 +105,10 @@ export const useUserStore = create(
               Authorization: accessToken,
             },
           });
-
           if (!response.ok) {
             throw new Error("Could not fetch user");
           }
           const data = await response.json();
-          console.log(data);
           set({
             user: data,
             loggedIn: true,
@@ -159,7 +150,6 @@ export const useUserStore = create(
           console.error("error in login:", error);
           set({ error: error, loginError: true });
         } finally {
-          /*  fetchUser(userId, accessToken); */
           set({ loadingUser: false });
         }
       },
@@ -167,7 +157,6 @@ export const useUserStore = create(
       updateUser: async (userId, accessToken, updatedFields) => {
         /* set({ loadingUser: true }); */
         const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;
-        console.log("Updated Fields", updatedFields);
         try {
           const response = await fetch(URL, {
             method: "PATCH",
@@ -192,11 +181,8 @@ export const useUserStore = create(
           if (!response.ok) {
             const errorText = await response.text(); // Get the error message
             throw new Error(errorText);
-
-            /*  throw new Error("Could not fetch user"); */
           }
           const data = await response.json();
-          console.log(data);
           set({
             user: data,
           });
@@ -221,7 +207,6 @@ export const useUserStore = create(
       deleteUser: async (userId, accessToken) => {
         /* set({ loadingUser: true }); */
         const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;
-        console.log("Inside the delete user path", accessToken, userId);
         try {
           const response = await fetch(URL, {
             method: "DELETE",
@@ -234,12 +219,9 @@ export const useUserStore = create(
           if (!response.ok) {
             const errorText = await response.text(); // Get the error message
             throw new Error(errorText);
-
-            /*  throw new Error("Could not fetch user"); */
           }
 
           const data = await response.json();
-          console.log(data);
           set({
             loggedIn: false,
             loggedOut: true,

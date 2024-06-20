@@ -12,8 +12,7 @@ import userRoutes from "./routes/users";
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-//TODO Add CORS Link
-app.use(cors(/* "https://glim-skincare.netlify.app/" */));
+app.use(cors("https://glim-skincare.netlify.app/"));
 app.use(express.json());
 app.use("/", documentationRoutes);
 app.use("/products", productsRoutes);

@@ -34,7 +34,6 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
   }, [similarProducts]);
 
   useEffect(() => {
-    console.log(currentProductId);
     if (productsData.products) {
       const filteredProducts = productsData.products.filter(
         (product) =>
@@ -89,9 +88,7 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
             alt="Section border"
           />
         </div>
-      ) : (
-        null
-      )}
+      ) : null}
     </>
   );
 };

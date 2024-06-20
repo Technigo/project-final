@@ -171,18 +171,6 @@ export const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.table(
-      "Register user:",
-      firstName,
-      lastName,
-      email,
-      address,
-      password,
-      allergies,
-      pros,
-      hair,
-      skinType
-    );
     registerUser(
       firstName,
       lastName,
@@ -230,8 +218,6 @@ export const SignUpPage = () => {
     }
   }, [signedUp]);
 
-  console.log("signed up", signedUp);
-
   return (
     <>
       {activeSection === "sectionone" && (
@@ -248,7 +234,6 @@ export const SignUpPage = () => {
               alt="Section border"
             />
           </div>
-
           <div className="w-full">
             <div className="flex flex-col items-center">
               <h2 className="text-2xl font-heading font-bold mt-10 tablet:mt-20">
@@ -640,7 +625,6 @@ export const SignUpPage = () => {
                   </label>
                 ))}
               </div>
-
               <div className="flex flex-col mt-10">
                 <div className="flex">
                   <img src="preferences02.svg" alt="Icon of a heart" />

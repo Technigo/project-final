@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-
 import { AboutUs } from "../pages/AboutUs";
 import { Home } from "../pages/Home";
 import { NotFound } from "../pages/NotFound";
@@ -20,8 +19,6 @@ export const GlimRoutes = ({ data }) => {
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/*" element={<NotFound reason="page" />} />
-
-      {/* Add the routes */}
     </Routes>
   );
 };

@@ -4,9 +4,7 @@ import { useProductsStore } from "../store/useProductsStore";
 
 export const ProductCard = ({ data }) => {
   const productData = data;
-  //const productLangData = langData; //Should probably be products-list-page
   const { setShoppingCart } = useProductsStore();
-  //Change variables to accept incoming data from backend.
   const image = productData.image.url;
   const productName = productData.title;
   const price = `€${productData.price}`;

@@ -13,8 +13,6 @@ import { useUserStore } from "../store/useUserStore";
 import { useProductsStore } from "../store/useProductsStore";
 import { WelcomeMessage } from "./WelcomeMessage";
 
-//If signed in Sign in should display username/firstname
-
 export const Navigation = ({ data }) => {
   const {
     email,
@@ -45,7 +43,6 @@ export const Navigation = ({ data }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     await loginUser(emailInput, passwordInput);
-    console.log("loginUser:", loginUser);
   };
 
   const handleClickOutside = (event) => {
@@ -77,7 +74,6 @@ export const Navigation = ({ data }) => {
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -104,7 +100,6 @@ export const Navigation = ({ data }) => {
       }
     }
   }, [loggedIn]);
-  // add a message for user to know theyve been logged out (welcome message comp could maybe be reused? but it should have the click outside func that the login box has.. would be nice)
 
   const toggleLogin = () => {
     setOpen(!open);
@@ -228,7 +223,6 @@ export const Navigation = ({ data }) => {
                 </p>
               </div>
             )}
-
             {!openBurger && (
               <>
                 <NavLink
@@ -256,7 +250,6 @@ export const Navigation = ({ data }) => {
                 </NavLink>
               </>
             )}
-
             {openBurger ? (
               <div
                 className=" font-heading absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-8 rounded-bl-xl border-main-red text-white bg-red-burger text-xl laptop:hidden"
@@ -315,7 +308,6 @@ export const Navigation = ({ data }) => {
           </div>
         </div>
       </nav>
-
       {open ? (
         <div
           onClick={handleClickOutside}
@@ -327,9 +319,9 @@ export const Navigation = ({ data }) => {
             className="w-2/3 tablet:w-1/3 desktop:w-3/12 my-20 rounded-lg bg-login border-main-red border-opacity-50 backdrop-blur-sm p-4 relative"
           >
             <div className="flex justify-between">
-              <h1 className="font-heading text-text-light text-2xl my-4">
+              <h2 className="font-heading text-text-light text-2xl my-4">
                 Log In
-              </h1>
+              </h2>
               <NavLink to="/signup">
                 <button
                   aria-label="Link to SignUp"

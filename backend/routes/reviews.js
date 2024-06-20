@@ -20,15 +20,6 @@ router.post("/", async (req, res) => {
       userHairType,
       reviewScore,
     } = req.body;
-    console.log(
-      firstname,
-      message,
-      productID,
-      userID,
-      userSkinType,
-      userHairType,
-      reviewScore
-    );
     const review = await new Review({
       firstname: firstname,
       message: message,

@@ -5,8 +5,6 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Loading } from "../components/Loading";
 import { WelcomeMessage } from "../components/WelcomeMessage";
-// User needs to be logged in to see Profile page,
-// send user to Log in/ Sign up if not logged in.
 
 import { useUserStore } from "../store/useUserStore";
 import { NotFound } from "./NotFound";
@@ -26,19 +24,6 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(user.user);
 
-  // useEffect(() => {
-  //   // Fetch the user profile using the userId
-  //   const fetchUserProfile = async () => {
-  //     if (!user) {
-  //       navigate("/");
-  //     } else {
-
-  //     }
-  //   };
-
-  //   fetchUserProfile();
-  // }, [userId, fetchUser, navigate]);
-
   useEffect(() => {
     if (loggedOut) {
       navigate("/");
@@ -48,8 +33,6 @@ export const ProfilePage = () => {
   if (!profile) {
     return <NotFound reason="profile" />;
   }
-
-  console.log("Profile:", userId);
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -421,8 +404,6 @@ export const ProfilePage = () => {
               ) : (
                 <p>{profile.lastname}</p>
               )}
-
-              {/* <h4 className="font-bold">Name:</h4> */}
               <h4 className="font-bold">Address:</h4>
               <ul className="text-sm">
                 {isEditing ? (

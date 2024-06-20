@@ -32,25 +32,6 @@ export const ReviewForm = () => {
 
   const handleSend = (event) => {
     event.preventDefault();
-    // setFetched(false);
-    console.log("Message: ", message, "Stars:", selectedStars);
-
-    // From previous twitter clone project
-
-    // const fetchOptions = {
-    //   method: "POST",
-    //   body: JSON.stringify({ message: message }),
-    //   headers: { "Content-Type": "application/json" },
-    // };
-
-    // fetch(thoughts_URL, fetchOptions)
-    //   .then((res) => res.json())
-    //   .then((newThought) => {
-    //     setThoughts((previousThoughts) => [newThought, ...previousThoughts]);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
 
     setMessage("");
     setSelectedStars(0);
@@ -65,7 +46,6 @@ export const ReviewForm = () => {
     } else {
       setCharCheck(false);
     }
-    console.log(charCheck);
   };
 
   const characterLimit = () => {
@@ -97,9 +77,9 @@ export const ReviewForm = () => {
                 onChange={handleMessage}
               ></textarea>
               <div className="lower-info flex justify-between align-center my-2">
-                 <p className={characterLimit()}>{characters}/140</p>
+                <p className={characterLimit()}>{characters}/140</p>
                 <div className="flex gap-2 justify-items-center gap-12">
-                <StarRating
+                  <StarRating
                     selectedStars={selectedStars}
                     setSelectedStars={setSelectedStars}
                   />
