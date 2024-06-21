@@ -1,29 +1,45 @@
-import express from "express";
 import cors from "cors";
-import mongoose from 'mongoose'
+import express from "express";
+import expressListEndpoints from "express-list-endpoints";
+import { errorHandler } from "./middleware/handleError";
+import productRoutes from "./routes/products";
+import userRoutes from "./routes/users";
+import mockupRoutes from "./routes/mockups";
+import { connectMongoDB } from "./config/database";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/flowershop"
-mongoose.connect(mongoUrl)
-mongoose.Promise = Promise
+connectMongoDB();
 
-
-
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "DELETE", "PATCH"],
+  })
+);
+app.use(express.json());
 app.use(express.json());
 
 // Start defining your routes here
-// http://localhost:8080/
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  res.send(endpoints);
 });
 
+// routes
+app.use(userRoutes);
+app.use(productRoutes);
+app.use(mockupRoutes);
+
+// gloabl error handling
+app.use((req, res, next) => {
+  const err = new Error(`Cannot find endpoint: ${req.originalUrl}.`);
+  err.statusCode = 404;
+  next(err);
+});
+app.use(errorHandler);
 
 // Start the server
 app.listen(port, () => {
