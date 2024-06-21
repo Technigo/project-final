@@ -27,8 +27,6 @@ const ProfileSection = () => {
           <h2 className="profileTitle">Profile</h2>
         </div>
         <div className="profileContent">
-          <h3 className="customerEmailTitle">Your Email:</h3>
-          <p className="customerEmail">paula010514@hotmail.com</p>
           <div className="logoutButtonWrapper">
             <button className="logoutButton" onClick={handleLogout}>
               Log out

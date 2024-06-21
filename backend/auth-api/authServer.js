@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 
 // Registration endpoint
 app.post("/api/register", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     // Check if user with the same email already exists
