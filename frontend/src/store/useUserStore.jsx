@@ -32,6 +32,7 @@ export const useUserStore = create(
       showWelcomePopup: false,
       loggedOut: false,
       automaticLogOut: false,
+      deletedUser: false,
 
       //Functions to update userInfo
       setFirstName: (Input) => set({ firstName: Input }),
@@ -48,6 +49,7 @@ export const useUserStore = create(
       setShowWelcomePopup: (input) => set({ showWelcomePopup: input }),
       setLoggedOut: (input) => set({ loggedOut: input }),
       setAutomaticLogOut: (input) => set({ automaticLogOut: input }),
+      setDeletedUser: (input) => set({ deletedUser: input }),
 
       //Register user
       registerUser: async (
@@ -225,7 +227,9 @@ export const useUserStore = create(
           const data = await response.json();
           set({
             loggedIn: false,
-            loggedOut: true,
+            /* loggedOut: true, */
+            deletedUser: true,
+            showWelcomePopup: true,
           });
         } catch (error) {
           console.error("error:", error);

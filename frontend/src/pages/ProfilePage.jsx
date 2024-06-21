@@ -106,18 +106,6 @@ export const ProfilePage = () => {
     deleteUser(userId, accessToken);
   };
 
-  useEffect(() => {
-    if (loggedOut) {
-      navigate("/");
-    }
-  }, [loggedOut]);
-
-  console.log(inputValues.allergies)
-  console.log(inputValues.pros)
-  console.log(inputValues.shape)
-  console.log(inputValues.moisture)
-  console.log(inputValues.skin)
-
   return (
     <>
       {loggedOut && navigate("/")}
@@ -137,7 +125,7 @@ export const ProfilePage = () => {
               <h3>Profile</h3>
 
               {/* Will put edit button back when we finished the edit user functions */}
-             {/*  <button aria-label="Edit profile" onClick={toggleChangeProfile}>
+              {/*  <button aria-label="Edit profile" onClick={toggleChangeProfile}>
 
                 <FaUserEdit className="w-6 h-6 fill-button-varm-light" />
               </button> */}
@@ -224,7 +212,7 @@ export const ProfilePage = () => {
                           disabled
                           className="font-heading font-boold bg-bg-input"
                         >
-                         Hair moisture:
+                          Hair moisture:
                         </option>
                         <option
                           value="dry"
@@ -261,7 +249,7 @@ export const ProfilePage = () => {
                           disabled
                           className="font-heading font-bold bg-bg-input"
                         >
-                         Hair shape:
+                          Hair shape:
                         </option>
                         <option
                           value="straight"
@@ -308,7 +296,7 @@ export const ProfilePage = () => {
                           <input
                             type="checkbox"
                             value={option.toLowerCase()}
-                           /*  checked={inputValues.allergies.includes(
+                            /*  checked={inputValues.allergies.includes(
                               option.toLowerCase()
                             )} */
                             onChange={handleInputChange}
@@ -339,7 +327,7 @@ export const ProfilePage = () => {
                             <input
                               type="checkbox"
                               value={option.toLowerCase()}
-                            /*   checked={inputValues.pros.includes(
+                              /*   checked={inputValues.pros.includes(
                                 option.toLowerCase()
                               )} */
                               onChange={handleInputChange}
@@ -364,132 +352,133 @@ export const ProfilePage = () => {
             </ul>
             {isEditing ? (
               <button
-              onClick={handleUpdateProfile}
-              className="bg-strong-yellow text-text-dark w-fit p-2 px-3 rounded-full mt-10 self-center"
-            >
-              Save Changes
-            </button>
-            ) :  (<NavLink to="/products" className="flex justify-center mt-12">
-              <button className="bg-strong-yellow text-text-dark text-sm p-2 px-3 tablet:text-base rounded-full mb-8 gap-2">
-                Recommendations for you
+                onClick={handleUpdateProfile}
+                className="bg-strong-yellow text-text-dark w-fit p-2 px-3 rounded-full mt-10 self-center"
+              >
+                Save Changes
               </button>
-            </NavLink>)}
+            ) : (
+              <NavLink to="/products" className="flex justify-center mt-12">
+                <button className="bg-strong-yellow text-text-dark text-sm p-2 px-3 tablet:text-base rounded-full mb-8 gap-2">
+                  Recommendations for you
+                </button>
+              </NavLink>
+            )}
           </div>
         </section>
         <section className="w-full bg-main-yellow">
           <div className=" w-11/12 tablet:w-10/12 py-12 mx-auto gap-8 tablet:flex ">
             <img
-            src="/User-page.svg"
-            alt="hands holding skinproducts"
-            className="w-full object-fit tablet:w-6/12 laptop:w-6/12 rounded-xl"
-          />
+              src="/User-page.svg"
+              alt="hands holding skinproducts"
+              className="w-full object-fit tablet:w-6/12 laptop:w-6/12 rounded-xl"
+            />
 
-          <div className="flex flex-col gap-6 font-heading tablet:w-6/12 text-text-dark mt-16 laptop:mt-28">
-            <h3 className="text-xl laptop:text-4xl text-center">
-              Personal info
-            </h3>
-            <div className="bg-main-white w-full p-4 pl-6 text-text-dark rounded-xl">
-
-              <h4 className="font-bold">First name:</h4>
-              {isEditing ? (
-                <form>
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    type="text"
-                    name="firstname"
-                    value={inputValues.firstname}
-                    onChange={handleInputChange}
-                  />
-                </form>
-              ) : (
-                <p>{profile.firstname}</p>
-              )}
-              <h4 className="font-bold">Surname:</h4>
-              {isEditing ? (
-                <form>
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    type="text"
-                    name="lastname"
-                    value={inputValues.lastname}
-                    onChange={handleInputChange}
-                  ></input>
-                </form>
-              ) : (
-                <p>{profile.lastname}</p>
-              )}
-              <h4 className="font-bold">Address:</h4>
-              <ul className="text-sm">
+            <div className="flex flex-col gap-6 font-heading tablet:w-6/12 text-text-dark mt-16 laptop:mt-28">
+              <h3 className="text-xl laptop:text-4xl text-center">
+                Personal info
+              </h3>
+              <div className="bg-main-white w-full p-4 pl-6 text-text-dark rounded-xl">
+                <h4 className="font-bold">First name:</h4>
                 {isEditing ? (
                   <form>
                     <input
                       className="border-red-700 border-2 rounded"
                       type="text"
-                      name="street"
-                      value={inputValues.street}
+                      name="firstname"
+                      value={inputValues.firstname}
                       onChange={handleInputChange}
-                    ></input>
+                    />
                   </form>
                 ) : (
-                  <li>{profile.address.street}</li>
+                  <p>{profile.firstname}</p>
                 )}
+                <h4 className="font-bold">Surname:</h4>
                 {isEditing ? (
                   <form>
                     <input
                       className="border-red-700 border-2 rounded"
                       type="text"
-                      name="postalCode"
-                      value={inputValues.postalCode}
+                      name="lastname"
+                      value={inputValues.lastname}
                       onChange={handleInputChange}
                     ></input>
                   </form>
                 ) : (
-                  <li>{profile.address.postalCode}</li>
+                  <p>{profile.lastname}</p>
                 )}
+                <h4 className="font-bold">Address:</h4>
+                <ul className="text-sm">
+                  {isEditing ? (
+                    <form>
+                      <input
+                        className="border-red-700 border-2 rounded"
+                        type="text"
+                        name="street"
+                        value={inputValues.street}
+                        onChange={handleInputChange}
+                      ></input>
+                    </form>
+                  ) : (
+                    <li>{profile.address.street}</li>
+                  )}
+                  {isEditing ? (
+                    <form>
+                      <input
+                        className="border-red-700 border-2 rounded"
+                        type="text"
+                        name="postalCode"
+                        value={inputValues.postalCode}
+                        onChange={handleInputChange}
+                      ></input>
+                    </form>
+                  ) : (
+                    <li>{profile.address.postalCode}</li>
+                  )}
+                  {isEditing ? (
+                    <form>
+                      <input
+                        className="border-red-700 border-2 rounded"
+                        type="text"
+                        name="city"
+                        value={inputValues.city}
+                        onChange={handleInputChange}
+                      ></input>
+                    </form>
+                  ) : (
+                    <li>{profile.address.city}</li>
+                  )}
+                  {isEditing ? (
+                    <form>
+                      <input
+                        className="border-red-700 border-2 rounded"
+                        type="text"
+                        name="country"
+                        value={inputValues.country}
+                        onChange={handleInputChange}
+                      ></input>
+                    </form>
+                  ) : (
+                    <li>{profile.address.country}</li>
+                  )}
+                </ul>
+              </div>
+              <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
+                <h4 className="font-bold">Email:</h4>
                 {isEditing ? (
                   <form>
                     <input
                       className="border-red-700 border-2 rounded"
                       type="text"
-                      name="city"
-                      value={inputValues.city}
+                      name="email"
+                      value={inputValues.email}
                       onChange={handleInputChange}
                     ></input>
                   </form>
                 ) : (
-                  <li>{profile.address.city}</li>
+                  <p>{profile.email}</p>
                 )}
-                {isEditing ? (
-                  <form>
-                    <input
-                      className="border-red-700 border-2 rounded"
-                      type="text"
-                      name="country"
-                      value={inputValues.country}
-                      onChange={handleInputChange}
-                    ></input>
-                  </form>
-                ) : (
-                  <li>{profile.address.country}</li>
-                )}
-              </ul>
-            </div>
-            <div className="bg-main-white  w-full p-4 pl-6 text-text-dark rounded-xl">
-              <h4 className="font-bold">Email:</h4>
-              {isEditing ? (
-                <form>
-                  <input
-                    className="border-red-700 border-2 rounded"
-                    type="text"
-                    name="email"
-                    value={inputValues.email}
-                    onChange={handleInputChange}
-                  ></input>
-                </form>
-              ) : (
-                <p>{profile.email}</p>
-              )}
-            </div>
+              </div>
               <button
                 onClick={handleDeletingUser}
                 className="bg-strong-red2 px-4 py-2 rounded-full w-48 hover:bg-text-dark text-text-light ml-auto"
@@ -497,7 +486,7 @@ export const ProfilePage = () => {
                 {" "}
                 ! Delete User !
               </button>
-          </div>
+            </div>
           </div>
         </section>
       </div>

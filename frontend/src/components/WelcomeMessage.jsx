@@ -5,7 +5,7 @@ import { useProductsStore } from "../store/useProductsStore";
 import { useUserStore } from "../store/useUserStore";
 
 export const WelcomeMessage = () => {
-  const { user, loggedIn, signedUp, automaticLogOut, loggedOut } =
+  const { user, loggedIn, signedUp, automaticLogOut, loggedOut, deletedUser } =
     useUserStore();
   const { paymentSuccessful } = useProductsStore();
 
@@ -15,6 +15,7 @@ export const WelcomeMessage = () => {
     if (signedUp) return "Your signup was successful";
     if (loggedOut) return "You have been logged out";
     if (automaticLogOut) return "You have been automatically logged out";
+    if (deletedUser) return "Successfully deleted.";
 
     return "";
   };
@@ -28,6 +29,8 @@ export const WelcomeMessage = () => {
     if (loggedOut) return `See you later!`;
     if (automaticLogOut)
       return "Please log in again if you want your personal recommendations";
+    if (deletedUser)
+      return "You are welcome back anytime, just register another account.";
     return "";
   };
 
