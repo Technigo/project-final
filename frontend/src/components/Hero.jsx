@@ -1,4 +1,4 @@
-import heroImage from "/hero-image.png";
+import heroImage from "/mockupimages/hero-image.png";
 import swoop from "/swoops/hero-swoop.svg";
 import { NavLink } from "react-router-dom";
 
@@ -31,7 +31,7 @@ export const Hero = ({ data }) => {
         <>
           <img
             className="object-cover w-full h-[543px] tablet:h-[598px] laptop:h-[810px]"
-            src="splash-glim.png"
+            src="/mockupimages/splash-glim.png"
             alt="background image"
           />
           <div className="absolute bottom-0 right-0 transform tablet:transform-none -translate-x-1/3 tablet:-translate-y-none -translate-y-1/2 z-10 tablet:right-0 tablet:top-0 w-44 tablet:w-72 laptop:w-96 tablet:m-20 laptop:m-40 text-right text-white font-body">
