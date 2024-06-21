@@ -10,7 +10,6 @@ const router = express.Router();
 
 router.post("/register", async (req, res) => {
   try {
-    console.log(firstname);
     const {
       firstname,
       lastname,
@@ -22,17 +21,6 @@ router.post("/register", async (req, res) => {
       hair,
       skin,
     } = req.body;
-    console.log(
-      firstname,
-      lastname,
-      email,
-      address,
-      password,
-      allergies,
-      pros,
-      hair,
-      skin
-    );
 
     if (!firstname) {
       return res.status(400).json({ message: "Firstname is required." });
@@ -172,9 +160,7 @@ router.patch("/profile/:userId", async (req, res) => {
     );
 
     if (updatedUser) {
-      res
-        .status(200)
-        .json({ user: updatedUser, message: "User was updated" });
+      res.status(200).json({ user: updatedUser, message: "User was updated" });
     } else {
       res.status(404).json({ message: "There is no User with that ID." });
     }

@@ -1,13 +1,12 @@
+import { useEffect } from "react";
+
 import { Carousel } from "../components/Carousel";
-import { Hero } from "../components/Hero";
 import { Footer } from "../components/Footer";
+import { Hero } from "../components/Hero";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
-import { ReviewCard } from "../components/ReviewCard";
 import { Statements } from "../components/Statements";
 import { WelcomeMessage } from "../components/WelcomeMessage";
 import { useUserStore } from "../store/useUserStore";
-import { useEffect } from "react";
-// import Flickity from "flickity";
 
 export const Home = ({ data }) => {
   const {

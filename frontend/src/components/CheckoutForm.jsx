@@ -4,28 +4,33 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { useState, useEffect } from "react";
-import { WelcomeMessage } from "./WelcomeMessage";
+import { useEffect, useState } from "react";
+
 import { useProductsStore } from "../store/useProductsStore";
 
 const CheckoutForm = ({ totalPrice }) => {
-  const { handlePayment, paymentStatus, paymentSuccessful, isLoading, shoppingCart, orderHistory } =
-    useProductsStore();
+  const {
+    handlePayment,
+    paymentStatus,
+    paymentSuccessful,
+    isLoading,
+    shoppingCart,
+    orderHistory,
+  } = useProductsStore();
   const stripe = useStripe();
   const elements = useElements();
-  // const [paymentStatus, setPaymentStatus] = useState("");
+
   const [showMessage, setShowMessage] = useState(false);
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [isCardComplete, setIsCardComplete] = useState(false);
 
-  console.log("totalprice in checkoutform: ", totalPrice);
   // Define the product details
   const product = {
     items: shoppingCart,
-    /* description: "High-quality cotton t-shirt", */
     price: totalPrice,
   };
 
+  //Basic styling for stripe inside component since it is just a test stripe
   const cardElementOptions = {
     style: {
       base: {
@@ -54,21 +59,23 @@ const CheckoutForm = ({ totalPrice }) => {
         setIsCardComplete(event.complete);
       };
 
-      cardElement.on('change', handleChange);
+      cardElement.on("change", handleChange);
 
       return () => {
-        cardElement.off('change', handleChange);
+        cardElement.off("change", handleChange);
       };
     }
   }, [elements]);
 
-
-  // function handlePaymentWrapper(stripe, elements) {
-  //   handlePayment(stripe, elements);
-  // }
-
   const handleSubmit = async (event) => {
-    await handlePayment(event, stripe, elements, product, shoppingCart, totalPrice);
+    await handlePayment(
+      event,
+      stripe,
+      elements,
+      product,
+      shoppingCart,
+      totalPrice
+    );
     setShowMessage(true);
   };
 
@@ -83,9 +90,6 @@ const CheckoutForm = ({ totalPrice }) => {
   };
 
   const itemsToDisplay = paymentSuccessful ? orderHistory : product.items;
-
-  console.log("Payment status:", paymentStatus);
-  console.log("history", orderHistory)
 
   return (
     <>
@@ -109,7 +113,7 @@ const CheckoutForm = ({ totalPrice }) => {
             <button
               type="submit"
               className="bg-cta-blue text-text-light m-auto w-[180px] rounded-full px-5 p-2 mt-8"
-              disabled={!stripe || isLoading  || !isCardComplete}
+              disabled={!stripe || isLoading || !isCardComplete}
             >
               {isLoading ? "Processing..." : "Buy Now"}
             </button>
@@ -139,7 +143,6 @@ const CheckoutForm = ({ totalPrice }) => {
           )}
         </div>
       ) : null}
-
       <div className="tablet:max-w-[600px] tablet:m-auto">
         <h2 className="text-2xl mt-8 mb-8 laptop:text-3xl laptop:mb-12 text-center">
           {paymentSuccessful ? "Your purchased products:" : "Your cart:"}
@@ -157,8 +160,8 @@ const CheckoutForm = ({ totalPrice }) => {
               />
               <div className="w-6/12 tablet:w-full flex-col tablet:flex-row justify-between flex">
                 <div className="flex flex-col gap-2 text-xs tablet:text-sm desktop:text-base">
-                  <h4 className="font-black">{item.product.title}</h4>
-                  <h4>{item.product.brand}</h4>
+                  <h3 className="font-black">{item.product.title}</h3>
+                  <h3>{item.product.brand}</h3>
                   <p>{item.product.size}</p>
                   <h3 className="mt-4 text-lg desktop:text-xl">
                     {item.product.price} €

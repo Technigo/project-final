@@ -1,3 +1,5 @@
+For Technigo Review: Be advised this is a page in progress. We have a functioning main branch with everything for the code review. But inside the code you will find unfinished or not connected components or pages we set up for future implementations. Also there are part in the backend which are not implemented in the frontend yet.
+
 # Final project
 
 This is the final project of our Web Development Bootcamp at Technigo.

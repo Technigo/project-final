@@ -1,7 +1,9 @@
-import starFull from "/star-solid.svg";
+//THis ReviewCard is not implemented yet. It is here for future use.
 import star from "/star-regular.svg";
+import starFull from "/star-solid.svg";
 
 export const ReviewCard = ({ data, langData }) => {
+  //Not in use yet, for future implementations
   const reviewData = data;
   const langReviewData = langData;
 
@@ -20,7 +22,6 @@ export const ReviewCard = ({ data, langData }) => {
             <img className="w-4" src={starFull} />
             <img className="w-4" src={star} />
           </div>
-
           <p>Date example</p>
         </div>
       </div>

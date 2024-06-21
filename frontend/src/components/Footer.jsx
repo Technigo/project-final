@@ -1,7 +1,8 @@
 import swoop2 from "/swoops/footer-swoop2.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
-import { Slideshow } from "./WhyUsSlideshow";
+
 import data2 from "../data.en.json";
+import { Slideshow } from "./WhyUsSlideshow";
 
 export const Footer = ({ providedData, aboveColor }) => {
   let data = null;
@@ -29,7 +30,6 @@ export const Footer = ({ providedData, aboveColor }) => {
                 {missionStatement.title}
               </h2>
             </div>
-
             <Slideshow items={perkArray} />
             <div className="grid grid-cols-2 ">
               {missionStatement.perks &&
@@ -53,12 +53,10 @@ export const Footer = ({ providedData, aboveColor }) => {
           alt="Section border"
         />
       </section>
-
       <section className="contact bg-main-green text-text-light">
         <h2 className="font-heading text-4xl text-center py-10">
           {contact.title}
         </h2>
-
         <div className="flex whitespace-pre text-body flex-col items-center laptop:flex-row laptop:justify-around laptop:w-2/3 laptop: m-auto gap-4 align-center my-10">
           {contact.contactRoute.map((item, index) => (
             <div key={index} className="flex flex-col items-center w-1/5 my-6">
@@ -67,7 +65,6 @@ export const Footer = ({ providedData, aboveColor }) => {
             </div>
           ))}
         </div>
-
         <div className="flex gap-8 justify-center py-10">
           {contact.socialMedia.map((item, index) => (
             <img

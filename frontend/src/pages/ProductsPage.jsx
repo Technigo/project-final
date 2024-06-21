@@ -1,11 +1,12 @@
-import { useProductsStore } from "../store/useProductsStore";
-import { useUserStore } from "../store/useUserStore";
-import { useEffect, useState, useMemo } from "react";
-import { ProductCard } from "../components/ProductCard";
-import { Loading } from "../components/Loading";
+import { useEffect, useMemo, useState } from "react";
+
 import { Footer } from "../components/Footer";
+import { Loading } from "../components/Loading";
+import { ProductCard } from "../components/ProductCard";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { StickyButton } from "../components/StickyButton";
+import { useProductsStore } from "../store/useProductsStore";
+import { useUserStore } from "../store/useUserStore";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct, addedProduct } =
@@ -75,12 +76,7 @@ export const ProductsPage = () => {
             !product.allergies.some((allergy) =>
               profile.allergies.includes(allergy)
             );
-
-          console.log("Product:", product.title);
-          console.log("Profile Allergies:", profile.allergies);
-          console.log("Product Allergies:", product.allergies);
-          console.log("isNotAllergic:", isNotAllergic);
-
+          
           return (isNotAllergic && isMatchingProfile) || isMatchingPros;
         });
       } else {

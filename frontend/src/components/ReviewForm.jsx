@@ -1,12 +1,12 @@
-//User needs to be logged in to able to access the review form.
-import { useProductsStore } from "../store/useProductsStore";
+//This Review Form is not implemented yet. It is here for future use.
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { Loading } from "../components/Loading";
-import star from "/star-regular.svg";
-import starFull from "/star-solid.svg";
-import StarRating from "./StarRating";
 import { NotFound } from "../pages/NotFound";
+//User needs to be logged in to able to access the review form.
+import { useProductsStore } from "../store/useProductsStore";
+import StarRating from "./StarRating";
 
 export const ReviewForm = () => {
   const { id } = useParams();
@@ -32,26 +32,6 @@ export const ReviewForm = () => {
 
   const handleSend = (event) => {
     event.preventDefault();
-    // setFetched(false);
-    console.log("Message: ", message, "Stars:", selectedStars);
-
-    // From previous twitter clone project
-
-    // const fetchOptions = {
-    //   method: "POST",
-    //   body: JSON.stringify({ message: message }),
-    //   headers: { "Content-Type": "application/json" },
-    // };
-
-    // fetch(thoughts_URL, fetchOptions)
-    //   .then((res) => res.json())
-    //   .then((newThought) => {
-    //     setThoughts((previousThoughts) => [newThought, ...previousThoughts]);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
     setMessage("");
     setSelectedStars(0);
     // setFetched(true);
@@ -65,7 +45,6 @@ export const ReviewForm = () => {
     } else {
       setCharCheck(false);
     }
-    console.log(charCheck);
   };
 
   const characterLimit = () => {
@@ -84,7 +63,6 @@ export const ReviewForm = () => {
         <>
           <div className="w-9/12 max-w-[700px] m-auto text-text-light font-heading">
             <h2>Write review for {product.title}</h2>
-
             <form id="reviewForm">
               <textarea
                 name="textarea"
@@ -97,9 +75,9 @@ export const ReviewForm = () => {
                 onChange={handleMessage}
               ></textarea>
               <div className="lower-info flex justify-between align-center my-2">
-                 <p className={characterLimit()}>{characters}/140</p>
+                <p className={characterLimit()}>{characters}/140</p>
                 <div className="flex gap-2 justify-items-center gap-12">
-                <StarRating
+                  <StarRating
                     selectedStars={selectedStars}
                     setSelectedStars={setSelectedStars}
                   />

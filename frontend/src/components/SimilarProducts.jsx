@@ -1,9 +1,10 @@
-import { ProductCard } from "./ProductCard";
-import { useProductsStore } from "../store/useProductsStore";
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import swoopTop from "/swoops/swoop-similar-top.svg";
 import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+import swoopTop from "/swoops/swoop-similar-top.svg";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+
+import { useProductsStore } from "../store/useProductsStore";
+import { ProductCard } from "./ProductCard";
 
 const SimilarProducts = ({ subcategory, currentProductId }) => {
   const { productsData } = useProductsStore();
@@ -34,7 +35,6 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
   }, [similarProducts]);
 
   useEffect(() => {
-    console.log(currentProductId);
     if (productsData.products) {
       const filteredProducts = productsData.products.filter(
         (product) =>
@@ -89,9 +89,7 @@ const SimilarProducts = ({ subcategory, currentProductId }) => {
             alt="Section border"
           />
         </div>
-      ) : (
-        null
-      )}
+      ) : null}
     </>
   );
 };

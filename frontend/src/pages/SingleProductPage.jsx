@@ -1,20 +1,18 @@
-import { useProductsStore } from "../store/useProductsStore";
-import { useUserStore } from "../store/useUserStore";
 import { useEffect, useState } from "react";
+import { ImCross } from "react-icons/im";
+import { IoIosArrowBack } from "react-icons/io";
+import { MdOutlineStar } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Loading } from "../components/Loading";
-import { MdOutlineStar } from "react-icons/md";
-import { IoIosArrowBack } from "react-icons/io";
-import { ImCross } from "react-icons/im";
-import SimilarProducts from "../components/SimilarProducts";
-/* import { NotFound } from "./NotFound"; */
+
 import { Footer } from "../components/Footer";
+import { Loading } from "../components/Loading";
 import { ReviewForm } from "../components/ReviewForm";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
+import SimilarProducts from "../components/SimilarProducts";
 import { StickyButton } from "../components/StickyButton";
-import swoopTop from "/swoops/swoop-similar-top.svg";
-import swoopBottom from "/swoops/swoop-similar-bottom.svg";
+import { useProductsStore } from "../store/useProductsStore";
+import { useUserStore } from "../store/useUserStore";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -96,7 +94,6 @@ export const SingleProductPage = () => {
       } else {
         setRecommendedTag(false);
       }
-      console.log(isNotAllergic);
     }
   }, [product, profile]);
 
@@ -138,7 +135,6 @@ export const SingleProductPage = () => {
                   Recommended for you
                 </div>
               )}
-
               <div className="w-9/12 m-auto tablet:m-0 py-6 text-text-light tablet:pl-8 desktop:pl-16">
                 <h2 className="font-light text-lg tablet:text-xl mb-2">
                   {product.brand}
@@ -242,7 +238,6 @@ export const SingleProductPage = () => {
                             </ul>
                           </div>
                         )}
-
                         {product.hair?.moisture?.length > 0 && (
                           <div className="w-full relative flex flex-col gap-2">
                             <h4 className="text-text-light font-bold text-sm">
@@ -260,7 +255,6 @@ export const SingleProductPage = () => {
                             </ul>
                           </div>
                         )}
-
                         {product.hair?.shape?.length > 0 && (
                           <div className="w-full relative flex flex-col gap-2">
                             <h4 className="text-text-light font-bold text-sm">
@@ -335,7 +329,6 @@ export const SingleProductPage = () => {
                         </ul>
                       </div>
                     )}
-
                     {product.hair?.moisture?.length > 0 && (
                       <div className="relative flex flex-col gap-2">
                         <h4 className="text-text-light font-bold text-base">
@@ -353,7 +346,6 @@ export const SingleProductPage = () => {
                         </ul>
                       </div>
                     )}
-
                     {product.hair?.shape?.length > 0 && (
                       <div className="relative flex flex-col gap-2">
                         <h4 className="text-text-light font-bold text-base">
@@ -371,7 +363,6 @@ export const SingleProductPage = () => {
                         </ul>
                       </div>
                     )}
-
                     {product.allergies?.length > 0 && (
                       <div className="relative flex flex-col gap-2">
                         <h4 className="text-text-light font-bold text-base">
@@ -402,10 +393,8 @@ export const SingleProductPage = () => {
           currentProductId={product._id}
         />
       </section>
-      
       {/* Will be implemented later */}
       {/* <ReviewForm /> */}
-
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"red"} />
     </>

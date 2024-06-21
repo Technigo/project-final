@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
+//There are parts in this page which will be for editing the user. They are not fully implemented yet.
+import { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 import { Footer } from "../components/Footer";
-import { Loading } from "../components/Loading";
-import { WelcomeMessage } from "../components/WelcomeMessage";
-// User needs to be logged in to see Profile page,
-// send user to Log in/ Sign up if not logged in.
-
 import { useUserStore } from "../store/useUserStore";
 import { NotFound } from "./NotFound";
 
@@ -26,19 +22,6 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(user.user);
 
-  // useEffect(() => {
-  //   // Fetch the user profile using the userId
-  //   const fetchUserProfile = async () => {
-  //     if (!user) {
-  //       navigate("/");
-  //     } else {
-
-  //     }
-  //   };
-
-  //   fetchUserProfile();
-  // }, [userId, fetchUser, navigate]);
-
   useEffect(() => {
     if (loggedOut) {
       navigate("/");
@@ -48,8 +31,6 @@ export const ProfilePage = () => {
   if (!profile) {
     return <NotFound reason="profile" />;
   }
-
-  console.log("Profile:", userId);
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -372,7 +353,6 @@ export const ProfilePage = () => {
                             <li>{item}</li>
                           </ul>
                         ))}
-
                     <img
                       src="/preferences02.svg"
                       alt="Icon of a heart"
@@ -438,8 +418,6 @@ export const ProfilePage = () => {
               ) : (
                 <p>{profile.lastname}</p>
               )}
-
-              {/* <h4 className="font-bold">Name:</h4> */}
               <h4 className="font-bold">Address:</h4>
               <ul className="text-sm">
                 {isEditing ? (
@@ -523,7 +501,6 @@ export const ProfilePage = () => {
           </div>
         </section>
       </div>
-
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"yellow"} />
     </>

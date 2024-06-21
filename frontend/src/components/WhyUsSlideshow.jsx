@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Slideshow = ({ items }) => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -72,7 +72,6 @@ export const Slideshow = ({ items }) => {
           </a>
         </div>
       </div>
-
       <div className="text-center">
         {items.map((_, index) => (
           <span
