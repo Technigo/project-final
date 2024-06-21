@@ -53,7 +53,7 @@ export default {
         // => @media (min-width: 1280px) { ... }
       },
       backgroundImage: {
-        "arrow-select": `url("arrowselect.svg")`,
+        "arrow-select": `url("/icons/arrowselect.svg")`,
       },
     },
   },

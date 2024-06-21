@@ -183,7 +183,7 @@ export const SingleProductPage = () => {
                         {product.pros.includes("crueltyfree") && (
                           // Content for cruelty-free products
                           <img
-                            src="/crueltyfree.svg"
+                            src="/icons/crueltyfree.svg"
                             alt="cruelty free"
                             title="Cruelty free"
                             className="w-14 h-14"
@@ -192,7 +192,7 @@ export const SingleProductPage = () => {
                         {product.pros.includes("organic") && (
                           // Content for organic products
                           <img
-                            src="/organic.svg"
+                            src="/icons/organic.svg"
                             alt="organic"
                             title="Organic"
                             className="w-14 h-14"
@@ -201,7 +201,7 @@ export const SingleProductPage = () => {
                         {product.pros.includes("vegan") && (
                           // Content for organic products
                           <img
-                            src="/vegan.svg"
+                            src="/icons/vegan.svg"
                             alt="vegan"
                             title="Vegan"
                             className="w-14 h-14"

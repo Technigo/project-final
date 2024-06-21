@@ -222,7 +222,7 @@ export const SignUpPage = () => {
           <div className="relative w-full laptop:m-8">
             <img
               className="w-full w-screentablet:order-last laptop:rounded-3xl"
-              src="signup.svg"
+              src="/mockupimages/signup.svg"
               alt="picture of a woman using skincare."
             />
             <img

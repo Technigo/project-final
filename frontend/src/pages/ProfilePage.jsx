@@ -133,7 +133,7 @@ export const ProfilePage = () => {
             <ul className="flex flex-col tablet:grid tablet:grid-cols-2 gap-6">
               <li className="flex gap-4">
                 <img
-                  src="/skintype-icon-white.svg"
+                  src="/icons/skintype-icon-white.svg"
                   alt="Icon of a face"
                   className="w-14"
                 />
@@ -192,7 +192,7 @@ export const ProfilePage = () => {
               </li>
               <li className="col-start-1 flex gap-4">
                 <img
-                  src="/hairtype-icon-white.svg"
+                  src="/icons/hairtype-icon-white.svg"
                   alt="Icon of hair"
                   className="w-14"
                 />
@@ -284,7 +284,7 @@ export const ProfilePage = () => {
               </li>
               <li className=" col-start-1 col-end-3 flex gap-4">
                 <img
-                  src="/allergies-icon-white.svg"
+                  src="/icons/allergies-icon-white.svg"
                   alt="Icon of hand with allergies"
                   className="w-14"
                 />
@@ -314,7 +314,7 @@ export const ProfilePage = () => {
               </li>
               <li className="col-start-2 row-start-1 row-end-3 flex tablet:flex-row-reverse gap-4 w-full">
                 <img
-                  src="/preferences-icon-white.svg"
+                  src="/icons/preferences-icon-white.svg"
                   alt="Icon of a heart"
                   className="w-14 tablet:hidden"
                 />
@@ -342,7 +342,7 @@ export const ProfilePage = () => {
                           </ul>
                         ))}
                     <img
-                      src="/preferences02.svg"
+                      src="/icons/preferences-icon-dark.svg"
                       alt="Icon of a heart"
                       className="w-14 hidden tablet:flex self-end mb-6"
                     />
@@ -369,9 +369,9 @@ export const ProfilePage = () => {
         <section className="w-full bg-main-yellow">
           <div className=" w-11/12 tablet:w-10/12 py-12 mx-auto gap-8 tablet:flex ">
             <img
-              src="/User-page.svg"
+              src="/mockupimages/profile-page.svg"
               alt="hands holding skinproducts"
-              className="w-full object-fit tablet:w-6/12 laptop:w-6/12 rounded-xl"
+              className="w-full h-80 my-auto object-cover tablet:w-1/2 tablet:rounded-xl rounded-xl"
             />
 
             <div className="flex flex-col gap-6 font-heading tablet:w-6/12 text-text-dark mt-16 laptop:mt-28">

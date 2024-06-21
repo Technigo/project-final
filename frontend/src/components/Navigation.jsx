@@ -1,8 +1,9 @@
-import burgerMenu from "/bars-solid.svg";
-import shoppingCartsvg from "/cart-shopping-solid.svg";
-import glimLogo from "/glimSmall.svg";
-import userIcon from "/user-solid.svg";
-import xMark from "/xmark-solid.svg";
+import burgerMenu from "/icons/bars-solid.svg";
+import shoppingCartsvg from "/icons/cart-shopping-solid.svg";
+import glimLogo from "/icons/glimSmall.svg";
+import userIcon from "/icons/user-solid.svg";
+import xMark from "/icons/xmark-solid.svg";
+import productsIcon from "/icons/products-solid.svg";
 import Lottie from "lottie-react";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -154,7 +155,7 @@ export const Navigation = ({ data }) => {
                   className="hidden tablet:block laptop:hidden"
                 >
                   <img
-                    src="/products.svg"
+                    src={productsIcon}
                     alt="link to products"
                     className="h-9 w-9 mt-2 ml-1"
                   />
@@ -176,7 +177,7 @@ export const Navigation = ({ data }) => {
                   className="hidden tablet:block laptop:hidden"
                 >
                   <img
-                    src="/products.svg"
+                    src={productsIcon}
                     alt="link to products"
                     className="h-9 w-9 mt-2 mr-2"
                   />
@@ -252,7 +253,7 @@ export const Navigation = ({ data }) => {
                   className="tablet:hidden"
                 >
                   <img
-                    src="/products.svg"
+                    src={productsIcon}
                     alt="link to products"
                     className="h-7 w-7 mt-2 mr-1"
                   />
