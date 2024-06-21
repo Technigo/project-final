@@ -1,9 +1,4 @@
-import {
-  CardElement,
-  PaymentElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { CardElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -54,10 +49,7 @@ export const useProductsStore = create(
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                //TODO Check how to connect to our products
                 amount: product.price * 100, // Convert price to cents
-                //   productName: product.title,
-                /*     productDescription: product.description, */
               }),
             }
           );

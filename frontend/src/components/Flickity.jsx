@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import Flickity from "react-flickity-component";
-import { useEffect, useState, useRef, useCallback } from "react";
+
 import { useProductsStore } from "../store/useProductsStore";
 import { ProductCard } from "./ProductCard";
-import { Loading } from "../components/Loading";
+
 import "flickity/css/flickity.css";
 
 export const FlickCarousel = (product) => {

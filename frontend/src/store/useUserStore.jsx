@@ -154,6 +154,7 @@ export const useUserStore = create(
         }
       },
 
+      //This function is not used in our code yet. Work in progress.
       updateUser: async (userId, accessToken, updatedFields) => {
         /* set({ loadingUser: true }); */
         const URL = `https://project-final-glim.onrender.com/users/profile/${userId}`;

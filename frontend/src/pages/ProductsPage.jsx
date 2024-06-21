@@ -1,11 +1,12 @@
-import { useProductsStore } from "../store/useProductsStore";
-import { useUserStore } from "../store/useUserStore";
-import { useEffect, useState, useMemo } from "react";
-import { ProductCard } from "../components/ProductCard";
-import { Loading } from "../components/Loading";
+import { useEffect, useMemo, useState } from "react";
+
 import { Footer } from "../components/Footer";
+import { Loading } from "../components/Loading";
+import { ProductCard } from "../components/ProductCard";
 import { ShoppingCartPopup } from "../components/ShoppingCartPopup";
 import { StickyButton } from "../components/StickyButton";
+import { useProductsStore } from "../store/useProductsStore";
+import { useUserStore } from "../store/useUserStore";
 
 export const ProductsPage = () => {
   const { productsData, fetchProducts, loadingProduct, addedProduct } =

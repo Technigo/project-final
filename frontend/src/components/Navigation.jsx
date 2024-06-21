@@ -1,7 +1,6 @@
 import burgerMenu from "/bars-solid.svg";
 import shoppingCartsvg from "/cart-shopping-solid.svg";
 import glimLogo from "/glimSmall.svg";
-import swoop from "/nav-swoop2.svg";
 import userIcon from "/user-solid.svg";
 import xMark from "/xmark-solid.svg";
 import Lottie from "lottie-react";
@@ -9,14 +8,12 @@ import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import animation from "../assets/Circle-loading-Animation.json";
-import { useUserStore } from "../store/useUserStore";
 import { useProductsStore } from "../store/useProductsStore";
+import { useUserStore } from "../store/useUserStore";
 import { WelcomeMessage } from "./WelcomeMessage";
 
 export const Navigation = ({ data }) => {
   const {
-    email,
-    password,
     userId,
     loginUser,
     loggedIn,

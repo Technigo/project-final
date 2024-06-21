@@ -41,9 +41,6 @@ export const SignUpPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [selectedAllergies, setSelectedAllergies] = useState([]);
   const [selectedPros, setSelectedPros] = useState([]);
-  const [fetchStatus, setFetchStatus] = useState("");
-  const [successStatus, setSuccessStatus] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
   const [sectionCheck, setSectionCheck] = useState(false);
 
   const navigate = useNavigate();
@@ -612,7 +609,6 @@ export const SignUpPage = () => {
                     Allergies:
                   </label>
                 </div>
-
                 {allergyOptions.map((option) => (
                   <label key={option}>
                     <input
@@ -676,7 +672,6 @@ export const SignUpPage = () => {
           </form>
         </section>
       )}
-
       {sectionCheck ? (
         <img
           className="bg-light-yellow w-full"

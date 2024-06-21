@@ -5,9 +5,10 @@ import { FaTrashCan } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import { IoIosArrowBack } from "react-icons/io";
 import { NavLink, useNavigate } from "react-router-dom";
-import { WelcomeMessage } from "../components/WelcomeMessage";
-import { OrderHistory } from "../components/OrderHistory";
+
 import CheckoutForm from "../components/CheckoutForm";
+import { OrderHistory } from "../components/OrderHistory";
+import { WelcomeMessage } from "../components/WelcomeMessage";
 import { useProductsStore } from "../store/useProductsStore";
 import { useUserStore } from "../store/useUserStore";
 
@@ -145,7 +146,6 @@ export const ShoppingCart = () => {
             </>{" "}
           </>
         )}
-
         {!checkout && orderHistory.length === 0 && (
           <>
             <div className="flex flex-col gap-4 w-11/12 desktop:w-6/12 m-auto my-0 text-center font-heading text-text-light">
@@ -201,7 +201,6 @@ export const ShoppingCart = () => {
                             </div>
                           )}
                         </div>
-
                         <div className="max-w-max">
                           <div className="flex gap-6 tablet:justify-end">
                             <div className="flex h-6">

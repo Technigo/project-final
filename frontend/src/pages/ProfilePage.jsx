@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+//There are parts in this page which will be for editing the user. They are not fully implemented yet.
+import { useEffect, useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 import { Footer } from "../components/Footer";
-import { Loading } from "../components/Loading";
-import { WelcomeMessage } from "../components/WelcomeMessage";
-
 import { useUserStore } from "../store/useUserStore";
 import { NotFound } from "./NotFound";
 
@@ -346,7 +344,6 @@ export const ProfilePage = () => {
                             <li>{item}</li>
                           </ul>
                         ))}
-
                     <img
                       src="/preferences02.svg"
                       alt="Icon of a heart"
@@ -494,7 +491,6 @@ export const ProfilePage = () => {
           </button>
         </section>
       </div>
-
       {/* add the X of the bg-main-X to the aboveColor to make the Footer match*/}
       <Footer aboveColor={"yellow"} />
     </>

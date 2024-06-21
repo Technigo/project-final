@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as filledStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+import { faStar as filledStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StarRating = ({ totalStars = 5, selectedStars, setSelectedStars }) => {
   const handleStarClick = (index) => {

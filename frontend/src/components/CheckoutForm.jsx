@@ -4,8 +4,8 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { useState, useEffect } from "react";
-import { WelcomeMessage } from "./WelcomeMessage";
+import { useEffect, useState } from "react";
+
 import { useProductsStore } from "../store/useProductsStore";
 
 const CheckoutForm = ({ totalPrice }) => {
@@ -30,6 +30,7 @@ const CheckoutForm = ({ totalPrice }) => {
     price: totalPrice,
   };
 
+  //Basic styling for stripe inside component since it is just a test stripe
   const cardElementOptions = {
     style: {
       base: {
@@ -142,7 +143,6 @@ const CheckoutForm = ({ totalPrice }) => {
           )}
         </div>
       ) : null}
-
       <div className="tablet:max-w-[600px] tablet:m-auto">
         <h2 className="text-2xl mt-8 mb-8 laptop:text-3xl laptop:mb-12 text-center">
           {paymentSuccessful ? "Your purchased products:" : "Your cart:"}

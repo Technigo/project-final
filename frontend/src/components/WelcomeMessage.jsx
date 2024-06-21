@@ -1,15 +1,13 @@
-import { useUserStore } from "../store/useUserStore";
-import { useProductsStore } from "../store/useProductsStore";
-import { useState } from "react";
 import Lottie from "lottie-react";
+
 import animation from "../assets/animation-success.json";
+import { useProductsStore } from "../store/useProductsStore";
+import { useUserStore } from "../store/useUserStore";
 
 export const WelcomeMessage = () => {
   const { user, loggedIn, signedUp, automaticLogOut, loggedOut } =
     useUserStore();
   const { paymentSuccessful } = useProductsStore();
-
-  //const [ open, setOpen ] = useState(true)
 
   const getTitleMessage = () => {
     if (paymentSuccessful) return "Woho! Great success.";

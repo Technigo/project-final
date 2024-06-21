@@ -31,7 +31,6 @@ export const ProductCard = ({ data }) => {
             {productName}
           </h3>
         </NavLink>
-
         <div className="flex flex-col h-full  justify-end items-center ">
           <p className="font-body my-3 font-bold text-sm">{price}</p>
           <button

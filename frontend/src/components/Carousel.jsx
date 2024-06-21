@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef, useCallback } from "react";
-import { useProductsStore } from "../store/useProductsStore";
-import { ProductCard } from "./ProductCard";
+import { useEffect, useState } from "react";
+
 import { Loading } from "../components/Loading";
+import { useProductsStore } from "../store/useProductsStore";
 import { FlickCarousel } from "./Flickity";
 
 export const Carousel = () => {
@@ -30,7 +30,6 @@ export const Carousel = () => {
           <h2 className="font-heading text-xl text-center text-white font-light">
             Featured Products
           </h2>
-
           <FlickCarousel />
         </>
       )}
