@@ -33,11 +33,11 @@ app.get("/", (req, res) => {
 
 // Registration endpoint
 app.post("/api/register", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     // Check if user with the same email already exists
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ error: "User already exists" });
     }
@@ -51,13 +51,9 @@ app.post("/api/register", async (req, res) => {
     await newUser.save();
 
     // Generate JWT
-    const token = jwt.sign(
-      { id: newUser._id, username: newUser.username },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "1h",
-      }
-    );
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     res.status(201).json({ message: "User registered successfully", token });
   } catch (error) {
@@ -84,13 +80,9 @@ app.post("/api/login", async (req, res) => {
     }
 
     // Generate JWT
-    const token = jwt.sign(
-      { id: user._id, username: user.username },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "1h",
-      }
-    );
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     res.json({ token });
   } catch (error) {

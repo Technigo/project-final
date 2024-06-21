@@ -30,9 +30,9 @@ const RegisterPage = () => {
       console.log("Registration response:", response.data);
 
       if (response.status === 201) {
-        const { token, username } = response.data;
-        if (token && username) {
-          login(token, username);
+        const { token } = response.data;
+        if (token) {
+          login(token);
           navigate("/rentals");
         }
       } else {
