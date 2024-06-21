@@ -84,7 +84,7 @@ const RegisterPage = () => {
 
         <div className="authButtonWrapper">
           <button type="submit" className="authButton">
-            Log In
+            Register
           </button>
         </div>
       </form>
