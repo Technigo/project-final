@@ -1,13 +1,15 @@
 # Final Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Creating a rentals page for renting out vacation items.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I have created two APIs, one for storing the rentals and placing orders and one for authentication. I used postman, mongoDB compass for testing and deployed with MongoDB Atlas and render. For the frontend I deployed with Netlify.I used Figma for planning the project and making a design. If I had more time I would add more functionalities and work on the design more.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Backend rentals deployed: https://project-final-rentals-api.onrender.com/
+
+backend auth deployed: https://project-final-auth-api.onrender.com/
+
+Frontend deployed: https://palma-rentals.netlify.app/
