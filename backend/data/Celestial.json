@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Sun",
+    "nickname": "The Star at the Center",
+    "material": "Hydrogen and helium",
+    "surfaceTemperature": {
+      "core": "15,000,000°C",
+      "surface": "5,500°C"
+    },
+    "weatherClimate": "Solar wind, sunspots, solar flares, coronal mass ejections",
+    "travelTime": "Approximately 93 million miles from Earth; about 8 minutes for light to travel",
+    "curiosa": [
+      "The Sun's core, which accounts for 25% of its radius, is where nuclear fusion occurs.",
+      "The Sun has a layered structure with the core, radiative zone, and convective zone.",
+      "Solar phenomena such as sunspots, solar flares, and coronal mass ejections originate in the outer layers.",
+      "The Sun is about 4.6 billion years old and is expected to continue burning for another 5 billion years.",
+      "It contains 99.86% of the mass in the Solar System.",
+      "The Sun's magnetic field is carried outward through the Solar System by the solar wind."
+    ]
+  },
+  {
+    "name": "Moon",
+    "nickname": "Earth's Satellite",
+    "material": "Rock and dust",
+    "surfaceTemperature": {
+      "night": "-173°C",
+      "day": "127°C"
+    },
+    "weatherClimate": "No atmosphere, extreme temperature fluctuations",
+    "travelTime": "Approximately 238,855 miles from Earth; about 3 days with current technology",
+    "curiosa": [
+      "The Moon exerts a gravitational pull on Earth that significantly affects the planet's tides.",
+      "The tidal effect of the Moon causes slight but measurable deformations in the Earth's crust known as Earth tides.",
+      "The interaction between the Earth and Moon has gradually slowed Earth's rotation and caused the Moon to drift away from Earth.",
+      "The Moon has a diameter of about 3,474 kilometers (2,159 miles).",
+      "It is the fifth largest moon in the Solar System.",
+      "The far side of the Moon was first seen by humans in 1959 when the Soviet spacecraft Luna 3 transmitted photographs."
+    ]
+  }
+]
+

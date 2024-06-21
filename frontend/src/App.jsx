@@ -1,8 +1,16 @@
-export const App = () => {
+import { BrowserRouter } from "react-router-dom"
+import GlobalStyles from "./components/GlobalStyles"
+import { HomeRoutes } from "./routes/HomeRoutes"
+import { Header } from "./components/Navigation/Header"
 
+export const App = () => {
   return (
     <>
-      <h1>Welcome to Final Project!</h1>
+      <GlobalStyles />
+      <BrowserRouter>
+        <Header />
+        <HomeRoutes />
+      </BrowserRouter>
     </>
-  );
-};
+  )
+}
