@@ -145,13 +145,15 @@ export const SingleProductPage = () => {
                 <p className="mb-8 leading-loose">{product.description}</p>
                 <div className="flex flex-col desktop:flex-row">
                   <div>
+                    {/* To be added when review functionality is implemented
+                    
                     <div className="mb-12 flex">
                       <MdOutlineStar />
                       <MdOutlineStar />
                       <MdOutlineStar />
                       <MdOutlineStar />
                       <MdOutlineStar />
-                    </div>
+                    </div> */}
                     <h3 className="text-3xl mb-8">{product.price} €</h3>
                     <div className="flex gap-6">
                       <div className="flex">
