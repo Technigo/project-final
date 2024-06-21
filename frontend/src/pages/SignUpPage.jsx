@@ -653,10 +653,10 @@ export const SignUpPage = () => {
             <button
               disabled={loadingUser}
               onClick={handleSubmit}
-              className="bg-light-orange h-8 w-40 self-center mt-6 rounded-3xl text-text-light font-heading"
+              className="bg-light-orange h-8  self-center mt-6 rounded-3xl text-text-light font-heading"
             >
               {loadingUser ? (
-                <div className="flex items-center justify-center">
+                <div className="flex items-center px-4 justify-center">
                   <span>Creating user...</span>
                   <Lottie
                     animationData={animation}
@@ -666,7 +666,7 @@ export const SignUpPage = () => {
                   />
                 </div>
               ) : (
-                "Create Profile"
+                <span className="px-4"> Create Profile</span>
               )}
             </button>
           </form>

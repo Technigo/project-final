@@ -1,5 +1,5 @@
-import swoop2 from "/swoops/footer-swoop2.svg";
 import dottedLine from "/soMeIcons/dottedLine.svg";
+import swoop2 from "/swoops/footer-swoop2.svg";
 
 import data2 from "../data.en.json";
 import { Slideshow } from "./WhyUsSlideshow";
@@ -67,12 +67,15 @@ export const Footer = ({ providedData, aboveColor }) => {
         </div>
         <div className="flex gap-8 justify-center py-10">
           {contact.socialMedia.map((item, index) => (
-            <img
-              key={index}
-              className="w-10 hover:opacity-75 hover:cursor-pointer active:opacity-50"
-              src={item.icon}
-              alt={item.altText}
-            />
+            <div key={index}>
+              <a href={item.link} alt={item.name}>
+                <img
+                  className="w-10 hover:opacity-75 hover:cursor-pointer active:opacity-50"
+                  src={item.icon}
+                  alt={item.altText}
+                />
+              </a>
+            </div>
           ))}
         </div>
       </section>
