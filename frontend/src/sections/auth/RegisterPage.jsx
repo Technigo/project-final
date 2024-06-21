@@ -27,9 +27,9 @@ const RegisterPage = () => {
           password,
         }
       );
-      console.log("Registration successfull:", response);
+      console.log("Registration response:", response.data);
 
-      if (response.data.message === "User registered successfully") {
+      if (response.status === 201) {
         const { token, username } = response.data;
         if (token && username) {
           login(token, username);

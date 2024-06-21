@@ -11,11 +11,9 @@ import User from "./models/User";
 dotenv.config();
 
 // MongoDB connection setup
-const mongoUrl =
-  process.env.MONGO_URL ||
-  "mongodb+srv://paula010514:uVSJuieDMQhHDeV4@paula.5q34khs.mongodb.net/?retryWrites=true&w=majority&appName=Paula";
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/rental-users";
 mongoose.connect(mongoUrl);
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:

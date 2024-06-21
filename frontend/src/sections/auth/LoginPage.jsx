@@ -28,7 +28,7 @@ const LoginPage = () => {
       console.log("Login successfull:", response.data);
 
       const { token, username } = response.data;
-      if (token && username) {
+      if (token) {
         login(token, username);
         navigate("/rentals");
       }

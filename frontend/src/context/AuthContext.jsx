@@ -15,20 +15,26 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
-    if (storedToken) {
+    const storedUsername = localStorage.getItem("username");
+
+    console.log("Stored token:", storedToken);
+    console.log("Stored username", storedUsername);
+
+    if (storedToken && storedUsername) {
       setToken(storedToken);
+      setUsername(storedUsername);
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
     }
   }, []);
 
-  const login = (newToken) => {
+  const login = (newToken, newUsername) => {
     setToken(newToken);
-    setUsername(username);
+    setUsername(newUsername);
     setIsAuthenticated(true);
     localStorage.setItem("authToken", newToken);
-    localStorage.setItem("username", username);
+    localStorage.setItem("username", newUsername);
   };
 
   const logout = () => {
@@ -47,6 +53,8 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
   };
+
+  console.log("Authprovider value:", value);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
