@@ -76,7 +76,7 @@ export const ProductsPage = () => {
             !product.allergies.some((allergy) =>
               profile.allergies.includes(allergy)
             );
-
+          
           return (isNotAllergic && isMatchingProfile) || isMatchingPros;
         });
       } else {
@@ -117,6 +117,7 @@ export const ProductsPage = () => {
             <form>
               <select
                 name="Filter"
+                aria-label="Filter"
                 value={filterValue}
                 onChange={handleFilterChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
@@ -155,6 +156,7 @@ export const ProductsPage = () => {
             <form>
               <select
                 name="category-filter"
+                aria-label="Category"
                 value={categoryValue}
                 onChange={handleCategoryChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"
@@ -182,6 +184,7 @@ export const ProductsPage = () => {
             <form>
               <select
                 name="Sort"
+                aria-label="Sort"
                 value={sortValue}
                 onChange={handleSortChange}
                 className="appearance-none bg-button-varm-light px-4 py-1 rounded-xl text-sm text-center w-40 tablet:w-fit"

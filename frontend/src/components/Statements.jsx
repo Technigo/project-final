@@ -2,8 +2,8 @@ import glim from "/glim-logo.svg";
 import face1 from "/mockupimages/mockup-face1.png";
 import face2 from "/mockupimages/mockup-face2.png";
 import wideImage from "/mockupimages/mockup-faces.png";
-import swoopBottom from "/statement-bottom-swoop.svg";
-import swoop from "/statement-swoop.svg";
+import swoopBottom from "/swoops/statement-bottom-swoop.svg";
+import swoop from "/swoops/statement-swoop.svg";
 
 export const Statements = ({ data }) => {
   return (

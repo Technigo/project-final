@@ -27,8 +27,8 @@
      inkscape:cy="74.913295"
      inkscape:window-width="1392"
      inkscape:window-height="1212"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-x="720"
+     inkscape:window-y="61"
      inkscape:window-maximized="0"
      inkscape:current-layer="visual" />
   <rect
@@ -45,5 +45,5 @@
      stroke-linecap="round"
      stroke-linejoin="miter"
      id="path1"
-     style="stroke-width:1.0207" />
+     style="stroke-width:1.0207;fill:#747639;fill-opacity:1" />
 </svg>

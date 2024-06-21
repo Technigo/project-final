@@ -7,7 +7,8 @@ export default {
         "cta-blue": "#002795",
         "cta-blue-hover": "#1138a6",
 
-        "main-green": "#86884b",
+        "main-green2": "#86884b",
+        "main-green": "rgb(116, 118, 57)", //testing new main-green color for accessibility. We get a 96 on the homepage with this
 
         "main-yellow-check": "#FFE486",
         "strong-yellow": "rgba(255, 215, 51, 0.8)",
@@ -16,7 +17,8 @@ export default {
         "main-white": "#FFFDF6",
         "main-white-transparent": "rgba(255, 253, 246, 0.7)",
 
-        "main-red": "#E48d6A",
+        "main-red2": "#E48d6A",
+        "main-red": "rgb(211, 124, 89)", //testing a new main-red color for accessibility. We get a 96 on the homepage with this
         "strong-red": "rgba(159, 36, 9, 0.41)",
         "red-burger": "rgba(193, 96, 65, 0.8)",
         "strong-red2": "#9f2409",
@@ -31,12 +33,10 @@ export default {
         "button-light": "#FFF5F2",
         "button-varm-light": "#FFCDBD",
         "button-varm-medium": "#D97D61",
-        
-        "overlay": "rgba(25, 4, 5, 0.54)",
+
+        overlay: "rgba(25, 4, 5, 0.54)",
         "bg-input": "#FFFDF6",
-        "login": "rgba(255, 204, 182, 0.8)"
-
-
+        login: "rgba(255, 204, 182, 0.8)",
       },
       fontFamily: {
         body: ["Comfortaa", "cursive"],
