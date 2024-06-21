@@ -21,6 +21,11 @@ const RentalItem = () => {
     }
   };
 
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    alert("Item added to the cart");
+  };
+
   return (
     <div className="rentalItemContainer">
       {rentals.map((item, index) => (
@@ -29,7 +34,10 @@ const RentalItem = () => {
           <div className="rentalItemDetails">
             <p className="rentalItemDescription">{item.description}</p>
             <h3 className="rentalItemPrice">{item.price}</h3>
-            <button onClick={() => addToCart(item)} className="addToCartButton">
+            <button
+              onClick={() => handleAddToCart(item)}
+              className="addToCartButton"
+            >
               Add to Cart
             </button>
           </div>

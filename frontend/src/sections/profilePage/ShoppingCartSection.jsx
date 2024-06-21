@@ -13,6 +13,7 @@ const ShoppingCartSection = () => {
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     fetchCartItems();
@@ -56,6 +57,7 @@ const ShoppingCartSection = () => {
       setDeliveryAddress("");
       setCustomerEmail("");
       setError("");
+      setSuccessMessage("Order placed successfully");
     } catch (error) {
       setError("Failed to place order. Please try again.");
       console.error("Error placing order:", error);
@@ -147,6 +149,7 @@ const ShoppingCartSection = () => {
           <button type="submit" className="sendOrderButton">
             Send Order
           </button>
+          {successMessage && <p className="successMessage">{successMessage}</p>}
         </form>
 
         <p className="shoppingCartQuestionsText">
