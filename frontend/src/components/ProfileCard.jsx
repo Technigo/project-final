@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import githubIcon from "../assets/github-icon.svg";
-import linkedinIcon from "../assets/linkedin-icon.svg";
-import emailIcon from "../assets/email-icon.svg";
+
+import emailIcon from "../assets/icons/email-icon.svg";
+import githubIcon from "../assets/icons/github-icon.svg";
+import linkedinIcon from "../assets/icons/linkedin-icon.svg";
 
 export const ProfileCard = ({
   image,
@@ -12,11 +13,9 @@ export const ProfileCard = ({
   email,
 }) => {
   return (
-    <div className="py-10 flex flex-col items-center">
+    <div className="flex flex-col items-center py-10">
       <img src={image} alt="profile of the our member" className="pb-4" />
-      <p className="pb-2 font-montserrat text-xl font-bold">
-        {name}
-      </p>
+      <p className="pb-2 font-montserrat text-xl font-bold">{name}</p>
       <p className="text-md pb-4 font-montserrat font-bold text-light-blue">
         {role}
       </p>

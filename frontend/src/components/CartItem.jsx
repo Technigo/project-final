@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import rubbish from "../assets/rubbish-bin-blue.svg";
+import rubbish from "../assets/icons/rubbish-bin-blue.svg";
 import { useUserStore } from "../stores/useUserStore";
 
 export const CartItem = ({ id, image, name, price }) => {

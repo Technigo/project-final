@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import toTop from "../assets/animation/lottie-to-top.json";
-import dropdown from "../assets/dropdown.svg";
+import dropdown from "../assets/icons/dropdown.svg";
 import { useProductStore } from "../stores/useProductStore";
 import { Button } from "./Button";
 

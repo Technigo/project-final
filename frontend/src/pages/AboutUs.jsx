@@ -1,8 +1,8 @@
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProfileCard } from "../components/ProfileCard";
-import wenImage from "../assets/profile-wen.jpg";
-import sofieImage from "../assets/profile-sofie.jpg";
-import maiImage from "../assets/profile-mai.jpg";
+import wenImage from "../assets/images/profile-wen.jpg";
+import sofieImage from "../assets/images/profile-sofie.jpg";
+import maiImage from "../assets/images/profile-mai.jpg";
 
 export const AboutUs = () => {
   return (
@@ -12,7 +12,7 @@ export const AboutUs = () => {
         <div className="mx-auto flex w-full flex-col items-center lg:max-w-screen-md lg:flex-initial lg:items-start">
           <h1 className="mt-10 font-poppins font-bold lg:mb-10">About us</h1>
 
-          <div className="md:w-2/3 pt-6">
+          <div className="pt-6 md:w-2/3">
             <p className="font-lato text-sm lg:text-lg">
               Welcome to the showcase page of our final project for the 2024
               Technigo Web Development Bootcamp. Just to know, this isn’t your
@@ -51,7 +51,7 @@ export const AboutUs = () => {
             <h2 className="pb-6 pt-10 font-poppins font-bold text-blue">
               We look forward to hearing from you!
             </h2>
-            <p className="md:w-2/3 lg:text-lg font-lato text-sm">
+            <p className="font-lato text-sm md:w-2/3 lg:text-lg">
               Excited by what you see? Curious about the tech behind it? <br />
               Reach out and connect! Feel free to reach out with feedback,
               questions, or just to say hello. Your input is very valuable to us

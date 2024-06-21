@@ -3,10 +3,10 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useUserStore } from "../stores/useUserStore";
 
-import cart from "../assets/cart.svg";
-import user from "../assets/human-icon.svg";
+import cart from "../assets/icons/cart.svg";
+import user from "../assets/icons/human-icon.svg";
+import { useUserStore } from "../stores/useUserStore";
 
 const navigation = [
   { name: "Home", to: "/" },
@@ -17,7 +17,7 @@ const navigation = [
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { shoppingCart, accessToken, loading } = useUserStore((state) => ({
+  const { shoppingCart, accessToken } = useUserStore((state) => ({
     shoppingCart: state.cart,
     accessToken: state.accessToken,
     loading: state.loading,

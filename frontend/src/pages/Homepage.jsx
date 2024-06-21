@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
-import arrowUp from "../assets/arrow-up-icon.svg";
-import checkMark from "../assets/check-icon.svg";
-import ctaImg from "../assets/ctaImg.jpg";
-import pen from "../assets/pen-icon.svg";
+import arrowUp from "../assets/icons/arrow-up-icon.svg";
+import checkMark from "../assets/icons/check-icon.svg";
+import pen from "../assets/icons/pen-icon.svg";
+import ctaImg from "../assets/images/ctaImg.jpg";
 import { Button } from "../components/Button";
 import { CategoryCard } from "../components/CategoryCard";
 import { ImgCarousel } from "../components/ImgCarousel";
@@ -23,7 +23,7 @@ export const Homepage = () => {
   return (
     <main>
       <>
-        <section className="flex h-[500px] flex-col items-center justify-center gap-7 bg-[url('/src/assets/heroBg.jpg')] bg-cover bg-right-top bg-no-repeat">
+        <section className="flex h-[500px] flex-col items-center justify-center gap-7 bg-[url('/src/assets/images/heroBg.jpg')] bg-cover bg-right-top bg-no-repeat">
           <h1 className="w-3/4 px-2 text-center font-bold">
             Design Your Website with Ease
           </h1>
@@ -114,7 +114,7 @@ export const Homepage = () => {
             <Testimonial />
           </div>
         </section>
-        <section className="flex h-[400px] flex-col items-center justify-center space-y-9 bg-[url('/src/assets/homepage-cta-bg.jpg')] bg-cover bg-bottom px-6 text-center text-white lg:h-[670px]">
+        <section className="flex h-[400px] flex-col items-center justify-center space-y-9 bg-[url('/src/assets/images/homepage-cta-bg.jpg')] bg-cover bg-bottom px-6 text-center text-white lg:h-[670px]">
           <p className="mb-5 font-montserrat font-bold">
             Explore our collection of customizable templates
           </p>

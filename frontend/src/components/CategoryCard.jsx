@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import health from "../assets/bg/health.jpg";
-import travel from "../assets/bg/travel.jpg";
-import business from "../assets/bg/business.jpg";
-import color from "../assets/bg/color.jpg";
+import health from "../assets/images/health.jpg";
+import travel from "../assets/images/travel.jpg";
+import business from "../assets/images/business.jpg";
+import color from "../assets/images/color.jpg";
 
 const category = [
   {

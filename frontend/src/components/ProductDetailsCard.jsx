@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-import favorite from "../assets/favorite-icon.svg";
+import favorite from "../assets/icons/favorite-icon.svg";
 import { useUserStore } from "../stores/useUserStore";
 import { Button } from "./Button";
 import { CategoryButton } from "./CategoryButton";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import searchIcon from "../assets/search-icon-blue.svg";
+import searchIcon from "../assets/icons/search-icon-blue.svg";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { Error } from "../components/Error";
 import { Loading } from "../components/Loading";

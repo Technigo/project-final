@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 
-import breadcrumbIcon from "../assets/icon-breadcrumb.svg";
+import breadcrumbIcon from "../assets/icons/icon-breadcrumb.svg";
 
 export const Breadcrumb = ({ lastBreadcrumbOverride, notFound }) => {
   const { pathname } = useLocation();

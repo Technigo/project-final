@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-import cartIconBlue from "../assets/cart-blue.svg";
-import cartIconFilled from "../assets/cart-icon-filled.svg";
+import cartIconBlue from "../assets/icons/cart-blue.svg";
+import cartIconFilled from "../assets/icons/cart-icon-filled.svg";
 import { useUserStore } from "../stores/useUserStore";
 
 export const CartButton = ({ id }) => {

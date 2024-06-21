@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 
-import thankYouImage from "../assets/thank-you.jpg";
+import thankYouImage from "../assets/images/thank-you.jpg";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { useProductStore } from "../stores/useProductStore";
 

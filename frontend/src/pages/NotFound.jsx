@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import notFoundImage from "../assets/not-found.jpg";
+import notFoundImage from "../assets/images/not-found.jpg";
 import { Breadcrumb } from "../components/Breadcrumb";
 
 export const NotFound = () => {

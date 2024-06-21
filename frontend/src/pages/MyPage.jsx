@@ -5,7 +5,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-import avatar from "../assets/avatar.png";
+import avatar from "../assets/icons/avatar.svg";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { Button } from "../components/Button";
 import { Error } from "../components/Error";
