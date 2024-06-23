@@ -264,6 +264,37 @@ export const useUserStore = create(
           set({ loading: false });
         }
       },
+      createPaymentSession: async () => {
+        set({ loading: true, error: null });
+        try {
+          const response = await fetch(
+            `${BACKEND_URL}/users/${get().userId}/checkout`,
+            {
+              method: "POST",
+              headers: {
+                "Access-Control-Allow-Origin": FRONTEND_URL,
+                "Content-Type": "application/json",
+                withCredentials: true,
+                Authorization: get().accessToken,
+              },
+            },
+          );
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
+          return data.clientToken;
+        } catch (error) {
+          set({
+            error:
+              error.message === "Failed to fetch"
+                ? "Unable to create payment session"
+                : error.message,
+          });
+        } finally {
+          set({ loading: false });
+        }
+      },
     }),
 
     {

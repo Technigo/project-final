@@ -16,7 +16,6 @@ export const SideDrawer = ({ openRight, setOpenRight }) => {
       },
     },
   };
-  // const [openRight, setOpenRight] = useState(false);
   const closeDrawerRight = () => setOpenRight(false);
 
   return (

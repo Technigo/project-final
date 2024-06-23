@@ -144,14 +144,14 @@ export const ProductList = () => {
               <div className="border border-blue p-2">
                 <select
                   className="w-[110px] font-montserrat text-sm text-blue"
-                  value={category}
+                  value={category || ""}
                   onChange={(event) => {
                     updateSearchParams("category", event.target.value);
                   }}
                 >
                   <option value="">Category</option>
                   {categories.map((category) => (
-                    <option className="" key={category} value={category}>
+                    <option className="" key={category} value={category || ""}>
                       {category}
                     </option>
                   ))}
