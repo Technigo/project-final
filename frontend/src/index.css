@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer base {
+  @font-face {
+    font-family: Cormorant;
+    src: url(./assets/Cormorant-VariableFont_wght.ttf);
+  }
+  body {
+    @apply flex w-full flex-col items-center;
+  }
+
+  #root {
+    @apply flex w-full flex-col items-center text-text;
+  }
+
+  main {
+    @apply max-w-screen-xl overflow-x-clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-cormorant;
+  }
+
+  a:hover {
+    @apply cursor-pointer underline;
+  }
+
+  section {
+    @apply px-6 py-8 sm:py-4;
+  }
+}
