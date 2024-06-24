@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/images/logo.png";
-import { useModal } from "../components/Registration/ModalContext";
-import { AuthForm } from "../components/Registration/AuthForm";
+import { useModal } from "../components/Auth/ModalContext";
+import { AuthForm } from "../components/Auth/AuthForm";
 import { useNavigate } from "react-router-dom";
 
 const Menu = () => {

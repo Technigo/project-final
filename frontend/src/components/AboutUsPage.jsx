@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import HeroSection from "../common/HeroSection";
 import Menu from "../common/Menu";
-import { AuthForm } from "./Registration/AuthForm";
-import { useModal } from "./Registration/ModalContext";
+import { AuthForm } from "./Auth/AuthForm";
+import { useModal } from "./Auth/ModalContext";
 
 export const AboutUsPage = () => {
   const { showModal } = useModal();

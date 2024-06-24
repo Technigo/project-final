@@ -18,7 +18,7 @@ const app = express();
 
 // middlewares to enable cors and json body parsing
 const corsOptions = {
-  origin: "http://localhost:5173/", /* "https://adhd-connect.netlify.app", */
+  origin: "http://localhost:5173", /* "https://adhd-connect.netlify.app", */
   credentials: true,
 };
 

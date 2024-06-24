@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../common/Button";
 import Footer from "../common/Footer";
 import Menu from "../common/Menu";
-import { AuthForm } from "../components/registration/AuthForm";
-import { useModal } from "../components/registration/ModalContext";
+import { AuthForm } from "../components/Auth/AuthForm";
+import { useModal } from "../components/Auth/ModalContext";
 
 export const FindOutMorePage = () => {
   const { showModal } = useModal();
