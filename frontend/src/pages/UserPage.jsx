@@ -126,12 +126,15 @@ const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 50px;
-  width: 50%;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
 `
 
 const FeatureItem = styled.li`
   margin-bottom: 10px;
-  color: #666;
+  color: black;
 `
 
 const Loading = styled.div`

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { getOptimizedUrl } from "../util/UrlUtil"
+import { getOptimizedUrl } from "../util/utils"
 import { FavoriteButton } from "../components/FavoriteButton"
 
 export const MuseumCard = ({ museum }) => {

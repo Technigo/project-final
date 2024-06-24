@@ -10,7 +10,7 @@ import { MuseumMap } from "../components/MuseumMap"
 import { LoginModal } from "../components/LoginModal"
 import { StyledButton } from "../components/styled/Button.styled"
 import { Background } from "../components/styled/Background.styled"
-import { getOptimizedUrl } from "../util/UrlUtil"
+import { getOptimizedUrl } from "../util/utils.js"
 
 export const DetailPage = () => {
   const { authState } = useContext(AuthContext)
@@ -114,7 +114,9 @@ export const DetailPage = () => {
             <TicketPrice>Ticket price: {museum.ticket_price}</TicketPrice>
 
             <a href={museum.website} target="_blank" rel="noopener noreferrer">
-              <StyledButton aria-label="Visit official museum website">{buttonText}</StyledButton>{" "}
+              <StyledButton aria-label="Visit official museum website">
+                {buttonText}
+              </StyledButton>{" "}
             </a>
           </TextContainer>
         </Content>
