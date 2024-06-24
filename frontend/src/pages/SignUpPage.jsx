@@ -122,7 +122,9 @@ export const SignUpPage = () => {
     if (firstName.length >= 2 && lastName.length >= 2) {
       setActiveSection("sectionthree");
     } else {
-      alert("NO!");
+      alert(
+        "The firstname and lastname have to be at least two characters long. Please check your input."
+      );
     }
   };
 
@@ -419,7 +421,7 @@ export const SignUpPage = () => {
             />
             <img
               className="hidden tablet:block tablet:w-screen laptop:rounded-3xl laptop:max-w-3xl"
-              src="signup.svg"
+              src="/mockupimages/signup.svg"
               alt="picture of a woman using skincare."
             />
             <img
@@ -442,7 +444,10 @@ export const SignUpPage = () => {
             <div className="flex flex-col tablet:flex-row tablet:gap-5 laptop:gap-40">
               <div className="flex flex-col w-full">
                 <div className="flex">
-                  <img src="skintype02.svg" alt="Icon of a face" />
+                  <img
+                    src="/icons/skintype-icon-dark.svg"
+                    alt="Icon of a face"
+                  />
                   <label
                     htmlFor="skin"
                     className="font-heading font-bold text-2xl mt-9 ml-5"
@@ -504,7 +509,7 @@ export const SignUpPage = () => {
               </div>
               <div className="flex flex-col w-full mt-10 tablet:mt-0">
                 <div className="flex">
-                  <img src="hairtype02.svg" alt="Icon of hair" />
+                  <img src="/icons/hairtype-icon-dark.svg" alt="Icon of hair" />
                   <label className="font-heading font-bold text-2xl mt-9 ml-5">
                     Hair:
                   </label>
@@ -599,7 +604,7 @@ export const SignUpPage = () => {
               <div className="flex flex-col mt-8 tablet:gap-5 laptop:flex-col laptop:gap-0 laptop:pr-5">
                 <div className="flex">
                   <img
-                    src="allergies02.svg"
+                    src="/icons/allergies-icon-dark.svg"
                     alt="Icon of hand with allergies"
                   />
                   <label
@@ -623,7 +628,10 @@ export const SignUpPage = () => {
               </div>
               <div className="flex flex-col mt-10">
                 <div className="flex">
-                  <img src="preferences02.svg" alt="Icon of a heart" />
+                  <img
+                    src="/icons/preferences-icon-dark.svg"
+                    alt="Icon of a heart"
+                  />
                   <label
                     htmlFor="preferences"
                     className="font-heading font-bold text-2xl mt-9 ml-5"
