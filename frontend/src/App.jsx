@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { EventsPage } from "./components/eventPage/EventsPage";
 import { AboutUsPage } from "./components/AboutUsPage";
 import { CommunityGuidelines } from "./components/CommunityGuidelines";
-import { Profile } from "./components/registration/Profile";
-import { ModalProvider } from "./components/registration/ModalContext";
+import { Profile } from "./components/Registration/Profile";
+import { ModalProvider } from "./components/Registration/ModalContext";
 import { FindOutMorePage } from "./mainPage/FindOutMorePage";
 import { HomePage } from "./mainPage/HomePage";
 

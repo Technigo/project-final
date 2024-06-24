@@ -1,30 +1,37 @@
 # Frontend part of Final Project
 
-The ADHD Community Project is a web application designed to support and empower individuals with ADHD by providing a safe space and understanding community. Users can sign up as either a "Listener" or a "Seeker" to offer or receive support, respectively. The application includes features such as event listings, community guidelines, and user profiles.
+This document provides an overview of the frontend development process, tools used, and key features implemented for the ADHD Community project.
 
-## About the project
+# Tools and Technologies
 
-Developed using React for the frontend and Node.js with Express for the backend, the application integrates MongoDB for data storage and utilizes Passport.js with JWT for secure authentication. Key features include user authentication with roles (Listener and Seeker), event listings, and user profile management
+React: Building the user interface.
+Tailwind CSS: Styling the application.
+Axios: HTTP requests to the backend.
+React Router: Navigation between pages.
+Context API: Managing global state.
 
-Future enhancements include a live chat feature to facilitate real-time communication within the community
+# Key Components
 
-## Challenges
+1. # AuthForm.jsx
+   Handles both login and signup functionalities within a modal.
+   Switches between login and signup modes.
+   Validates user input and displays error messages.
+   Integrates with the backend for authentication.
+   Shows a loading animation during network requests.
+2. # ModalContext.jsx
+   Provides context for showing and hiding modals.
+3. # EventCard.jsx
+   Displays event details with a flip animation for more information.
+   Responsive design for different screen sizes.
+4. #ProfilePage.jsx
+   Displays and updates user profile information.
+   Allows users to log out.
+5. # Menu.jsx and Footer.jsx
+   Navigation menu and footer for the application.
+6. # AboutUsPage.jsx and FindOutMorePage.jsx
+   About Us page with information on the community's mission, values, and team.
+   Find Out More page with facts about ADHD and roles in the community.
 
-Handling Modal Popups:
+# Conclusion
 
-Challenge: Managing the state and functionality of modal popups for login and signup forms.
-Solution: Created a custom modal context using React's Context API to manage the display and state of modals. This centralized approach streamlined modal management, making it easier to maintain and extend the functionality.
-
-API Integration:
-
-Challenge: Integrating the frontend with the backend API and ensuring seamless data flow.
-Solution: Developed a consistent API service layer to handle requests and responses between the frontend and backend. Implemented error handling and loading states to enhance user experience during data fetching operations.
-
-Profile Management:
-
-Challenge: Allowing users to view and update their profiles securely.
-Solution: Implemented profile fetching and updating functionalities with secure token-based authentication. Ensured data validation and used React forms to allow users to edit their profiles, providing real-time feedback and updates.
-
-## Link
-
-https://adhd-connect.netlify.app
+This project integrates various frontend technologies to create a responsive, user-friendly web application. Using React, Tailwind CSS, and context API, it offers seamless user experiences and robust authentication mechanisms.

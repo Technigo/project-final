@@ -1,12 +1,12 @@
+import { Button } from "../common/Button";
+import Footer from "../common/Footer";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Button } from "../utilities/Button";
-import Footer from "../utilities/Footer";
-import HeroSection from "../utilities/HeroSection";
-import Menu from "../utilities/Menu";
-import { AuthForm } from "./registration/AuthForm";
-import { useModal } from "./registration/ModalContext";
+import HeroSection from "../common/HeroSection";
+import Menu from "../common/Menu";
+import { AuthForm } from "./Registration/AuthForm";
+import { useModal } from "./Registration/ModalContext";
 
 export const AboutUsPage = () => {
   const { showModal } = useModal();

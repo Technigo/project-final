@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Button } from "../utilities/Button";
-import Footer from "../utilities/Footer";
-import Menu from "../utilities/Menu";
+import { Button } from "../common/Button";
+import Footer from "../common/Footer";
+import Menu from "../common/Menu";
 import { AuthForm } from "../components/registration/AuthForm";
 import { useModal } from "../components/registration/ModalContext";
 

@@ -1,6 +1,7 @@
-import Footer from "../utilities/Footer";
-import HeroSection from "../utilities/HeroSection";
-import Menu from "../utilities/Menu";
+import Footer from "../common/Footer";
+import HeroSection from "../common/HeroSection";
+
+import Menu from "../common/Menu";
 
 export const CommunityGuidelines = () => {
   return (

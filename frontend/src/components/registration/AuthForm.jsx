@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useModal } from "./ModalContext";
-import { signup, login } from "../registration/authService";
+import { signup, login } from "./AuthService";
 import signUpImage from "/images/signUp.jpg";
 
 export const AuthForm = ({ type, onSuccess }) => {

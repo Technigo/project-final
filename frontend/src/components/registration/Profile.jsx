@@ -1,14 +1,14 @@
+import { Button } from "../../common/Button";
+import Footer from "../../common/Footer";
 import gearIcon from "/icons/gear.svg";
 import defaultProfilePicture from "/icons/profile.png";
 import bgImage from "/images/profile-bg.jpg";
-import Menu from "../../utilities/Menu";
-import { Button } from "../../utilities/Button";
-import Footer from "../../utilities/Footer";
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProfile, updateProfile, logout } from "../registration/authService";
-import { useModal } from "../registration/ModalContext";
+
+import Menu from "../../common/Menu";
+import { getProfile, logout, updateProfile } from "./AuthService";
+import { useModal } from "./ModalContext";
 import { AuthForm } from "./AuthForm";
 import { Community } from "./Community";
 import { ProfileForm } from "./ProfileForm";
