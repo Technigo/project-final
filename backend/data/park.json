@@ -1,0 +1,275 @@
+[
+  {
+    "nation": "Finland",
+    "name": "Nuuksio National Park",
+    "address": "Nuuksiontie 84, 02820 Espoo, Finland",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Multiple parking areas available near park entrances",
+    "location": {
+      "latitude": 60.3078,
+      "longitude": 24.4995
+    },
+    "introduction": "Nuuksio National Park is a peaceful natural oasis located in the southern part of Finland, near the city of Espoo. It is known for its diverse landscapes, including lush forests, tranquil lakes, and rocky outcrops. Visitors can enjoy hiking trails, wildlife spotting, and camping opportunities in this beautiful wilderness."
+  },
+  {
+    "nation": "Finland",
+    "name": "Urho Kekkonen National Park",
+    "address": "Saariseläntie 1, 99830 Saariselkä, Finland",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at designated areas",
+    "location": {
+      "latitude": 68.4167,
+      "longitude": 27.4167
+    },
+    "introduction": "Urho Kekkonen National Park, located in the far north of Finland, is a pristine wilderness area characterized by vast forests, rugged fells, and crystal-clear rivers. Named after the former President of Finland, this park offers unparalleled opportunities for outdoor adventures, including hiking, fishing, and cross-country skiing."
+  },
+  {
+    "nation": "Finland",
+    "name": "Koli National Park",
+    "address": "Ylä-Kolintie 39, 83960 Koli, Finland",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at Nature Centre Ukko and other locations",
+    "location": {
+      "latitude": 63.0966,
+      "longitude": 29.8013
+    },
+    "introduction": "Koli National Park, located in eastern Finland, is renowned for its breathtaking landscapes and cultural heritage. The park's iconic feature is Ukko-Koli, a high hill offering panoramic views over Lake Pielinen, one of Finland's largest lakes. This picturesque scenery has inspired Finnish artists and visitors for centuries. Koli National Park is a haven for outdoor enthusiasts, offering extensive hiking trails, cross-country skiing routes, and opportunities for canoeing and swimming in the pristine waters."
+  },
+  {
+    "nation": "Finland",
+    "name": "Lemmenjoki National Park",
+    "address": "Lemmenjoentie 447, 99870 Inari, Finland",
+    "rating": 4.8,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at the park entrances",
+    "location": {
+      "latitude": 68.7539,
+      "longitude": 25.3167
+    },
+    "introduction": "Lemmenjoki National Park, located in Finnish Lapland, is the largest national park in Finland and one of the most expansive wilderness areas in Europe. Named after the Lemmenjoki River, the park is renowned for its stunning natural beauty, including vast forests, serene river valleys, and rugged fells. It is a paradise for adventurers and nature enthusiasts, offering over 60 kilometers of marked trails and numerous opportunities for gold panning, hiking, fishing, and canoeing. The park is also home to a rich diversity of wildlife, including bears, wolverines, and golden eagles. "
+  },
+  {
+    "nation": "Finland",
+    "name": "Oulanka National Park",
+    "address": "Liikasenvaarantie 132, 93900 Kuusamo, Finland",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at visitor centers and trailheads",
+    "location": {
+      "latitude": 66.3700,
+      "longitude": 29.3231
+    },
+    "introduction": "Oulanka National Park, located in northeastern Finland, is famed for its breathtaking scenery and diverse ecosystems. The park is part of the UNESCO World Heritage-listed 'Struve Geodetic Arc' and features lush forests, rugged cliffs, and the winding Oulankajoki River. Known for its rich flora and fauna, Oulanka is home to species such as the brown bear, lynx, and a variety of rare orchids. The park offers a network of well-marked trails, including the famous Karhunkierros (Bear's Ring) Trail, which attracts hikers from all over the world. Visitors can also enjoy activities such as canoeing, bird watching, and camping."
+  },
+  {
+    "nation": "Finland",
+    "name": "Pallas-Yllästunturi National Park",
+    "address": "Äkäslompolontie 31, 95970 Äkäslompolo, Finland",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at visitor centers and main entrances",
+    "location": {
+      "latitude": 67.5833,
+      "longitude": 24.1500
+    },
+    "introduction": "Pallas-Yllästunturi National Park, located in Finnish Lapland, is the third-largest national park in Finland and a treasure trove of natural beauty. The park is renowned for its fells, pristine forests, and crystal-clear lakes. Visitors to the park can enjoy over 500 kilometers of marked trails, making it a hiker's paradise. In winter, the park transforms into a winter wonderland, offering some of the best cross-country skiing in the country. The park is also famous for its clean air, which is considered some of the purest in Europe. Wildlife enthusiasts may spot reindeer, elk, and a variety of bird species. "
+  },
+  {
+    "nation": "Finland",
+    "name": "Repovesi National Park",
+    "address": "Kouvola, Finland",
+    "rating": 4.8,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at park entrances",
+    "location": {
+      "latitude": 61.1850,
+      "longitude": 26.9183
+    },
+    "introduction": "Repovesi National Park, located in southeastern Finland, is a stunning area known for its rugged cliffs, pristine lakes, and dense forests. The park offers a variety of outdoor activities, including hiking, climbing, canoeing, and camping. One of the park's highlights is the Olhavanvuori cliff, a popular spot for rock climbing with spectacular views over the surrounding landscape. Visitors can also explore the numerous trails, such as the Ketunlenkki (Fox Trail), which takes hikers through scenic areas and across suspension bridges. The park is rich in biodiversity, with diverse flora and fauna, including species like the osprey and the Eurasian lynx. "
+  },
+  {
+    "nation": "Finland",
+    "name": "Pyhä-Luosto National Park",
+    "address": "Luontotie 1, 98530 Pyhätunturi, Finland",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at visitor centers and trailheads",
+    "location": {
+      "latitude": 67.0646,
+      "longitude": 26.9300
+    },
+    "introduction": "Pyhä-Luosto National Park, located in central Finnish Lapland, is renowned for its ancient landscapes and geological formations. The park features the stunning Pyhätunturi and Luosto fells, part of one of the oldest mountain ranges in the world. Visitors can explore over 150 kilometers of marked trails that traverse beautiful forests, deep gorges, and high fell tops. In winter, the park offers excellent cross-country skiing and snowshoeing opportunities. The Amethyst Mine in Luosto, where visitors can dig for their own gemstones, adds a unique attraction to the park."
+  },
+  {
+    "nation": "Finland",
+    "name": "Seitseminen National Park",
+    "address": "Seitsemisentie 110, 39580 Länsi-Aure, Finland",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at visitor centers and main entrances",
+    "location": {
+      "latitude": 61.8522,
+      "longitude": 23.5226
+    },
+    "introduction": "Seitseminen National Park, located in southwestern Finland, is a haven of tranquil forests, pristine mires, and scenic lakes. The park offers a glimpse into Finland's natural and cultural heritage with its diverse landscapes and historic sites. Visitors can explore well-marked trails that lead through old-growth forests, past traditional farmsteads, and across picturesque bogs. The nature trails, like the Saari-Soljanen Trail, are perfect for hiking, birdwatching, and nature photography. Seitseminen is also known for its rich biodiversity."
+  },
+  {
+    "nation": "Finland",
+    "name": "Hossa National Park",
+    "address": "Jatkonsalmentie 6, 89920 Suomussalmi, Finland",
+    "rating": 4.8,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at visitor centers and main entrances",
+    "location": {
+      "latitude": 65.4722,
+      "longitude": 29.4903
+    },
+    "introduction": "Hossa National Park, located in northeastern Finland, is celebrated for its crystal-clear lakes, ancient forests, and stunning rock paintings. Established in 2017 to commemorate Finland’s 100th anniversary of independence, Hossa offers a perfect blend of natural beauty and cultural heritage. The park’s waters are ideal for canoeing, kayaking, and fishing, with numerous routes and rental services available. Hiking trails, such as the Värikallio Cliffs route, take visitors past prehistoric rock paintings that date back thousands of years."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Abisko National Park",
+    "address": "981 07 Abisko, Sweden",
+    "rating": 4.8,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at the Abisko Turiststation",
+    "location": {
+      "latitude": 68.3580,
+      "longitude": 18.7809
+    },
+    "introduction": "Abisko National Park is renowned for its stunning beauty and diverse ecosystems. Located in northern Sweden, near the border with Norway, the park offers spectacular mountain scenery, deep valleys, and pristine lakes. Visitors can enjoy hiking, skiing, and wildlife watching in this breathtaking wilderness."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Sarek National Park",
+    "address": "982 99 Gällivare, Sweden",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Limited parking available; recommended to use nearby national parks' parking",
+    "location": {
+      "latitude": 67.3833,
+      "longitude": 17.7500
+    },
+    "introduction": "Sarek National Park is a remote and rugged wilderness area in Swedish Lapland. Known for its dramatic mountains, deep valleys, and glaciers, Sarek offers unparalleled opportunities for wilderness backpacking and mountaineering. Visitors can explore pristine landscapes and experience the raw beauty of the Arctic wilderness."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Stora Sjöfallet National Park",
+    "address": "982 99 Gällivare, Sweden",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at the visitor center and park entrances",
+    "location": {
+      "latitude": 67.4188,
+      "longitude": 17.4207
+    },
+    "introduction": "Stora Sjöfallet National Park, located in northern Sweden, is part of the UNESCO World Heritage Site Laponia and is known for its dramatic landscapes and rich cultural history. The park features towering peaks, deep valleys, and the magnificent Akkajaure Lake. One of its most striking features is the Stora Sjöfallet waterfall, once one of Europe's most powerful falls before the area was dammed for hydroelectric power. The park is also home to the indigenous Sámi people, and visitors can learn about their traditional ways of life. Activities in Stora Sjöfallet include hiking, fishing, and wildlife watching, with opportunities to spot reindeer, moose, and golden eagles."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Padjelanta National Park",
+    "address": "962 02 Kvikkjokk, Sweden",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Limited parking available; accessible by hiking",
+    "location": {
+      "latitude": 67.1881,
+      "longitude": 16.5403
+    },
+    "introduction": "Padjelanta National Park, located in the far north of Sweden, is the largest national park in the country and part of the UNESCO World Heritage Site Laponia. Known for its vast and remote wilderness, Padjelanta offers breathtaking landscapes that include rolling plateaus, pristine lakes, and majestic mountains. The park is a sanctuary for a variety of wildlife, such as reindeer, wolverines, and arctic foxes. It is also an important area for the indigenous Sámi people, who use the land for reindeer herding. Hiking in Padjelanta is a unique experience, with the Padjelantaleden trail providing a well-marked route through the park's stunning terrain."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Tyresta National Park",
+    "address": "Tyresta By, 136 59 Haninge, Sweden",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at the main entrance",
+    "location": {
+      "latitude": 59.1758,
+      "longitude": 18.3006
+    },
+    "introduction": "Tyresta National Park, located just 20 kilometers from central Stockholm, offers a remarkable escape into nature with its ancient forests, serene lakes, and diverse wildlife. The park is one of the few remaining areas in southern Sweden where you can experience primeval forest landscapes that have remained largely unchanged for thousands of years. Visitors to Tyresta can explore an extensive network of well-marked trails that wind through dense woodlands and around sparkling lakes, providing excellent opportunities for hiking, birdwatching, and photography."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Fulufjället National Park",
+    "address": "790 90 Särna, Sweden",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at the Naturum Fulufjället visitor center",
+    "location": {
+      "latitude": 61.5833,
+      "longitude": 12.6800
+    },
+    "introduction": "Fulufjället National Park, located in the central part of Sweden near the border with Norway, is a vast wilderness area known for its dramatic landscapes and unique natural features. The park's most famous attraction is the Njupeskär waterfall, which at 93 meters (305 feet) is Sweden's highest. The park also boasts ancient forests, alpine plateaus, and stunning rock formations. Fulufjället is home to Old Tjikko, a 9,560-year-old Norway spruce, one of the world's oldest living trees. Visitors to the park can enjoy a variety of outdoor activities, including hiking, birdwatching, and fishing. "
+  },
+  {
+    "nation": "Sweden",
+    "name": "Kosterhavet National Park",
+    "address": "452 05 Sydkoster, Sweden",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at ferry terminals",
+    "location": {
+      "latitude": 58.8833,
+      "longitude": 11.0000
+    },
+    "introduction": "Kosterhavet National Park, Sweden's first marine national park, is located on the stunning west coast of Sweden, encompassing the Koster Islands and surrounding waters. The park is renowned for its rich marine biodiversity, featuring over 6,000 species, many of which are unique to the area. The Koster Islands offer a picturesque landscape of rocky shorelines, sandy beaches, and lush meadows, providing a perfect setting for outdoor activities such as hiking, kayaking, snorkeling, and diving. The waters around the islands are clear and teeming with life, including vibrant coral reefs, seaweed forests, and diverse fish species."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Tiveden National Park",
+    "address": "Tiveden, 695 97 Tived, Sweden",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at main entrances",
+    "location": {
+      "latitude": 58.7389,
+      "longitude": 14.5750
+    },
+    "introduction": "Tiveden National Park, located in southern Sweden, is a captivating wilderness area known for its dramatic rocky landscapes, dense forests, and tranquil lakes. The park's rugged terrain, shaped by the last Ice Age, features massive boulders, deep crevices, and enchanting moss-covered forests that provide a habitat for a variety of wildlife. Visitors to Tiveden can enjoy a network of well-marked trails that cater to hikers of all levels, offering routes that lead through ancient woodlands, past picturesque lakes, and up to scenic viewpoints."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Skuleskogen National Park",
+    "address": "Skuleskogen, 870 30 Skuleberget, Sweden",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at entrances",
+    "location": {
+      "latitude": 63.0833,
+      "longitude": 18.4500
+    },
+    "introduction": "Skuleskogen National Park, located along Sweden's High Coast, is a breathtaking area known for its dramatic coastal cliffs, deep forests, and unique geological formations. The park's diverse landscape includes ancient forests, rugged mountains, and the famous Slåttdalsskrevan, a deep and narrow canyon carved through the bedrock. Skuleskogen offers a variety of hiking trails that cater to all levels of experience, with routes leading to stunning viewpoints overlooking the Gulf of Bothnia. Visitors can also explore the park's rich flora and fauna, including rare plant species and a variety of wildlife such as moose, lynx, and eagles."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Muddus National Park",
+    "address": "982 99 Gällivare, Sweden",
+    "rating": 4.7,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at main entrances",
+    "location": {
+      "latitude": 67.3667,
+      "longitude": 20.3333
+    },
+    "introduction": "Muddus National Park, located in northern Sweden, is part of the UNESCO World Heritage Site Laponia and is known for its extensive old-growth forests, vast wetlands, and dramatic canyons. The park offers a pristine and untouched wilderness experience, with rich biodiversity and unique geological features. Visitors can explore well-marked trails that lead through dense forests and across expansive mires, providing excellent opportunities for hiking, birdwatching, and wildlife spotting. The park is home to a variety of species, including moose, reindeer, and the elusive wolverine."
+  },
+  {
+    "nation": "Sweden",
+    "name": "Ängsö National Park",
+    "address": "745 94 Enköping, Sweden",
+    "rating": 4.6,
+    "opening_hours": "24/7",
+    "parking_info": "Parking available at the main entrance",
+    "location": {
+      "latitude": 59.6136,
+      "longitude": 17.1317
+    },
+    "introduction": "Ängsö National Park, one of Sweden's oldest national parks, is located in the Stockholm archipelago and offers a unique blend of cultural history and natural beauty. Established in 1909, the park is renowned for its traditional agricultural landscape, featuring meadows, pastures, and ancient oak woodlands that have been maintained for centuries through traditional farming practices. Visitors to Ängsö can explore well-marked trails that meander through picturesque landscapes, offering opportunities for hiking, birdwatching, and enjoying the serene coastal scenery."
+  }
+]

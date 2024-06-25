@@ -1,0 +1,16 @@
+{
+  "headers": [
+    {
+      "placeName": "Scandinavia",
+      "imageUrl": "/backgroundImages/hero-image.jpg"
+    },
+    {
+      "placeName": "Finland",
+      "imageUrl": "/backgroundImages/hero-finland.jpg"
+    },
+    {
+      "placeName": "Sweden",
+      "imageUrl": "/backgroundImages/hero-sweden.jpg"
+    }
+  ]
+}

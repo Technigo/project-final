@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Abisko National Park",
+    "imageUrl": "/parks/Abisko_National_Park.png"
+  },
+  {
+    "name": "Ängsö National Park",
+    "imageUrl": "/parks/Ängsö_National_Park.png"
+  },
+  {
+    "name": "Fulufjället National Park",
+    "imageUrl": "/parks/Fulufjället_National_Park.png"
+  },
+  {
+    "name": "Hossa National Park",
+    "imageUrl": "/parks/Hossa_National_Park.png"
+  },
+  {
+    "name": "Koli National Park",
+    "imageUrl": "/parks/Koli_National_Park.png"
+  },
+  {
+    "name": "Kosterhavet National Park",
+    "imageUrl": "/parks/Kosterhavet_National_Park.png"
+  },
+  {
+    "name": "Lemmenjoki National Park",
+    "imageUrl": "/parks/Lemmenjoki_National_Park.png"
+  },
+  {
+    "name": "Muddus National Park",
+    "imageUrl": "/parks/Muddus_National_Park.png"
+  },
+  {
+    "name": "Nuuksio National Park",
+    "imageUrl": "/parks/Nuuksio_National_Park.png"
+  },
+  {
+    "name": "Oulanka National Park",
+    "imageUrl": "/parks/Oulanka_National_Park.png"
+  },
+  {
+    "name": "Padjelanta National Park",
+    "imageUrl": "/parks/Padjelanta_National_Park.png"
+  },
+  {
+    "name": "Pallas-Yllästunturi National Park",
+    "imageUrl": "/parks/Pallas-Yllästunturi_National_Park.png"
+  },
+  {
+    "name": "Pyhä-Luosto National Park",
+    "imageUrl": "/parks/Pyhä-Luosto_National_Park.png"
+  },
+  {
+    "name": "Repovesi National Park",
+    "imageUrl": "/parks/Repovesi_National_Park.png"
+  },
+  {
+    "name": "Sarek National Park",
+    "imageUrl": "/parks/Sarek_National_Park.png"
+  },
+  {
+    "name": "Seitseminen National Park",
+    "imageUrl": "/parks/Seitseminen_National_Park.png"
+  },
+  {
+    "name": "Skuleskogen National Park",
+    "imageUrl": "/parks/Skuleskogen_National_Park.png"
+  },
+  {
+    "name": "Stora Sjöfallet National Park",
+    "imageUrl": "/parks/Stora_Sjöfallet_National_Park.png"
+  },
+  {
+    "name": "Tiveden National Park",
+    "imageUrl": "/parks/Tiveden_National_Park.png"
+  },
+  {
+    "name": "Tyresta National Park",
+    "imageUrl": "/parks/Tyresta_National_Park.png"
+  },
+  {
+    "name": "Urho Kekkonen National Park",
+    "imageUrl": "/parks/Urho Kekkonen National Park.png"
+  }
+]
