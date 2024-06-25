@@ -83,7 +83,8 @@ export const useUserStore = create(
             headers: { "Content-Type": "application/json" },
           });
           if (!response.ok) {
-            throw new Error("Could not fetch");
+            const errorText = await response.text(); // Get the error message
+            throw new Error(errorText);
           }
           const data = await response.json();
           set({ accessToken: data.accessToken });
