@@ -83,17 +83,26 @@ export const useUserStore = create(
             headers: { "Content-Type": "application/json" },
           });
           if (!response.ok) {
-            const errorText = await response.text(); // Get the error message
-            throw new Error(errorText);
+            const errorText = await response.text();
+            if (errorText.includes("Could not register user.")) {
+              // Handle the case where the email is already used
+              alert(
+                "Could not register user because the Email is already used. Please choose a different email and try over with the button go back."
+              );
+            } else {
+              throw new Error(errorText);
+            }
+          } else {
+            const data = await response.json();
+            set({ accessToken: data.accessToken });
+            set({ signedUp: true });
           }
-          const data = await response.json();
-          set({ accessToken: data.accessToken });
         } catch (error) {
           console.error("error:", error);
           set({ error: error });
         } finally {
           set({ loadingUser: false });
-          set({ signedUp: true });
+          /*   set({ signedUp: true }); */
         }
       },
 

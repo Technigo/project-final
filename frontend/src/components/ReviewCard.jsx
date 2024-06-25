@@ -1,4 +1,4 @@
-//THis ReviewCard is not implemented yet. It is here for future use.
+//This ReviewCard is not implemented yet. It is here for future use.
 import star from "/star-regular.svg";
 import starFull from "/star-solid.svg";
 
