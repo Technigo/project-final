@@ -263,6 +263,7 @@ export const ShoppingCart = () => {
                   </div>
                   <button
                     onClick={toggleCheckout}
+                    aria-label="checkout"
                     className="bg-cta-blue text-text-light text-sm p-2 px-4 mt-4 laptop:text-sm rounded-full flex justify-center items-center mb-8 m-auto tablet:mb-8 tablet:ml-auto gap-2"
                   >
                     {checkout ? <ImCross /> : "Checkout!"}

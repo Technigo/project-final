@@ -661,6 +661,7 @@ export const SignUpPage = () => {
             <button
               disabled={loadingUser}
               onClick={handleSubmit}
+              aria-label="loading"
               className="bg-light-orange h-8  self-center mt-6 rounded-3xl text-text-light font-heading"
             >
               {loadingUser ? (

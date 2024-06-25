@@ -1,9 +1,9 @@
 import burgerMenu from "/icons/bars-solid.svg";
 import shoppingCartsvg from "/icons/cart-shopping-solid.svg";
 import glimLogo from "/icons/glimSmall.svg";
+import productsIcon from "/icons/products-solid.svg";
 import userIcon from "/icons/user-solid.svg";
 import xMark from "/icons/xmark-solid.svg";
-import productsIcon from "/icons/products-solid.svg";
 import Lottie from "lottie-react";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -265,7 +265,11 @@ export const Navigation = ({ data }) => {
                 className=" font-heading absolute backdrop-blur-sm top-0 right-0 flex-col text-right z-20 p-8 rounded-bl-xl border-main-red text-white bg-red-burger text-xl laptop:hidden"
                 ref={navRef}
               >
-                <button ref={burgerRef} onClick={toggleBurger}>
+                <button
+                  aria-label="burgermenu"
+                  ref={burgerRef}
+                  onClick={toggleBurger}
+                >
                   <img src={xMark} alt="Menu" className="h-6 mb-4 " />
                 </button>
                 {loggedIn ? (
@@ -306,7 +310,12 @@ export const Navigation = ({ data }) => {
               </div>
             ) : (
               <>
-                <button ref={btnRef} className="flex" onClick={toggleBurger}>
+                <button
+                  aria-label="burgermenu"
+                  ref={btnRef}
+                  className="flex"
+                  onClick={toggleBurger}
+                >
                   <img
                     src={burgerMenu}
                     alt="Menu"
