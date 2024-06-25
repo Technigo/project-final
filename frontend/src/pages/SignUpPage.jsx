@@ -36,6 +36,7 @@ export const SignUpPage = () => {
   } = useUserStore();
   const [activeSection, setActiveSection] = useState("sectionone");
 
+  const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -62,6 +63,16 @@ export const SignUpPage = () => {
     setPros(selectedPros);
   }, [selectedPros, setPros]);
 
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    const inputEmail = e.target.value;
+    const pattern = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+
+    const isValidPattern = pattern.test(inputEmail);
+
+    setIsEmail(isValidPattern);
+  };
+
   const handlePassword = (e) => {
     setPassword(e.target.value);
     const inputPassword = e.target.value;
@@ -81,11 +92,16 @@ export const SignUpPage = () => {
 
   const handleSectionOne = (e) => {
     e.preventDefault();
-    if (isPassword && isSame) {
+    if (isPassword && isSame && isEmail) {
       setActiveSection("sectiontwo");
     } else {
+      if (!isEmail) {
+        alert("Please provide a valid email.");
+      }
       if (!isPassword) {
-        alert("Make sure you use at least one capital and one number.");
+        alert(
+          "Make sure you use at least one capital and one number in your password."
+        );
       }
       if (!isSame) {
         alert("The passwords aren't matching!");
@@ -95,7 +111,7 @@ export const SignUpPage = () => {
 
   const handleFirstName = (e) => setFirstName(e.target.value);
   const handleLastName = (e) => setLastName(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
+
   const handleAddress = (e) =>
     setAddress({
       ...address,
@@ -119,12 +135,33 @@ export const SignUpPage = () => {
 
   const handleSectionTwo = (e) => {
     e.preventDefault();
-    if (firstName.length >= 2 && lastName.length >= 2) {
+    if (
+      firstName.length >= 2 &&
+      lastName.length >= 2 &&
+      address.street.length >= 1 &&
+      address.postalCode.length >= 1 &&
+      address.city.length >= 1 &&
+      address.country.length >= 1
+    ) {
       setActiveSection("sectionthree");
     } else {
-      alert(
-        "The firstname and lastname have to be at least two characters long. Please check your input."
-      );
+      if (firstName.length < 2 || lastName.length < 2) {
+        alert(
+          "The firstname and lastname have to be at least two characters long. Please check your input."
+        );
+      }
+      if (address.street.length < 1) {
+        alert("Please add a street.");
+      }
+      if (address.postalCode.length < 1) {
+        alert("Please add a postal Code.");
+      }
+      if (address.city.length < 1) {
+        alert("Please add a city.");
+      }
+      if (address.country.length < 1) {
+        alert("Please add a county.");
+      }
     }
   };
 
