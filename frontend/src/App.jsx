@@ -1,8 +1,11 @@
-export const App = () => {
+import { AppRoutes } from "./routes/Routes";
+import GlobalStyle from "./Globalstyles";
 
+export const App = () => {
   return (
     <>
-      <h1>Welcome to Final Project!</h1>
+      <GlobalStyle />
+      <AppRoutes />
     </>
   );
 };
