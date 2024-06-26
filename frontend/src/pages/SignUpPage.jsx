@@ -40,6 +40,7 @@ export const SignUpPage = () => {
   const [isPassword, setIsPassword] = useState(false);
   const [isSame, setIsSame] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [selectedSkin, setSelectedSkin] = useState([]);
   const [selectedAllergies, setSelectedAllergies] = useState([]);
   const [selectedPros, setSelectedPros] = useState([]);
   const [sectionCheck, setSectionCheck] = useState(false);
@@ -54,6 +55,10 @@ export const SignUpPage = () => {
       setSectionCheck(false);
     }
   }, [activeSection]);
+
+  useEffect(() => {
+    setSkinType(selectedSkin);
+  }, [selectedSkin, setSkinType]);
 
   useEffect(() => {
     setAllergies(selectedAllergies);
@@ -175,7 +180,11 @@ export const SignUpPage = () => {
       ...hair,
       moisture: e.target.value,
     });
-  const handleSkin = (e) => setSkinType(e.target.value);
+
+  const handleSkin = (e) => {
+    const value = e.target.value;
+    setSelectedSkin(value);
+  };
 
   const handleAllergyCheckboxChange = (e) => {
     const value = e.target.value;
@@ -207,6 +216,26 @@ export const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(
+      "firstname",
+      firstName,
+      "lastname",
+      lastName,
+      "email",
+      email,
+      "address",
+      address,
+      "password",
+      password,
+      "allergies",
+      allergies,
+      "pros",
+      pros,
+      "hair",
+      hair,
+      "skin",
+      skinType
+    );
     registerUser(
       firstName,
       lastName,
