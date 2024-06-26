@@ -12,7 +12,6 @@ import { ProductDetail } from "../pages/ProductDetail";
 import { ProductList } from "../pages/ProductList";
 import { Signup } from "../pages/Signup";
 import { AuthRoute } from "./AuthRoute";
-import { CartRoute } from "./CartRoute";
 
 export const AppRoutes = () => {
   return (
@@ -26,10 +25,8 @@ export const AppRoutes = () => {
       <Route path="/about-us" element={<AboutUs />} />
       <Route element={<AuthRoute />}>
         <Route path="/mypage" element={<MyPage />} />
-        <Route element={<CartRoute />}>
-          <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Route>
+        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

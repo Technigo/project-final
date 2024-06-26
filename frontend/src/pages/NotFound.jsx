@@ -24,10 +24,10 @@ export const NotFound = () => {
             </p>
             <ul className="m-4">
               <li className="list-disc font-lato text-sm lg:text-lg">
-                Go to our{" "}
+                Go to our
                 <Link to="/" className="font-bold text-button-blue underline">
                   Homepage
-                </Link>{" "}
+                </Link>
                 to start fresh
               </li>
               <li className="list-disc font-lato text-sm lg:text-lg">

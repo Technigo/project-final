@@ -11,11 +11,19 @@ import { PaymentForm } from "../components/PaymentForm";
 import { ShippingForm } from "../components/ShippingForm";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+
+import sampleCustomer from "../data/sampleCustomer.json";
 
 export const Checkout = () => {
-  const { cart } = useUserStore((state) => ({
+  const [payment, setPayment] = useState("card");
+  const navigate = useNavigate();
+  const { cart, clearCart } = useUserStore((state) => ({
     cart: state.cart,
+    clearCart: state.clearCart,
   }));
+
   const { products, handleCheckOut } = useProductStore((state) => ({
     products: state.products,
     handleCheckOut: state.handleCheckOut,
@@ -27,9 +35,31 @@ export const Checkout = () => {
     reset,
     formState: { isValid }, // check if data fulfills the requirements
   } = useForm();
+
+  const authorizePayment = () => {
+    const Klarna = window.Klarna;
+    try {
+      // authorize and redirect to klarna payment
+      Klarna.Payments.authorize(
+        { payment_method_category: "pay_later" },
+        sampleCustomer,
+        function (res) {
+          console.log("Success", res);
+          if (res.approved) {
+            onSubmit();
+            navigate("/order-confirmation");
+          }
+        },
+      );
+    } catch (error) {
+      console.log("Failed", error);
+    }
+  };
   const onSubmit = () => {
     handleCheckOut();
+    clearCart();
   };
+
   const fillDummyData = () => {
     reset(
       {
@@ -49,6 +79,8 @@ export const Checkout = () => {
       { keepTouched: false },
     );
   };
+  if (!cart.length) return <Navigate to="/cart" replace />;
+
   return (
     <main>
       <Breadcrumb />
@@ -80,6 +112,7 @@ export const Checkout = () => {
                       image={product.image}
                       price={product.price}
                       className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+                      irremovable={true}
                     />
                   ))
               ) : (
@@ -89,7 +122,13 @@ export const Checkout = () => {
           />
           <Dropdown
             text="PAYMENT METHOD"
-            content={<PaymentForm register={register} />}
+            content={
+              <PaymentForm
+                register={register}
+                payment={payment}
+                setPayment={setPayment}
+              />
+            }
           />
 
           <Button
@@ -103,7 +142,9 @@ export const Checkout = () => {
           <div className="flex flex-col items-center gap-8">
             <Button
               text="PAY NOW"
-              onClickFunc={handleSubmit(onSubmit)}
+              onClickFunc={handleSubmit(
+                payment === "klarna" ? authorizePayment : onSubmit,
+              )}
               navTo="/order-confirmation"
               disabled={cart.length === 0 || !isValid}
             />
