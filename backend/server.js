@@ -1,29 +1,37 @@
-import express from "express";
 import cors from "cors";
-import mongoose from 'mongoose'
+import dotenv from "dotenv";
+import express from "express";
+import expressListEndpoints from "express-list-endpoints";
+import mongoose from "mongoose";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/flowershop"
-mongoose.connect(mongoUrl)
-mongoose.Promise = Promise
+import passport from "./config/passport";
+import authProfileRoutes from "./routes/authProfile";
 
+dotenv.config();
 
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-final";
+mongoose.connect(mongoUrl);
+mongoose.Promise = global.Promise;
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 const app = express();
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors());
+// middlewares to enable cors and json body parsing
+const corsOptions = {
+  origin: "https://adhd-connect.netlify.app",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(passport.initialize());
 
-// Start defining your routes here
-// http://localhost:8080/
+app.use("/api", authProfileRoutes);
+
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = expressListEndpoints(app);
+  res.json(endpoints);
 });
-
 
 // Start the server
 app.listen(port, () => {

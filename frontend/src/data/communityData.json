@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"name": "John Doe",
+		"bio": "Loves helping others and playing guitar.",
+		"role": "Listener",
+		"image": "/images/john.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Jake Smith",
+		"bio": "Enjoys reading and sharing experiences.",
+		"role": "Seeker",
+		"image": "/images/Villads.jpg"
+	},
+	{
+		"id": 3,
+		"name": "Alice Johnson",
+		"bio": "Passionate about mental health awareness.",
+		"role": "Listener",
+		"image": "/images/alice.jpg"
+	}
+]

@@ -1,8 +1,19 @@
 # Backend part of Final Project
 
-This project includes the packages and babel setup for an express server, and is just meant to make things a little simpler to get up and running with.
+The backend serves as the core logic and data management system for the application. It provides the necessary endpoints to handle user authentication, registration and profile management.
 
-## Getting Started
+## Process
 
-1.  Install the required dependencies using `npm install`.
-2.  Start the development server using `npm run dev`.
+Technologies Used:
+
+Node.js
+Express.js
+MongoDB
+Mongoose
+JWT
+Passport.js
+Multer
+
+## LINK
+
+https://project-final-rmn2.onrender.com

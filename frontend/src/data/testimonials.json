@@ -1,0 +1,42 @@
+[
+	{
+		"name": "Jane Doe",
+		"review": "This community has been a lifesaver. Connecting with others who understand ADHD has made such a difference in my life.",
+		"rating": 5
+	},
+	{
+		"name": "John Smith",
+		"review": "Finding someone to talk to when I'm having a hard day has been invaluable. Thank you for creating this space.",
+		"rating": 4
+	},
+	{
+		"name": "Emily Tran",
+		"review": "The resources and people here have helped me manage my symptoms and feel less alone in my struggles.",
+		"rating": 5
+	},
+	{
+		"name": "Mark Johnson",
+		"review": "I've learned so much about managing ADHD through the workshops and events offered here.",
+		"rating": 4
+	},
+	{
+		"name": "Sarah Lee",
+		"review": "Everyone is so supportive and understanding. It's comforting to be part of such a nurturing community.",
+		"rating": 5
+	},
+	{
+		"name": "Michael Brown",
+		"review": "The practical tips and strategies shared by the community have been extremely helpful.",
+		"rating": 4
+	},
+	{
+		"name": "Lisa Marie",
+		"review": "I appreciate the sense of belonging and acceptance I've found in this community.",
+		"rating": 5
+	},
+	{
+		"name": "David Wilson",
+		"review": "It's refreshing to meet so many people who genuinely understand what it's like to live with ADHD.",
+		"rating": 4
+	}
+]
