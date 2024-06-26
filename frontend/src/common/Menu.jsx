@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "/images/logo.png";
 import { useModal } from "../components/Auth/ModalContext";
 import { AuthForm } from "../components/Auth/AuthForm";
-import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { showModal } = useModal();
+  const { isAuthenticated, showModal } = useModal();
   const navigate = useNavigate();
 
   const handleLinkClick = () => {
@@ -16,6 +15,10 @@ const Menu = () => {
 
   const handleLoginClick = () => {
     showModal(<AuthForm type="login" onSuccess={() => navigate("/profile")} />);
+  };
+
+  const handleProfileClick = () => {
+    navigate("/profile");
   };
 
   return (
@@ -43,10 +46,18 @@ const Menu = () => {
           <Link to="/about" className="link">
             About Us
           </Link>
-          <button onClick={handleLoginClick} className="link">
-            Login
-          </button>
+
+          {isAuthenticated ? (
+            <button onClick={handleProfileClick} className="link">
+              Profile
+            </button>
+          ) : (
+            <button onClick={handleLoginClick} className="link">
+              Login
+            </button>
+          )}
         </div>
+
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden block text-dark focus:outline-none"
@@ -86,15 +97,27 @@ const Menu = () => {
           >
             Community Guidelines
           </Link>
-          <button
-            onClick={() => {
-              handleLinkClick();
-              handleLoginClick();
-            }}
-            className="block w-full text-left px-4 py-2 text-dark hover:text-secondary focus:outline-none"
-          >
-            Login
-          </button>
+          {isAuthenticated ? (
+            <button
+              onClick={() => {
+                handleLinkClick();
+                handleProfileClick();
+              }}
+              className="block w-full text-left px-4 py-2 text-dark hover:text-secondary focus:outline-none"
+            >
+              Profile
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                handleLinkClick();
+                handleLoginClick();
+              }}
+              className="block w-full text-left px-4 py-2 text-dark hover:text-secondary focus:outline-none"
+            >
+              Login
+            </button>
+          )}
         </div>
       )}
     </nav>

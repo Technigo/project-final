@@ -17,7 +17,7 @@ const Testimonials = () => {
 
   return (
     <div className="flex flex-col items-center space-y-4">
-      <div className="w-full sm:w-2/3 lg:w-1/2 bg-gray-100 shadow p-6 rounded-lg">
+      <div className="w-full bg-gray-100 shadow p-6 rounded-lg">
         <div className="flex items-center justify-center mb-4">
           {Array.from({ length: testimonialsData[index].rating }, (_, i) => (
             <svg

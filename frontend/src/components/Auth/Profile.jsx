@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Menu from "../../common/Menu";
-import { getProfile, logout, updateProfile } from "./AuthService";
+import { getProfile, updateProfile } from "./AuthService";
 import { useModal } from "./ModalContext";
 import { AuthForm } from "./AuthForm";
 import { Community } from "./Community";
@@ -26,7 +26,7 @@ export const Profile = () => {
   const [error, setError] = useState("");
   const [notification, setNotification] = useState("");
   const navigate = useNavigate();
-  const { showModal } = useModal();
+  const { showModal, logout } = useModal();
 
   const fetchProfile = async () => {
     try {

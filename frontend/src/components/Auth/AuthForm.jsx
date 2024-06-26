@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useModal } from "./ModalContext";
-import { signup, login } from "./AuthService";
+import { signup, login as authLogin } from "./AuthService";
 import signUpImage from "/images/signUp.jpg";
 
 export const AuthForm = ({ type, onSuccess }) => {
-  const { hideModal } = useModal();
+  const { hideModal, login } = useModal();
   const [formMode, setFormMode] = useState(type);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -49,11 +49,13 @@ export const AuthForm = ({ type, onSuccess }) => {
     setError(null);
 
     try {
+      let userData;
       if (formMode === "signup") {
-        await signup(username, password, role);
+        userData = await signup(username, password, role);
       } else {
-        await login(username, password);
+        userData = await authLogin(username, password);
       }
+      login(userData);
       hideModal();
       onSuccess();
     } catch (error) {

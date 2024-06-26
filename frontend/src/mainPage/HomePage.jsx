@@ -8,7 +8,7 @@ import { useModal } from "../components/Auth/ModalContext";
 import Testimonials from "./Testimonials";
 
 export const HomePage = () => {
-  const { showModal } = useModal();
+  const { showModal, isAuthenticated } = useModal();
   const navigate = useNavigate();
 
   const handleGetStartedClick = () => {
@@ -44,21 +44,23 @@ export const HomePage = () => {
         </div>
       </header>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold  text-dark">Why Join us?</h2>
-          <p className="mt-4 text-lg text-dark">
-            Connect with others who understand your journey
-          </p>
-          <div className="mt-8">
-            <Button
-              text="Get Started"
-              onClick={handleGetStartedClick}
-              variant="light"
-            />
+      {!isAuthenticated && (
+        <section className="py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold  text-dark">Why Join us?</h2>
+            <p className="mt-4 text-lg text-dark">
+              Connect with others who understand your journey
+            </p>
+            <div className="mt-8">
+              <Button
+                text="Get Started"
+                onClick={handleGetStartedClick}
+                variant="light"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="bg-light py-20">
         <div className="container mx-auto px-4">

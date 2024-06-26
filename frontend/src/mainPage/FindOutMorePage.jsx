@@ -8,7 +8,7 @@ import { AuthForm } from "../components/Auth/AuthForm";
 import { useModal } from "../components/Auth/ModalContext";
 
 export const FindOutMorePage = () => {
-  const { showModal } = useModal();
+  const { isAuthenticated, showModal } = useModal();
   const navigate = useNavigate();
   const [currentFact, setCurrentFact] = useState(0);
 
@@ -78,13 +78,16 @@ export const FindOutMorePage = () => {
               </p>
             </div>
           </div>
-          <div className="flex justify-center mt-8">
-            <Button
-              text="Choose your role"
-              onClick={() => handleRoleSelection("signup")}
-              variant="primary"
-            />
-          </div>
+
+          {!isAuthenticated && (
+            <div className="flex justify-center mt-8">
+              <Button
+                text="Choose your role"
+                onClick={() => handleRoleSelection("signup")}
+                variant="primary"
+              />
+            </div>
+          )}
         </div>
       </section>
       <Footer />
