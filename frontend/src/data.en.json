@@ -1,0 +1,187 @@
+{
+  "navbar": {
+    "burger": [
+      {
+        "text": "Products",
+        "link": "/products",
+        "style": ""
+      },
+      {
+        "text": "About Us",
+        "link": "/about",
+        "style": ""
+      },
+      {
+        "text": "Your cart",
+        "link": "/cart",
+        "style": "my-4"
+      }
+    ],
+    "products": "Products",
+    "about": "About Us",
+    "signUp": "Sign Up",
+    "login": "Log In"
+  },
+
+  "homepage": {
+    "hero": {
+      "ctaText": "Join us on a skincare journey, uniquely crafted just for you.",
+      "ctaButton": "Sign up",
+      "ctaTextLoggedIn": "We have uniqely recommended products just for you, ",
+      "ctaButtonLoggedIn": "See products"
+    },
+    "products": {
+      "title": "Products",
+      "ctaButton": "See products"
+    },
+    "atGlim": {
+      "title": "At glim,",
+      "subTitle": "we believe that every individual's skin is unique and deserves personalized care.",
+      "text": "Our mission is to empower you to achieve your healthiest, most radiant skin by offering a curated selection of premium skincare products tailored to you specific skin type and concerns.",
+      "lastlineLarge": "Skincare",
+      "lastLines": "made Simple and Personal"
+    },
+    "treatments": {
+      "title": "Treatments",
+      "ctaButton": "Treatments"
+    },
+    "footer": {
+      "missionStatement": {
+        "title": "Why choose us?",
+        "perks": [
+          {
+            "perk": "Personalized Recommendations",
+            "comment": "Our advanced skin analysis tool evaluates you skin type and needs, providing customized product recommendations that work best for you."
+          },
+          {
+            "perk": "Quality and Efficacy",
+            "comment": "We partner with top-tier skincare brands that prioritize high-quality ingredients and proven results, ensuring you get the best care possible."
+          },
+          {
+            "perk": "Expert Guidance",
+            "comment": "Our team of skincare experts is here to offer advice and support, helping you make informed decisions about your skincare routine."
+          },
+          {
+            "perk": "Sustainable Choices",
+            "comment": "We are commited to sustainability and offer products that are not only good for your skin but also kind to the planet."
+          }
+        ]
+      },
+      "contactInfo": {
+        "title": "contact us",
+        "contactRoute": [
+          {
+            "icon": "/soMeIcons/email.svg",
+            "altText": "Email",
+            "info": "contact@teamflamingo.com"
+          },
+          {
+            "icon": "/soMeIcons/phone.svg",
+            "altText": "Phonenumber",
+            "info": "+46 688 888 8888"
+          },
+          {
+            "icon": "/soMeIcons/adress.svg",
+            "altText": "Adress",
+            "info": "Flamingo road 3\n157888 Glim\nSwissweden"
+          }
+        ],
+        "socialMedia": [
+          {
+            "icon": "/soMeIcons/instagram.svg",
+            "altText": "Instagram",
+            "link": "https://www.instagram.com"
+          },
+          {
+            "icon": "/soMeIcons/facebook.svg",
+            "altText": "Facebook",
+            "link": "https://www.facebook.com"
+          },
+          {
+            "icon": "/soMeIcons/linkedin.svg",
+            "altText": "LinkedIn",
+            "link": "https://www.linkedin.com"
+          },
+          {
+            "icon": "/soMeIcons/github.svg",
+            "altText": "GitHub",
+            "link": "https://github.com/Izzibizz/project-final"
+          }
+        ]
+      }
+    }
+  },
+
+  "productsListPage": {
+    "addToCart": "Add to cart",
+    "showReviews": "Show reviews",
+    "reviewsOn": "Reviews on"
+  },
+
+  "singleProductPage": {
+    "addToCart": "Add to cart",
+    "showReviews": "Show reviews",
+    "reviewsOn": "Reviews on",
+    "similarProducts": "Similar products"
+  },
+
+  "profilePage": {
+    "profile": "Profile",
+    "skinHeading": "Skin:",
+    "skinTypes": [
+      { "type": "Combination" },
+      { "type": "Dry" },
+      { "type": "Normal" },
+      { "type": "Sensitive" },
+      { "type": "Acne" },
+      { "type": "Oily" }
+    ],
+    "hairHeading": "Hair:",
+
+    "shapeHeading": "Shape:",
+    "shapeTypes": [
+      { "type": "Curly" },
+      { "type": "Wavy" },
+      { "type": "Straight" }
+    ],
+
+    "moistureHeading": "Moisture:",
+    "moistureTypes": [
+      { "type": "Dry" },
+      { "type": "Normal" },
+      { "type": "Oily" }
+    ],
+
+    "allergiesHeading": "Allergies:",
+    "allergyTypes": [
+      { "type": "Fragrance" },
+      { "type": "Preservatives" },
+      { "type": "Dyes" },
+      { "type": "Metals" },
+      { "type": "Latex" },
+      { "type": "Parabens" }
+    ],
+
+    "preferenceHeading": "Preferences:",
+    "preferenceTypes": [
+      { "type": "Organic" },
+      { "type": "Natural Ingredients" },
+      { "type": "Vegan" }
+    ],
+
+    "recommendedButton": "See recommended products",
+    "updateProfileButton": "Update Profile",
+
+    "personalInfo": {
+      "title": "Personal Info",
+      "name": "Name:",
+      "surname": "Surname:",
+      "adress": "Address:",
+      "email": "Email"
+    },
+    "yourReviews": {
+      "title": "Your reviews",
+      "seeMoreButton": "See more"
+    }
+  }
+}
