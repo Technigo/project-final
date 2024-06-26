@@ -9,11 +9,11 @@ dotenv.config();
 export const createSession = asyncHandler(async (req, res) => {
   const { userId } = req.params;
   const user = await User.findOne({ _id: userId }).populate("cartItems").exec();
-  console.log(user.cartItems);
   const products = user.cartItems;
   const orderLines = products.map(product => {
-    const totalPrice = (product.price + product.price * 0.25).toFixed(2) * 100;
-    const totalTaxAmount = (product.price * 0.25).toFixed(2) * 100;
+    const totalPrice =
+      (product.price + product.price * 0.25).toFixed(2) * 100 * 11;
+    const totalTaxAmount = (product.price * 0.25).toFixed(2) * 100 * 11;
     return {
       name: product.templateName,
       quantity: 1,

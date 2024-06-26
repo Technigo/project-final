@@ -12,14 +12,13 @@ import { ShippingForm } from "../components/ShippingForm";
 import { useProductStore } from "../stores/useProductStore";
 import { useUserStore } from "../stores/useUserStore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import sampleCustomer from "../data/sampleCustomer.json";
 
 export const Checkout = () => {
   const [payment, setPayment] = useState("card");
   const navigate = useNavigate();
-  // console.log(sampleCustomer);
   const { cart, clearCart } = useUserStore((state) => ({
     cart: state.cart,
     clearCart: state.clearCart,
@@ -80,6 +79,8 @@ export const Checkout = () => {
       { keepTouched: false },
     );
   };
+  if (!cart.length) return <Navigate to="/cart" replace />;
+
   return (
     <main>
       <Breadcrumb />
@@ -111,6 +112,7 @@ export const Checkout = () => {
                       image={product.image}
                       price={product.price}
                       className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+                      irremovable={true}
                     />
                   ))
               ) : (

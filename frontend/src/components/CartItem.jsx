@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import rubbish from "../assets/icons/rubbish-bin-blue.svg";
 import { useUserStore } from "../stores/useUserStore";
 
-export const CartItem = ({ id, image, name, price }) => {
+export const CartItem = ({ id, image, name, price, irremovable }) => {
   const { accessToken, handleCart, handleNonLoginCart } = useUserStore(
     (state) => ({
       accessToken: state.accessToken,
@@ -29,14 +29,16 @@ export const CartItem = ({ id, image, name, price }) => {
         />
         <div className="m-3 flex w-60 flex-col">
           <p className="pb-3 font-montserrat text-base font-bold">{name}</p>
-          <p className="pb-4 font-montserrat text-sm">{price}</p>
-          <button
-            className="text flex flex-row self-end font-montserrat text-xs text-blue"
-            onClick={removeCart}
-          >
-            Remove item
-            <img className="h-4 w-4" src={rubbish} alt="remove item" />
-          </button>
+          <p className="pb-4 font-montserrat text-sm">€{price}</p>
+          {!irremovable && (
+            <button
+              className="text flex flex-row self-end font-montserrat text-xs text-blue"
+              onClick={removeCart}
+            >
+              Remove item
+              <img className="h-4 w-4" src={rubbish} alt="remove item" />
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -48,4 +50,5 @@ CartItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
+  irremovable: PropTypes.bool,
 };

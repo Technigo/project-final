@@ -1,35 +1,45 @@
 import { Radio } from "@material-tailwind/react";
+import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
 import { FaAddressCard } from "react-icons/fa";
 import { IoLockClosed } from "react-icons/io5";
-import PropTypes from "prop-types";
+import { Error } from "../components/Error";
+
 import card from "../assets/icons/card.svg";
 import { useUserStore } from "../stores/useUserStore";
+import { useState } from "react";
 
 export const PaymentForm = ({ register, payment, setPayment }) => {
-  const createPaymentSession = useUserStore(
-    (state) => state.createPaymentSession,
-  );
+  const [klarnaWidgetLoaded, setKlarnaWidgetLoaded] = useState(false);
+  const { createPaymentSession, error } = useUserStore((state) => ({
+    createPaymentSession: state.createPaymentSession,
+    error: state.error,
+  }));
   const payWithKlarna = async () => {
     setPayment("klarna");
-    const client_token = await createPaymentSession();
+    if (klarnaWidgetLoaded) return;
     const Klarna = window.Klarna;
-    try {
-      //initiate klarna SDK
-      Klarna.Payments.init({
-        client_token,
-      });
-      // load klarna widget
-      Klarna.Payments.load(
-        {
-          container: "#klarna-payments-container",
-        },
-        (res) => {
-          console.log(res);
-        },
-      );
-    } catch (error) {
-      console.log(error);
+    const client_token = await createPaymentSession();
+    if (client_token) {
+      try {
+        //initiate klarna SDK
+        Klarna.Payments.init({
+          client_token: client_token,
+        });
+        // load klarna widget
+        Klarna.Payments.load(
+          {
+            container: "#klarna-payments-container",
+            payment_method_category: "pay_later",
+          },
+          {},
+          (res) => {
+            if (res.show_form) setKlarnaWidgetLoaded(true);
+          },
+        );
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (
@@ -62,7 +72,7 @@ export const PaymentForm = ({ register, payment, setPayment }) => {
             alt="klarna logo"
           />
         </div>
-        <div id="klarna-payments-container" className="w-full"></div>
+        <div id="klarna-payments-container"></div>
         <div className="flex flex-row gap-10">
           <Radio
             name="payment"
@@ -140,6 +150,7 @@ export const PaymentForm = ({ register, payment, setPayment }) => {
           </div>
         </>
       )}
+      {error && <Error error={error} />}
     </div>
   );
 };
