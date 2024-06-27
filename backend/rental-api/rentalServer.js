@@ -121,9 +121,19 @@ app.post("/api/orders", async (req, res) => {
     req.body;
 
   try {
-    const orderItems = items.map((item) => ({
-      rental: item.rental,
-    }));
+    const orderItems = await Promise.all(
+      items.map(async (item) => {
+        const rental = await Rental.findById(item.rental);
+        if (!rental) {
+          throw new Error(`Rental with ID ${item.rental} not found`);
+        }
+        return {
+          rental: rental._id,
+          name: rental.name,
+          amount: item.amount,
+        };
+      })
+    );
 
     // Create a new instance of Order
     const newOrder = new Order({

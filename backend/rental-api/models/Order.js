@@ -10,11 +10,11 @@ const orderSchema = new Schema({
   items: [
     {
       rental: {
-        type: {
-          name: { type: String, required: true },
-        },
+        type: Schema.Types.ObjectId,
+        ref: "Rental",
         required: true,
       },
+      name: { type: String, required: true },
       amount: { type: Number, required: true },
     },
   ],
