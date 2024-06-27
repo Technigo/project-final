@@ -9,8 +9,7 @@ const AccountSection = () => {
           Begin Your Journey with Everything You Need
         </h3>
         <p className="accountIntroText">
-          Embark on your memorable Palma adventure fully equipped for a perfect
-          stay.
+          To view available rentals, please log in or create an account.
         </p>
         <div className="contentWrapper">
           <img
