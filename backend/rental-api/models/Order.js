@@ -9,7 +9,13 @@ const orderSchema = new Schema({
   customerEmail: { type: String, required: true },
   items: [
     {
-      rental: { type: Schema.Types.ObjectId, ref: "Rental", required: true },
+      rental: {
+        type: {
+          name: { type: String, required: true },
+        },
+        required: true,
+      },
+      amount: { type: Number, required: true },
     },
   ],
   createdAt: { type: Date, default: Date.now },

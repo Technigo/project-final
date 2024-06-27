@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "../../styling/sectionsStyling/profilePage/OrderHistory.css";
 
@@ -12,7 +11,7 @@ const orderHistory = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(
+        const response = await fetch(
           "https://project-final-rentals-api.onrender.com/api/orders",
           {
             headers: {
@@ -20,10 +19,16 @@ const orderHistory = () => {
             },
           }
         );
-        setOrders(response.data.orders);
+        if (!response.ok) {
+          throw new Error("Failed to fetch orders");
+        }
+        const data = await response.json();
+        console.log("Fetched orders:", data);
+        setOrders(data);
         setLoading(false);
       } catch (error) {
-        setError("Failed to fetch orders");
+        console.error("Error fetching orders:", error);
+        setError(error.message || "Failed to fetch orders");
         setLoading(false);
       }
     };
@@ -31,22 +36,36 @@ const orderHistory = () => {
     fetchOrders();
   }, [token]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
-    <div className="orderHistoryContainer">
-      <h2 className="orderHistoryTitle">Your orders</h2>
+    <div>
+      <h2>Your Orders</h2>
       {orders.length === 0 ? (
-        <p>You have no orders.</p>
+        <p>No orders found.</p>
       ) : (
-        <ul className="orderHistoryList">
-          {orders.map((order, index) => (
-            <li key={index} className="orderItem">
-              <h3>Order #{order._id}</h3>
+        <ul>
+          {orders.map((order) => (
+            <li key={order._id}>
+              <p>Order ID: {order._id}</p>
+              <p>Items:</p>
               <ul>
-                {order.items.map((item, idx) => (
-                  <li key={idx}>{item.rental.name}</li>
+                {order.items.map((item) => (
+                  <li key={item._id}>
+                    {item.rental && item.rental.name ? (
+                      <>
+                        {item.rental.name} - Amount: {item.amount}
+                      </>
+                    ) : (
+                      <p>Rental name not available</p>
+                    )}
+                  </li>
                 ))}
               </ul>
             </li>
