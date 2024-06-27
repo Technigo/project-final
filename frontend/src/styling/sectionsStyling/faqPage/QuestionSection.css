@@ -2,7 +2,7 @@
   width: 305px;
   display: flex;
   flex-direction: column;
-  margin: 100px auto;
+  margin: 30px auto;
 }
 
 .questionTitle {
@@ -38,7 +38,7 @@
 @media (min-width: 745px) {
   .questionContainer {
     width: 610px;
-    margin: 150px auto;
+    margin: 50px auto;
   }
 
   .questionTitle {
@@ -71,7 +71,7 @@
 @media (min-width: 1024px) {
   .questionContainer {
     width: 840px;
-    margin: 200px auto;
+    margin: 70px auto;
   }
 
   .questionTitle {

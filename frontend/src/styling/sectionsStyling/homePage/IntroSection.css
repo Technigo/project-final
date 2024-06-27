@@ -1,6 +1,6 @@
 .introContainer {
   width: 305px;
-  margin: 100px auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
 }
@@ -19,7 +19,7 @@
 @media (min-width: 745px) {
   .introContainer {
     width: 610px;
-    margin: 150px auto;
+    margin: 50px auto;
     flex-direction: row;
   }
 
@@ -38,7 +38,7 @@
 @media (min-width: 1024px) {
   .introContainer {
     width: 840px;
-    margin: 200px auto;
+    margin: 70px auto;
   }
 
   .introText {

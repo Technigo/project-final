@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "../../styling/sectionsStyling/homePage/AccountSection.css";
 
 const AccountSection = () => {
+  const { isAuthenticated } = useAuth();
+
+  if (isAuthenticated) {
+    return null;
+  }
+
   return (
     <div className="accountContainer">
       <div className="accountWrapper">

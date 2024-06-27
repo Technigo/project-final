@@ -149,6 +149,17 @@ app.post("/api/orders", async (req, res) => {
   }
 });
 
+// Get all orders
+app.get("/api/orders", async (req, res) => {
+  try {
+    const orders = await Order.find().populate("items.rental");
+    res.json(orders);
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    res.status(500).json({ error: "Failed to fetch orders" });
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

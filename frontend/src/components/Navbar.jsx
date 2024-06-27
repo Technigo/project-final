@@ -30,7 +30,7 @@ const Navbar = () => {
 
             <li className="navListItems">
               <Link to="/profile" className="navLink">
-                Profile{" "}
+                Cart
               </Link>
             </li>
           </>

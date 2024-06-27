@@ -9,11 +9,13 @@ import LoginPage from "../sections/auth/LoginPage";
 import RegisterPage from "../sections/auth/RegisterPage";
 import { AuthProvider } from "../context/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
+import ScrollToTop from "../components/ScrollToTop";
 
 const AppRoutes = () => {
   return (
     <AuthProvider>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />

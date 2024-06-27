@@ -1,13 +1,13 @@
 .profileContainer {
   width: 305px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .profileForm {
   background-color: var(--profile-color);
   border-radius: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   padding: 40px;
   color: var(--light-color);
 }
@@ -59,11 +59,11 @@
 @media (min-width: 745px) {
   .profileContainer {
     width: 305px;
-    margin-top: 150px;
+    margin-top: 50px;
   }
 
   .profileForm {
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     padding: 60px;
   }
 
@@ -88,12 +88,12 @@
 
 @media (min-width: 1024px) {
   .profileContainer {
-    margin-top: 200px;
+    margin-top: 70px;
     width: 400px;
   }
 
   .profileForm {
-    margin-bottom: 200px;
+    margin-bottom: 70px;
     padding: 80px;
   }
 

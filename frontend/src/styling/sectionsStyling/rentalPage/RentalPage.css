@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 100px auto;
+  margin: 30px auto;
 }
 
 .rentalListTitle {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-weight: 600;
 }
 
@@ -71,11 +71,11 @@
 @media (min-width: 745px) {
   .rentalListContainer {
     width: 600px;
-    margin: 150px auto;
+    margin: 50px auto;
   }
 
   .rentalListTitle {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     font-size: 32px;
   }
 
@@ -102,7 +102,7 @@
 @media (min-width: 1024px) {
   .rentalListContainer {
     width: 840px;
-    margin: 200px auto;
+    margin: 70px auto;
   }
 
   .rentalListTitle {

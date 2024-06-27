@@ -1,5 +1,6 @@
 import ProfileSection from "./ProfileSection";
 import ShoppingCartSection from "./ShoppingCartSection";
+import OrderHistory from "./OrderHistory";
 import Outro from "./Outro";
 
 const ProfilePage = () => {
@@ -7,6 +8,7 @@ const ProfilePage = () => {
     <div>
       <ProfileSection />
       <ShoppingCartSection />
+      <OrderHistory />
       <Outro />
     </div>
   );

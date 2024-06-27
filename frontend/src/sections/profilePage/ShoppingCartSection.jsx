@@ -74,7 +74,7 @@ const ShoppingCartSection = () => {
             alt="Shoppingcart Icon"
           />
         </div>
-        <h2 className="shoppingCartTitle">Your shoppingcart</h2>
+        <h2 className="shoppingCartTitle">Your shopping Cart</h2>
 
         <div className="shoppingCartItems">
           {cartItems.length === 0 ? (
@@ -123,7 +123,7 @@ const ShoppingCartSection = () => {
           </label>
 
           <label className="deliveryAdressText">
-            Delivery adress: <br />
+            Delivery address: <br />
             <input
               type="text"
               required

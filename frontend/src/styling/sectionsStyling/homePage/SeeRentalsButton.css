@@ -1,6 +1,6 @@
 .seeRentalsContainer {
   width: 305px;
-  margin: 100px auto;
+  margin: 30px auto;
 }
 
 .seeRentalsButton {
@@ -20,13 +20,13 @@
 
 @media (min-width: 745px) {
   .seeRentalsContainer {
-    margin: 150px auto;
+    margin: 50px auto;
   }
 }
 
 @media (min-width: 1024px) {
   .seeRentalsContainer {
-    margin: 200px auto;
+    margin: 70px auto;
   }
 
   .seeRentalsButton {
