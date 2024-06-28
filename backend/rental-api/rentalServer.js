@@ -54,14 +54,6 @@ const seedDB = async () => {
 // Call seed function
 seedDB();
 
-// Midleware to initialize cart if not already present in session
-app.use((req, res, next) => {
-  if (!req.session.cart) {
-    req.session.cart = [];
-  }
-  next();
-});
-
 // Define routes
 // http://localhost:8080/
 app.get("/", (req, res) => {
