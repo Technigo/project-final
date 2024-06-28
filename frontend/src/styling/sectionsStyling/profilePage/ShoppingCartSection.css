@@ -1,0 +1,254 @@
+.shoppingCartContainer {
+  background-color: var(--light-button-color);
+  padding: 30px 0 30px 0;
+  margin-bottom: 30px;
+}
+
+.shoppingCartWrapper {
+  width: 305px;
+  margin: 0 auto;
+}
+
+.cartIconWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cartIcon {
+  height: 90px;
+  width: 90px;
+}
+
+.cartItem {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid var(--dark-button-color);
+}
+
+.cartItemDetails {
+  display: flex;
+  position: relative;
+}
+
+.cartItemName {
+  padding-left: 40px;
+}
+
+.cartItemPrice {
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+}
+
+.removeButton {
+  height: 30px;
+  width: 34px;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  background-color: white;
+}
+
+.shoppingCartTitle {
+  font-weight: 600;
+  text-align: center;
+}
+
+.shoppingCartForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.deliveryTitle {
+  font-weight: 600;
+}
+
+.rentalDateLabel {
+  margin-bottom: 20px;
+}
+
+.dateInput {
+  margin-top: 10px;
+  width: 130px;
+  padding: 10px;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.deliveryAdressText {
+  margin-bottom: 20px;
+}
+
+.deliveryAdress {
+  margin-top: 10px;
+  width: 285px;
+  padding: 10px;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.emailText {
+  margin-bottom: 20px;
+}
+
+.emailInput {
+  margin-top: 10px;
+  width: 285px;
+  padding: 10px;
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.totalPrice {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sendOrderButton {
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--dark-button-color);
+  color: var(--light-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sendOrderButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
+.shoppingCartQuestionsText {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.faqLink {
+  font-weight: 600;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.faqLink:hover {
+  text-decoration: solid;
+}
+
+@media (min-width: 745px) {
+  .shoppingCartContainer {
+    padding: 50px 0 50px 0;
+    margin-bottom: 50px;
+  }
+
+  .shoppingCartTitle {
+    font-size: 31px;
+  }
+
+  .deliveryTitle {
+    font-size: 32px;
+  }
+
+  .shoppingCartQuestionsText {
+    margin-top: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shoppingCartContainer {
+    padding: 70px 0 70px 0;
+    margin-bottom: 70px;
+  }
+
+  .shoppingCartWrapper {
+    width: 840px;
+  }
+
+  .cartIcon {
+    height: 110px;
+    width: 110px;
+  }
+
+  .shoppingCartTitle {
+    font-size: 42px;
+    text-align: start;
+  }
+
+  .deliveryTitle {
+    font-size: 42px;
+  }
+
+  .cartItem {
+    margin-bottom: 20px;
+    width: 450px;
+  }
+
+  .cartItemName {
+    padding-left: 60px;
+    font-size: 20px;
+  }
+
+  .cartItemPrice {
+    font-size: 20px;
+  }
+
+  .removeButton {
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+  }
+
+  .rentalDateLabel {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .dateInput {
+    margin-top: 15px;
+    width: 150px;
+    padding: 15px;
+    font-size: 20px;
+  }
+
+  .deliveryAdressText {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .deliveryAdress {
+    margin-top: 15px;
+    width: 365px;
+    padding: 15px;
+  }
+
+  .emailText {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .emailInput {
+    margin-top: 15px;
+    width: 365px;
+    padding: 15px;
+  }
+
+  .totalPrice {
+    font-size: 32px;
+  }
+
+  .sendOrderButton {
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+  }
+
+  .shoppingCartQuestionsText {
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: center;
+    grid-column: span 2;
+  }
+}

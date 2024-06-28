@@ -1,8 +1,15 @@
-export const App = () => {
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import { CartProvider } from "./context/CartContext";
 
+export const App = () => {
   return (
-    <>
-      <h1>Welcome to Final Project!</h1>
-    </>
+    <CartProvider>
+      <Router>
+        <div className="app">
+          <AppRoutes />
+        </div>
+      </Router>
+    </CartProvider>
   );
 };

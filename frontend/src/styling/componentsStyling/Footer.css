@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  background-color: var(--light-button-color);
+  width: 100%;
+  align-items: center;
+  padding: 26px;
+  box-sizing: border-box;
+}
+
+.footerText {
+  margin-left: 10px;
+}
+
+@media (min-width: 745px) {
+  .footer {
+    padding: 40px;
+  }
+
+  .footerText {
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 65px;
+  }
+
+  .footerText {
+    font-size: 20px;
+    margin-left: 54px;
+  }
+}

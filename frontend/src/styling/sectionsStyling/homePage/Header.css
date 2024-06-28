@@ -1,0 +1,43 @@
+.headerContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.headerImage {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.headerTitle {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 340px;
+  font-family: var(--big-font);
+  font-size: 50px;
+  color: var(--light-color);
+}
+
+@media (min-width: 745px) {
+  .headerImage {
+    height: 600px;
+  }
+
+  .headerTitle {
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerImage {
+    height: 700px;
+  }
+
+  .headerTitle {
+    font-size: 90px;
+    width: 480px;
+  }
+}
