@@ -4,9 +4,11 @@ import mongoose from "mongoose";
 import expressListEndpoints from "express-list-endpoints";
 import path from "path";
 import fs from "fs";
+import session from "express-session";
 
 import Rental from "./models/Rental";
 import Order from "./models/Order";
+import { runInNewContext } from "vm";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/rental-items";
 mongoose.connect(mongoUrl);
@@ -17,6 +19,16 @@ mongoose.Promise = Promise;
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+
+// Add session middleware
+app.use(
+  session({
+    secret: "7f2b9b8f0e1f0e54a3e0f73f05336a7e",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -51,6 +63,14 @@ const seedDB = async () => {
 // Call seed function
 seedDB();
 
+// Midleware to initialize cart if not already present in session
+app.use((req, res, next) => {
+  if (!req.session.cart) {
+    req.session.cart = [];
+  }
+  next();
+});
+
 // Define routes
 // http://localhost:8080/
 app.get("/", (req, res) => {
@@ -69,8 +89,6 @@ app.get("/api/rentals", async (req, res) => {
   }
 });
 
-let cart = [];
-
 // Add rental to cart
 app.post("/api/cart", async (req, res) => {
   const { id } = req.body;
@@ -85,13 +103,15 @@ app.post("/api/cart", async (req, res) => {
     const priceMatch = rental.price.match(/\d+(\.\d+)?/);
     const price = parseFloat(priceMatch[0]);
 
-    cart.push({
+    req.session.cart.push({
       rental: rental,
       price: price,
       amount: 1,
     });
 
-    res.status(201).json({ message: "Rental added to cart:", cart });
+    res
+      .status(201)
+      .json({ message: "Rental added to cart:", cart: req.session.cart });
   } catch (error) {
     console.error("Error adding rental to cart:", error);
     res.status(500).json({ error: "Failed to add rental to cart" });
@@ -100,26 +120,28 @@ app.post("/api/cart", async (req, res) => {
 
 // Get cart items
 app.get("/api/cart", (req, res) => {
-  const totalPrice = cart.reduce((total, item) => {
+  const totalPrice = req.session.cart.reduce((total, item) => {
     return total + item.price * item.amount;
   }, 0);
 
-  res.json({ cart, totalPrice: `${totalPrice.toFixed(2)}` });
+  res.json({ cart: req.session.cart, totalPrice: `${totalPrice.toFixed(2)}` });
 });
 
 // Remove Rental from cart
 app.delete("/api/cart/:id", (req, res) => {
   const { id } = req.params;
 
-  cart = cart.filter((item) => item._id.toString() !== id);
+  req.session.cart = req.session.cart.filter(
+    (item) => item._id.toString() !== id
+  );
 
-  res.json({ message: "Rental removed from cart", cart });
+  res.json({ message: "Rental removed from cart", cart: req.session.cart });
 });
 
 // Clear cart
 app.delete("/api/cart", (req, res) => {
-  cart = [];
-  res.json({ message: "Cart cleared", cart });
+  req.session.cart = [];
+  res.json({ message: "Cart cleared", cart: req.session.cart });
 });
 
 const authenticateUser = async (req, res, next) => {
@@ -151,9 +173,7 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
         .json({ error: "Missing required fields or cart is empty" });
     }
 
-    console.log("Cart before placing order:", cart);
-
-    const orderItems = cart.map((item) => {
+    const orderItems = req.session.cart.map((item) => {
       console.log("Item rental:", item.rental);
       console.log("Item rental name:", item.rental.name);
       return {
@@ -163,7 +183,7 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
       };
     });
 
-    const totalPrice = cart.reduce((total, item) => {
+    const totalPrice = req.session.cart.reduce((total, item) => {
       const itemPrice = parseFloat(item.price);
       return total + itemPrice * item.amount;
     }, 0);
@@ -183,7 +203,7 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
     const savedOrder = await newOrder.save();
     console.log("Order placed successfully", savedOrder);
 
-    cart = [];
+    req.session.cart = [];
 
     res
       .status(201)
