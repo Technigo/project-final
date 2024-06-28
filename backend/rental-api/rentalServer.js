@@ -81,7 +81,16 @@ app.post("/api/cart", async (req, res) => {
       return res.status(400).json({ error: "Rental not found" });
     }
 
-    cart.push(rental);
+    // Extract numeric value from price string
+    const priceMatch = rental.price.match(/\d+(\.\d+)?/);
+    const price = parseFloat(priceMatch[0]);
+
+    cart.push({
+      rental: rental,
+      price: price,
+      amount: 1,
+    });
+
     res.status(201).json({ message: "Rental added to cart:", cart });
   } catch (error) {
     console.error("Error adding rental to cart:", error);
@@ -92,9 +101,7 @@ app.post("/api/cart", async (req, res) => {
 // Get cart items
 app.get("/api/cart", (req, res) => {
   const totalPrice = cart.reduce((total, item) => {
-    const priceString = item.price.replace("€", "").replace(" / week", "");
-    const price = parseFloat(priceString) || 0;
-    return total + price;
+    return total + item.price * item.amount;
   }, 0);
 
   res.json({ cart, totalPrice: `${totalPrice.toFixed(2)}` });
@@ -115,36 +122,64 @@ app.delete("/api/cart", (req, res) => {
   res.json({ message: "Cart cleared", cart });
 });
 
+const authenticateUser = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    console.error("Authentication error:", error);
+    res.status(401).json({ error: "Unauthorized" });
+  }
+};
+
 // Handle orders
-app.post("/api/orders", async (req, res) => {
-  const { startDate, endDate, deliveryAddress, customerEmail, items } =
-    req.body;
+app.post("/api/orders", authenticateUser, async (req, res) => {
+  const { startDate, endDate, deliveryAddress, customerEmail } = req.body;
 
   try {
-    const orderItems = await Promise.all(
-      items.map(async (item) => {
-        const rental = await Rental.findById(item.rental);
-        if (!rental) {
-          throw new Error(`Rental with ID ${item.rental} not found`);
-        }
-        return {
-          rental: rental._id,
-          name: rental.name,
-          amount: item.amount,
-        };
-      })
-    );
+    if (
+      !startDate ||
+      !endDate ||
+      !deliveryAddress ||
+      !customerEmail ||
+      cart.length === 0
+    ) {
+      return res
+        .status(400)
+        .json({ error: "Missing required fields or cart is empty" });
+    }
 
-    // Create a new instance of Order
+    console.log("Cart before placing order:", cart);
+
+    const orderItems = cart.map((item) => {
+      console.log("Item rental:", item.rental);
+      console.log("Item rental name:", item.rental.name);
+      return {
+        rental: item.rental._id,
+        name: item.rental.name,
+        amount: item.amount,
+      };
+    });
+
+    const totalPrice = cart.reduce((total, item) => {
+      const itemPrice = parseFloat(item.price);
+      return total + itemPrice * item.amount;
+    }, 0);
+
+    if (isNaN(totalPrice)) {
+      throw new Error("Total price calculation failed");
+    }
     const newOrder = new Order({
       startDate,
       endDate,
       deliveryAddress,
       customerEmail,
       items: orderItems,
+      totalPrice,
     });
 
-    // Save the order to MongoDB
     const savedOrder = await newOrder.save();
     console.log("Order placed successfully", savedOrder);
 
@@ -160,12 +195,12 @@ app.post("/api/orders", async (req, res) => {
 });
 
 // Get all orders
-app.get("/api/orders", async (req, res) => {
+app.get("/api/orders", authenticateUser, async (req, res) => {
   try {
     const orders = await Order.find().populate("items.rental");
     res.json(orders);
   } catch (error) {
-    console.error("Error fetching orders:", error);
+    console.error("Error fetching orders", error);
     res.status(500).json({ error: "Failed to fetch orders" });
   }
 });
