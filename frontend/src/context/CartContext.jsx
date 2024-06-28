@@ -35,11 +35,10 @@ export const CartProvider = ({ children }) => {
 
   const handleRemoveFromCart = async (id) => {
     try {
-      const response = await axios.delete(
+      await axios.delete(
         `https://project-final-rentals-api.onrender.com/api/cart/${id}`
       );
-      setCartItems(response.data.cart);
-      setTotalPrice(response.data.totalPrice);
+      fetchCartItems();
     } catch (error) {
       console.error("Error removing from cart");
     }
@@ -47,10 +46,10 @@ export const CartProvider = ({ children }) => {
 
   const handleClearCart = async () => {
     try {
-      const response = await axios.delete(
+      await axios.delete(
         "https://project-final-rentals-api.onrender.com/api/cart"
       );
-      setCartItems(response.data.cart);
+      setCartItems([]);
       setTotalPrice(0);
     } catch (error) {
       console.error("Error clearing cart", error);

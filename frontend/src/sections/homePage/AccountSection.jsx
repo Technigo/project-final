@@ -20,7 +20,7 @@ const AccountSection = () => {
         </p>
         <div className="contentWrapper">
           <img
-            src="/images/AccountImage.jpg"
+            src="/images/AccountImage.svg"
             className="accountImage"
             alt="Beach in Palma"
           />

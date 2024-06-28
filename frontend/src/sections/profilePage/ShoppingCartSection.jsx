@@ -83,10 +83,10 @@ const ShoppingCartSection = () => {
             cartItems.map((item, index) => (
               <div key={index} className="cartItem">
                 <div className="cartItemDetails">
-                  <p className="cartItemName">{item.name}</p>
-                  <h3 className="cartItemPrice">{item.price}</h3>
+                  <p className="cartItemName">{item.rental.name}</p>
+                  <h3 className="cartItemPrice">{item.rental.price}</h3>
                   <button
-                    onClick={() => handleRemoveFromCart(item._id)}
+                    onClick={() => handleRemoveFromCart(item.rental._id)}
                     className="removeButton"
                   >
                     <IoTrashOutline />

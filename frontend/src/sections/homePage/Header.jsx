@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="headerContainer">
       <img
-        src="/images/HeaderImage.jpg"
+        src="/images/HeaderImage.svg"
         className="headerImage"
         alt="Image of Palma"
       />

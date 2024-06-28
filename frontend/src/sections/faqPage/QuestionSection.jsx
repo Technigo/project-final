@@ -7,7 +7,7 @@ const QuestionSection = () => {
       <div className="questionSectionWrapper">
         <img
           className="questionImage"
-          src="/images/QuestionImage.jpg"
+          src="/images/QuestionImage.svg"
           alt="Image of houses in Palma"
         />
         <div className="questionsWrapper">

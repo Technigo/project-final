@@ -13,7 +13,7 @@ const IntroSection = () => {
         make your stay in Palma de Mallorca unforgettable.
       </p>
       <img
-        src="/images/IntroImage.jpg"
+        src="/images/IntroImage.svg"
         className="introImage"
         alt="Image of Palma Museeum"
       />

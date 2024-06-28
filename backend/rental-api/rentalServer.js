@@ -114,7 +114,16 @@ app.get("/api/cart", (req, res) => {
 app.delete("/api/cart/:id", (req, res) => {
   const { id } = req.params;
 
-  cart = cart.filter((item) => item._id.toString() !== id);
+  if (!cart) {
+    return res.status(500).json({ error: "Cart is not initialized" });
+  }
+
+  cart = cart.filter((item) => {
+    if (item && item.rental && item.rental._id.toString() === id) {
+      return false;
+    }
+    return true;
+  });
 
   res.json({ message: "Rental removed from cart", cart });
 });

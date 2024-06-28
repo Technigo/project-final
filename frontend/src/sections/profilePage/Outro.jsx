@@ -6,7 +6,7 @@ const Outro = () => {
       <h1 className="outroText">Enjoy your vacation</h1>
       <img
         className="outroImage"
-        src="/images/OutroImage.jpg"
+        src="/images/OutroImage.svg"
         alt="Big Palmtree"
       />
     </div>
