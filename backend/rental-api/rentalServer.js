@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import expressListEndpoints from "express-list-endpoints";
 import path from "path";
 import fs from "fs";
@@ -8,7 +9,8 @@ import session from "express-session";
 
 import Rental from "./models/Rental";
 import Order from "./models/Order";
-import { runInNewContext } from "vm";
+
+dotenv.config();
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/rental-items";
 mongoose.connect(mongoUrl);
@@ -21,9 +23,11 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add session middleware
+const sessionSecret = process.env.SESSION_SECRET || "default_session_secret";
+
 app.use(
   session({
-    secret: "7f2b9b8f0e1f0e54a3e0f73f05336a7e",
+    secret: sessionSecret,
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false },
