@@ -171,7 +171,7 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
         .json({ error: "Missing required fields or cart is empty" });
     }
 
-    const orderItems = req.session.cart.map((item) => {
+    const orderItems = cart.map((item) => {
       console.log("Item rental:", item.rental);
       console.log("Item rental name:", item.rental.name);
       return {
