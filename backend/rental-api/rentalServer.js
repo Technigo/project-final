@@ -229,7 +229,9 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
 // Get all orders
 app.get("/api/orders", authenticateUser, async (req, res) => {
   try {
-    const orders = await Order.find().populate("items.rental");
+    const orders = await Order.find({ userId: req.user.id }).populate(
+      "items.rental"
+    );
     res.json(orders);
   } catch (error) {
     console.error("Error fetching orders", error);
