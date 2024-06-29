@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import axios from "axios";
 import { IoTrashOutline } from "react-icons/io5";
+import { useAuth } from "../../context/AuthContext";
 import "../../styling/sectionsStyling/profilePage/ShoppingCartSection.css";
 
 const ShoppingCartSection = () => {
   const { cartItems, totalPrice, handleRemoveFromCart, fetchCartItems } =
     useCart();
+  const { token } = useAuth();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
@@ -34,7 +36,7 @@ const ShoppingCartSection = () => {
 
     try {
       const orderItems = cartItems.map((item) => ({
-        rental: item._id,
+        rental: item.rental._id,
       }));
 
       const orderDetails = {
@@ -45,9 +47,22 @@ const ShoppingCartSection = () => {
         items: orderItems,
       };
 
+      console.log("Token:", token);
+
+      // Check if token exists before sending the request
+      if (!token) {
+        setError("Unauthorized access. Please login again");
+        return;
+      }
+
       const response = await axios.post(
         "https://project-final-rentals-api.onrender.com/api/orders",
-        orderDetails
+        orderDetails,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       console.log("Order placed successfully", response.data);
       // Clear cart
@@ -60,7 +75,10 @@ const ShoppingCartSection = () => {
       setSuccessMessage("Order placed successfully");
     } catch (error) {
       setError("Failed to place order. Please try again.");
-      console.error("Error placing order:", error);
+      console.error(
+        "Error placing order:",
+        error.response?.data || error.message
+      );
     }
   };
 

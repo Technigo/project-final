@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import expressListEndpoints from "express-list-endpoints";
 import path from "path";
 import fs from "fs";
+import jwt from "jsonwebtoken";
 
 import Rental from "./models/Rental";
 import Order from "./models/Order";
@@ -136,6 +137,12 @@ app.delete("/api/cart", (req, res) => {
 
 const authenticateUser = async (req, res, next) => {
   try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer")) {
+      console.error("Missing or invalid authprization header");
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
     const token = req.headers.authorization.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
@@ -151,6 +158,7 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
   const { startDate, endDate, deliveryAddress, customerEmail } = req.body;
 
   try {
+    console.log("Received order request:", req.body);
     if (
       !startDate ||
       !endDate ||
