@@ -26,6 +26,31 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Authentication middleware
+const authenticateUser = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+    console.log("Auth Header:", authHeader);
+
+    if (!authHeader || !authHeader.startsWith("Bearer")) {
+      console.error("Missing or invalid authprization header");
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    const token = req.headers.authorization.split(" ")[1];
+    console.log("Extracted token:", token);
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("Decoded Token:", decoded);
+
+    req.user = decoded;
+    next();
+  } catch (error) {
+    console.error("Authentication error:", error);
+    res.status(401).json({ error: "Unauthorized" });
+  }
+};
+
 // Serve images from frontend public folder
 app.use(
   "/images",
@@ -135,26 +160,10 @@ app.delete("/api/cart", (req, res) => {
   res.json({ message: "Cart cleared", cart });
 });
 
-const authenticateUser = async (req, res, next) => {
-  try {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer")) {
-      console.error("Missing or invalid authprization header");
-      return res.status(401).json({ error: "Unauthorized" });
-    }
-
-    const token = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    console.error("Authentication error:", error);
-    res.status(401).json({ error: "Unauthorized" });
-  }
-};
-
 // Handle orders
 app.post("/api/orders", authenticateUser, async (req, res) => {
+  console.log("Authenticated user:", req.user);
+
   const { startDate, endDate, deliveryAddress, customerEmail } = req.body;
 
   try {
@@ -170,6 +179,8 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
         .status(400)
         .json({ error: "Missing required fields or cart is empty" });
     }
+
+    console.log("Cart items:", cart);
 
     const orderItems = cart.map((item) => {
       console.log("Item rental:", item.rental);
@@ -196,8 +207,10 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
       customerEmail,
       items: orderItems,
       totalPrice,
-      userId: req.user._id,
+      userId: req.user.id,
     });
+
+    console.log("New order to save:", newOrder);
 
     const savedOrder = await newOrder.save();
     console.log("Order placed successfully", savedOrder);
