@@ -196,6 +196,7 @@ app.post("/api/orders", authenticateUser, async (req, res) => {
       customerEmail,
       items: orderItems,
       totalPrice,
+      userId: req.user._id,
     });
 
     const savedOrder = await newOrder.save();
