@@ -28,12 +28,14 @@ const LoginPage = () => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
+      console.log("Login response status:", response.status);
 
       const data = await response.json();
       console.log("Login successfull", data);
+
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
 
       const { token } = data;
       if (token) {

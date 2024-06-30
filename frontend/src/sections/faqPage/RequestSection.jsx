@@ -30,6 +30,8 @@ const RequestSection = () => {
         }
       );
 
+      console.log("Form submission response status", response.status);
+
       if (response.status === 201) {
         setSuccess("Form request submitted successfully.");
         setName("");
@@ -37,6 +39,7 @@ const RequestSection = () => {
         setMessage("");
       } else {
         const data = await response.json();
+        console.log("Form submission response data", data);
         setError(data.error || "Failed to submit form");
       }
     } catch (error) {
