@@ -35,6 +35,12 @@ app.get("/", (req, res) => {
 app.post("/api/register", async (req, res) => {
   const { username, email, password } = req.body;
 
+  if (!username || !email || !password) {
+    return res
+      .status(400)
+      .json({ error: "Please provide username, email and password" });
+  }
+
   try {
     // Check if user with the same email already exists
     const existingUser = await User.findOne({ email });
