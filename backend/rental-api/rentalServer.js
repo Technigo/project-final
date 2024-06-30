@@ -9,6 +9,7 @@ import jwt from "jsonwebtoken";
 
 import Rental from "./models/Rental";
 import Order from "./models/Order";
+import FormRequest from "./models/FormRequest";
 
 dotenv.config();
 
@@ -236,6 +237,18 @@ app.get("/api/orders", authenticateUser, async (req, res) => {
   } catch (error) {
     console.error("Error fetching orders", error);
     res.status(500).json({ error: "Failed to fetch orders" });
+  }
+});
+
+// Send form request
+app.post("/api/form-requests", async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+    const newFormRequest = new FormRequest({ name, email, message });
+    await newFormRequest.save();
+    res.status(201).json({ message: "Form request submitted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to submit form request" });
   }
 });
 

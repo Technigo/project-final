@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "../styling/componentsStyling/Navbar.css";
+import "./styling/Navbar.css";
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth();

@@ -1,4 +1,4 @@
-import "../../styling/sectionsStyling/faqPage/QuestionSection.css";
+import "./styling/QuestionSection.css";
 
 const QuestionSection = () => {
   return (

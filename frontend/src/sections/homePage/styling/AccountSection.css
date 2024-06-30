@@ -1,0 +1,143 @@
+.accountContainer {
+  background-color: var(--light-button-color);
+}
+
+.accountWrapper {
+  width: 305px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accountTitle {
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.accountIntroText {
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accountImage {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 115px;
+  margin-bottom: 24px;
+}
+
+.loginWrapper {
+  width: 305px;
+}
+
+.loginButton {
+  height: 40px;
+  width: 130px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--dark-button-color);
+  color: var(--light-color);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 14px 0;
+}
+
+.loginButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
+.createAccountButton {
+  height: 40px;
+  width: 160px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--dark-button-color);
+  color: var(--light-color);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 14px 0;
+}
+
+.createAccountButton:hover {
+  background-color: var(--dark-button-hover-color);
+}
+
+@media (min-width: 745px) {
+  .accountWrapper {
+    width: 610px;
+    padding: 50px 0;
+  }
+
+  .contentWrapper {
+    width: 520px;
+    flex-direction: row;
+  }
+
+  .accountImage {
+    order: 1;
+    margin-top: 10px;
+  }
+
+  .accountText {
+    margin-right: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .accountWrapper {
+    width: 840px;
+    padding: 70px 0;
+  }
+
+  .accountTitle {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .accountIntroText {
+    font-size: 20px;
+  }
+
+  .contentWrapper {
+    width: 780px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .accountText {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .accountImage {
+    width: 450px;
+    height: 450px;
+    border-radius: 220px;
+    margin-top: 20px;
+  }
+
+  .loginButton {
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .createAccountButton {
+    width: 180px;
+    height: 60px;
+    font-size: 20px;
+  }
+}

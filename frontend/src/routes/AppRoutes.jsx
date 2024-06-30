@@ -10,6 +10,7 @@ import RegisterPage from "../sections/auth/RegisterPage";
 import { AuthProvider } from "../context/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
 import ScrollToTop from "../components/ScrollToTop";
+import AboutPage from "../components/AboutPage";
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route
           path="/rentals"
           element={<ProtectedRoute element={<RentalPage />} />}

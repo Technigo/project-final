@@ -1,8 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
-import "../../styling/sectionsStyling/authPages/AuthPages.css";
 import { useNavigate } from "react-router-dom";
+import "./styling/authPages.css";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -19,18 +18,26 @@ const RegisterPage = () => {
       return;
     }
     try {
-      const response = await axios.post(
+      const response = await fetch(
         "https://project-final-auth-api.onrender.com/api/register",
         {
-          username,
-          email,
-          password,
+          method: "POST",
+          header: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, email, password }),
         }
       );
-      console.log("Registration response:", response.data);
+
+      if (!response.ok) {
+        throw new Error("Registration failed");
+      }
+
+      const data = await response.json();
+      console.log("Registration response:", data);
 
       if (response.status === 201) {
-        const { token } = response.data;
+        const { token } = data;
         if (token) {
           login(token);
           navigate("/rentals");

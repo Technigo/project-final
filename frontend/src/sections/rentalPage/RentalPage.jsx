@@ -1,6 +1,6 @@
 import RentalList from "./RentalList";
 import GoToCart from "./GoToCart";
-import "../../styling/sectionsStyling/rentalPage/RentalPage.css";
+import "./styling/RentalPage.css";
 
 const RentalPage = () => {
   return (

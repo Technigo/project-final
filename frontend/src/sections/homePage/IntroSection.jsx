@@ -1,4 +1,4 @@
-import "../../styling/sectionsStyling/homePage/IntroSection.css";
+import "./styling/IntroSection.css";
 
 const IntroSection = () => {
   return (

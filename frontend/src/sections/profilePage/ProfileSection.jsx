@@ -1,6 +1,6 @@
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, Navigate } from "react-router-dom";
-import "../../styling/sectionsStyling/profilePage/ProfileSection.css";
+import "./styling/ProfileSection.css";
 
 const ProfileSection = () => {
   const { isAuthenticated, logout } = useAuth();

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
-import axios from "axios";
 import { IoTrashOutline } from "react-icons/io5";
 import { useAuth } from "../../context/AuthContext";
-import "../../styling/sectionsStyling/profilePage/ShoppingCartSection.css";
+import "./styling/ShoppingCartSection.css";
 
 const ShoppingCartSection = () => {
   const { cartItems, totalPrice, handleRemoveFromCart, fetchCartItems } =
@@ -47,24 +46,28 @@ const ShoppingCartSection = () => {
         items: orderItems,
       };
 
-      console.log("Token:", token);
-
       // Check if token exists before sending the request
       if (!token) {
         setError("Unauthorized access. Please login again");
         return;
       }
 
-      const response = await axios.post(
+      const response = await fetch(
         "https://project-final-rentals-api.onrender.com/api/orders",
-        orderDetails,
         {
+          method: "POST",
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          body: JSON.stringify(orderDetails),
         }
       );
-      console.log("Order placed successfully", response.data);
+
+      if (!response.ok) {
+        throw new Error("Failed to place order");
+      }
+
       // Clear cart
       fetchCartItems();
       setStartDate("");

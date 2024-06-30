@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
-import "../../styling/sectionsStyling/profilePage/OrderHistory.css";
+import "./styling/OrderHistory.css";
 
 const orderHistory = () => {
   const { token } = useAuth();
@@ -45,33 +45,37 @@ const orderHistory = () => {
   }
 
   return (
-    <div>
-      <h2>Your Orders</h2>
-      {orders.length === 0 ? (
-        <p>No orders found.</p>
-      ) : (
-        <ul>
-          {orders.map((order) => (
-            <li key={order._id}>
-              <p>Order ID: {order._id}</p>
-              <p>Items:</p>
-              <ul>
-                {order.items.map((item) => (
-                  <li key={item._id}>
-                    {item.rental && item.rental.name ? (
-                      <>
-                        {item.rental.name} - Amount: {item.amount}
-                      </>
-                    ) : (
-                      <p>Rental name not available</p>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="orderContainer">
+      <div className="orderWrapper">
+        <h2 className="orderTitle">Your Orders</h2>
+        {orders.length === 0 ? (
+          <p className="orderErrorText">No orders found.</p>
+        ) : (
+          <ul>
+            {orders.map((order) => (
+              <li className="orderList" key={order._id}>
+                <p className="orderId">Order ID: {order._id}</p>
+                <p className="orderItemsTitle">Items:</p>
+                <ul className="orderItem">
+                  {order.items.map((item) => (
+                    <li key={item._id}>
+                      {item.rental && item.rental.name ? (
+                        <>
+                          {item.rental.name} - Amount: {item.amount}
+                        </>
+                      ) : (
+                        <p className="orderErrorText">
+                          Rental name not available
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

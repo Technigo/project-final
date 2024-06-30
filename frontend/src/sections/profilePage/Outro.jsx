@@ -1,4 +1,4 @@
-import "../../styling/sectionsStyling/profilePage/Outro.css";
+import "./styling/Outro.css";
 
 const Outro = () => {
   return (

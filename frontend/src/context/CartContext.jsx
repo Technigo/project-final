@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useCallback } from "react";
-import axios from "axios";
 
 const CartContext = createContext();
 
@@ -11,11 +10,17 @@ export const CartProvider = ({ children }) => {
 
   const fetchCartItems = useCallback(async () => {
     try {
-      const response = await axios.get(
+      const response = await fetch(
         "https://project-final-rentals-api.onrender.com/api/cart"
       );
-      setCartItems(response.data.cart);
-      setTotalPrice(response.data.totalPrice);
+
+      if (!response.ok) {
+        throw new Error("Error fetching cart items");
+      }
+
+      const data = await response.json();
+      setCartItems(data.cart);
+      setTotalPrice(data.totalPrice);
     } catch (error) {
       console.error("Error fetching cart items:", error);
     }
@@ -23,36 +28,63 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (item) => {
     try {
-      await axios.post(
+      const response = await fetch(
         "https://project-final-rentals-api.onrender.com/api/cart",
-        { id: item._id }
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: item._id }),
+        }
       );
+
+      if (!response.ok) {
+        throw new Error("Error adding to cart");
+      }
+
       fetchCartItems();
     } catch (error) {
-      console.error("Error adding to cart:", error);
+      console.error("Error adding to cart:", error.message);
     }
   };
 
   const handleRemoveFromCart = async (id) => {
     try {
-      await axios.delete(
-        `https://project-final-rentals-api.onrender.com/api/cart/${id}`
+      const response = await fetch(
+        `https://project-final-rentals-api.onrender.com/api/cart/${id}`,
+        {
+          method: "DELETE",
+        }
       );
+
+      if (!response.ok) {
+        throw new Error("Error removing from cart");
+      }
+
       fetchCartItems();
     } catch (error) {
-      console.error("Error removing from cart");
+      console.error("Error removing from cart:", error.message);
     }
   };
 
   const handleClearCart = async () => {
     try {
-      await axios.delete(
-        "https://project-final-rentals-api.onrender.com/api/cart"
+      const response = await fetch(
+        "https://project-final-rentals-api.onrender.com/api/cart",
+        {
+          method: "DELETE",
+        }
       );
+
+      if (!response.ok) {
+        throw new Error("Error clearing cart");
+      }
+
       setCartItems([]);
       setTotalPrice(0);
     } catch (error) {
-      console.error("Error clearing cart", error);
+      console.error("Error clearing cart", error.message);
     }
   };
 

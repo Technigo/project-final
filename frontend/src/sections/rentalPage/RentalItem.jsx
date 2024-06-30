@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useCart } from "../../context/CartContext";
 
 const RentalItem = () => {
@@ -12,10 +11,16 @@ const RentalItem = () => {
 
   const fetchRentals = async () => {
     try {
-      const response = await axios.get(
+      const response = await fetch(
         "https://project-final-rentals-api.onrender.com/api/rentals"
       );
-      setRentals(response.data);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch rentals");
+      }
+
+      const data = await response.json();
+      setRentals(data);
     } catch (error) {
       console.error("Error fetching rentals:", error);
     }

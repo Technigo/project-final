@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import "../../styling/sectionsStyling/homePage/AccountSection.css";
+import "./styling/AccountSection.css";
 
 const AccountSection = () => {
   const { isAuthenticated } = useAuth();

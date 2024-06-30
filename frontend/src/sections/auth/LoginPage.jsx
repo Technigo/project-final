@@ -1,8 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import "../../styling/sectionsStyling/authPages/AuthPages.css";
+import "./styling/authPages.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -18,16 +17,25 @@ const LoginPage = () => {
       return;
     }
     try {
-      const response = await axios.post(
+      response = await fetch(
         "https://project-final-auth-api.onrender.com/api/login",
         {
-          email,
-          password,
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
         }
       );
-      console.log("Login successfull:", response.data);
 
-      const { token } = response.data;
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
+
+      const data = await response.json();
+      console.log("Login successfull", data);
+
+      const { token } = data;
       if (token) {
         login(token);
         navigate("/rentals");
