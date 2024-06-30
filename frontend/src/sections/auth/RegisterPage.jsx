@@ -22,7 +22,7 @@ const RegisterPage = () => {
         "https://project-final-auth-api.onrender.com/api/register",
         {
           method: "POST",
-          header: {
+          headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, email, password }),

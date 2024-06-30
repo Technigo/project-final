@@ -9,6 +9,10 @@
   padding: 30px 0;
 }
 
+.orderErrorText {
+  text-align: center;
+}
+
 .orderTitle {
   font-weight: 600;
 }
@@ -31,5 +35,9 @@
 @media (min-width: 1024px) {
   .orderWrapper {
     width: 600px;
+  }
+
+  .orderErrorText {
+    font-size: 20px;
   }
 }
