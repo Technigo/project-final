@@ -51,16 +51,12 @@ function SignupPage() {
         }
       );
 
-      // Save token immediately
-      if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
-        navigate("/forum"); // redirect directly to forum
-      } else {
+
         setSuccess("Signup successful! Redirecting to login...");
         setTimeout(() => {
           navigate("/login");
         }, 1500);
-      }
+      
     } catch (err) {
       setError(err.response?.data?.error || "Signup failed. Try again.");
     }
