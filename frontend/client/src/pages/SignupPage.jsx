@@ -32,8 +32,7 @@ function SignupPage() {
     }
 
     // Strong password regex
-    const strongPassword =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+const strongPassword = /^.{8,}$/
 
     if (!strongPassword.test(password)) {
       setError(
