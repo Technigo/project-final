@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(c:\\Users\\cathr\\Pictures\\Screenshots/**)",
+      "Read(c:\\Users\\cathr\\Pictures\\Screenshots/**)",
+      "Read(c:\\Users\\cathr\\Pictures\\Screenshots/**)",
+      "Read(c:\\Users\\cathr\\Pictures\\Screenshots/**)",
+      "Read(c:\\Users\\cathr\\Pictures\\Screenshots/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

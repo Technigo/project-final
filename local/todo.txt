@@ -1,0 +1,118 @@
+# MORBID GENE 2.0 - FINAL PROJECT TODO
+
+## Grade G (Pass) Requirements - Status
+
+### Technical Requirements:
+[x] Frontend: React (with Vite)
+[x] Backend: Node.js with Express  
+[x] Database: MongoDB (with Mongoose)
+[x] Authentication (JWT-based login/register system)
+[x] Navigation using React Router (multi-page SPA)
+[x] Global state management (Context API - AuthContext, CartContext)
+[x] External libraries beyond basic stack:
+   - styled-components (CSS-in-JS)
+   - react-icons (icon library)
+   - axios (HTTP requests) 
+   - bcryptjs (password hashing)
+   - cors (CORS handling)
+[x] Custom React hooks:
+   - useMerch (product fetching)
+   - useProduct (single product details)
+[x] Browser support: Chrome, Firefox, Safari compatible
+[x] Responsive design: 320px-1600px+ breakpoints
+[ ] Accessibility & Lighthouse: Need to audit (TODO)
+[x] Clean Code practices: Consistent structure, naming, separation of concerns
+
+### Visual Requirements:
+[x] Clear box model structure with consistent spacing
+[x] Consistent h1-h6 typography across views/breakpoints  
+[x] Cohesive black/white/red colour scheme
+[x] Mobile-first design with special mobile attention
+
+### Course Participation:
+[ ] Planning/peer feedback sessions (TODO: Verify completion)
+[ ] Figma pitch submission (TODO: Check if submitted)
+[x] GitHub repository with full code
+[x] Deployed backend (Render: https://morbid-gene-2-0.onrender.com)
+[x] Deployed frontend (Netlify: https://morbidgeneofficial.com)
+[ ] Demo preparation (TODO: Prepare demo)
+
+## Grade VG (Pass with Distinction) - Status
+
+### Technical Depth:
+[x] Advanced features:
+   - Shopping cart with localStorage persistence
+   - Favorites system with user accounts  
+   - Product filtering and search
+   - Pagination system
+   - Image galleries with multiple views
+   - Breadcrumb navigation
+   - Confirmation dialogs for critical actions
+[x] Error handling and loading states throughout app
+[x] Accessibility features:
+   - ARIA labels on interactive elements
+   - Semantic HTML structure
+   - Screen reader friendly navigation
+   - Proper focus management
+
+### User-Centered Design:
+[x] Mobile-optimized shopping experience
+[x] Intuitive navigation with breadcrumbs
+[x] Clear CTAs and user feedback
+[x] Consistent visual hierarchy
+[x] Optimistic UI updates (cart changes)
+
+### Documentation:
+[ ] README.md (TODO: Comprehensive documentation)
+[ ] API documentation (TODO: Document endpoints)
+[ ] Visual walkthrough/screenshots (TODO: Add to README)
+
+### Problem Solving Evidence:
+[x] Complex API integration (Spreadshirt)
+[x] CORS configuration for production
+[x] Environment-specific configurations
+[x] Mobile-first responsive breakpoints
+[x] State management across contexts
+
+## IMMEDIATE TODOS:
+
+### High Priority:
+1. [x] Fix CORS issue preventing API calls from frontend to backend
+2. [ ] Complete Lighthouse accessibility audit
+3. [ ] Write comprehensive README.md
+4. [ ] Document API endpoints
+5. [ ] Cross-browser testing (Firefox, Safari)
+
+### Medium Priority:
+6. [ ] Add screenshots/demo GIFs to README
+7. [ ] Prepare final demo presentation
+8. [ ] Verify all requirements checklist
+9. [ ] Code cleanup and comments review
+10. [ ] Change size and color selectors from dropdowns to clickable buttons (better UX, especially on mobile)
+
+### Low Priority:
+11. [ ] Final design polish if time permits
+12. [ ] Performance optimizations
+13. [ ] Additional user testing
+
+## CURRENT STATUS:
+COMPLETE: Core functionality
+COMPLETE: Deployment (BACKEND DONE | FRONTEND DONE | API CONNECTION DONE)
+NEEDS WORK: Documentation & Testing/QA
+
+## NOTES:
+- Backend deployed and running successfully
+- Frontend deployed and API calls working (CORS fixed)
+- All major features implemented and working in production
+- Cart functionality confirmed working on mobile devices
+- Strong technical implementation for VG level
+- Need to focus on documentation and final testing
+
+## ESTIMATED TIME TO COMPLETION:
+- Fix CORS: ✓ DONE
+- Documentation: 2-3 hours  
+- Testing/QA: 1-2 hours
+- Demo prep: 1 hour
+- UI improvements (button selectors): 1-2 hours
+
+TOTAL: ~4-6 hours remaining work
