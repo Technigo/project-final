@@ -5,26 +5,34 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL, // Render URL in prod, http://localhost:5000 in dev
 });
 
-// --- Request interceptor: attach token only where needed ---
+// --- Request interceptor: attach a clean token only where needed ---
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
+  // Read token from localStorage and unquote if it was JSON.stringified
+  let token = localStorage.getItem('token');
+  try {
+    if (token && (token.startsWith('"') || token.startsWith("'"))) {
+      token = JSON.parse(token);
+    }
+  } catch {
+    /* ignore parse errors */
+  }
 
-  // Resolve a clean pathname regardless of relative/absolute URL
-  // (works even if config.url is '/api/...' or 'http...').
+
+  // Resolve the pathname even if config.url is relative
   const base = api.defaults.baseURL || window.location.origin;
   const full = new URL(config.url, base);
   const path = full.pathname;
 
-  // Public paths that do NOT need auth:
+  // Endpoints that do NOT require auth
   const isPublic =
-    path.startsWith('/api/tarot') || // public tarot proxy
-    path === '/health';              // health check
+    path.startsWith('/api/tarot') ||   // public tarot proxy
+    path.startsWith('/api/auth') ||    // login/register
+    path === '/health';                // health check
 
-  if (token && !isPublic) {
+  if (!isPublic && typeof token === 'string' && token.length > 0) {
     config.headers.Authorization = `Bearer ${token}`;
   } else {
-    // Be explicit: ensure it's not sent to public endpoints
-    delete config.headers.Authorization;
+    delete config.headers.Authorization; // be explicit
   }
 
   return config;
@@ -38,13 +46,12 @@ api.interceptors.response.use(
   (err) => {
     const status = err?.response?.status;
 
-    // 401 (unauthenticated) or 403 (forbidden) → log out + send to /login
     if ((status === 401 || status === 403) && !redirecting) {
       redirecting = true;
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       alert('Your session expired. Please log in again.');
-      window.location.assign('/login');
+      window.location.assign('/login'); // hard redirect resets all state
     }
 
     return Promise.reject(err);
@@ -52,4 +59,5 @@ api.interceptors.response.use(
 );
 
 export default api;
+
 
