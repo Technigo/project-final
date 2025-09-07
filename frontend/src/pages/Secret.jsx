@@ -1,12 +1,35 @@
 // frontend/src/pages/Secret.jsx
 import { useState } from 'react';
-import { Page } from '../ui/components';
+import styled from 'styled-components';
+import { Page, Card } from '../ui/components';
 import TarotCard from '../components/TarotCard';
 import { drawOneCard } from '../services/tarot';
 import ReadingsList from '../components/ReadingsList';
 import { createReading } from '../services/readings';
 
-const H1 = ({ children }) => <h2 style={{ marginTop: 0 }}>{children}</h2>;
+const H1 = ({ children, style, ...rest }) => (
+  <h2 style={{ marginTop: 0, ...style }} {...rest}>{children}</h2>
+);
+
+/** Centered card container (keeps grid span utility working) */
+const CenterCard = styled(Card)`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.span-2 {
+    grid-column: span 2;
+  }
+`;
+
+/** Column inside the 3-card grid, with centered content */
+const Col = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default function Secret() {
   const [mode, setMode] = useState('one'); // 'one' | 'three'
@@ -75,7 +98,7 @@ Task to complete? Get this out to dissolve the block around the Focal Point.`;
     <Page>
       <div className="grid-1-2-3">
         {/* LEFT: draw area (span two columns on desktop) */}
-        <div className="card span-2">
+        <CenterCard className="span-2">
           <H1>Draw options</H1>
 
           <label style={{ display: 'inline-flex', gap: 8, marginRight: 16 }}>
@@ -93,7 +116,7 @@ Task to complete? Get this out to dissolve the block around the Focal Point.`;
 
               <TarotCard card={oneCard} />
 
-              <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
+              <div style={{ marginTop: 12, display: 'flex', gap: 8, justifyContent: 'center' }}>
                 <button
                   onClick={async () => {
                     setBusyOne(true);
@@ -105,41 +128,41 @@ Task to complete? Get this out to dissolve the block around the Focal Point.`;
                   {busyOne ? 'Drawing…' : (oneCard ? 'Draw again' : 'Draw card')}
                 </button>
 
-                {/* New: quick-save for one-card readings */}
+                {/* Quick-save for one-card readings */}
                 <button onClick={saveOne} disabled={!oneCard}>
                   Save as reading
                 </button>
               </div>
             </div>
           ) : (
-            <div style={{ marginTop: 16 }}>
+            <div style={{ marginTop: 16, width: '100%' }}>
               <div className="grid-1-2-3">
-                <div>
+                <Col>
                   <div className="hint-toggle">Focal Point</div>
                   <div className="hint">{focalText}</div>
                   <TarotCard card={c1} />
                   <button onClick={() => draw(setC1, 'c1')} disabled={busy.c1} style={{ marginTop: 8 }}>
                     {busy.c1 ? 'Drawing…' : (c1 ? 'Draw again' : 'Draw card')}
                   </button>
-                </div>
+                </Col>
 
-                <div>
+                <Col>
                   <div className="hint-toggle">Gift to Receive</div>
                   <div className="hint">{receiveText}</div>
                   <TarotCard card={c2} />
                   <button onClick={() => draw(setC2, 'c2')} disabled={busy.c2} style={{ marginTop: 8 }}>
                     {busy.c2 ? 'Drawing…' : (c2 ? 'Draw again' : 'Draw card')}
                   </button>
-                </div>
+                </Col>
 
-                <div>
+                <Col>
                   <div className="hint-toggle">Gift to Give</div>
                   <div className="hint">{giveText}</div>
                   <TarotCard card={c3} />
                   <button onClick={() => draw(setC3, 'c3')} disabled={busy.c3} style={{ marginTop: 8 }}>
                     {busy.c3 ? 'Drawing…' : (c3 ? 'Draw again' : 'Draw card')}
                   </button>
-                </div>
+                </Col>
               </div>
 
               <div style={{ marginTop: 12 }}>
@@ -149,12 +172,14 @@ Task to complete? Get this out to dissolve the block around the Focal Point.`;
               </div>
             </div>
           )}
-        </div>
+        </CenterCard>
 
-        {/* RIGHT: saved readings */}
+        {/* RIGHT: saved readings (center heading, keep list left-aligned) */}
         <div className="card">
-          <H1>My Readings</H1>
-          <ReadingsList refreshKey={refreshKey} />
+          <H1 style={{ textAlign: 'center' }}>My Readings</H1>
+          <div style={{ textAlign: 'left', width: '100%' }}>
+            <ReadingsList refreshKey={refreshKey} />
+          </div>
         </div>
       </div>
     </Page>
