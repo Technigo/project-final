@@ -65,25 +65,56 @@ export const GhostButton = styled.button`
   &:active { transform: translateY(0); }
 `;
 
-// NAVBAR
+/* === NAVBAR (2-row on mobile: brand + mode, then links) === */
+const BRAND = '#8a63d2';                      // lighter purple you liked
+const BRAND_BG = 'rgba(138, 99, 210, 0.18)';  // soft pill hover bg
+
 export const Nav = styled.nav`
-  position: sticky;     /* stays at top when scrolling */
+  position: sticky;
   top: 0;
   z-index: 50;
 
-  background: var(--nav-bg); /* uses palette from :root in index.css */
+  background: var(--nav-bg); /* from :root in index.css */
   color: #f2f4f5;
   border-bottom: 1px solid rgba(255,255,255,.08);
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-
   padding: 12px 16px;
-  margin: 0;            /* IMPORTANT: removes the gap above the hero */
+  margin: 0;
+
+  /* Mobile: stack into two rows */
+  .row-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .row-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 8px;
+  }
+
+  /* Desktop: brand left, links + toggle right (single bar feel) */
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    .row-top {
+      justify-content: flex-start;
+      gap: 16px;
+    }
+
+    .row-links {
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+  }
 `;
 
+/* Keep NavGroup for compatibility (optional to use) */
 export const NavGroup = styled.div`
   display: flex;
   align-items: center;
@@ -91,18 +122,46 @@ export const NavGroup = styled.div`
   flex-wrap: wrap;
 `;
 
-export const NavLink = styled(RouterLink)`
-  color: #f7e7a7;       /* moon-gold links to match the hero */
+/* Brand text (no card image) */
+export const Brand = styled(RouterLink)`
+  font-weight: 800;
+  letter-spacing: 0.2px;
   text-decoration: none;
-  font-weight: 600;
+  color: ${BRAND};
+  font-size: 18px;
   line-height: 1;
-  padding: 4px 2px;
-  border-radius: 6px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  transition: background 120ms ease, color 120ms ease;
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline;
+    background: ${BRAND_BG};
+    color: ${BRAND};
     outline: none;
+  }
+`;
+
+/* Links with clear purple hover/active states */
+export const NavLink = styled(RouterLink)`
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: background 120ms ease, color 120ms ease;
+
+  &:hover,
+  &:focus-visible {
+    background: ${BRAND_BG};
+    color: ${BRAND};
+    outline: none;
+  }
+
+  &.active {
+    background: ${BRAND_BG};
+    color: ${BRAND};
   }
 `;
 
