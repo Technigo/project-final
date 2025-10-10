@@ -1,0 +1,22 @@
+import styled from 'styled-components'
+
+import { media } from '../styles/media'
+
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; // <--- Change to flex-start for left alignment
+
+  padding: ${(props) => props.theme.spacing.md};
+  max-width: 1200px;
+  margin: 0 auto;
+
+  ${media.sm} {
+    align-items: flex-start;
+    padding: ${(props) => props.theme.spacing.lg};
+  }
+  ${media.md} {
+    align-items: flex-start;
+    padding: ${(props) => props.theme.spacing.xl};
+  }
+`

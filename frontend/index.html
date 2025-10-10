@@ -2,12 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Technigo React Vite Boiler Plate</title>
+    <meta name="color-scheme" content="light" />
+
+    <link rel="icon" type="image/png" href="/images/naima-favicon.png" />
+
+    <title>Naima — Fika with Benefits</title>
+    <meta
+      name="description"
+      content="Swedish fika, reimagined. Naima crafts superfood treats that help you feel good—inside and out."
+    />
+
+    <!-- Preload most critical font first -->
+    <!--     <link
+      rel="preload"
+      href="/fonts/arcamajora3-heavy.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/fonts/arcamajora3-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    /> -->
+    <!-- Preload critical font and hero image to improve LCP -->
+    <link
+      rel="preload"
+      href="/fonts/neuzeit_s_lt_std_book.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/images/carousel-1.webp" as="image" />
   </head>
   <body>
+    <!-- ✅ This is required for React to render! -->
     <div id="root"></div>
+    <!-- ✅ This loads your React app -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
