@@ -1,0 +1,353 @@
+import mongoose from 'mongoose';
+import { Tree, Forest } from '../models/index.js';
+import { buildTreeQuery } from '../utils/dashboardUtils.js';
+
+/**
+ * Safely convert string ID to ObjectId
+ * @param {string} id - String ID to convert
+ * @returns {mongoose.Types.ObjectId|null} ObjectId or null if invalid
+ */
+const toObjectId = (id) => {
+  if (!id || typeof id !== 'string') return null;
+  try {
+    return new mongoose.Types.ObjectId(id.trim());
+  } catch (error) {
+    console.warn('Invalid ObjectId format in chart controller:', id);
+    return null;
+  }
+};
+
+/**
+ * Build filter conditions for charts with multi-forest support
+ * @param {Object} query - Request query parameters
+ * @returns {Object} Filter conditions
+ */
+const buildChartFilters = (query) => {
+  return {
+    forestId: query.forestId,
+    forestIds: query.forestIds,
+    startDate: query.startDate,
+    endDate: query.endDate,
+    species: query.species,
+    isAlive: query.isAlive
+  };
+};
+
+// Get survival rate data over time for charts
+export const getSurvivalRateChart = async (req, res) => {
+  try {
+    const { groupBy = 'month' } = req.query; // day, week, month, year
+    
+    // Build filter conditions using utility function
+    const filters = buildChartFilters(req.query);
+    const matchConditions = buildTreeQuery(filters);
+
+    // Define grouping format based on groupBy parameter
+    const dateFormats = {
+      day: '%Y-%m-%d',
+      week: '%Y-%U',
+      month: '%Y-%m',
+      year: '%Y'
+    };
+
+    const survivalData = await Tree.aggregate([
+      { $match: matchConditions },
+      {
+        $group: {
+          _id: {
+            period: {
+              $dateToString: {
+                format: dateFormats[groupBy] || dateFormats.month,
+                date: '$plantedDate'
+              }
+            }
+          },
+          totalPlanted: { $sum: 1 },
+          surviving: {
+            $sum: {
+              $cond: ['$isAlive', 1, 0]
+            }
+          }
+        }
+      },
+      {
+        $addFields: {
+          survivalRate: {
+            $multiply: [
+              { $divide: ['$surviving', '$totalPlanted'] },
+              100
+            ]
+          }
+        }
+      },
+      {
+        $project: {
+          period: '$_id.period',
+          totalPlanted: 1,
+          surviving: 1,
+          dead: { $subtract: ['$totalPlanted', '$surviving'] },
+          survivalRate: { $round: ['$survivalRate', 2] },
+          _id: 0
+        }
+      },
+      { $sort: { period: 1 } }
+    ]);
+
+    res.json({
+      success: true,
+      data: {
+        chartData: survivalData,
+        groupBy,
+        totalDataPoints: survivalData.length,
+        dateRange: {
+          start: startDate,
+          end: endDate
+        }
+      }
+    });
+  } catch (error) {
+    console.error('Get survival rate chart error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch survival rate chart data',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+};
+
+// Get average height growth over time
+export const getHeightGrowthChart = async (req, res) => {
+  try {
+    const { groupBy = 'month' } = req.query;
+    
+    // Build filter conditions using utility function
+    const filters = buildChartFilters(req.query);
+    const matchConditions = buildTreeQuery(filters);
+    
+    // Ensure we only get alive trees for height growth
+    matchConditions.isAlive = true;
+
+    // Define grouping format
+    const dateFormats = {
+      day: '%Y-%m-%d',
+      week: '%Y-%U',
+      month: '%Y-%m',
+      year: '%Y'
+    };
+
+    const heightData = await Tree.aggregate([
+      { $match: matchConditions },
+      { $unwind: '$measurements' },
+      {
+        $match: {
+          ...(filters.startDate && { 'measurements.measuredAt': { $gte: new Date(filters.startDate) } }),
+          ...(filters.endDate && { 'measurements.measuredAt': { $lte: new Date(filters.endDate) } })
+        }
+      },
+      {
+        $group: {
+          _id: {
+            period: {
+              $dateToString: {
+                format: dateFormats[groupBy] || dateFormats.month,
+                date: '$measurements.measuredAt'
+              }
+            },
+            species: '$species'
+          },
+          avgHeight: { $avg: '$measurements.height' },
+          minHeight: { $min: '$measurements.height' },
+          maxHeight: { $max: '$measurements.height' },
+          measurementCount: { $sum: 1 },
+          treeCount: { $addToSet: '$_id' }
+        }
+      },
+      {
+        $addFields: {
+          uniqueTreeCount: { $size: '$treeCount' }
+        }
+      },
+      {
+        $project: {
+          period: '$_id.period',
+          species: '$_id.species',
+          avgHeight: { $round: ['$avgHeight', 2] },
+          minHeight: { $round: ['$minHeight', 2] },
+          maxHeight: { $round: ['$maxHeight', 2] },
+          measurementCount: 1,
+          uniqueTreeCount: 1,
+          _id: 0
+        }
+      },
+      { $sort: { period: 1, species: 1 } }
+    ]);
+
+    // Group by period for easier frontend consumption
+    const groupedData = heightData.reduce((acc, curr) => {
+      const period = curr.period;
+      if (!acc[period]) {
+        acc[period] = {
+          period,
+          species: [],
+          totalMeasurements: 0,
+          totalTrees: 0
+        };
+      }
+      
+      acc[period].species.push({
+        name: curr.species,
+        avgHeight: curr.avgHeight,
+        minHeight: curr.minHeight,
+        maxHeight: curr.maxHeight,
+        measurementCount: curr.measurementCount,
+        treeCount: curr.uniqueTreeCount
+      });
+      
+      acc[period].totalMeasurements += curr.measurementCount;
+      acc[period].totalTrees += curr.uniqueTreeCount;
+      
+      return acc;
+    }, {});
+
+    const chartData = Object.values(groupedData);
+
+    res.json({
+      success: true,
+      data: {
+        chartData,
+        groupBy,
+        totalDataPoints: chartData.length,
+        filters
+      }
+    });
+  } catch (error) {
+    console.error('Get height growth chart error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch height growth chart data',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+};
+
+// Get CO2 absorption trends over time (based on planted dates for historical trends)
+export const getCO2AbsorptionChart = async (req, res) => {
+  try {
+    const { groupBy = 'year' } = req.query;
+    
+    // Build filter conditions using utility function
+    const filters = buildChartFilters(req.query);
+    const matchConditions = buildTreeQuery(filters);
+    
+    // Ensure we only get alive trees for CO2 absorption
+    matchConditions.isAlive = true;
+
+    // Define grouping format
+    const dateFormats = {
+      day: '%Y-%m-%d',
+      week: '%Y-%U',
+      month: '%Y-%m',
+      year: '%Y'
+    };
+
+    const co2Data = await Tree.aggregate([
+      { $match: matchConditions },
+      {
+        $match: {
+          measurements: { $exists: true, $ne: [] }
+        }
+      },
+      {
+        $addFields: {
+          // Get the latest (most recent) measurement for current CO2 absorption
+          latestMeasurement: {
+            $arrayElemAt: [
+              {
+                $filter: {
+                  input: '$measurements',
+                  cond: { $ne: ['$$this.co2Absorption', null] }
+                }
+              },
+              -1
+            ]
+          }
+        }
+      },
+      {
+        $match: {
+          'latestMeasurement.co2Absorption': { $exists: true, $ne: null, $gt: 0 }
+        }
+      },
+      {
+        $group: {
+          _id: {
+            period: {
+              $dateToString: {
+                format: dateFormats[groupBy] || dateFormats.month,
+                date: '$plantedDate'
+              }
+            }
+          },
+          // Current CO2 absorption from trees planted in this period
+          totalCO2: { $sum: '$latestMeasurement.co2Absorption' },
+          avgCO2: { $avg: '$latestMeasurement.co2Absorption' },
+          minCO2: { $min: '$latestMeasurement.co2Absorption' },
+          maxCO2: { $max: '$latestMeasurement.co2Absorption' },
+          treeCount: { $sum: 1 },
+          trees: { $addToSet: '$_id' }
+        }
+      },
+      {
+        $addFields: {
+          avgCO2PerTree: { $divide: ['$totalCO2', '$treeCount'] }
+        }
+      },
+      {
+        $project: {
+          period: '$_id.period',
+          totalCO2: { $round: ['$totalCO2', 2] },
+          avgCO2: { $round: ['$avgCO2', 2] },
+          minCO2: { $round: ['$minCO2', 2] },
+          maxCO2: { $round: ['$maxCO2', 2] },
+          avgCO2PerTree: { $round: ['$avgCO2PerTree', 2] },
+          treeCount: 1,
+          _id: 0
+        }
+      },
+      { $sort: { period: 1 } }
+    ]);
+
+    // Calculate cumulative CO2 absorption over time (historical buildup)
+    let cumulativeCO2 = 0;
+    const chartDataWithCumulative = co2Data.map(item => {
+      cumulativeCO2 += item.totalCO2;
+      return {
+        ...item,
+        cumulativeCO2: Math.round(cumulativeCO2 * 100) / 100
+      };
+    });
+
+    res.json({
+      success: true,
+      data: {
+        chartData: chartDataWithCumulative,
+        groupBy,
+        totalDataPoints: chartDataWithCumulative.length,
+        summary: {
+          totalCO2Absorption: cumulativeCO2,
+          totalTrees: co2Data.reduce((sum, item) => sum + item.treeCount, 0),
+          avgCO2PerPeriod: Math.round((cumulativeCO2 / co2Data.length) * 100) / 100
+        },
+        filters
+      }
+    });
+  } catch (error) {
+    console.error('Get CO2 absorption chart error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch CO2 absorption chart data',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+};
+
