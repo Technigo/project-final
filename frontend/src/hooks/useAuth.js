@@ -36,8 +36,8 @@ export const useAuth = () => {
   };
 
   // Wrapped register function that handles navigation
-  const register = async (email, password, confirmPassword) => {
-    const result = await storeRegister(email, password, confirmPassword);
+  const register = async (email, password, confirmPassword, firstName, lastName) => {
+    const result = await storeRegister(email, password, confirmPassword, firstName, lastName);
     if (result.success) {
       navigate('/dashboard');
     }

@@ -59,7 +59,7 @@ export const useAuthStore = create(
           }
         },
         
-        register: async (email, password, confirmPassword) => {
+        register: async (email, password, confirmPassword, firstName, lastName) => {
           try {
             set({ isLoading: true });
             
@@ -67,7 +67,7 @@ export const useAuthStore = create(
               throw new Error('Passwords do not match');
             }
             
-            const response = await authAPI.register({ email, password });
+            const response = await authAPI.register({ email, password, firstName, lastName });
             const { token, user: userData } = response.data;
             
             localStorage.setItem('authToken', token);

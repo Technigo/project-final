@@ -8,6 +8,8 @@ import { usePasswordStrength } from './usePasswordStrength';
  */
 export const useRegisterForm = () => {
   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -20,6 +22,18 @@ export const useRegisterForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.firstName.trim())) {
+      newErrors.firstName = 'First name can only include letters and spaces';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.lastName.trim())) {
+      newErrors.lastName = 'Last name can only include letters and spaces';
+    }
 
     if (!formData.email) {
       newErrors.email = 'Email is required';
@@ -71,7 +85,13 @@ export const useRegisterForm = () => {
     setIsSubmitting(true);
     
     try {
-      const result = await register(formData.email, formData.password, formData.confirmPassword);
+      const result = await register(
+        formData.email,
+        formData.password,
+        formData.confirmPassword,
+        formData.firstName.trim(),
+        formData.lastName.trim()
+      );
       
       if (!result.success) {
         setErrors({ general: result.error });

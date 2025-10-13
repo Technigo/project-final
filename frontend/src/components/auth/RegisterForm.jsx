@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormField } from '../ui/FormField';
 import { PasswordInput } from '../ui/PasswordInput';
@@ -22,6 +21,46 @@ export const RegisterForm = () => {
           {errors.general}
         </div>
       )}
+
+      <FormField
+        label="First name"
+        id="firstName"
+        error={errors.firstName}
+        required
+      >
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleInputChange}
+          className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent ${
+            errors.firstName ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="Enter your first name"
+          disabled={isSubmitting}
+        />
+      </FormField>
+
+      <FormField
+        label="Last name"
+        id="lastName"
+        error={errors.lastName}
+        required
+      >
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleInputChange}
+          className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent ${
+            errors.lastName ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="Enter your last name"
+          disabled={isSubmitting}
+        />
+      </FormField>
 
       <FormField
         label="Email address"
