@@ -1,8 +1,30 @@
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
+import { GlobalStyles } from './styles/globalStyles';
+import { Routes, Route, Router } from 'react-router-dom';
+import Landing from './components/pages/Landing';
+import Signup from './components/pages/Signup';
+import Login from './components/pages/Login';
+import Dashboard from './components/pages/Dashboard';
+import IncomeManagement from './components/pages/IncomeManagement';
+import SpendingsManagement from './components/pages/SpendingsManagement';
+import ProtectedRoute from './components/pages/ProtectedRoute';
+
 export const App = () => {
 
   return (
-    <>
-      <h1>Welcome to Final Project!</h1>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/income-management" element={<ProtectedRoute><IncomeManagement /></ProtectedRoute>}/>
+        <Route path="/spendings-management" element={<ProtectedRoute><SpendingsManagement /></ProtectedRoute>}/>
+      </Routes>
+    </ThemeProvider>
   );
 };
+
+export default App;
