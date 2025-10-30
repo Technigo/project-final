@@ -1,0 +1,39 @@
+export const Btn = ({
+  onClick,
+  children,
+  type = "button",
+  variant = "filled",
+  size = "md",
+  className = "",
+  ariaLabel,
+  disabled = false,
+}) => {
+  const baseClasses =
+    "font-bold tracking-[0.08em] rounded-[18px] transition duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
+
+  const sizeClasses = {
+    sm: "px-4 py-2 text-sm",
+    md: "px-8 py-4 text-xl",
+    lg: "px-12 py-6 text-lg",
+  };
+
+  const variantClasses = {
+    filled:
+      "bg-main text-white shadow-[0_5px_0_0_#065F46] hover:brightness-110 active:translate-y-[5px] active:shadow-none",
+    outlined:
+      "border-2 border-main text-main bg-transparent shadow-sm hover:scale-105 active:scale-105 active:shadow-sm",
+    text: "text-main bg-transparent shadow-md hover:text-light",
+  };
+
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      aria-label={ariaLabel}
+      disabled={disabled}
+      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+    >
+      {children}
+    </button>
+  );
+};

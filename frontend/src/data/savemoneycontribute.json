@@ -1,0 +1,72 @@
+[
+  {
+    "message": "Buy your friend a coffee ☕️",
+    "spanStart": 0,
+    "spanEnd": 100
+  },
+  {
+    "message": "Contribute to someone in need ❤️‍🩹",
+    "spanStart": 101,
+    "spanEnd": 150
+  },
+  {
+    "message": "Take a friend out for ice cream 🍦",
+    "spanStart": 151,
+    "spanEnd": 180
+  },
+  {
+    "message": "Donate and save the bee's 🐝",
+    "spanStart": 181,
+    "spanEnd": 210
+  },
+  {
+    "message": "Buy flowers for yourself 🌸",
+    "spanStart": 211,
+    "spanEnd": 280
+  },
+  {
+    "message": "Buy flowers for someone special 🌼",
+    "spanStart": 281,
+    "spanEnd": 350
+  },
+  {
+    "message": "Treat yourself to something nice! 🎉",
+    "spanStart": 351,
+    "spanEnd": 450
+  },
+  {
+    "message": "Donate and save the bee's 🐝",
+    "spanStart": 451,
+    "spanEnd": 550
+  },
+  {
+    "message": "Go to the cinemas, bring someone who enyoy the same movies as you 🍿",
+    "spanStart": 551,
+    "spanEnd": 650
+  },
+  {
+    "message": "Get a massage and relax 💆‍♀️",
+    "spanStart": 651,
+    "spanEnd": 800
+  },
+  {
+    "message": "Spend money on someone you love 🥰",
+    "spanStart": 801,
+    "spanEnd": 1200
+  },
+  {
+    "message": "Take your family out for dinner 🍽️",
+    "spanStart": 1201,
+    "spanEnd": 2000
+  },
+  {
+    "message": "Take a friend and spend the night at a Spa 💦",
+    "spanStart": 2001,
+    "spanEnd": 5000
+  },
+  {
+    "message": "You deserve a trip ✈️",
+    "spanStart": 5001,
+    "spanEnd": 9999999
+  }
+]
