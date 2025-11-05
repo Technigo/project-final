@@ -1,8 +1,23 @@
-export const App = () => {
+import SiteHeader from "./components/SiteHeader";
 
+const App = ({ children, showHeader = true }) => {
   return (
-    <>
-      <h1>Welcome to Final Project!</h1>
-    </>
+    <div
+      className="min-h-screen"
+      style={{
+        background: "var(--color-background)",
+        color: "var(--color-text)",
+      }}
+    >
+      {showHeader && <SiteHeader />}
+
+      <main id="main">{children}</main>
+
+      <footer className="max-w-6xl mx-auto p-4 text-xs opacity-80">
+        This is a supportive, non-clinical tool.
+      </footer>
+    </div>
   );
 };
+
+export default App;
