@@ -1,13 +1,48 @@
-# Final Project
+# Banganza
 
-Replace this readme with your own information about your project.
+Banganza is a multiplayer quiz game where teams drag and drop cards on a timeline.  
+Built with **React, TypeScript, and Node.js**.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+---
 
-## The problem
+## Features
+- Intro animation with video
+- Category selector with icons
+- Drag & drop timeline gameplay
+- Admin panel to manage categories and items
+- Fully responsive & accessible design
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+---
 
-## View it live
+## Example Data
+Example of an item that can be added via the admin panel:
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+```json
+{
+  "id": "net-1",
+  "name": "Dancing Baby",
+  "label": "Year 1996",
+  "value": 1996,
+  "categoryId": "internet.phenomena.year"
+}
+```
+
+
+## Tech Stack
+**Frontend:** React 18, TypeScript, Tailwind, dnd-kit  
+**Backend:** Node.js, Express, MongoDB  
+**Other:** JWT auth, Netlify/Render deployment
+
+
+## Run locally
+```bash
+git clone https://github.com/username/project-final.git
+cd project-final
+npm install
+npm run dev
+```
+
+
+## Live Demo
+👉 Play Banganza [here]([url](https://banganza.netlify.app/))
+https://banganza.netlify.app/
