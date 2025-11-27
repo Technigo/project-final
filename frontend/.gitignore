@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+
+# Misc
+todo.md
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# VS Code settings
+.vscode/
+
+# MacOS
+.DS_Store
+
+# TanStack Query cache
+.tanstack/
