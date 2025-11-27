@@ -3,6 +3,11 @@ import { create } from "zustand";
 // Environment variable
 const API_URL = import.meta.env.VITE_API_URL || "";
 
+const petErrorMessage = (msg?: string) => {
+  if (msg === "No active pet found") return "Your pet has expired";
+  return msg || "We could not load your pet right now";
+};
+
 // Types
 export type InventoryItem = {
   itemName: string;
@@ -79,11 +84,20 @@ export const usePetStore = create<PetState>((set, get) => ({
           Authorization: token ? `Bearer ${token}` : "",
         },
       });
-      if (!res.ok) throw new Error(await res.text());
+      if (!res.ok) {
+        const raw = await res.text();
+        let backendMsg: string | undefined;
+        try {
+          backendMsg = JSON.parse(raw).message;
+        } catch {
+          backendMsg = raw;
+        }
+        throw new Error(backendMsg);
+      }
       const data: Pet = await res.json();
       set({ pet: data, loading: false });
     } catch (err: any) {
-      set({ error: err.message, loading: false });
+      set({ error: petErrorMessage(err.message), loading: false });
     }
   },
 
