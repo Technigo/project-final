@@ -1,0 +1,119 @@
+//#region ----- IMPORTS -----
+import styled from "styled-components"
+import { useState } from "react"
+import { MediaQueries } from "../../../themes/mediaQueries"
+import { useClassStore } from "../../../store/classStore"
+import { useEditingStore } from "../../../store/editStore"
+import { useWorkspaceStore } from "../../../store/workspaceStore"
+//#endregion
+
+//#region ----- COMPONENT LOGIC -----
+interface CreateClassProps {
+  onClose?: () => void
+}
+
+export const CreateClass = ({ onClose }: CreateClassProps = {}) => {
+  const addClass = useClassStore((state) => state.addClass)
+  const currentWorkspaceId = useWorkspaceStore((state) => state.currentWorkspaceId)
+  const [classTitle, setClassTitle] = useState("")
+  const setIsEditingClass = useEditingStore((state) => state.setIsEditingClass)
+
+  const handleCreateProject = async () => {
+    if (!classTitle.trim()) return
+    if (!currentWorkspaceId) {
+      console.error("No workspace selected")
+      return
+    }
+    await addClass(classTitle, currentWorkspaceId)
+    setClassTitle("")
+
+    // Handle close - either via callback or editing store
+
+    if (onClose) {
+      onClose()
+    } else {
+      setIsEditingClass(false)
+    }
+  }
+
+  //#endregion
+
+  //#region ----- RENDERED UI -----
+  return (
+    <FormContainer
+      as="form"
+      onClick={(e) => e.stopPropagation()}
+      onSubmit={(e) => {
+        e.preventDefault()
+        handleCreateProject()
+      }}
+    >
+      <h3>Create a new class</h3>
+      <ClassNameInput
+        placeholder="Class Name"
+        maxLength={100}
+        required
+        value={classTitle}
+        onChange={(e) => setClassTitle(e.target.value)}
+        onClick={(e) => e.stopPropagation()}
+      />
+      <AddProjectBtn
+        type="submit"
+        onClick={(e) => e.stopPropagation()}
+      >
+        Add Class
+      </AddProjectBtn>
+    </FormContainer>
+  )
+}
+//#endregion
+
+//#region ----- STYLED COMPONENTS -----
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 92vw;
+  background-color: ${({ theme }) => theme.colors.offBackground};
+  border: 2px solid ${({ theme }) => theme.colors.textAlternative};
+  border-radius: 10px;
+  padding: 25px 20px;
+
+  @media ${MediaQueries.biggerSizes} {
+    width: 500px;
+  }
+
+  input {
+    background-color: ${({ theme }) => (theme.name === "dark" ? "#363f49" : "#fff")};
+    color: ${({ theme }) => theme.colors.text};
+    margin: 6px 0;
+  }
+
+  h3 {
+    color: ${({ theme }) => theme.colors.text};
+    text-align: center;
+  }
+`
+
+const ClassNameInput = styled.input`
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+`
+
+const AddProjectBtn = styled.button`
+  height: 40px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 10px;
+  border: none;
+  transition: ease 0.3s;
+  color: white;
+
+  &:hover {
+    transform: scale(0.96);
+    background-color: ${({ theme }) => theme.colors.primaryHover};
+  }
+`
+//#endregion

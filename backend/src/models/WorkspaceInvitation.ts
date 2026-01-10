@@ -1,0 +1,54 @@
+import { Schema, Document, Types, model } from "mongoose"
+
+export interface WorkspaceInvitationType extends Document {
+  _id: Types.ObjectId
+  workspaceId: Types.ObjectId
+  teamId?: Types.ObjectId
+  createdBy: Types.ObjectId
+  token: string
+  expiresAt: Date
+  allowedRole: string
+  schemaVersion: string
+}
+
+const WorkspaceInvitationSchema = new Schema<WorkspaceInvitationType>({
+  workspaceId: {
+    type: Schema.Types.ObjectId,
+    ref: "Workspace",
+    required: true,
+  },
+  teamId: {
+    type: Schema.Types.ObjectId,
+    ref: "Team",
+    required: false,
+  },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  token: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  expiresAt: {
+    type: Date,
+    required: true,
+    default: () => new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
+  },
+  allowedRole: {
+    type: String,
+    enum: ["student", "teacher"],
+    default: "student",
+  },
+  schemaVersion: { type: String, default: "v2" },
+})
+
+// Index for performance
+WorkspaceInvitationSchema.index({ expiresAt: 1 })
+
+export const WorkspaceInvitationModel = model<WorkspaceInvitationType>(
+  "WorkspaceInvitation",
+  WorkspaceInvitationSchema
+)
