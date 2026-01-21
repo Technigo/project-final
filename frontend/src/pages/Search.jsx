@@ -1,0 +1,428 @@
+import { useEffect, useState } from "react"
+import { useMediaQuery } from 'react-responsive'
+import { useSearchParams } from "react-router-dom"
+import { Map, LocateFixed, List, Funnel, X } from "lucide-react"
+import FocusLock from "react-focus-lock"
+import useGeoStore from '../stores/useGeoStore'
+import SearchFilters from "../sections/search/SearchFilters"
+import ListView from "../sections/search/ListView"
+import MapView from "../sections/search/MapView"
+import SearchBar from '../components/SearchBar'
+import Button from "../components/Button"
+import FilterTag from '../components/FilterTag'
+import NoResults from '../components/NoResults'
+import ErrorMessage from "../components/ErrorMessage"
+import { getLoppisList } from '../services/loppisApi'
+import { geocodeCity } from '../services/geocodingApi'
+
+const Search = () => {
+  // fetch states
+  const [searchParams, setSearchParams] = useSearchParams() // get searchParams from React Router’s useSearchParams
+  // derive query object directly from searchParams
+  const query = {
+    city: searchParams.get("city") || "",
+    date: searchParams.get("date") || "all",
+    categories: searchParams.getAll("category"),
+  }
+  const [cityInput, setCityInput] = useState(query.city)
+  // överst i Search-komponenten:
+  const [cityStatus, setCityStatus] = useState('idle') // 'idle' | 'valid' | 'not_found'
+  const [cityError, setCityError] = useState("")       //  “city not found”
+
+  const [loppisList, setLoppisList] = useState([])
+
+  // map states
+  const centerDefault = [58.5, 15.0] // mid Sweden
+  const zoomDefault = (6) // default show southern/mid Sweden
+  const [mapCenter, setMapCenter] = useState(centerDefault)
+  const [zoom, SetZoom] = useState(zoomDefault)
+  const [centerBy, setCenterBy] = useState('city')
+  // Geo store
+  const location = useGeoStore(s => s.location)
+  const geoStatus = useGeoStore(s => s.status)
+  const geoError = useGeoStore(s => s.error)
+  const requestLocation = useGeoStore(s => s.requestLocation)
+
+  // layout states
+  const [view, setView] = useState("map") //"map" or "list" for mobile, or "desktop"
+  const [showFilters, setShowFilters] = useState(false) // hide search filters by default
+  const isSmallMobile = useMediaQuery({ query: '(max-width: 480px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 1023px)' })
+
+  // ux states
+  const [isSearching, setIsSearching] = useState(false)
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  // set layout when screen size changes
+  useEffect(() => {
+    if (isMobile) {
+      // moblie - hide search filters and set view to map
+      setShowFilters(false)
+      setView('map')
+    } else {
+      // desktop - show search filters and set view to desktop
+      setShowFilters(true)
+      setView('desktop')
+    }
+  }, [isMobile])
+
+  // fetch loppis list when searchParams change
+  useEffect(() => {
+    const fetchLoppisList = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const data = await getLoppisList(searchParams.toString())
+        const results = data.data || []
+        if (results.length === 0) {
+          setError("Inga loppisar hittades för den här sökningen")
+          setLoppisList([])
+        }
+        setLoppisList(results)
+      } catch (err) {
+        console.error('Failed to fetch loppis data:', err)
+        setError(err.message || 'Kunde inte hämta loppisdata')
+        setLoppisList([])
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchLoppisList()
+  }, [searchParams])
+
+  // ----- helpers to update searchParams and URL -----
+  const updateCity = (city) => {
+    const newParams = new URLSearchParams(searchParams)
+    if (city) {
+      newParams.set("city", city)
+    } else {
+      newParams.delete("city")
+    }
+    setSearchParams(newParams)
+  }
+
+  const updateDate = (dateId) => {
+    const newParams = new URLSearchParams(searchParams)
+    if (dateId && dateId !== "all") {
+      newParams.set("date", dateId)
+    } else {
+      newParams.delete("date")
+    }
+    setSearchParams(newParams)
+  }
+
+  const addCategory = (category) => {
+    const newParams = new URLSearchParams(searchParams)
+    newParams.append("category", category)
+    setSearchParams(newParams)
+  }
+
+  const removeCategory = (category) => {
+    const newParams = new URLSearchParams(searchParams)
+    const remaining = newParams.getAll("category").filter((cat) => cat !== category)
+    newParams.delete("category") // clear old categories
+    remaining.forEach((cat) => newParams.append("category", cat)) // re-add remaining
+    setSearchParams(newParams)
+  }
+
+  const resetFilters = () => {
+    setSearchParams(new URLSearchParams())
+    setCityInput('')
+  }
+
+  // helper to get date labels from id
+  const getDateLabel = (id) => {
+    const dateOptions = [
+      { id: 'all', label: 'Visa alla' },
+      { id: 'today', label: 'Idag' },
+      { id: 'tomorrow', label: 'Imorgon' },
+      { id: 'weekend', label: 'I helgen' },
+      { id: 'next_week', label: 'Nästa vecka' },
+    ]
+    return dateOptions.find((opt) => opt.id === id)?.label || id
+  }
+
+  // update map center on map from query
+  const updateMapCenter = async (city) => {
+    try {
+      setIsSearching(true)
+      setCityError("")
+      setCityStatus('idle')
+
+      const { lat, lon } = await geocodeCity(city)
+      setMapCenter([parseFloat(lat), parseFloat(lon)])        // triggers MapView.flyTo via props
+      setCenterBy('city')
+      SetZoom(12)
+      setCityStatus('valid')
+
+    } catch (err) {
+      setCityStatus('not_found')
+      setCityError(`Hittade ingen plats som "${city}".`)
+      // återställ kartan
+      setMapCenter(centerDefault)
+      SetZoom(zoomDefault)
+
+
+    } finally {
+      setIsSearching(false)
+    }
+  }
+
+  // useEffect to update map center from search params
+  useEffect(() => {
+    if (query.city) {
+      // geocode new city
+      updateMapCenter(query.city.trim())
+    } else {
+      if (centerBy !== "city") return // respect user override
+      // reset to default
+      setMapCenter(centerDefault)
+      SetZoom(zoomDefault)
+    }
+  }, [query.city, centerBy])
+
+  // handle form search 
+  const handleSearch = (e) => {
+    e.preventDefault()
+    updateCity(cityInput.trim())
+    if (isMobile) {
+      setShowFilters(false)
+    }
+  }
+
+  // toggle view for mobile
+  const toggleView = () => {
+    if (view === 'map') {
+      setView('list')
+    } else {
+      setView('map')
+    }
+  }
+
+  // toogle show filters 
+  const toggleShowFilters = () => {
+    setShowFilters(prev => !prev)
+  }
+
+  // Ett “effektivt” center som beror på centerBy
+  const effectiveCenter =
+    centerBy === 'user' && location
+      ? [location.lat, location.lng]
+      : mapCenter
+
+  // När MapView (eller kartans flytande ikon) vill hämta plats:
+  const handleRequestLocation = async () => {
+    await requestLocation()
+    setCenterBy('user') // börja styra av användarens position
+    SetZoom(14)
+  }
+
+
+  return (
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className='h-[calc(100dvh-var(--nav-height))] pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]'
+    >
+      <div className='h-full relative lg:grid grid-cols-[2fr_6fr_4fr]'>
+        <h1 className="sr-only">Sök loppisar</h1>
+
+        {/* Search filters */}
+        <aside
+          id="filters-drawer"
+          role={isMobile ? "dialog" : undefined}
+          aria-modal={isMobile ? "true" : undefined}
+          aria-labelledby='filters-heading'
+          className={`absolute lg:relative top-0 left-0 z-1050 h-full w-full max-w-sm p-4 bg-white border-r border-border shadow-sm transition-transform duration-400 ${showFilters ? 'translate-x-0' : '-translate-x-full'}`}
+        >
+          {/* Mobile */}
+          {isMobile && showFilters && (
+            <FocusLock returnFocus>
+              <button
+                type="button"
+                onClick={toggleShowFilters}
+                className="absolute right-5 cursor-pointer hover:text-accent"
+                aria-label="Stäng filter"
+              >
+                <X strokeWidth={3} />
+              </button>
+
+              <SearchFilters
+                cityInput={cityInput}
+                setCityInput={setCityInput}
+                onSearch={handleSearch}
+              />
+            </FocusLock>
+          )}
+          {/* Desktop */}
+          {!isMobile &&
+            <SearchFilters
+              cityInput={cityInput}
+              setCityInput={setCityInput}
+              onSearch={handleSearch}
+            />
+          }
+
+        </aside>
+
+        {/* Active filters + toggle buttons */}
+        <div className={`
+          flex justify-between items-start gap-2 py-3 px-1 sm:p-5 w-full
+          ${!isMobile ?
+            "absolute top-0 left-[320px] z-1050 max-w-[430px] xl:max-w-xl 2xl:max-w-3xl"
+            : view === 'map' ? 'absolute z-1040' : 'relative z-static'}
+          `}>
+          {/* Left side: filters + optional search bar */}
+          <div className='flex flex-col gap-2 flex-1 min-w-0 max-w-xs'>
+            {/* show search field if filters not open */}
+            {(isMobile && !showFilters) &&
+              <form
+                onSubmit={handleSearch}
+              >
+                <SearchBar
+                  value={cityInput}
+                  setValue={(e) => setCityInput(e.target.value)} />
+              </form>
+            }
+            {/* Active filters */}
+            <div role="group" aria-label="Active search filters" className='flex gap-2 flex-wrap'>
+              {query.city &&
+                <FilterTag text={query.city} onClick={() => {
+                  setCityInput('')
+                  updateCity('')
+                }} />
+              }
+              {query.date !== "all" &&
+                <FilterTag
+                  text={getDateLabel(query.date)}
+                  onClick={() => updateDate("all")} />
+              }
+              {query.categories.map((category) => (
+                <FilterTag
+                  key={category}
+                  text={category}
+                  onClick={() => removeCategory(category)}
+                />
+              ))}
+              {/* reset filters button */}
+              {(query.date !== "all" || query.categories.length > 0 || query.city) && (
+                <FilterTag
+                  text='Återställ filter'
+                  onClick={() => resetFilters()}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* Right side: Toggle buttons */}
+          <div className={`flex flex-wrap ${view === 'map' ? 'flex-col' : ''} items-end gap-1 sm:gap-2`}>
+            {(!isMobile || view === 'map') &&
+              <Button
+                type="button"
+                text={
+                  isSmallMobile
+                    ? ''
+                    : geoStatus === 'requesting'
+                      ? 'Hämtar…'
+                      : 'Min plats'
+                }
+                icon={LocateFixed}
+                active={true}
+                ariaLabel="Använd min plats"
+                disabled={geoStatus === 'requesting'}
+                onClick={handleRequestLocation}
+              />
+            }
+            {isMobile && (
+              <>
+                <Button
+                  type='button'
+                  text={isSmallMobile ? '' : 'Sökfilter'}
+                  icon={Funnel}
+                  active={true}
+                  ariaLabel='Visa sökfilter'
+                  onClick={toggleShowFilters}
+                  aria-expanded={showFilters}
+                  aria-controls="filters-drawer"
+                />
+                <Button
+                  type='button'
+                  text={isSmallMobile ? '' : (view === 'map' ? 'Lista' : 'Karta')}
+                  icon={view === 'map' ? List : Map}
+                  active={true}
+                  ariaLabel={view === 'map' ? 'Visa loppisar i lista' : 'Visa loppisar på karta'}
+                  onClick={toggleView}
+                />
+              </>
+            )}
+          </div>
+        </div>
+
+        {/** 👇 INSERT THIS BLOCK RIGHT HERE (after the toolbar, before Map/List) */}
+        {cityStatus === 'not_found' && cityError && (
+          <div
+            className={`
+              z-1050 px-1
+              ${!isMobile
+                ? "absolute left-[320px] top-16 max-w-[430px] xl:max-w-xl 2xl:max-w-3xl"
+                : "absolute left-2 right-2 top-20"}  /* mobile placement */
+            `}
+          >
+            <ErrorMessage id="city-error" className="mt-2">
+              {cityError}
+              <button
+                type="button"
+                className="ml-2 underline"
+                onClick={() => {
+                  setCityInput('')
+                  updateCity('')
+                  setCityStatus('idle')
+                  setCityError('')
+                }}
+              >
+                Visa alla loppisar
+              </button>
+            </ErrorMessage>
+          </div>
+        )}
+        {/** ☝️ END INSERT */}
+
+
+        {/* Map */}
+        {
+          (view === 'map' || view === 'desktop') &&
+          <>
+            <MapView
+              loppisList={loppisList}
+              center={effectiveCenter}
+              zoom={zoom}
+              onRequestLocation={handleRequestLocation}
+              hasUserLocation={!!location}
+              loading={loading}
+            />
+          </>
+        }
+
+        {/* List */}
+        {
+          ((view === 'list' || view === 'desktop') && !error) &&
+          <ListView
+            loppisList={loppisList}
+            loading={loading}
+          />
+        }
+
+        {/* Error message - if empty list */}
+        {((view === 'list' || view === 'desktop') && error) && (
+          <NoResults title='Inga loppisar hittades' message={error} />
+        )}
+
+      </div >
+
+    </main >
+  )
+}
+
+
+export default Search

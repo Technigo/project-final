@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import 'tailwindcss';
+
+
+/*Leaflet "components"*/
+
+* {
+  font-family: var(--font-primary)
+}
+
+.my-popup .leaflet-popup-content-wrapper {
+  /* använd vanliga CSS för “w-[300px]” */
+  width: 300px;
+  height: auto;
+  z-index: 800 !important;
+
+  /* och @apply för vanliga utilities (utan hakparenteser) */
+  @apply bg-white rounded-lg shadow-lg p-0 m-0;
+}
+
+.leaflet-popup-content-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ta bort lilla triangeln (tip) */
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+/* Se till att ditt innehåll inte får extra margin */
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+/* navbar height */
+:root {
+  --nav-height: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-height: 72px;
+  }
+}
+
+
+@theme {
+
+  /* Font */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+
+  /* light-green */
+  --color-background: #F7F9F5;
+
+  /* dark-green */
+  --color-nav: #2D472F;
+
+  /* Orange */
+  --color-accent: #FF8242;
+
+  /* light-pink */
+  --color-accent-light: #FFEAE0;
+
+  /* light-gray */
+  --color-border: #E2E2E2;
+
+  /* lighter green */
+  --color-hover: #E9F0E4;
+
+  /* green */
+  --color-light: #C2D3B7;
+
+  /* darker green */
+  --color-text: #799466;
+
+  /*----------------------------------------------*/
+
+  --color-button: #fca742;
+  --color-button-hover: #df7d08;
+  --color-button-text: #2c2c2c;
+  --color-button-text-hover: #010101;
+
+  --color-icons: #799466;
+
+
+}
+
+.active {
+  color: #4d633d;
+  font-weight: 600;
+  border-bottom: 2px solid #4d633d;
+  border-radius: 0;
+}
