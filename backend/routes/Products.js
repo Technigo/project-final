@@ -1,0 +1,126 @@
+import express from "express";
+import Product from "../models/Product.js";
+import { parser } from '../config/cloudinary.js';
+
+const router = express.Router();
+
+
+
+// *** routes *** 
+
+// route: create new product post
+router.post("/",parser.single("image"), async (req, res) => {
+  try {
+    const { title, category, forSale, price, creator, color} = req.body;
+    const imageUrl = req.file.path;
+
+    const product = new Product ({
+      title,
+      image: imageUrl,
+      category,
+      forSale,
+      price,
+      creator,
+      color: color || undefined,
+    }); 
+
+    await product.save();
+
+    res.status(201).json ({
+      success: true,
+      message: "Product post created",
+      response: product
+    });
+
+   } catch (error) {
+    console.log('ERROR:', error); 
+    res.status(400).json({
+      success: false,
+      message: 'Could not create product',
+      response: error.message 
+    });
+  }
+}); 
+
+
+// route: get all products
+router.get('/', async (req, res) => {
+  try {
+    const { userId } = req.query;       
+    const filter = userId ? { creator: userId } : {};  
+    const products = await Product.find(filter)
+      .populate('creator', 'name email profileImage')
+      .sort({ createdAt: -1 });
+    
+    res.status(200).json({
+      success: true,
+      response: products
+    });
+    
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Could not fetch products',
+      response: error
+    });
+  }
+});
+
+// get single product by ID
+
+router.get("/:id", async (req,res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id)
+    .populate("creator", "name email profileImage");
+if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: 'Product not found'
+      });
+    }
+    
+    res.status(200).json({
+      success: true,
+      response: product
+    });
+    
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Could not fetch product',
+      response: error
+    });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Product.findByIdAndDelete(id);
+    res.status(200).json({ success: true, message: 'Product deleted' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+router.put('/:id', parser.single('image'), async (req, res) => {
+  try {
+    const { title, category, price, forSale, color } = req.body;
+    
+    const updateData = { title, category, price, forSale, color };
+    if (req.file) updateData.image = req.file.path;
+
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+
+    res.status(200).json({ success: true, response: product });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+export default router;

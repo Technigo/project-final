@@ -1,8 +1,12 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
+
+// MongoDB connection not connected yet!
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/manomano";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
@@ -12,9 +16,49 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//import routes
+import authRoutes from "./routes/Auth.js"
+import productRoutes from './routes/Products.js';
+import interestRoutes from "./routes/Interest.js";
+
+
+//use routes
+app.use("/api/auth", authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/interests', interestRoutes);
+
+//documentation for endpoints
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.json({
+    message: "manomano API",
+    endpoints: [
+      {
+        path: "/api/auth/register",
+        method: "POST",
+        description: "Register a new user",
+        body: { name: "string", email: "string", password: "string" }
+      },
+      {
+        path: "/api/auth/login",
+        method: "POST",
+        description: "Log in (returns accessToken)",
+        body: { email: "string", password: "string" }
+      },
+      {
+        path: "/api/products",
+        method: "GET",
+        description: "Get all products"
+      },
+      {
+        path: "/api/products",
+        method: "POST",
+        description: "Create a new product",
+        body: { title: "string", image: "string", category: "string", forSale: "boolean", price: "number", creator: "userId" }
+      }
+    ]
+  });
 });
+
 
 // Start the server
 app.listen(port, () => {
