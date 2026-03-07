@@ -1,7 +1,12 @@
 {
   "name": "project-final-parent",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "postinstall": "npm install --prefix backend"
+    "postinstall": "npm install --prefix backend",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "framer-motion": "^12.34.3"
   }
 }

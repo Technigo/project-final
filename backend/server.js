@@ -1,10 +1,18 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import listEndpoints from "express-list-endpoints";
+import { router as userRouter } from "./routes/userRoutes.js";
+import { router as activitiesRouter } from "./routes/activitiesRoutes.js";
+import { router as dailyPlanRouter } from "./routes/dailyplanRoutes.js";
+import { seedActivities } from "./data/seedActivities.js";
 
+// Connecting to the Mongo database
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
-mongoose.connect(mongoUrl);
-mongoose.Promise = Promise;
+mongoose.connect(mongoUrl).then(() => {
+  seedActivities();
+});
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -12,9 +20,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Root-endpoint with Welcome message and a list of all endpoints
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  const endpoints = listEndpoints(app);
+
+  res.json([{
+    message: "Welcome to the Balans API",
+    endpoints: endpoints,
+  }]);
 });
+
+// Connecting the different routes with endpoints. 
+app.use(userRouter);
+app.use(activitiesRouter);
+app.use(dailyPlanRouter);
 
 // Start the server
 app.listen(port, () => {
