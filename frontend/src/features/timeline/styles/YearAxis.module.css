@@ -1,0 +1,35 @@
+.axis {
+  position: relative;
+  height: 32px;
+  margin-top: 0.75rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+}
+
+.canvas {
+  position: relative;
+  height: 100%;
+  min-width: 100%;
+}
+
+.tick {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  user-select: none;
+}
+
+.line {
+  width: 1px;
+  height: 6px;
+  background: rgba(232, 228, 217, 0.45);
+}
+
+.label {
+  font-size: 0.65rem;
+  color: rgba(232, 228, 217, 0.86);
+  font-family: "JetBrains Mono", monospace;
+}

@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap");
+
+.root {
+  min-height: 100vh;
+  background: #0a0a0f;
+  color: #e8e4d9;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  box-sizing: border-box;
+  gap: 1rem;
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: #f2eee4;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.topbarRight {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navLink {
+  color: #d0cbc0;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.navLink:hover {
+  color: #f2eee4;
+}
+
+.userEmail {
+  color: #c6c1b6;
+  font-size: 0.75rem;
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  color: #d0cbc0;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    color 0.15s ease,
+    opacity 0.15s ease;
+  padding: 0;
+}
+
+.logoutBtn:hover {
+  color: #f2eee4;
+}
+
+.shell {
+  min-height: calc(100vh - 72px);
+}
+
+.sidebar {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  height: calc(100vh - 72px);
+  width: 340px;
+  border-right: 1px solid #24243a;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  background: #0a0a0f;
+  transform: translateX(-110%);
+  transition: transform 0.2s ease;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sideLink {
+  color: #d6d1c6;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.sideLink:hover {
+  color: #f2eee4;
+}
+
+.main {
+  width: 100%;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #3a3a57;
+  color: #f2eee4;
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.overlay {
+  display: block;
+  position: fixed;
+  inset: 72px 0 0 0;
+  background: rgba(0, 0, 0, 0.72);
+  border: none;
+  z-index: 40;
+}
+
+.sidebarContent {
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.logo:focus-visible,
+.navLink:focus-visible,
+.logoutBtn:focus-visible,
+.sideLink:focus-visible,
+.burger:focus-visible {
+  outline: 2px solid #f2eee4;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    height: 64px;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .topbarRight {
+    gap: 1rem;
+  }
+
+  .sidebar {
+    top: 64px;
+    height: calc(100vh - 64px);
+    width: 280px;
+  }
+
+  .overlay {
+    inset: 64px 0 0 0;
+  }
+}
