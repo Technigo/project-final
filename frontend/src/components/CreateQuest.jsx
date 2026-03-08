@@ -1,0 +1,139 @@
+import styled from "styled-components";
+import { useState } from "react";
+import { useQuestStore } from "../stores/useQuestStore";
+import toast from "react-hot-toast";
+
+// component for creating quest
+export const CreateQuest = () => {
+  // state variables for form inputs
+  const [message, setMessage] = useState("");
+  const [timeNeeded, setTimeNeeded] = useState("");
+  const [category, setCategory] = useState("");
+  const [error, setError] = useState(null);
+
+  const createQuest = useQuestStore((state) => state.createQuest);
+
+  // Handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError(null);
+
+    if (!message.trim()) {
+      //setError("You need to add a quest");
+      toast.error("Please write what you need to do");
+      return;
+    }
+
+    if (!timeNeeded) {
+      //setError("You need to add time");
+      toast.error("Please add time you need to do that quest");
+      return;
+    }
+
+    const result = await createQuest(message, timeNeeded, category);
+
+    if (!result.success) {
+      //setError(result.error);
+      toast.error("Oops, something went wrong:(");
+      return;
+    }
+
+    if (result.success) {
+      toast.success("Quest is added to your list!");
+    } //basic alert for better ux
+
+    // After form is submitted, clear the input field
+    setMessage("");
+    setTimeNeeded("");
+    setCategory("");
+  };
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <h2>Add quest to list</h2>
+      <Label>
+        What do you need to do?
+        <Input
+          type="text"
+          placeholder="Quest"
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+        />
+        {/* <select 
+          name="category" 
+          value={category}
+          onChange={(event) => setCategory(event.target.value)}
+         >
+          <option value="">Select a category</option>
+          <option value="cleaning">Cleaning</option>
+          <option value="exercise">Exercise</option>
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+        </select> */}
+        {/* NOTE: category commented out for now. Not used currently */}
+        <label>
+          How many minutes will it take?
+          <Input
+            name="time"
+            type="number"
+            placeholder="Time needed"
+            value={timeNeeded}
+            onChange={(event) => setTimeNeeded(event.target.value)}
+          />
+        </label>
+        {error && <p>{error}</p>}
+        <Button type="submit">Add new quest</Button>
+      </Label>
+    </Form>
+  );
+};
+
+const Form = styled.form`
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid #b594ff;
+  background: #fff;
+  box-shadow: 2px 4px 4px 0 #dbdbdb;
+  text-align: center;
+  margin: 20px 0 20px 0;
+`;
+
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  border: none;
+  border-radius: 12px;
+  padding: 15px 16px 14px 16px;
+  background: #f4f0ff;
+  margin: 16px 0;
+  width: 100%;
+`;
+
+const Button = styled.button`
+  display: flex;
+  height: 54px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid #1d30ce;
+  background: var(--medium-purple);
+  box-shadow: 2px 4px 4px 0 rgba(139, 139, 139, 0.3);
+  color: white;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 20px;
+
+  &:hover {
+    background: var(--dark-purple);
+  }
+
+  &:active {
+    background: var(--accent-purple);
+  }
+`;
+
+

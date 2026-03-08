@@ -1,8 +1,56 @@
+import { Routes, Route, Link } from "react-router-dom";
+import { About } from "./pages/AboutPage";
+import { FriendFeed } from "./pages/FriendFeedPage";
+import { Home } from "./pages/HomePage";
+import { Quests } from "./pages/QuestPage";
+import { Rewards } from "./pages/RewardPage";
+import { UserProfile } from "./pages/UserProfilePage";
+import { Login } from "./pages/LoginPage";
+import { GlobalStyle } from "./styles/GlobalStyles";
+import { Signup } from "./pages/SignupPage";
+import { useEffect, useState } from "react";
+import { apiUrl } from "../api";
+import { Navbar } from "./components/Navbar";
+import { useUserStore } from "./stores/useUserStore";
+import { GiveUp } from "./pages/GiveUpPage";
+import { Toaster } from "react-hot-toast";
+
 export const App = () => {
+  const { getUser, logout } = useUserStore();
+
+  // call getUser function on app mount (in userStore)
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const accessToken = () => (user ? { Authorization: user.accessToken } : {});
 
   return (
     <>
-      <h1>Welcome to Final Project!</h1>
+      <GlobalStyle />
+      <Navbar onLogout={logout} />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          style: { borderRadius: "12px", background: "#7954fd", color: "#fff" },
+        }}
+      />
+
+      <Routes>
+        <Route path="/" element={<UserProfile />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/feed"
+          element={<FriendFeed accessToken={accessToken} />}
+        />
+        <Route path="/quests" element={<Quests />} />
+        <Route path="/rewards" element={<Rewards />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/giveup" element={<GiveUp />} />
+      </Routes>
     </>
   );
 };
