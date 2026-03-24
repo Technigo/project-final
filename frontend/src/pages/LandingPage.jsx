@@ -1,0 +1,290 @@
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Frame, Card, CornerLabel, fadeUp, fadeLeft } from '../components/Layout.jsx';
+import Navbar from '../components/Navbar.jsx';
+import { theme } from '../styles/theme';
+
+// ─── ANIMATIONS ──────────────────────────────────────────────
+// Grows the progress bar from 0 to its final width
+const growBar = keyframes`from { width: 0; }`;
+
+
+// ─── HERO ─────────────────────────────────────────────────────
+// MOBILE (base): centered content, less padding
+// DESKTOP 768+: more padding all around
+const Hero = styled.div`
+  /* MOBIL */
+  position: relative;
+  z-index: 10;
+  flex: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.8rem;
+  gap: 1rem;
+
+  /* DESKTOP 768+ */
+  @media (min-width: 768px) {
+    padding: 3rem 3rem 5rem;
+  }
+`;
+
+// Large heading
+// clamp() makes the size responsive without media queries:
+//   min 2.4rem, grows with screen width, max 5.2rem
+const H1 = styled.h1`
+  font-family: ${theme.fonts.serif};
+  font-size: clamp(2.4rem, 6vw, 5.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  max-width: 700px;
+  animation: ${fadeUp} 0.8s 0.1s ease both;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+
+  em {
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+  }
+`;
+
+// Subtitle / description text
+const HeroSub = styled.p`
+  /* MOBIL */
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.88);
+  max-width: 440px;
+  line-height: 1.7;
+  animation: ${fadeUp} 0.8s 0.2s ease both;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+
+  /* DESKTOP 768+ */
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+// Wrapper for buttons/links below the text
+const HeroActions = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  animation: ${fadeUp} 0.8s 0.3s ease both;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+// Subtle ghost link, e.g. "Read more →"
+const BtnGhostLink = styled(Link)`
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.88);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  &:hover { color: #fff; }
+`;
+
+
+// ─── STATS PILLS ──────────────────────────────────────────────
+// Three pills at the bottom of the hero section.
+// MOBILE (base): hidden — takes too much space on small screen
+// DESKTOP 768+: shown at the bottom of the card
+const Stats = styled.div`
+  /* MOBIL: hidden */
+ /*  display: none; */
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0 1.4rem 2rem;
+  flex-wrap: wrap;
+  animation: ${fadeUp} 0.8s 0.4s ease both;
+
+  /* DESKTOP 768+: shown */
+  @media (min-width: 768px) {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 3rem;
+    animation: ${fadeUp} 0.8s 0.4s ease both;
+    flex-wrap: wrap;
+  }
+`;
+
+const StatPill = styled.div`
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 0.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.9);
+
+  strong { font-weight: 500; color: #fff; }
+`;
+
+const StatSep = styled.span`
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.25);
+`;
+
+
+// ─── FLOAT CARD ───────────────────────────────────────────────
+// The floating card with the "risk assessment" animation.
+// MOBILE (base): hidden — takes too much space
+// DESKTOP 900+: shown to the right of the hero text
+const FloatCard = styled.div`
+  /* MOBILE: hidden */
+  display: none;
+
+  /* DESKTOP 900+: shown as a floating card */
+  @media (min-width: 900px) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 3.5rem;
+    transform: translateY(-60%);
+    z-index: 20;
+    background: rgba(10,40,46,0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+    padding: 1.4rem 1.6rem;
+    min-width: 220px;
+    box-shadow: ${theme.shadow.float};
+    animation: ${fadeLeft} 0.8s 0.5s ease both;
+  }
+`;
+
+const FloatLabel = styled.div`
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 0.6rem;
+`;
+
+const FloatTitle = styled.div`
+  font-family: ${theme.fonts.serif};
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+`;
+
+const FloatStatus = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.75);
+`;
+
+const StatusDot = styled.span`
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: ${theme.colors.mint};
+`;
+
+const ProgressTrack = styled.div`
+  margin-top: 1rem;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+`;
+
+const ProgressFill = styled.div`
+  height: 100%;
+  width: 68%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.9));
+  border-radius: 2px;
+  animation: ${growBar} 1.5s 1s ease both;
+`;
+
+const FloatMeta = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.65);
+`;
+
+
+// ─── PAGE ─────────────────────────────────────────────────────
+const LandingPage = () => (
+  <Frame>
+    <Card>
+      <CornerLabel pos="br">2025</CornerLabel> 
+
+      <Navbar variant="default" />
+
+      <Hero>
+        <H1>
+          Skydda dig mot<br />
+          <em>blodproppar</em>
+        </H1>
+
+        <HeroSub>
+          Enkel, medicinsk vägledning för att förstå, förebygga och
+          agera vid tecken på blodpropp — alltid i din ficka.
+        </HeroSub>
+
+        <HeroActions>
+          <BtnGhostLink to="/hurdetfungerar">
+            Läs mer <ArrowIcon />
+          </BtnGhostLink>
+        </HeroActions>
+      </Hero>
+
+      {/* Stats hidden on mobile, shown on desktop */}
+      <Stats>
+        <StatPill><strong>Medicinsk vägledning</strong><StatSep />Gratis</StatPill>
+        <StatPill><strong>Community & stöd</strong><StatSep />Alltid tillgänglig</StatPill>
+        <StatPill><strong>Snabb hjälp</strong><StatSep />Symtomkoll på under 60 sek</StatPill>
+    </Stats>
+
+      {/* FloatCard hidden on mobile, shown on desktop */}
+      <FloatCard>
+        <FloatLabel>Din riskbedömning</FloatLabel>
+        <FloatTitle>Symtomanalys<br />pågår…</FloatTitle>
+        <FloatStatus><StatusDot />3 av 5 steg klara</FloatStatus>
+        <ProgressTrack><ProgressFill /></ProgressTrack>
+        <FloatMeta><span>Genomfört</span><span>68%</span></FloatMeta>
+      </FloatCard>
+    </Card>
+  </Frame>
+);
+
+
+// ─── SVG ICONS ────────────────────────────────────────────────
+const ArrowIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M3 7h8M8 4.5l2.5 2.5L8 9.5"
+      stroke="currentColor" strokeWidth="1.3"
+      strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+export default LandingPage;
