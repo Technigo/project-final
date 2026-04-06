@@ -1,0 +1,360 @@
+import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../../lib/supabase";
+import { useAuth } from "../../context/AuthContext";
+import { Navbar } from "../../components/layout/Navbar";
+import { Footer } from "../../components/layout/Footer";
+import { EntrepreneurSidebar } from "../../components/entrepreneur/Sidebar";
+import {
+  TrendingUp,
+  Eye,
+  Clock,
+  CheckCircle,
+  XCircle,
+  MessageSquare,
+  Send,
+  FolderPlus,
+  AlertCircle,
+  ChevronRight,
+} from "lucide-react";
+
+const STATUS_CONFIG = {
+  under_review: {
+    label: "Under Review",
+    color: "bg-amber-100 text-amber-700",
+    icon: Clock,
+  },
+  approved: {
+    label: "Approved",
+    color: "bg-green-100 text-green-700",
+    icon: CheckCircle,
+  },
+  failed_screening: {
+    label: "Failed Screening",
+    color: "bg-red-100 text-red-700",
+    icon: XCircle,
+  },
+  pending_verification: {
+    label: "Pending Verification",
+    color: "bg-blue-100 text-blue-700",
+    icon: AlertCircle,
+  },
+};
+
+function StatusBadge({ status }) {
+  const cfg = STATUS_CONFIG[status] || STATUS_CONFIG.under_review;
+  const Icon = cfg.icon;
+  return (
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${cfg.color}`}>
+      <Icon className="w-3 h-3" />
+      {cfg.label}
+    </span>
+  );
+}
+
+function StatCard({ label, value, sub, icon: Icon, accent }) {
+  return (
+    <div className="bg-white rounded-2xl border border-[var(--ds-border)] p-5">
+      <div className="flex items-start justify-between mb-3">
+        <p className="text-xs text-[var(--ds-text-muted)] font-medium uppercase tracking-wide">
+          {label}
+        </p>
+        <div className={`p-2 rounded-xl ${accent || "bg-[var(--ds-accent)]/10"}`}>
+          <Icon className={`w-4 h-4 text-[var(--ds-accent)]`} />
+        </div>
+      </div>
+      <p className="text-2xl font-bold text-[var(--ds-text-primary)]">{value}</p>
+      {sub && <p className="text-xs text-[var(--ds-text-muted)] mt-0.5">{sub}</p>}
+    </div>
+  );
+}
+
+export function EntrepreneurDashboard() {
+  const navigate = useNavigate();
+  const { user, profile, displayName, isLoading: isAuthLoading } = useAuth();
+  const chatEndRef = useRef(null);
+  const [messages, setMessages] = useState([]);
+  const [newMsg, setNewMsg] = useState("");
+  const [submissions, setSubmissions] = useState([]);
+
+  const totalViews = submissions.reduce((s, sub) => s + (sub.views || 0), 0);
+  const totalInterests = submissions.reduce((s, sub) => s + (sub.interests || 0), 0);
+  const activeCount = submissions.filter((s) => s.status !== "failed_screening").length;
+
+  useEffect(() => {
+    if (!isAuthLoading && !user) {
+      navigate("/login");
+    }
+  }, [isAuthLoading, navigate, user]);
+
+  useEffect(() => {
+    if (!user?.id) return;
+
+    async function loadData() {
+      const { data: subs } = await supabase
+        .from("projects")
+        .select("*")
+        .eq("entrepreneur_id", user.id)
+        .order("created_at", { ascending: false });
+
+      if (subs) setSubmissions(subs);
+    }
+    loadData();
+  }, [user?.id]);
+
+  useEffect(() => {
+    if (!user?.id) return;
+
+    let isCancelled = false;
+    let channel;
+
+    async function loadMessages() {
+      const { data } = await supabase
+        .from("messages")
+        .select("*")
+        .eq("entrepreneur_id", user.id)
+        .order("created_at", { ascending: true });
+
+      if (isCancelled) return;
+
+      if (data) setMessages(data);
+
+      channel = supabase
+        .channel(`messages:${user.id}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "INSERT",
+            schema: "public",
+            table: "messages",
+            filter: `entrepreneur_id=eq.${user.id}`,
+          },
+          (payload) => {
+            setMessages((prev) => [...prev, payload.new]);
+          }
+        )
+        .subscribe();
+    }
+
+    loadMessages();
+
+    return () => {
+      isCancelled = true;
+      if (channel) {
+        supabase.removeChannel(channel);
+      }
+    };
+  }, [user?.id]);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  async function sendMessage() {
+    if (!newMsg.trim() || !user?.id) return;
+
+    await supabase.from("messages").insert({
+      entrepreneur_id: user.id,
+      sender: "user",
+      sender_name: displayName || user.email || "User",
+      text: newMsg.trim(),
+    });
+
+    setNewMsg("");
+  }
+
+  if (isAuthLoading) {
+    return (
+      <div className="min-h-screen bg-[var(--ds-bg-light)]">
+        <Navbar />
+        <div className="pt-24 px-6 text-sm text-[var(--ds-text-secondary)]">Loading your dashboard...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
+
+  return (
+    <div className="min-h-screen bg-[var(--ds-bg-light)]">
+      <Navbar />
+      <div className="flex pt-16">
+        <EntrepreneurSidebar active="dashboard" />
+
+        <main className="flex-1 p-6 lg:p-10 space-y-8 min-w-0">
+          {/* Header */}
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <h1
+                className="text-2xl font-bold text-[var(--ds-text-primary)] mb-1"
+                style={{ fontFamily: "var(--ds-font-display)" }}
+              >
+                Dashboard
+              </h1>
+              <p className="text-sm text-[var(--ds-text-secondary)]">
+                Welcome back, {profile?.first_name || displayName || "there"}. Here's how your submissions are performing.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => navigate("/entrepreneur/submit")}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--ds-accent)] text-[var(--ds-text-on-dark)] font-semibold text-sm hover:bg-[var(--ds-accent-hover)] transition"
+            >
+              <FolderPlus className="w-4 h-4" />
+              New Submission
+            </button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <StatCard
+              label="Active Submissions"
+              value={activeCount}
+              sub={`of ${submissions.length} total`}
+              icon={TrendingUp}
+            />
+            <StatCard
+              label="Profile Views"
+              value={totalViews}
+              sub="across all projects"
+              icon={Eye}
+            />
+            <StatCard
+              label="Investor Interests"
+              value={totalInterests}
+              sub="confirmed expressions"
+              icon={MessageSquare}
+            />
+          </div>
+
+          {/* Submissions table */}
+          <section>
+            <h2 className="text-base font-semibold text-[var(--ds-text-primary)] mb-4">
+              My Submissions
+            </h2>
+            <div className="space-y-3">
+              {submissions.map((sub) => (
+                <div
+                  key={sub.id}
+                  className="bg-white rounded-2xl border border-[var(--ds-border)] p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start gap-3 mb-2">
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm text-[var(--ds-text-primary)] truncate">
+                          {sub.title}
+                        </p>
+                        <p className="text-xs text-[var(--ds-text-muted)] mt-0.5">
+                          {sub.category} · {sub.stage} · {sub.amount}
+                        </p>
+                      </div>
+                      <StatusBadge status={sub.status} />
+                    </div>
+                    <div className="flex items-center gap-5 text-xs text-[var(--ds-text-muted)]">
+                      <span className="flex items-center gap-1">
+                        <Eye className="w-3.5 h-3.5" />
+                        {sub.views} views
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        {sub.interests} interests
+                      </span>
+                      <span>Submitted {sub.submittedAt}</span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="flex items-center gap-1 text-xs font-medium text-[var(--ds-accent)] hover:text-[var(--ds-accent-hover)] shrink-0"
+                  >
+                    View details
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Admin Chat */}
+          <section id="chat">
+            <h2 className="text-base font-semibold text-[var(--ds-text-primary)] mb-4 flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-[var(--ds-accent)]" />
+              Messages with Connect Africa Team
+            </h2>
+            <div className="bg-white rounded-2xl border border-[var(--ds-border)] overflow-hidden flex flex-col" style={{ height: 400 }}>
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto p-5 space-y-4">
+                {messages.map((msg, i) => {
+                  const isUser = msg.sender === "user";
+                  const showDateDivider =
+                    i === 0 || messages[i - 1].date !== msg.date;
+                  return (
+                    <div key={msg.id}>
+                      {showDateDivider && (
+                        <div className="flex items-center gap-3 my-2">
+                          <div className="flex-1 h-px bg-[var(--ds-border)]" />
+                          <span className="text-xs text-[var(--ds-text-muted)]">{msg.date}</span>
+                          <div className="flex-1 h-px bg-[var(--ds-border)]" />
+                        </div>
+                      )}
+                      <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
+                        <div
+                          className={`max-w-xs lg:max-w-sm px-4 py-3 rounded-2xl text-sm leading-relaxed ${
+                            isUser
+                              ? "bg-[var(--ds-accent)] text-white rounded-br-sm"
+                              : "bg-[var(--ds-bg-light)] text-[var(--ds-text-primary)] rounded-bl-sm border border-[var(--ds-border)]"
+                          }`}
+                        >
+                          {!isUser && (
+                            <p className="text-xs font-semibold text-[var(--ds-accent)] mb-1">
+                              {msg.sender_name || msg.name || "Connect Africa Team"}
+                            </p>
+                          )}
+                          {msg.text}
+                          <p
+                            className={`text-xs mt-1 ${
+                              isUser ? "text-white/70 text-right" : "text-[var(--ds-text-muted)]"
+                            }`}
+                          >
+                            {msg.time}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+                <div ref={chatEndRef} />
+              </div>
+
+              {/* Input */}
+              <div className="border-t border-[var(--ds-border)] p-4 flex gap-3">
+                <label htmlFor="dashboard-chat-input" className="sr-only">
+                  Message to Connect Africa team
+                </label>
+                <input
+                  id="dashboard-chat-input"
+                  type="text"
+                  className="flex-1 px-4 py-2.5 rounded-xl border border-[var(--ds-border)] bg-[var(--ds-bg-light)] text-sm text-[var(--ds-text-primary)] placeholder:text-[var(--ds-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-accent)] focus:border-transparent"
+                  placeholder="Type a message…"
+                  value={newMsg}
+                  onChange={(e) => setNewMsg(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                />
+                <button
+                  type="button"
+                  onClick={sendMessage}
+                  disabled={!newMsg.trim()}
+                  className="p-2.5 rounded-xl bg-[var(--ds-accent)] text-white hover:bg-[var(--ds-accent-hover)] disabled:opacity-50 transition"
+                  aria-label="Send message"
+                >
+                  <Send className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      <Footer />
+    </div>
+  );
+}

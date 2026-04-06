@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+@import "./design-system/theme.css";
+
+body {
+  margin: 0;
+  font-family: var(--ds-font-sans);
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .hero-video-media {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .hero-video-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.74),
+      rgba(0, 0, 0, 0.34),
+      rgba(0, 0, 0, 0.16)
+    );
+  }
+}
