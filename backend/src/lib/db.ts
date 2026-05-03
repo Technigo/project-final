@@ -25,18 +25,9 @@ export async function connectDB() {
       .connect(uri, { serverSelectionTimeoutMS: 5000 })
       .then((m) => {
         cached.conn = m;
-
-        // 🔴 Optional debug hooks (remove later)
-        mongoose.connection.on("connected", () =>
-          console.log("[mongo] connected")
-        );
         mongoose.connection.on("error", (e) =>
           console.error("[mongo] error", e)
         );
-        mongoose.connection.on("disconnected", () =>
-          console.warn("[mongo] disconnected")
-        );
-
         return m;
       })
       .catch((err) => {
