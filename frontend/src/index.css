@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+/* Design tokens (Tailwind v4) */
+@theme {
+  /* Light theme */
+  --color-surface: #efebe4;
+  --color-surface-muted: #f6f2ec;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #64686c;
+  --color-border: #cdc8c0;
+  --color-accent: #0a5a82;
+  --color-badge: #e6e4dc;
+
+  /* Quality colors */
+  --color-quality-excellent: #1f6fb2;
+  --color-quality-good: #2b8a3e;
+  --color-quality-sufficient: #b08900;
+  --color-quality-poor: #c0392b;
+  --color-quality-unknown: #6b7280;
+
+  /* Fonts */
+  --font-spectral: "Spectral", serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+/* Dark theme overrides */
+.dark {
+  --color-surface: #161011;
+  --color-surface-muted: #1e1819;
+  --color-ink: #f0ede6;
+  --color-ink-muted: #b8b2aa;
+  --color-border: #40383a;
+  --color-accent: #5ea5d2;
+  --color-badge: #302a2c;
+}
+
+/* Base defaults */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-surface text-ink antialiased font-inter;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-spectral text-ink;
+  }
+
+  a {
+    @apply text-accent underline-offset-2 hover:underline
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-accent/50 rounded-sm;
+  }
+}
+
+/* Reusable bits */
+@layer components {
+  .card {
+    @apply bg-surface-muted rounded-2xl shadow border border-border;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full
+           text-xs font-medium bg-badge text-ink;
+  }
+
+  .kpi-excellent {
+    color: var(--color-quality-excellent);
+  }
+  .kpi-good {
+    color: var(--color-quality-good);
+  }
+  .kpi-sufficient {
+    color: var(--color-quality-sufficient);
+  }
+  .kpi-poor {
+    color: var(--color-quality-poor);
+  }
+  .kpi-unknown {
+    color: var(--color-quality-unknown);
+  }
+}
+
+@layer utilities {
+  /* widely supported; falls back to the fixed min-height below */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Show on focus */
+  .sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
