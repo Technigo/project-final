@@ -36,9 +36,9 @@ Language learners struggle to find affordable, judgment-free speaking practice. 
 
 ## View it live
 
-**Frontend:** https://logah.fartist.live
+**Frontend:** https://logah.ai
 
-**Backend API:** https://api.logah.fartist.live/api
+
 
 
 
